@@ -14,6 +14,6 @@
 
 ##### 　　         「[加密格式音频文件解锁服务](https://ubm.zhullyb.top/)」
 
-##### 「字体字重测试」
+##### 「[字体字重测试](https://zhullyb.top/fonttest)」
 
 ##### 　　           「[2048网页版](https://zhullyb.top/2048)」
