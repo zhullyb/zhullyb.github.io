@@ -14,3 +14,4 @@ echo root:' ' | chpasswd
 useradd -m -G wheel zhullyb
 echo zhullyb:' ' | chpasswd
 sed -i "s|#\ %wheel\ ALL=(ALL)\ NOPASSWD:\ ALL|%wheel\ ALL=(ALL)\ NOPASSWD:\ ALL|" /etc/sudoers
+sudo systemctl enable NetworkManager.service
