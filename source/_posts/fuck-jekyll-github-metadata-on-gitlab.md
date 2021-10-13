@@ -9,7 +9,7 @@ tags:       笔记
 
 报错如图：
 
-![](https://storage.zhullyb.workers.dev/PicBed/2021-04-16_23-17.png?raw)
+![](https://i.loli.net/2021/10/14/PSgUjVXbLai7AQJ.png)
 
 当然，我这边也会附上详细的报错日志，以便后人能够通过关键词搜索到。
 
@@ -35,4 +35,4 @@ ERROR: Job failed: exit code 1
 
 于是打开`_config.yml`，把`url`给补上，顺便把别的变量一同加上，如图：
 
-![](https://storage.zhullyb.workers.dev/PicBed/2021-04-16_23-51.png?raw)
+![](https://i.loli.net/2021/10/14/xpu9DK8Z1k7NHM3.png)

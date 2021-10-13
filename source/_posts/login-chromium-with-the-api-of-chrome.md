@@ -17,4 +17,4 @@ echo "--oauth2-client-id=77185425430.apps.googleusercontent.com
 
 再次打开chromium,你就会发现你心心念念的同步功能回来了。
 
-![](https://storage.zhullyb.workers.dev/PicBed/2021-04-16_00-55.png?raw)
+![](https://i.loli.net/2021/10/14/zXIHAwRhq65y7Wc.png)
