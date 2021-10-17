@@ -1,11 +1,10 @@
 ---
 title: 来，从AUR给Fedora偷个包
-top: false
 date: 2021-07-23 01:50:09
 tags: 
-    - Linux
-    - Archlinux
-    - Fedora
+- Linux
+- Archlinux
+- Fedora
 ---
 
 > 前一阵子，某Q群里的某初中生居然跳上了Fedora这辆灵车，还一直缠着我要我给他整个打rpm包的教程，说什么要复兴FedoraCN之类的我听不懂的话。碰巧听说Fedora似乎还没有wechat-uos，于是我就寻思着给Fedora打一个，顺便熟悉一下dnf的操作。
