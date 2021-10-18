@@ -42,7 +42,7 @@ Server = https://pkg.web-worker.cn/zhullyb/
 | archlinux-themes-sddm           | 2.0-1                  | see AUR                                                      |
 | baidunetdisk-electron           | 3.5.0-1                | see AUR                                                      |
 | balena-etcher                   | 1.6.0-2                | see AUR                                                      |
-| cloudflare-wrangler             | 1.19.3-1               | see AUR                                                      |
+| cloudflare-wrangler             | 1.19.4-1               | see AUR                                                      |
 | com.qq.tim.spark                | 3.3.5.22018spark0-1    | see AUR                                                      |
 | com.qq.weixin.spark             | 3.2.1.127spark0-1      | see AUR                                                      |
 | com.xiaokanba.bbs.spark         | 1.5.5spark3-1          | [Github](https://github.com/zhullyb/PKGBUILDs/tree/master/com.xiaokanba.bbs.spark) |
