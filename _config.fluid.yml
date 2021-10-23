@@ -751,7 +751,7 @@ waline:
   wordLimit: 0
   pageSize: 10
   highlight: true
-
+  login: 'disable'
 # 畅言 Changyan
 # 基于第三方的服务
 # Based on third-party service, insufficient support for regions outside China

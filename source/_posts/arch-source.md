@@ -65,7 +65,7 @@ Server = https://pkg.web-worker.cn/zhullyb/
 | flashplugin                     | 32.0.0.465-1           | see AUR                                                      |
 | foo2zjs-nightly                 | 20201127-1             | see AUR                                                      |
 | freechat-git                    | 1.0.0.3a8304e          | [Github](https://github.com/zhullyb/PKGBUILDs/tree/master/freechat-git) |
-| google-chrome                   | 94.0.4606.81-1         | see AUR                                                      |
+| google-chrome                   | 95.0.4638.54-1         | see AUR                                                      |
 | hexo-cli                        | 4.3.0-6                | see AUR                                                      |
 | hollywood                       | 1.21-5                 | see AUR                                                      |
 | icalingua                       | 2.3.2-1                | see AUR                                                      |
@@ -99,7 +99,7 @@ Server = https://pkg.web-worker.cn/zhullyb/
 | ttf-ms-win10-zh_cn              | 2019ltsc-1             | see AUR                                                      |
 | ttf-ms-win10-zh_tw              | 2019ltsc-1             | see AUR                                                      |
 | ttf-wps-fonts                   | 1.0-5                  | see AUR                                                      |
-| visual-studio-code-bin          | 1.61.1-1               | see AUR                                                      |
+| visual-studio-code-bin          | 1.61.2-1               | see AUR                                                      |
 | wechat-uos                      | 2.0.0+lsblk-1145141919 | see AUR                                                      |
 | wemeet-bin                      | 2.8.0.1-1              | see AUR                                                      |
 | wps-office                      | 11.1.0.10702-2         | see AUR                                                      |
