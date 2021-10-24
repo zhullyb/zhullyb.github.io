@@ -5,6 +5,7 @@ sticky:
 tags:
 - Archlinux
 - Caddy
+- PicUploader
 ---
 
 > 之前找对大陆网络友好的图床时，找到了cloudinary，但是全英文界面对操作增加了不少难度，其页面也不是很简洁，让我一下打消了使用网页版的念头。通过搜索，找到了 PicUploader 这一方案，使用php编写，支持cloudinary的api。
@@ -140,7 +141,7 @@ caddy默认使用`/etc/caddy/Caddyfile`，因此如果你就部署这一个站�
 
 caddy的语法非常简洁易懂，因此我随手写了几行就能跑起来了。
 
-下面是我用的Caddyfile，如果你在服务器上部署，请把`http://api.picuploader.com`更换为你服务器所需要绑定的域名(不带http协议头)，caddy将自动为你申请ssl证书。如果需要设置访问密码，请参考caddy的[官方文档](https://caddyserver.com/docs/caddyfile/directives/basicauth#basicauth)。
+下面是我用的Caddyfile，如果你在服务器上部署，请把`http://api.picuploader.com`更换为你服务器所需要绑定的域名(不带http协议头)，caddy将自动为你申请ssl证书。
 
 ```
 http://api.picuploader.com {
@@ -167,6 +168,22 @@ import /etc/caddy/conf.d/*
 ```
 
 php我选择了监听本地`unix//run/php-fpm/php-fpm.sock`的方案，这个路径在上文的`/etc/php/php-fpm.d/www.conf`可以设置，如需查询，直接使用 `grep listen\ = /etc/php/php-fpm.d/www.conf`应该就能看见。
+
+### 设置访问密码（可选）
+
+caddy2开始不允许在caddyfile中直接指定明文密码，因此我们需要用`hash-password`获取加密后的密码密文
+
+```bash
+caddy hash-password  --plaintext <YourPassword>
+```
+
+再在Caddyfile中，加上
+
+```
+basicauth /* {
+		<username> <hashed_password>
+}
+```
 
 ## 修改hosts/设置DNS解析
 

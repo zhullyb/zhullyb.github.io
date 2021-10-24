@@ -1,10 +1,11 @@
 ---
-title: Hello，这里是竹林里有冰的私人源。
-excerpt: 似乎也有人喜欢叫它竹林源（
+title: 竹林源
 date: 2021-03-12
 tags:
 - Archlinux
 ---
+
+# Hello，这里是竹林里有冰的私人源。
 
 > 其实Archlinux已经有了一个打包了各种常用软件的第三方源叫archlinuxcn，国内拥有多个镜像站为其提供镜像服务。但是他们作为一个开源社区，显然会受到许多限制，诸如不能收录未经授权的商业软件等。目前已经有多个软件因为没有得到授权而不得不下架，详见 [#1968](https://github.com/archlinuxcn/repo/issues/1968)、[#2455](https://github.com/archlinuxcn/repo/issues/2455)、[#2458](https://github.com/archlinuxcn/repo/issues/2458)、[#2460](https://github.com/archlinuxcn/repo/issues/2460)、[#2462](https://github.com/archlinuxcn/repo/issues/2462)。因此我创建了这样一个方便我自己使用的源。
 

@@ -397,6 +397,7 @@ footer:
     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
     <i class="iconfont icon-love"></i>
     <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a>
+    <br>
   '
 
   # 展示网站的 PV、UV 统计数
@@ -454,7 +455,7 @@ index:
 
     # 为空则按 hexo config.subtitle 显示
     # If empty, text based on `subtitle` in hexo config
-    text: "事了拂衣去，深藏身与名。"
+    text: "竹林里有冰的博客"
 
     # 通过 API 接口作为首页副标题的内容，必须返回的是 JSON 格式，如果请求失败则按 text 字段显示，该功能必须先开启 typing 打字机功能
     # Subtitle of the homepage through the API, must be returned a JSON. If the request fails, it will be displayed in `text` value. This feature must first enable the typing animation
@@ -601,7 +602,7 @@ post:
   # Custom content at the bottom of the post page (located above the footer)
   custom:
     enable: false
-    content: '<img src="https://octodex.github.com/images/jetpacktocat.png" class="rounded mx-auto d-block mt-5" style="width:150px; height:150px;">'
+    content:
 
   # 文章图片可点击放大
   # Zoom feature of images
@@ -871,9 +872,9 @@ about:
   # 更多图标可从 https://hexo.fluid-dev.com/docs/icon/ 查找，`class` 代表图标的 css class，添加 `qrcode` 后，图标不再是链接而是悬浮二维码
   # More icons can be found from https://hexo.fluid-dev.com/docs/en/icon/  `class` is the css class of the icon. If adding `qrcode`, The icon is no longer a link, but a hovering QR code
   icons:
-    - { class: "iconfont icon-github-fill", link: "https://github.com", tip: "GitHub" }
-    - { class: "iconfont icon-douban-fill", link: "https://douban.com", tip: "豆瓣" }
-    - { class: "iconfont icon-wechat-fill", qrcode: "/img/favicon.png" }
+    #- { class: "iconfont icon-github-fill", link: "https://github.com", tip: "GitHub" }
+    #- { class: "iconfont icon-douban-fill", link: "https://douban.com", tip: "豆瓣" }
+    #- { class: "iconfont icon-wechat-fill", qrcode: "/img/favicon.png" }
 
 
 #---------------------------
@@ -898,7 +899,7 @@ page404:
   banner_img: https://blog.zhullyb.top/img/top.php
   banner_img_height: 85
   banner_mask_alpha: 0.3
-  subtitle: "Page not found"
+  subtitle: "你找的页面似乎被吃掉啦("
 
 
 #---------------------------
