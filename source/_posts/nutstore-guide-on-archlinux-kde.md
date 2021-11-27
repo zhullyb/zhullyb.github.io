@@ -54,9 +54,41 @@ bwrap --dev-bind / / --tmpfs $HOME/.config /usr/bin/nutstore
 
 ![测试通过](https://s3.jpg.cm/2021/10/02/ImaiFD.png)
 
-修改`/usr/share/applications/nutstore.desktop`文件
+## 本地markdown文件的文件类型被识别成了「坚果云 Markdown」
+
+这个是由于坚果云自作主张推广他自己并不好用的lightapp，写了几条 mime 的规则，如图
+
+![没错，整整5个xml](https://res.cloudinary.com/zhullyb/image/upload/v1/2021/11/26/31742e8c2e46e5c093e45b716f48ddf5.png)
+
+看来在我们的启动命令中也需要防止坚果云接触到`$HOME/.local/share/`这个路径，所以现在的启动命令得写成这样。
 
 ```bash
-sudo sed -i "s|$(grep Exec /usr/share/applications/nutstore.desktop)|Exec=bwrap --dev-bind / / --tmpfs $HOME/.config /usr/bin/nutstore|" /usr/share/applications/nutstore.desktop
+bwrap --dev-bind / / --tmpfs $HOME/.config --tmpfs $HOME/.local/share/ /usr/bin/nutstore
+```
+
+## 修改desktop文件，使其使用我们自己攥写的启动命令
+
+首先，复制一份desktop文件到我们的 $HOME 目录下，好处是下次更新的时候我们所做的更改不会被包管理器覆盖。
+
+```bash
+cp /usr/share/applications/nutstore.desktop $HOME/.local/share/applications/
+```
+
+再修改`$HOME/.local/share/applications/nutstore.desktop`
+
+```diff
+[Desktop Entry]
+Encoding=UTF-8
+Type=Application
+Terminal=false
+Icon=nutstore
+-Exec=/usr/bin/nutstore
++Exec=bwrap --dev-bind / / --tmpfs $HOME/.config --tmpfs $HOME/.local/share/applications 
+StartupWMClass=Nutstore
+Name=Nutstore
+Name[zh_CN]=坚果云 
+Comment=Data Sync, Sharing, Backup
+Comment[zh_CN]=数据同步,共享和备份
+Categories=Network;Application;
 ```
 

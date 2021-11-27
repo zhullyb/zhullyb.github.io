@@ -107,3 +107,12 @@ deploy:
   user: root # 这里填写你登陆VPS所用的用户名，比如：root
   root: /var/www/blog # 这里填写你在nginx中配置的文件路径
   port: 22 # SSH默认端口号，不需要修改
+
+feed:
+    type: atom
+    path: rss.xml
+    limit: 20
+    hub:
+    content:
+    content_limit:
+    content_limit_delim: ' '

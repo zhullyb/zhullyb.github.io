@@ -1,14 +1,15 @@
 ---
 title:      No Hello
 date:       2020-10-08
-tags:       
+tags:
+- 翻译
 ---
 
 Don't Just Say "Hello" in Chat.
 
 # 别在向别人问问题的时候问“在吗？”
 
-> 英文原版请查阅[这里](https://www.nohello.com/)，此处是我个人的汉化版。
+> 英文原版请查阅[这里](https://www.nohello.com/)，此处是我个人的翻译版。
 
 ```
 2010-07-19 12:32:12 你: 在吗？

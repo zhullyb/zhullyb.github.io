@@ -15,7 +15,7 @@ tags:
 >
 > 我在使用KDE的暗色主题，腾讯回忆自作主张将字体颜色调成了白色。然而，字体背景是白色的没，因此导致对比度下降，字体难以辨认。效果大概是这个鬼样子: 
 >
-> ![](https://pp1.edgepic.com/2021/09/17/d30980917092949.png)
+> ![](https://res.cloudinary.com/zhullyb/image/upload/v1/2021/10/25/3a2d251785985b9028fbd9fb8b0cee03.png)
 
 
 

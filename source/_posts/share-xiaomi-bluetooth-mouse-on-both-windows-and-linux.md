@@ -19,7 +19,7 @@ tags:
 
 在Windows中，使用管理员权限打开`cmd.exe`
 
-![在Windows下使用管理员权限打开cmd](https://pp1.edgepic.com/2021/09/17/960330917093347.png)
+![在Windows下使用管理员权限打开cmd](https://res.cloudinary.com/zhullyb/image/upload/v1/2021/10/25/8d746e34bddcc52be1918cb99822d5ee.png)
 
 cd到PsExec解压目录，使用如下命令将我们所需要的蓝牙密钥信息保存到C盘根目录下。
 
@@ -27,11 +27,11 @@ cd到PsExec解压目录，使用如下命令将我们所需要的蓝牙密钥信
 psexec.exe -s -i regedit /e C:\BTKeys.reg HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\BTHPORT\Parameters\Keys
 ```
 
-![使用psexec获取蓝牙信息](https://pp1.edgepic.com/2021/09/17/b7bfa0917093347.png)
+![使用psexec获取蓝牙信息](https://res.cloudinary.com/zhullyb/image/upload/v1/2021/10/25/089eb38ff4523f0b99a60c18eb38779c.png)
 
 根目录的BTkeys.reg可以直接用记事本打开，内容大概是下面这个样子
 
-![BTkeys.reg](https://pp1.edgepic.com/2021/09/17/b356b0917093347.png)
+![BTkeys.reg](https://res.cloudinary.com/zhullyb/image/upload/v1/2021/10/25/675c4d82d890d097bc3ccccb3d03c566.png)
 
 > 为了方便后面的解说，我用各种颜色标注了起来。
 

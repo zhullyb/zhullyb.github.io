@@ -47,7 +47,7 @@ makepkg会调用`curl` / `git`下载PKGBUILD中`source=()`部分中以`http(s)`�
 
 我们还是以钉钉为例，看看我们执行`yay dingtalk-bin`时到底发生了什么。
 
-![当你使用yay安装软件到底发生了什么](https://pp1.edgepic.com/2021/09/17/f944b0917092428.jpg)
+![当你使用yay安装软件到底发生了什么](https://res.cloudinary.com/zhullyb/image/upload/v1/2021/10/25/55bcbf464d1d983dd6f613eb2ff32fe7.jpg)
 
 ## PartⅡ常见错误解决方案
 
@@ -83,7 +83,7 @@ PKGBUILD: line XXX XXX: command not found
 
    国内的网络问题不用多说了，大多数情况下都是Github连接不上。
 
-   ![yay下载失败](https://pp1.edgepic.com/2021/09/17/b95b80917092429.png)
+   ![yay下载失败](https://res.cloudinary.com/zhullyb/image/upload/v1/2021/10/25/6dde6cbf2bc88bc893e183b247f83ac2.png)
 
    最简单的解决方案就是把source里下载失败的东西通过特殊手段（比如你浏览器设置下代理，或者找找fastgit这种反代）下载下来以后直接扔到PKGBUILD所在的路径，然后手动执行`makepkg -si`。
 
@@ -91,11 +91,11 @@ PKGBUILD: line XXX XXX: command not found
    >
    > yay存放PKGBUILD的默认路径是在`$HOME/.cache/yay/$pkgname`下面，具体可以参考我的另一篇关于[yay的用法详解](https://blog.zhullyb.top/2021/04/04/yay-more/#builddir-lt-dir-gt)的博客。
 
-   **我在这里再讲一种使用 [*fastgit*](http://fastgit.org/) 作为反代加速github下载的方法。**~~如果觉得fastgit帮助到了你，你可以考虑[给贫穷的fastgit项目打钱](http://fastgit.org/donate.html)。~~
+   **我在这里再讲一种使用 [*fastgit*](http://fastgit.org/) 作为反代加速github下载的方法。**~~如果觉得fastgit帮助到了你，你可以考虑[给fastgit项目打钱](http://fastgit.org/donate.html)。~~
 
    当你的yay出现这个询问菜单时，（也就是出现`Diffs to show`/`显示哪些差异？`字样时）
 
-   ![](https://pp1.edgepic.com/2021/09/20/84c980920075223.png)
+   ![](https://res.cloudinary.com/zhullyb/image/upload/v1/2021/10/25/64965322ff1ad0a5ecfcb8c78e721891.png)
 
    我们再开一个终端，输入
 
