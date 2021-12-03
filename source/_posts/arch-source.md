@@ -37,7 +37,7 @@ Server = https://pkg.web-worker.cn/zhullyb/
 | 软件名                          | 版本号                 | PKGBUILD                                                     |
 | :------------------------------ | :--------------------- | :----------------------------------------------------------- |
 | alibaba-puhuiti                 | 2.0-1                  | see AUR                                                      |
-| aliyunpan-liupan1890            | 2.11.16-1              | see AUR                                                      |
+| aliyunpan-liupan1890            | 2.11.16-1              | [Github](https://github.com/zhullyb/PKGBUILDs/tree/master/aliyunpan-liupan1890) |
 | aosp-devel                      | 0.7.1-1                | see AUR                                                      |
 | apg                             | 2.2.3-5                | see AUR                                                      |
 | archlinux-themes-sddm           | 2.0-1                  | see AUR                                                      |
@@ -59,7 +59,7 @@ Server = https://pkg.web-worker.cn/zhullyb/
 | deepin.com.dingtalk.com         | 6.0.0.11902-1          | see AUR                                                      |
 | deepin.com.qq.im.light          | 7.9.14308deepin8-4     | see AUR                                                      |
 | deepin.com.qq.qqmusic           | 17.66-2                | see AUR                                                      |
-| drawio-desktop                  | 15.4.0-1               | see AUR                                                      |
+| drawio-desktop                  | 15.8.7-1               | see AUR                                                      |
 | fcitx-lilydjwg-git              | 4.2.9.7.20210211-1     | [Github](https://github.com/zhullyb/PKGBUILDs/tree/master/fcitx-lilydjwg-git) |
 | fcitx-lilydjwg-git-debug        | 4.2.9.7.20210211-1     | [Github](https://github.com/zhullyb/PKGBUILDs/tree/master/fcitx-lilydjwg-git) |
 | fcitx-sogoupinyin-old           | 2.3.1.0112-2           | [Github](https://github.com/zhullyb/PKGBUILDs/tree/master/fcitx-sogoupinyin) |
@@ -75,7 +75,7 @@ Server = https://pkg.web-worker.cn/zhullyb/
 | marktext                        | 0.16.3-2               | see AUR                                                      |
 | mathematica                     | 12.3.1-2               | [Github](https://github.com/zhullyb/PKGBUILDs/tree/master/mathematica) |
 | matlab                          | 9.9.0.1467703-1        | [Github](https://github.com/zhullyb/PKGBUILDs/tree/master/matlab) |
-| microsoft-edge-stable-bin       | 96.0.1054.34-1         | see AUR                                                      |
+| microsoft-edge-stable-bin       | 96.0.1054.43-1         | see AUR                                                      |
 | motrix                          | 1.6.11-4               | see AUR                                                      |
 | netease-cloud-music             | 1.2.1-7                | [Github](https://github.com/zhullyb/PKGBUILDs/tree/master/netease-cloud-music) |
 | onscripter                      | 20200722-6             | see AUR                                                      |
