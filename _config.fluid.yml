@@ -397,9 +397,6 @@ footer:
     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
     <i class="iconfont icon-love"></i>
     <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a>
-    <br>
-    <center><a href="https://evolution-host.com/blog/ssd-vps-hosting.php"><img src="https://evolution-host.com/images/signature4.png" height="50" width="192" > </a></center>
-    <br>
   '
 
   # 展示网站的 PV、UV 统计数
@@ -925,8 +922,8 @@ links:
     }
     - {
       title: "Star_caorui",
-      intro: "道阻且长,行则将至。",
-      link: "https://web-worker.cn/",
+      intro: "永远相信美好的事情即将发生.",
+      link: "https://blog.inetech.fun/",
       avatar: "https://alex.coal.pub/images/avatars/Star_caorui.jpg"
     }
     - {

@@ -6,23 +6,25 @@ date: 2021-05-01 23:53:19
 
 一只高三的中二青年
 
-喜欢Archlinux，同时也是小米8的crDroid Official Maintainer。
+## About Me
 
-~~如果你对于我的个人生活感兴趣，或许可以试着打开我的[PrivateBlog](https://priv.zhullyb.top/)？~~别看了，这里已经成为我倾倒负能量的垃圾堆了。
+咱是一只高三的大本钟，日常全靠摆
 
-## My websites
+## About This Blog
+
+这个博客主要就是用于记录一些技术性的原创内容，初衷是为了帮助遇到相同问题的用户们节约些自己的时间。
+
+因此这个域名我将尽我可能续费下去，而如果后期服务器费用无法承担的话我也将迁移到 Vercel 平台或是各家的 Pages 服务。
+
+如果你愿意听我发发牢骚，可以到我的 Life Blog（在建）访问一番。
+
+## My Websites
 
 博客(本站): [https://blog.zhullyb.top](https://blog.zhullyb.top)
 
 反代服务: [https://r.zhullyb.top](https://r.zhullyb.top)
 
-私人Arch源: [https://mirror.zhullyb.top](https://mirror.zhullyb.top)
-
 字体字重测试: [https://zhullyb.top/fonttest](https://zhullyb.top/fonttest)
-
-2048网页版: [https://2048.zhullyb.top](https://2048.zhullyb.top)
-
-音乐解密: [https://ubm.zhullyb.top](https://ubm.zhullyb.top)
 
 ## Contact Me
 

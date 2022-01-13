@@ -37,11 +37,11 @@ Server = https://pkg.web-worker.cn/zhullyb/
 | 软件名                          | 版本号                 | PKGBUILD                                                     |
 | :------------------------------ | :--------------------- | :----------------------------------------------------------- |
 | alibaba-puhuiti                 | 2.0-1                  | see AUR                                                      |
-| aliyunpan-liupan1890            | 2.11.16-1              | [Github](https://github.com/zhullyb/PKGBUILDs/tree/master/aliyunpan-liupan1890) |
+| aliyunpan-liupan1890            | 2.12.05-1              | [Github](https://github.com/zhullyb/PKGBUILDs/tree/master/aliyunpan-liupan1890) |
 | aosp-devel                      | 0.7.1-1                | see AUR                                                      |
 | apg                             | 2.2.3-5                | see AUR                                                      |
 | archlinux-themes-sddm           | 2.0-1                  | see AUR                                                      |
-| baidunetdisk-electron           | 3.5.0-1                | see AUR                                                      |
+| baidunetdisk-electron           | 4.3.0-1                | see AUR                                                      |
 | balena-etcher                   | 1.7.0-1                | see AUR                                                      |
 | cloudflare-wrangler             | 1.19.5-2               | see AUR                                                      |
 | com.qq.tim.spark                | 3.3.5.22018spark0-1    | see AUR                                                      |
@@ -66,7 +66,7 @@ Server = https://pkg.web-worker.cn/zhullyb/
 | flashplugin                     | 32.0.0.465-1           | see AUR                                                      |
 | foo2zjs-nightly                 | 20201127-1             | see AUR                                                      |
 | freechat-git                    | 1.0.0.3a8304e          | [Github](https://github.com/zhullyb/PKGBUILDs/tree/master/freechat-git) |
-| google-chrome                   | 96.0.4664.45-1         | see AUR                                                      |
+| google-chrome                   | 96.0.4664.110-1         | see AUR                                                      |
 | hexo-cli                        | 4.3.0-6                | see AUR                                                      |
 | hollywood                       | 1.21-5                 | see AUR                                                      |
 | lineageos-devel                 | 0.1-1                  | see AUR                                                      |
@@ -75,18 +75,17 @@ Server = https://pkg.web-worker.cn/zhullyb/
 | marktext                        | 0.16.3-2               | see AUR                                                      |
 | mathematica                     | 12.3.1-2               | [Github](https://github.com/zhullyb/PKGBUILDs/tree/master/mathematica) |
 | matlab                          | 9.9.0.1467703-1        | [Github](https://github.com/zhullyb/PKGBUILDs/tree/master/matlab) |
-| microsoft-edge-stable-bin       | 96.0.1054.43-1         | see AUR                                                      |
+| microsoft-edge-stable-bin       | 96.0.1054.53-1         | see AUR                                                      |
 | motrix                          | 1.6.11-4               | see AUR                                                      |
 | netease-cloud-music             | 1.2.1-7                | [Github](https://github.com/zhullyb/PKGBUILDs/tree/master/netease-cloud-music) |
 | onscripter                      | 20200722-6             | see AUR                                                      |
 | optimus-manager-qt              | 1.6.3-1                | see AUR                                                      |
 | pacman-mirrorlist-empty         | 1-1                    | [Github](https://github.com/zhullyb/PKGBUILDs/tree/master/pacman-mirrorlist-empty) |
-| pacsync                         | 1-1                    | [Github](https://github.com/zhullyb/PKGBUILDs/tree/master/pacsync) |
 | pepper-flash                    | 32.0.0.465-1           | see AUR                                                      |
 | purewriter-desktop-bin          | 1.4.0-2                | see AUR                                                      |
 | qqmusic-bin                     | 1.1.1-1                | see AUR                                                      |
 | qtscrcpy                        | 1.7.1-1                | see AUR                                                      |
-| repo-mokee                      | 2.17.3-1               | see AUR                                                      |
+| repo-mokee                      | 2.18-1               | see AUR                                                      |
 | speedometer                     | 2.8-4                  | see AUR                                                      |
 | spss-bin                        | 26.0.0-1               | [Github](https://github.com/zhullyb/PKGBUILDs/tree/master/spss-bin) |
 | texlive-full                    | 20211004-1             | [Github](https://github.com/zhullyb/PKGBUILDs/tree/master/texlive0full) |
@@ -107,7 +106,7 @@ Server = https://pkg.web-worker.cn/zhullyb/
 | wps-office-mime                 | 11.1.0.10702-2         | see AUR                                                      |
 | wps-office-mime-cn              | 11.1.0.10702-2         | see AUR                                                      |
 | wps-office-mui-zh-cn            | 11.1.0.10702-2         | see AUR                                                      |
-| visual-studio-code-bin          | 1.62.3-1               | see AUR                                                      |
+| visual-studio-code-bin          | 1.63.0-1               | see AUR                                                      |
 | virtualbox-host-modules-zhullyb | 6.1.26-1               | [Github](https://github.com/zhullyb/PKGBUILDs/tree/master/virtualbox-host-modules-zhullyb) |
 | xml2                            | 0.5-1                  | see AUR                                                      |
 | zhcon                           | 0.2.6-9                | see AUR                                                      |

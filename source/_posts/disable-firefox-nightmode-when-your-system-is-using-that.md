@@ -21,3 +21,7 @@ ui.systemUsesDarkTheme
 ![步骤1](https://download.cdn.xlj0.com/uploads/102/rHD1Znxsh7mVO6G.png)
 
 ![步骤2](https://download.cdn.xlj0.com/uploads/102/1syVleQBgH5rA8J.png)
+
+
+
+2021.12.13更新: Firefox 更新 95.0 以后，如果遇到原方案失效的问题，可以参考 [CSL的博客](https://blog.cubercsl.site/post/%E5%9C%A8%E7%B3%BB%E7%BB%9F%E4%BD%BF%E7%94%A8%E6%9A%97%E8%89%B2%E4%B8%BB%E9%A2%98%E6%97%B6%E7%A6%81%E6%AD%A2%E7%94%A8-firefox-%E7%9A%84%E5%A4%9C%E9%97%B4%E6%A8%A1%E5%BC%8F/)。
