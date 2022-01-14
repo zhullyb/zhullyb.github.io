@@ -115,6 +115,51 @@ listen = /run/php-fpm/php-fpm.sock
 ---
 ```
 
+**2022年1月14日更新**：在 Fedora 尝试部署的时候遇到了新的坑，Fedora 的相应配置文件为 `/etc/php-fpm.d/www.conf`，相应修改如下
+
+```diff
+; Unix user/group of processes
+; Note: The user is mandatory. If the group is not set, the default user's group
+;       will be used.
+; RPM: apache user chosen to provide access to the same directories as httpd
+-user = apache
++user = caddy
+; RPM: Keep a group allowed to write in log dir.
+-user = apache
++group = caddy
+
+; The address on which to accept FastCGI requests.
+; Valid syntaxes are:
+;   'ip.add.re.ss:port'    - to listen on a TCP socket to a specific IPv4 address on
+;             a specific port;
+---
+---
+; Set permissions for unix socket, if one is used. In Linux, read/write
+; permissions must be set in order to allow connections from a web server.
+; Default Values: user and group are set as the running user
+;                 mode is set to 0660
+-;listen.owner = nobody
++listen.owner = caddy
+-;listen.owner = nobody
++listen.group = caddy
+;listen.mode = 0660
+
+; When POSIX Access Control Lists are supported you can set them using
+; these options, value is a comma separated list of user/group names.
+; When set, listen.owner and listen.group are ignored
+-listen.acl_users = apache,nginx
++;listen.acl_users = apache,nginx
+;listen.acl_groups =
+
+; List of addresses (IPv4/IPv6) of FastCGI clients which are allowed to connect.
+; Equivalent to the FCGI_WEB_SERVER_ADDRS environment variable in the original
+; PHP FCGI (5.2.2+). Makes sense only with a tcp listening socket. Each address
+; must be separated by a comma. If this value is left blank, connections will be
+; accepted from any ip address.
+; Default Value: any
+listen.allowed_clients = 127.0.0.1
+```
+
 ## 拉取 PicUploader 最新代码
 
 首先创建一个用于存放代码的目录
@@ -145,7 +190,7 @@ caddy的语法非常简洁易懂，因此我随手写了几行就能跑起来了
 
 ```
 http://api.picuploader.com {
-        root * /var/www/image
+        root * /var/www/picuploader
 
         php_fastcgi * unix//run/php-fpm/php-fpm.sock {
                 index dashboard.php
