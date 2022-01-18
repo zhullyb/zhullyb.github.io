@@ -18,3 +18,22 @@ echo "--oauth2-client-id=77185425430.apps.googleusercontent.com
 再次打开chromium,你就会发现你心心念念的同步功能回来了。
 
 ![](https://download.cdn.xlj0.com/uploads/102/zXIHAwRhq65y7Wc.png)
+
+~~然而，并不是所有的发行版都像 Archlinux 这样考虑到 oauth，我们也不可能像 Archlinux 官方那样有这个闲情雅致为没一个 Chromium 去添加这个 [patch](https://github.com/archlinux/svntogit-packages/blob/packages/chromium/trunk/use-oauth2-client-switches-as-default.patch) 以后重新编译一遍，大部分人都是直接用发行版源里的。针对这种情况，我们可以直接手写一个脚本~~
+
+```bash
+#!/usr/bin/bash
+export GOOGLE_DEFAULT_CLIENT_ID=77185425430.apps.googleusercontent.com
+export GOOGLE_DEFAULT_CLIENT_SECRET=OTJgUOQcT7lO7GsGZq2G4IlT
+exec /usr/bin/chromium-browser "$@"		# 我用的 Fedora 的启动命令是 chromium-browser，别的发行版用户还请自行调整
+```
+
+当我满心欢喜地把脚本扔进 `$HOME/.local/bin` 后，我却突然发现 Fedora 官方源中把 chromium 的启动命令写死在了 `/usr/bin/chromium-browser`，如果直接去改 `/usr/bin/chromium-browser` 的话，每次更新都会被覆盖。
+
+**正确的做法**应该是把 desktop 文件复制一份到桌面，再去改内容。
+
+```bash
+cp /usr/share/applications/chromium-browser.desktop $HOME/Desktop/
+sed -i "s|/usr/bin/chromium-browser|GOOGLE_DEFAULT_CLIENT_ID=77185425430.apps.googleusercontent.com GOOGLE_DEFAULT_CLIENT_SECRET=OTJgUOQcT7lO7GsGZq2G4IlT /usr/bin/chromium-browser|g" $HOME/Desktop/chromium-browser.desktop
+```
+
