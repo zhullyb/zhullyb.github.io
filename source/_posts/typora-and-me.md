@@ -37,4 +37,6 @@ Typora真的就是个非常纯粹的Markdown编辑器，他有所见即所得的
 
 看起来 Dev 版和 Linux版本在最新版本可以无限试用下去，那我不考虑改变我的写作习惯了。
 
+>  注: Dev 版藏得有点深，在[这里](https://typora.io/releases/dev)
+
 [^1]:baidunetdisk-bin内置的electron已经无法在如今的Archlinux上跑起来了，目前唯一的解决方案是拆包、并使用系统级的electron去启动百度网盘，也就是AUR的baidunetdisk-electron。但是typora运用了一些混淆/加密的手段，使得只有他内置的electron才可以正确启动程序。
