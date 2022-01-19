@@ -937,6 +937,11 @@ links:
       link: "https://wszqkzqk.github.io",
       avatar: "https://res.cloudinary.com/zhullyb/image/upload/v1/2021/10/30/d7b4de4d84f7060202d78b53d9952065.png"
     }
+    - {
+      title: "Endle's Blog",
+      intro: "Fedora/Firefox/Wine User.",
+      link: "https://endle.github.io/",
+    }
 
   # 当成员头像加载失败时，替换为指定图片
   # When the member avatar fails to load, replace the specified image
