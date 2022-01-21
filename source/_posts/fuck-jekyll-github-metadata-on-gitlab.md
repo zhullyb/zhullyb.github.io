@@ -9,7 +9,7 @@ tags:       笔记
 
 报错如图：
 
-![](https://download.cdn.xlj0.com/uploads/102/PSgUjVXbLai7AQJ.png)
+![](https://npm.elemecdn.com/superbadguy-bed@0.0.5/22.png)
 
 当然，我这边也会附上详细的报错日志，以便后人能够通过关键词搜索到。
 
@@ -35,4 +35,4 @@ ERROR: Job failed: exit code 1
 
 于是打开`_config.yml`，把`url`给补上，顺便把别的变量一同加上，如图：
 
-![](https://download.cdn.xlj0.com/uploads/102/xpu9DK8Z1k7NHM3.png)
+![](https://npm.elemecdn.com/superbadguy-bed@0.0.5/23.png)

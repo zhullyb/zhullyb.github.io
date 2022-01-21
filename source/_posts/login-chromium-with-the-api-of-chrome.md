@@ -17,7 +17,7 @@ echo "--oauth2-client-id=77185425430.apps.googleusercontent.com
 
 再次打开chromium,你就会发现你心心念念的同步功能回来了。
 
-![](https://download.cdn.xlj0.com/uploads/102/zXIHAwRhq65y7Wc.png)
+![](https://npm.elemecdn.com/superbadguy-bed@0.0.5/24.png)
 
 ~~然而，并不是所有的发行版都像 Archlinux 这样考虑到 oauth，我们也不可能像 Archlinux 官方那样有这个闲情雅致为没一个 Chromium 去添加这个 [patch](https://github.com/archlinux/svntogit-packages/blob/packages/chromium/trunk/use-oauth2-client-switches-as-default.patch) 以后重新编译一遍，大部分人都是直接用发行版源里的。针对这种情况，我们可以直接手写一个脚本~~
 

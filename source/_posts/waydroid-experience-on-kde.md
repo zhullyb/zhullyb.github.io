@@ -3,7 +3,7 @@ title: Waydroid on KDE 初体验
 date: 2021-10-31 15:57:57
 sticky:
 execrpt:
-index_img: https://waydro.id/assets/css/background/wd-night-city.svg
+index_img: https://npm.elemecdn.com/superbadguy-bed@0.0.6/3.svg
 tags:
 - Archlinux
 - Waydroid
@@ -18,7 +18,7 @@ Waydroid是一个基于lxc容器技术，用以启动完整安卓系统的方案
 
 默认使用了LineageOS-17.1，对应 Aosp10，相比起 anbox 显然是更加新了。
 
-![是长成这样](https://res.cloudinary.com/zhullyb/image/upload/v1/2021/10/31/80e8545c0a0cde569c914cbda876520e.png)
+![是长成这样](https://npm.elemecdn.com/superbadguy-bed@0.0.4/11.png)
 
 ## 内核支持
 
@@ -99,8 +99,8 @@ Github上有个[脚本](https://github.com/casualsnek/waydroid_script)，可以�
 
 ## 一些截图
 
-![](https://res.cloudinary.com/zhullyb/image/upload/v1635670386/2021/10/31/b5c486678727d499c71deed28e382d22.png)
+![](https://npm.elemecdn.com/superbadguy-bed@0.0.4/12.png)
 
-![原生安卓从未变过的应用抽屉](https://res.cloudinary.com/zhullyb/image/upload/v1/2021/10/31/d0dd8a091b3276e0723bdfa7fa8ed4a3.png)
+![原生安卓从未变过的应用抽屉](https://npm.elemecdn.com/superbadguy-bed@0.0.4/13.png)
 
-![这充电速度太刺激啦！](https://res.cloudinary.com/zhullyb/image/upload/v1/2021/10/31/d978526cddeb3da0e2c6b654a74eb437.png)
+![这充电速度太刺激啦！](https://npm.elemecdn.com/superbadguy-bed@0.0.4/14.png)

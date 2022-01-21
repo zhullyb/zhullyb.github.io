@@ -865,7 +865,7 @@ about:
   banner_img_height: 60
   banner_mask_alpha: 0.3
   subtitle:
-  avatar: https://download.cdn.xlj0.com/uploads/102/avator.jpg
+  avatar: https://npm.elemecdn.com/superbadguy-bed@0.0.5/admin.jpg
   name: "竹林里有冰"
   intro: "仍然在划水的菜鸡"
   # 更多图标可从 https://hexo.fluid-dev.com/docs/icon/ 查找，`class` 代表图标的 css class，添加 `qrcode` 后，图标不再是链接而是悬浮二维码
@@ -918,7 +918,7 @@ links:
       title: "Alexhhh's page",
       intro: "一只会写bug的菜鸡",
       link: "https://alex.coal.pub/",
-      avatar: "https://alex.coal.pub/images/avatars/alexhhh.jpg"
+      avatar: "https://npm.elemecdn.com/superbadguy-bed@0.0.5/29.jpg"
     }
     - {
       title: "Star_caorui",
@@ -929,13 +929,13 @@ links:
       title: "Karuboniru's Blog",
       intro: "就是个学物理的，懂个屁的计算机",
       link: "https://yanqiyu.info",
-      avatar: "https://cdn.jsdelivr.net/gh/karuboniru/blog_ci@master/source/img/avatar.webp"
+      avatar: "https://npm.elemecdn.com/superbadguy-bed@0.0.5/30.webp"
     }
     - {
       title: "星外之神的博客",
       intro: "天下难事，必作于易；天下大事，必作于细。",
       link: "https://wszqkzqk.github.io",
-      avatar: "https://res.cloudinary.com/zhullyb/image/upload/v1/2021/10/30/d7b4de4d84f7060202d78b53d9952065.png"
+      avatar: "https://npm.elemecdn.com/superbadguy-bed@0.0.5/.png"
     }
     - {
       title: "Endle's Blog",

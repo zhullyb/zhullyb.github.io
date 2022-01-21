@@ -20,11 +20,11 @@ yay -S nutstore
 
 双击图标，咦？怎么白屏了？
 
-![白屏](https://s3.jpg.cm/2021/10/02/ImawUi.png)
+![白屏](https://npm.elemecdn.com/superbadguy-bed@0.0.4/16.png)
 
 看看AUR评论区，有人说`nutstore-experimental`修了？
 
-![AUR评论区](https://s3.jpg.cm/2021/10/02/Imaook.png)
+![AUR评论区](https://npm.elemecdn.com/superbadguy-bed@0.0.4/17.png)
 
 对比了一下，就是改了改`/opt/nutstore/conf/nutstore.properties`
 
@@ -36,15 +36,15 @@ sudo sed -i 's|webui.enable=true|webui.enable=false|' /opt/nutstore/conf/nutstor
 
 ## 窗口太小不能登陆
 
-![调出窗口规则设置界面](https://s3.jpg.cm/2021/10/02/Ima25C.png)
+![调出窗口规则设置界面](https://npm.elemecdn.com/superbadguy-bed@0.0.4/18.png)
 
-![进行设置](https://s3.jpg.cm/2021/10/02/Ima3Nt.png)
+![进行设置](https://npm.elemecdn.com/superbadguy-bed@0.0.4/19.png)
 
-![完成](https://s3.jpg.cm/2021/10/02/ImahLz.png)
+![完成](https://npm.elemecdn.com/superbadguy-bed@0.0.4/20.png)
 
 ## 桌面使用了暗色主题导致部分字体不清晰？
 
-![这字体鬼看得见？](https://s3.jpg.cm/2021/10/02/Ima9D4.png)
+![这字体鬼看得见？](https://npm.elemecdn.com/superbadguy-bed@0.0.4/21.png)
 
 参考[使用fakehome方案暂时解决跑在KDE暗色主题下的程序使用亮色字体的问题](/2021/09/05/wrong-fonts-color-fix-under-kde-with-a-dark-theme/)编写启动命令
 
@@ -52,13 +52,13 @@ sudo sed -i 's|webui.enable=true|webui.enable=false|' /opt/nutstore/conf/nutstor
 bwrap --dev-bind / / --tmpfs $HOME/.config /usr/bin/nutstore
 ```
 
-![测试通过](https://s3.jpg.cm/2021/10/02/ImaiFD.png)
+![测试通过](https://npm.elemecdn.com/superbadguy-bed@0.0.4/22.png)
 
 ## 本地markdown文件的文件类型被识别成了「坚果云 Markdown」
 
 这个是由于坚果云自作主张推广他自己并不好用的lightapp，写了几条 mime 的规则，如图
 
-![没错，整整5个xml](https://res.cloudinary.com/zhullyb/image/upload/v1/2021/11/26/31742e8c2e46e5c093e45b716f48ddf5.png)
+![没错，整整5个xml](https://npm.elemecdn.com/superbadguy-bed@0.0.4/23.png)
 
 看来在我们的启动命令中也需要防止坚果云接触到`$HOME/.local/share/`这个路径，所以现在的启动命令得写成这样。
 

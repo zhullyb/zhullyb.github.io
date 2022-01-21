@@ -42,7 +42,7 @@ deepin-elf-verify_0.2.0.6-1_amd64
 
 终于到了激动人心的时刻了，打开 data.tar.xz ！
 
-![空的？](https://res.cloudinary.com/zhullyb/image/upload/v1/2021/11/20/9f6c7ecc319513a2e866e5cbbd27cf4c.png)
+![空的？](https://npm.elemecdn.com/superbadguy-bed@0.0.4/9.png)
 
 **搞错了，再来**
 
@@ -61,7 +61,7 @@ curl -sL https://uos.deepin.cn/uos/dists/eagle/main/binary-amd64/Packages | grep
 
 下载后打开 `data.tar.xz`
 
-<img src="https://res.cloudinary.com/zhullyb/image/upload/v1/2021/11/20/75be793cda49af21a310b6c37ff99ab7.png" alt="看来还是有东西的"  />
+<img src="https://npm.elemecdn.com/superbadguy-bed@0.0.4/10.png" alt="看来还是有东西的"  />
 
 ## 说说结论吧
 

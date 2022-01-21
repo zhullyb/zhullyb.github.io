@@ -36,7 +36,7 @@ Manjaro官方为了最大限度地降低用户的使用门槛，为用户打造�
 
 AUR和ArchlinuxCN源都是Archlinux用户为Archlinux打包的常用软件，因此所有的软件都是选择Archlinux最新的软件作为依赖来编译/打包的。上文中我们提到过，Manjaro源内的软件会滞后更新。因此AUR和ArchlinuxCN内一些对于依赖版本要求比较苛刻的软件会在Manjaro这个更新比较落后的发行版上不工作。
 
-![我们甚至还有一张表情包来调侃这种情况的](https://s3.jpg.cm/2021/10/13/IontYt.png)
+![我们甚至还有一张表情包来调侃这种情况的](https://npm.elemecdn.com/superbadguy-bed@0.0.6/1.png)
 
 我知道这听起来会有些荒唐，不过我可以举出一个就发生在不久之前的生动的例子。
 

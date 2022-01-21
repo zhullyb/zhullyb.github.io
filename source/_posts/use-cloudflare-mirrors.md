@@ -2,7 +2,7 @@
 title: 我是来吹CloudflareMirrors的
 date: 2021-11-21 01:48:49
 sticky:
-index_img: https://res.cloudinary.com/zhullyb/image/upload/v1/2021/11/21/dd903e801e118b42899e4f0b49c20d24.png
+index_img: (https://npm.elemecdn.com/superbadguy-bed@0.0.4/8.png
 execrpt:
 tags:
 ---
@@ -15,13 +15,13 @@ Cloudflare也开始提供[Linux开源镜像站](https://cloudflaremirrors.com/)�
 
 无论你的vps是在美国日本，还是香港新加坡，cloudflare都能提供非常稳定高速的服务，只需要记住cloudflare镜像站的域名，便可以抛弃挑选镜像站的烦恼。
 
-![image-20211121020254540](https://res.cloudinary.com/zhullyb/image/upload/v1/2021/11/21/dd903e801e118b42899e4f0b49c20d24.png)
+![](https://npm.elemecdn.com/superbadguy-bed@0.0.4/6.png)
 
 根据网页上所说，cloudflare会以「反代就近的镜像站」+「缓存」的形式来提供服务，~~既然都要通过cloudflare网络，那中国大陆地区就可以彻底别想了~~，能够给几乎所有地区提供不错的服务。目前说是只提供了「[Archlinux](https://cloudflaremirrors.com/archlinux/)」和「[Debian](https://cloudflaremirrors.com/debian/)」的服务，但是根据我考证下来，其实「[Ubuntu](https://cloudflaremirrors.com/ubuntu/)」也有，只不过没写在页面上罢了。那么废话不多说，我们上境外的vps测一下下载速度如何。
 
 [cloudflaremirrors](https://cloudflaremirrors.com/) 在我这台位于美国达拉斯机房的1Gbps机器上可以跑到80MB/s+的速度，虽然没有跑满理论速率，但也算是相当喜人的成绩了。
 
-![image-20211121021131423](https://res.cloudinary.com/zhullyb/image/upload/v1/2021/11/21/23362b15b06059a720fa477aaf4ef8cc.png)
+![](https://npm.elemecdn.com/superbadguy-bed@0.0.4/7.png)
 
 小结: 
 

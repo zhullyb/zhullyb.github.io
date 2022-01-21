@@ -16,7 +16,7 @@ tags:       笔记
 
 主要的配置过程我就图解了，退出前记得保存配置。
 
-![](https://s3.jpg.cm/2021/10/13/Ion1T5.png)
+![](https://npm.elemecdn.com/superbadguy-bed@0.0.6/2.png)
 
-![](https://s3.jpg.cm/2021/10/13/IonJQC.png)
+![](https://npm.elemecdn.com/superbadguy-bed@0.0.6/3.png)
 
