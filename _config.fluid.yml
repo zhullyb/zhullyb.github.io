@@ -998,7 +998,7 @@ static_prefix:
 
   fancybox: https://npm.elemecdn.com/@fancyapps/fancybox@3/dist/
 
-  nprogress: https://npm.elemecdn.com/nprogress@0/
+  nprogress: https://cdn.bootcdn.net/ajax/libs/nprogress/0.2.0/
 
   mathjax: https://npm.elemecdn.com/mathjax@3/es5/
 
