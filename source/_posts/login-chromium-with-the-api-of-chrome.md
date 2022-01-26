@@ -33,7 +33,8 @@ exec /usr/bin/chromium-browser "$@"		# 我用的 Fedora 的启动命令是 chrom
 **正确的做法**应该是把 desktop 文件复制一份到桌面，再去改内容。
 
 ```bash
-cp /usr/share/applications/chromium-browser.desktop $HOME/Desktop/
-sed -i "s|/usr/bin/chromium-browser|GOOGLE_DEFAULT_CLIENT_ID=77185425430.apps.googleusercontent.com GOOGLE_DEFAULT_CLIENT_SECRET=OTJgUOQcT7lO7GsGZq2G4IlT /usr/bin/chromium-browser|g" $HOME/Desktop/chromium-browser.desktop
+mkdir -p $HOME/.local/share/applications/
+cp /usr/share/applications/chromium-browser.desktop $HOME/.local/share/applications/
+sed -i "s|/usr/bin/chromium-browser|GOOGLE_DEFAULT_CLIENT_ID=77185425430.apps.googleusercontent.com GOOGLE_DEFAULT_CLIENT_SECRET=OTJgUOQcT7lO7GsGZq2G4IlT /usr/bin/chromium-browser|g" $HOME/.local/share/applications/
 ```
 
