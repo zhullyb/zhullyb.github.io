@@ -980,23 +980,23 @@ static_prefix:
   internal_css: /css
   internal_img: /img
 
-  anchor: https://npm.elemecdn.com/anchor-js@4/
+  anchor: https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/anchor-js/4.3.1/
 
   github_markdown: https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/github-markdown-css/4.0.0/
 
   jquery: https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.5.1/
 
-  bootstrap: https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/4.6.0/
+  bootstrap: https://lf29-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/4.6.0/
 
   highlightjs: https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/highlight.js/10.6.0/
 
   prismjs: https://npm.elemecdn.com/prismjs@1/
 
-  tocbot: https://npm.elemecdn.com/tocbot@4/dist/
+  tocbot: https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/tocbot/4.12.2/
 
   typed: https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/typed.js/2.0.11/
 
-  fancybox: https://npm.elemecdn.com/@fancyapps/fancybox@3/dist/
+  fancybox: https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/fancybox/3.5.7/
 
   nprogress: https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/nprogress/0.2.0/
 
@@ -1006,7 +1006,7 @@ static_prefix:
 
   busuanzi: https://busuanzi.ibruce.info/busuanzi/2.3/
 
-  clipboard: https://npm.elemecdn.com/clipboard@2/dist/
+  clipboard: https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/clipboard.js/2.0.6/
 
   mermaid: https://npm.elemecdn.com/mermaid@8/dist/
 
