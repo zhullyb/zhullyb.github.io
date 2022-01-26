@@ -935,7 +935,7 @@ links:
       title: "星外之神的博客",
       intro: "天下难事，必作于易；天下大事，必作于细。",
       link: "https://wszqkzqk.github.io",
-      avatar: "https://npm.elemecdn.com/superbadguy-bed@0.0.5/.png"
+      avatar: "https://npm.elemecdn.com/superbadguy-bed@0.0.5/31.png"
     }
     - {
       title: "Endle's Blog",
@@ -982,23 +982,23 @@ static_prefix:
 
   anchor: https://npm.elemecdn.com/anchor-js@4/
 
-  github_markdown: https://npm.elemecdn.com/github-markdown-css@4/
+  github_markdown: https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/github-markdown-css/4.0.0/
 
-  jquery: https://npm.elemecdn.com/jquery@3/dist/
+  jquery: https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.5.1/
 
-  bootstrap: https://npm.elemecdn.com/bootstrap@4/dist/
+  bootstrap: https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/4.6.0/
 
-  highlightjs: https://npm.elemecdn.com/highlight.js@10/
+  highlightjs: https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/highlight.js/10.6.0/
 
   prismjs: https://npm.elemecdn.com/prismjs@1/
 
   tocbot: https://npm.elemecdn.com/tocbot@4/dist/
 
-  typed: https://npm.elemecdn.com/typed.js@2/lib/
+  typed: https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/typed.js/2.0.11/
 
   fancybox: https://npm.elemecdn.com/@fancyapps/fancybox@3/dist/
 
-  nprogress: https://cdn.bootcdn.net/ajax/libs/nprogress/0.2.0/
+  nprogress: https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/nprogress/0.2.0/
 
   mathjax: https://npm.elemecdn.com/mathjax@3/es5/
 
@@ -1020,4 +1020,4 @@ static_prefix:
 
   twikoo: https://npm.elemecdn.com/twikoo@1/dist/
 
-  hint: /lib/hint/
+  hint: https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-y/hint.css/2.6.0/
