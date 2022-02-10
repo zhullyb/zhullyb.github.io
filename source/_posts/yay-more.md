@@ -469,10 +469,16 @@ yay将会清除AUR包构建时的缓存和没有被track的文件。没有被tra
 
 ##### `--aururl`
 
-更改aur源地址（默认为https://aur.archlinux.org），适用于中国用户，可以使用此参数将AUR的地址设置成清华的反代，具体的配置命令为
+更改aur源地址（默认为 https://aur.archlinux.org ），~~适用于中国用户，可以使用此参数将AUR的地址设置成清华的反代，具体的配置命令为~~
 
-```
+```bash
 yay --aururl "https://aur.tuna.tsinghua.edu.cn" --save
+```
+
+TUNA 的反代已经取消，可以使用如下命令设置回 AUR 官方源
+
+```bash
+yay --aururl "https://aur.archlinux.org" --save
 ```
 
 ##### `--sortby`
