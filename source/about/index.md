@@ -20,20 +20,8 @@ date: 2021-05-01 23:53:19
 
 反代服务: [https://r.zhullyb.top](https://r.zhullyb.top)
 
-字体字重测试: [https://zhullyb.top/fonttest](https://zhullyb.top/fonttest)
-
 ## Contact Me
 
-- GitHub：[zhullyb](https://github.com/zhullyb)
-- Email：zhullyb@outlook.com
-- [Weibo](https://weibo.com/u/6141899043)
-- [知乎](https://www.zhihu.com/people/zhu-lin-li-you-bing)
+回复速度最快的是邮件：zhullyb@outlook.com
 
-
-
-
-
-
-
-
-
+当然，如果你喜欢即时通信软件，你也可以在 telegram@zhullyb 找到我，长时间没有回复的话可能是我不在线，可以发个 email 提醒我看一下。
