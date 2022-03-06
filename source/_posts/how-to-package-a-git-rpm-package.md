@@ -41,7 +41,7 @@ tags:
 
 - `%{timenow}` 是直接通过运行系统的 date 命令获得一个精确到分钟的时间来当作 `count` 给 dnf 判断版本号大小使用
 
-- `%{commit_id_short}` 从 api.github.com 获取到该仓库最新的 commit 号，配合粗制滥造的 shell 命令做切片，提取前7 位，帮助用户和开发者快速定位源码版本使用
+- `%{commit_id_short}` 从 api.github.com 获取到该仓库最新的 commit 号，配合粗制滥造的 shell 命令做切片，提取前7 位，帮助用户和开发者快速定位源码版本使用。当然，也可以选择直接使用 `jq` 作为 json 的解释器。
 
 ## Review
 
@@ -50,3 +50,4 @@ tags:
 - 仅支持 github 上的项目，对于其他的 git 托管服务商还需要去查阅他们的 api 文档
 - 粗制滥造的 shell 命令可能不足以应对以后的 github api 变更
 - 使用了精确到分钟的时间作为计数器，导致版本号过长
+- 使用 copr 打包的时候，有概率出现 srpm 与 rpm 之间版本号出现分钟级的差异
