@@ -435,7 +435,7 @@ footer:
 index:
   # 首页 Banner 头图，可以是相对路径或绝对路径，以下相同
   # Path of Banner image, can be a relative path or an absolute path, the same on other pages
-  banner_img: https://blog.zhullyb.top/img/top.php
+  banner_img: https://api.vercel.zhullyb.top/api/randomtoppic.php
 
   # 头图高度，屏幕百分比
   # Height ratio of banner image
@@ -507,7 +507,7 @@ index:
 # Post Page
 #---------------------------
 post:
-  banner_img: https://blog.zhullyb.top/img/top.php
+  banner_img: https://api.vercel.zhullyb.top/api/randomtoppic.php
   banner_img_height: 70
   banner_mask_alpha: 0.3
 
@@ -801,7 +801,7 @@ cusdis:
 # Archive Page
 #---------------------------
 archive:
-  banner_img: https://blog.zhullyb.top/img/top.php
+  banner_img: https://api.vercel.zhullyb.top/api/randomtoppic.php
   banner_img_height: 60
   banner_mask_alpha: 0.3
   subtitle:
@@ -843,7 +843,7 @@ category:
 #---------------------------
 tag:
   enable: true
-  banner_img: https://blog.zhullyb.top/img/top.php
+  banner_img: https://api.vercel.zhullyb.top/api/randomtoppic.php
   banner_img_height: 80
   banner_mask_alpha: 0.3
   subtitle:
@@ -861,7 +861,7 @@ tag:
 #---------------------------
 about:
   enable: true
-  banner_img: https://blog.zhullyb.top/img/top.php
+  banner_img: https://api.vercel.zhullyb.top/api/randomtoppic.php
   banner_img_height: 60
   banner_mask_alpha: 0.3
   subtitle:
@@ -884,7 +884,7 @@ about:
 # Custom Page through `hexo new page`
 #---------------------------
 page:
-  banner_img: https://blog.zhullyb.top/img/top.php
+  banner_img: https://api.vercel.zhullyb.top/api/randomtoppic.php
   banner_img_height: 60
   banner_mask_alpha: 0.3
 
@@ -895,7 +895,7 @@ page:
 #---------------------------
 page404:
   enable: true
-  banner_img: https://blog.zhullyb.top/img/top.php
+  banner_img: https://api.vercel.zhullyb.top/api/randomtoppic.php
   banner_img_height: 85
   banner_mask_alpha: 0.3
   subtitle: "你找的页面似乎被吃掉啦("
@@ -907,7 +907,7 @@ page404:
 #---------------------------
 links:
   enable: true
-  banner_img: https://blog.zhullyb.top/img/top.php
+  banner_img: https://api.vercel.zhullyb.top/api/randomtoppic.php
   banner_img_height: 60
   banner_mask_alpha: 0.3
   subtitle:
@@ -940,7 +940,25 @@ links:
     - {
       title: "Endle's Blog",
       intro: "Fedora/Firefox/Wine User.",
-      link: "https://endle.github.io/",
+      link: "https://endle.github.io/"
+    }
+    - {
+      title: "杨蕙芷",
+      intro: "如果有人欺负你呢，就报我的名字。",
+      link: "https://qvshuo.faith/",
+      avatar: "https://bu.dusays.com/2022/03/15/f9afaa85a5ed4.png"
+    }
+    - {
+      title: "ImBearChild",
+      intro: "又一个WordPress站点，我的自留地",
+      link: "https://imbearchild.cyou/",
+      avatar: "https://bu.dusays.com/2022/03/17/74139df97bae3.webp"
+    }
+    - {
+      title: "寒晶雪的白板",
+      intro: "openSUSE 新闻译者（英→简中）",
+      link: "https://hanjingxue-boling.github.io/Whiteboard/",
+      avatar: "https://bu.dusays.com/2022/03/15/259396342424f.png"
     }
 
   # 当成员头像加载失败时，替换为指定图片

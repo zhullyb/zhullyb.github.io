@@ -31,8 +31,6 @@ tags:
 英文版的提示应该是长成下面这个样子
 
 ```
-[zhullyb@Archlinux ~]$ sudo pacman -SYu
-pacman: invalid option -- 'Y'
 [zhullyb@Archlinux ~]$ sudo pacman -Syu
 error: GPGME error: No data
 error: GPGME error: No data
