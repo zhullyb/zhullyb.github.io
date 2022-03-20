@@ -921,9 +921,10 @@ links:
       avatar: "https://npm.elemecdn.com/superbadguy-bed@0.0.5/29.jpg"
     }
     - {
-      title: "Star_caorui",
-      intro: "永远相信美好的事情即将发生.",
+      title: "iNetech Blog",
+      intro: "凡心所向，素履所往",
       link: "https://blog.inetech.fun",
+      avatar: "https://blog.inetech.fun/favicon.ico"
     }
     - {
       title: "Karuboniru's Blog",
