@@ -6,14 +6,14 @@
 title: 竹林里有冰的博客
 subtitle: zhullyb's blog
 description: "竹林里有冰的博客"
-keywords: 博客, 技术, Archlinux
+keywords: 博客, 技术, Fedora
 author: 竹林里有冰
 language: zh-CN
 timezone: 'Asia/Shanghai'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://blog.zhullyb.top
+url: https://zhul.in
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
