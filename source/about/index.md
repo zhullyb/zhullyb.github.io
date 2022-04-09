@@ -16,11 +16,11 @@ Fedora 用户，但同时也在维护某些 AUR 的包，dipper 机型的 crDroi
 
 这个博客主要就是用于记录一些技术性的原创内容，初衷是为了帮助遇到相同问题的用户们节约些自己的时间。
 
-因此这个域名我将尽我可能续费下去，而如果后期服务器费用无法承担的话我也将迁移到 Vercel 平台或是各家的 Pages 服务。
+因此这个域名我将尽我可能续费下去，而如果后期服务器费用无法承担的话我也做好诶迁移到 serverless 的准备。
 
 ## My Websites
 
-博客(本站): [https://blog.zhullyb.top](https://blog.zhullyb.top)
+博客(本站): [https://zhul.in](https://zhul.in)
 
 反代服务: [https://r.zhullyb.top](https://r.zhullyb.top)
 

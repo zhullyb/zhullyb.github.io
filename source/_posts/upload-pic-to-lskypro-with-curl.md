@@ -9,13 +9,13 @@ tags:
 - Lsky Pro
 ---
 
-前一阵子为了图床折腾了好长一段时间。刚开始用的是 cloudinary，虽然每月有限制，但强在境内访问速度还不错，可惜后来 `res.cloudinary.net` 这个域名在某些地方被 DNS 污染了，而自定义域名是付费版的功能，就不得不放弃了。
+前一阵子为了图床折腾了好长一段时间。刚开始用的是 cloudinary，虽然每月有限制，但强在境内访问速度还不错，可惜后来 `res.cloudinary.com` 这个域名在某些地方被 DNS 污染了，而自定义域名是付费版的功能，就不得不放弃了。
 
 后来也尝试过 npm图床 的方案，可惜面对这种滥用公共资源的行为我无法接受~~（肯定不是因为受不了那繁琐的上传步骤，随便传张图都得 bump 下版本号的原因）~~，而且现在境内的能作为图床使用的 npm 镜像似乎也就只剩下 `npm.elemecdn.com` 这一个能够正常回源了，没准哪天就用不了了，所以就去投奔了[杜老师](https://dusays.com/)的[去不图床](https://7bu.top/)。
 
 去不图床采用开源图床程序 [Lsky Pro](https://www.lsky.pro/) 搭建，没有免费服务，且配置了鉴黄服务，看起来就是打算长久做下去的图床站点。境内使用腾讯云cdn，境外采用 cloudflare cdn，速度都挺让我满意的。~~（杜老师看见请给我打钱，或者多送我点空间也行~~（x
 
-Typora 一直是我写博客的主用 Markdown 编辑器，之前我采用 Typora 调用 PicUploader(php) 自动上传图片的方案写博客，体验相当不错，如图: 
+Typora 一直是我写博客的主用 Markdown 编辑器，之前我采用 Typora 调用 [PicUploader(php)](https://github.com/xiebruce/PicUploader) 自动上传图片的方案写博客，体验相当不错，如图: 
 
 ![](https://npm.elemecdn.com/superbadguy-bed@0.0.4/5.gif)
 
@@ -35,10 +35,12 @@ Typora 一直是我写博客的主用 Markdown 编辑器，之前我采用 Typor
 export TOKEN=YOU_TYPE_IT
 export UPLOAD_API_URL=https://7bu.top/api/upload
 
-for images in $@; do
+for images in "$@"; do
         curl -s -X POST $UPLOAD_API_URL -F "token=$TOKEN" -F "image=@$images" | jq -r .data.url
 done
 ```
+
+> 2022/04/02更新: 第六行 $@ -> "$@"，解决文件名中出现空格时导致的上传失败问题。
 
 需要借助 jq 来读取返回的 json，各 Linux 发行版源内应该都有打包，自行安装即可。
 
