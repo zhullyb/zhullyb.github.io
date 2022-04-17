@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://blog.zhullyb.top/sitemap.xml
+Sitemap: https://zhul.in/sitemap.xml

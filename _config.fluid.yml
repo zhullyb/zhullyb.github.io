@@ -318,6 +318,7 @@ navbar:
       icon: 'iconfont icon-books',
       link: '#',
       submenu: [
+      { key: 'rss订阅', link: '/rss.xml' },
       { key: '收藏', link: '/collections/' },
       { key: 'Linux软件源', link: '/linux-source/' }
       ]
@@ -946,7 +947,7 @@ links:
     - {
       title: "杨蕙芷",
       intro: "如果有人欺负你呢，就报我的名字。",
-      link: "https://qvshuo.faith/",
+      link: "https://qvshuo.art/",
       avatar: "https://bu.dusays.com/2022/03/15/f9afaa85a5ed4.png"
     }
     - {
@@ -956,10 +957,16 @@ links:
       avatar: "https://bu.dusays.com/2022/03/17/74139df97bae3.webp"
     }
     - {
-      title: "寒晶雪的白板",
-      intro: "openSUSE 新闻译者（英→简中）",
+      title: "寒晶雪的文档站",
+      intro: "这是 Hanjingxue 的个人在线文档站点；主要包含站长所写的各种译文/文档/杂谈，同时兼任 Hanjingxue 的个人博客。",
       link: "https://hanjingxue-boling.github.io/Whiteboard/",
       avatar: "https://bu.dusays.com/2022/03/15/259396342424f.png"
+    }
+    - {
+      title: "KevinZonda",
+      intro: "First Year B.Sc. Computer Science Student @ University of Birmingham.",
+      link: "https://blog.kevinzonda.com/",
+      avatar: "https://bu.dusays.com/2022/04/11/c9af27464ec87.png"
     }
 
   # 当成员头像加载失败时，替换为指定图片

@@ -8,6 +8,7 @@ tags:
 - Archlinux
 - Waydroid
 - KDE
+- Experience
 ---
 
 > 在[西木野羰基的博客](https://yanqiyu.info/)中看到了其在Fedora中使用waydroid跑明日方舟的[截图](https://cdn.jsdelivr.net/gh/karuboniru/blog_imgs@master/20211025232040.png)，心里有有些痒痒了，决定在Archlinux上尝试使用waydroid。
