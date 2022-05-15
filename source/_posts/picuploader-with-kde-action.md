@@ -104,6 +104,6 @@ sudo chmod 777 -R /var/www/image/logs/
 
 ## 参考链接
 
-[如何给KDE（Dolphin）的右键菜单添加自定义菜单项？](https://www.peterzhang.top/posts/80.html)
+[在 KDE Plasma 5 的 Dolphin 中添加一个右键动作菜单](https://cnzhx.net/blog/kde-plasma-5-dolphin-add-action-menu-entry/)
 
 [PicUploader: 一个还不错的图床工具](https://www.xiebruce.top/17.html)

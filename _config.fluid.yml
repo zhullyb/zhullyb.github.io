@@ -1038,7 +1038,7 @@ static_prefix:
 
   valine: https://npm.elemecdn.com/valine@1/dist/
 
-  waline: https://npm.elemecdn.com/@waline/client@1/dist/
+  waline: https://npm.elemecdn.com/@waline/client@1.6.0/dist/
 
   gitalk: https://npm.elemecdn.com/gitalk@1/dist/
 
