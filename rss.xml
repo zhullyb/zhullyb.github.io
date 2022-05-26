@@ -6,7 +6,7 @@
   <link href="https://zhul.in/rss.xml" rel="self"/>
   
   <link href="https://zhul.in/"/>
-  <updated>2022-05-11T03:43:19.258Z</updated>
+  <updated>2022-05-15T13:34:36.000Z</updated>
   <id>https://zhul.in/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>创建一个本地的 Fedora 镜像源</title>
-    <link href="https://zhul.in/2022/05/11/setup-a-local-fedora-source/"/>
-    <id>https://zhul.in/2022/05/11/setup-a-local-fedora-source/</id>
+    <link href="https://zhul.in/2022/05/10/setup-a-local-fedora-source/"/>
+    <id>https://zhul.in/2022/05/10/setup-a-local-fedora-source/</id>
     <published>2022-05-10T20:18:26.000Z</published>
-    <updated>2022-05-11T03:43:19.258Z</updated>
+    <updated>2022-05-15T13:34:36.000Z</updated>
     
     
       
@@ -43,10 +43,10 @@
   
   <entry>
     <title>好软推荐——FastOCR</title>
-    <link href="https://zhul.in/2022/04/14/fastocr-experience/"/>
-    <id>https://zhul.in/2022/04/14/fastocr-experience/</id>
+    <link href="https://zhul.in/2022/04/13/fastocr-experience/"/>
+    <id>https://zhul.in/2022/04/13/fastocr-experience/</id>
     <published>2022-04-13T21:55:18.000Z</published>
-    <updated>2022-04-13T22:20:19.988Z</updated>
+    <updated>2022-04-17T13:45:14.000Z</updated>
     
     
       
@@ -69,7 +69,7 @@
     <link href="https://zhul.in/2022/03/31/upload-pic-to-lskypro-with-curl/"/>
     <id>https://zhul.in/2022/03/31/upload-pic-to-lskypro-with-curl/</id>
     <published>2022-03-31T11:19:14.000Z</published>
-    <updated>2022-04-02T03:26:10.347Z</updated>
+    <updated>2022-04-09T05:57:20.000Z</updated>
     
     
       
@@ -96,7 +96,7 @@
     <link href="https://zhul.in/2022/03/06/run-rpmbuild-with-github-action/"/>
     <id>https://zhul.in/2022/03/06/run-rpmbuild-with-github-action/</id>
     <published>2022-03-06T08:02:54.000Z</published>
-    <updated>2022-03-09T15:47:32.326Z</updated>
+    <updated>2022-03-19T03:37:05.000Z</updated>
     
     
       
@@ -121,7 +121,7 @@
     <link href="https://zhul.in/2022/02/07/how-to-package-a-git-rpm-package/"/>
     <id>https://zhul.in/2022/02/07/how-to-package-a-git-rpm-package/</id>
     <published>2022-02-07T02:23:29.000Z</published>
-    <updated>2022-04-02T03:25:38.681Z</updated>
+    <updated>2022-04-09T05:57:20.000Z</updated>
     
     
       
@@ -146,7 +146,7 @@
     <link href="https://zhul.in/2022/01/19/the-common-software-hidden-in-mirrors/"/>
     <id>https://zhul.in/2022/01/19/the-common-software-hidden-in-mirrors/</id>
     <published>2022-01-19T05:01:30.000Z</published>
-    <updated>2022-05-21T07:16:39.627Z</updated>
+    <updated>2022-05-23T10:09:24.000Z</updated>
     
     
       
@@ -167,7 +167,7 @@
     <link href="https://zhul.in/2022/01/12/dnf-module-in-setting-up-the-jekyll/"/>
     <id>https://zhul.in/2022/01/12/dnf-module-in-setting-up-the-jekyll/</id>
     <published>2022-01-12T14:11:42.000Z</published>
-    <updated>2022-01-21T14:57:02.415Z</updated>
+    <updated>2022-01-21T17:13:35.000Z</updated>
     
     
       
@@ -190,7 +190,7 @@
     <link href="https://zhul.in/2022/01/01/pacman-gpgme-error-no-data/"/>
     <id>https://zhul.in/2022/01/01/pacman-gpgme-error-no-data/</id>
     <published>2022-01-01T15:42:09.000Z</published>
-    <updated>2022-03-19T03:36:50.057Z</updated>
+    <updated>2022-03-19T03:37:05.000Z</updated>
     
     
       
@@ -210,10 +210,10 @@
   
   <entry>
     <title>Cutefish的前世今生</title>
-    <link href="https://zhul.in/2021/12/12/the-history-of-cutefish/"/>
-    <id>https://zhul.in/2021/12/12/the-history-of-cutefish/</id>
+    <link href="https://zhul.in/2021/12/11/the-history-of-cutefish/"/>
+    <id>https://zhul.in/2021/12/11/the-history-of-cutefish/</id>
     <published>2021-12-11T16:10:34.000Z</published>
-    <updated>2022-01-21T14:56:03.395Z</updated>
+    <updated>2022-01-21T17:13:35.000Z</updated>
     
     
       
@@ -236,7 +236,7 @@
     <link href="https://zhul.in/2021/12/03/dev-app-update-in-wolai/"/>
     <id>https://zhul.in/2021/12/03/dev-app-update-in-wolai/</id>
     <published>2021-12-03T14:53:25.000Z</published>
-    <updated>2022-01-21T14:55:43.884Z</updated>
+    <updated>2022-01-21T17:13:35.000Z</updated>
     
     
       
@@ -261,7 +261,7 @@
     <link href="https://zhul.in/2021/11/26/typora-and-me/"/>
     <id>https://zhul.in/2021/11/26/typora-and-me/</id>
     <published>2021-11-26T15:05:05.000Z</published>
-    <updated>2022-01-21T14:55:22.378Z</updated>
+    <updated>2022-01-21T17:13:35.000Z</updated>
     
     
       
@@ -281,10 +281,10 @@
   
   <entry>
     <title>我是来吹CloudflareMirrors的</title>
-    <link href="https://zhul.in/2021/11/21/use-cloudflare-mirrors/"/>
-    <id>https://zhul.in/2021/11/21/use-cloudflare-mirrors/</id>
+    <link href="https://zhul.in/2021/11/20/use-cloudflare-mirrors/"/>
+    <id>https://zhul.in/2021/11/20/use-cloudflare-mirrors/</id>
     <published>2021-11-20T17:48:49.000Z</published>
-    <updated>2022-01-22T11:19:54.873Z</updated>
+    <updated>2022-01-26T10:46:47.000Z</updated>
     
     
       
@@ -302,10 +302,10 @@
   
   <entry>
     <title>deepin-elf-verify究竟是何物？</title>
-    <link href="https://zhul.in/2021/11/20/what-is-deepin-elf-verify/"/>
-    <id>https://zhul.in/2021/11/20/what-is-deepin-elf-verify/</id>
+    <link href="https://zhul.in/2021/11/19/what-is-deepin-elf-verify/"/>
+    <id>https://zhul.in/2021/11/19/what-is-deepin-elf-verify/</id>
     <published>2021-11-19T16:00:00.000Z</published>
-    <updated>2022-01-21T14:56:40.040Z</updated>
+    <updated>2022-01-21T17:13:35.000Z</updated>
     
     
       
@@ -330,7 +330,7 @@
     <link href="https://zhul.in/2021/11/05/please-dont-theme-our-apps/"/>
     <id>https://zhul.in/2021/11/05/please-dont-theme-our-apps/</id>
     <published>2021-11-05T12:35:58.000Z</published>
-    <updated>2021-11-18T16:31:39.513Z</updated>
+    <updated>2021-11-27T11:08:51.000Z</updated>
     
     
       
@@ -353,7 +353,7 @@
     <link href="https://zhul.in/2021/10/31/waydroid-experience-on-kde/"/>
     <id>https://zhul.in/2021/10/31/waydroid-experience-on-kde/</id>
     <published>2021-10-31T07:57:57.000Z</published>
-    <updated>2022-04-13T21:55:04.416Z</updated>
+    <updated>2022-04-17T13:45:14.000Z</updated>
     
     
       
@@ -382,7 +382,7 @@
     <link href="https://zhul.in/2021/10/24/picuploader-with-kde-action/"/>
     <id>https://zhul.in/2021/10/24/picuploader-with-kde-action/</id>
     <published>2021-10-24T14:26:50.000Z</published>
-    <updated>2022-05-05T10:53:37.314Z</updated>
+    <updated>2022-05-15T13:34:36.000Z</updated>
     
     
       
@@ -409,7 +409,7 @@
     <link href="https://zhul.in/2021/10/21/picuploader-on-archlinux-with-caddy/"/>
     <id>https://zhul.in/2021/10/21/picuploader-on-archlinux-with-caddy/</id>
     <published>2021-10-21T14:15:33.000Z</published>
-    <updated>2022-01-14T04:33:43.324Z</updated>
+    <updated>2022-01-14T04:34:22.000Z</updated>
     
     
       
@@ -433,10 +433,10 @@
   
   <entry>
     <title>Archlinux坚果云踩坑实录</title>
-    <link href="https://zhul.in/2021/10/02/nutstore-guide-on-archlinux-kde/"/>
-    <id>https://zhul.in/2021/10/02/nutstore-guide-on-archlinux-kde/</id>
+    <link href="https://zhul.in/2021/10/01/nutstore-guide-on-archlinux-kde/"/>
+    <id>https://zhul.in/2021/10/01/nutstore-guide-on-archlinux-kde/</id>
     <published>2021-10-01T16:21:34.000Z</published>
-    <updated>2022-01-21T14:46:43.249Z</updated>
+    <updated>2022-01-21T17:13:35.000Z</updated>
     
     
       
@@ -459,7 +459,7 @@
     <link href="https://zhul.in/2021/10/01/bring-firefox-old-topbar-back/"/>
     <id>https://zhul.in/2021/10/01/bring-firefox-old-topbar-back/</id>
     <published>2021-10-01T11:20:23.000Z</published>
-    <updated>2022-01-21T14:49:32.832Z</updated>
+    <updated>2022-01-21T17:13:35.000Z</updated>
     
     
       
@@ -483,10 +483,10 @@
   
   <entry>
     <title>记录一次原创文章被抄袭</title>
-    <link href="https://zhul.in/2021/09/21/csdn-copied-my-article/"/>
-    <id>https://zhul.in/2021/09/21/csdn-copied-my-article/</id>
+    <link href="https://zhul.in/2021/09/20/csdn-copied-my-article/"/>
+    <id>https://zhul.in/2021/09/20/csdn-copied-my-article/</id>
     <published>2021-09-20T16:00:00.000Z</published>
-    <updated>2022-01-21T16:45:28.234Z</updated>
+    <updated>2022-01-21T17:13:35.000Z</updated>
     
     
       
