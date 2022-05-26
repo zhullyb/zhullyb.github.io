@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>竹林里有冰的博客</title>
+  
+  <subtitle>zhullyb&#39;s blog</subtitle>
+  <link href="https://zhul.in/rss.xml" rel="self"/>
+  
+  <link href="https://zhul.in/"/>
+  <updated>2022-05-11T03:43:19.258Z</updated>
+  <id>https://zhul.in/</id>
+  
+  <author>
+    <name>竹林里有冰</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>创建一个本地的 Fedora 镜像源</title>
+    <link href="https://zhul.in/2022/05/11/setup-a-local-fedora-source/"/>
+    <id>https://zhul.in/2022/05/11/setup-a-local-fedora-source/</id>
+    <published>2022-05-10T20:18:26.000Z</published>
+    <updated>2022-05-11T03:43:19.258Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+    <category term="Fedora" scheme="https://zhul.in/tags/Fedora/"/>
+    
+    <category term="Caddy" scheme="https://zhul.in/tags/Caddy/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>好软推荐——FastOCR</title>
+    <link href="https://zhul.in/2022/04/14/fastocr-experience/"/>
+    <id>https://zhul.in/2022/04/14/fastocr-experience/</id>
+    <published>2022-04-13T21:55:18.000Z</published>
+    <updated>2022-04-13T22:20:19.988Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+    <category term="Experience" scheme="https://zhul.in/tags/Experience/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>抛弃PicGo，直接使用curl将图片上传到LskyPro</title>
+    <link href="https://zhul.in/2022/03/31/upload-pic-to-lskypro-with-curl/"/>
+    <id>https://zhul.in/2022/03/31/upload-pic-to-lskypro-with-curl/</id>
+    <published>2022-03-31T11:19:14.000Z</published>
+    <updated>2022-04-02T03:26:10.347Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+    <category term="Shell Script" scheme="https://zhul.in/tags/Shell-Script/"/>
+    
+    <category term="图床" scheme="https://zhul.in/tags/%E5%9B%BE%E5%BA%8A/"/>
+    
+    <category term="Lsky Pro" scheme="https://zhul.in/tags/Lsky-Pro/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用 Github Action 跑 rpmbuild</title>
+    <link href="https://zhul.in/2022/03/06/run-rpmbuild-with-github-action/"/>
+    <id>https://zhul.in/2022/03/06/run-rpmbuild-with-github-action/</id>
+    <published>2022-03-06T08:02:54.000Z</published>
+    <updated>2022-03-09T15:47:32.326Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+    <category term="Fedora" scheme="https://zhul.in/tags/Fedora/"/>
+    
+    <category term="RPM Package" scheme="https://zhul.in/tags/RPM-Package/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>如何打出一个「-git」的rpm包</title>
+    <link href="https://zhul.in/2022/02/07/how-to-package-a-git-rpm-package/"/>
+    <id>https://zhul.in/2022/02/07/how-to-package-a-git-rpm-package/</id>
+    <published>2022-02-07T02:23:29.000Z</published>
+    <updated>2022-04-02T03:25:38.681Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+    <category term="Fedora" scheme="https://zhul.in/tags/Fedora/"/>
+    
+    <category term="RPM Package" scheme="https://zhul.in/tags/RPM-Package/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>雪藏在开源镜像站点中的那些常用却不为人知的软件</title>
+    <link href="https://zhul.in/2022/01/19/the-common-software-hidden-in-mirrors/"/>
+    <id>https://zhul.in/2022/01/19/the-common-software-hidden-in-mirrors/</id>
+    <published>2022-01-19T05:01:30.000Z</published>
+    <updated>2022-05-21T07:16:39.627Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>在Fedora搭建jekyll环境——dnf module</title>
+    <link href="https://zhul.in/2022/01/12/dnf-module-in-setting-up-the-jekyll/"/>
+    <id>https://zhul.in/2022/01/12/dnf-module-in-setting-up-the-jekyll/</id>
+    <published>2022-01-12T14:11:42.000Z</published>
+    <updated>2022-01-21T14:57:02.415Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+    <category term="Fedora" scheme="https://zhul.in/tags/Fedora/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>pacman更新时遇到「GPGME 错误：无数据」</title>
+    <link href="https://zhul.in/2022/01/01/pacman-gpgme-error-no-data/"/>
+    <id>https://zhul.in/2022/01/01/pacman-gpgme-error-no-data/</id>
+    <published>2022-01-01T15:42:09.000Z</published>
+    <updated>2022-03-19T03:36:50.057Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+    <category term="Archlinux" scheme="https://zhul.in/tags/Archlinux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Cutefish的前世今生</title>
+    <link href="https://zhul.in/2021/12/12/the-history-of-cutefish/"/>
+    <id>https://zhul.in/2021/12/12/the-history-of-cutefish/</id>
+    <published>2021-12-11T16:10:34.000Z</published>
+    <updated>2022-01-21T14:56:03.395Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+    <category term="OpenSource Project" scheme="https://zhul.in/tags/OpenSource-Project/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>wolai再打包遇到的问题--electron应用的dev判断机制</title>
+    <link href="https://zhul.in/2021/12/03/dev-app-update-in-wolai/"/>
+    <id>https://zhul.in/2021/12/03/dev-app-update-in-wolai/</id>
+    <published>2021-12-03T14:53:25.000Z</published>
+    <updated>2022-01-21T14:55:43.884Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+    <category term="Archlinux" scheme="https://zhul.in/tags/Archlinux/"/>
+    
+    <category term="electron" scheme="https://zhul.in/tags/electron/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Typora与我</title>
+    <link href="https://zhul.in/2021/11/26/typora-and-me/"/>
+    <id>https://zhul.in/2021/11/26/typora-and-me/</id>
+    <published>2021-11-26T15:05:05.000Z</published>
+    <updated>2022-01-21T14:55:22.378Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+    <category term="Casual Talk" scheme="https://zhul.in/tags/Casual-Talk/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>我是来吹CloudflareMirrors的</title>
+    <link href="https://zhul.in/2021/11/21/use-cloudflare-mirrors/"/>
+    <id>https://zhul.in/2021/11/21/use-cloudflare-mirrors/</id>
+    <published>2021-11-20T17:48:49.000Z</published>
+    <updated>2022-01-22T11:19:54.873Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>deepin-elf-verify究竟是何物？</title>
+    <link href="https://zhul.in/2021/11/20/what-is-deepin-elf-verify/"/>
+    <id>https://zhul.in/2021/11/20/what-is-deepin-elf-verify/</id>
+    <published>2021-11-19T16:00:00.000Z</published>
+    <updated>2022-01-21T14:56:40.040Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+    <category term="Linux" scheme="https://zhul.in/tags/Linux/"/>
+    
+    <category term="deepin" scheme="https://zhul.in/tags/deepin/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【翻译】请别再使用主题装饰我们的软件</title>
+    <link href="https://zhul.in/2021/11/05/please-dont-theme-our-apps/"/>
+    <id>https://zhul.in/2021/11/05/please-dont-theme-our-apps/</id>
+    <published>2021-11-05T12:35:58.000Z</published>
+    <updated>2021-11-18T16:31:39.513Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+    <category term="翻译" scheme="https://zhul.in/tags/%E7%BF%BB%E8%AF%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Waydroid on KDE 初体验</title>
+    <link href="https://zhul.in/2021/10/31/waydroid-experience-on-kde/"/>
+    <id>https://zhul.in/2021/10/31/waydroid-experience-on-kde/</id>
+    <published>2021-10-31T07:57:57.000Z</published>
+    <updated>2022-04-13T21:55:04.416Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+    <category term="Archlinux" scheme="https://zhul.in/tags/Archlinux/"/>
+    
+    <category term="Experience" scheme="https://zhul.in/tags/Experience/"/>
+    
+    <category term="KDE" scheme="https://zhul.in/tags/KDE/"/>
+    
+    <category term="Waydroid" scheme="https://zhul.in/tags/Waydroid/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PicUploader使用系列（二）——为KDE的dolphin添加右键快捷菜单</title>
+    <link href="https://zhul.in/2021/10/24/picuploader-with-kde-action/"/>
+    <id>https://zhul.in/2021/10/24/picuploader-with-kde-action/</id>
+    <published>2021-10-24T14:26:50.000Z</published>
+    <updated>2022-05-05T10:53:37.314Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+    <category term="Archlinux" scheme="https://zhul.in/tags/Archlinux/"/>
+    
+    <category term="PicUploader" scheme="https://zhul.in/tags/PicUploader/"/>
+    
+    <category term="KDE" scheme="https://zhul.in/tags/KDE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>PicUploader使用系列（一）——在Archlinux上使用Caddy部署PicUploader</title>
+    <link href="https://zhul.in/2021/10/21/picuploader-on-archlinux-with-caddy/"/>
+    <id>https://zhul.in/2021/10/21/picuploader-on-archlinux-with-caddy/</id>
+    <published>2021-10-21T14:15:33.000Z</published>
+    <updated>2022-01-14T04:33:43.324Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+    <category term="Archlinux" scheme="https://zhul.in/tags/Archlinux/"/>
+    
+    <category term="Caddy" scheme="https://zhul.in/tags/Caddy/"/>
+    
+    <category term="PicUploader" scheme="https://zhul.in/tags/PicUploader/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Archlinux坚果云踩坑实录</title>
+    <link href="https://zhul.in/2021/10/02/nutstore-guide-on-archlinux-kde/"/>
+    <id>https://zhul.in/2021/10/02/nutstore-guide-on-archlinux-kde/</id>
+    <published>2021-10-01T16:21:34.000Z</published>
+    <updated>2022-01-21T14:46:43.249Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+    <category term="Archlinux" scheme="https://zhul.in/tags/Archlinux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>把老版的火狐顶栏UI带回来</title>
+    <link href="https://zhul.in/2021/10/01/bring-firefox-old-topbar-back/"/>
+    <id>https://zhul.in/2021/10/01/bring-firefox-old-topbar-back/</id>
+    <published>2021-10-01T11:20:23.000Z</published>
+    <updated>2022-01-21T14:49:32.832Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+    <category term="Linux" scheme="https://zhul.in/tags/Linux/"/>
+    
+    <category term="Firefox" scheme="https://zhul.in/tags/Firefox/"/>
+    
+    <category term="Bwrap" scheme="https://zhul.in/tags/Bwrap/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>记录一次原创文章被抄袭</title>
+    <link href="https://zhul.in/2021/09/21/csdn-copied-my-article/"/>
+    <id>https://zhul.in/2021/09/21/csdn-copied-my-article/</id>
+    <published>2021-09-20T16:00:00.000Z</published>
+    <updated>2022-01-21T16:45:28.234Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>

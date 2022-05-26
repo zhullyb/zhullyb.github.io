@@ -1,0 +1,903 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/favicon.ico">
+  <link rel="icon" href="/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="竹林里有冰">
+  <meta name="keywords" content="博客, 技术, Fedora">
+  
+    <meta name="description" content="yay是一个AUR Helper，他可以执行pacman的几乎所有操作，并在此基础上添加了很多额外用法。 我没有在网络上查找到关于yay的、除了pacman基础用法和安装AUR包以外的中文教程，英文的也几乎没有看到，这也是我写这篇文章的原因所在。 本文通篇详讲yay的每一个设置&#x2F;选项（大概就是archwiki那种干涩的行文思路），最后会给出我自己的一些常用命令，但不会做解释。 写作时参考了yay">
+<meta property="og:type" content="article">
+<meta property="og:title" content="yay进阶">
+<meta property="og:url" content="https://zhul.in/2021/04/04/yay-more/index.html">
+<meta property="og:site_name" content="竹林里有冰的博客">
+<meta property="og:description" content="yay是一个AUR Helper，他可以执行pacman的几乎所有操作，并在此基础上添加了很多额外用法。 我没有在网络上查找到关于yay的、除了pacman基础用法和安装AUR包以外的中文教程，英文的也几乎没有看到，这也是我写这篇文章的原因所在。 本文通篇详讲yay的每一个设置&#x2F;选项（大概就是archwiki那种干涩的行文思路），最后会给出我自己的一些常用命令，但不会做解释。 写作时参考了yay">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-04-03T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-02-10T00:07:30.104Z">
+<meta property="article:author" content="竹林里有冰">
+<meta property="article:tag" content="Archlinux">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>yay进阶 - 竹林里有冰的博客</title>
+
+  <link  rel="stylesheet" href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/4.6.0/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-y/hint.css/2.6.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"zhul.in","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":"53f7dbd6c38163e3059b7a7f05e77e70","google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+
+  
+<meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/rss.xml" title="竹林里有冰的博客" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>竹林里有冰的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-books"></i>
+                其他
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/rss.xml">
+                    
+                    rss订阅
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/collections/">
+                    
+                    收藏
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/linux-source/">
+                    
+                    Linux软件源
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://api.vercel.zhullyb.top/api/randomtoppic.php') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="yay进阶"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2021-04-04 00:00" pubdate>
+          2021年4月4日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          7.9k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          40 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">yay进阶</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    <!-- compatible with older versions-->
+                    本文最后更新于：2022年2月10日 早上
+                  
+                
+              </p>
+            
+            <div class="markdown-body">
+              
+              <blockquote>
+<p>yay是一个AUR Helper，他可以执行pacman的几乎所有操作，并在此基础上添加了很多额外用法。</p>
+<p>我没有在网络上查找到关于yay的、除了pacman基础用法和安装AUR包以外的中文教程，英文的也几乎没有看到，这也是我写这篇文章的原因所在。</p>
+<p>本文通篇详讲yay的每一个设置/选项（大概就是archwiki那种干涩的行文思路），最后会给出我自己的一些常用命令，但不会做解释。</p>
+<p>写作时参考了yay的英文使用手册，如果你的arch安装了yay，那么即可通过<code>man yay</code>命令随时查阅它。</p>
+</blockquote>
+<p><strong>Tips1: 本文中出现的foo一般是指包名，标注*的表示该选项默认启用。</strong></p>
+<p><strong>Tips2: 使用电脑端的访客可以在侧栏以获取目录。</strong></p>
+<h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><p>yay的基本用法是<code>yay &lt;operation&gt; [options] [targets]</code>、<code>yay foo</code>和<code>yay</code>，<code>yay &lt;operation&gt; [options] [targets]</code>的用法可以讨论的点比较多，我会在后文中一一道来。</p>
+<h3 id="yay"><a href="#yay" class="headerlink" title="yay"></a><code>yay</code></h3><p>当我们仅执行<code>yay</code>，后面不跟任何参数时，yay会执行操作<code>yay -Syu</code>，他会先调用pacman更新源的数据库、更新所有从源内安装的软件包，并检查你的AUR包有没有更新。</p>
+<h3 id="yay-foo"><a href="#yay-foo" class="headerlink" title="yay foo"></a><code>yay foo</code></h3><p>通过yay后面直接跟包名的命令会让yay直接在源和AUR内搜索带有<code>foo</code>关键词的包（包名和简介中只要出现foo都会被一网打尽），以下是我执行<code>yay dingtalk</code>的输出</p>
+<figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs subunit">5 aur/com.dingtalk.deepin 5.0.15deepin7<span class="hljs-string">-1</span> (<span class="hljs-string">+0</span> 0.00)<br>    Deepin Wine dingtalk<br>4 aur/deepin.com.dingtalk.com 5.1.28.12<span class="hljs-string">-2</span> (<span class="hljs-string">+1</span> 0.12)<br>    DingTalk Client on Deepin Wine<br>3 aur/dingtalk 2.1.3<span class="hljs-string">-1</span> (<span class="hljs-string">+3</span> 0.00)<br>    钉钉桌面版，基于electron和钉钉网页版开发，支持Windows、Linux和macOS<br>2 aur/dingtalk-linux 3.5.5<span class="hljs-string">-1</span> (<span class="hljs-string">+6</span> 0.12)<br>    May be the official Linux experimental version<br>1 aur/dingtalk-electron 2.1.9<span class="hljs-string">-1</span> (<span class="hljs-string">+9</span> 0.15)<br>    钉钉Linux版本<br>==&gt; Packages to install (eg: 1 2 3, 1<span class="hljs-string">-3</span> or ^4)<br>==<br></code></pre></td></tr></table></figure>
+
+<p>输入每一项对应的序号即可进入相应的安装过程。</p>
+<h3 id="yay-lt-operation-gt-options-targets"><a href="#yay-lt-operation-gt-options-targets" class="headerlink" title="yay &lt;operation&gt; [options] [targets]"></a><code>yay &lt;operation&gt; [options] [targets]</code></h3><p>在这里，&lt;operation&gt;每次只能有一个，[options]和[targets]可以有多个，且多个[options]可以合起来写在一起。比如<code>yay -P -s -f</code>可以直接写成<code>yay -Psf</code>，顺序也可以颠倒，<code>-Psf</code>和<code>-sPf</code>没区别。</p>
+<h4 id="Y-yay"><a href="#Y-yay" class="headerlink" title="-Y (--yay)"></a><code>-Y (--yay)</code></h4><p>-Y行为其实是yay的默认行为，当你没有加其他的行为参数时，yay就会执行-Y参数，可以跟<code>--gendb</code>和<code>-c</code>。</p>
+<h5 id="gendb"><a href="#gendb" class="headerlink" title="--gendb"></a><code>--gendb</code></h5><p>生成AUR数据库。<strong>仅当从另一个AUR Helper迁移到yay时，才应使用此选项。</strong><del>（根据我的个人理解，是根据你Arch内安装的源内找不到的包的包名去AUR里寻找对应的PKGBUILD，并且把能找到的PKGBUILD给clone到<code>~/.cache/yay/</code>目录下）</del></p>
+<p>千玄子大佬说：“简单说来就是把在 AUR 的 PKGBUILD 下下来然后比对是否要更新。”</p>
+<h5 id="c（-clean）"><a href="#c（-clean）" class="headerlink" title="-c（--clean）"></a><code>-c（--clean）</code></h5><p>清除不再需要的、没有被依赖的包。（相当于apt中的autoremove）</p>
+<h4 id="P-show"><a href="#P-show" class="headerlink" title="-P(--show)"></a><code>-P(--show)</code></h4><p>执行特定的Print操作。可以跟的[option]有<code>-c、-f、-d、-g、-n、-s、-u、-w、-q</code></p>
+<h5 id="c-complete"><a href="#c-complete" class="headerlink" title="-c(--complete)"></a><code>-c(--complete)</code></h5><p>Print所有源内和AUR软件包的列表。这是给命令行操作提供的，并不打算由用户直接使用。（意思是启用了这个选项以后你的终端会出现一大串长常的列表来告诉你你的Arch到底可以从哪里安装哪些包，并不是直接给你用的，是作为数据留给别的命令来玩耍的）</p>
+<h5 id="f-fish"><a href="#f-fish" class="headerlink" title="-f(--fish)"></a><code>-f(--fish)</code></h5><p>在输出结果到终端时，会专门为fish用户做微调。（但是根据SamLukeYes大佬说他用fish体验下来并没有感知到加不加有什么区别，应该是属于感知不强的选项）</p>
+<h5 id="d-defaultconfig"><a href="#d-defaultconfig" class="headerlink" title="-d(--defaultconfig)"></a><code>-d(--defaultconfig)</code></h5><p>Print默认的yay配置。</p>
+<h5 id="g-currentconfig"><a href="#g-currentconfig" class="headerlink" title="-g(--currentconfig)"></a><code>-g(--currentconfig)</code></h5><p>Print当前的yay配置。</p>
+<h5 id="n-numberupgrades"><a href="#n-numberupgrades" class="headerlink" title="-n(--numberupgrades)"></a><code>-n(--numberupgrades)</code></h5><p>数一数你现在还有多少AUR包待更新。yay作者不推荐你使用呢，他推荐你用<code>yay -Qu</code>或者<code>wc -l</code>来代替它。</p>
+<h5 id="s-stats"><a href="#s-stats" class="headerlink" title="-s(--stats)"></a><code>-s(--stats)</code></h5><p>会展示一大堆信息，如下</p>
+<figure class="highlight asciidoc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs asciidoc">[zhullyb@Archlinux ~]$ yay -Ps<br><span class="hljs-section">==&gt; Yay version v10.2.0							    #yay版本</span><br><span class="hljs-section">===========================================</span><br>==&gt; Total installed packages: 1240				    #总共安装了多少包<br>==&gt; Total foreign installed packages: 24		    #多少包不是从源里安装的<br>==&gt; Explicitly installed packages: 271			    #有多少包是你自己主动安装的(而不是作为依赖安装的)<br><span class="hljs-section">==&gt; Total Size occupied by packages: 14.3 GiB	    #安装的所有包合在一起一共占了你多少空间</span><br><span class="hljs-section">===========================================</span><br>==&gt; Ten biggest packages:						    #十个体积最大的包<br>wps-office-cn: 990.9 MiB<br>ttf-sarasa-gothic: 855.5 MiB<br>linux-firmware: 652.3 MiB<br>baidunetdisk-bin: 494.7 MiB<br>com.antutu.benchmark: 412.0 MiB<br>wine: 402.2 MiB<br>linux-xanmod-cacule-uksm-cjktty: 324.4 MiB<br>microsoft-edge-dev-bin: 316.4 MiB<br>wine-mono: 316.2 MiB<br><span class="hljs-section">deepin-wine5-i386: 259.5 MiB</span><br><span class="hljs-section">===========================================</span><br>:: Querying AUR...<br><span class="hljs-code"> -&gt; Missing AUR Packages:  zhullyb-archlinux-git    #AUR里找不到的包</span><br><span class="hljs-code"> -&gt; Flagged Out Of Date AUR Packages:  xml2		    #AUR中被人标注过期的包</span><br></code></pre></td></tr></table></figure>
+
+<h5 id="u-upgrades"><a href="#u-upgrades" class="headerlink" title="-u(--upgrades)"></a><code>-u(--upgrades)</code></h5><p>展示你所有待更新的包。</p>
+<h5 id="w-news"><a href="#w-news" class="headerlink" title="-w(--news)"></a><code>-w(--news)</code></h5><p>展示来自archlinux.org的新闻。需要注意的是，这里的新闻是具有时效性的，只有在你的Arch最后一次更新以后发出来的新闻才会被显示出来。如果你不想要yay判断新闻时效性，你可以通过<code>yay -Pww</code>（即两个<code>w</code>）来获取所有能获得的新闻。</p>
+<h5 id="q-quiet"><a href="#q-quiet" class="headerlink" title="-q(--quiet)"></a><code>-q(--quiet)</code></h5><p>在输出新闻的时候，仅输出新闻的标题。该功能需要与<code>-w</code>连用，即<code>yay -Pwq</code>。</p>
+<h4 id="G-getpkgbuild"><a href="#G-getpkgbuild" class="headerlink" title="-G(--getpkgbuild)"></a><code>-G(--getpkgbuild)</code></h4><p>后跟包名。需要注意的是，如果指定的包不存在于官方源，则无法输出，后跟<code>-f、-p</code>参数。</p>
+<p><em>如果希望仅获取来自AUR（即排除第三方源的干扰）的PKGBUILD，后需跟<code>-a</code>参数。</em></p>
+<h5 id="f-force"><a href="#f-force" class="headerlink" title="-f(--force)"></a><code>-f(--force)</code></h5><p>强制下载AUR中的PKGBUILD，如果它在yay缓存目录已经存在了，那就覆盖它！</p>
+<h5 id="p-print"><a href="#p-print" class="headerlink" title="-p(--print)"></a><code>-p(--print)</code></h5><p>Print指定包的PKGBUILD。</p>
+<h3 id="pacman-拓展用法"><a href="#pacman-拓展用法" class="headerlink" title="pacman 拓展用法"></a>pacman 拓展用法</h3><p>yay虽然可以使用pacman的所有&lt;operation&gt;，但是它远不仅于此。在这一段，我将向你介绍yay中包含的那些pacman不包括的pacman &lt;operation&gt;</p>
+<h4 id="S"><a href="#S" class="headerlink" title="-S"></a><code>-S</code></h4><h5 id="S-Si-Sl-Ss-Su-Sc-Qu"><a href="#S-Si-Sl-Ss-Su-Sc-Qu" class="headerlink" title="-S, -Si, -Sl, -Ss, -Su, -Sc, -Qu"></a><code>-S, -Si, -Sl, -Ss, -Su, -Sc, -Qu</code></h5><p>这些操作pacman都支持，而与pacman不同的是，yay的这些操作可以涵盖到<strong>官方源/第三方源和AUR</strong>中的所有包。</p>
+<h4 id="Sc"><a href="#Sc" class="headerlink" title="-Sc"></a><code>-Sc</code></h4><p>yay将会清除AUR包构建时的缓存和没有被track的文件。没有被track的文件在这里指AUR包构建时下载的sources或者构建完成的pkg包，但是vcs sources会被保留（比如.<code>git</code>文件夹）</p>
+<h4 id="全局的-options"><a href="#全局的-options" class="headerlink" title="全局的[options]"></a>全局的[options]</h4><p>全局是指在所有&lt;operation&gt;下都可以加啦。</p>
+<h5 id="repo"><a href="#repo" class="headerlink" title="--repo"></a><code>--repo</code></h5><p>假定你给出的包名只存在源里（忽视AUR的存在）</p>
+<h5 id="a-aur"><a href="#a-aur" class="headerlink" title="-a(--aur)"></a><code>-a(--aur)</code></h5><p>假定你给出的包名只存在AUR中（忽视源的存在）</p>
+<h2 id="配置设置"><a href="#配置设置" class="headerlink" title="配置设置"></a>配置设置</h2><p>原版的man手册排的比较混乱，我这里自己细分了几个类型，或许不是特别专业，但我希望能够帮助你们理解。</p>
+<h3 id="自定义调用命令型"><a href="#自定义调用命令型" class="headerlink" title="自定义调用命令型"></a>自定义调用命令型</h3><h5 id="editor-lt-command-gt"><a href="#editor-lt-command-gt" class="headerlink" title="--editor &lt;command&gt;"></a><code>--editor &lt;command&gt;</code></h5><p>设置编辑时调用的编辑器。</p>
+<h5 id="makepkg-lt-command-gt"><a href="#makepkg-lt-command-gt" class="headerlink" title="--makepkg &lt;command&gt;"></a><code>--makepkg &lt;command&gt;</code></h5><p>设置makepkg时需要调用makepkg命令（一般情况下用不到）</p>
+<h5 id="pacman-lt-command-gt"><a href="#pacman-lt-command-gt" class="headerlink" title="--pacman &lt;command&gt;"></a><code>--pacman &lt;command&gt;</code></h5><p>设置运行pacman时需要调用pacman命令（一般情况下用不到）</p>
+<h5 id="tar-lt-command-gt"><a href="#tar-lt-command-gt" class="headerlink" title="--tar &lt;command&gt;"></a><code>--tar &lt;command&gt;</code></h5><p>设置makepkg解压tar资源时调用的tar命令（一般情况下用不到）</p>
+<h5 id="git-lt-command-gt"><a href="#git-lt-command-gt" class="headerlink" title="--git &lt;command&gt;"></a><code>--git &lt;command&gt;</code></h5><p>设置makepkg clone git资源时调用的git命令（比如你可以安装AUR中的fgit-go，使用<code>--git fgit</code>参数来让fastgit代理clone的过程）</p>
+<h5 id="gpg-lt-command-gt"><a href="#gpg-lt-command-gt" class="headerlink" title="--gpg &lt;command&gt;"></a><code>--gpg &lt;command&gt;</code></h5><p>设置gpg验证资源时调用的gpg命令</p>
+<h5 id="sudo-lt-command-gt"><a href="#sudo-lt-command-gt" class="headerlink" title="--sudo &lt;command&gt;"></a><code>--sudo &lt;command&gt;</code></h5><p>设置调用sudo获取su权限安装pkg时所调用的sudo命令。</p>
+<h3 id="自定义配置文件型"><a href="#自定义配置文件型" class="headerlink" title="自定义配置文件型"></a>自定义配置文件型</h3><h5 id="config-lt-file-gt"><a href="#config-lt-file-gt" class="headerlink" title="--config &lt;file&gt;"></a><code>--config &lt;file&gt;</code></h5><p>设置读取的pacman配置文件。</p>
+<h5 id="makepkgconf-lt-file-gt"><a href="#makepkgconf-lt-file-gt" class="headerlink" title="--makepkgconf &lt;file&gt;"></a><code>--makepkgconf &lt;file&gt;</code></h5><p>设置读取的makepkg配置文件。</p>
+<h5 id="nomakepkgconf"><a href="#nomakepkgconf" class="headerlink" title="--nomakepkgconf"></a><code>--nomakepkgconf</code></h5><p>不读取系统中的makepkg.conf，仅使用Arch默认状态下的配置文件。</p>
+<h3 id="自定义路径类型"><a href="#自定义路径类型" class="headerlink" title="自定义路径类型"></a>自定义路径类型</h3><h5 id="builddir-lt-dir-gt"><a href="#builddir-lt-dir-gt" class="headerlink" title="--builddir &lt;dir&gt;"></a><code>--builddir &lt;dir&gt;</code></h5><p>设置build路径，默认路径为<code>~/.cache/yay/</code></p>
+<h5 id="absdir-lt-dir-gt"><a href="#absdir-lt-dir-gt" class="headerlink" title="--absdir &lt;dir&gt;"></a><code>--absdir &lt;dir&gt;</code></h5><p> 设置abs路径，默认路径为<code>~/.cache/yay/abs/</code></p>
+<h3 id="参数传递型"><a href="#参数传递型" class="headerlink" title="参数传递型"></a>参数传递型</h3><h5 id="editorflags-lt-flags-gt"><a href="#editorflags-lt-flags-gt" class="headerlink" title="--editorflags &lt;flags&gt;"></a><code>--editorflags &lt;flags&gt;</code></h5><p>后跟需要跟随传递给编辑器的参数。如果需要传递多个参数，可以使用引号。</p>
+<h5 id="mflags-lt-flags-gt"><a href="#mflags-lt-flags-gt" class="headerlink" title="--mflags &lt;flags&gt;"></a><code>--mflags &lt;flags&gt;</code></h5><p>后跟需要跟随传递给makepkg的参数。如果需要传递多个参数，可以使用引号。</p>
+<p>这个用的人不多，但其实是非常好用的一个功能。在我们安装<code>deepin-wine-tim</code>等包的时候，很可能会遇到文件明明完整但checksum不通过的情况，这时我们可以跟一个<code>--skipchecksums</code>参数传递给makepkg以跳过checksum的过程。</p>
+<h5 id="gpgflags-lt-flags-gt"><a href="#gpgflags-lt-flags-gt" class="headerlink" title="--gpgflags &lt;flags&gt;"></a><code>--gpgflags &lt;flags&gt;</code></h5><p>后跟需要跟随传递给pgp的参数。如果需要传递多个参数，可以使用引号。</p>
+<h5 id="sudoflags-lt-flags-gt"><a href="#sudoflags-lt-flags-gt" class="headerlink" title="--sudoflags &lt;flags&gt;"></a><code>--sudoflags &lt;flags&gt;</code></h5><p>后跟需要跟随传递给sudo的参数。如果需要传递多个参数，可以使用引号。</p>
+<h3 id="菜单配置型"><a href="#菜单配置型" class="headerlink" title="菜单配置型"></a>菜单配置型</h3><h4 id="clean菜单"><a href="#clean菜单" class="headerlink" title="clean菜单"></a>clean菜单</h4><h5 id="cleanmenu"><a href="#cleanmenu" class="headerlink" title="*--cleanmenu"></a>*<code>--cleanmenu</code></h5><p>启用清除询问菜单。（询问你是否需要清除已存在的文件）</p>
+<h5 id="nocleanmenu"><a href="#nocleanmenu" class="headerlink" title="--nocleanmenu"></a><code>--nocleanmenu</code></h5><p>禁用清除询问菜单。（不询问你是否需要清除已存在的文件）</p>
+<h5 id="answerclean"><a href="#answerclean" class="headerlink" title="--answerclean"></a><code>--answerclean</code></h5><p> 自动回答cleanmenu，后跟<code>&lt;All|None|Installed|NotInstalled&gt;</code>参数。</p>
+<h5 id="noanswerclean"><a href="#noanswerclean" class="headerlink" title="*--noanswerclean"></a>*<code>--noanswerclean</code></h5><p>不设置自动回答。</p>
+<h4 id="diff菜单"><a href="#diff菜单" class="headerlink" title="diff菜单"></a>diff菜单</h4><h5 id="diffmenu"><a href="#diffmenu" class="headerlink" title="*--diffmenu"></a>*<code>--diffmenu</code></h5><p>启用对比询问菜单。（询问你是否需要对比本地文件和AUR文件）</p>
+<h5 id="nodiffmenu"><a href="#nodiffmenu" class="headerlink" title="--nodiffmenu"></a><code>--nodiffmenu</code></h5><p>禁用对比询问菜单。（不询问你是否需要对比本地文件和AUR文件）</p>
+<h5 id="answerdiff"><a href="#answerdiff" class="headerlink" title="--answerdiff"></a><code>--answerdiff</code></h5><p>自动回答cleanmenu，后跟<code>&lt;All|None|Installed|NotInstalled&gt;</code>参数。</p>
+<h5 id="noanswerdiff"><a href="#noanswerdiff" class="headerlink" title="*--noanswerdiff"></a>*<code>--noanswerdiff</code></h5><p>不设置自动回答。</p>
+<h4 id="edit菜单"><a href="#edit菜单" class="headerlink" title="edit菜单"></a>edit菜单</h4><h5 id="editmenu"><a href="#editmenu" class="headerlink" title="--editmenu"></a><code>--editmenu</code></h5><p>启用修改询问菜单。（询问你是否需要修改PKGBUILD以及相关文件）</p>
+<h5 id="noeditmenu"><a href="#noeditmenu" class="headerlink" title="*--noeditmenu"></a>*<code>--noeditmenu</code></h5><p>禁用修改询问菜单。（不询问你是否需要修改PKGBUILD以及相关文件）</p>
+<h5 id="answeredit"><a href="#answeredit" class="headerlink" title="--answeredit"></a><code>--answeredit</code></h5><p>自动回答editmenu，后跟<code>&lt;All|None|Installed|NotInstalled&gt;</code>参数。</p>
+<h5 id="noansweredit"><a href="#noansweredit" class="headerlink" title="*--noansweredit"></a>*<code>--noansweredit</code></h5><p>不设置自动回答。</p>
+<h4 id="upgrade菜单"><a href="#upgrade菜单" class="headerlink" title="upgrade菜单"></a>upgrade菜单</h4><h5 id="upgrademenu"><a href="#upgrademenu" class="headerlink" title="*--upgrademenu"></a>*<code>--upgrademenu</code></h5><p>启用更新询问菜单。（询问你是否需要更新AUR包）</p>
+<h5 id="noupgrademenu"><a href="#noupgrademenu" class="headerlink" title="--noupgrademenu"></a><code>--noupgrademenu</code></h5><p>禁用更新询问菜单。（不询问你是否需要更新AUR包）</p>
+<h5 id="answerupgrade"><a href="#answerupgrade" class="headerlink" title="--answerupgrade"></a><code>--answerupgrade</code></h5><p>自动回答upgrademenu，后跟<code>&lt;All|None|Installed|NotInstalled</code>参数。</p>
+<h5 id="noanswerupgrade"><a href="#noanswerupgrade" class="headerlink" title="*--noanswerupgrade"></a>*<code>--noanswerupgrade</code></h5><p>不设置自动回答。</p>
+<h4 id="removemake菜单"><a href="#removemake菜单" class="headerlink" title="removemake菜单"></a>removemake菜单</h4><h5 id="askremovemake"><a href="#askremovemake" class="headerlink" title="*--askremovemake"></a>*<code>--askremovemake</code></h5><p>在编译结束后，询问是否删除make depend。</p>
+<h5 id="removemake"><a href="#removemake" class="headerlink" title="--removemake"></a><code>--removemake</code></h5><p>在编译结束后，删除make depend。</p>
+<h5 id="noremovemake"><a href="#noremovemake" class="headerlink" title="--noremovemake"></a><code>--noremovemake</code></h5><p>在编译结束后，不删除make depend。</p>
+<h4 id="provides菜单"><a href="#provides菜单" class="headerlink" title="provides菜单"></a>provides菜单</h4><h5 id="provides"><a href="#provides" class="headerlink" title="*--provides"></a>*<code>--provides</code></h5><p>搜索AUR包时，一同寻找其在AUR上的依赖程序。 当找到多个提供该依赖的包时，将出现一个菜单，提示您选择一个。尽管这不会引起注意，但这会增加依赖项解决时间。</p>
+<h5 id="noprovides"><a href="#noprovides" class="headerlink" title="--noprovides"></a><code>--noprovides</code></h5><p>搜索AUR包时，不在AUR上寻找其依赖程序。尽管yay不会再次弹出依赖菜单供你选择，yay调用pacman时依然会出现pacman的选择菜单让你选择。</p>
+<h4 id="pgpfetch菜单"><a href="#pgpfetch菜单" class="headerlink" title="pgpfetch菜单"></a>pgpfetch菜单</h4><h5 id="pgpfetch"><a href="#pgpfetch" class="headerlink" title="*--pgpfetch"></a>*<code>--pgpfetch</code></h5><p>询问你是否从每个PKGBUILD的validpgpkeys字段导入未知的PGP密钥。</p>
+<h5 id="nopgpfetch"><a href="#nopgpfetch" class="headerlink" title="--nopgpfetch"></a><code>--nopgpfetch</code></h5><p>不自动导入陌生的PGP密钥。</p>
+<h4 id="useask选项"><a href="#useask选项" class="headerlink" title="useask选项"></a>useask选项</h4><h5 id="useask"><a href="#useask" class="headerlink" title="*--useask"></a>*<code>--useask</code></h5><p>调用pacman的–ask询问用户是否删除系统中与当前包冲突的软件包。</p>
+<h5 id="nouseask"><a href="#nouseask" class="headerlink" title="--nouseask"></a><code>--nouseask</code></h5><p>不调用pacman的–ask询问用户是否删除系统中与当前包冲突的软件包，遇到冲突的软件包时直接报错，由用户来手动解决。</p>
+<h4 id="combinedupgrade菜单"><a href="#combinedupgrade菜单" class="headerlink" title="combinedupgrade菜单"></a>combinedupgrade菜单</h4><h5 id="combinedupgrade"><a href="#combinedupgrade" class="headerlink" title="--combinedupgrade"></a><code>--combinedupgrade</code></h5><p>在系统更新期间，将源内包和AUR包的更新菜单合并到一起。</p>
+<h5 id="nocombinedupgrade"><a href="#nocombinedupgrade" class="headerlink" title="*--nocombinedupgrade"></a>*<code>--nocombinedupgrade</code></h5><p>在系统更新期间，先支持源内包的升级，完成后再进行AUR包的升级。</p>
+<h3 id="T-or-F-型"><a href="#T-or-F-型" class="headerlink" title="T or F 型"></a>T or F 型</h3><h4 id="devel"><a href="#devel" class="headerlink" title="devel"></a>devel</h4><h5 id="devel-1"><a href="#devel-1" class="headerlink" title="--devel"></a><code>--devel</code></h5><p>在系统更新期间，检查AUR的vcs包是否有更新，当前仅支持AUR的-git包。 devel查询是使用<code>git ls-remote</code>对比安装时和现在最新的commit_id完成的。</p>
+<h5 id="nodevel"><a href="#nodevel" class="headerlink" title="*--nodevel"></a>*<code>--nodevel</code></h5><p>在系统更新期间， 不检查AUR的vcs包是否有更新。</p>
+<h4 id="timeupdate"><a href="#timeupdate" class="headerlink" title="timeupdate"></a>timeupdate</h4><h5 id="timeupdate-1"><a href="#timeupdate-1" class="headerlink" title="--timeupdate"></a><code>--timeupdate</code></h5><p>在系统更新期间，将已安装软件包的构建时间与每个软件包的AUR的最后修改时间进行比较。</p>
+<h5 id="notimeupdate"><a href="#notimeupdate" class="headerlink" title="*--notimeupdate"></a>*<code>--notimeupdate</code></h5><p>在系统更新期间，不将已安装软件包的构建时间与每个软件包的AUR的最后修改时间进行比较。</p>
+<h4 id="redownload"><a href="#redownload" class="headerlink" title="redownload"></a>redownload</h4><h5 id="redownload-1"><a href="#redownload-1" class="headerlink" title="--redownload"></a><code>--redownload</code></h5><p>就算PKGBUILD已经存在，也要重新从AUR上获取一份新的PKGBUILD并覆盖原有PKGBUILD。</p>
+<h5 id="redownloadall"><a href="#redownloadall" class="headerlink" title="--redownloadall"></a><code>--redownloadall</code></h5><p>就算PKGBUILD已经存在，也要重新从AUR上获取所有AUR包的PKGBUILD并覆盖原有PKGBUILD。</p>
+<h5 id="noredownload"><a href="#noredownload" class="headerlink" title="*--noredownload"></a>*<code>--noredownload</code></h5><p>当下载PKGBUILD时，，如果发现cache中的PKGBUILD版本＞＝AUR上的版本时，直接使用本地的PKGBUILD。</p>
+<h4 id="rebuild"><a href="#rebuild" class="headerlink" title="rebuild"></a>rebuild</h4><h5 id="rebuild-1"><a href="#rebuild-1" class="headerlink" title="--rebuild"></a><code>--rebuild</code></h5><p>即使在cache中有可用的二进制包的情况下，也始终要重新编译目标软件包。</p>
+<h5 id="rebuildall"><a href="#rebuildall" class="headerlink" title="--rebuildall"></a><code>--rebuildall</code></h5><p>即使在cache中有可用的二进制包的情况下，也始终要重新编译所有的AUR包。</p>
+<h5 id="rebuildtree"><a href="#rebuildtree" class="headerlink" title="--rebuildtree"></a><code>--rebuildtree</code></h5><p>安装AUR包时，以递归方式重新编译并重新安装其所有AUR依赖包，即使已安装的依赖项也是如此。 该选项使您可以轻松地针对当前系统的库重新构建软件包，如果它们变得不兼容。（比如python3.8-&gt;3.9）</p>
+<h5 id="norebuild"><a href="#norebuild" class="headerlink" title="*--norebuild"></a>*<code>--norebuild</code></h5><p>构建软件包时，如果在缓存中找到该软件包并且该软件包与想要的软件包的版本相同，则跳过软件包的编译过程并使用现有的二进制程序。</p>
+<h4 id="sudoloop"><a href="#sudoloop" class="headerlink" title="sudoloop"></a>sudoloop</h4><h5 id="sudoloop-1"><a href="#sudoloop-1" class="headerlink" title="--sudoloop"></a><code>--sudoloop</code></h5><p>在后台循环调用sudo，以防止sudo授权在长时间构建期间超时。</p>
+<h5 id="nosudoloop"><a href="#nosudoloop" class="headerlink" title="*--nosudoloop"></a>*<code>--nosudoloop</code></h5><p>不在后台循环调用sudo，可能会导致sudo授权在长时间构建期间超时。</p>
+<h4 id="batchinstall"><a href="#batchinstall" class="headerlink" title="batchinstall"></a>batchinstall</h4><h5 id="batchinstall-1"><a href="#batchinstall-1" class="headerlink" title="--batchinstall"></a><code>--batchinstall</code></h5><p>在构建和安装AUR包时，对每个软件包的安装进行排序，而并非在构建之后立刻安装每个软件包时。 需要注意的是，一旦构建了所有软件包，或者需要构建队列中的软件包作为构建另一个软件包的依赖项，应当在安装队列中安装所有软件包。</p>
+<h5 id="nobatchinstall"><a href="#nobatchinstall" class="headerlink" title="*--nobatchinstall"></a>*<code>--nobatchinstall</code></h5><p>在构建AUR包成功后立即安装。</p>
+<h4 id="clearafter"><a href="#clearafter" class="headerlink" title="clearafter"></a>clearafter</h4><h5 id="cleanafter"><a href="#cleanafter" class="headerlink" title="--cleanafter"></a><code>--cleanafter</code></h5><p>在构建AUR包完成以后清除cache文件。</p>
+<h5 id="nocleanafter"><a href="#nocleanafter" class="headerlink" title="*--nocleanafter"></a>*<code>--nocleanafter</code></h5><p>在构建AUR包完成以后不清除cache文件。</p>
+<h3 id="其他型"><a href="#其他型" class="headerlink" title="其他型"></a>其他型</h3><h5 id="save"><a href="#save" class="headerlink" title="--save"></a><code>--save</code></h5><p>把你这一次执行yay后面跟的配置参数永久保存下来。</p>
+<h5 id="aururl"><a href="#aururl" class="headerlink" title="--aururl"></a><code>--aururl</code></h5><p>更改aur源地址（默认为 <a target="_blank" rel="noopener" href="https://aur.archlinux.org/">https://aur.archlinux.org</a> ），<del>适用于中国用户，可以使用此参数将AUR的地址设置成清华的反代，具体的配置命令为</del></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">yay --aururl <span class="hljs-string">&quot;https://aur.tuna.tsinghua.edu.cn&quot;</span> --save<br></code></pre></td></tr></table></figure>
+
+<p>TUNA 的反代已经取消，可以使用如下命令设置回 AUR 官方源</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">yay --aururl <span class="hljs-string">&quot;https://aur.archlinux.org&quot;</span> --save<br></code></pre></td></tr></table></figure>
+
+<h5 id="sortby"><a href="#sortby" class="headerlink" title="--sortby"></a><code>--sortby</code></h5><p>在搜索过程中，按特定条件对AUR结果进行排序，后跟<code>&lt;votes|popularity|id|baseid|name|base|submitted|modified&gt;</code>参数，默认为<code>votes</code>。</p>
+<h5 id="searchby"><a href="#searchby" class="headerlink" title="--searchby"></a><code>--searchby</code></h5><p>通过指定查询类型来搜索AUR软件包，后跟<code>&lt;name|name-desc|maintainer|depends|checkdepends|makedepends|optdepends&gt;</code>参数，默认为<code>name-desc</code>。</p>
+<h5 id="topdown"><a href="#topdown" class="headerlink" title="*--topdown"></a>*<code>--topdown</code></h5><p>优先展示源内包，其次才是AUR包</p>
+<h5 id="bottomup"><a href="#bottomup" class="headerlink" title="--bottomup"></a><code>--bottomup</code></h5><p>优先展示AUR包，其次才是源内包</p>
+<h5 id="requestsplitn-lt-number-gt"><a href="#requestsplitn-lt-number-gt" class="headerlink" title="--requestsplitn &lt;number&gt;"></a><code>--requestsplitn &lt;number&gt;</code></h5><p>设置在每次向AUR的请求的最大数值（默认150）。数值越高，请求时间越短，但是单次请求的数值过大会导致error。当这个数值＞500时你应当特别注意这一点。</p>
+<h5 id="completioninterval-lt-days-gt"><a href="#completioninterval-lt-days-gt" class="headerlink" title="--completioninterval &lt;days&gt;"></a><code>--completioninterval &lt;days&gt;</code></h5><p>刷新完成高速缓存的时间（以天为单位,默认为7）。 将此值设置为0将导致每次刷新缓存，而将其设置为-1将导致永远不刷新缓存。</p>
+<h2 id="我个人的常用命令"><a href="#我个人的常用命令" class="headerlink" title="我个人的常用命令"></a>我个人的常用命令</h2><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs ebnf"><span class="hljs-attribute">yay</span><br><span class="hljs-attribute">yay foo</span><br><span class="hljs-attribute">yay -Sa foo</span><br><span class="hljs-attribute">yay -Scc</span><br><span class="hljs-attribute">yay -Ps</span><br><span class="hljs-attribute">yay -Pww</span><br><span class="hljs-attribute">yay -Gpa</span><br><span class="hljs-attribute">yay -Ga</span><br></code></pre></td></tr></table></figure>
+
+
+
+<p><em>本文同时发布于「<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/363666022">知乎专栏</a>」，如果你恰好有知乎帐号的话或许可以考虑帮我点个赞？</em></p>
+
+              
+            </div>
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Archlinux/">#Archlinux</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>yay进阶</div>
+      <div>https://zhul.in/2021/04/04/yay-more/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>竹林里有冰</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2021年4月4日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2022年2月10日</div>
+        </div>
+      
+      <div class="license-meta-item">
+        <div>许可协议</div>
+        <div>
+          
+            
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                <i class="iconfont icon-by"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                <i class="iconfont icon-nc"></i>
+              </span>
+              </a>
+            
+              <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+              <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                <i class="iconfont icon-sa"></i>
+              </span>
+              </a>
+            
+          
+        </div>
+      </div>
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/04/11/use-motrix-install-of-firefox-to-download/" title="使用Motrix接管Firefox的下载">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">使用Motrix接管Firefox的下载</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/03/14/lets-fuck-dm-and-use-startx/" title="抛弃DisplayManager，拥抱startx">
+                        <span class="hidden-mobile">抛弃DisplayManager，拥抱startx</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  <article id="comments" lazyload>
+    
+  <div id="waline"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#waline', function() {
+      Fluid.utils.createCssLink('https://lib.baomitu.com/waline/2.5.1/waline.min.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/waline/2.5.1/waline.min.js', function() {
+        var options = Object.assign(
+          {"serverURL":"https://waline.zhullyb.top","path":"window.location.pathname","meta":["nick","mail","link"],"requiredMeta":["nick"],"lang":"zh-CN","emoji":["https://npm.elemecdn.com/superbadguy-bed@0.0.9"],"dark":"html[data-user-color-scheme=\"dark\"]","wordLimit":0,"pageSize":10,"login":"disable","locale":{"placeholder":"快发个评论让我知道你在看（x"}},
+          {
+            el: '#waline',
+            path: window.location.pathname
+          }
+        )
+        Waline.init(options);
+        Fluid.utils.waitElementVisible('#waline .vcontent', () => {
+          var imgSelector = '#waline .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+  </article>
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.5.1/jquery.min.js" ></script>
+<script  src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/4.6.0/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <!-- Baidu Analytics -->
+    <script defer>
+      if (!Fluid.ctx.dnt) {
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "https://hm.baidu.com/hm.js?53f7dbd6c38163e3059b7a7f05e77e70";
+          var s = document.getElementsByTagName("script")[0];
+          s.parentNode.insertBefore(hm, s);
+        })();
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/tocbot/4.12.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      headingSelector : CONFIG.toc.headingSelector || 'h1,h2,h3,h4,h5,h6',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      collapseDepth   : CONFIG.toc.collapseDepth || 0,
+      scrollSmooth    : true,
+      headingsOffset  : -boardTop
+    });
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+  });
+</script>
+
+
+  <script>
+  (function() {
+    var enableLang = CONFIG.code_language.enable && CONFIG.code_language.default;
+    var enableCopy = CONFIG.copy_btn;
+    if (!enableLang && !enableCopy) {
+      return;
+    }
+
+    function getBgClass(ele) {
+      return Fluid.utils.getBackgroundLightness(ele) >= 0 ? 'code-widget-light' : 'code-widget-dark';
+    }
+
+    var copyTmpl = '';
+    copyTmpl += '<div class="code-widget">';
+    copyTmpl += 'LANG';
+    copyTmpl += '</div>';
+    jQuery('.markdown-body pre').each(function() {
+      var $pre = jQuery(this);
+      if ($pre.find('code.mermaid').length > 0) {
+        return;
+      }
+      if ($pre.find('span.line').length > 0) {
+        return;
+      }
+
+      var lang = '';
+
+      if (enableLang) {
+        lang = CONFIG.code_language.default;
+        if ($pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2 && $pre.children().hasClass('hljs')) {
+          lang = $pre[0].children[0].classList[1];
+        } else if ($pre[0].getAttribute('data-language')) {
+          lang = $pre[0].getAttribute('data-language');
+        } else if ($pre.parent().hasClass('sourceCode') && $pre[0].children.length > 0 && $pre[0].children[0].classList.length >= 2) {
+          lang = $pre[0].children[0].classList[1];
+          $pre.parent().addClass('code-wrapper');
+        } else if ($pre.parent().hasClass('markdown-body') && $pre[0].classList.length === 0) {
+          $pre.wrap('<div class="code-wrapper"></div>');
+        }
+        lang = lang.toUpperCase().replace('NONE', CONFIG.code_language.default);
+      }
+      $pre.append(copyTmpl.replace('LANG', lang).replace('code-widget">',
+        getBgClass($pre[0]) + (enableCopy ? ' code-widget copy-btn" data-clipboard-snippet><i class="iconfont icon-copy"></i>' : ' code-widget">')));
+
+      if (enableCopy) {
+        Fluid.utils.createScript('https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/clipboard.js/2.0.6/clipboard.min.js', function() {
+          var clipboard = new window.ClipboardJS('.copy-btn', {
+            target: function(trigger) {
+              var nodes = trigger.parentNode.childNodes;
+              for (var i = 0; i < nodes.length; i++) {
+                if (nodes[i].tagName === 'CODE') {
+                  return nodes[i];
+                }
+              }
+            }
+          });
+          clipboard.on('success', function(e) {
+            e.clearSelection();
+            e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-copy', 'icon-success');
+            setTimeout(function() {
+              e.trigger.innerHTML = e.trigger.innerHTML.replace('icon-success', 'icon-copy');
+            }, 2000);
+          });
+        });
+      }
+    });
+  })();
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
