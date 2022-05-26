@@ -33,3 +33,13 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: public
           cname: zhul.in
+      - name: Setup Deploy Private Key
+        env:
+          HEXO_DEPLOY_KEY: ${{ secrets.HEXO_DEPLOY_KEY }}
+        run: |
+          mkdir -p ~/.ssh/
+          echo "$HEXO_DEPLOY_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan blog.zhullyb.top >> ~/.ssh/known_hosts
+      - name: Deploy to VPS
+        run: yarn deploy
