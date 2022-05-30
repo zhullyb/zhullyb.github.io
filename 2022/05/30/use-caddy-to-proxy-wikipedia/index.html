@@ -18,27 +18,22 @@
   <meta name="author" content="竹林里有冰">
   <meta name="keywords" content="博客, 技术, Fedora">
   
-    <meta name="description" content="Fedora 36 在多次跳票后，总算是在 5月10日正式发布了。截止北京时间 5月11日凌晨两点，上海交通大学开源镜像站的上游 rsync:&#x2F;&#x2F;download-ib01.fedoraproject.org&#x2F;  仍然没有同步 Fedora 36 的 Release 源。鉴于 Release 自 freeze 以后基本是不会有什么大变动的，也不需要及时同步更新，干脆就直接建立一个本地的镜像源。">
+    <meta name="description" content="反代的目的无非是两点  满足自己在无代理情况下访问无法访问的站点的需求 方便将站点分享给亲朋好友。  一直以来，我都想用 caddy 去反代一份维基百科来用，今天刚好就顺手解决了。 注意事项 用于反代的机子需要有对目标站点的访问能力 最好准备一个新的域名作为白手套，防止被污染 建议增加密码保护，一来使得小鸡流量不被滥用，二来防止防火墙检测到站点内容 本文使用的 caddy 开启了 replace_">
 <meta property="og:type" content="article">
-<meta property="og:title" content="创建一个本地的 Fedora 镜像源">
-<meta property="og:url" content="https://zhul.in/2022/05/11/setup-a-local-fedora-source/index.html">
+<meta property="og:title" content="使用caddy反向代理维基百科中文站点">
+<meta property="og:url" content="https://zhul.in/2022/05/30/use-caddy-to-proxy-wikipedia/index.html">
 <meta property="og:site_name" content="竹林里有冰的博客">
-<meta property="og:description" content="Fedora 36 在多次跳票后，总算是在 5月10日正式发布了。截止北京时间 5月11日凌晨两点，上海交通大学开源镜像站的上游 rsync:&#x2F;&#x2F;download-ib01.fedoraproject.org&#x2F;  仍然没有同步 Fedora 36 的 Release 源。鉴于 Release 自 freeze 以后基本是不会有什么大变动的，也不需要及时同步更新，干脆就直接建立一个本地的镜像源。">
+<meta property="og:description" content="反代的目的无非是两点  满足自己在无代理情况下访问无法访问的站点的需求 方便将站点分享给亲朋好友。  一直以来，我都想用 caddy 去反代一份维基百科来用，今天刚好就顺手解决了。 注意事项 用于反代的机子需要有对目标站点的访问能力 最好准备一个新的域名作为白手套，防止被污染 建议增加密码保护，一来使得小鸡流量不被滥用，二来防止防火墙检测到站点内容 本文使用的 caddy 开启了 replace_">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://bu.dusays.com/2022/05/11/627b2177c4da2.png">
-<meta property="og:image" content="https://bu.dusays.com/2022/05/11/627b22fa44446.png">
-<meta property="og:image" content="https://bu.dusays.com/2022/05/11/627b2ebd23331.png">
-<meta property="article:published_time" content="2022-05-10T20:18:26.000Z">
-<meta property="article:modified_time" content="2022-05-26T16:59:18.000Z">
+<meta property="article:published_time" content="2022-05-30T00:59:21.000Z">
+<meta property="article:modified_time" content="2022-05-30T01:35:02.000Z">
 <meta property="article:author" content="竹林里有冰">
-<meta property="article:tag" content="Fedora">
 <meta property="article:tag" content="Caddy">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://bu.dusays.com/2022/05/11/627b2177c4da2.png">
   
   
   
-  <title>创建一个本地的 Fedora 镜像源 - 竹林里有冰的博客</title>
+  <title>使用caddy反向代理维基百科中文站点 - 竹林里有冰的博客</title>
 
   <link  rel="stylesheet" href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/4.6.0/css/bootstrap.min.css" />
 
@@ -242,7 +237,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="创建一个本地的 Fedora 镜像源"></span>
+            <span id="subtitle" data-typed-text="使用caddy反向代理维基百科中文站点"></span>
           
         </div>
 
@@ -253,8 +248,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-05-11 04:18" pubdate>
-          2022年5月11日 凌晨
+        <time datetime="2022-05-30 08:59" pubdate>
+          2022年5月30日 早上
         </time>
       </span>
     
@@ -266,7 +261,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          2.2k 字
+          2.8k 字
         
       </span>
     
@@ -278,7 +273,7 @@
         
         
           <!-- compatible with older versions-->
-          12 分钟
+          15 分钟
         
       </span>
     
@@ -316,65 +311,39 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">创建一个本地的 Fedora 镜像源</h1>
+            <h1 style="display: none">使用caddy反向代理维基百科中文站点</h1>
             
               <p class="note note-info">
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2022年5月27日 凌晨
+                    本文最后更新于：2022年5月30日 上午
                   
                 
               </p>
             
             <div class="markdown-body">
               
-              <blockquote>
-<p>Fedora 36 在多次跳票后，总算是在 5月10日正式发布了。截止北京时间 5月11日凌晨两点，上海交通大学开源镜像站的上游 <code>rsync://download-ib01.fedoraproject.org/</code>  仍然没有同步 Fedora 36 的 Release 源。鉴于 Release 自 freeze 以后基本是不会有什么大变动的，也不需要及时同步更新，干脆就直接建立一个本地的镜像源。</p>
-</blockquote>
-<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><ol>
-<li><p>一块足够大的硬盘</p>
-<p>根据我个人实测，单 Fedora 36 的 x86_64 架构 的 Release 源中的 binary rpm 就占用了 89.6 GB，具体准备多的的硬盘空间还得看你具体需要同步些什么。</p>
-</li>
-<li><p>符合要求的上游</p>
-<p>这里所说的符合要求一共是两个方面，一是允许 rsync 同步，二是有你想要的文件。我通过 getfedora.org 的下载按钮的转发目标得知 <code>mirror.karneval.cz</code> 已经完成了 Fedora 36 Release 源的同步。</p>
-</li>
-<li><p> 良好的网络条件</p>
-</li>
-</ol>
-<p>   这里说的良好的网络条件，并不一定是说需要访问境外站点的能力，而是你和你的上游之间的网络访问畅通，不要动不动就i断开连接那种。如果你选择的是国内镜像站作为你的上游，那一般不会有什么问题。</p>
-<h2 id="开始同步"><a href="#开始同步" class="headerlink" title="开始同步"></a>开始同步</h2><p>现在的主流方案一般都是选择 <code>rsync</code> 直接开整。</p>
-<h3 id="试探环节"><a href="#试探环节" class="headerlink" title="试探环节"></a>试探环节</h3><p>很多镜像站的 rsync 文件路径和 http 文件路径路径是不同的。</p>
-<p>比如说，我这里用的 mirror.karneval.cz 的 http 页面显示的 fedora 仓库路径在 <code>/pub/fedora</code>，但 rsync 同步时需要使用 <code>/fedora</code> 路径。</p>
-<p>为了确定这一点，我们可以先通过 <code>rsync rsync://example.com</code> 进行预览</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">rsync rsync://mirror.karneval.cz<br></code></pre></td></tr></table></figure>
+              <p>反代的目的无非是两点</p>
+<ul>
+<li>满足自己在无代理情况下访问无法访问的站点的需求</li>
+<li>方便将站点分享给亲朋好友。</li>
+</ul>
+<p>一直以来，我都想用 caddy 去反代一份维基百科来用，今天刚好就顺手解决了。</p>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><ul>
+<li>用于反代的机子需要有对目标站点的访问能力</li>
+<li>最好准备一个新的域名作为白手套，防止被污染</li>
+<li>建议增加密码保护，一来使得小鸡流量不被滥用，二来防止防火墙检测到站点内容</li>
+<li>本文使用的 caddy 开启了 <code>replace_response</code> 插件，可以使用 <code>xcaddy</code> 编译或直接前往 <a target="_blank" rel="noopener" href="https://caddyserver.com/download">https://caddyserver.com/download</a> 勾选相应插件后下载。安装时，建议先根据官方文档安装原版 caddy，再用启用了 <code>replace_response</code> 插件的 caddy 二进制文件覆盖掉原版 caddy，这样就不需要去手写 systemd 相关的文件了。</li>
+</ul>
+<h2 id="Caddyfile"><a href="#Caddyfile" class="headerlink" title="Caddyfile"></a>Caddyfile</h2><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><code class="hljs nginx">&#123;<br>        <span class="hljs-attribute">order</span> replace after encode<br>&#125;<br><br>https://zhwiki.example.com &#123;<br><br>        <span class="hljs-attribute">reverse_proxy</span> * https://zh.wikipedia.org &#123;<br>                <span class="hljs-attribute">header_up</span> Host &#123;upstream_hostport&#125;<br>                <span class="hljs-attribute">header_up</span> X-Real-IP &#123;http.request.remote.host&#125;<br>                <span class="hljs-attribute">header_up</span> X-Forwarded-For &#123;http.request.remote.host&#125;<br>                <span class="hljs-attribute">header_up</span> X-Forwarded-Port &#123;http.request.port&#125;<br>                <span class="hljs-attribute">header_up</span> X-Forwarded-Proto &#123;http.request.scheme&#125;<br>                <span class="hljs-attribute">header_up</span> Accept-Encoding identity<br>                header_down location (https://zh.wikipedia.org/)(.*) https://zhwiki.example.com/<span class="hljs-variable">$2</span><br>                header_down location (https://zh.m.wikipedia.org/)(.*) http://m.zhwiki.example.com/<span class="hljs-variable">$2</span><br>        &#125;<br><br>        replace &#123;<br>                &quot;upload.wikimedia.org&quot; &quot;up.zhwiki.example.com&quot;<br>                &quot;zh.wikipedia.org&quot; &quot;zhwiki.example.com&quot;<br>                &quot;zh.m.wikipedia.org&quot; &quot;m.zhwiki.example.com&quot;<br>        &#125;<br>&#125;<br><br>https://m.zhwiki.example.<span class="hljs-section">com</span> &#123;<br><br>        <span class="hljs-attribute">reverse_proxy</span> * https://zh.m.wikipedia.org &#123;<br>                <span class="hljs-attribute">header_up</span> Host &#123;upstream_hostport&#125;<br>                <span class="hljs-attribute">header_up</span> X-Real-IP &#123;http.request.remote.host&#125;<br>                <span class="hljs-attribute">header_up</span> X-Forwarded-For &#123;http.request.remote.host&#125;<br>                <span class="hljs-attribute">header_up</span> X-Forwarded-Port &#123;http.request.port&#125;<br>                <span class="hljs-attribute">header_up</span> X-Forwarded-Proto &#123;http.request.scheme&#125;<br>                <span class="hljs-attribute">header_up</span> Accept-Encoding identity<br>                header_down location (https://zh.wikipedia.org/)(.*) https://zhwiki.example.com/<span class="hljs-variable">$2</span><br>                header_down location (https://zh.m.wikipedia.org/)(.*) http://m.zhwiki.example.com/<span class="hljs-variable">$2</span><br>        &#125;<br><br>        replace &#123;<br>                &quot;upload.wikimedia.org&quot; &quot;up.zhwiki.example.com&quot;<br>                &quot;zh.wikipedia.org&quot; &quot;zhwiki.example.com&quot;<br>                &quot;zh.m.wikipedia.org&quot; &quot;m.zhwiki.example.com&quot;<br>        &#125;<br>&#125;<br><br>https://up.zhwiki.example.<span class="hljs-section">com</span> &#123;<br>        <span class="hljs-attribute">reverse_proxy</span> * https://upload.wikimedia.org &#123;<br>                <span class="hljs-attribute">header_up</span> Host &#123;upstream_hostport&#125;<br>                <span class="hljs-attribute">header_up</span> X-Real-IP &#123;http.request.remote.host&#125;<br>                <span class="hljs-attribute">header_up</span> X-Forwarded-For &#123;http.request.remote.host&#125;<br>                <span class="hljs-attribute">header_up</span> X-Forwarded-Port &#123;http.request.port&#125;<br>                <span class="hljs-attribute">header_up</span> X-Forwarded-Proto &#123;http.request.scheme&#125;<br>                <span class="hljs-attribute">header_up</span> Accept-Encoding identity<br>        &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
 
-<p><img src="https://bu.dusays.com/2022/05/11/627b2177c4da2.png" srcset="/img/loading.gif" lazyload alt="image-20220511103736493"></p>
-<p>通过一层一层预览目录的方式，找到需要同步的路径是 <code>/fedora/linux/releases/36/Everything/x86_64/os/</code></p>
-<h3 id="同步环节"><a href="#同步环节" class="headerlink" title="同步环节"></a>同步环节</h3><p>通过 <code>mkdir</code> 和 <code>cd</code> 创建并进入我们准备用于同步源码的文件夹，然后开始执行同步命令。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">rsync -avP rsync://mirror.karneval.cz/fedora/linux/releases/36/Everything/x86_64/os/ .<br></code></pre></td></tr></table></figure>
-
-<p><em>Ps: 中途如果由于各种原因而中断了同步过程，可以再次使用上述命令继续同步，rsync 会保证文件完整性。</em></p>
-<p><img src="https://bu.dusays.com/2022/05/11/627b22fa44446.png" srcset="/img/loading.gif" lazyload alt="耗费两个半小时，同步成功"></p>
-<h2 id="安装、配置并启用-static-server-可选"><a href="#安装、配置并启用-static-server-可选" class="headerlink" title="安装、配置并启用 static server (可选)"></a>安装、配置并启用 static server (可选)</h2><p>如果只需要本机使用，那么直接跳过这一步即可；如果需要给局域网内的其他机器提供镜像源，那么需要启用 static server。</p>
-<p>我这里选择的是 caddy，性能虽然比 nginx 略逊一筹，但胜在配置简单。</p>
-<p>caddy 的安装可以直接参考<a target="_blank" rel="noopener" href="https://caddyserver.com/docs/install">官方文档</a>，这里不再赘述。</p>
-<p>配置也不过那么几行的事情，我给个 example。端口号只要和别的程序没有冲突，就可以随意指定。443 端口需要 ssl 证书比较麻烦，局域网内直接用非标准端口即可。</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs awk">:<span class="hljs-number">14567</span> &#123;<br>        root * <span class="hljs-regexp">/the/</span>directory<span class="hljs-regexp">/you/u</span>se<br><br>        file_server &#123;<br>                browse<br>        &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<p>配置完后直接以普通用户的权限启用即可，使用 systemd 启用需要解决 caddy 用户对目标无权限的问题。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">caddy run --config /etc/caddy/Caddyfile<br></code></pre></td></tr></table></figure>
-
-<p>浏览器输入对应的 ip 和端口，应该就可以访问了。</p>
-<p><img src="https://bu.dusays.com/2022/05/11/627b2ebd23331.png" srcset="/img/loading.gif" lazyload alt="image-20220511113417004"></p>
-<h2 id="修改源配置文件"><a href="#修改源配置文件" class="headerlink" title="修改源配置文件"></a>修改源配置文件</h2><p>由于我们仅同步了 Release 源，就只需要修改 <code>/etc/yum.repo.d/fedora.repo</code> 即可。</p>
-<p>如果镜像源在本机上，可以直接使用 <code>file://</code> 协议头: </p>
-<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs diff">[fedora]<br>name=Fedora $releasever - $basearch<br><span class="hljs-addition">+ baseurl=file:///the/directory/you/use</span><br><span class="hljs-deletion">- metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&amp;arch=$basearch</span><br>enabled=1<br>countme=1<br>metadata_expire=7d<br>repo_gpgcheck=0<br>type=rpm<br>gpgcheck=1<br>gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch<br>skip_if_unavailable=False<br></code></pre></td></tr></table></figure>
-
-<p>如果镜像源在同局域网设备上，通过 <code>http://</code> 协议也能达到相同的效果: </p>
-<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs diff">[fedora]<br>name=Fedora $releasever - $basearch<br><span class="hljs-addition">+ baseurl=http://192.168.1.233:14567</span><br><span class="hljs-deletion">- metalink=https://mirrors.fedoraproject.org/metalink?repo=fedora-$releasever&amp;arch=$basearch</span><br>enabled=1<br>countme=1<br>metadata_expire=7d<br>repo_gpgcheck=0<br>type=rpm<br>gpgcheck=1<br>gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch<br>skip_if_unavailable=False<br></code></pre></td></tr></table></figure>
-
-<p><em>Ps: 提供镜像源的机子的局域网 ip 可以通过 <code>ip -br a</code> 命令获取</em></p>
+<h2 id="简单解释"><a href="#简单解释" class="headerlink" title="简单解释"></a>简单解释</h2><p>第一大段是启用 <code>replace_response</code> 插件的部分，直接照抄即可。</p>
+<p>第二和第三大段的思路是一致的，分别反向代理了 PC 端和移动段的网页。两行 <code> header_down</code> 的写法是受到了知乎上那篇 Github 反代的启发，避免了源站发出 302 重定向时访客被带到源站去。replace 部分不用多说，就是将针对三个源站域名的请求改到反代站域名。</p>
+<p>第四大段就是中规中举地反代了 <code>upload.wikimedia.org</code> 这个域名，上面存放的大多数是媒体文件，如果条件允许的话其实可以考虑使用多个服务器反代。</p>
+<p>密码保护在我这份 Caddyfile 中没有启用，如果有需要的话可以参考我的<a href="/2021/10/21/picuploader-on-archlinux-with-caddy/#%E8%AE%BE%E7%BD%AE%E8%AE%BF%E9%97%AE%E5%AF%86%E7%A0%81%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89">另一篇博客</a>。</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a target="_blank" rel="noopener" href="https://caddyserver.com/docs/">Caddy 官方文档</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/476390779">The Road to Serfdom——如何为GitHub搭建反向代理</a><br><a target="_blank" rel="noopener" href="https://ichon.me/post/1026.html">使用 Caddy 配置 Wikipedia 反向代理</a><br><a target="_blank" rel="noopener" href="https://learningman.top/archives/365">使用 Caddy 反代 ghcr.io</a></p>
+<p><em>所有参考资料除官方文档外均使用 web.archive.org 和 archive.ph 进行存档，如有无法访问的情况，请自行前往存档站获取历史存档。</em></p>
 
               
             </div>
@@ -385,8 +354,6 @@
   
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/Fedora/">#Fedora</a>
       
         <a href="/tags/Caddy/">#Caddy</a>
       
@@ -400,8 +367,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>创建一个本地的 Fedora 镜像源</div>
-      <div>https://zhul.in/2022/05/11/setup-a-local-fedora-source/</div>
+      <div>使用caddy反向代理维基百科中文站点</div>
+      <div>https://zhul.in/2022/05/30/use-caddy-to-proxy-wikipedia/</div>
     </div>
     <div class="license-meta">
       
@@ -413,13 +380,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年5月11日</div>
+          <div>2022年5月30日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2022年5月27日</div>
+          <div>2022年5月30日</div>
         </div>
       
       <div class="license-meta-item">
@@ -460,18 +427,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/05/30/use-caddy-to-proxy-wikipedia/" title="使用caddy反向代理维基百科中文站点">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">使用caddy反向代理维基百科中文站点</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/04/14/fastocr-experience/" title="好软推荐——FastOCR">
-                        <span class="hidden-mobile">好软推荐——FastOCR</span>
+                      <a href="/2022/05/11/setup-a-local-fedora-source/" title="创建一个本地的 Fedora 镜像源">
+                        <span class="hidden-mobile">创建一个本地的 Fedora 镜像源</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
