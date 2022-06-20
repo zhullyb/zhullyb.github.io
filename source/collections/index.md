@@ -18,7 +18,7 @@ comments: false
 
 [PDF转换](https://pdfcandy.com/)
 
-[TPD Quick Fix](https://ptstpd.lenovo.com.cn/home#/index)
+[TPD Quick Fix](https://iknow.lenovo.com.cn/tool/lists)
 
 **[cloudflare mirror](https://cloudflaremirrors.com/)**
 
