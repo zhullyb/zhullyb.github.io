@@ -70,7 +70,7 @@ Input Context without group
 
 ### /proc 查看程序运行时的环境变量
 
-![获取到的环境变量](/home/zhullyb/.config/Typora/typora-user-images/image-20220703143540533.png)
+<img src="https://bu.dusays.com/2022/07/03/62c138b030469.png" alt="获取到的环境变量"  />
 
 ## 参考资料
 
