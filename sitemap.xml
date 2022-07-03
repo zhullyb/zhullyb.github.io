@@ -702,6 +702,13 @@
   </url>
   
   <url>
+    <loc>https://zhul.in/tags/KDE/</loc>
+    <lastmod>2022-07-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://zhul.in/tags/Caddy/</loc>
     <lastmod>2022-07-03</lastmod>
     <changefreq>weekly</changefreq>
@@ -710,13 +717,6 @@
   
   <url>
     <loc>https://zhul.in/tags/PicUploader/</loc>
-    <lastmod>2022-07-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/KDE/</loc>
     <lastmod>2022-07-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
