@@ -4,6 +4,9 @@ date: 2022-07-03 13:52:44
 sticky:
 execrpt:
 tags:
+- Linux
+- 笔记
+- KDE
 ---
 
 > 文章开头，先要感谢 fcitx5 的开发者 [老K](https://www.csslayer.info/wordpress/) 帮我 debug 这个问题
