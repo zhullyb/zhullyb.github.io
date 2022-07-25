@@ -4,6 +4,27 @@
   
   
   <entry>
+    <title>如何拯救失声的 hollywood</title>
+    <link href="/2022/07/25/restore-the-sound-of-hollywood/"/>
+    <url>/2022/07/25/restore-the-sound-of-hollywood/</url>
+    
+    <content type="html"><![CDATA[<p>我刚开始接触 Linux 下的 hollywood 时，我记得它运行时是有声音的，应该是 007 的主题音乐，如今再次装上 hollywood，却发现音乐没了。</p><p>在 Github 找到 hollywood，发现有一个 <a href="https://github.com/dustinkirkland/hollywood/issues/58">issue</a> 也提到了这个问题。</p><p>原作者在该 issue 中回复道</p><blockquote><p>没错，它只是一段视频，音频受到版权保护。</p></blockquote><p>所以不难看出，作者因为版权问题而去掉了音频，进而导致 hollywood 失声。但我们作为用户，是不是可以想办法获取到老版本中那段带有音频的 mp4 文件呢？</p><p>答案是肯定的。</p><p>得益于 git 的版本控制特色，在 hollywood 的 github 仓库中，我们可以找到原来的 <a href="https://github.com/dustinkirkland/hollywood/blob/67839229f878a08521885e9fc05dd2d3ba10ddd1/share/hollywood/mi.mp4">mp4 文件</a>。</p><p>下载这个 mp4 文件后，我们将其放入 <code>/usr/share/hollywood/</code> 路径下，重命名为 <code>soundwave.mp4</code>，并确保其被正确设定为 0644 权限。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo install -Dm644 ./mi.mp4 /usr/share/hollywood/soundwave.mp4<br></code></pre></td></tr></table></figure><p>接下来试着跑一跑 <code>hollywood</code>，发现依然没有声音。再次查阅源码，发现缺少了 <code>mplayer</code> 这个依赖。</p><p>使用包管理器安装 <code>mplayer</code> 后，运行 <code>hollywood</code> 就可以听到声音了。</p><p>然而，你觉不觉得这个音乐。。。听上去怪怪的。。。</p><p>没错，作者在去掉音频后，给 <code>soundwave.mp4</code> <a href="https://github.com/dustinkirkland/hollywood/commit/95f77d570d86cd8b8fe0e0939049609f81d1bae0#diff-3e2bf53af1a38136a109ac4fa1b11189e7b6fcd4385e1c68683093f73c6ac485">设定了加速播放</a>。而我们现在需要这段视频被原速播放。编辑 <code>/usr/lib/hollywood/mplayer</code></p><figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs diff">#!/bin/bash<br>#<br># Copyright 2014 Dustin Kirkland &lt;dustin.kirkland@gmail.com&gt;<br>#<br># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);<br># you may not use this file except in compliance with the License.<br># You may obtain a copy of the License at<br>#<br>#    http://www.apache.org/licenses/LICENSE-2.0<br>#<br># Unless required by applicable law or agreed to in writing, software<br># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,<br># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.<br># See the License for the specific language governing permissions and<br># limitations under the License.<br>command -v mplayer &gt;/dev/null 2&gt;&amp;1 || exit 1<br>trap &quot;pkill -f -9 lib/hollywood/ &gt;/dev/null 2&gt;&amp;1; exit&quot; INT<br>PKG=hollywood<br>dir=&quot;$(dirname $0)/../../share/$PKG&quot;<br><span class="hljs-deletion">-DISPLAY= mplayer -vo caca -loop 0 -ss $((RANDOM % 100)) -speed 100 $MPLAYER_OPTS $dir/soundwave.mp4</span><br><span class="hljs-addition">+DISPLAY= mplayer -vo caca -loop 0 $MPLAYER_OPTS $dir/soundwave.mp4</span><br></code></pre></td></tr></table></figure><p>再次运行，确认修改已经成功。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Linux</tag>
+      
+      <tag>Fun</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>处理 fcitx5 的文字候选框在 tg 客户端上闪烁的问题</title>
     <link href="/2022/07/03/fcitx5-blinking-on-tg-under-wayland-kde/"/>
     <url>/2022/07/03/fcitx5-blinking-on-tg-under-wayland-kde/</url>
@@ -957,7 +978,7 @@
     <link href="/2020/12/19/Before-Report-A-Rom-Issue/"/>
     <url>/2020/12/19/Before-Report-A-Rom-Issue/</url>
     
-    <content type="html"><![CDATA[<p>学业繁忙，不便花太多时间在接收问题的反馈上，特制定此须知。须知非常繁杂，一来是为了尽可能多的获得问题的信息，同时便于我归类，二来是为了提升你们的反馈成本以过滤低级问题。</p><p>本须知仅针对Rom自身的bug反馈，对于其他奇奇怪怪的问题(比如下载链接挂了一类的)可以直接评论反馈。无法开机等一类bug就用不着反馈了，我发布的每一个版本都经过我亲自测试，出现此类问题就是你自己的操作问题。</p><p>以下是正文</p><ol><li><p>仅接受邮箱反馈 <a href="mailto:&#x7a;&#x68;&#x75;&#x6c;&#108;&#121;&#98;&#x40;&#111;&#117;&#116;&#108;&#x6f;&#x6f;&#x6b;&#x2e;&#99;&#x6f;&#x6d;">&#x7a;&#x68;&#x75;&#x6c;&#108;&#121;&#98;&#x40;&#111;&#117;&#116;&#108;&#x6f;&#x6f;&#x6b;&#x2e;&#99;&#x6f;&#x6d;</a></p></li><li><p>请在默认Kernel，卸载所有模块，删除所有调度，卸载所有奇奇怪怪的软件(比如黑阈或者Thanos)的情况下进行反馈，具体原因请看<a href="../../../../2020/11/13/RomFlash_Q&A/#%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BC%BA%E8%B0%83%E5%8F%8D%E9%A6%88%E9%97%AE%E9%A2%98%E6%97%B6%E4%B8%8D%E8%A6%81%E4%BD%BF%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E5%86%85%E6%A0%B8%E6%A8%A1%E5%9D%97%E4%BF%AE%E6%94%B9">这里</a></p></li><li><p>仅接受Rom最新版本的问题反馈</p></li><li><p>进行反馈时请注明自己的Gapps版本(如系统内置、X月X日的XXXGapps等等)</p></li><li><p>请注明bug的具体表现，以及复现方法，如有可能附上log</p></li><li><p>偶然性bug请不要反馈，除非你能够抓到当时的log</p></li><li><p>log请以附件的形式发送，文件名请改为202XXXXX+酷安用户名的形式，文件名后缀为.log，如: 20201231竹林里有冰.log</p></li></ol><p>以上没有做到的，我会立刻拉黑。当然，我会允许你继续查看我的动态，因为拉黑你的目的只是为了防止我的时间再被你浪费而不是为了对你进行报复。</p>]]></content>
+    <content type="html"><![CDATA[<p>学业繁忙，不便花太多时间在接收问题的反馈上，特制定此须知。须知非常繁杂，一来是为了尽可能多的获得问题的信息，同时便于我归类，二来是为了提升你们的反馈成本以过滤低级问题。</p><p>本须知仅针对Rom自身的bug反馈，对于其他奇奇怪怪的问题(比如下载链接挂了一类的)可以直接评论反馈。无法开机等一类bug就用不着反馈了，我发布的每一个版本都经过我亲自测试，出现此类问题就是你自己的操作问题。</p><p>以下是正文</p><ol><li><p>仅接受邮箱反馈 <a href="mailto:&#122;&#x68;&#117;&#x6c;&#x6c;&#x79;&#x62;&#64;&#111;&#x75;&#x74;&#x6c;&#111;&#111;&#x6b;&#x2e;&#99;&#111;&#x6d;">&#122;&#x68;&#117;&#x6c;&#x6c;&#x79;&#x62;&#64;&#111;&#x75;&#x74;&#x6c;&#111;&#111;&#x6b;&#x2e;&#99;&#111;&#x6d;</a></p></li><li><p>请在默认Kernel，卸载所有模块，删除所有调度，卸载所有奇奇怪怪的软件(比如黑阈或者Thanos)的情况下进行反馈，具体原因请看<a href="../../../../2020/11/13/RomFlash_Q&A/#%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BC%BA%E8%B0%83%E5%8F%8D%E9%A6%88%E9%97%AE%E9%A2%98%E6%97%B6%E4%B8%8D%E8%A6%81%E4%BD%BF%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E5%86%85%E6%A0%B8%E6%A8%A1%E5%9D%97%E4%BF%AE%E6%94%B9">这里</a></p></li><li><p>仅接受Rom最新版本的问题反馈</p></li><li><p>进行反馈时请注明自己的Gapps版本(如系统内置、X月X日的XXXGapps等等)</p></li><li><p>请注明bug的具体表现，以及复现方法，如有可能附上log</p></li><li><p>偶然性bug请不要反馈，除非你能够抓到当时的log</p></li><li><p>log请以附件的形式发送，文件名请改为202XXXXX+酷安用户名的形式，文件名后缀为.log，如: 20201231竹林里有冰.log</p></li></ol><p>以上没有做到的，我会立刻拉黑。当然，我会允许你继续查看我的动态，因为拉黑你的目的只是为了防止我的时间再被你浪费而不是为了对你进行报复。</p>]]></content>
     
     
     
