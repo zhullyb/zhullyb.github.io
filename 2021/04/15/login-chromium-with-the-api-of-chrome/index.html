@@ -27,7 +27,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://npm.elemecdn.com/superbadguy-bed@0.0.5/24.png">
 <meta property="article:published_time" content="2021-04-14T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-01-26T10:46:47.000Z">
+<meta property="article:modified_time" content="2022-07-29T02:38:22.000Z">
 <meta property="article:author" content="竹林里有冰">
 <meta property="article:tag" content="笔记">
 <meta name="twitter:card" content="summary_large_image">
@@ -275,7 +275,7 @@
         
         
           <!-- compatible with older versions-->
-          7 分钟
+          8 分钟
         
       </span>
     
@@ -319,7 +319,7 @@
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2022年1月26日 晚上
+                    本文最后更新于：2022年7月29日 上午
                   
                 
               </p>
@@ -338,7 +338,7 @@
 
 <p>当我满心欢喜地把脚本扔进 <code>$HOME/.local/bin</code> 后，我却突然发现 Fedora 官方源中把 chromium 的启动命令写死在了 <code>/usr/bin/chromium-browser</code>，如果直接去改 <code>/usr/bin/chromium-browser</code> 的话，每次更新都会被覆盖。</p>
 <p><strong>正确的做法</strong>应该是把 desktop 文件复制一份到桌面，再去改内容。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">mkdir</span> -p <span class="hljs-variable">$HOME</span>/.local/share/applications/<br><span class="hljs-built_in">cp</span> /usr/share/applications/chromium-browser.desktop <span class="hljs-variable">$HOME</span>/.local/share/applications/<br>sed -i <span class="hljs-string">&quot;s|/usr/bin/chromium-browser|GOOGLE_DEFAULT_CLIENT_ID=77185425430.apps.googleusercontent.com GOOGLE_DEFAULT_CLIENT_SECRET=OTJgUOQcT7lO7GsGZq2G4IlT /usr/bin/chromium-browser|g&quot;</span> <span class="hljs-variable">$HOME</span>/.local/share/applications/<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">mkdir</span> -p <span class="hljs-variable">$HOME</span>/.local/share/applications/<br><span class="hljs-built_in">cp</span> /usr/share/applications/chromium-browser.desktop <span class="hljs-variable">$HOME</span>/.local/share/applications/<br>sed -i <span class="hljs-string">&quot;s|/usr/bin/chromium-browser|GOOGLE_DEFAULT_CLIENT_ID=77185425430.apps.googleusercontent.com GOOGLE_DEFAULT_CLIENT_SECRET=OTJgUOQcT7lO7GsGZq2G4IlT /usr/bin/chromium-browser|g&quot;</span> <span class="hljs-variable">$HOME</span>/.local/share/applications/chromium-browser.desktop<br></code></pre></td></tr></table></figure>
 
 
               
@@ -382,7 +382,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2022年1月26日</div>
+          <div>2022年7月29日</div>
         </div>
       
       <div class="license-meta-item">
