@@ -18,23 +18,28 @@
   <meta name="author" content="竹林里有冰">
   <meta name="keywords" content="博客, 技术, Fedora">
   
-    <meta name="description" content="我刚开始接触 Linux 下的 hollywood 时，我记得它运行时是有声音的，应该是 007 的主题音乐，如今再次装上 hollywood，却发现音乐没了。 在 Github 找到 hollywood，发现有一个 issue 也提到了这个问题。 原作者在该 issue 中回复道  没错，它只是一段视频，音频受到版权保护。  所以不难看出，作者因为版权问题而去掉了音频，进而导致 hollywoo">
+    <meta name="description" content="今年上半年升级 Fedora 36 的时候遇到了这个问题。 那会儿很无奈，一直在等 nodejs16 合并提供 --openssl-legacy-provider 的那个 PR。nodejs16 是一个 lts 版本，照道理来说，既然要提供 Long-term Support，而 openssl 1 作为它的依赖之一，生命周期结束又在 nodejs16 之前，那是不是应该给 nodejs16 b">
 <meta property="og:type" content="article">
-<meta property="og:title" content="如何拯救失声的 hollywood">
-<meta property="og:url" content="https://zhul.in/2022/07/25/restore-the-sound-of-hollywood/index.html">
+<meta property="og:title" content="nodejs16：难道我配不上 openssl 3 嘛？">
+<meta property="og:url" content="https://zhul.in/2022/08/04/a-fucking-store-about-openssl3-and-nodejs16/index.html">
 <meta property="og:site_name" content="竹林里有冰的博客">
-<meta property="og:description" content="我刚开始接触 Linux 下的 hollywood 时，我记得它运行时是有声音的，应该是 007 的主题音乐，如今再次装上 hollywood，却发现音乐没了。 在 Github 找到 hollywood，发现有一个 issue 也提到了这个问题。 原作者在该 issue 中回复道  没错，它只是一段视频，音频受到版权保护。  所以不难看出，作者因为版权问题而去掉了音频，进而导致 hollywoo">
+<meta property="og:description" content="今年上半年升级 Fedora 36 的时候遇到了这个问题。 那会儿很无奈，一直在等 nodejs16 合并提供 --openssl-legacy-provider 的那个 PR。nodejs16 是一个 lts 版本，照道理来说，既然要提供 Long-term Support，而 openssl 1 作为它的依赖之一，生命周期结束又在 nodejs16 之前，那是不是应该给 nodejs16 b">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-07-25T03:25:44.000Z">
-<meta property="article:modified_time" content="2022-07-25T21:13:44.000Z">
+<meta property="og:image" content="https://bu.dusays.com/2022/08/04/62eba4eabc963.png">
+<meta property="og:image" content="https://bu.dusays.com/2022/08/04/62ebadf02a5b3.png">
+<meta property="og:image" content="https://bu.dusays.com/2022/08/04/62ebb0927943f.png">
+<meta property="article:published_time" content="2022-08-04T09:31:49.000Z">
+<meta property="article:modified_time" content="2022-08-04T11:45:58.000Z">
 <meta property="article:author" content="竹林里有冰">
-<meta property="article:tag" content="Linux">
-<meta property="article:tag" content="Fun">
+<meta property="article:tag" content="Fedora">
+<meta property="article:tag" content="nodejs">
+<meta property="article:tag" content="openssl">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://bu.dusays.com/2022/08/04/62eba4eabc963.png">
   
   
   
-  <title>如何拯救失声的 hollywood - 竹林里有冰的博客</title>
+  <title>nodejs16：难道我配不上 openssl 3 嘛？ - 竹林里有冰的博客</title>
 
   <link  rel="stylesheet" href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/4.6.0/css/bootstrap.min.css" />
 
@@ -238,7 +243,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="如何拯救失声的 hollywood"></span>
+            <span id="subtitle" data-typed-text="nodejs16：难道我配不上 openssl 3 嘛？"></span>
           
         </div>
 
@@ -249,8 +254,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-07-25 11:25" pubdate>
-          2022年7月25日 上午
+        <time datetime="2022-08-04 17:31" pubdate>
+          2022年8月4日 下午
         </time>
       </span>
     
@@ -262,7 +267,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          1.5k 字
+          829 字
         
       </span>
     
@@ -274,7 +279,7 @@
         
         
           <!-- compatible with older versions-->
-          8 分钟
+          5 分钟
         
       </span>
     
@@ -312,38 +317,34 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">如何拯救失声的 hollywood</h1>
+            <h1 style="display: none">nodejs16：难道我配不上 openssl 3 嘛？</h1>
             
               <p class="note note-info">
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2022年7月26日 凌晨
+                    本文最后更新于：2022年8月4日 晚上
                   
                 
               </p>
             
             <div class="markdown-body">
               
-              <p>我刚开始接触 Linux 下的 hollywood 时，我记得它运行时是有声音的，应该是 007 的主题音乐，如今再次装上 hollywood，却发现音乐没了。</p>
-<p>在 Github 找到 hollywood，发现有一个 <a target="_blank" rel="noopener" href="https://github.com/dustinkirkland/hollywood/issues/58">issue</a> 也提到了这个问题。</p>
-<p>原作者在该 issue 中回复道</p>
-<blockquote>
-<p>没错，它只是一段视频，音频受到版权保护。</p>
-</blockquote>
-<p>所以不难看出，作者因为版权问题而去掉了音频，进而导致 hollywood 失声。但我们作为用户，是不是可以想办法获取到老版本中那段带有音频的 mp4 文件呢？</p>
-<p>答案是肯定的。</p>
-<p>得益于 git 的版本控制特色，在 hollywood 的 github 仓库中，我们可以找到原来的 <a target="_blank" rel="noopener" href="https://github.com/dustinkirkland/hollywood/blob/67839229f878a08521885e9fc05dd2d3ba10ddd1/share/hollywood/mi.mp4">mp4 文件</a>。</p>
-<p>下载这个 mp4 文件后，我们将其放入 <code>/usr/share/hollywood/</code> 路径下，重命名为 <code>soundwave.mp4</code>，并确保其被正确设定为 0644 权限。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo install -Dm644 ./mi.mp4 /usr/share/hollywood/soundwave.mp4<br></code></pre></td></tr></table></figure>
-
-<p>接下来试着跑一跑 <code>hollywood</code>，发现依然没有声音。再次查阅源码，发现缺少了 <code>mplayer</code> 这个依赖。</p>
-<p>使用包管理器安装 <code>mplayer</code> 后，运行 <code>hollywood</code> 就可以听到声音了。</p>
-<p>然而，你觉不觉得这个音乐。。。听上去怪怪的。。。</p>
-<p>没错，作者在去掉音频后，给 <code>soundwave.mp4</code> <a target="_blank" rel="noopener" href="https://github.com/dustinkirkland/hollywood/commit/95f77d570d86cd8b8fe0e0939049609f81d1bae0#diff-3e2bf53af1a38136a109ac4fa1b11189e7b6fcd4385e1c68683093f73c6ac485">设定了加速播放</a>。而我们现在需要这段视频被原速播放。编辑 <code>/usr/lib/hollywood/mplayer</code></p>
-<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs diff">#!/bin/bash<br>#<br># Copyright 2014 Dustin Kirkland &lt;dustin.kirkland@gmail.com&gt;<br>#<br># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);<br># you may not use this file except in compliance with the License.<br># You may obtain a copy of the License at<br>#<br>#    http://www.apache.org/licenses/LICENSE-2.0<br>#<br># Unless required by applicable law or agreed to in writing, software<br># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,<br># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.<br># See the License for the specific language governing permissions and<br># limitations under the License.<br>command -v mplayer &gt;/dev/null 2&gt;&amp;1 || exit 1<br>trap &quot;pkill -f -9 lib/hollywood/ &gt;/dev/null 2&gt;&amp;1; exit&quot; INT<br>PKG=hollywood<br>dir=&quot;$(dirname $0)/../../share/$PKG&quot;<br><span class="hljs-deletion">-DISPLAY= mplayer -vo caca -loop 0 -ss $((RANDOM % 100)) -speed 100 $MPLAYER_OPTS $dir/soundwave.mp4</span><br><span class="hljs-addition">+DISPLAY= mplayer -vo caca -loop 0 $MPLAYER_OPTS $dir/soundwave.mp4</span><br></code></pre></td></tr></table></figure>
-
-<p>再次运行，确认修改已经成功。</p>
+              <p><img src="https://bu.dusays.com/2022/08/04/62eba4eabc963.png" srcset="/img/loading.gif" lazyload alt="长毛象的截图.png"></p>
+<p>今年上半年升级 Fedora 36 的时候遇到了这个问题。</p>
+<p>那会儿很无奈，一直在等 nodejs16 合并提供 <code>--openssl-legacy-provider</code> 的<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/42972">那个 PR</a>。nodejs16 是一个 lts 版本，照道理来说，既然要提供 Long-term Support，而 openssl 1 作为它的依赖之一，生命周期结束又在 nodejs16 之前，那是不是应该给 nodejs16 backport 在 nodejs17 上实现的 <code>--openssl-legacy-provider</code> 参数选项呢？否则绝大多数发行版都会在 openssl 1 的生命周期结束之前切换到 openssl 3，那 nodejs16 不就没法用了嘛。</p>
+<p>然而，nodejs 在他们的官网上发布的<a target="_blank" rel="noopener" href="https://nodejs.org/en/blog/announcements/nodejs16-eol/">一篇博客</a>刷新了我的世界观，而此前的那个 PR 甚至一度被关停。（此处有<a target="_blank" rel="noopener" href="https://hanjingxue-boling.github.io/Whiteboard/translation/nodejs-eol-v16-0626/">韩晶雪提供的中文翻译</a>）</p>
+<p>博客称他们将会把 nodejs16 的生命周期结束时间提前以防止 openssl 1 生命周期在 nodejs16 生命周期结束之前结束（这种做法甚至还有先例）</p>
+<p>很无奈，那会儿有两个 npm 管理的软件没法在 Fedora 36 上编译出来，就一直搁置了下去。</p>
+<hr>
+<p>不过好在，事情还是有转机的。（要不然就这档子鸡毛蒜皮的小事我也不会专门去写篇博客出来）</p>
+<p>前几天我给 <a target="_blank" rel="noopener" href="https://github.com/atpoossfl/repo">atpoossfl 仓库</a>打了 rpm 版本的 nvm 以后，意外地发现 nvm 所提供的 nodejs 会自带 openssl。</p>
+<p><img src="https://bu.dusays.com/2022/08/04/62ebadf02a5b3.png" srcset="/img/loading.gif" lazyload alt="此为 nvm 安装的 nodejs14 目录"></p>
+<p>所以我们只需要使用 nvm 安装的 nodejs16 即可解决 Fedora36 以后没有 openssl 1 的问题。</p>
+<hr>
+<p>更好的消息是，nodejs 已经在 <code>v16.17.0-proposal</code> 和 <code>v16.x-staging</code> 分支收下了这个为 nodejs16 提供 <code>--openssl-legacy-provider</code> 的 <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/e7b99e8c8d229ee2cc1d657ae44f715e7e5f852f">commit</a>。并且，当系统的 openssl 版本为 3 时，该选项将会被自动开启。相信在不久的将来，这个 commit 将会进入主线，并在 <code>v16.17</code> 版本的 nodejs16 上发挥它的作用。</p>
+<p><img src="https://bu.dusays.com/2022/08/04/62ebb0927943f.png" srcset="/img/loading.gif" lazyload alt="当 openssl 被动态链接到 3.0 版本时，选项将被自动启用"></p>
+<p><em><strong>有时候，他们费尽全力，只为让本该忙到焦头烂额的你毫无察觉。</strong></em></p>
 
               
             </div>
@@ -355,9 +356,11 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Linux/">#Linux</a>
+        <a href="/tags/Fedora/">#Fedora</a>
       
-        <a href="/tags/Fun/">#Fun</a>
+        <a href="/tags/nodejs/">#nodejs</a>
+      
+        <a href="/tags/openssl/">#openssl</a>
       
     </div>
   
@@ -369,8 +372,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>如何拯救失声的 hollywood</div>
-      <div>https://zhul.in/2022/07/25/restore-the-sound-of-hollywood/</div>
+      <div>nodejs16：难道我配不上 openssl 3 嘛？</div>
+      <div>https://zhul.in/2022/08/04/a-fucking-store-about-openssl3-and-nodejs16/</div>
     </div>
     <div class="license-meta">
       
@@ -382,13 +385,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年7月25日</div>
+          <div>2022年8月4日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2022年7月26日</div>
+          <div>2022年8月4日</div>
         </div>
       
       <div class="license-meta-item">
@@ -429,18 +432,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/08/04/a-fucking-store-about-openssl3-and-nodejs16/" title="nodejs16：难道我配不上 openssl 3 嘛？">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">nodejs16：难道我配不上 openssl 3 嘛？</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/07/03/fcitx5-blinking-on-tg-under-wayland-kde/" title="处理 fcitx5 的文字候选框在 tg 客户端上闪烁的问题">
-                        <span class="hidden-mobile">处理 fcitx5 的文字候选框在 tg 客户端上闪烁的问题</span>
+                      <a href="/2022/07/25/restore-the-sound-of-hollywood/" title="如何拯救失声的 hollywood">
+                        <span class="hidden-mobile">如何拯救失声的 hollywood</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
