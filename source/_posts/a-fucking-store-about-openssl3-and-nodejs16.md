@@ -31,6 +31,8 @@ tags:
 
 所以我们只需要使用 nvm 安装的 nodejs16 即可解决 Fedora36 以后没有 openssl 1 的问题。
 
+> 使用 Fedora 的用户需要注意，Fedora 官方源中的`yarnpkg`在打包时遇到了错误，他们将 `/usr/lib/node_modules/yarn/bin/yarn.js` 的 shebang 给改成了 `#!/usr/bin/node`，应当改回 `#!/usr/bin/env node`才能让 yarn 正常使用上 nvm 提供的 nodejs；或者干脆添加 [dl.yarnpkg.com](https://dl.yarnpkg.com/rpm/yarn.repo) 提供的 `yarn` 软件包。在写 specfile 的 `BuildRequires` 时，可以直接写成 `/usr/bin/yarn` 来避免频繁在 `yarn` 和 `yarnpkg` 这两个包名间改动。
+
 ***
 
 更好的消息是，nodejs 已经在 `v16.17.0-proposal` 和 `v16.x-staging` 分支收下了这个为 nodejs16 提供 `--openssl-legacy-provider` 的 [commit](https://github.com/nodejs/node/commit/e7b99e8c8d229ee2cc1d657ae44f715e7e5f852f)。相信在不久的将来，这个 commit 将会进入主线，并在 `v16.17` 版本的 nodejs16 上发挥它的作用。
