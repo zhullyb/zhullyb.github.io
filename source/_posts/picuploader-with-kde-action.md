@@ -100,7 +100,7 @@ sudo chmod 777 -R /var/www/image/logs/
 
 ## 最终结果
 
-<center><img src="https://npm.elemecdn.com/superbadguy-bed@0.0.4/15.gif" width = "" height = ""></center>
+<center><img src="https://bu.dusays.com/2022/08/10/62f36f57f34aa.gif" width = "" height = ""></center>
 
 ## 参考链接
 
