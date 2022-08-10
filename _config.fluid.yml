@@ -957,12 +957,6 @@ links:
   # Member item of page
   items:
     - {
-      title: "Alexhhh's page",
-      intro: "一只会写bug的菜鸡",
-      link: "https://alexhhh.moe",
-      avatar: "https://npm.elemecdn.com/superbadguy-bed@0.0.5/29.jpg"
-    }
-    - {
       title: "iNetech Blog",
       intro: "凡心所向，素履所往",
       link: "https://blog.inetech.fun",
@@ -1002,12 +996,6 @@ links:
       intro: "这是 Hanjingxue 的个人在线文档站点；主要包含站长所写的各种译文/文档/杂谈，同时兼任 Hanjingxue 的个人博客。",
       link: "https://hanjingxue-boling.github.io/Whiteboard/",
       avatar: "https://bu.dusays.com/2022/03/15/259396342424f.png"
-    }
-    - {
-      title: "KevinZonda",
-      intro: "First Year B.Sc. Computer Science Student @ University of Birmingham.",
-      link: "https://blog.kevinzonda.com/",
-      avatar: "https://bu.dusays.com/2022/04/11/c9af27464ec87.png"
     }
 
   # 当成员头像加载失败时，替换为指定图片
