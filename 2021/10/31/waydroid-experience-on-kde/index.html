@@ -18,16 +18,16 @@
   <meta name="author" content="竹林里有冰">
   <meta name="keywords" content="博客, 技术, Fedora">
   
-    <meta name="description" content="在西木野羰基的博客中看到了其在Fedora中使用waydroid跑明日方舟的截图，心里有有些痒痒了，决定在Archlinux上尝试使用waydroid。  Waydroid是什么Waydroid是一个基于lxc容器技术，用以启动完整安卓系统的方案。 默认使用了LineageOS-17.1，对应 Aosp10，相比起 anbox 显然是更加新了。  内核支持waydroid需要内核提供Ashmem">
+    <meta name="description" content="在西木野羰基的博客中看到了其在Fedora中使用waydroid跑明日方舟的截图，心里有有些痒痒了，决定在Archlinux上尝试使用waydroid。 Waydroid是什么Waydroid是一个基于lxc容器技术，用以启动完整安卓系统的方案。 默认使用了LineageOS-17.1，对应 Aosp10，相比起 anbox 显然是更加新了。  内核支持waydroid需要内核提供Ashmem和">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Waydroid on KDE 初体验">
 <meta property="og:url" content="https://zhul.in/2021/10/31/waydroid-experience-on-kde/index.html">
 <meta property="og:site_name" content="竹林里有冰的博客">
-<meta property="og:description" content="在西木野羰基的博客中看到了其在Fedora中使用waydroid跑明日方舟的截图，心里有有些痒痒了，决定在Archlinux上尝试使用waydroid。  Waydroid是什么Waydroid是一个基于lxc容器技术，用以启动完整安卓系统的方案。 默认使用了LineageOS-17.1，对应 Aosp10，相比起 anbox 显然是更加新了。  内核支持waydroid需要内核提供Ashmem">
+<meta property="og:description" content="在西木野羰基的博客中看到了其在Fedora中使用waydroid跑明日方舟的截图，心里有有些痒痒了，决定在Archlinux上尝试使用waydroid。 Waydroid是什么Waydroid是一个基于lxc容器技术，用以启动完整安卓系统的方案。 默认使用了LineageOS-17.1，对应 Aosp10，相比起 anbox 显然是更加新了。  内核支持waydroid需要内核提供Ashmem和">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://bu.dusays.com/2022/08/10/62f3ca1a5eb50.webp">
 <meta property="article:published_time" content="2021-10-31T07:57:57.000Z">
-<meta property="article:modified_time" content="2022-08-10T15:10:55.000Z">
+<meta property="article:modified_time" content="2022-08-10T15:25:00.000Z">
 <meta property="article:author" content="竹林里有冰">
 <meta property="article:tag" content="Archlinux">
 <meta property="article:tag" content="Experience">
@@ -329,16 +329,12 @@
             
             <div class="markdown-body">
               
-              <blockquote>
-<p>在<a target="_blank" rel="noopener" href="https://yanqiyu.info/">西木野羰基的博客</a>中看到了其在Fedora中使用waydroid跑明日方舟的<a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/karuboniru/blog_imgs@master/20211025232040.png">截图</a>，心里有有些痒痒了，决定在Archlinux上尝试使用waydroid。</p>
-</blockquote>
+              <p> 在<a target="_blank" rel="noopener" href="https://yanqiyu.info/">西木野羰基的博客</a>中看到了其在Fedora中使用waydroid跑明日方舟的<a target="_blank" rel="noopener" href="https://bu.dusays.com/2022/08/10/62f3cc0d6b9e8.png">截图</a>，心里有有些痒痒了，决定在Archlinux上尝试使用waydroid。</p>
 <h2 id="Waydroid是什么"><a href="#Waydroid是什么" class="headerlink" title="Waydroid是什么"></a>Waydroid是什么</h2><p>Waydroid是一个基于lxc容器技术，用以启动完整安卓系统的方案。</p>
 <p>默认使用了LineageOS-17.1，对应 Aosp10，相比起 anbox 显然是更加新了。</p>
-<p><img src="https://npm.elemecdn.com/superbadguy-bed@0.0.4/11.png" srcset="/img/loading.gif" lazyload alt="是长成这样"></p>
+<p><img src="https://bu.dusays.com/2022/08/10/62f3cb238c027.webp" srcset="/img/loading.gif" lazyload alt="是长成这样"></p>
 <h2 id="内核支持"><a href="#内核支持" class="headerlink" title="内核支持"></a>内核支持</h2><p>waydroid需要内核提供<code>Ashmem</code>和<code>binder</code>支持，西木野羰基是使用的自己编译的内核。而我在使用Archlinux，因此直接使用<code>linux-zen</code>即可。</p>
-<blockquote>
-<p>注: AUR上的<code>linux-xanmod</code>虽然也有这些模块支持，但是在编译时设置了<code>psi=0</code>以提升性能，而waydroid恰巧需要<code>psi=1</code>的支持，故不可使用。</p>
-</blockquote>
+<p> 注: AUR上的<code>linux-xanmod</code>虽然也有这些模块支持，但是在编译时设置了<code>psi=0</code>以提升性能，而waydroid恰巧需要<code>psi=1</code>的支持，故不可使用。</p>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>Archlinux已经有人将其打包上传到了AUR，我们直接安装即可。我使用的 AUR Helper 是 yay，所以直接</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">yay -S waydroid --noconfirm<br></code></pre></td></tr></table></figure>
 
@@ -373,9 +369,9 @@
 <li>相关的资料似乎有点少，官方的文档也没有写得太详细</li>
 <li>Waydroid会自动在<code>$HOME/.local/share/applications/</code>为wayland内的安装应用添加Desktop文件（这让我有些反感</li>
 </ul>
-<h2 id="一些截图"><a href="#一些截图" class="headerlink" title="一些截图"></a>一些截图</h2><p><img src="https://npm.elemecdn.com/superbadguy-bed@0.0.4/12.png" srcset="/img/loading.gif" lazyload></p>
-<p><img src="https://npm.elemecdn.com/superbadguy-bed@0.0.4/13.png" srcset="/img/loading.gif" lazyload alt="原生安卓从未变过的应用抽屉"></p>
-<p><img src="https://npm.elemecdn.com/superbadguy-bed@0.0.4/14.png" srcset="/img/loading.gif" lazyload alt="这充电速度太刺激啦！"></p>
+<h2 id="一些截图"><a href="#一些截图" class="headerlink" title="一些截图"></a>一些截图</h2><p><img src="https://bu.dusays.com/2022/08/10/62f3cb26cba03.webp" srcset="/img/loading.gif" lazyload></p>
+<p><img src="https://bu.dusays.com/2022/08/10/62f3cc722835c.webp" srcset="/img/loading.gif" lazyload alt="原生安卓从未变过的应用抽屉"></p>
+<p><img src="https://bu.dusays.com/2022/08/10/62f3cc76b986c.webp" srcset="/img/loading.gif" lazyload alt="这充电速度太刺激啦！"></p>
 
               
             </div>

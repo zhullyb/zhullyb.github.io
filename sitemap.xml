@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://zhul.in/2021/04/27/hide-simsun-from-deepin-wine-tim/</loc>
+    <loc>https://zhul.in/2020/12/22/Did-UOS-have-Secure-Boot-Signature/</loc>
     
     <lastmod>2022-08-10</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/11/21/use-cloudflare-mirrors/</loc>
+    <loc>https://zhul.in/2020/07/11/GitNotes/</loc>
     
     <lastmod>2022-08-10</lastmod>
     
@@ -20,7 +20,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/10/31/waydroid-experience-on-kde/</loc>
+    <loc>https://zhul.in/2020/10/08/NoHello/</loc>
     
     <lastmod>2022-08-10</lastmod>
     
@@ -29,7 +29,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/11/20/what-is-deepin-elf-verify/</loc>
+    <loc>https://zhul.in/2020/07/11/RepoNotes/</loc>
     
     <lastmod>2022-08-10</lastmod>
     
@@ -38,7 +38,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/05/27/relieve-the-pressure-of-tuna-mirror-site-please/</loc>
+    <loc>https://zhul.in/2020/11/13/RomFlash_QA/</loc>
     
     <lastmod>2022-08-10</lastmod>
     
@@ -47,16 +47,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/11/26/typora-and-me/</loc>
-    
-    <lastmod>2022-08-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2022/03/31/upload-pic-to-lskypro-with-curl/</loc>
+    <loc>https://zhul.in/2021/01/01/Why-I-dont-recommend-Manjaro/</loc>
     
     <lastmod>2022-08-10</lastmod>
     
@@ -66,6 +57,78 @@
   
   <url>
     <loc>https://zhul.in/2022/08/04/a-fucking-store-about-openssl3-and-nodejs16/</loc>
+    
+    <lastmod>2022-08-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2021/03/12/arch-source/</loc>
+    
+    <lastmod>2022-08-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2021/10/01/bring-firefox-old-topbar-back/</loc>
+    
+    <lastmod>2022-08-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2021/07/23/build-a-rpm-package-from-aur-with-archlinux/</loc>
+    
+    <lastmod>2022-08-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2021/02/27/change-your-firefox-icon-into-a-bluedoge/</loc>
+    
+    <lastmod>2022-08-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2020/07/11/china-mainland-mirrorlist/</loc>
+    
+    <lastmod>2022-08-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2021/05/29/choose-the-last-archlinux-mirror-site-in-china/</loc>
+    
+    <lastmod>2022-08-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2021/09/21/csdn-copied-my-article/</loc>
+    
+    <lastmod>2022-08-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2021/09/11/detailed-explanation-for-aur/</loc>
     
     <lastmod>2022-08-10</lastmod>
     
@@ -92,6 +155,15 @@
   </url>
   
   <url>
+    <loc>https://zhul.in/2021/06/06/download-openharmony-source-code/</loc>
+    
+    <lastmod>2022-08-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zhul.in/2022/04/14/fastocr-experience/</loc>
     
     <lastmod>2022-08-10</lastmod>
@@ -110,7 +182,52 @@
   </url>
   
   <url>
+    <loc>https://zhul.in/2021/04/16/fuck-jekyll-github-metadata-on-gitlab/</loc>
+    
+    <lastmod>2022-08-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2021/04/27/hide-simsun-from-deepin-wine-tim/</loc>
+    
+    <lastmod>2022-08-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zhul.in/2022/02/07/how-to-package-a-git-rpm-package/</loc>
+    
+    <lastmod>2022-08-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2021/03/14/lets-fuck-dm-and-use-startx/</loc>
+    
+    <lastmod>2022-08-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2021/04/15/login-chromium-with-the-api-of-chrome/</loc>
+    
+    <lastmod>2022-08-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2021/10/02/nutstore-guide-on-archlinux-kde/</loc>
     
     <lastmod>2022-08-10</lastmod>
     
@@ -128,7 +245,34 @@
   </url>
   
   <url>
+    <loc>https://zhul.in/2021/10/21/picuploader-on-archlinux-with-caddy/</loc>
+    
+    <lastmod>2022-08-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2021/10/24/picuploader-with-kde-action/</loc>
+    
+    <lastmod>2022-08-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zhul.in/2021/11/05/please-dont-theme-our-apps/</loc>
+    
+    <lastmod>2022-08-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2021/05/27/relieve-the-pressure-of-tuna-mirror-site-please/</loc>
     
     <lastmod>2022-08-10</lastmod>
     
@@ -164,7 +308,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2022/01/19/the-common-software-hidden-in-mirrors/</loc>
+    <loc>https://zhul.in/2021/05/30/share-xiaomi-bluetooth-mouse-on-both-windows-and-linux/</loc>
     
     <lastmod>2022-08-10</lastmod>
     
@@ -182,7 +326,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2022/05/30/use-caddy-to-proxy-wikipedia/</loc>
+    <loc>https://zhul.in/2021/04/16/the-software-i-use-on-archlinux/</loc>
     
     <lastmod>2022-08-10</lastmod>
     
@@ -191,7 +335,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/10/24/picuploader-with-kde-action/</loc>
+    <loc>https://zhul.in/2021/11/26/typora-and-me/</loc>
     
     <lastmod>2022-08-10</lastmod>
     
@@ -200,7 +344,16 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/01/01/Why-I-dont-recommend-Manjaro/</loc>
+    <loc>https://zhul.in/2022/03/31/upload-pic-to-lskypro-with-curl/</loc>
+    
+    <lastmod>2022-08-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2021/11/21/use-cloudflare-mirrors/</loc>
     
     <lastmod>2022-08-10</lastmod>
     
@@ -218,6 +371,78 @@
   </url>
   
   <url>
+    <loc>https://zhul.in/2021/10/31/waydroid-experience-on-kde/</loc>
+    
+    <lastmod>2022-08-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2021/11/20/what-is-deepin-elf-verify/</loc>
+    
+    <lastmod>2022-08-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2021/04/13/where-will-appimage-put-its-file/</loc>
+    
+    <lastmod>2022-08-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2021/05/23/why-i-use-archlinux/</loc>
+    
+    <lastmod>2022-08-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2021/09/05/wrong-fonts-color-fix-under-kde-with-a-dark-theme/</loc>
+    
+    <lastmod>2022-08-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2021/04/04/yay-more/</loc>
+    
+    <lastmod>2022-08-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2022/01/19/the-common-software-hidden-in-mirrors/</loc>
+    
+    <lastmod>2022-08-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2022/05/30/use-caddy-to-proxy-wikipedia/</loc>
+    
+    <lastmod>2022-08-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zhul.in/2021/04/23/disable-firefox-nightmode-when-your-system-is-using-that/</loc>
     
     <lastmod>2022-08-10</lastmod>
@@ -227,27 +452,9 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/04/15/login-chromium-with-the-api-of-chrome/</loc>
-    
-    <lastmod>2022-07-29</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zhul.in/collections/index.html</loc>
     
     <lastmod>2022-06-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2020/10/08/NoHello/</loc>
-    
-    <lastmod>2022-05-28</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -272,126 +479,9 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/03/12/arch-source/</loc>
-    
-    <lastmod>2022-03-06</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zhul.in/linux-source/index.html</loc>
     
     <lastmod>2022-03-06</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/07/23/build-a-rpm-package-from-aur-with-archlinux/</loc>
-    
-    <lastmod>2022-02-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/04/04/yay-more/</loc>
-    
-    <lastmod>2022-02-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/10/01/bring-firefox-old-topbar-back/</loc>
-    
-    <lastmod>2022-01-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/09/21/csdn-copied-my-article/</loc>
-    
-    <lastmod>2022-01-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/09/11/detailed-explanation-for-aur/</loc>
-    
-    <lastmod>2022-01-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/06/06/download-openharmony-source-code/</loc>
-    
-    <lastmod>2022-01-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/04/16/fuck-jekyll-github-metadata-on-gitlab/</loc>
-    
-    <lastmod>2022-01-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/10/02/nutstore-guide-on-archlinux-kde/</loc>
-    
-    <lastmod>2022-01-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/05/30/share-xiaomi-bluetooth-mouse-on-both-windows-and-linux/</loc>
-    
-    <lastmod>2022-01-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/09/05/wrong-fonts-color-fix-under-kde-with-a-dark-theme/</loc>
-    
-    <lastmod>2022-01-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/10/21/picuploader-on-archlinux-with-caddy/</loc>
-    
-    <lastmod>2022-01-14</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2020/12/22/Did-UOS-have-Secure-Boot-Signature/</loc>
-    
-    <lastmod>2021-11-27</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -408,60 +498,6 @@
   
   <url>
     <loc>https://zhul.in/2020/12/19/Before-Report-A-Rom-Issue/</loc>
-    
-    <lastmod>2021-10-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2020/07/11/GitNotes/</loc>
-    
-    <lastmod>2021-10-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2020/07/11/RepoNotes/</loc>
-    
-    <lastmod>2021-10-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2020/11/13/RomFlash_QA/</loc>
-    
-    <lastmod>2021-10-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/02/27/change-your-firefox-icon-into-a-bluedoge/</loc>
-    
-    <lastmod>2021-10-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2020/07/11/china-mainland-mirrorlist/</loc>
-    
-    <lastmod>2021-10-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/05/29/choose-the-last-archlinux-mirror-site-in-china/</loc>
     
     <lastmod>2021-10-13</lastmod>
     
@@ -488,15 +524,6 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/03/14/lets-fuck-dm-and-use-startx/</loc>
-    
-    <lastmod>2021-10-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zhul.in/2021/01/20/python-virtualenv/</loc>
     
     <lastmod>2021-10-13</lastmod>
@@ -515,34 +542,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/04/16/the-software-i-use-on-archlinux/</loc>
-    
-    <lastmod>2021-10-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/04/13/where-will-appimage-put-its-file/</loc>
-    
-    <lastmod>2021-10-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zhul.in/2020/07/12/where-you-can-download-my-rom/</loc>
-    
-    <lastmod>2021-10-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/05/23/why-i-use-archlinux/</loc>
     
     <lastmod>2021-10-13</lastmod>
     

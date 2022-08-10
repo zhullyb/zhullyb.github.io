@@ -18,18 +18,18 @@
   <meta name="author" content="竹林里有冰">
   <meta name="keywords" content="博客, 技术, Fedora">
   
-    <meta name="description" content="本文中，我通过bwrap命令对运行Tim的wine程序屏蔽了simsun字体以获得了一个更为舒适的字体渲染效果。我所使用的Tim为deepin-wine-tim，至于deepin-wine-qq通过相同的方式应该也能达到相同的效果，spark商店的Tim我自己测试下来似乎是没法达到这样的效果，而使用其他方法安装simsun字体的网友们则需要注意灵活变通，不要照抄我给出的字体路径。  在Archl">
+    <meta name="description" content="本文中，我通过bwrap命令对运行Tim的wine程序屏蔽了simsun字体以获得了一个更为舒适的字体渲染效果。我所使用的Tim为deepin-wine-tim，至于deepin-wine-qq通过相同的方式应该也能达到相同的效果，spark商店的Tim我自己测试下来似乎是没法达到这样的效果，而使用其他方法安装simsun字体的网友们则需要注意灵活变通，不要照抄我给出的字体路径。 在Archli">
 <meta property="og:type" content="article">
 <meta property="og:title" content="禁止deepin-wine-tim使用simsun字体渲染">
 <meta property="og:url" content="https://zhul.in/2021/04/27/hide-simsun-from-deepin-wine-tim/index.html">
 <meta property="og:site_name" content="竹林里有冰的博客">
-<meta property="og:description" content="本文中，我通过bwrap命令对运行Tim的wine程序屏蔽了simsun字体以获得了一个更为舒适的字体渲染效果。我所使用的Tim为deepin-wine-tim，至于deepin-wine-qq通过相同的方式应该也能达到相同的效果，spark商店的Tim我自己测试下来似乎是没法达到这样的效果，而使用其他方法安装simsun字体的网友们则需要注意灵活变通，不要照抄我给出的字体路径。  在Archl">
+<meta property="og:description" content="本文中，我通过bwrap命令对运行Tim的wine程序屏蔽了simsun字体以获得了一个更为舒适的字体渲染效果。我所使用的Tim为deepin-wine-tim，至于deepin-wine-qq通过相同的方式应该也能达到相同的效果，spark商店的Tim我自己测试下来似乎是没法达到这样的效果，而使用其他方法安装simsun字体的网友们则需要注意灵活变通，不要照抄我给出的字体路径。 在Archli">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://bu.dusays.com/2022/08/10/62f3c887040ff.webp">
 <meta property="og:image" content="https://bu.dusays.com/2022/08/10/62f3c88b119f8.webp">
 <meta property="og:image" content="https://bu.dusays.com/2022/08/10/62f3c88f41790.webp">
 <meta property="article:published_time" content="2021-04-26T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-08-10T15:10:55.000Z">
+<meta property="article:modified_time" content="2022-08-10T15:25:00.000Z">
 <meta property="article:author" content="竹林里有冰">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="Archlinux">
@@ -330,9 +330,7 @@
             
             <div class="markdown-body">
               
-              <blockquote>
-<p>本文中，我通过bwrap命令对运行Tim的wine程序屏蔽了simsun字体以获得了一个更为舒适的字体渲染效果。我所使用的Tim为<code>deepin-wine-tim</code>，至于<code>deepin-wine-qq</code>通过相同的方式应该也能达到相同的效果，spark商店的Tim我自己测试下来似乎是没法达到这样的效果，而使用其他方法安装simsun字体的网友们则需要注意灵活变通，不要照抄我给出的字体路径。</p>
-</blockquote>
+              <p> 本文中，我通过bwrap命令对运行Tim的wine程序屏蔽了simsun字体以获得了一个更为舒适的字体渲染效果。我所使用的Tim为<code>deepin-wine-tim</code>，至于<code>deepin-wine-qq</code>通过相同的方式应该也能达到相同的效果，spark商店的Tim我自己测试下来似乎是没法达到这样的效果，而使用其他方法安装simsun字体的网友们则需要注意灵活变通，不要照抄我给出的字体路径。</p>
 <p>在Archlinux下，我们通常会使用deepin-wine5来运行QQ/Tim.</p>
 <p>但是当我们在系统中倒入simsun字体时，无论使用什么奇迹淫巧似乎都无法阻止deepin-wine5找到simsun并优先使用它。于是，字体渲染就会变成如图这样奇奇怪怪的画风: </p>
 <p><img src="https://bu.dusays.com/2022/08/10/62f3c887040ff.webp" srcset="/img/loading.gif" lazyload></p>

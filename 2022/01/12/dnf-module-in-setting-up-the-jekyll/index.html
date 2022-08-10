@@ -25,13 +25,13 @@
 <meta property="og:site_name" content="竹林里有冰的博客">
 <meta property="og:description" content="起因我之前的博客一直用的是这个主题，直接使用 Fedora 官方源里的 rubygem-jekyll 似乎无法正常安装 Gemfile 中的依赖。之前使用 Archlinux 的时候，我是直接从 AUR 安装了一个 ruby-2.6 来使用的，但最近转到 Fedora 以后似乎就没法用这样的方案来解决了。 好在天无绝人之路，Fedora 也提供了安装老版本的 ruby 的方案——使用 dnf 的">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://npm.elemecdn.com/superbadguy-bed@0.0.4/1.png">
+<meta property="og:image" content="https://bu.dusays.com/2022/08/10/62f3caeec8ef6.webp">
 <meta property="article:published_time" content="2022-01-12T14:11:42.000Z">
-<meta property="article:modified_time" content="2022-08-10T13:42:13.000Z">
+<meta property="article:modified_time" content="2022-08-10T15:25:00.000Z">
 <meta property="article:author" content="竹林里有冰">
 <meta property="article:tag" content="Fedora">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://npm.elemecdn.com/superbadguy-bed@0.0.4/1.png">
+<meta name="twitter:image" content="https://bu.dusays.com/2022/08/10/62f3caeec8ef6.webp">
   
   
   
@@ -342,7 +342,7 @@
 <h2 id="开始配置该-jekyll-主题的运行环境"><a href="#开始配置该-jekyll-主题的运行环境" class="headerlink" title="开始配置该 jekyll 主题的运行环境"></a>开始配置该 jekyll 主题的运行环境</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo dnf module install ruby:2.7<br>sudo dnf install ruby-devel<br><br><span class="hljs-built_in">cd</span> /path/to/the/jekyll-blog/<br>bundle install --path vendor/bundle<br></code></pre></td></tr></table></figure>
 
 <p>完成后，我们即可在 jekyll-blog 目录下 使用 <code>bundle exec jekyll</code> 来正常运行 jekyll 了。试着跑一下 <code>bundle exec jekyll server</code></p>
-<p><img src="https://npm.elemecdn.com/superbadguy-bed@0.0.4/1.png" srcset="/img/loading.gif" lazyload alt="成功，彻彻底底！"></p>
+<p><img src="https://bu.dusays.com/2022/08/10/62f3caeec8ef6.webp" srcset="/img/loading.gif" lazyload alt="成功，彻彻底底！"></p>
 <h2 id="参考材料"><a href="#参考材料" class="headerlink" title="参考材料"></a>参考材料</h2><p><a target="_blank" rel="noopener" href="https://docs.fedoraproject.org/en-US/modularity/">Fedora Docs</a></p>
 <p><a target="_blank" rel="noopener" href="https://github.com/openSUSE-zh/page-opensuse-zh/blob/main/CONTRIBUTING.md">openSUSE 中文社区主页贡献指南</a></p>
 <p><a target="_blank" rel="noopener" href="https://blog.kagesenshi.org/2021/05/ruby24-fedora34.html">Switching to use Ruby 2.7 (or older) in Fedora 34 using DNF Modules</a> 「<a target="_blank" rel="noopener" href="https://web.archive.org/web/20220112143005/https://blog.kagesenshi.org/2021/05/ruby24-fedora34.html">WebArchive</a>」</p>

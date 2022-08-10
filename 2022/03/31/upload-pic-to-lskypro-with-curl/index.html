@@ -27,7 +27,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://bu.dusays.com/2022/08/10/62f3b881e3c4c.gif">
 <meta property="article:published_time" content="2022-03-31T11:19:14.000Z">
-<meta property="article:modified_time" content="2022-08-10T14:03:44.000Z">
+<meta property="article:modified_time" content="2022-08-10T15:25:00.000Z">
 <meta property="article:author" content="竹林里有冰">
 <meta property="article:tag" content="Shell Script">
 <meta property="article:tag" content="图床">
@@ -337,15 +337,13 @@
 <p>这个方案有明显的弊端：</p>
 <ul>
 <li>PicGo 运行依赖于 electron，极大地消耗了系统资源。</li>
-<li>PicGo 面对多张图片( &gt;=4张 )同时上传时容易报错。</li>
+<li>PicGo 面对多张图片( =4张 )同时上传时容易报错。</li>
 <li>PicGo 对于 Linux 的支持比较有限，作者可能不熟悉 Linux，直到半个月前我去交了一个 pr 才支持 wayland 下使用 wl-clipboard 将图片链接复制到粘贴版。</li>
 </ul>
 <p>正好 LskyPro 有详细的文档，应该可以用 curl 手糊一段 Shell 脚本实现直接上传，资源占用小，唯一的弊端是上传完成后的图片不容易管理。脚本如下</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-meta">#!/bin/bash</span><br><br><span class="hljs-built_in">export</span> TOKEN=YOU_TYPE_IT<br><span class="hljs-built_in">export</span> UPLOAD_API_URL=https://7bu.top/api/upload<br><br><span class="hljs-keyword">for</span> images <span class="hljs-keyword">in</span> <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span>; <span class="hljs-keyword">do</span><br>        curl -s -X POST <span class="hljs-variable">$UPLOAD_API_URL</span> -F <span class="hljs-string">&quot;token=<span class="hljs-variable">$TOKEN</span>&quot;</span> -F <span class="hljs-string">&quot;image=@<span class="hljs-variable">$images</span>&quot;</span> | jq -r .data.url<br><span class="hljs-keyword">done</span><br></code></pre></td></tr></table></figure>
 
-<blockquote>
-<p>2022/04/02更新: 第六行 $@ -&gt; “$@”，解决文件名中出现空格时导致的上传失败问题。</p>
-</blockquote>
+<p> 2022/04/02更新: 第六行 $@ - “$@”，解决文件名中出现空格时导致的上传失败问题。</p>
 <p>需要借助 jq 来读取返回的 json，各 Linux 发行版源内应该都有打包，自行安装即可。</p>
 <p>授予x可执行权限后，Typora 内直接填写自定义命令输入脚本所在位置即可实现 Typora 自动上传图片了。</p>
 

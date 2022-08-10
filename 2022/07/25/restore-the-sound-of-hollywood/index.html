@@ -18,15 +18,15 @@
   <meta name="author" content="竹林里有冰">
   <meta name="keywords" content="博客, 技术, Fedora">
   
-    <meta name="description" content="我刚开始接触 Linux 下的 hollywood 时，我记得它运行时是有声音的，应该是 007 的主题音乐，如今再次装上 hollywood，却发现音乐没了。 在 Github 找到 hollywood，发现有一个 issue 也提到了这个问题。 原作者在该 issue 中回复道  没错，它只是一段视频，音频受到版权保护。  所以不难看出，作者因为版权问题而去掉了音频，进而导致 hollywoo">
+    <meta name="description" content="我刚开始接触 Linux 下的 hollywood 时，我记得它运行时是有声音的，应该是 007 的主题音乐，如今再次装上 hollywood，却发现音乐没了。 在 Github 找到 hollywood，发现有一个 issue 也提到了这个问题。 原作者在该 issue 中回复道  没错，它只是一段视频，音频受到版权保护。 所以不难看出，作者因为版权问题而去掉了音频，进而导致 hollywood">
 <meta property="og:type" content="article">
 <meta property="og:title" content="如何拯救失声的 hollywood">
 <meta property="og:url" content="https://zhul.in/2022/07/25/restore-the-sound-of-hollywood/index.html">
 <meta property="og:site_name" content="竹林里有冰的博客">
-<meta property="og:description" content="我刚开始接触 Linux 下的 hollywood 时，我记得它运行时是有声音的，应该是 007 的主题音乐，如今再次装上 hollywood，却发现音乐没了。 在 Github 找到 hollywood，发现有一个 issue 也提到了这个问题。 原作者在该 issue 中回复道  没错，它只是一段视频，音频受到版权保护。  所以不难看出，作者因为版权问题而去掉了音频，进而导致 hollywoo">
+<meta property="og:description" content="我刚开始接触 Linux 下的 hollywood 时，我记得它运行时是有声音的，应该是 007 的主题音乐，如今再次装上 hollywood，却发现音乐没了。 在 Github 找到 hollywood，发现有一个 issue 也提到了这个问题。 原作者在该 issue 中回复道  没错，它只是一段视频，音频受到版权保护。 所以不难看出，作者因为版权问题而去掉了音频，进而导致 hollywood">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-07-25T03:25:44.000Z">
-<meta property="article:modified_time" content="2022-08-10T13:42:13.000Z">
+<meta property="article:modified_time" content="2022-08-10T15:25:00.000Z">
 <meta property="article:author" content="竹林里有冰">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="Fun">
@@ -328,9 +328,7 @@
               <p>我刚开始接触 Linux 下的 hollywood 时，我记得它运行时是有声音的，应该是 007 的主题音乐，如今再次装上 hollywood，却发现音乐没了。</p>
 <p>在 Github 找到 hollywood，发现有一个 <a target="_blank" rel="noopener" href="https://github.com/dustinkirkland/hollywood/issues/58">issue</a> 也提到了这个问题。</p>
 <p>原作者在该 issue 中回复道</p>
-<blockquote>
-<p>没错，它只是一段视频，音频受到版权保护。</p>
-</blockquote>
+<p> 没错，它只是一段视频，音频受到版权保护。</p>
 <p>所以不难看出，作者因为版权问题而去掉了音频，进而导致 hollywood 失声。但我们作为用户，是不是可以想办法获取到老版本中那段带有音频的 mp4 文件呢？</p>
 <p>答案是肯定的。</p>
 <p>得益于 git 的版本控制特色，在 hollywood 的 github 仓库中，我们可以找到原来的 <a target="_blank" rel="noopener" href="https://github.com/dustinkirkland/hollywood/blob/67839229f878a08521885e9fc05dd2d3ba10ddd1/share/hollywood/mi.mp4">mp4 文件</a>。</p>
@@ -341,7 +339,7 @@
 <p>使用包管理器安装 <code>mplayer</code> 后，运行 <code>hollywood</code> 就可以听到声音了。</p>
 <p>然而，你觉不觉得这个音乐。。。听上去怪怪的。。。</p>
 <p>没错，作者在去掉音频后，给 <code>soundwave.mp4</code> <a target="_blank" rel="noopener" href="https://github.com/dustinkirkland/hollywood/commit/95f77d570d86cd8b8fe0e0939049609f81d1bae0#diff-3e2bf53af1a38136a109ac4fa1b11189e7b6fcd4385e1c68683093f73c6ac485">设定了加速播放</a>。而我们现在需要这段视频被原速播放。编辑 <code>/usr/lib/hollywood/mplayer</code></p>
-<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs diff">#!/bin/bash<br>#<br># Copyright 2014 Dustin Kirkland &lt;dustin.kirkland@gmail.com&gt;<br>#<br># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);<br># you may not use this file except in compliance with the License.<br># You may obtain a copy of the License at<br>#<br>#    http://www.apache.org/licenses/LICENSE-2.0<br>#<br># Unless required by applicable law or agreed to in writing, software<br># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,<br># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.<br># See the License for the specific language governing permissions and<br># limitations under the License.<br>command -v mplayer &gt;/dev/null 2&gt;&amp;1 || exit 1<br>trap &quot;pkill -f -9 lib/hollywood/ &gt;/dev/null 2&gt;&amp;1; exit&quot; INT<br>PKG=hollywood<br>dir=&quot;$(dirname $0)/../../share/$PKG&quot;<br><span class="hljs-deletion">-DISPLAY= mplayer -vo caca -loop 0 -ss $((RANDOM % 100)) -speed 100 $MPLAYER_OPTS $dir/soundwave.mp4</span><br><span class="hljs-addition">+DISPLAY= mplayer -vo caca -loop 0 $MPLAYER_OPTS $dir/soundwave.mp4</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs diff">#!/bin/bash<br>#<br># Copyright 2014 Dustin Kirkland &lt;dustin.kirkland@gmail.com<br>#<br># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);<br># you may not use this file except in compliance with the License.<br># You may obtain a copy of the License at<br>#<br>#    http://www.apache.org/licenses/LICENSE-2.0<br>#<br># Unless required by applicable law or agreed to in writing, software<br># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,<br># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.<br># See the License for the specific language governing permissions and<br># limitations under the License.<br>command -v mplayer /dev/null 2&amp;1 || exit 1<br>trap &quot;pkill -f -9 lib/hollywood/ /dev/null 2&amp;1; exit&quot; INT<br>PKG=hollywood<br>dir=&quot;$(dirname $0)/../../share/$PKG&quot;<br><span class="hljs-deletion">-DISPLAY= mplayer -vo caca -loop 0 -ss $((RANDOM % 100)) -speed 100 $MPLAYER_OPTS $dir/soundwave.mp4</span><br><span class="hljs-addition">+DISPLAY= mplayer -vo caca -loop 0 $MPLAYER_OPTS $dir/soundwave.mp4</span><br></code></pre></td></tr></table></figure>
 
 <p>再次运行，确认修改已经成功。</p>
 

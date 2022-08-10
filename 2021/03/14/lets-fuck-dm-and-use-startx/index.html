@@ -26,7 +26,7 @@
 <meta property="og:description" content="在正常情况下，我们会给Linux装上一个DisplayManager以方便我们输入账号密码来进入图形化系统，但是我不想要额外装一个DM来启动我的图形化系统（而且之前我一直用的sddm也出过一小阵子的问题） 首先卸载我的sddm 1sudo pacman -Rsnc sddm sddm-kcm  安装startx所在的软件包 1sudo pacman -S xorg-xinit  从&#x2F;etc&#x2F;X11">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-03-13T16:00:00.000Z">
-<meta property="article:modified_time" content="2021-10-13T13:48:10.000Z">
+<meta property="article:modified_time" content="2022-08-10T15:25:00.000Z">
 <meta property="article:author" content="竹林里有冰">
 <meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary_large_image">
@@ -317,7 +317,7 @@
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2021年10月13日 晚上
+                    本文最后更新于：2022年8月10日 晚上
                   
                 
               </p>
@@ -338,9 +338,7 @@
 <figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs subunit">#twm &amp;<br>#xclock -geometry 50x50<span class="hljs-string">-1</span><span class="hljs-string">+1</span> &amp;<br>#xterm -geometry 80x50<span class="hljs-string">+494</span><span class="hljs-string">+51</span> &amp;<br>#xterm -geometry 80x20<span class="hljs-string">+494</span><span class="hljs-string">-0</span> &amp;<br>#exec xterm -geometry 80x66<span class="hljs-string">+0</span><span class="hljs-string">+0</span> -name login<br></code></pre></td></tr></table></figure>
 
 <p>然后需要在结尾处写上我们的配置。我用的桌面是Plasma，查询<a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/KDE#From_the_console">wiki</a></p>
-<blockquote>
 <p>To start Plasma with xinit/startx, append export DESKTOP_SESSION=plasma and exec startplasma-x11 to your .xinitrc file. If you want to start Xorg at login, please see Start X at login.</p>
-</blockquote>
 <p>然后在xinitrx文件末尾处写上我们的配置</p>
 <figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-built_in">export</span> <span class="hljs-attribute">DESKTOP_SESSION</span>=plasma<br>startplasma-x11<br></code></pre></td></tr></table></figure>
 <p>Ps: 在第二行中，wiki中让我们使用exec，代表当xorg桌面会话结束后自动退出当前用户，而我不想退出，所以没加</p>
@@ -387,7 +385,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2021年10月13日</div>
+          <div>2022年8月10日</div>
         </div>
       
       <div class="license-meta-item">

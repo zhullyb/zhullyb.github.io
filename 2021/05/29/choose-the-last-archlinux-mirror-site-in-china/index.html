@@ -26,7 +26,7 @@
 <meta property="og:description" content="找到最新的Archlinux镜像源我是testing+kde-unstable用户，平均每天更新4次，对于我而言，选择最新的Archlinux镜像是非常重要的。 Archlinux的主源并不开放给个人用户使用，仅开放给一级镜像站进行同步，因此我们需要手动寻找国内较新的镜像站。（理论上来说一级镜像站应该比二级镜像站更新，但是有些一级镜像站的同步频率并不高，同步延迟可能会比某些二级镜像站还要高） 一个">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-05-28T16:00:00.000Z">
-<meta property="article:modified_time" content="2021-10-13T13:48:10.000Z">
+<meta property="article:modified_time" content="2022-08-10T15:25:00.000Z">
 <meta property="article:author" content="竹林里有冰">
 <meta property="article:tag" content="Archlinux">
 <meta name="twitter:card" content="summary_large_image">
@@ -317,7 +317,7 @@
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2021年10月13日 晚上
+                    本文最后更新于：2022年8月10日 晚上
                   
                 
               </p>
@@ -339,7 +339,7 @@
 <p>通过不同时刻的多次测试可以看出，国内同步频率最高的是东软（neusoft）的镜像。顺手一查，没错，是个一级镜像站。通过unix时间戳得知，东软的archlinux镜像几乎是每分钟同步一次，恐怖如斯。。。</p>
 <h2 id="获得更好的下载速度"><a href="#获得更好的下载速度" class="headerlink" title="获得更好的下载速度"></a>获得更好的下载速度</h2><p>我们已经得知东软是国内同步频率最高的Archlinux镜像站了，但是我用东软镜像站的下载速度并不太好看。此时，我们就要搬出依云大佬的神器——<a target="_blank" rel="noopener" href="https://blog.lilydjwg.me/2020/10/29/pacsync.215578.html">pacsync</a></p>
 <p>在root用户下使用如下命令装载pacysnc后</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">echo</span> <span class="hljs-string">&#x27;#!/bin/bash -e</span><br><span class="hljs-string"></span><br><span class="hljs-string">unshare -m bash &lt;&lt;&#x27;</span>EOF<span class="hljs-string">&#x27;</span><br><span class="hljs-string">mount --make-rprivate /</span><br><span class="hljs-string">for f in /etc/pacman.d/*.sync; do</span><br><span class="hljs-string">  filename=&quot;$&#123;f%.*&#125;&quot;</span><br><span class="hljs-string">  mount --bind &quot;$f&quot; &quot;$filename&quot;</span><br><span class="hljs-string">done</span><br><span class="hljs-string">pacman -Sy</span><br><span class="hljs-string">EOF&#x27;</span> &gt; /usr/bin/pacsync<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">echo</span> <span class="hljs-string">&#x27;#!/bin/bash -e</span><br><span class="hljs-string"></span><br><span class="hljs-string">unshare -m bash &lt;&lt;&#x27;</span>EOF<span class="hljs-string">&#x27;</span><br><span class="hljs-string">mount --make-rprivate /</span><br><span class="hljs-string">for f in /etc/pacman.d/*.sync; do</span><br><span class="hljs-string">  filename=&quot;$&#123;f%.*&#125;&quot;</span><br><span class="hljs-string">  mount --bind &quot;$f&quot; &quot;$filename&quot;</span><br><span class="hljs-string">done</span><br><span class="hljs-string">pacman -Sy</span><br><span class="hljs-string">EOF&#x27;</span>  /usr/bin/pacsync<br></code></pre></td></tr></table></figure>
 
 <p>创建<code>/etc/pacman.d/mirrorlist.sync</code>指定我们用来同步pacman数据库（比如东软）</p>
 <p><code>/etc/pacman.d/mirrorlist</code>中存放其他国内镜像源地址（按照同步速度从上到下）</p>
@@ -387,7 +387,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2021年10月13日</div>
+          <div>2022年8月10日</div>
         </div>
       
       <div class="license-meta-item">

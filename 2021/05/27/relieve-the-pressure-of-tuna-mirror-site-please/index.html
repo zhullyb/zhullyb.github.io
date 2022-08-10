@@ -28,7 +28,7 @@
 <meta property="og:image" content="https://bu.dusays.com/2022/08/10/62f3baac63cd2.webp">
 <meta property="og:image" content="https://bu.dusays.com/2022/08/10/62f3ba4204ecb.webp">
 <meta property="article:published_time" content="2021-05-27T13:25:48.000Z">
-<meta property="article:modified_time" content="2022-08-10T14:03:44.000Z">
+<meta property="article:modified_time" content="2022-08-10T15:25:00.000Z">
 <meta property="article:author" content="竹林里有冰">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="镜像站">
@@ -331,15 +331,11 @@
               <p>不知道从什么时候开始，我总觉得tuna的镜像站提供的下载速度越来越慢，直到我前几天翻开tuna镜像站的「<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/status/#server-status">服务器状态</a>」，我被眼前的景象给震惊到了。</p>
 <p><img src="https://bu.dusays.com/2022/08/10/62f3baac63cd2.webp" srcset="/img/loading.gif" lazyload alt="本图截于2021年5月27日晚"></p>
 <p> 我在这里大致观察了一下这张图：服务器流量主要是由四个部分组成，「http-ipv4」、「https-ipv4」、「http-ipv6」和「https-ipv6」。光是从过去24小时的平均出站流量来计算的话，大约就是2.4Gb/s，如果观察图中的流量高峰期的话，大概是4Gb/s的一个速率。这个流量大小是什么概念呢？根据我个人浅薄的建站经验来讲，这个流量可以让大部分供应商把你的网站判断为正在遭受攻击，你将被强制进入黑洞模式。然而对于tuna的镜像站而言，这个流量速率确是日常。换句话说，tuna的服务器都相当于每时每刻都在被来自全国的开发者“攻击”。</p>
-<blockquote>
-<p>来自 2022 年的竹林: 我是真没想到去年 tuna 的网络负载只有这点的。2022 年的负载图在下面附上，已经翻了一倍不止了</p>
-<p><img src="https://bu.dusays.com/2022/08/10/62f3ba4204ecb.webp" srcset="/img/loading.gif" lazyload alt="本图截于2022年8月10日晚"></p>
-</blockquote>
+<p> 来自 2022 年的竹林: 我是真没想到去年 tuna 的网络负载只有这点的。2022 年的负载图在下面附上，已经翻了一倍不止了</p>
+<p> <img src="https://bu.dusays.com/2022/08/10/62f3ba4204ecb.webp" srcset="/img/loading.gif" lazyload alt="本图截于2022年8月10日晚"></p>
 <p>因此，我们也就不难理解为什么tuna近些年来经常出现断流等一系列问题了。</p>
-<blockquote>
-<p>客观上 TUNA 和 UTSC 是国内知名度和镜像项目数量以及同步速度都靠前的镜像站，但也因为如此，这两个镜像站每日的带宽负载是很大的；能跑满我的本地带宽速度是较理想的情况，但是那么大的负载，时间跨度长了体验到的波动差异也就多了起来。至少在我这里，长时间使用两个镜像站的速度波动挺大的。TUNA 也曾微言过带宽日益不堪重负，所以从道德情感和技术理论等角度上，尽管他们是理想的镜像站点，我个人不会优先使用这两个镜像站，也不会优先推荐别人使用。</p>
-<p>——WPlanck</p>
-</blockquote>
+<p> 客观上 TUNA 和 UTSC 是国内知名度和镜像项目数量以及同步速度都靠前的镜像站，但也因为如此，这两个镜像站每日的带宽负载是很大的；能跑满我的本地带宽速度是较理想的情况，但是那么大的负载，时间跨度长了体验到的波动差异也就多了起来。至少在我这里，长时间使用两个镜像站的速度波动挺大的。TUNA 也曾微言过带宽日益不堪重负，所以从道德情感和技术理论等角度上，尽管他们是理想的镜像站点，我个人不会优先使用这两个镜像站，也不会优先推荐别人使用。</p>
+<p> ——WPlanck</p>
 <p>国内的开源镜像站我大多都已经收集到<a href="/2020/07/11/china-mainland-mirrorlist/">这一篇博客中</a>了，以下几个镜像站是我重点推荐的。</p>
 <h3 id="bfsu"><a href="#bfsu" class="headerlink" title="bfsu"></a><a target="_blank" rel="noopener" href="https://mirrors.bfsu.edu.cn/">bfsu</a></h3><p>tuna的姊妹站，通俗来讲就是tuna派人维护，北京外国语大学出钱。人少、稳定、涵盖项目较广。</p>
 <h3 id="sjtug"><a href="#sjtug" class="headerlink" title="sjtug"></a><a target="_blank" rel="noopener" href="https://mirrors.sjtug.sjtu.edu.cn/">sjtug</a></h3><p>上海交大的站点，也有不少项目，据说sjtug上的manjaro镜像是国内几个开源镜像站中同步最勤快的，用的人也不多。</p>
