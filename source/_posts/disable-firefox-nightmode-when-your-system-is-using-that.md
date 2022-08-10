@@ -18,9 +18,9 @@ ui.systemUsesDarkTheme
 
 将这个选项的**数值**设置为0即可。
 
-![步骤1](https://npm.elemecdn.com/superbadguy-bed@0.0.5/16.png)
+![步骤1](https://bu.dusays.com/2022/08/10/62f36c8f05efd.png)
 
-![步骤2](https://npm.elemecdn.com/superbadguy-bed@0.0.5/17.png)
+![步骤2](https://bu.dusays.com/2022/08/10/62f36cce30773.png)
 
 
 
