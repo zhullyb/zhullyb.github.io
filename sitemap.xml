@@ -2,6 +2,186 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zhul.in/2022/08/04/a-fucking-store-about-openssl3-and-nodejs16/</loc>
+    
+    <lastmod>2022-08-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2021/12/03/dev-app-update-in-wolai/</loc>
+    
+    <lastmod>2022-08-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2022/01/12/dnf-module-in-setting-up-the-jekyll/</loc>
+    
+    <lastmod>2022-08-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2022/04/14/fastocr-experience/</loc>
+    
+    <lastmod>2022-08-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2022/07/03/fcitx5-blinking-on-tg-under-wayland-kde/</loc>
+    
+    <lastmod>2022-08-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2022/02/07/how-to-package-a-git-rpm-package/</loc>
+    
+    <lastmod>2022-08-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2022/01/01/pacman-gpgme-error-no-data/</loc>
+    
+    <lastmod>2022-08-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2021/11/05/please-dont-theme-our-apps/</loc>
+    
+    <lastmod>2022-08-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2021/05/27/relieve-the-pressure-of-tuna-mirror-site-please/</loc>
+    
+    <lastmod>2022-08-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2022/07/25/restore-the-sound-of-hollywood/</loc>
+    
+    <lastmod>2022-08-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2022/03/06/run-rpmbuild-with-github-action/</loc>
+    
+    <lastmod>2022-08-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2022/05/11/setup-a-local-fedora-source/</loc>
+    
+    <lastmod>2022-08-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2022/01/19/the-common-software-hidden-in-mirrors/</loc>
+    
+    <lastmod>2022-08-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2021/12/12/the-history-of-cutefish/</loc>
+    
+    <lastmod>2022-08-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2021/11/26/typora-and-me/</loc>
+    
+    <lastmod>2022-08-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2022/03/31/upload-pic-to-lskypro-with-curl/</loc>
+    
+    <lastmod>2022-08-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2022/05/30/use-caddy-to-proxy-wikipedia/</loc>
+    
+    <lastmod>2022-08-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2021/11/21/use-cloudflare-mirrors/</loc>
+    
+    <lastmod>2022-08-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2021/10/31/waydroid-experience-on-kde/</loc>
+    
+    <lastmod>2022-08-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2021/11/20/what-is-deepin-elf-verify/</loc>
+    
+    <lastmod>2022-08-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zhul.in/2021/10/24/picuploader-with-kde-action/</loc>
     
     <lastmod>2022-08-10</lastmod>
@@ -38,36 +218,9 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2022/08/04/a-fucking-store-about-openssl3-and-nodejs16/</loc>
-    
-    <lastmod>2022-08-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zhul.in/2021/04/15/login-chromium-with-the-api-of-chrome/</loc>
     
     <lastmod>2022-07-29</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2022/07/25/restore-the-sound-of-hollywood/</loc>
-    
-    <lastmod>2022-07-25</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2022/07/03/fcitx5-blinking-on-tg-under-wayland-kde/</loc>
-    
-    <lastmod>2022-07-03</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -83,54 +236,9 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2022/05/30/use-caddy-to-proxy-wikipedia/</loc>
-    
-    <lastmod>2022-05-30</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zhul.in/2020/10/08/NoHello/</loc>
     
     <lastmod>2022-05-28</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2022/05/11/setup-a-local-fedora-source/</loc>
-    
-    <lastmod>2022-05-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2022/01/19/the-common-software-hidden-in-mirrors/</loc>
-    
-    <lastmod>2022-05-23</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2022/04/14/fastocr-experience/</loc>
-    
-    <lastmod>2022-04-17</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/10/31/waydroid-experience-on-kde/</loc>
-    
-    <lastmod>2022-04-17</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -146,45 +254,9 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2022/02/07/how-to-package-a-git-rpm-package/</loc>
-    
-    <lastmod>2022-04-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2022/03/31/upload-pic-to-lskypro-with-curl/</loc>
-    
-    <lastmod>2022-04-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zhul.in/about/index.html</loc>
     
     <lastmod>2022-04-09</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2022/01/01/pacman-gpgme-error-no-data/</loc>
-    
-    <lastmod>2022-03-19</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2022/03/06/run-rpmbuild-with-github-action/</loc>
-    
-    <lastmod>2022-03-19</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -227,15 +299,6 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/11/21/use-cloudflare-mirrors/</loc>
-    
-    <lastmod>2022-01-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zhul.in/2021/10/01/bring-firefox-old-topbar-back/</loc>
     
     <lastmod>2022-01-21</lastmod>
@@ -255,24 +318,6 @@
   
   <url>
     <loc>https://zhul.in/2021/09/11/detailed-explanation-for-aur/</loc>
-    
-    <lastmod>2022-01-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/12/03/dev-app-update-in-wolai/</loc>
-    
-    <lastmod>2022-01-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2022/01/12/dnf-module-in-setting-up-the-jekyll/</loc>
     
     <lastmod>2022-01-21</lastmod>
     
@@ -317,43 +362,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/05/27/relieve-the-pressure-of-tuna-mirror-site-please/</loc>
-    
-    <lastmod>2022-01-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zhul.in/2021/05/30/share-xiaomi-bluetooth-mouse-on-both-windows-and-linux/</loc>
-    
-    <lastmod>2022-01-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/12/12/the-history-of-cutefish/</loc>
-    
-    <lastmod>2022-01-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/11/26/typora-and-me/</loc>
-    
-    <lastmod>2022-01-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/11/20/what-is-deepin-elf-verify/</loc>
     
     <lastmod>2022-01-21</lastmod>
     
@@ -381,15 +390,6 @@
   
   <url>
     <loc>https://zhul.in/2020/12/22/Did-UOS-have-Secure-Boot-Signature/</loc>
-    
-    <lastmod>2021-11-27</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/11/05/please-dont-theme-our-apps/</loc>
     
     <lastmod>2021-11-27</lastmod>
     

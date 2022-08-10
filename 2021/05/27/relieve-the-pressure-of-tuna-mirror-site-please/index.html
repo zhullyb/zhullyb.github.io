@@ -20,23 +20,24 @@
   
     <meta name="description" content="不知道从什么时候开始，我总觉得tuna的镜像站提供的下载速度越来越慢，直到我前几天翻开tuna镜像站的「服务器状态」，我被眼前的景象给震惊到了。   我在这里大致观察了一下这张图：服务器流量主要是由四个部分组成，「http-ipv4」、「https-ipv4」、「http-ipv6」和「https-ipv6」。光是从过去24小时的平均出站流量来计算的话，大约就是2.4Gb&#x2F;s，如果观察图中的流量高">
 <meta property="og:type" content="article">
-<meta property="og:title" content="请给清华镜像站减压">
+<meta property="og:title" content="请给 tuna&#x2F;ustc 镜像站减压">
 <meta property="og:url" content="https://zhul.in/2021/05/27/relieve-the-pressure-of-tuna-mirror-site-please/index.html">
 <meta property="og:site_name" content="竹林里有冰的博客">
 <meta property="og:description" content="不知道从什么时候开始，我总觉得tuna的镜像站提供的下载速度越来越慢，直到我前几天翻开tuna镜像站的「服务器状态」，我被眼前的景象给震惊到了。   我在这里大致观察了一下这张图：服务器流量主要是由四个部分组成，「http-ipv4」、「https-ipv4」、「http-ipv6」和「https-ipv6」。光是从过去24小时的平均出站流量来计算的话，大约就是2.4Gb&#x2F;s，如果观察图中的流量高">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://npm.elemecdn.com/superbadguy-bed@0.0.5/1.png">
+<meta property="og:image" content="https://bu.dusays.com/2022/08/10/62f3af57a2ad2.webp">
+<meta property="og:image" content="https://bu.dusays.com/2022/08/10/62f3af57a2ad2.webp">
 <meta property="article:published_time" content="2021-05-27T13:25:48.000Z">
-<meta property="article:modified_time" content="2022-01-21T17:13:35.000Z">
+<meta property="article:modified_time" content="2022-08-10T13:42:13.000Z">
 <meta property="article:author" content="竹林里有冰">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="镜像站">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://npm.elemecdn.com/superbadguy-bed@0.0.5/1.png">
+<meta name="twitter:image" content="https://bu.dusays.com/2022/08/10/62f3af57a2ad2.webp">
   
   
   
-  <title>请给清华镜像站减压 - 竹林里有冰的博客</title>
+  <title>请给 tuna/ustc 镜像站减压 - 竹林里有冰的博客</title>
 
   <link  rel="stylesheet" href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/4.6.0/css/bootstrap.min.css" />
 
@@ -240,7 +241,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="请给清华镜像站减压"></span>
+            <span id="subtitle" data-typed-text="请给 tuna/ustc 镜像站减压"></span>
           
         </div>
 
@@ -264,7 +265,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          839 字
+          994 字
         
       </span>
     
@@ -314,13 +315,13 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">请给清华镜像站减压</h1>
+            <h1 style="display: none">请给 tuna/ustc 镜像站减压</h1>
             
               <p class="note note-info">
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2022年1月22日 凌晨
+                    本文最后更新于：2022年8月10日 晚上
                   
                 
               </p>
@@ -328,12 +329,20 @@
             <div class="markdown-body">
               
               <p>不知道从什么时候开始，我总觉得tuna的镜像站提供的下载速度越来越慢，直到我前几天翻开tuna镜像站的「<a target="_blank" rel="noopener" href="https://mirrors.tuna.tsinghua.edu.cn/status/#server-status">服务器状态</a>」，我被眼前的景象给震惊到了。</p>
-<p><img src="https://npm.elemecdn.com/superbadguy-bed@0.0.5/1.png" srcset="/img/loading.gif" lazyload alt="本图截于2021年5月27日晚"></p>
+<p><img src="https://bu.dusays.com/2022/08/10/62f3af57a2ad2.webp" srcset="/img/loading.gif" lazyload alt="本图截于2021年5月27日晚"></p>
 <p> 我在这里大致观察了一下这张图：服务器流量主要是由四个部分组成，「http-ipv4」、「https-ipv4」、「http-ipv6」和「https-ipv6」。光是从过去24小时的平均出站流量来计算的话，大约就是2.4Gb/s，如果观察图中的流量高峰期的话，大概是4Gb/s的一个速率。这个流量大小是什么概念呢？根据我个人浅薄的建站经验来讲，这个流量可以让大部分供应商把你的网站判断为正在遭受攻击，你将被强制进入黑洞模式。然而对于tuna的镜像站而言，这个流量速率确是日常。换句话说，tuna的服务器都相当于每时每刻都在被来自全国的开发者“攻击”。</p>
-<p>因此，我们也就不难理解为什么tuna近些年来经常出现断流等一系列问题了。tuna的压力确实不小，考虑到国内其实有不少镜像站其实是把tuna作为上游的，我们应该给tuna减压，尽可能使用其他国内镜像站。国内的开源镜像站我大多都已经收集到<a href="/2020/07/11/china-mainland-mirrorlist/">这一篇博客中</a>了，以下几个镜像站是我重点推荐的。</p>
+<blockquote>
+<p>来自 2022 年的竹林: 我是真没想到去年 tuna 的网络负载只有这点的。2022 年的负载图在下面附上，已经翻了一倍不止了</p>
+<p><img src="https://bu.dusays.com/2022/08/10/62f3af57a2ad2.webp" srcset="/img/loading.gif" lazyload alt="本图截于2022年8月10日晚"></p>
+</blockquote>
+<p>因此，我们也就不难理解为什么tuna近些年来经常出现断流等一系列问题了。</p>
+<blockquote>
+<p>客观上 TUNA 和 UTSC 是国内知名度和镜像项目数量以及同步速度都靠前的镜像站，但也因为如此，这两个镜像站每日的带宽负载是很大的；能跑满我的本地带宽速度是较理想的情况，但是那么大的负载，时间跨度长了体验到的波动差异也就多了起来。至少在我这里，长时间使用两个镜像站的速度波动挺大的。TUNA 也曾微言过带宽日益不堪重负，所以从道德情感和技术理论等角度上，尽管他们是理想的镜像站点，我个人不会优先使用这两个镜像站，也不会优先推荐别人使用。</p>
+<p>——WPlanck</p>
+</blockquote>
+<p>国内的开源镜像站我大多都已经收集到<a href="/2020/07/11/china-mainland-mirrorlist/">这一篇博客中</a>了，以下几个镜像站是我重点推荐的。</p>
 <h3 id="bfsu"><a href="#bfsu" class="headerlink" title="bfsu"></a><a target="_blank" rel="noopener" href="https://mirrors.bfsu.edu.cn/">bfsu</a></h3><p>tuna的姊妹站，通俗来讲就是tuna派人维护，北京外国语大学出钱。人少、稳定、涵盖项目较广。</p>
 <h3 id="sjtug"><a href="#sjtug" class="headerlink" title="sjtug"></a><a target="_blank" rel="noopener" href="https://mirrors.sjtug.sjtu.edu.cn/">sjtug</a></h3><p>上海交大的站点，也有不少项目，据说sjtug上的manjaro镜像是国内几个开源镜像站中同步最勤快的，用的人也不多。</p>
-<h3 id="ustc"><a href="#ustc" class="headerlink" title="ustc"></a><a target="_blank" rel="noopener" href="http://mirrors.ustc.edu.cn/">ustc</a></h3><p>中科大的站点，项目也不少，不过我自己体验下来似乎速度不如上面那俩，今年体验似乎略有改善，用的人和tuna一样也挺多的。</p>
 <h3 id="opentuna"><a href="#opentuna" class="headerlink" title="opentuna"></a><a target="_blank" rel="noopener" href="https://opentuna.cn/">opentuna</a></h3><p>tuna那边用国内aws服务器搭的站点，速度超快，不过比较可惜的是现在同步的项目不多，同步频率低，大概是一天一次的样子。</p>
 <h3 id="pku"><a href="#pku" class="headerlink" title="pku"></a><a target="_blank" rel="noopener" href="https://mirrors.pku.edu.cn/Mirrors">pku</a></h3><p>是不是没想到北大也有镜像站？没记错的话是今年三四月左右刚开的，和opentuna情况差不多，用的人少、速度快、同步的项目不多。</p>
 <h3 id="hit"><a href="#hit" class="headerlink" title="hit"></a><a target="_blank" rel="noopener" href="https://mirrors.hit.edu.cn/">hit</a></h3><p>哈尔滨工业大学的镜像站，速度我跑下来感觉一般，不是特别亮眼，不过同步频率高。</p>
@@ -362,7 +371,7 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>请给清华镜像站减压</div>
+      <div>请给 tuna/ustc 镜像站减压</div>
       <div>https://zhul.in/2021/05/27/relieve-the-pressure-of-tuna-mirror-site-please/</div>
     </div>
     <div class="license-meta">
@@ -381,7 +390,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2022年1月22日</div>
+          <div>2022年8月10日</div>
         </div>
       
       <div class="license-meta-item">
