@@ -2,6 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zhul.in/2021/04/27/hide-simsun-from-deepin-wine-tim/</loc>
+    
+    <lastmod>2022-08-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2021/11/21/use-cloudflare-mirrors/</loc>
+    
+    <lastmod>2022-08-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2021/10/31/waydroid-experience-on-kde/</loc>
+    
+    <lastmod>2022-08-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2021/11/20/what-is-deepin-elf-verify/</loc>
+    
+    <lastmod>2022-08-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zhul.in/2021/05/27/relieve-the-pressure-of-tuna-mirror-site-please/</loc>
     
     <lastmod>2022-08-10</lastmod>
@@ -147,33 +183,6 @@
   
   <url>
     <loc>https://zhul.in/2022/05/30/use-caddy-to-proxy-wikipedia/</loc>
-    
-    <lastmod>2022-08-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/11/21/use-cloudflare-mirrors/</loc>
-    
-    <lastmod>2022-08-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/10/31/waydroid-experience-on-kde/</loc>
-    
-    <lastmod>2022-08-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/11/20/what-is-deepin-elf-verify/</loc>
     
     <lastmod>2022-08-10</lastmod>
     
@@ -336,15 +345,6 @@
   
   <url>
     <loc>https://zhul.in/2021/04/16/fuck-jekyll-github-metadata-on-gitlab/</loc>
-    
-    <lastmod>2022-01-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/04/27/hide-simsun-from-deepin-wine-tim/</loc>
     
     <lastmod>2022-01-21</lastmod>
     
