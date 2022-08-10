@@ -6,7 +6,7 @@ tags:
 - OpenSource Project
 ---
 
-> CutefishOS是由我们国内的开发者主导（目前也主要是他们在开发）的桌面环境。不过似乎对于他的前世今生，似乎很多人都有误解。尤其是很多人认为他是一个Archlinux-based发行版；部分用户分不清他到底是基于Debian还是基于Ubuntu；还有人把它和 JingOS 弄混了。
+ CutefishOS是由我们国内的开发者主导（目前也主要是他们在开发）的桌面环境。不过似乎对于他的前世今生，似乎很多人都有误解。尤其是很多人认为他是一个Archlinux-based发行版；部分用户分不清他到底是基于Debian还是基于Ubuntu；还有人把它和 JingOS 弄混了。
 
 先把这些问题的回答写在最前面: 
 
@@ -22,7 +22,7 @@ CutefishOS 和 JingOS 目前只是官网互加友链的关系，并不是相同�
 
 第一次体验到这个UI其实是在21年的3月，在Archlinux的QQ群里，群主向我们推荐了 CyberOS ，这是一个基于 Archlinux 的发行版。
 
-![QQ群公告](https://npm.elemecdn.com/superbadguy-bed@0.0.4/2.png)
+![QQ群公告](https://bu.dusays.com/2022/08/10/62f3cae911901.webp)
 
 由于基于 Archlinux，我直接就添加了CyberOS的源作为第三方源安装上了CyberDE，~~那会儿还顺手水了篇博客，由于后来事情发展太快，这篇博客早就不适用了，就干脆删了，现在在我的Github还能找到那会儿的[存档](https://github.com/zhullyb/blog/blob/20210430/_posts/2021-03-21-install-cyber-desktop-on-your-archlinux.md)。~~
 

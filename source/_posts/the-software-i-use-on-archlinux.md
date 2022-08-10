@@ -6,9 +6,9 @@ tags:
       - Archlinux
 ---
 
-> 最近基本固定了在Archlinux上的常用软件，也供各位参考一下。
->
-> 我是KDE用户，所以KDE家的软件会用得比较多。
+ 最近基本固定了在Archlinux上的常用软件，也供各位参考一下。
+
+ 我是KDE用户，所以KDE家的软件会用得比较多。
 
 浏览器：Firefox，Chromium备用（主要是使用chromium的网页翻译功能，还有就是打开一些对Firefox不太友好的网站）
 

@@ -7,11 +7,11 @@ tags:
       - Windows
 ---
 
-> 我自己使用的鼠标是一只[小米的无线蓝牙双模鼠标](https://www.mi.com/mouse)。但是由于我的USB接口不是很充裕，我平时还是蓝牙鼠标用的比较多。
->
-> 但是，每当我在Windows和Archlinux上切换时，我不得不重新配对我的蓝牙鼠标。原因我在翻译Archwiki上关于蓝牙鼠标相关叙述时已经解释得非常清楚了，我摘在下面：
->
-> “首先，计算机保存蓝牙设备的 MAC 地址和配对密钥；然后，蓝牙设备保存计算机的 MAC 地址和配对密钥。这两步通常不会有问题，不过设备蓝牙端口的 MAC 地址在 Linux 和 Windows 上都是相同的 (这在硬件层面上就设定好了)。然而，当在 Windows 或 Linux  中重新配对设备时，它会生成一个新密钥，覆盖了蓝牙设备之前保存的密钥，即与 Windows 配对产生的密钥会覆盖原先与 Linux  配对的密钥，反之亦然。“
+ 我自己使用的鼠标是一只[小米的无线蓝牙双模鼠标](https://www.mi.com/mouse)。但是由于我的USB接口不是很充裕，我平时还是蓝牙鼠标用的比较多。
+
+ 但是，每当我在Windows和Archlinux上切换时，我不得不重新配对我的蓝牙鼠标。原因我在翻译Archwiki上关于蓝牙鼠标相关叙述时已经解释得非常清楚了，我摘在下面：
+
+ “首先，计算机保存蓝牙设备的 MAC 地址和配对密钥；然后，蓝牙设备保存计算机的 MAC 地址和配对密钥。这两步通常不会有问题，不过设备蓝牙端口的 MAC 地址在 Linux 和 Windows 上都是相同的 (这在硬件层面上就设定好了)。然而，当在 Windows 或 Linux  中重新配对设备时，它会生成一个新密钥，覆盖了蓝牙设备之前保存的密钥，即与 Windows 配对产生的密钥会覆盖原先与 Linux  配对的密钥，反之亦然。“
 
 先在Linux上连接蓝牙鼠标，再重启到Windows重新配对蓝牙蓝牙鼠标。
 
@@ -19,7 +19,7 @@ tags:
 
 在Windows中，使用管理员权限打开`cmd.exe`
 
-![在Windows下使用管理员权限打开cmd](https://npm.elemecdn.com/superbadguy-bed@0.0.5/13.png)
+![在Windows下使用管理员权限打开cmd](https://bu.dusays.com/2022/08/10/62f3cb081565a.webp)
 
 cd到PsExec解压目录，使用如下命令将我们所需要的蓝牙密钥信息保存到C盘根目录下。
 
@@ -27,13 +27,13 @@ cd到PsExec解压目录，使用如下命令将我们所需要的蓝牙密钥信
 psexec.exe -s -i regedit /e C:\BTKeys.reg HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\BTHPORT\Parameters\Keys
 ```
 
-![使用psexec获取蓝牙信息](https://npm.elemecdn.com/superbadguy-bed@0.0.5/14.png)
+![使用psexec获取蓝牙信息](https://bu.dusays.com/2022/08/10/62f3cb0aae88f.webp)
 
 根目录的BTkeys.reg可以直接用记事本打开，内容大概是下面这个样子
 
-![BTkeys.reg](https://npm.elemecdn.com/superbadguy-bed@0.0.5/15.png)
+![BTkeys.reg](https://bu.dusays.com/2022/08/10/62f3cb0d9e04f.webp)
 
-> 为了方便后面的解说，我用各种颜色标注了起来。
+ 为了方便后面的解说，我用各种颜色标注了起来。
 
 在Linux下获取su权限以后，我们需要将Linux下随机分配给鼠标的蓝牙地址改成在Windows上获取的那个地址。上图中「红部分」划出来的就是Windows下获取的地址。
 
@@ -46,7 +46,7 @@ C6:2A:1B:33:2E:71  cache  settings
 [root@Archlinux E0:94:67:74:0D:5F]# mv C6\:2A\:1B\:33\:2E\:71/ C4\:F6\:B3\:2C\:BD\:7E
 ```
 
-再编辑`/var/lib/bluetooth/<本机蓝牙地址>/<鼠标蓝牙地址>/info`
+再编辑`/var/lib/bluetooth/<本机蓝牙地址/<鼠标蓝牙地址/info`
 
 原文件如下：
 
@@ -85,7 +85,7 @@ Timeout=600
 ```
 
 - 「黄色部分」`LTK` 对应 `LongTermKey` 下的 `Key`，把小写转换成大写并删去逗号即可。
-- 「绿色部分」`ERand` 对应 `Rand`。这里比较特殊的是，我们必须先将 Windows 中的值倒转过来再转换为 10 进制。即`c2,83,7f,8f,7c,76,b4,02`->`02,b4,76,7c,8f,7f,83,c2`->`194910961239294914`
+- 「绿色部分」`ERand` 对应 `Rand`。这里比较特殊的是，我们必须先将 Windows 中的值倒转过来再转换为 10 进制。即`c2,83,7f,8f,7c,76,b4,02`-`02,b4,76,7c,8f,7f,83,c2`-`194910961239294914`
 - 「蓝色部分」`EDIV` 对应 `EDiv`。把 16 进制转换成 10 进制即可，这里就不用倒转了。
 
 具体的转换方法我不再赘述，我把我的转换过程放在下面，我相信各位读者能够看懂。

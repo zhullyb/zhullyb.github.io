@@ -7,7 +7,7 @@ tags:
 - Caddy
 ---
 
-> Fedora 36 在多次跳票后，总算是在 5月10日正式发布了。截止北京时间 5月11日凌晨两点，上海交通大学开源镜像站的上游 `rsync://download-ib01.fedoraproject.org/`  仍然没有同步 Fedora 36 的 Release 源。鉴于 Release 自 freeze 以后基本是不会有什么大变动的，也不需要及时同步更新，干脆就直接建立一个本地的镜像源。
+ Fedora 36 在多次跳票后，总算是在 5月10日正式发布了。截止北京时间 5月11日凌晨两点，上海交通大学开源镜像站的上游 `rsync://download-ib01.fedoraproject.org/`  仍然没有同步 Fedora 36 的 Release 源。鉴于 Release 自 freeze 以后基本是不会有什么大变动的，也不需要及时同步更新，干脆就直接建立一个本地的镜像源。
 
 ## 准备
 

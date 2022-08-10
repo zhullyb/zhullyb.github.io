@@ -10,7 +10,7 @@ tags:
 - Experience
 ---
 
-> 在[西木野羰基的博客](https://yanqiyu.info/)中看到了其在Fedora中使用waydroid跑明日方舟的[截图](https://cdn.jsdelivr.net/gh/karuboniru/blog_imgs@master/20211025232040.png)，心里有有些痒痒了，决定在Archlinux上尝试使用waydroid。
+ 在[西木野羰基的博客](https://yanqiyu.info/)中看到了其在Fedora中使用waydroid跑明日方舟的[截图](https://bu.dusays.com/2022/08/10/62f3cc0d6b9e8.png)，心里有有些痒痒了，决定在Archlinux上尝试使用waydroid。
 
 ## Waydroid是什么
 
@@ -18,13 +18,13 @@ Waydroid是一个基于lxc容器技术，用以启动完整安卓系统的方案
 
 默认使用了LineageOS-17.1，对应 Aosp10，相比起 anbox 显然是更加新了。
 
-![是长成这样](https://npm.elemecdn.com/superbadguy-bed@0.0.4/11.png)
+![是长成这样](https://bu.dusays.com/2022/08/10/62f3cb238c027.webp)
 
 ## 内核支持
 
 waydroid需要内核提供`Ashmem`和`binder`支持，西木野羰基是使用的自己编译的内核。而我在使用Archlinux，因此直接使用`linux-zen`即可。
 
-> 注: AUR上的`linux-xanmod`虽然也有这些模块支持，但是在编译时设置了`psi=0`以提升性能，而waydroid恰巧需要`psi=1`的支持，故不可使用。
+ 注: AUR上的`linux-xanmod`虽然也有这些模块支持，但是在编译时设置了`psi=0`以提升性能，而waydroid恰巧需要`psi=1`的支持，故不可使用。
 
 ## 安装
 
@@ -99,8 +99,8 @@ Github上有个[脚本](https://github.com/casualsnek/waydroid_script)，可以�
 
 ## 一些截图
 
-![](https://npm.elemecdn.com/superbadguy-bed@0.0.4/12.png)
+![](https://bu.dusays.com/2022/08/10/62f3cb26cba03.webp)
 
-![原生安卓从未变过的应用抽屉](https://npm.elemecdn.com/superbadguy-bed@0.0.4/13.png)
+![原生安卓从未变过的应用抽屉](https://bu.dusays.com/2022/08/10/62f3cc722835c.webp)
 
-![这充电速度太刺激啦！](https://npm.elemecdn.com/superbadguy-bed@0.0.4/14.png)
+![这充电速度太刺激啦！](https://bu.dusays.com/2022/08/10/62f3cc76b986c.webp)

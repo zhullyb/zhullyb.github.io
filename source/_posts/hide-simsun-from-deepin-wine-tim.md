@@ -7,7 +7,7 @@ tags:
 - Bwrap
 ---
 
-> 本文中，我通过bwrap命令对运行Tim的wine程序屏蔽了simsun字体以获得了一个更为舒适的字体渲染效果。我所使用的Tim为`deepin-wine-tim`，至于`deepin-wine-qq`通过相同的方式应该也能达到相同的效果，spark商店的Tim我自己测试下来似乎是没法达到这样的效果，而使用其他方法安装simsun字体的网友们则需要注意灵活变通，不要照抄我给出的字体路径。
+ 本文中，我通过bwrap命令对运行Tim的wine程序屏蔽了simsun字体以获得了一个更为舒适的字体渲染效果。我所使用的Tim为`deepin-wine-tim`，至于`deepin-wine-qq`通过相同的方式应该也能达到相同的效果，spark商店的Tim我自己测试下来似乎是没法达到这样的效果，而使用其他方法安装simsun字体的网友们则需要注意灵活变通，不要照抄我给出的字体路径。
 
 在Archlinux下，我们通常会使用deepin-wine5来运行QQ/Tim.
 

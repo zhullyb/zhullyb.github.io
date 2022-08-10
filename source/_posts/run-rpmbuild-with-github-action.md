@@ -25,4 +25,4 @@ tags:
 
 改完后的 action 在 [zhullyb/rpmbuild-github-action](https://github.com/zhullyb/rpmbuild-github-action)，欢迎使用。
 
-最终是在 [zhullyb/dingtalk-for-fedora](https://github.com/zhullyb/dingtalk-for-fedora) 项目成功实装了，有兴趣的访客们可以去尝试着一起来白嫖 Github Action 呀！ >_<
+最终是在 [zhullyb/dingtalk-for-fedora](https://github.com/zhullyb/dingtalk-for-fedora) 项目成功实装了，有兴趣的访客们可以去尝试着一起来白嫖 Github Action 呀！ _<

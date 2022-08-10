@@ -8,13 +8,13 @@ tags:
 - KDE
 ---
 
-> 文章开头，先要感谢 fcitx5 的开发者 [老K](https://www.csslayer.info/wordpress/) 帮我 debug 这个问题
+ 文章开头，先要感谢 fcitx5 的开发者 [老K](https://www.csslayer.info/wordpress/) 帮我 debug 这个问题
 
 ## 鬼畜的文字候选框
 
 在新装的 Fedora 36 KDE Wayland 下使用 fcitx5 时遇到了文字候选框前后移动晃眼的问题（如下图）
 
-<img src="https://bu.dusays.com/2022/07/03/62c13162a6efc.gif" alt="fcitx5 blinking"  />
+<img src="https://bu.dusays.com/2022/07/03/62c13162a6efc.gif" alt="fcitx5 blinking"  /
 
 ## 解决方案
 
@@ -29,7 +29,7 @@ tags:
 
 然后我们需要让 KWin 去启动 fcitx5。KCM 为此提供了一个非常简单的方式，如下图
 
-<img src="https://bu.dusays.com/2022/07/03/62c134907ada9.png" alt="选择 fcitx5 就好啦" style="zoom:80%;" />
+<img src="https://bu.dusays.com/2022/07/03/62c134907ada9.png" alt="选择 fcitx5 就好啦" style="zoom:80%;" /
 
 随后需要确保环境变量没有设置 `QT_IM_MODULE `。一定要确保这个变量不存在，连空也不行，必须是 unset。
 
@@ -72,7 +72,7 @@ Input Context without group
 
 ### /proc 查看程序运行时的环境变量
 
-<img src="https://bu.dusays.com/2022/07/03/62c138b030469.png" alt="获取到的环境变量"  />
+<img src="https://bu.dusays.com/2022/07/03/62c138b030469.png" alt="获取到的环境变量"  /
 
 ## 参考资料
 

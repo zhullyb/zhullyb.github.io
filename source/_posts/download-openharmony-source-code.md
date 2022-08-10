@@ -5,7 +5,7 @@ date: 2021-06-06 16:47:34
 tags: 
 ---
 
-> 不知道为什么，总是有人告诉我鸿蒙已经开源了，不信可以自己去看源码balabala，其实鸿蒙的手机端目前为止依然没有开源，或者说没有完整完整开源。本文我将介绍如何拉取一份openharmony开源的源码。
+ 不知道为什么，总是有人告诉我鸿蒙已经开源了，不信可以自己去看源码balabala，其实鸿蒙的手机端目前为止依然没有开源，或者说没有完整完整开源。本文我将介绍如何拉取一份openharmony开源的源码。
 
 首先需要准备以下东西
 
@@ -28,10 +28,10 @@ git config --global user.name "Your Name"
 
 ```bash
 mkdir -p ~/bin
-curl https://storage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+curl https://storage.googleapis.com/git-repo-downloads/repo  ~/bin/repo
 chmod a+x ~/bin/repo
 
-cat >> ~/.bashrc <<EOF
+cat  ~/.bashrc <<EOF
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "\$HOME/bin" ] ; then
@@ -107,15 +107,15 @@ oepnharmony目录下，`.repo`文件夹内是你从git服务器上下载下来�
 ├── applications
 ├── base
 ├── build
-├── build.py -> build/lite/build.py
-├── build.sh -> build/build_scripts/build.sh
+├── build.py - build/lite/build.py
+├── build.sh - build/build_scripts/build.sh
 ├── developtools
 ├── device
 ├── docs
 ├── domains
 ├── drivers
 ├── foundation
-├── .gn -> build/core/gn/dotfile.gn
+├── .gn - build/core/gn/dotfile.gn
 ├── interface
 ├── kernel
 ├── prebuilts
@@ -131,12 +131,12 @@ oepnharmony目录下，`.repo`文件夹内是你从git服务器上下载下来�
 
 
 
-![这里是OpenHarmony包含.repo原始数据的全部大小](https://npm.elemecdn.com/superbadguy-bed@0.0.5/25.png)
+![这里是OpenHarmony包含.repo原始数据的全部大小](https://bu.dusays.com/2022/08/10/62f3cb1057a22.webp)
 
-![这里是OpenHarmony的.repo原始数据的大小](https://npm.elemecdn.com/superbadguy-bed@0.0.5/26.png)
+![这里是OpenHarmony的.repo原始数据的大小](https://bu.dusays.com/2022/08/10/62f3cb13027fb.webp)
 
 **我提供个参考数据，AOSP源码不含.repo原始数据的大小是40G，就openharmony这个代码量，恐怕很难让我相信这是一个兼容安卓应用的系统的完整代码。**
 
-![这里是AOSP的.repo原始数据大小](https://npm.elemecdn.com/superbadguy-bed@0.0.5/27.png)
+![这里是AOSP的.repo原始数据大小](https://bu.dusays.com/2022/08/10/62f3cb15ccbf1.webp)
 
-![这里是AOSP包含.repo原始数据的大小](https://npm.elemecdn.com/superbadguy-bed@0.0.5/28.png)
+![这里是AOSP包含.repo原始数据的大小](https://bu.dusays.com/2022/08/10/62f3cb182333b.webp)

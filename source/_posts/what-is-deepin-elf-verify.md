@@ -21,7 +21,7 @@ curl -s https://mirrors.bfsu.edu.cn/deepin/dists/apricot/main/binary-amd64/Packa
 
 得到了输出: 
 
-> Filename: pool/main/d/deepin-elf-verify/deepin-elf-verify_0.2.0.6-1_amd64.deb
+ Filename: pool/main/d/deepin-elf-verify/deepin-elf-verify_0.2.0.6-1_amd64.deb
 
 我们就可以把完整的下载链接拼出来: [https://mirrors.bfsu.edu.cn/deepin/pool/main/d/deepin-elf-verify/deepin-elf-verify_0.2.0.6-1_amd64.deb](https://mirrors.bfsu.edu.cn/deepin/pool/main/d/deepin-elf-verify/deepin-elf-verify_0.2.0.6-1_amd64.deb)
 
@@ -41,7 +41,7 @@ deepin-elf-verify_0.2.0.6-1_amd64
 
 终于到了激动人心的时刻了，打开 data.tar.xz ！
 
-![空的？](https://npm.elemecdn.com/superbadguy-bed@0.0.4/9.png)
+![空的？](https://bu.dusays.com/2022/08/10/62f3ccc192986.webp)
 
 **搞错了，再来**
 
@@ -53,14 +53,14 @@ curl -sL https://uos.deepin.cn/uos/dists/eagle/main/binary-amd64/Packages | grep
 
 获得输出: 
 
-> Filename: pool/main/d/deepin-elf-verify/deepin-elf-verify_0.0.14.5-1_amd64.deb 
-> Filename: pool/main/d/deepin-elf-verify/deepin-elf-verify-dbgsym_0.0.14.5-1_amd64.deb
+ Filename: pool/main/d/deepin-elf-verify/deepin-elf-verify_0.0.14.5-1_amd64.deb 
+ Filename: pool/main/d/deepin-elf-verify/deepin-elf-verify-dbgsym_0.0.14.5-1_amd64.deb
 
 拼接为链接: [https://uos.deepin.cn/uos/pool/main/d/deepin-elf-verify/deepin-elf-verify_0.0.14.5-1_amd64.deb](https://uos.deepin.cn/uos/pool/main/d/deepin-elf-verify/deepin-elf-verify_0.0.14.5-1_amd64.deb)
 
 下载后打开 `data.tar.xz`
 
-![看来还是有东西的](https://npm.elemecdn.com/superbadguy-bed@0.0.4/10.png)
+![看来还是有东西的](https://bu.dusays.com/2022/08/10/62f3ccc53d544.webp)
 
 ## 说说结论吧
 
@@ -74,7 +74,7 @@ curl -sL https://uos.deepin.cn/uos/dists/eagle/main/binary-amd64/Packages | grep
 
 - 当我们使用 deepin 安装一个含有 `deepin-elf-verify` 的软件包时，apt 会自动从源内搜索并安装 `deepin-elf-verify`，由于是个空包，他对于系统不会有任何负担。
 
-- 大多数依赖`deepin-elf-verify`的程序都把依赖写成了`deepin-elf-verify (>= 0.0.16.7-1)`，而在deepin源中，`deepin-elf-verify`版本号是 0.2.0.6，因此在未来的很长一段时间里应该都是满足要求的，说明统信那边并没有「想要让deepin装不上UOS的包」的这种想法，可见在这一点上，统信还没有明显的偏心。
+- 大多数依赖`deepin-elf-verify`的程序都把依赖写成了`deepin-elf-verify (= 0.0.16.7-1)`，而在deepin源中，`deepin-elf-verify`版本号是 0.2.0.6，因此在未来的很长一段时间里应该都是满足要求的，说明统信那边并没有「想要让deepin装不上UOS的包」的这种想法，可见在这一点上，统信还没有明显的偏心。
 
 ### 在别的Deb发行版下
 

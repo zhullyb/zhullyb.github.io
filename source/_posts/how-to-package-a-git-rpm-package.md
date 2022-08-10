@@ -7,7 +7,7 @@ tags:
 - RPM Package
 ---
 
-> 本文中，笔者通过 github api 获取最新的 commit_id ，以一种曲线救国的方式成功为 rpm 打下了一个 `-git` 包。
+ 本文中，笔者通过 github api 获取最新的 commit_id ，以一种曲线救国的方式成功为 rpm 打下了一个 `-git` 包。
 
 ## On Archlinux
 
@@ -33,7 +33,7 @@ tags:
 
 ```
 %global timenow %(echo $(date +%Y%m%d.%H%M))
-%global commit_short_id %(api_result=$(curl -s https://api.github.com/repos/<username>/<reponame>/branches/master | head -n 4 | tail -n 1); echo ${api_result:12:7})
+%global commit_short_id %(api_result=$(curl -s https://api.github.com/repos/<username/<reponame/branches/master | head -n 4 | tail -n 1); echo ${api_result:12:7})
 ```
 
 版本号就可以直接写成 `%{timenow}.%{commit_id_short}`

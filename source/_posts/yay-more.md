@@ -6,13 +6,13 @@ tags:
 - Archlinux
 ---
 
-> yay是一个AUR Helper，他可以执行pacman的几乎所有操作，并在此基础上添加了很多额外用法。
->
-> 我没有在网络上查找到关于yay的、除了pacman基础用法和安装AUR包以外的中文教程，英文的也几乎没有看到，这也是我写这篇文章的原因所在。
->
-> 本文通篇详讲yay的每一个设置/选项（大概就是archwiki那种干涩的行文思路），最后会给出我自己的一些常用命令，但不会做解释。
->
-> 写作时参考了yay的英文使用手册，如果你的arch安装了yay，那么即可通过`man yay`命令随时查阅它。
+ yay是一个AUR Helper，他可以执行pacman的几乎所有操作，并在此基础上添加了很多额外用法。
+
+ 我没有在网络上查找到关于yay的、除了pacman基础用法和安装AUR包以外的中文教程，英文的也几乎没有看到，这也是我写这篇文章的原因所在。
+
+ 本文通篇详讲yay的每一个设置/选项（大概就是archwiki那种干涩的行文思路），最后会给出我自己的一些常用命令，但不会做解释。
+
+ 写作时参考了yay的英文使用手册，如果你的arch安装了yay，那么即可通过`man yay`命令随时查阅它。
 
 **Tips1: 本文中出现的foo一般是指包名，标注*的表示该选项默认启用。**
 
@@ -20,7 +20,7 @@ tags:
 
 ## 基本用法
 
-yay的基本用法是`yay <operation> [options] [targets]`、`yay foo`和`yay`，`yay <operation> [options] [targets]`的用法可以讨论的点比较多，我会在后文中一一道来。
+yay的基本用法是`yay <operation [options] [targets]`、`yay foo`和`yay`，`yay <operation [options] [targets]`的用法可以讨论的点比较多，我会在后文中一一道来。
 
 ### `yay`
 
@@ -41,15 +41,15 @@ yay的基本用法是`yay <operation> [options] [targets]`、`yay foo`和`yay`�
     May be the official Linux experimental version
 1 aur/dingtalk-electron 2.1.9-1 (+9 0.15)
     钉钉Linux版本
-==> Packages to install (eg: 1 2 3, 1-3 or ^4)
+== Packages to install (eg: 1 2 3, 1-3 or ^4)
 ==
 ```
 
 输入每一项对应的序号即可进入相应的安装过程。
 
-### `yay <operation> [options] [targets]`
+### `yay <operation [options] [targets]`
 
-在这里，\<operation>每次只能有一个，[options]和[targets]可以有多个，且多个[options]可以合起来写在一起。比如`yay -P -s -f`可以直接写成`yay -Psf`，顺序也可以颠倒，`-Psf`和`-sPf`没区别。
+在这里，\<operation每次只能有一个，[options]和[targets]可以有多个，且多个[options]可以合起来写在一起。比如`yay -P -s -f`可以直接写成`yay -Psf`，顺序也可以颠倒，`-Psf`和`-sPf`没区别。
 
 #### `-Y (--yay)`
 
@@ -95,14 +95,14 @@ Print当前的yay配置。
 
 ```
 [zhullyb@Archlinux ~]$ yay -Ps
-==> Yay version v10.2.0							    #yay版本
+== Yay version v10.2.0							    #yay版本
 ===========================================
-==> Total installed packages: 1240				    #总共安装了多少包
-==> Total foreign installed packages: 24		    #多少包不是从源里安装的
-==> Explicitly installed packages: 271			    #有多少包是你自己主动安装的(而不是作为依赖安装的)
-==> Total Size occupied by packages: 14.3 GiB	    #安装的所有包合在一起一共占了你多少空间
+== Total installed packages: 1240				    #总共安装了多少包
+== Total foreign installed packages: 24		    #多少包不是从源里安装的
+== Explicitly installed packages: 271			    #有多少包是你自己主动安装的(而不是作为依赖安装的)
+== Total Size occupied by packages: 14.3 GiB	    #安装的所有包合在一起一共占了你多少空间
 ===========================================
-==> Ten biggest packages:						    #十个体积最大的包
+== Ten biggest packages:						    #十个体积最大的包
 wps-office-cn: 990.9 MiB
 ttf-sarasa-gothic: 855.5 MiB
 linux-firmware: 652.3 MiB
@@ -115,8 +115,8 @@ wine-mono: 316.2 MiB
 deepin-wine5-i386: 259.5 MiB
 ===========================================
 :: Querying AUR...
- -> Missing AUR Packages:  zhullyb-archlinux-git    #AUR里找不到的包
- -> Flagged Out Of Date AUR Packages:  xml2		    #AUR中被人标注过期的包
+ - Missing AUR Packages:  zhullyb-archlinux-git    #AUR里找不到的包
+ - Flagged Out Of Date AUR Packages:  xml2		    #AUR中被人标注过期的包
 ```
 
 ##### `-u(--upgrades)`
@@ -147,7 +147,7 @@ Print指定包的PKGBUILD。
 
 ### pacman 拓展用法
 
-yay虽然可以使用pacman的所有\<operation>，但是它远不仅于此。在这一段，我将向你介绍yay中包含的那些pacman不包括的pacman \<operation>
+yay虽然可以使用pacman的所有\<operation，但是它远不仅于此。在这一段，我将向你介绍yay中包含的那些pacman不包括的pacman \<operation
 
 #### `-S`
 
@@ -161,7 +161,7 @@ yay将会清除AUR包构建时的缓存和没有被track的文件。没有被tra
 
 #### 全局的[options]
 
-全局是指在所有\<operation>下都可以加啦。
+全局是指在所有\<operation下都可以加啦。
 
 ##### `--repo`
 
@@ -177,41 +177,41 @@ yay将会清除AUR包构建时的缓存和没有被track的文件。没有被tra
 
 ### 自定义调用命令型
 
-##### `--editor <command>`
+##### `--editor <command`
 
 设置编辑时调用的编辑器。
 
-##### `--makepkg <command>`
+##### `--makepkg <command`
 
 设置makepkg时需要调用makepkg命令（一般情况下用不到）
 
-##### `--pacman <command>`
+##### `--pacman <command`
 
 设置运行pacman时需要调用pacman命令（一般情况下用不到）
 
-##### `--tar <command>`
+##### `--tar <command`
 
 设置makepkg解压tar资源时调用的tar命令（一般情况下用不到）
 
-##### `--git <command>`
+##### `--git <command`
 
 设置makepkg clone git资源时调用的git命令（比如你可以安装AUR中的fgit-go，使用`--git fgit`参数来让fastgit代理clone的过程）
 
-##### `--gpg <command>`
+##### `--gpg <command`
 
 设置gpg验证资源时调用的gpg命令
 
-##### `--sudo <command>`
+##### `--sudo <command`
 
 设置调用sudo获取su权限安装pkg时所调用的sudo命令。
 
 ### 自定义配置文件型
 
-##### `--config <file>`
+##### `--config <file`
 
 设置读取的pacman配置文件。
 
-##### `--makepkgconf <file>`
+##### `--makepkgconf <file`
 
 设置读取的makepkg配置文件。
 
@@ -221,31 +221,31 @@ yay将会清除AUR包构建时的缓存和没有被track的文件。没有被tra
 
 ### 自定义路径类型
 
-##### `--builddir <dir>`
+##### `--builddir <dir`
 
 设置build路径，默认路径为`~/.cache/yay/`
 
-##### `--absdir <dir>`
+##### `--absdir <dir`
 
  设置abs路径，默认路径为`~/.cache/yay/abs/`
 
 ### 参数传递型
 
-##### `--editorflags <flags>`
+##### `--editorflags <flags`
 
 后跟需要跟随传递给编辑器的参数。如果需要传递多个参数，可以使用引号。
 
-##### `--mflags <flags>`
+##### `--mflags <flags`
 
 后跟需要跟随传递给makepkg的参数。如果需要传递多个参数，可以使用引号。
 
 这个用的人不多，但其实是非常好用的一个功能。在我们安装`deepin-wine-tim`等包的时候，很可能会遇到文件明明完整但checksum不通过的情况，这时我们可以跟一个`--skipchecksums`参数传递给makepkg以跳过checksum的过程。
 
-##### `--gpgflags <flags>`
+##### `--gpgflags <flags`
 
 后跟需要跟随传递给pgp的参数。如果需要传递多个参数，可以使用引号。
 
-##### `--sudoflags <flags>`
+##### `--sudoflags <flags`
 
 后跟需要跟随传递给sudo的参数。如果需要传递多个参数，可以使用引号。
 
@@ -263,7 +263,7 @@ yay将会清除AUR包构建时的缓存和没有被track的文件。没有被tra
 
 ##### `--answerclean`
 
- 自动回答cleanmenu，后跟`<All|None|Installed|NotInstalled>`参数。
+ 自动回答cleanmenu，后跟`<All|None|Installed|NotInstalled`参数。
 
 ##### *`--noanswerclean`
 
@@ -281,7 +281,7 @@ yay将会清除AUR包构建时的缓存和没有被track的文件。没有被tra
 
 ##### `--answerdiff`
 
-自动回答cleanmenu，后跟`<All|None|Installed|NotInstalled>`参数。
+自动回答cleanmenu，后跟`<All|None|Installed|NotInstalled`参数。
 
 ##### *`--noanswerdiff`
 
@@ -299,7 +299,7 @@ yay将会清除AUR包构建时的缓存和没有被track的文件。没有被tra
 
 ##### `--answeredit`
 
-自动回答editmenu，后跟`<All|None|Installed|NotInstalled>`参数。
+自动回答editmenu，后跟`<All|None|Installed|NotInstalled`参数。
 
 ##### *`--noansweredit`
 
@@ -425,7 +425,7 @@ yay将会清除AUR包构建时的缓存和没有被track的文件。没有被tra
 
 ##### `--rebuildtree`
 
-安装AUR包时，以递归方式重新编译并重新安装其所有AUR依赖包，即使已安装的依赖项也是如此。 该选项使您可以轻松地针对当前系统的库重新构建软件包，如果它们变得不兼容。（比如python3.8->3.9）
+安装AUR包时，以递归方式重新编译并重新安装其所有AUR依赖包，即使已安装的依赖项也是如此。 该选项使您可以轻松地针对当前系统的库重新构建软件包，如果它们变得不兼容。（比如python3.8-3.9）
 
 ##### *`--norebuild`
 
@@ -483,11 +483,11 @@ yay --aururl "https://aur.archlinux.org" --save
 
 ##### `--sortby`
 
-在搜索过程中，按特定条件对AUR结果进行排序，后跟`<votes|popularity|id|baseid|name|base|submitted|modified>`参数，默认为`votes`。
+在搜索过程中，按特定条件对AUR结果进行排序，后跟`<votes|popularity|id|baseid|name|base|submitted|modified`参数，默认为`votes`。
 
 ##### `--searchby`
 
-通过指定查询类型来搜索AUR软件包，后跟`<name|name-desc|maintainer|depends|checkdepends|makedepends|optdepends>`参数，默认为`name-desc`。
+通过指定查询类型来搜索AUR软件包，后跟`<name|name-desc|maintainer|depends|checkdepends|makedepends|optdepends`参数，默认为`name-desc`。
 
 ##### *`--topdown`
 
@@ -497,11 +497,11 @@ yay --aururl "https://aur.archlinux.org" --save
 
 优先展示AUR包，其次才是源内包
 
-##### `--requestsplitn <number>`
+##### `--requestsplitn <number`
 
 设置在每次向AUR的请求的最大数值（默认150）。数值越高，请求时间越短，但是单次请求的数值过大会导致error。当这个数值＞500时你应当特别注意这一点。
 
-##### `--completioninterval <days>`
+##### `--completioninterval <days`
 
 刷新完成高速缓存的时间（以天为单位,默认为7）。 将此值设置为0将导致每次刷新缓存，而将其设置为-1将导致永远不刷新缓存。
 

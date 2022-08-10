@@ -20,7 +20,7 @@ Cloudflare也开始提供[Linux开源镜像站](https://cloudflaremirrors.com/)�
 
 [cloudflaremirrors](https://cloudflaremirrors.com/) 在我这台位于美国达拉斯机房的1Gbps机器上可以跑到80MB/s+的速度，虽然没有跑满理论速率，但也算是相当喜人的成绩了。
 
-![](https://npm.elemecdn.com/superbadguy-bed@0.0.4/7.png)
+![](https://bu.dusays.com/2022/08/10/62f3ccc8d7c82.webp)
 
 小结: 
 

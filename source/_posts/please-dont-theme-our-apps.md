@@ -10,21 +10,21 @@ tags:
 
 ---
 
-> 请从头到尾阅读这封信。
->
-> 这份信针对的是那些在默认设置下使用第三方主题破坏软件体验的发行版，而不是那些试图使用第三方主题美化自己桌面的用户。（原文中出现的是tinkerers，意为修补匠）
+ 请从头到尾阅读这封信。
+
+ 这份信针对的是那些在默认设置下使用第三方主题破坏软件体验的发行版，而不是那些试图使用第三方主题美化自己桌面的用户。（原文中出现的是tinkerers，意为修补匠）
 
 我们是 GNOME 平台的应用开发者与设计者，我们为自己的成果感到自豪，并努力确保我们的应用能够为人们提供良好的体验。
 
 然而不幸的是，在许多情况下，我们所有在软件的设计、开发、测试上所做出努力都因为第三方主题而变得徒劳无功。
 
-![<font size="5"><b>GTK样式</b>可以使得软件外观看上去不协调、甚至使得软件无法使用</font>](https://stopthemingmy.app/assets/stylesheets.png)
+![<font size="5"<bGTK样式</b可以使得软件外观看上去不协调、甚至使得软件无法使用</font](https://stopthemingmy.app/assets/stylesheets.png)
 
-![<font size="5"><b>图表包</b>可以改变图标的含义，使得显示的图标无法准确的表达开发者的意思。</font>](https://stopthemingmy.app/assets/iconthemes.png)
+![<font size="5"<b图表包</b可以改变图标的含义，使得显示的图标无法准确的表达开发者的意思。</font](https://stopthemingmy.app/assets/iconthemes.png)
 
 
 
-![<font size="5"><b>应用图标</b>是一个软件身份的象征。改变一个软件的图标剥夺了开发者控制其品牌的可能性</font>](https://stopthemingmy.app/assets/appicons.png)
+![<font size="5"<b应用图标</b是一个软件身份的象征。改变一个软件的图标剥夺了开发者控制其品牌的可能性</font](https://stopthemingmy.app/assets/appicons.png)
 
 *注: 这些例子纯粹只是用于说明问题，并不针对个别主题。所以，主题开发者们别多想。❤️*
 

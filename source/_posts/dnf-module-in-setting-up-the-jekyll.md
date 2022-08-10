@@ -50,7 +50,7 @@ bundle install --path vendor/bundle
 
 完成后，我们即可在 jekyll-blog 目录下 使用 `bundle exec jekyll` 来正常运行 jekyll 了。试着跑一下 `bundle exec jekyll server`
 
-![成功，彻彻底底！](https://npm.elemecdn.com/superbadguy-bed@0.0.4/1.png)
+![成功，彻彻底底！](https://bu.dusays.com/2022/08/10/62f3caeec8ef6.webp)
 
 ## 参考材料
 

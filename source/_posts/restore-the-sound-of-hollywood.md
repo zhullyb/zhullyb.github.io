@@ -13,7 +13,7 @@ tags:
 
 原作者在该 issue 中回复道
 
-> 没错，它只是一段视频，音频受到版权保护。
+ 没错，它只是一段视频，音频受到版权保护。
 
 所以不难看出，作者因为版权问题而去掉了音频，进而导致 hollywood 失声。但我们作为用户，是不是可以想办法获取到老版本中那段带有音频的 mp4 文件呢？
 
@@ -38,7 +38,7 @@ sudo install -Dm644 ./mi.mp4 /usr/share/hollywood/soundwave.mp4
 ```diff
 #!/bin/bash
 #
-# Copyright 2014 Dustin Kirkland <dustin.kirkland@gmail.com>
+# Copyright 2014 Dustin Kirkland <dustin.kirkland@gmail.com
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -51,8 +51,8 @@ sudo install -Dm644 ./mi.mp4 /usr/share/hollywood/soundwave.mp4
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-command -v mplayer >/dev/null 2>&1 || exit 1
-trap "pkill -f -9 lib/hollywood/ >/dev/null 2>&1; exit" INT
+command -v mplayer /dev/null 2&1 || exit 1
+trap "pkill -f -9 lib/hollywood/ /dev/null 2&1; exit" INT
 PKG=hollywood
 dir="$(dirname $0)/../../share/$PKG"
 -DISPLAY= mplayer -vo caca -loop 0 -ss $((RANDOM % 100)) -speed 100 $MPLAYER_OPTS $dir/soundwave.mp4

@@ -8,9 +8,9 @@ tags:
 - PicUploader
 ---
 
-> 之前找对大陆网络友好的图床时，找到了cloudinary，但是全英文界面对操作增加了不少难度，其页面也不是很简洁，让我一下打消了使用网页版的念头。通过搜索，找到了 PicUploader 这一方案，使用php编写，支持cloudinary的api。
->
-> 作者在其[博客](https://www.xiebruce.top/17.html)中仅提供了nginx的部署方案，我参考其配置文件成功实现了在caddy下的部署，并且花费了数个小时排坑，故写下本文帮助后来者节省时间。
+ 之前找对大陆网络友好的图床时，找到了cloudinary，但是全英文界面对操作增加了不少难度，其页面也不是很简洁，让我一下打消了使用网页版的念头。通过搜索，找到了 PicUploader 这一方案，使用php编写，支持cloudinary的api。
+
+ 作者在其[博客](https://www.xiebruce.top/17.html)中仅提供了nginx的部署方案，我参考其配置文件成功实现了在caddy下的部署，并且花费了数个小时排坑，故写下本文帮助后来者节省时间。
 
 ## 安装`caddy`和`php-fpm`以及所需的拓展
 
@@ -219,14 +219,14 @@ php我选择了监听本地`unix//run/php-fpm/php-fpm.sock`的方案，这个路
 caddy2开始不允许在caddyfile中直接指定明文密码，因此我们需要用`hash-password`获取加密后的密码密文
 
 ```bash
-caddy hash-password  --plaintext <YourPassword>
+caddy hash-password  --plaintext <YourPassword
 ```
 
 再在Caddyfile中，加上
 
 ```
 basicauth /* {
-		<username> <hashed_password>
+		<username <hashed_password
 }
 ```
 
@@ -235,7 +235,7 @@ basicauth /* {
 由于 api.picuploader.com 这个域名不在我手里，而我只是想在本地使用，并不打算部署到服务器，因此修改hosts将这个域名解析到本地是个不错的选择。
 
 ```bash
-sudo sh -c "echo '127.0.0.1		api.picuploader.com' >> /etc/hosts"
+sudo sh -c "echo '127.0.0.1		api.picuploader.com'  /etc/hosts"
 ```
 
 而你若是在服务器上部署，应当去设置DNS解析，这个应该不需要我多说。
