@@ -13,7 +13,7 @@ tags:
 
 但是当我们在系统中倒入simsun字体时，无论使用什么奇迹淫巧似乎都无法阻止deepin-wine5找到simsun并优先使用它。于是，字体渲染就会变成如图这样奇奇怪怪的画风: 
 
-![](https://npm.elemecdn.com/superbadguy-bed@0.0.5/19.png)
+![](https://bu.dusays.com/2022/08/10/62f3c887040ff.webp)
 
 但是我并不喜欢这样的渲染效果，使用simsun渲染出来的字体总感觉有一种上世纪的风格，况且，在我的1080p小屏下显示并不清晰。
 
@@ -43,11 +43,11 @@ tags:
 
 出现如下界面，看来方法是可行的。
 
-![](https://npm.elemecdn.com/superbadguy-bed@0.0.5/20.png)
+![](https://bu.dusays.com/2022/08/10/62f3c88b119f8.webp)
 
 于是，我们进一步更改deepin-wine-tim的desktop文件，以方便我们不需要每次都在Terminal中执行这么一大长串命令。需要更改的地方如下图红色方框圈出部分
 
-![](https://npm.elemecdn.com/superbadguy-bed@0.0.5/21.png)
+![](https://bu.dusays.com/2022/08/10/62f3c88f41790.webp)
 
 我这里附一下图中的命令方便诸位复制粘贴。
 

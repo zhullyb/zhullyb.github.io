@@ -60,7 +60,7 @@ curl -sL https://uos.deepin.cn/uos/dists/eagle/main/binary-amd64/Packages | grep
 
 下载后打开 `data.tar.xz`
 
-<img src="https://npm.elemecdn.com/superbadguy-bed@0.0.4/10.png" alt="看来还是有东西的"  />
+![看来还是有东西的](https://npm.elemecdn.com/superbadguy-bed@0.0.4/10.png)
 
 ## 说说结论吧
 
