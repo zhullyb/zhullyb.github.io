@@ -2,7 +2,6 @@
 title: 使用 Github Action 跑 rpmbuild
 date: 2022-03-06 16:02:54
 sticky:
-execrpt:
 tags:
 - Fedora
 - RPM Package

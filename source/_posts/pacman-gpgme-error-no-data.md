@@ -2,7 +2,6 @@
 title: pacman更新时遇到「GPGME 错误：无数据」
 date: 2022-01-01 23:42:09
 sticky:
-execrpt:
 tags:
 - Archlinux
 ---

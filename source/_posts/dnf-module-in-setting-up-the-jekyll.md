@@ -2,7 +2,6 @@
 title: 在Fedora搭建jekyll环境——dnf module
 date: 2022-01-12 22:11:42
 sticky:
-execrpt:
 tags:
 - Fedora
 ---

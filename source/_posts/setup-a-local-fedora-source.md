@@ -2,7 +2,6 @@
 title: 创建一个本地的 Fedora 镜像源
 date: 2022-05-11 04:18:26
 sticky:
-execrpt:
 tags:
 - Fedora
 - Caddy

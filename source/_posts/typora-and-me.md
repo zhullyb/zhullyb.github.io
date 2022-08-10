@@ -2,7 +2,6 @@
 title: Typora与我
 date: 2021-11-26 23:05:05
 sticky:
-execrpt:
 tags: 
 - Casual Talk
 ---

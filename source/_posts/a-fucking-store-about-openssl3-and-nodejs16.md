@@ -2,7 +2,6 @@
 title: nodejs16：是我配不上 openssl 3 咯？
 date: 2022-08-04 17:31:49
 sticky:
-execrpt:
 tags:
 - Fedora
 - nodejs

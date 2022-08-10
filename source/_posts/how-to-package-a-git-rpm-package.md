@@ -2,7 +2,6 @@
 title: 如何打出一个「-git」的rpm包
 date: 2022-02-07 10:23:29
 sticky:
-execrpt:
 tags:
 - Fedora
 - RPM Package

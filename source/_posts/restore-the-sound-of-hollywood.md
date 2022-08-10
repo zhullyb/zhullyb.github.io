@@ -2,7 +2,6 @@
 title: 如何拯救失声的 hollywood
 date: 2022-07-25 11:25:44
 sticky:
-execrpt:
 tags:
 - Fun
 - Linux

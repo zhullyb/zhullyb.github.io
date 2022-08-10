@@ -2,7 +2,6 @@
 title: Waydroid on KDE 初体验
 date: 2021-10-31 15:57:57
 sticky:
-execrpt:
 index_img: https://npm.elemecdn.com/superbadguy-bed@0.0.6/3.svg
 tags:
 - Archlinux

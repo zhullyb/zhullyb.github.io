@@ -2,7 +2,6 @@
 title: 好软推荐——FastOCR
 date: 2022-04-14 05:55:18
 sticky:
-execrpt:
 tags:
 - Experience
 ---

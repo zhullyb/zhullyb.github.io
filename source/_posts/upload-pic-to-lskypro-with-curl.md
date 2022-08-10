@@ -2,7 +2,6 @@
 title: 抛弃PicGo，直接使用curl将图片上传到LskyPro
 date: 2022-03-31 19:19:14
 sticky:
-execrpt:
 tags:
 -	Shell Script
 - 图床

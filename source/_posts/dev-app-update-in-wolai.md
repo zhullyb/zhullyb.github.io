@@ -2,7 +2,6 @@
 title: wolai再打包遇到的问题--electron应用的dev判断机制
 date: 2021-12-03 22:53:25
 sticky:
-execrpt:
 tags:
 - Archlinux
 - electron

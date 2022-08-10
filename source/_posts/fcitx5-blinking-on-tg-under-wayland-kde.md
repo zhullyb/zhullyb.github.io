@@ -2,7 +2,6 @@
 title: 处理 fcitx5 的文字候选框在 tg 客户端上闪烁的问题
 date: 2022-07-03 13:52:44
 sticky:
-execrpt:
 tags:
 - Linux
 - 笔记

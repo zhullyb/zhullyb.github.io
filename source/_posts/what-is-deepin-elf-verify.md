@@ -2,7 +2,6 @@
 title: deepin-elf-verify究竟是何物？
 date: 2021-11-20
 sticky:
-execrpt:
 tags:
 - deepin
 - Linux
