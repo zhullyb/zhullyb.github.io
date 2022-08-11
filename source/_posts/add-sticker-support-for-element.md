@@ -71,7 +71,7 @@ tg 登陆时需要你输入手机号码，或者某一个 tg bot 的 token，这
 
 ***
 
-接着我们需要做的事情就是将 `web` 文件夹部署到 github pages 等做成静态站点，这个比较简单，不再赘述，我这里直接部署在了 `https://matrix-sticker.zhullyb.top` 我们下文就直接拿它做演示，看得上的也可以直接拿来用。
+接着我们需要做的事情就是将 `web` 文件夹部署到 github pages 等做成静态站点，这个比较简单，不再赘述，我这里直接部署在了 `https://matrix-sticker.zhullyb.top` 我们下文就直接拿它做演示，看得上的也可以直接拿来用。另外，[@朝色](https://blog.zhaose.cyou/) 的 url 也可以直接拿来使用 `https://sticker.zhaose.cyou/web/`
 
 ## 添加到 element
 
