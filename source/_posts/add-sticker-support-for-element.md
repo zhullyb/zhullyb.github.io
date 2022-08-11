@@ -7,6 +7,7 @@ tags:
 ---
 
 
+
 > 在读这篇文章之前，你应该已经知道 element、matrix 是什么，这部分内容咱就不过多展开讲了。
 
 ## 需要准备的
@@ -110,3 +111,7 @@ tg 登陆时需要你输入手机号码，或者某一个 tg bot 的 token，这
 ![发送请求](https://bu.dusays.com/2022/08/11/62f4f6d9e120e.png)
 
 重启 element，此时就可以享受到自己导入的 sticker 了，手机端的 element 设置也将会被同步。
+
+补一张效果图
+
+![效果图](https://bu.dusays.com/2022/08/11/62f4f7728b1e6.png)
