@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/favicon.ico">
-  <link rel="icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://bu.dusays.com/2022/08/14/62f8012834a0a.ico">
+  <link rel="icon" href="https://bu.dusays.com/2022/08/14/62f8012834a0a.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -77,7 +77,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"zhul.in","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"zhul.in","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://bu.dusays.com/2022/08/14/62f800fc26770.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -330,7 +330,7 @@
             
             <div class="markdown-body">
               
-              <p><img src="https://bu.dusays.com/2022/08/04/62eba4eabc963.png" srcset="/img/loading.gif" lazyload alt="长毛象的截图.png"></p>
+              <p><img src="https://bu.dusays.com/2022/08/04/62eba4eabc963.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="长毛象的截图.png"></p>
 <p>今年上半年升级 Fedora 36 的时候遇到了这个问题。</p>
 <p>那会儿很无奈，一直在等 nodejs16 合并提供 <code>--openssl-legacy-provider</code> 的<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/42972">那个 PR</a>。nodejs16 是一个 lts 版本，照道理来说，既然要提供 Long-term Support，而 openssl 1 作为它的依赖之一，生命周期结束又在 nodejs16 之前，那是不是应该给 nodejs16 backport 在 nodejs17 上实现的 <code>--openssl-legacy-provider</code> 参数选项呢？否则绝大多数发行版都会在 openssl 1 的生命周期结束之前切换到 openssl 3，那 nodejs16 不就没法用了嘛。</p>
 <p>然而，nodejs 在他们的官网上发布的<a target="_blank" rel="noopener" href="https://nodejs.org/en/blog/announcements/nodejs16-eol/">一篇博客</a>刷新了我的世界观，而此前的那个 PR 甚至一度被关停。（此处有<a target="_blank" rel="noopener" href="https://hanjingxue-boling.github.io/Whiteboard/translation/nodejs-eol-v16-0626/">寒晶雪提供的中文翻译</a>）</p>
@@ -339,12 +339,12 @@
 <hr>
 <p>不过好在，事情还是有转机的。（要不然就这档子鸡毛蒜皮的小事我也不会专门去写篇博客出来）</p>
 <p>前几天我给 <a target="_blank" rel="noopener" href="https://github.com/atpoossfl/repo">atpoossfl 仓库</a>打了 rpm 版本的 nvm 以后，意外地发现 nvm 所提供的 nodejs 会自带 openssl。</p>
-<p><img src="https://bu.dusays.com/2022/08/04/62ebadf02a5b3.png" srcset="/img/loading.gif" lazyload alt="此为 nvm 安装的 nodejs14 目录"></p>
+<p><img src="https://bu.dusays.com/2022/08/04/62ebadf02a5b3.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="此为 nvm 安装的 nodejs14 目录"></p>
 <p>所以我们只需要使用 nvm 安装的 nodejs16 即可解决 Fedora36 以后没有 openssl 1 的问题。</p>
 <p> 使用 Fedora 的用户需要注意，Fedora 官方源中的<code>yarnpkg</code>在打包时遇到了错误，他们将 <code>/usr/lib/node_modules/yarn/bin/yarn.js</code> 的 shebang 给改成了 <code>#!/usr/bin/node</code>，应当改回 <code>#!/usr/bin/env node</code>才能让 yarn 正常使用上 nvm 提供的 nodejs；或者干脆添加 <a target="_blank" rel="noopener" href="https://dl.yarnpkg.com/rpm/yarn.repo">dl.yarnpkg.com</a> 提供的 <code>yarn</code> 软件包。在写 specfile 的 <code>BuildRequires</code> 时，可以直接写成 <code>/usr/bin/yarn</code> 来避免频繁在 <code>yarn</code> 和 <code>yarnpkg</code> 这两个包名间改动。</p>
 <hr>
 <p>更好的消息是，nodejs 已经在 <code>v16.17.0-proposal</code> 和 <code>v16.x-staging</code> 分支收下了这个为 nodejs16 提供 <code>--openssl-legacy-provider</code> 的 <a target="_blank" rel="noopener" href="https://github.com/nodejs/node/commit/e7b99e8c8d229ee2cc1d657ae44f715e7e5f852f">commit</a>。相信在不久的将来，这个 commit 将会进入主线，并在 <code>v16.17</code> 版本的 nodejs16 上发挥它的作用。</p>
-<p><img src="https://bu.dusays.com/2022/08/04/62ebb0927943f.png" srcset="/img/loading.gif" lazyload alt="commit"></p>
+<p><img src="https://bu.dusays.com/2022/08/04/62ebb0927943f.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="commit"></p>
 
               
             </div>
@@ -617,21 +617,6 @@
   </script>
 
 
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
 
 
 

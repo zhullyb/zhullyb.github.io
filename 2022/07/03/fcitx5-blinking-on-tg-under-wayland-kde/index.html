@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/favicon.ico">
-  <link rel="icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://bu.dusays.com/2022/08/14/62f8012834a0a.ico">
+  <link rel="icon" href="https://bu.dusays.com/2022/08/14/62f8012834a0a.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -77,7 +77,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"zhul.in","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"zhul.in","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://bu.dusays.com/2022/08/14/62f800fc26770.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -332,7 +332,7 @@
               
               <p> 文章开头，先要感谢 fcitx5 的开发者 <a target="_blank" rel="noopener" href="https://www.csslayer.info/wordpress/">老K</a> 帮我 debug 这个问题</p>
 <h2 id="鬼畜的文字候选框"><a href="#鬼畜的文字候选框" class="headerlink" title="鬼畜的文字候选框"></a>鬼畜的文字候选框</h2><p>在新装的 Fedora 36 KDE Wayland 下使用 fcitx5 时遇到了文字候选框前后移动晃眼的问题（如下图）</p>
-<p><img src="https://bu.dusays.com/2022/07/03/62c13162a6efc.gif" srcset="/img/loading.gif" lazyload alt="fcitx5 blinking"></p>
+<p><img src="https://bu.dusays.com/2022/07/03/62c13162a6efc.gif" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="fcitx5 blinking"></p>
 <h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><p>当我向老K提出这个问题上的时候，老K告诉我这是预期行为，一共有两个解决方案。</p>
 <ul>
 <li>使用 qt 的 text input</li>
@@ -341,7 +341,7 @@
 <p>但由于我并不熟悉 KWin 的特效，所以我选择了前者的方案。</p>
 <p>首先，需要确保自己的 Plasma 版本在 5.24 或以上，fcitx5 的版本号在 5.0.14 以上。</p>
 <p>然后我们需要让 KWin 去启动 fcitx5。KCM 为此提供了一个非常简单的方式，如下图</p>
-<p><img src="https://bu.dusays.com/2022/07/03/62c134907ada9.png" srcset="/img/loading.gif" lazyload alt="选择 fcitx5 就好啦"></p>
+<p><img src="https://bu.dusays.com/2022/07/03/62c134907ada9.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="选择 fcitx5 就好啦"></p>
 <p>随后需要确保环境变量没有设置 <code>QT_IM_MODULE </code>。一定要确保这个变量不存在，连空也不行，必须是 unset。</p>
 <p>理论上来说，是不需要重启的，但我的环境变量是 <code>fcitx5-autostart</code> 这个 rpm 包在 <code>/etc/profile.d/fcitx5.sh</code>里面设置的，我需要重启系统来使新的环境变量生效。</p>
 <p>重启后，如果没有什么意外的话，就算成功了。</p>
@@ -355,7 +355,7 @@
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs stata">   Group [x11::1] has 0 InputContext(s)<br>Group [wayland:] has 5 InputContext(s)<br>  IC [a50fe208d42e4611b240c0b66a2fa0b9] <span class="hljs-keyword">program</span>:konsole frontend:dbus <span class="hljs-keyword">cap</span>:e001800060 focus:1<br>  IC [d7d4d5c05e9c445aab1af9c7dfb5fbd4] <span class="hljs-keyword">program</span>:telegram-desktop frontend:dbus <span class="hljs-keyword">cap</span>:e001800060 focus:0<br>  IC [ac72ec3edf58481bbdf838352520efd5] <span class="hljs-keyword">program</span>:krunner frontend:dbus <span class="hljs-keyword">cap</span>:e001820060 focus:0<br>  IC [d8b450176e204953837248f786204c29] <span class="hljs-keyword">program</span>:plasmashell frontend:dbus <span class="hljs-keyword">cap</span>:e001800060 focus:0<br>  IC [df252979343d42ebbe9bd82ead6ff194] <span class="hljs-keyword">program</span>: frontend:wayland <span class="hljs-keyword">cap</span>:40 focus:0<br><span class="hljs-keyword">Input</span> Context without group<br></code></pre></td></tr></table></figure>
 
 <p>老K指出，出现了 telegram 的那一行表明 tg 还是在用 IM Module，所以是环境变量有问题</p>
-<h3 id="proc-查看程序运行时的环境变量"><a href="#proc-查看程序运行时的环境变量" class="headerlink" title="/proc 查看程序运行时的环境变量"></a>/proc 查看程序运行时的环境变量</h3><p><img src="https://bu.dusays.com/2022/07/03/62c138b030469.png" srcset="/img/loading.gif" lazyload alt="获取到的环境变量"></p>
+<h3 id="proc-查看程序运行时的环境变量"><a href="#proc-查看程序运行时的环境变量" class="headerlink" title="/proc 查看程序运行时的环境变量"></a>/proc 查看程序运行时的环境变量</h3><p><img src="https://bu.dusays.com/2022/07/03/62c138b030469.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="获取到的环境变量"></p>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a target="_blank" rel="noopener" href="https://www.csslayer.info/wordpress/linux/use-plasma-5-24-to-type-in-alacritty-or-any-other-text-input-v3-client-with-fcitx-5-on-wayland/">Use Plasma 5.24 to type in Alacritty (Or any other text-input-v3 client) with Fcitx 5 on Wayland</a></p>
 <p><a target="_blank" rel="noopener" href="https://fcitx-im.org/wiki/FAQ#Candidate_window_is_blinking_under_wayland_with_Fcitx_5">Candidate window is blinking under wayland with Fcitx 5</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/hupeng1234/p/6735403.html">查看进程的环境变量</a></p>
@@ -632,21 +632,6 @@
   </script>
 
 
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
 
 
 

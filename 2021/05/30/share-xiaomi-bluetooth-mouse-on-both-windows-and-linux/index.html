@@ -7,8 +7,8 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/favicon.ico">
-  <link rel="icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://bu.dusays.com/2022/08/14/62f8012834a0a.ico">
+  <link rel="icon" href="https://bu.dusays.com/2022/08/14/62f8012834a0a.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
@@ -77,7 +77,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"zhul.in","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"zhul.in","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://bu.dusays.com/2022/08/14/62f800fc26770.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -336,13 +336,13 @@
 <p>先在Linux上连接蓝牙鼠标，再重启到Windows重新配对蓝牙蓝牙鼠标。</p>
 <p>到<a target="_blank" rel="noopener" href="https://docs.microsoft.com/en-us/sysinternals/downloads/psexec">微软官网</a>下载<code>PsExec.zip</code>，解压后，记住你所解压的路径。</p>
 <p>在Windows中，使用管理员权限打开<code>cmd.exe</code></p>
-<p><img src="https://bu.dusays.com/2022/08/10/62f3cb081565a.webp" srcset="/img/loading.gif" lazyload alt="在Windows下使用管理员权限打开cmd"></p>
+<p><img src="https://bu.dusays.com/2022/08/10/62f3cb081565a.webp" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="在Windows下使用管理员权限打开cmd"></p>
 <p>cd到PsExec解压目录，使用如下命令将我们所需要的蓝牙密钥信息保存到C盘根目录下。</p>
 <figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd">psexec.exe -s -i regedit /e C:\BTKeys.reg HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\BTHPORT\Parameters\Keys<br></code></pre></td></tr></table></figure>
 
-<p><img src="https://bu.dusays.com/2022/08/10/62f3cb0aae88f.webp" srcset="/img/loading.gif" lazyload alt="使用psexec获取蓝牙信息"></p>
+<p><img src="https://bu.dusays.com/2022/08/10/62f3cb0aae88f.webp" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="使用psexec获取蓝牙信息"></p>
 <p>根目录的BTkeys.reg可以直接用记事本打开，内容大概是下面这个样子</p>
-<p><img src="https://bu.dusays.com/2022/08/10/62f3cb0d9e04f.webp" srcset="/img/loading.gif" lazyload alt="BTkeys.reg"></p>
+<p><img src="https://bu.dusays.com/2022/08/10/62f3cb0d9e04f.webp" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="BTkeys.reg"></p>
 <p> 为了方便后面的解说，我用各种颜色标注了起来。</p>
 <p>在Linux下获取su权限以后，我们需要将Linux下随机分配给鼠标的蓝牙地址改成在Windows上获取的那个地址。上图中「红部分」划出来的就是Windows下获取的地址。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">[zhullyb@Archlinux ~]$ su<br>Password: <br>[root@Archlinux zhullyb]<span class="hljs-comment"># cd /var/lib/bluetooth/E0\:94\:67\:74\:0D\:5F/</span><br>[root@Archlinux E0:94:67:74:0D:5F]<span class="hljs-comment"># ls</span><br>C6:2A:1B:33:2E:71  cache  settings<br>[root@Archlinux E0:94:67:74:0D:5F]<span class="hljs-comment"># mv C6\:2A\:1B\:33\:2E\:71/ C4\:F6\:B3\:2C\:BD\:7E</span><br></code></pre></td></tr></table></figure>
@@ -632,21 +632,6 @@
   </script>
 
 
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
 
 
 
