@@ -18,11 +18,11 @@
 
 # 用于浏览器标签的图标
 # Icon for browser tab
-favicon: /favicon.ico
+favicon: https://bu.dusays.com/2022/08/14/62f8012834a0a.ico
 
 # 用于苹果设备的图标
 # Icon for Apple touch
-apple_touch_icon: /favicon.ico
+apple_touch_icon: https://bu.dusays.com/2022/08/14/62f8012834a0a.ico
 
 # 浏览器标签页中的标题分隔符，效果： 文章名 - 站点名
 # Title separator in browser tab, eg: article - site
@@ -230,7 +230,7 @@ custom_css:
 # 网页访问统计
 # Analysis of website visitors
 web_analytics:  # 网页访问统计
-  enable: true
+  enable: false
 
   # 遵循访客浏览器"请勿追踪"的设置，如果开启则不统计其访问
   # Follow the "Do Not Track" setting of the visitor's browser
@@ -288,7 +288,7 @@ lazyload:
 
   # 加载时的占位图片
   # The placeholder image when loading
-  loading_img: /img/loading.gif
+  loading_img: https://bu.dusays.com/2022/08/14/62f800fc26770.gif
 
   # 开启后懒加载仅在文章页生效，如果自定义页面需要使用，可以在 Front-matter 里指定 `lazyload: true`
   # If true, only enable lazyload on the post page. For custom pages, you can set 'lazyload: true' in front-matter
@@ -1046,7 +1046,7 @@ static_prefix:
 
   highlightjs: https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/highlight.js/10.6.0/
 
-  prismjs: https://npm.elemecdn.com/prismjs@1/
+  prismjs: https://lib.baomitu.com/prism/1.27.0/
 
   tocbot: https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/tocbot/4.12.2/
 
@@ -1056,24 +1056,24 @@ static_prefix:
 
   nprogress: https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/nprogress/0.2.0/
 
-  mathjax: https://npm.elemecdn.com/mathjax@3/es5/
+  mathjax: https://lib.baomitu.com/mathjax/3.2.1/
 
-  katex: https://npm.elemecdn.com/katex@0/dist/
+  katex: https://lib.baomitu.com/KaTeX/0.15.6/
 
   busuanzi: https://busuanzi.ibruce.info/busuanzi/2.3/
 
   clipboard: https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/clipboard.js/2.0.6/
 
-  mermaid: https://npm.elemecdn.com/mermaid@8/dist/
+  mermaid: https://lib.baomitu.com/mermaid/8.14.0/
 
-  valine: https://npm.elemecdn.com/valine@1/dist/
+  valine: https://lib.baomitu.com/valine/1.4.17/
 
   waline: https://lib.baomitu.com/waline/2.5.1/
 
-  gitalk: https://npm.elemecdn.com/gitalk@1/dist/
+  gitalk: https://lib.baomitu.com/gitalk/1.7.2/
 
-  disqusjs: https://npm.elemecdn.com/disqusjs@1/dist/
+  disqusjs: https://lib.baomitu.com/disqusjs/1.3.0/
 
-  twikoo: https://npm.elemecdn.com/twikoo@1/dist/
+  twikoo: https://lib.baomitu.com/twikoo/1.5.11/
 
   hint: https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-y/hint.css/2.6.0/
