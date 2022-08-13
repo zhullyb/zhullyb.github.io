@@ -966,18 +966,19 @@ links:
       title: "Karuboniru's Blog",
       intro: "就是个学物理的，懂个屁的计算机",
       link: "https://yanqiyu.info",
-      avatar: "https://npm.elemecdn.com/superbadguy-bed@0.0.5/30.webp"
+      avatar: "https://bu.dusays.com/2022/08/14/62f7d8f114851.webp"
     }
     - {
       title: "星外之神的博客",
       intro: "天下难事，必作于易；天下大事，必作于细。",
       link: "https://wszqkzqk.github.io",
-      avatar: "https://npm.elemecdn.com/superbadguy-bed@0.0.5/31.png"
+      avatar: "https://bu.dusays.com/2022/08/14/62f7d98e0fd18.png"
     }
     - {
       title: "Endle's Blog",
       intro: "Fedora/Firefox/Wine User.",
-      link: "https://endle.github.io/"
+      link: "https://endle.github.io/",
+      avatar: "https://bu.dusays.com/2022/08/14/62f7db1280c26.webp"
     }
     - {
       title: "杨蕙芷",
