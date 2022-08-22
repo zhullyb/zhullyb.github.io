@@ -18,13 +18,13 @@ tags:
 
 然而不幸的是，在许多情况下，我们所有在软件的设计、开发、测试上所做出努力都因为第三方主题而变得徒劳无功。
 
-![<font size="5"<bGTK样式</b可以使得软件外观看上去不协调、甚至使得软件无法使用</font](https://stopthemingmy.app/assets/stylesheets.png)
+![<font size="5"><b>GTK样式</b>可以使得软件外观看上去不协调、甚至使得软件无法使用</font>](https://stopthemingmy.app/assets/stylesheets.png)
 
-![<font size="5"<b图表包</b可以改变图标的含义，使得显示的图标无法准确的表达开发者的意思。</font](https://stopthemingmy.app/assets/iconthemes.png)
+![<font size="5"><b>图表包</b>可以改变图标的含义，使得显示的图标无法准确的表达开发者的意思。</font>](https://stopthemingmy.app/assets/iconthemes.png)
 
 
 
-![<font size="5"<b应用图标</b是一个软件身份的象征。改变一个软件的图标剥夺了开发者控制其品牌的可能性</font](https://stopthemingmy.app/assets/appicons.png)
+![<font size="5"><b>应用图标</b>是一个软件身份的象征。改变一个软件的图标剥夺了开发者控制其品牌的可能性</font>](https://stopthemingmy.app/assets/appicons.png)
 
 *注: 这些例子纯粹只是用于说明问题，并不针对个别主题。所以，主题开发者们别多想。❤️*
 
