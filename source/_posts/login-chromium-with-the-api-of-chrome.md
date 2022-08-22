@@ -12,7 +12,7 @@ tags:       笔记
 
 ```shell
 echo "--oauth2-client-id=77185425430.apps.googleusercontent.com
---oauth2-client-secret=OTJgUOQcT7lO7GsGZq2G4IlT"  ~/.config/chromium-flags.conf
+--oauth2-client-secret=OTJgUOQcT7lO7GsGZq2G4IlT" >> ~/.config/chromium-flags.conf
 ```
 
 再次打开chromium,你就会发现你心心念念的同步功能回来了。

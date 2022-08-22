@@ -9,7 +9,7 @@ tags:
 
 [上一篇文章](/2021/10/21/picuploader-on-archlinux-with-caddy/)我们在Archlinux中成功部署了PicUploader的web端，本文我们来讲讲如何为KDE的dolphin添加右键快捷键上传，效果类似这样。（gif图来自[PicUploader作者的博客](https://www.xiebruce.top/17.html))
 
-<center<img src="https://img.xiebruce.top/2018/09/11/f4859eda8832f814486fc00df971e3cc.gif" width = "" height = ""</center
+<center><img src="https://img.xiebruce.top/2018/09/11/f4859eda8832f814486fc00df971e3cc.gif" width = "" height = ""></center>
 
 ## 创建.desktop文件
 
@@ -40,7 +40,7 @@ Exec=php /var/www/image/index.php %F | scopy
 
 MimeType指的是文件类型。在这份desktop中，我仅指定了png和jpg文件在右键时会弹出picuploader的上传菜单，如果你需要更多文件类型的MimeType，你可以参考下gwenview的desktop都写了哪些文件类型。
 
- MimeType=inode/directory;image/avif;image/gif;image/jpeg;image/png;image/bmp;image/x-eps;image/x-icns;image/x-ico;image/x-portable-bitmap;image/x-portable-graymap;image/x-portable-pixmap;image/x-xbitmap;image/x-xpixmap;image/tiff;image/x-psd;image/x-webp;image/webp;image/x-tga;application/x-krita;image/x-kde-raw;image/x-canon-cr2;image/x-canon-crw;image/x-kodak-dcr;image/x-adobe-dng;image/x-kodak-k25;image/x-kodak-kdc;image/x-minolta-mrw;image/x-nikon-nef;image/x-olympus-orf;image/x-pentax-pef;image/x-fuji-raf;image/x-panasonic-rw;image/x-sony-sr2;image/x-sony-srf;image/x-sigma-x3f;image/x-sony-arw;image/x-panasonic-rw2;
+> MimeType=inode/directory;image/avif;image/gif;image/jpeg;image/png;image/bmp;image/x-eps;image/x-icns;image/x-ico;image/x-portable-bitmap;image/x-portable-graymap;image/x-portable-pixmap;image/x-xbitmap;image/x-xpixmap;image/tiff;image/x-psd;image/x-webp;image/webp;image/x-tga;application/x-krita;image/x-kde-raw;image/x-canon-cr2;image/x-canon-crw;image/x-kodak-dcr;image/x-adobe-dng;image/x-kodak-k25;image/x-kodak-kdc;image/x-minolta-mrw;image/x-nikon-nef;image/x-olympus-orf;image/x-pentax-pef;image/x-fuji-raf;image/x-panasonic-rw;image/x-sony-sr2;image/x-sony-srf;image/x-sigma-x3f;image/x-sony-arw;image/x-panasonic-rw2;
 
 ## 安装所需组件
 
@@ -100,7 +100,7 @@ sudo chmod 777 -R /var/www/image/logs/
 
 ## 最终结果
 
-<center<img src="https://bu.dusays.com/2022/08/10/62f36f57f34aa.gif" width = "" height = ""</center
+<center><img src="https://bu.dusays.com/2022/08/10/62f36f57f34aa.gif" width = "" height = ""></center>
 
 ## 参考链接
 
