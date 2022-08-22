@@ -18,15 +18,15 @@
   <meta name="author" content="竹林里有冰">
   <meta name="keywords" content="博客, 技术, Fedora">
   
-    <meta name="description" content="以下内容来自2020年12月22日晚上的大佬对话，非本人原创。 吃瓜群众:  话说UOS到底有没有Secure boot签名啊 某dalao:  用的是ubuntu的 吃瓜群众:  哪来的签名？ 某dalao:  这就不得不讲到另一个槽点了s 吃瓜群众:  ubuntu给他们签？ 某dalao:  不不不，用的是ubuntu签好名的那个binary  然后ubuntu的那个binary会在EFI分">
+    <meta name="description" content="以下内容来自2020年12月22日晚上的大佬对话，非本人原创。 吃瓜群众:  话说UOS到底有没有Secure boot签名啊  某dalao:  用的是ubuntu的  吃瓜群众:  哪来的签名？  某dalao:  这就不得不讲到另一个槽点了s  吃瓜群众:  ubuntu给他们签？  某dalao:  不不不，用的是ubuntu签好名的那个binary 然后ubuntu的那个binary会在">
 <meta property="og:type" content="article">
 <meta property="og:title" content="UOS到底有没有Secure Boot签名&#x2F;UOS引导怎么修复">
 <meta property="og:url" content="https://zhul.in/2020/12/22/Did-UOS-have-Secure-Boot-Signature/index.html">
 <meta property="og:site_name" content="竹林里有冰的博客">
-<meta property="og:description" content="以下内容来自2020年12月22日晚上的大佬对话，非本人原创。 吃瓜群众:  话说UOS到底有没有Secure boot签名啊 某dalao:  用的是ubuntu的 吃瓜群众:  哪来的签名？ 某dalao:  这就不得不讲到另一个槽点了s 吃瓜群众:  ubuntu给他们签？ 某dalao:  不不不，用的是ubuntu签好名的那个binary  然后ubuntu的那个binary会在EFI分">
+<meta property="og:description" content="以下内容来自2020年12月22日晚上的大佬对话，非本人原创。 吃瓜群众:  话说UOS到底有没有Secure boot签名啊  某dalao:  用的是ubuntu的  吃瓜群众:  哪来的签名？  某dalao:  这就不得不讲到另一个槽点了s  吃瓜群众:  ubuntu给他们签？  某dalao:  不不不，用的是ubuntu签好名的那个binary 然后ubuntu的那个binary会在">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-12-21T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-08-10T15:25:00.000Z">
+<meta property="article:modified_time" content="2022-08-22T15:29:12.000Z">
 <meta property="article:author" content="竹林里有冰">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="大佬对话笔记">
@@ -319,7 +319,7 @@
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2022年8月10日 晚上
+                    本文最后更新于：2022年8月22日 晚上
                   
                 
               </p>
@@ -328,25 +328,37 @@
               
               <p>以下内容来自2020年12月22日晚上的大佬对话，非本人原创。</p>
 <p><strong>吃瓜群众:</strong></p>
-<p> 话说UOS到底有没有Secure boot签名啊</p>
+<blockquote>
+<p>话说UOS到底有没有Secure boot签名啊</p>
+</blockquote>
 <p><strong>某dalao:</strong></p>
-<p> 用的是ubuntu的</p>
+<blockquote>
+<p>用的是ubuntu的</p>
+</blockquote>
 <p><strong>吃瓜群众:</strong></p>
-<p> 哪来的签名？</p>
+<blockquote>
+<p>哪来的签名？</p>
+</blockquote>
 <p><strong>某dalao:</strong></p>
-<p> 这就不得不讲到另一个槽点了s</p>
+<blockquote>
+<p>这就不得不讲到另一个槽点了s</p>
+</blockquote>
 <p><strong>吃瓜群众:</strong></p>
-<p> ubuntu给他们签？</p>
+<blockquote>
+<p>ubuntu给他们签？</p>
+</blockquote>
 <p><strong>某dalao:</strong></p>
-<p> 不不不，用的是ubuntu签好名的那个binary</p>
-<p> 然后ubuntu的那个binary会在EFI分区的ubuntu目录找配置</p>
-<p> 于是他们在安装器里写了个逻辑</p>
-<p> 把deepin目录的内容复制一份到ubuntu目录</p>
-<p> （而不是patch grub包，或者写在grub包的postinst之类的地方）</p>
-<p> 后果是用户只要搞坏了引导</p>
-<p> 用网上任何教程都恢复不了</p>
-<p> 因为没人会教你建一个ubuntu目录，然后把deepin目录的内容复制进去）</p>
-<p> 如果不做这一步，任你怎么grub-install啊，update-grub啊，引导就还是坏的</p>
+<blockquote>
+<p>不不不，用的是ubuntu签好名的那个binary</p>
+<p>然后ubuntu的那个binary会在EFI分区的ubuntu目录找配置</p>
+<p>于是他们在安装器里写了个逻辑</p>
+<p>把deepin目录的内容复制一份到ubuntu目录</p>
+<p>（而不是patch grub包，或者写在grub包的postinst之类的地方）</p>
+<p>后果是用户只要搞坏了引导</p>
+<p>用网上任何教程都恢复不了</p>
+<p>因为没人会教你建一个ubuntu目录，然后把deepin目录的内容复制进去）</p>
+<p>如果不做这一步，任你怎么grub-install啊，update-grub啊，引导就还是坏的</p>
+</blockquote>
 
               
             </div>
@@ -393,7 +405,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2022年8月10日</div>
+          <div>2022年8月22日</div>
         </div>
       
       <div class="license-meta-item">
