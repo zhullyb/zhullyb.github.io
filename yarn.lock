@@ -770,10 +770,24 @@
     "html-entities" "^1.2.0"
     "striptags" "^2.1.1"
 
-"hexo-util@^2.0.0", "hexo-util@^2.1.0", "hexo-util@^2.4.0", "hexo-util@^2.5.0", "hexo-util@latest":
+"hexo-util@^2.0.0", "hexo-util@^2.1.0", "hexo-util@^2.4.0", "hexo-util@^2.5.0":
   "integrity" "sha512-xj1jUrId2qTe8L/tRizWWRl+j7X1Zzh5rCVtffboOU0p/EfbPomxIxDvntTHT3fcqgvLHsncqJF9V5j7+buOqA=="
   "resolved" "https://registry.npmjs.org/hexo-util/-/hexo-util-2.6.1.tgz"
   "version" "2.6.1"
+  dependencies:
+    "bluebird" "^3.5.2"
+    "camel-case" "^4.0.0"
+    "cross-spawn" "^7.0.0"
+    "deepmerge" "^4.2.2"
+    "highlight.js" "^11.0.1"
+    "htmlparser2" "^7.0.0"
+    "prismjs" "^1.17.1"
+    "strip-indent" "^3.0.0"
+
+"hexo-util@latest":
+  "integrity" "sha512-hQM3h34nhDg0bSe/Tg1lnpODvNkz7h2u0+lZGzlKL0Oufp+5KCAEUX9wal7/xC7ax3/cwEn8IuoU75kNpZLpJQ=="
+  "resolved" "https://registry.npmjs.org/hexo-util/-/hexo-util-2.7.0.tgz"
+  "version" "2.7.0"
   dependencies:
     "bluebird" "^3.5.2"
     "camel-case" "^4.0.0"
@@ -1005,9 +1019,9 @@
     "through" ">=2.2.7 <3"
 
 "keyword-extractor@latest":
-  "integrity" "sha512-12V+z/kWu2F3IM3Hb1JBUFW2omzggj4TIfSJxqBP9VomtWyEYI5pIN3TasccLG8cOu2+16HmZhJcfCA6UN/QbA=="
-  "resolved" "https://registry.npmjs.org/keyword-extractor/-/keyword-extractor-0.0.22.tgz"
-  "version" "0.0.22"
+  "integrity" "sha512-O1ueOkiBSsh9zDhCvuAg0C0Pib7LX+kI6bWlmI8KvSaD8Xxnekqq/uiyCq1832DFvmJi/Ltw7Up7+rT2kFJvBg=="
+  "resolved" "https://registry.npmjs.org/keyword-extractor/-/keyword-extractor-0.0.23.tgz"
+  "version" "0.0.23"
 
 "levn@~0.3.0":
   "integrity" "sha1-OwmSTt+fCDwEkP3UwLxEIeBHZO4="
@@ -1101,10 +1115,15 @@
   dependencies:
     "moment" ">= 2.9.0"
 
-"moment@^2.22.2", "moment@>= 2.9.0", "moment@latest":
+"moment@^2.22.2", "moment@>= 2.9.0":
   "integrity" "sha512-c6YRvhEo//6T2Jz/vVtYzqBzwvPT95JBQ+smCytzf7c50oMZRsR/a4w88aD34I+/QVSfnoAnSBFPJHItlOMJVw=="
   "resolved" "https://registry.npmjs.org/moment/-/moment-2.29.3.tgz"
   "version" "2.29.3"
+
+"moment@latest":
+  "integrity" "sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w=="
+  "resolved" "https://registry.npmjs.org/moment/-/moment-2.29.4.tgz"
+  "version" "2.29.4"
 
 "morgan@^1.9.1":
   "integrity" "sha512-AbegBVI4sh6El+1gNwvD5YIck7nSA36weD7xvIxG4in80j/UoK8AEGaWnnz8v1GxonMCltmlNs5ZKbGvl9b1XQ=="

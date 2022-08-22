@@ -105,3 +105,7 @@ tags:
 
 *Note: Even though some of us are Foundation  members or work on GNOME, these are our personal views as individuals,  and not those of the GNOME Project, the GNOME Foundation, or our  employers.*
 
+***
+
+**推荐阅读:  [《libadwaita：修复 Linux 桌面的可用性问题》](https://hanjingxue-boling.github.io/Whiteboard/translation/libadwaita-gtk4-TheEvilSkeleton/)**
+
