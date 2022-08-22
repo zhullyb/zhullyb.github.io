@@ -10,7 +10,7 @@ tags:
 - Experience
 ---
 
- 在[西木野羰基的博客](https://yanqiyu.info/)中看到了其在Fedora中使用waydroid跑明日方舟的[截图](https://bu.dusays.com/2022/08/10/62f3cc0d6b9e8.png)，心里有有些痒痒了，决定在Archlinux上尝试使用waydroid。
+> 在[西木野羰基的博客](https://yanqiyu.info/)中看到了其在Fedora中使用waydroid跑明日方舟的[截图](https://bu.dusays.com/2022/08/10/62f3cc0d6b9e8.png)，心里有有些痒痒了，决定在Archlinux上尝试使用waydroid。
 
 ## Waydroid是什么
 
@@ -24,7 +24,7 @@ Waydroid是一个基于lxc容器技术，用以启动完整安卓系统的方案
 
 waydroid需要内核提供`Ashmem`和`binder`支持，西木野羰基是使用的自己编译的内核。而我在使用Archlinux，因此直接使用`linux-zen`即可。
 
- 注: AUR上的`linux-xanmod`虽然也有这些模块支持，但是在编译时设置了`psi=0`以提升性能，而waydroid恰巧需要`psi=1`的支持，故不可使用。
+> 注: AUR上的`linux-xanmod`虽然也有这些模块支持，但是在编译时设置了`psi=0`以提升性能，而waydroid恰巧需要`psi=1`的支持，故不可使用。
 
 ## 安装
 

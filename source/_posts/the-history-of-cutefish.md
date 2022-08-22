@@ -6,7 +6,7 @@ tags:
 - OpenSource Project
 ---
 
- CutefishOS是由我们国内的开发者主导（目前也主要是他们在开发）的桌面环境。不过似乎对于他的前世今生，似乎很多人都有误解。尤其是很多人认为他是一个Archlinux-based发行版；部分用户分不清他到底是基于Debian还是基于Ubuntu；还有人把它和 JingOS 弄混了。
+> CutefishOS是由我们国内的开发者主导（目前也主要是他们在开发）的桌面环境。不过似乎对于他的前世今生，似乎很多人都有误解。尤其是很多人认为他是一个Archlinux-based发行版；部分用户分不清他到底是基于Debian还是基于Ubuntu；还有人把它和 JingOS 弄混了。
 
 先把这些问题的回答写在最前面: 
 
