@@ -18,20 +18,23 @@
   <meta name="author" content="竹林里有冰">
   <meta name="keywords" content="博客, 技术, Fedora">
   
-    <meta name="description" content="上一篇文章我们在Archlinux中成功部署了PicUploader的web端，本文我们来讲讲如何为KDE的dolphin添加右键快捷键上传，效果类似这样。（gif图来自PicUploader作者的博客) &lt;center&lt;img src&#x3D;”https:&#x2F;&#x2F;img.xiebruce.top&#x2F;2018&#x2F;09&#x2F;11&#x2F;f4859eda8832f814486fc00df971e3cc.gif&amp;q">
+    <meta name="description" content="上一篇文章我们在Archlinux中成功部署了PicUploader的web端，本文我们来讲讲如何为KDE的dolphin添加右键快捷键上传，效果类似这样。（gif图来自PicUploader作者的博客)   创建.desktop文件12mkdir -p $HOME&#x2F;.local&#x2F;share&#x2F;kservices5&#x2F;touch $HOME&#x2F;.local&#x2F;share&#x2F;kservices5&#x2F;picupl">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PicUploader使用系列（二）——为KDE的dolphin添加右键快捷菜单">
 <meta property="og:url" content="https://zhul.in/2021/10/24/picuploader-with-kde-action/index.html">
 <meta property="og:site_name" content="竹林里有冰的博客">
-<meta property="og:description" content="上一篇文章我们在Archlinux中成功部署了PicUploader的web端，本文我们来讲讲如何为KDE的dolphin添加右键快捷键上传，效果类似这样。（gif图来自PicUploader作者的博客) &lt;center&lt;img src&#x3D;”https:&#x2F;&#x2F;img.xiebruce.top&#x2F;2018&#x2F;09&#x2F;11&#x2F;f4859eda8832f814486fc00df971e3cc.gif&amp;q">
+<meta property="og:description" content="上一篇文章我们在Archlinux中成功部署了PicUploader的web端，本文我们来讲讲如何为KDE的dolphin添加右键快捷键上传，效果类似这样。（gif图来自PicUploader作者的博客)   创建.desktop文件12mkdir -p $HOME&#x2F;.local&#x2F;share&#x2F;kservices5&#x2F;touch $HOME&#x2F;.local&#x2F;share&#x2F;kservices5&#x2F;picupl">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://img.xiebruce.top/2018/09/11/f4859eda8832f814486fc00df971e3cc.gif">
+<meta property="og:image" content="https://bu.dusays.com/2022/08/10/62f36f57f34aa.gif">
 <meta property="article:published_time" content="2021-10-24T14:26:50.000Z">
-<meta property="article:modified_time" content="2022-08-10T15:25:00.000Z">
+<meta property="article:modified_time" content="2022-08-22T15:48:33.000Z">
 <meta property="article:author" content="竹林里有冰">
 <meta property="article:tag" content="Archlinux">
 <meta property="article:tag" content="KDE">
 <meta property="article:tag" content="PicUploader">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://img.xiebruce.top/2018/09/11/f4859eda8832f814486fc00df971e3cc.gif">
   
   
   
@@ -263,7 +266,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          2.3k 字
+          2k 字
         
       </span>
     
@@ -275,7 +278,7 @@
         
         
           <!-- compatible with older versions-->
-          12 分钟
+          11 分钟
         
       </span>
     
@@ -319,7 +322,7 @@
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2022年8月10日 晚上
+                    本文最后更新于：2022年8月22日 晚上
                   
                 
               </p>
@@ -327,14 +330,17 @@
             <div class="markdown-body">
               
               <p><a href="/2021/10/21/picuploader-on-archlinux-with-caddy/">上一篇文章</a>我们在Archlinux中成功部署了PicUploader的web端，本文我们来讲讲如何为KDE的dolphin添加右键快捷键上传，效果类似这样。（gif图来自<a target="_blank" rel="noopener" href="https://www.xiebruce.top/17.html">PicUploader作者的博客</a>)</p>
-<p>&lt;center&lt;img src=”<a target="_blank" rel="noopener" href="https://img.xiebruce.top/2018/09/11/f4859eda8832f814486fc00df971e3cc.gif&quot;">https://img.xiebruce.top/2018/09/11/f4859eda8832f814486fc00df971e3cc.gif&quot;</a> width = “” height = “”&lt;/center</p>
+<center><img src="https://img.xiebruce.top/2018/09/11/f4859eda8832f814486fc00df971e3cc.gif" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload width = "" height = ""></center>
+
 <h2 id="创建-desktop文件"><a href="#创建-desktop文件" class="headerlink" title="创建.desktop文件"></a>创建.desktop文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">mkdir</span> -p <span class="hljs-variable">$HOME</span>/.local/share/kservices5/<br><span class="hljs-built_in">touch</span> <span class="hljs-variable">$HOME</span>/.local/share/kservices5/picuploader.desktop<br></code></pre></td></tr></table></figure>
 
 <h2 id="填上这段内容"><a href="#填上这段内容" class="headerlink" title="填上这段内容"></a>填上这段内容</h2><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs routeros">[Desktop Entry]<br><span class="hljs-attribute">Actions</span>=PicUploader;<br><span class="hljs-attribute">MimeType</span>=image/jpeg;image/png;<br><span class="hljs-attribute">Type</span>=Service<br><span class="hljs-attribute">X-KDE-Priority</span>=TopLevel<br><span class="hljs-attribute">X-KDE-ServiceTypes</span>=KonqPopupMenu/Plugin<br><span class="hljs-attribute">Icon</span>=/var/www/image/favicon.ico<br><br>[Desktop Action PicUploader]<br><span class="hljs-attribute">Name</span>=Upload with PicUploader<br>Name[zh_CN]=使用PicUploader上传<br><span class="hljs-attribute">Icon</span>=/var/www/image/favicon.ico<br><span class="hljs-attribute">Exec</span>=php /var/www/image/index.php %F | scopy<br></code></pre></td></tr></table></figure>
 
 <p><strong>注: 这里的 scopy 是我在下面<a href="#%E5%A4%8D%E5%88%B6%E5%88%B0%E7%B2%98%E8%B4%B4%E6%9D%BF">自己创建的一段脚本</a>，用以同时满足x11和wayland下的使用，如果你仅使用x11的话直接改成<code>xclip -selection clipboard</code>即可。</strong></p>
 <p>MimeType指的是文件类型。在这份desktop中，我仅指定了png和jpg文件在右键时会弹出picuploader的上传菜单，如果你需要更多文件类型的MimeType，你可以参考下gwenview的desktop都写了哪些文件类型。</p>
-<p> MimeType=inode/directory;image/avif;image/gif;image/jpeg;image/png;image/bmp;image/x-eps;image/x-icns;image/x-ico;image/x-portable-bitmap;image/x-portable-graymap;image/x-portable-pixmap;image/x-xbitmap;image/x-xpixmap;image/tiff;image/x-psd;image/x-webp;image/webp;image/x-tga;application/x-krita;image/x-kde-raw;image/x-canon-cr2;image/x-canon-crw;image/x-kodak-dcr;image/x-adobe-dng;image/x-kodak-k25;image/x-kodak-kdc;image/x-minolta-mrw;image/x-nikon-nef;image/x-olympus-orf;image/x-pentax-pef;image/x-fuji-raf;image/x-panasonic-rw;image/x-sony-sr2;image/x-sony-srf;image/x-sigma-x3f;image/x-sony-arw;image/x-panasonic-rw2;</p>
+<blockquote>
+<p>MimeType=inode/directory;image/avif;image/gif;image/jpeg;image/png;image/bmp;image/x-eps;image/x-icns;image/x-ico;image/x-portable-bitmap;image/x-portable-graymap;image/x-portable-pixmap;image/x-xbitmap;image/x-xpixmap;image/tiff;image/x-psd;image/x-webp;image/webp;image/x-tga;application/x-krita;image/x-kde-raw;image/x-canon-cr2;image/x-canon-crw;image/x-kodak-dcr;image/x-adobe-dng;image/x-kodak-k25;image/x-kodak-kdc;image/x-minolta-mrw;image/x-nikon-nef;image/x-olympus-orf;image/x-pentax-pef;image/x-fuji-raf;image/x-panasonic-rw;image/x-sony-sr2;image/x-sony-srf;image/x-sigma-x3f;image/x-sony-arw;image/x-panasonic-rw2;</p>
+</blockquote>
 <h2 id="安装所需组件"><a href="#安装所需组件" class="headerlink" title="安装所需组件"></a>安装所需组件</h2><h3 id="通知提示"><a href="#通知提示" class="headerlink" title="通知提示"></a>通知提示</h3><p>右下角弹出文字提示的功能依赖于<code>libnotify</code></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo pacman -S libnotify --needed<br></code></pre></td></tr></table></figure>
 
@@ -353,7 +359,8 @@
 
 <h2 id="处理普通用户无权写入logs的问题"><a href="#处理普通用户无权写入logs的问题" class="headerlink" title="处理普通用户无权写入logs的问题"></a>处理普通用户无权写入logs的问题</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo <span class="hljs-built_in">chmod</span> 777 -R /var/www/image/logs/<br></code></pre></td></tr></table></figure>
 
-<h2 id="最终结果"><a href="#最终结果" class="headerlink" title="最终结果"></a>最终结果</h2><p>&lt;center&lt;img src=”<a target="_blank" rel="noopener" href="https://bu.dusays.com/2022/08/10/62f36f57f34aa.gif&quot;">https://bu.dusays.com/2022/08/10/62f36f57f34aa.gif&quot;</a> width = “” height = “”&lt;/center</p>
+<h2 id="最终结果"><a href="#最终结果" class="headerlink" title="最终结果"></a>最终结果</h2><center><img src="https://bu.dusays.com/2022/08/10/62f36f57f34aa.gif" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload width = "" height = ""></center>
+
 <h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a target="_blank" rel="noopener" href="https://cnzhx.net/blog/kde-plasma-5-dolphin-add-action-menu-entry/">在 KDE Plasma 5 的 Dolphin 中添加一个右键动作菜单</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.xiebruce.top/17.html">PicUploader: 一个还不错的图床工具</a></p>
 
@@ -402,7 +409,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2022年8月10日</div>
+          <div>2022年8月22日</div>
         </div>
       
       <div class="license-meta-item">

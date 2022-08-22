@@ -18,15 +18,15 @@
   <meta name="author" content="竹林里有冰">
   <meta name="keywords" content="博客, 技术, Fedora">
   
-    <meta name="description" content="之前找对大陆网络友好的图床时，找到了cloudinary，但是全英文界面对操作增加了不少难度，其页面也不是很简洁，让我一下打消了使用网页版的念头。通过搜索，找到了 PicUploader 这一方案，使用php编写，支持cloudinary的api。  作者在其博客中仅提供了nginx的部署方案，我参考其配置文件成功实现了在caddy下的部署，并且花费了数个小时排坑，故写下本文帮助后来者节省时间。">
+    <meta name="description" content="之前找对大陆网络友好的图床时，找到了cloudinary，但是全英文界面对操作增加了不少难度，其页面也不是很简洁，让我一下打消了使用网页版的念头。通过搜索，找到了 PicUploader 这一方案，使用php编写，支持cloudinary的api。 作者在其博客中仅提供了nginx的部署方案，我参考其配置文件成功实现了在caddy下的部署，并且花费了数个小时排坑，故写下本文帮助后来者节省时间。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PicUploader使用系列（一）——在Archlinux上使用Caddy部署PicUploader">
 <meta property="og:url" content="https://zhul.in/2021/10/21/picuploader-on-archlinux-with-caddy/index.html">
 <meta property="og:site_name" content="竹林里有冰的博客">
-<meta property="og:description" content="之前找对大陆网络友好的图床时，找到了cloudinary，但是全英文界面对操作增加了不少难度，其页面也不是很简洁，让我一下打消了使用网页版的念头。通过搜索，找到了 PicUploader 这一方案，使用php编写，支持cloudinary的api。  作者在其博客中仅提供了nginx的部署方案，我参考其配置文件成功实现了在caddy下的部署，并且花费了数个小时排坑，故写下本文帮助后来者节省时间。">
+<meta property="og:description" content="之前找对大陆网络友好的图床时，找到了cloudinary，但是全英文界面对操作增加了不少难度，其页面也不是很简洁，让我一下打消了使用网页版的念头。通过搜索，找到了 PicUploader 这一方案，使用php编写，支持cloudinary的api。 作者在其博客中仅提供了nginx的部署方案，我参考其配置文件成功实现了在caddy下的部署，并且花费了数个小时排坑，故写下本文帮助后来者节省时间。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-10-21T14:15:33.000Z">
-<meta property="article:modified_time" content="2022-08-10T15:25:00.000Z">
+<meta property="article:modified_time" content="2022-08-22T15:48:33.000Z">
 <meta property="article:author" content="竹林里有冰">
 <meta property="article:tag" content="Archlinux">
 <meta property="article:tag" content="Caddy">
@@ -319,15 +319,17 @@
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2022年8月10日 晚上
+                    本文最后更新于：2022年8月22日 晚上
                   
                 
               </p>
             
             <div class="markdown-body">
               
-              <p> 之前找对大陆网络友好的图床时，找到了cloudinary，但是全英文界面对操作增加了不少难度，其页面也不是很简洁，让我一下打消了使用网页版的念头。通过搜索，找到了 PicUploader 这一方案，使用php编写，支持cloudinary的api。</p>
-<p> 作者在其<a target="_blank" rel="noopener" href="https://www.xiebruce.top/17.html">博客</a>中仅提供了nginx的部署方案，我参考其配置文件成功实现了在caddy下的部署，并且花费了数个小时排坑，故写下本文帮助后来者节省时间。</p>
+              <blockquote>
+<p>之前找对大陆网络友好的图床时，找到了cloudinary，但是全英文界面对操作增加了不少难度，其页面也不是很简洁，让我一下打消了使用网页版的念头。通过搜索，找到了 PicUploader 这一方案，使用php编写，支持cloudinary的api。</p>
+<p>作者在其<a target="_blank" rel="noopener" href="https://www.xiebruce.top/17.html">博客</a>中仅提供了nginx的部署方案，我参考其配置文件成功实现了在caddy下的部署，并且花费了数个小时排坑，故写下本文帮助后来者节省时间。</p>
+</blockquote>
 <h2 id="安装caddy和php-fpm以及所需的拓展"><a href="#安装caddy和php-fpm以及所需的拓展" class="headerlink" title="安装caddy和php-fpm以及所需的拓展"></a>安装<code>caddy</code>和<code>php-fpm</code>以及所需的拓展</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo pacman -S caddy php-fpm php-gd php-sqlite --needed<br></code></pre></td></tr></table></figure>
 
 <h2 id="配置php-fpm"><a href="#配置php-fpm" class="headerlink" title="配置php-fpm"></a>配置<code>php-fpm</code></h2><h3 id="在-etc-php-php-ini启用PicUploader所需拓展"><a href="#在-etc-php-php-ini启用PicUploader所需拓展" class="headerlink" title="在/etc/php/php.ini启用PicUploader所需拓展"></a>在<code>/etc/php/php.ini</code>启用PicUploader所需拓展</h3><p>PicUploaer依赖于<code>fileinfo</code>、<code>gd</code>、<code>curl</code>、<code>exif</code>、<code>pdo_sqlite</code>拓展，可以使用<code>php -m</code>命令来查看目前加载成功了的插件。</p>
@@ -357,10 +359,10 @@
 
 <p>php我选择了监听本地<code>unix//run/php-fpm/php-fpm.sock</code>的方案，这个路径在上文的<code>/etc/php/php-fpm.d/www.conf</code>可以设置，如需查询，直接使用 <code>grep listen\ = /etc/php/php-fpm.d/www.conf</code>应该就能看见。</p>
 <h3 id="设置访问密码（可选）"><a href="#设置访问密码（可选）" class="headerlink" title="设置访问密码（可选）"></a>设置访问密码（可选）</h3><p>caddy2开始不允许在caddyfile中直接指定明文密码，因此我们需要用<code>hash-password</code>获取加密后的密码密文</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">caddy hash-password  --plaintext &lt;YourPassword<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">caddy hash-password  --plaintext &lt;YourPassword&gt;<br></code></pre></td></tr></table></figure>
 
 <p>再在Caddyfile中，加上</p>
-<figure class="highlight dust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs dust"><span class="language-xml">basicauth /* </span><span class="hljs-template-variable">&#123;</span><br><span class="hljs-template-variable">		&lt;username &lt;hashed_password</span><br><span class="hljs-template-variable">&#125;</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs xml">basicauth /* &#123;<br>		<span class="hljs-tag">&lt;<span class="hljs-name">username</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">hashed_password</span>&gt;</span><br>&#125;<br></code></pre></td></tr></table></figure>
 
 <h2 id="修改hosts-设置DNS解析"><a href="#修改hosts-设置DNS解析" class="headerlink" title="修改hosts/设置DNS解析"></a>修改hosts/设置DNS解析</h2><p>由于 api.picuploader.com 这个域名不在我手里，而我只是想在本地使用，并不打算部署到服务器，因此修改hosts将这个域名解析到本地是个不错的选择。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo sh -c <span class="hljs-string">&quot;echo &#x27;127.0.0.1		api.picuploader.com&#x27;  /etc/hosts&quot;</span><br></code></pre></td></tr></table></figure>
@@ -417,7 +419,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2022年8月10日</div>
+          <div>2022年8月22日</div>
         </div>
       
       <div class="license-meta-item">

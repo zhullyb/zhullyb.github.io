@@ -27,7 +27,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://bu.dusays.com/2022/08/10/62f3cafe4a5ec.webp">
 <meta property="article:published_time" content="2021-04-14T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-08-10T15:25:00.000Z">
+<meta property="article:modified_time" content="2022-08-22T15:48:33.000Z">
 <meta property="article:author" content="竹林里有冰">
 <meta property="article:tag" content="笔记">
 <meta name="twitter:card" content="summary_large_image">
@@ -275,7 +275,7 @@
         
         
           <!-- compatible with older versions-->
-          7 分钟
+          8 分钟
         
       </span>
     
@@ -319,7 +319,7 @@
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2022年8月10日 晚上
+                    本文最后更新于：2022年8月22日 晚上
                   
                 
               </p>
@@ -329,7 +329,7 @@
               <p>今年两三月的时候，Google限制了chromium的同步api次数，导致各个发行版内置的chromium将不再能继续使用Google的数据同步功能。</p>
 <p>今天在翻 archlinuxcn 的群组的时候翻到了一段脚本: <a target="_blank" rel="noopener" href="https://gist.github.com/foutrelis/14e339596b89813aa9c37fd1b4e5d9d5">https://gist.github.com/foutrelis/14e339596b89813aa9c37fd1b4e5d9d5</a></p>
 <p>大意就是说，由于Archlinux特殊的chromium启动方式导致我们可以在设置<code>oauth2-client-id</code>和<code>oauth2-client-secret</code>的情况下通过chrome的同步api继续使用Google的同步服务，说得太多了也没必要，毕竟原文就在那里，看不看取决于你，我这里直接给命令吧。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">echo &quot;--oauth2-client-id=77185425430.apps.googleusercontent.com<br>--oauth2-client-secret=OTJgUOQcT7lO7GsGZq2G4IlT&quot;  ~/.config/chromium-flags.conf<br></code></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">echo &quot;--oauth2-client-id=77185425430.apps.googleusercontent.com<br>--oauth2-client-secret=OTJgUOQcT7lO7GsGZq2G4IlT&quot; &gt;&gt; ~/.config/chromium-flags.conf<br></code></pre></td></tr></table></figure>
 
 <p>再次打开chromium,你就会发现你心心念念的同步功能回来了。</p>
 <p><img src="https://bu.dusays.com/2022/08/10/62f3cafe4a5ec.webp" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload></p>
@@ -382,7 +382,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2022年8月10日</div>
+          <div>2022年8月22日</div>
         </div>
       
       <div class="license-meta-item">
