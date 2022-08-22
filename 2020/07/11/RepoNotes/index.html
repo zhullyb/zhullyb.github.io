@@ -26,7 +26,7 @@
 <meta property="og:description" content="清除同步过程中产生的不完整碎片文件在源码路径&#x2F;.repo下搜索tmp_pack将搜索结果中出现的所有文件全部删除 以下命令仅供参考 1rm -rf *&#x2F;*&#x2F;*&#x2F;*&#x2F;objects&#x2F;pack&#x2F;tmp_pack_*  repo自动同步下载脚本123456789echo #!&#x2F;bin&#x2F;bashecho &quot;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;start repo sync&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;repo sync  -">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-07-10T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-08-10T15:25:00.000Z">
+<meta property="article:modified_time" content="2022-08-22T15:42:13.000Z">
 <meta property="article:author" content="竹林里有冰">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="笔记">
@@ -262,7 +262,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          501 字
+          505 字
         
       </span>
     
@@ -318,7 +318,7 @@
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2022年8月10日 晚上
+                    本文最后更新于：2022年8月22日 晚上
                   
                 
               </p>
@@ -329,7 +329,7 @@
 <p>以下命令仅供参考</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">rm</span> -rf */*/*/*/objects/pack/tmp_pack_*<br></code></pre></td></tr></table></figure>
 
-<h3 id="repo自动同步"><a href="#repo自动同步" class="headerlink" title="repo自动同步"></a>repo自动同步</h3><h5 id="下载脚本"><a href="#下载脚本" class="headerlink" title="下载脚本"></a>下载脚本</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs shell">echo #!/bin/bash<br>echo &quot;======start repo sync======&quot;<br>repo sync  --force-sync --current-branch --no-tags --no-clone-bundle --optimized-fetch --prune -j$(nproc --all)<br>while [ $? == 1 ]; do<br>echo &quot;======sync failed, re-sync again======&quot;<br>sleep 3<br>repo sync  --force-sync --current-branch --no-tags --no-clone-bundle --optimized-fetch --prune -j$(nproc --all)<br>done<br>  repo.sh<br></code></pre></td></tr></table></figure>
+<h3 id="repo自动同步"><a href="#repo自动同步" class="headerlink" title="repo自动同步"></a>repo自动同步</h3><h5 id="下载脚本"><a href="#下载脚本" class="headerlink" title="下载脚本"></a>下载脚本</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs shell">echo #!/bin/bash<br>echo &quot;======start repo sync======&quot;<br>repo sync  --force-sync --current-branch --no-tags --no-clone-bundle --optimized-fetch --prune -j$(nproc --all)<br>while [ $? == 1 ]; do<br>echo &quot;======sync failed, re-sync again======&quot;<br>sleep 3<br>repo sync  --force-sync --current-branch --no-tags --no-clone-bundle --optimized-fetch --prune -j$(nproc --all)<br>done<br><span class="hljs-meta prompt_">&gt; </span><span class="language-bash">repo.sh</span><br></code></pre></td></tr></table></figure>
 
 <p><strong>授予运行权限</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">chmod</span> a+x repo.sh<br></code></pre></td></tr></table></figure>
@@ -380,7 +380,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2022年8月10日</div>
+          <div>2022年8月22日</div>
         </div>
       
       <div class="license-meta-item">

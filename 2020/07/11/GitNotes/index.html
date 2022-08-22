@@ -26,7 +26,7 @@
 <meta property="og:description" content="git自动填入账号密码打开终端，输入 1git config --global credential.helper store 此时，我们就已经开启了git账号密码的本地储存，在下一次push时只要输入账号密码就可以一劳永逸了。 git设置默认的commit编辑器1git config --global core.editor $editor_name  Ps: $editor_name指的是你选">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-07-10T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-08-10T15:25:00.000Z">
+<meta property="article:modified_time" content="2022-08-22T15:42:13.000Z">
 <meta property="article:author" content="竹林里有冰">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="笔记">
@@ -318,7 +318,7 @@
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2022年8月10日 晚上
+                    本文最后更新于：2022年8月22日 晚上
                   
                 
               </p>
@@ -331,9 +331,9 @@
 <h3 id="git设置默认的commit编辑器"><a href="#git设置默认的commit编辑器" class="headerlink" title="git设置默认的commit编辑器"></a>git设置默认的commit编辑器</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">git config --global core.editor $editor_name<br></code></pre></td></tr></table></figure>
 
 <p>Ps: $editor_name指的是你选用的编辑器，一般为nano、vim等</p>
-<h3 id="pick一个仓库中连续的几个commit"><a href="#pick一个仓库中连续的几个commit" class="headerlink" title="pick一个仓库中连续的几个commit"></a>pick一个仓库中连续的几个commit</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">git cherry-pick &lt;commit1_id..^&lt;cimmitn_id<br></code></pre></td></tr></table></figure>
+<h3 id="pick一个仓库中连续的几个commit"><a href="#pick一个仓库中连续的几个commit" class="headerlink" title="pick一个仓库中连续的几个commit"></a>pick一个仓库中连续的几个commit</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">git cherry-pick &lt;commit1_id&gt;..^&lt;cimmitn_id&gt;<br></code></pre></td></tr></table></figure>
 
-<p>Ps: &lt;commit1_id和&lt;commitn_id分别指第一个你想要pick的commit_id和最后一个你想要pick的commit_id</p>
+<p>Ps: <commit1_id>和<commitn_id>分别指第一个你想要pick的commit_id和最后一个你想要pick的commit_id</p>
 <h3 id="pick失败时如何撤销此次pick"><a href="#pick失败时如何撤销此次pick" class="headerlink" title="pick失败时如何撤销此次pick"></a>pick失败时如何撤销此次pick</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">git cherry-pick --abort<br></code></pre></td></tr></table></figure>
 
 <h2 id="踩坑记录"><a href="#踩坑记录" class="headerlink" title="踩坑记录"></a>踩坑记录</h2><p>发生背景：</p>
@@ -390,7 +390,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2022年8月10日</div>
+          <div>2022年8月22日</div>
         </div>
       
       <div class="license-meta-item">
