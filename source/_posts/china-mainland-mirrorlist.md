@@ -44,7 +44,7 @@ tags:
 
 [https://opentuna.cn/](https://opentuna.cn/)
 
- farseerfc: tuna 有兩個服務器互相負載均衡，這倆服務器之間不同步，就偶爾遇到版本回退。
+> farseerfc: tuna 有兩個服務器互相負載均衡，這倆服務器之間不同步，就偶爾遇到版本回退。
 
 #### 中国科技大学
 

@@ -8,7 +8,7 @@ tags:
 - KDE
 ---
 
- 文章开头，先要感谢 fcitx5 的开发者 [老K](https://www.csslayer.info/wordpress/) 帮我 debug 这个问题
+> 文章开头，先要感谢 fcitx5 的开发者 [老K](https://www.csslayer.info/wordpress/) 帮我 debug 这个问题
 
 ## 鬼畜的文字候选框
 

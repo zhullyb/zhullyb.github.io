@@ -12,7 +12,7 @@ date: 2021-10-01 19:20:23
 
 ![这是去掉标题栏后的样子](https://bu.dusays.com/2022/08/10/62f3ccaa2b91c.webp)
 
- 在Firefox更新UI以后，我就一直感觉不太适应。顶栏的一个个标签页占用的体积达到了原来的1.5~2倍。Thanks to [black7375/Firefox-UI-Fix](https://github.com/black7375/Firefox-UI-Fix) ，我们得以把以前的顶栏找回来。
+> 在Firefox更新UI以后，我就一直感觉不太适应。顶栏的一个个标签页占用的体积达到了原来的1.5~2倍。Thanks to [black7375/Firefox-UI-Fix](https://github.com/black7375/Firefox-UI-Fix) ，我们得以把以前的顶栏找回来。
 
 ### 加载新的css
 

@@ -27,10 +27,10 @@ Ps: $editor_name指的是你选用的编辑器，一般为nano、vim等
 ### pick一个仓库中连续的几个commit
 
 ```shell
-git cherry-pick <commit1_id..^<cimmitn_id
+git cherry-pick <commit1_id>..^<cimmitn_id>
 ```
 
-Ps: <commit1_id和<commitn_id分别指第一个你想要pick的commit_id和最后一个你想要pick的commit_id
+Ps: <commit1_id>和<commitn_id>分别指第一个你想要pick的commit_id和最后一个你想要pick的commit_id
 
 ### pick失败时如何撤销此次pick
 

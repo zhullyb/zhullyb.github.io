@@ -127,7 +127,7 @@ for f in /etc/pacman.d/*.sync; do
   mount --bind "$f" "$filename"
 done
 pacman -Sy
-EOF'  /usr/bin/pacsync
+EOF' > /usr/bin/pacsync
 ```
 
 创建`/etc/pacman.d/mirrorlist.sync`指定我们用来同步pacman数据库（比如东软）

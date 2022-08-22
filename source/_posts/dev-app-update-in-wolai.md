@@ -19,23 +19,23 @@ tags:
 
 以下内容来自一篇简书的文章[^2]
 
- 所以调试的时候可以建一个default-app.yml文件放在D:\hzhh123\workspace\vue-work\electron-demo1\node_modules\electron\dist\resources\default_app.asar 下，这里就涉及到asar解压缩，但是这样会很麻烦，打包后也需要这样替换，麻烦，所幸electron-updater中提供了这个文件的属性配置updateConfigPath，可以通过设置这个属性来解决这个问题
+> 所以调试的时候可以建一个default-app.yml文件放在D:\hzhh123\workspace\vue-work\electron-demo1\node_modules\electron\dist\resources\default_app.asar 下，这里就涉及到asar解压缩，但是这样会很麻烦，打包后也需要这样替换，麻烦，所幸electron-updater中提供了这个文件的属性配置updateConfigPath，可以通过设置这个属性来解决这个问题
 
 很遗憾，我们并不是该应用的开发者，并不能指定`electron-uploader`构建时的参数，所以只能考虑解压缩 app.asar 手动放入 dev-app-update.yml 的方案。
 
 根据又一篇简书的文章[^3]，我们了解到 npm 中有一个叫 asar 的程序可以帮助我们解压缩 app.asar。我这里直接将内容搬过来
 
- 解压
-
- ```undefined
- asar extract 压缩文件  解压文件夹
- ```
-
- 压缩：如果压缩文件存在，则会被替换
-
- ```undefined
- asar pack 文件夹  压缩文件名
- ```
+> 解压
+>
+> ```undefined
+> asar extract 压缩文件  解压文件夹
+> ```
+>
+> 压缩：如果压缩文件存在，则会被替换
+>
+> ```undefined
+> asar pack 文件夹  压缩文件名
+> ```
 
 原文是让我们直接使用 npm 下载安装 asar 程序，然而这就会让打包过程变得很复杂，所幸 Archlinux 官方源中已经将这个程序打完了，我们可以直接将 asar 写入 makedepends。
 

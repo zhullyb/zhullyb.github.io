@@ -7,7 +7,7 @@ tags:
 date: 2021-09-11 19:22:29
 ---
 
- 虽然对于没有能力手动修改/编写PKGBUILD的Arch用户其实是不应该使用AUR中的包的，这些软件的PKGBUILD可以由个人随意发布，并不能保证安全性，但是作为Archlinux的特色，但随着AUR Helper的趋于便利，还是吸引了不少小白使用AUR。本文将主要讲一讲 AUR Helper 帮助我们安装软件时到底做了些什么事情，并提供一些使用AUR Helper构建时常见错误的解决方案。
+> 虽然对于没有能力手动修改/编写PKGBUILD的Arch用户其实是不应该使用AUR中的包的，这些软件的PKGBUILD可以由个人随意发布，并不能保证安全性，但是作为Archlinux的特色，但随着AUR Helper的趋于便利，还是吸引了不少小白使用AUR。本文将主要讲一讲 AUR Helper 帮助我们安装软件时到底做了些什么事情，并提供一些使用AUR Helper构建时常见错误的解决方案。
 
 ## PartⅠ基本原理
 
@@ -87,9 +87,9 @@ PKGBUILD: line XXX XXX: command not found
 
    最简单的解决方案就是把source里下载失败的东西通过特殊手段（比如你浏览器设置下代理，或者找找fastgit这种反代）下载下来以后直接扔到PKGBUILD所在的路径，然后手动执行`makepkg -si`。
 
-    -s代表自动下载makedepend，-i表示构建成功以后自动安装
-   
-    yay存放PKGBUILD的默认路径是在`$HOME/.cache/yay/$pkgname`下面，具体可以参考我的另一篇关于[yay的用法详解](https://blog.zhullyb.top/2021/04/04/yay-more/#builddir-lt-dir-gt)的博客。
+   > -s代表自动下载makedepend，-i表示构建成功以后自动安装
+   >
+   > yay存放PKGBUILD的默认路径是在`$HOME/.cache/yay/$pkgname`下面，具体可以参考我的另一篇关于[yay的用法详解](https://blog.zhullyb.top/2021/04/04/yay-more/#builddir-lt-dir-gt)的博客。
 
    **我在这里再讲一种使用 [*fastgit*](http://fastgit.org/) 作为反代加速github下载的方法。**~~如果觉得fastgit帮助到了你，你可以考虑[给fastgit项目打钱](http://fastgit.org/donate.html)。~~
 

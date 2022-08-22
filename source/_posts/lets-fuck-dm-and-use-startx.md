@@ -36,7 +36,7 @@ cp /etc/X11/xinit/xinitrc ~/.xinitrc
 
 然后需要在结尾处写上我们的配置。我用的桌面是Plasma，查询[wiki](https://wiki.archlinux.org/index.php/KDE#From_the_console)
 
-To start Plasma with xinit/startx, append export DESKTOP_SESSION=plasma and exec startplasma-x11 to your .xinitrc file. If you want to start Xorg at login, please see Start X at login.
+> To start Plasma with xinit/startx, append export DESKTOP_SESSION=plasma and exec startplasma-x11 to your .xinitrc file. If you want to start Xorg at login, please see Start X at login.
 
 然后在xinitrx文件末尾处写上我们的配置
 
