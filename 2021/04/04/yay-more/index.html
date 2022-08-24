@@ -26,7 +26,7 @@
 <meta property="og:description" content="yay是一个AUR Helper，他可以执行pacman的几乎所有操作，并在此基础上添加了很多额外用法。 我没有在网络上查找到关于yay的、除了pacman基础用法和安装AUR包以外的中文教程，英文的也几乎没有看到，这也是我写这篇文章的原因所在。 本文通篇详讲yay的每一个设置&#x2F;选项（大概就是archwiki那种干涩的行文思路），最后会给出我自己的一些常用命令，但不会做解释。 写作时参考了yay">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-04-03T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-08-22T15:57:34.000Z">
+<meta property="article:modified_time" content="2022-08-24T10:07:11.000Z">
 <meta property="article:author" content="竹林里有冰">
 <meta property="article:tag" content="Archlinux">
 <meta name="twitter:card" content="summary_large_image">
@@ -317,7 +317,7 @@
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2022年8月22日 晚上
+                    本文最后更新于：2022年8月24日 晚上
                   
                 
               </p>
@@ -366,13 +366,13 @@
 <h5 id="repo"><a href="#repo" class="headerlink" title="--repo"></a><code>--repo</code></h5><p>假定你给出的包名只存在源里（忽视AUR的存在）</p>
 <h5 id="a-aur"><a href="#a-aur" class="headerlink" title="-a(--aur)"></a><code>-a(--aur)</code></h5><p>假定你给出的包名只存在AUR中（忽视源的存在）</p>
 <h2 id="配置设置"><a href="#配置设置" class="headerlink" title="配置设置"></a>配置设置</h2><p>原版的man手册排的比较混乱，我这里自己细分了几个类型，或许不是特别专业，但我希望能够帮助你们理解。</p>
-<h3 id="自定义调用命令型"><a href="#自定义调用命令型" class="headerlink" title="自定义调用命令型"></a>自定义调用命令型</h3><h5 id="editor-lt-command"><a href="#editor-lt-command" class="headerlink" title="--editor &lt;command"></a><code>--editor &lt;command</code></h5><p>设置编辑时调用的编辑器。</p>
-<h5 id="makepkg-lt-command"><a href="#makepkg-lt-command" class="headerlink" title="--makepkg &lt;command"></a><code>--makepkg &lt;command</code></h5><p>设置makepkg时需要调用makepkg命令（一般情况下用不到）</p>
-<h5 id="pacman-lt-command"><a href="#pacman-lt-command" class="headerlink" title="--pacman &lt;command"></a><code>--pacman &lt;command</code></h5><p>设置运行pacman时需要调用pacman命令（一般情况下用不到）</p>
-<h5 id="tar-lt-command"><a href="#tar-lt-command" class="headerlink" title="--tar &lt;command"></a><code>--tar &lt;command</code></h5><p>设置makepkg解压tar资源时调用的tar命令（一般情况下用不到）</p>
-<h5 id="git-lt-command"><a href="#git-lt-command" class="headerlink" title="--git &lt;command"></a><code>--git &lt;command</code></h5><p>设置makepkg clone git资源时调用的git命令（比如你可以安装AUR中的fgit-go，使用<code>--git fgit</code>参数来让fastgit代理clone的过程）</p>
-<h5 id="gpg-lt-command"><a href="#gpg-lt-command" class="headerlink" title="--gpg &lt;command"></a><code>--gpg &lt;command</code></h5><p>设置gpg验证资源时调用的gpg命令</p>
-<h5 id="sudo-lt-command"><a href="#sudo-lt-command" class="headerlink" title="--sudo &lt;command"></a><code>--sudo &lt;command</code></h5><p>设置调用sudo获取su权限安装pkg时所调用的sudo命令。</p>
+<h3 id="自定义调用命令型"><a href="#自定义调用命令型" class="headerlink" title="自定义调用命令型"></a>自定义调用命令型</h3><h5 id="editor-lt-command-gt"><a href="#editor-lt-command-gt" class="headerlink" title="--editor &lt;command&gt;"></a><code>--editor &lt;command&gt;</code></h5><p>设置编辑时调用的编辑器。</p>
+<h5 id="makepkg-lt-command-gt"><a href="#makepkg-lt-command-gt" class="headerlink" title="--makepkg &lt;command&gt;"></a><code>--makepkg &lt;command&gt;</code></h5><p>设置makepkg时需要调用makepkg命令（一般情况下用不到）</p>
+<h5 id="pacman-lt-command-gt"><a href="#pacman-lt-command-gt" class="headerlink" title="--pacman &lt;command&gt;"></a><code>--pacman &lt;command&gt;</code></h5><p>设置运行pacman时需要调用pacman命令（一般情况下用不到）</p>
+<h5 id="tar-lt-command-gt"><a href="#tar-lt-command-gt" class="headerlink" title="--tar &lt;command&gt;"></a><code>--tar &lt;command&gt;</code></h5><p>设置makepkg解压tar资源时调用的tar命令（一般情况下用不到）</p>
+<h5 id="git-lt-command-gt"><a href="#git-lt-command-gt" class="headerlink" title="--git &lt;command&gt;"></a><code>--git &lt;command&gt;</code></h5><p>设置makepkg clone git资源时调用的git命令（比如你可以安装AUR中的fgit-go，使用<code>--git fgit</code>参数来让fastgit代理clone的过程）</p>
+<h5 id="gpg-lt-command-gt"><a href="#gpg-lt-command-gt" class="headerlink" title="--gpg &lt;command&gt;"></a><code>--gpg &lt;command&gt;</code></h5><p>设置gpg验证资源时调用的gpg命令</p>
+<h5 id="sudo-lt-command-gt"><a href="#sudo-lt-command-gt" class="headerlink" title="--sudo &lt;command&gt;"></a><code>--sudo &lt;command&gt;</code></h5><p>设置调用sudo获取su权限安装pkg时所调用的sudo命令。</p>
 <h3 id="自定义配置文件型"><a href="#自定义配置文件型" class="headerlink" title="自定义配置文件型"></a>自定义配置文件型</h3><h5 id="config-lt-file-gt"><a href="#config-lt-file-gt" class="headerlink" title="--config &lt;file&gt;"></a><code>--config &lt;file&gt;</code></h5><p>设置读取的pacman配置文件。</p>
 <h5 id="makepkgconf-lt-file-gt"><a href="#makepkgconf-lt-file-gt" class="headerlink" title="--makepkgconf &lt;file&gt;"></a><code>--makepkgconf &lt;file&gt;</code></h5><p>设置读取的makepkg配置文件。</p>
 <h5 id="nomakepkgconf"><a href="#nomakepkgconf" class="headerlink" title="--nomakepkgconf"></a><code>--nomakepkgconf</code></h5><p>不读取系统中的makepkg.conf，仅使用Arch默认状态下的配置文件。</p>
@@ -487,7 +487,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2022年8月22日</div>
+          <div>2022年8月24日</div>
         </div>
       
       <div class="license-meta-item">
@@ -558,7 +558,7 @@
       Fluid.utils.createCssLink('https://lib.baomitu.com/waline/2.5.1/waline.min.css')
       Fluid.utils.createScript('https://lib.baomitu.com/waline/2.5.1/waline.min.js', function() {
         var options = Object.assign(
-          {"serverURL":"https://waline.zhullyb.top","path":"window.location.pathname","meta":["nick","mail","link"],"requiredMeta":["nick"],"lang":"zh-CN","emoji":["https://npm.elemecdn.com/superbadguy-bed@0.0.9"],"dark":"html[data-user-color-scheme=\"dark\"]","wordLimit":0,"pageSize":10,"login":"disable","locale":{"placeholder":"快发个评论让我知道你在看（x"}},
+          {"serverURL":"https://waline.zhullyb.top","path":"window.location.pathname","meta":["nick","mail","link"],"requiredMeta":["nick"],"lang":"zh-CN","emoji":["https://cdn1.tianli0.top/npm/@waline/emojis@1.0.1/weibo"],"dark":"html[data-user-color-scheme=\"dark\"]","wordLimit":0,"pageSize":10,"login":"disable","locale":{"placeholder":"快发个评论让我知道你在看（x"}},
           {
             el: '#waline',
             path: window.location.pathname
