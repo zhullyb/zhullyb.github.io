@@ -787,7 +787,7 @@ waline:
   meta: ['nick', 'mail', 'link']
   requiredMeta: ['nick']
   lang: 'zh-CN'
-  emoji: ['https://npm.elemecdn.com/superbadguy-bed@0.0.9']
+  emoji: ['https://cdn1.tianli0.top/npm/@waline/emojis@1.0.1/weibo']
   dark: 'html[data-user-color-scheme="dark"]'
   wordLimit: 0
   pageSize: 10

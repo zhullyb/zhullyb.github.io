@@ -177,31 +177,31 @@ yay将会清除AUR包构建时的缓存和没有被track的文件。没有被tra
 
 ### 自定义调用命令型
 
-##### `--editor <command`
+##### `--editor <command>`
 
 设置编辑时调用的编辑器。
 
-##### `--makepkg <command`
+##### `--makepkg <command>`
 
 设置makepkg时需要调用makepkg命令（一般情况下用不到）
 
-##### `--pacman <command`
+##### `--pacman <command>`
 
 设置运行pacman时需要调用pacman命令（一般情况下用不到）
 
-##### `--tar <command`
+##### `--tar <command>`
 
 设置makepkg解压tar资源时调用的tar命令（一般情况下用不到）
 
-##### `--git <command`
+##### `--git <command>`
 
 设置makepkg clone git资源时调用的git命令（比如你可以安装AUR中的fgit-go，使用`--git fgit`参数来让fastgit代理clone的过程）
 
-##### `--gpg <command`
+##### `--gpg <command>`
 
 设置gpg验证资源时调用的gpg命令
 
-##### `--sudo <command`
+##### `--sudo <command>`
 
 设置调用sudo获取su权限安装pkg时所调用的sudo命令。
 
