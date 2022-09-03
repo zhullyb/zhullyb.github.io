@@ -6,9 +6,9 @@ date: 2021-05-01 23:53:19
 
 ## About Me
 
-咱是一只高三的大本钟，日常全靠摆
+咱是一只大一的大本钟，日常全靠摆，就读于某工地大专。
 
-Fedora 用户，但同时也在维护某些 AUR 的包，dipper 机型的 crDroid Official Maintainer
+~~Fedora 用户~~已经叛变到 Archlinux 了，但同时也在维护某些 AUR 的包，dipper 机型的 crDroid Official Maintainer
 
 ~~周更(月更(~~年更博主
 
