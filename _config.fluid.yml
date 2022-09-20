@@ -998,6 +998,21 @@ links:
       link: "https://hanjingxue-boling.github.io/Whiteboard/",
       avatar: "https://bu.dusays.com/2022/03/15/259396342424f.png"
     }
+    - {
+      title: "派大星的石头屋",
+      intro: "一头蠢猪罢了",
+      link: "https://blog.cnpatrickstar.com/",
+      avatar: "https://bu.dusays.com/2022/09/20/6329b2a587c1f.webp"
+    }
+    - {
+      title: "Finley's Blog",
+      intro: "一个不想平庸的平庸之人. 来自浙江工业大学的计算机科学学生, 正在努力成为一名全栈开发者.",
+      link: "https://blog.f1nley.xyz/"
+    }
+    - {
+      title: "j10c's Blog/",
+      link: "https://blog.j10ccc.xyz/"
+    }
 
   # 当成员头像加载失败时，替换为指定图片
   # When the member avatar fails to load, replace the specified image
