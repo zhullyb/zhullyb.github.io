@@ -6,7 +6,7 @@
   <link href="https://zhul.in/rss.xml" rel="self"/>
   
   <link href="https://zhul.in/"/>
-  <updated>2022-08-11T12:52:46.000Z</updated>
+  <updated>2022-09-29T06:57:32.000Z</updated>
   <id>https://zhul.in/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>在 Archlinux 下使用 l2tp 协议连接校园网</title>
+    <link href="https://zhul.in/2022/09/29/use-l2tp-protocol-to-connect-internet/"/>
+    <id>https://zhul.in/2022/09/29/use-l2tp-protocol-to-connect-internet/</id>
+    <published>2022-09-29T06:30:46.000Z</published>
+    <updated>2022-09-29T06:57:32.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>由于高考爆炸，所以不得不进入浙江工地大专来度过自己接下来四年的人生（希望到时候可以借助学校的力量润出去）。</p></blockquote><p>学校这边由于某些不可描述的原因，将校园卡与宽带捆绑销售，且每次登陆校园网时都需要使用定制的 l2tp 协议客户端进行上网，且该客户端将会禁用用户的无线网卡（<del>这不明摆着想让我们宿舍每个人都花一次钱</del>）。</p><p><img src="https://bu.dusays.com/2022/09/29/63353e0e1978c.png" alt="学校定制的 l2tp 拨号客户端"></p><p>更惨的是，学校仅提供了 Windows 与 MacOS 的客户端。</p><p>在 <a href="https://imbearchild.cyou/">BearChild</a> 的提醒下，我意识到 Linux 下也可以有 l2tp 协议。</p><p>谷歌搜索了一番，我在简书上捞到了这篇文章<a href="https://www.jianshu.com/p/85cd5bd3c7a2">《ubuntu 连校园网 via l2tp》</a>。不过这显然有些麻烦，我们的客户端不需要 pppoe 拨号，只需要插上网线后连接 l2tp 协议即可联网。</p><p>所幸，NetworkManager 非常贴心地为我们提供了 l2tp 的插件，在 Archlinux 下使用如下命令即可完成安装。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo pacman -S networkmanager-l2tp<br></code></pre></td></tr></table></figure><p>安装完成后，就可以在图形化界面下进行我们的设置操作。</p><p>由于定制的客户端已经把 l2tp 服务器 ip 写死且显示在界面上了，我们就不需要再去抓包截取服务器 ip，直接使用这边的 <code>192.168.115.1</code> 即可。</p><p><img src="https://bu.dusays.com/2022/09/29/63354161dbe28.png" alt="KDE 下的 NetworkManager l2tp 设置界面"></p>]]></content>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+    <category term="Archlinux" scheme="https://zhul.in/tags/Archlinux/"/>
+    
+    <category term="Network" scheme="https://zhul.in/tags/Network/"/>
+    
+  </entry>
   
   <entry>
     <title>为 Element 添加自己喜欢的贴纸</title>
@@ -896,7 +923,7 @@
     <link href="https://zhul.in/2021/05/21/create-a-random-picture-api-with-vercel/"/>
     <id>https://zhul.in/2021/05/21/create-a-random-picture-api-with-vercel/</id>
     <published>2021-05-20T16:00:00.000Z</published>
-    <updated>2022-04-09T05:57:20.000Z</updated>
+    <updated>2022-09-29T06:57:32.000Z</updated>
     
     <content type="html"><![CDATA[<p>如果你的网络环境不算太差的话，你在访问我博客的时候应该可以看到顶部有一张背景图。假如你访问我的博客时留心观察，你或许会发现每次你访问我博客时的背景都是不一样的。如果你没玩够，或许你可以尝试<a href="https://api.vercel.zhullyb.top/api/randomtoppic.php"><strong>点击这里</strong></a>，我总共搜集了20张壁纸供诸位赏玩。</p><p>是的，这是使用php实现的随机图片api，托管于vercel，你可以在<a href="https://note.aya1.top/#/4-phpapi"><strong>aya的博客</strong></a>上找到我使用的代码。具体配置方式我不再赘述。</p><p>然而，我们还需要解决一个问题: php在哪里运行？</p><p>如果你拥有自己的服务器，在国内访问速度毫不逊色，那就好办了，直接扔自己服务器上即可。然而，我并没有。我需要找到一个在国内访问速度给力的地方来部署我的api，以确保访客在打开我的博客时可以在第一时间获取到图片的真实链接并开始加载。</p><p>起初，我将其部署在我的好朋友(<del>你可以猜猜他是谁</del>)的国内vps上，访问速度自然不用说。然而，他的服务器<strong>不支持https</strong>，这就导致使用chrome访问的时候chrome不会自动访问我的api，博客顶部一片惨蓝。。。</p><p>随后，我使用的是000webhost提供的虚拟主机，国内访问起来也还不错，大概正常运行了半个月左右的时间，然后莫名开始502了。我懂，作为不交钱的白嫖用户应该自觉滚蛋了，这点觉悟咱还是有。</p><p><strong>随后，我找到了目前的方案——vercel</strong></p><p>vercel是被我用来部署静态网页的，但我没想到他也能<strong>支持php</strong>。参考了<a href="https://github.com/juicyfx/vercel-php">vercel-php</a>项目后，我大致了解了整个仓库结构。</p><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">project<br>├── api<br>│   └── <span class="hljs-keyword">index</span>.php<br>└── vercel.json<br></code></pre></td></tr></table></figure><p>php和附带的资源文件(如果有的话)一定要放到api文件夹下才能够正常被vercel识别。</p><p>以下附<code>vercel.json</code></p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-attr">&quot;functions&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-attr">&quot;api/index.php&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>      <span class="hljs-attr">&quot;runtime&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;vercel-php@0.4.0&quot;</span><br>    <span class="hljs-punctuation">&#125;</span><br>  <span class="hljs-punctuation">&#125;</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>]]></content>
     
@@ -912,7 +939,7 @@
     
     
     
-    <category term="网络" scheme="https://zhul.in/tags/%E7%BD%91%E7%BB%9C/"/>
+    <category term="Network" scheme="https://zhul.in/tags/Network/"/>
     
   </entry>
   
@@ -1349,7 +1376,7 @@
     <published>2020-12-18T16:00:00.000Z</published>
     <updated>2021-10-13T13:48:10.000Z</updated>
     
-    <content type="html"><![CDATA[<p>学业繁忙，不便花太多时间在接收问题的反馈上，特制定此须知。须知非常繁杂，一来是为了尽可能多的获得问题的信息，同时便于我归类，二来是为了提升你们的反馈成本以过滤低级问题。</p><p>本须知仅针对Rom自身的bug反馈，对于其他奇奇怪怪的问题(比如下载链接挂了一类的)可以直接评论反馈。无法开机等一类bug就用不着反馈了，我发布的每一个版本都经过我亲自测试，出现此类问题就是你自己的操作问题。</p><p>以下是正文</p><ol><li><p>仅接受邮箱反馈 <a href="mailto:&#x7a;&#104;&#117;&#108;&#x6c;&#121;&#98;&#64;&#x6f;&#117;&#x74;&#x6c;&#x6f;&#111;&#107;&#46;&#x63;&#111;&#x6d;">&#x7a;&#104;&#117;&#108;&#x6c;&#121;&#98;&#64;&#x6f;&#117;&#x74;&#x6c;&#x6f;&#111;&#107;&#46;&#x63;&#111;&#x6d;</a></p></li><li><p>请在默认Kernel，卸载所有模块，删除所有调度，卸载所有奇奇怪怪的软件(比如黑阈或者Thanos)的情况下进行反馈，具体原因请看<a href="../../../../2020/11/13/RomFlash_Q&A/#%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BC%BA%E8%B0%83%E5%8F%8D%E9%A6%88%E9%97%AE%E9%A2%98%E6%97%B6%E4%B8%8D%E8%A6%81%E4%BD%BF%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E5%86%85%E6%A0%B8%E6%A8%A1%E5%9D%97%E4%BF%AE%E6%94%B9">这里</a></p></li><li><p>仅接受Rom最新版本的问题反馈</p></li><li><p>进行反馈时请注明自己的Gapps版本(如系统内置、X月X日的XXXGapps等等)</p></li><li><p>请注明bug的具体表现，以及复现方法，如有可能附上log</p></li><li><p>偶然性bug请不要反馈，除非你能够抓到当时的log</p></li><li><p>log请以附件的形式发送，文件名请改为202XXXXX+酷安用户名的形式，文件名后缀为.log，如: 20201231竹林里有冰.log</p></li></ol><p>以上没有做到的，我会立刻拉黑。当然，我会允许你继续查看我的动态，因为拉黑你的目的只是为了防止我的时间再被你浪费而不是为了对你进行报复。</p>]]></content>
+    <content type="html"><![CDATA[<p>学业繁忙，不便花太多时间在接收问题的反馈上，特制定此须知。须知非常繁杂，一来是为了尽可能多的获得问题的信息，同时便于我归类，二来是为了提升你们的反馈成本以过滤低级问题。</p><p>本须知仅针对Rom自身的bug反馈，对于其他奇奇怪怪的问题(比如下载链接挂了一类的)可以直接评论反馈。无法开机等一类bug就用不着反馈了，我发布的每一个版本都经过我亲自测试，出现此类问题就是你自己的操作问题。</p><p>以下是正文</p><ol><li><p>仅接受邮箱反馈 <a href="mailto:&#x7a;&#104;&#x75;&#108;&#108;&#x79;&#x62;&#x40;&#111;&#117;&#x74;&#x6c;&#111;&#111;&#107;&#46;&#x63;&#x6f;&#109;">&#x7a;&#104;&#x75;&#108;&#108;&#x79;&#x62;&#x40;&#111;&#117;&#x74;&#x6c;&#111;&#111;&#107;&#46;&#x63;&#x6f;&#109;</a></p></li><li><p>请在默认Kernel，卸载所有模块，删除所有调度，卸载所有奇奇怪怪的软件(比如黑阈或者Thanos)的情况下进行反馈，具体原因请看<a href="../../../../2020/11/13/RomFlash_Q&A/#%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BC%BA%E8%B0%83%E5%8F%8D%E9%A6%88%E9%97%AE%E9%A2%98%E6%97%B6%E4%B8%8D%E8%A6%81%E4%BD%BF%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E5%86%85%E6%A0%B8%E6%A8%A1%E5%9D%97%E4%BF%AE%E6%94%B9">这里</a></p></li><li><p>仅接受Rom最新版本的问题反馈</p></li><li><p>进行反馈时请注明自己的Gapps版本(如系统内置、X月X日的XXXGapps等等)</p></li><li><p>请注明bug的具体表现，以及复现方法，如有可能附上log</p></li><li><p>偶然性bug请不要反馈，除非你能够抓到当时的log</p></li><li><p>log请以附件的形式发送，文件名请改为202XXXXX+酷安用户名的形式，文件名后缀为.log，如: 20201231竹林里有冰.log</p></li></ol><p>以上没有做到的，我会立刻拉黑。当然，我会允许你继续查看我的动态，因为拉黑你的目的只是为了防止我的时间再被你浪费而不是为了对你进行报复。</p>]]></content>
     
     
       
@@ -1507,7 +1534,7 @@
     <link href="https://zhul.in/2020/03/03/set-proxy-for-cmd-under-windows/"/>
     <id>https://zhul.in/2020/03/03/set-proxy-for-cmd-under-windows/</id>
     <published>2020-03-02T16:00:00.000Z</published>
-    <updated>2021-10-13T13:48:10.000Z</updated>
+    <updated>2022-09-29T06:57:32.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="cmd打开方法"><a href="#cmd打开方法" class="headerlink" title="cmd打开方法"></a>cmd打开方法</h2><p>按住<code>win</code>+<code>R</code>键，调出一个运行框，接着输入<code>cmd</code>并回车即可</p><h2 id="设置cmd代理"><a href="#设置cmd代理" class="headerlink" title="设置cmd代理"></a>设置cmd代理</h2><p>一般性使用的如果是ShadowsockR的话，代理端口都是1080，v2ray的话则是10808</p><h4 id="ShadowsocksR"><a href="#ShadowsocksR" class="headerlink" title="ShadowsocksR"></a>ShadowsocksR</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">set</span> http_proxy=http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">1080</span><br><span class="hljs-built_in">set</span> https_proxy=http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">1080</span><br></code></pre></td></tr></table></figure><h4 id="v2ray"><a href="#v2ray" class="headerlink" title="v2ray"></a>v2ray</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs powershell"><span class="hljs-built_in">set</span> http_proxy=http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">10808</span><br><span class="hljs-built_in">set</span> https_proxy=http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">10808</span><br></code></pre></td></tr></table></figure><h2 id="为git设置代理"><a href="#为git设置代理" class="headerlink" title="为git设置代理"></a>为git设置代理</h2><h4 id="ShadowsocksR-1"><a href="#ShadowsocksR-1" class="headerlink" title="ShadowsocksR"></a>ShadowsocksR</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs powershell">git config <span class="hljs-literal">--global</span> http.proxy http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">1080</span><br>git config <span class="hljs-literal">--global</span> https.proxy http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">1080</span><br></code></pre></td></tr></table></figure><h4 id="v2ray-1"><a href="#v2ray-1" class="headerlink" title="v2ray"></a>v2ray</h4><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs powershell">git config <span class="hljs-literal">--global</span> http.proxy http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">10808</span><br>git config <span class="hljs-literal">--global</span> https.proxy http://<span class="hljs-number">127.0</span>.<span class="hljs-number">0.1</span>:<span class="hljs-number">10808</span><br></code></pre></td></tr></table></figure>]]></content>
     
@@ -1523,7 +1550,7 @@
     
     
     
-    <category term="网络" scheme="https://zhul.in/tags/%E7%BD%91%E7%BB%9C/"/>
+    <category term="Network" scheme="https://zhul.in/tags/Network/"/>
     
     <category term="Windows" scheme="https://zhul.in/tags/Windows/"/>
     

@@ -4,6 +4,27 @@
   
   
   <entry>
+    <title>在 Archlinux 下使用 l2tp 协议连接校园网</title>
+    <link href="/2022/09/29/use-l2tp-protocol-to-connect-internet/"/>
+    <url>/2022/09/29/use-l2tp-protocol-to-connect-internet/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>由于高考爆炸，所以不得不进入浙江工地大专来度过自己接下来四年的人生（希望到时候可以借助学校的力量润出去）。</p></blockquote><p>学校这边由于某些不可描述的原因，将校园卡与宽带捆绑销售，且每次登陆校园网时都需要使用定制的 l2tp 协议客户端进行上网，且该客户端将会禁用用户的无线网卡（<del>这不明摆着想让我们宿舍每个人都花一次钱</del>）。</p><p><img src="https://bu.dusays.com/2022/09/29/63353e0e1978c.png" alt="学校定制的 l2tp 拨号客户端"></p><p>更惨的是，学校仅提供了 Windows 与 MacOS 的客户端。</p><p>在 <a href="https://imbearchild.cyou/">BearChild</a> 的提醒下，我意识到 Linux 下也可以有 l2tp 协议。</p><p>谷歌搜索了一番，我在简书上捞到了这篇文章<a href="https://www.jianshu.com/p/85cd5bd3c7a2">《ubuntu 连校园网 via l2tp》</a>。不过这显然有些麻烦，我们的客户端不需要 pppoe 拨号，只需要插上网线后连接 l2tp 协议即可联网。</p><p>所幸，NetworkManager 非常贴心地为我们提供了 l2tp 的插件，在 Archlinux 下使用如下命令即可完成安装。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo pacman -S networkmanager-l2tp<br></code></pre></td></tr></table></figure><p>安装完成后，就可以在图形化界面下进行我们的设置操作。</p><p>由于定制的客户端已经把 l2tp 服务器 ip 写死且显示在界面上了，我们就不需要再去抓包截取服务器 ip，直接使用这边的 <code>192.168.115.1</code> 即可。</p><p><img src="https://bu.dusays.com/2022/09/29/63354161dbe28.png" alt="KDE 下的 NetworkManager l2tp 设置界面"></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Archlinux</tag>
+      
+      <tag>Network</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>为 Element 添加自己喜欢的贴纸</title>
     <link href="/2022/08/10/add-sticker-support-for-element/"/>
     <url>/2022/08/10/add-sticker-support-for-element/</url>
@@ -671,7 +692,7 @@
     
     <tags>
       
-      <tag>网络</tag>
+      <tag>Network</tag>
       
     </tags>
     
@@ -1014,7 +1035,7 @@
     <link href="/2020/12/19/Before-Report-A-Rom-Issue/"/>
     <url>/2020/12/19/Before-Report-A-Rom-Issue/</url>
     
-    <content type="html"><![CDATA[<p>学业繁忙，不便花太多时间在接收问题的反馈上，特制定此须知。须知非常繁杂，一来是为了尽可能多的获得问题的信息，同时便于我归类，二来是为了提升你们的反馈成本以过滤低级问题。</p><p>本须知仅针对Rom自身的bug反馈，对于其他奇奇怪怪的问题(比如下载链接挂了一类的)可以直接评论反馈。无法开机等一类bug就用不着反馈了，我发布的每一个版本都经过我亲自测试，出现此类问题就是你自己的操作问题。</p><p>以下是正文</p><ol><li><p>仅接受邮箱反馈 <a href="mailto:&#x7a;&#104;&#117;&#108;&#x6c;&#121;&#98;&#64;&#x6f;&#117;&#x74;&#x6c;&#x6f;&#111;&#107;&#46;&#x63;&#111;&#x6d;">&#x7a;&#104;&#117;&#108;&#x6c;&#121;&#98;&#64;&#x6f;&#117;&#x74;&#x6c;&#x6f;&#111;&#107;&#46;&#x63;&#111;&#x6d;</a></p></li><li><p>请在默认Kernel，卸载所有模块，删除所有调度，卸载所有奇奇怪怪的软件(比如黑阈或者Thanos)的情况下进行反馈，具体原因请看<a href="../../../../2020/11/13/RomFlash_Q&A/#%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BC%BA%E8%B0%83%E5%8F%8D%E9%A6%88%E9%97%AE%E9%A2%98%E6%97%B6%E4%B8%8D%E8%A6%81%E4%BD%BF%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E5%86%85%E6%A0%B8%E6%A8%A1%E5%9D%97%E4%BF%AE%E6%94%B9">这里</a></p></li><li><p>仅接受Rom最新版本的问题反馈</p></li><li><p>进行反馈时请注明自己的Gapps版本(如系统内置、X月X日的XXXGapps等等)</p></li><li><p>请注明bug的具体表现，以及复现方法，如有可能附上log</p></li><li><p>偶然性bug请不要反馈，除非你能够抓到当时的log</p></li><li><p>log请以附件的形式发送，文件名请改为202XXXXX+酷安用户名的形式，文件名后缀为.log，如: 20201231竹林里有冰.log</p></li></ol><p>以上没有做到的，我会立刻拉黑。当然，我会允许你继续查看我的动态，因为拉黑你的目的只是为了防止我的时间再被你浪费而不是为了对你进行报复。</p>]]></content>
+    <content type="html"><![CDATA[<p>学业繁忙，不便花太多时间在接收问题的反馈上，特制定此须知。须知非常繁杂，一来是为了尽可能多的获得问题的信息，同时便于我归类，二来是为了提升你们的反馈成本以过滤低级问题。</p><p>本须知仅针对Rom自身的bug反馈，对于其他奇奇怪怪的问题(比如下载链接挂了一类的)可以直接评论反馈。无法开机等一类bug就用不着反馈了，我发布的每一个版本都经过我亲自测试，出现此类问题就是你自己的操作问题。</p><p>以下是正文</p><ol><li><p>仅接受邮箱反馈 <a href="mailto:&#x7a;&#104;&#x75;&#108;&#108;&#x79;&#x62;&#x40;&#111;&#117;&#x74;&#x6c;&#111;&#111;&#107;&#46;&#x63;&#x6f;&#109;">&#x7a;&#104;&#x75;&#108;&#108;&#x79;&#x62;&#x40;&#111;&#117;&#x74;&#x6c;&#111;&#111;&#107;&#46;&#x63;&#x6f;&#109;</a></p></li><li><p>请在默认Kernel，卸载所有模块，删除所有调度，卸载所有奇奇怪怪的软件(比如黑阈或者Thanos)的情况下进行反馈，具体原因请看<a href="../../../../2020/11/13/RomFlash_Q&A/#%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BC%BA%E8%B0%83%E5%8F%8D%E9%A6%88%E9%97%AE%E9%A2%98%E6%97%B6%E4%B8%8D%E8%A6%81%E4%BD%BF%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E5%86%85%E6%A0%B8%E6%A8%A1%E5%9D%97%E4%BF%AE%E6%94%B9">这里</a></p></li><li><p>仅接受Rom最新版本的问题反馈</p></li><li><p>进行反馈时请注明自己的Gapps版本(如系统内置、X月X日的XXXGapps等等)</p></li><li><p>请注明bug的具体表现，以及复现方法，如有可能附上log</p></li><li><p>偶然性bug请不要反馈，除非你能够抓到当时的log</p></li><li><p>log请以附件的形式发送，文件名请改为202XXXXX+酷安用户名的形式，文件名后缀为.log，如: 20201231竹林里有冰.log</p></li></ol><p>以上没有做到的，我会立刻拉黑。当然，我会允许你继续查看我的动态，因为拉黑你的目的只是为了防止我的时间再被你浪费而不是为了对你进行报复。</p>]]></content>
     
     
     
@@ -1144,7 +1165,7 @@
     
     <tags>
       
-      <tag>网络</tag>
+      <tag>Network</tag>
       
       <tag>Windows</tag>
       
