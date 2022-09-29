@@ -3,7 +3,7 @@ title:      在Windows下给cmd设置代理
 date:       2020-03-03
 tags:
     - Windows
-    - 网络
+    - Network
 ---
 
 
