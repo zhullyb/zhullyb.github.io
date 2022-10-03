@@ -6,7 +6,7 @@
   <link href="https://zhul.in/rss.xml" rel="self"/>
   
   <link href="https://zhul.in/"/>
-  <updated>2022-09-29T06:57:32.000Z</updated>
+  <updated>2022-10-03T17:29:34.000Z</updated>
   <id>https://zhul.in/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用 VirtScreen 将 Pad 作为副屏</title>
+    <link href="https://zhul.in/2022/10/04/use-virtscreen-to-turn-pad-into-another-screen/"/>
+    <id>https://zhul.in/2022/10/04/use-virtscreen-to-turn-pad-into-another-screen/</id>
+    <published>2022-10-03T16:19:20.000Z</published>
+    <updated>2022-10-03T17:29:34.000Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>由于浙江工地大专的朝晖尚9宿舍实在是太小了，我没有办法放下一块便携显示屏，所以只能把家中闲置的 Huawei Pad M6 作为自己的副屏。</p></blockquote><p>经过一轮搜索下来，我找到了 <a href="https://github.com/kbumsik/VirtScreen">VirtScreen</a> 作为工具。</p><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>在 Archlinux 上，大概有三种以上的方式进行安装: </p><p>一、使用 AUR 上的 <a href="https://aur.archlinux.org/package/virtscreen/">virtscreen</a></p><p>遇到的唯一一个麻烦是作为依赖之一的 <code>python-quamash</code> 在 python3.10 上无法直接安装。通过 AUR 的评论区得知，需要将 <code>collections.Mapping</code> 改为 <code>collections.abc.Mapping</code> 方可通过安装。</p><p>二、使用 dderjoel 的 fork 进行安装</p><p>见 <a href="https://github.com/dderjoel/VirtScreen/blob/master/package/archlinux/PKGBUILD">https://github.com/dderjoel/VirtScreen/blob/master/package/archlinux/PKGBUILD</a></p><p>三、直接通过 appimage 安装，不过需要自己手动安装 <code>x11vnc</code></p><h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h3 id="系统层"><a href="#系统层" class="headerlink" title="系统层"></a>系统层</h3><p>打开软件以后，我们需要先在 <code>Display-&gt;Virtual Display-&gt;Advaced</code> 选择 VIRTUAL1 作为显示屏。</p><p>如果没有这个选项，可能需要根据自己的显卡做出相应的调整。</p><p>可以参考 <a href="https://wiki.archlinux.org/title/Extreme_Multihead#Using_a_virtual_output">ArchWiki</a>。</p><h3 id="软件层"><a href="#软件层" class="headerlink" title="软件层"></a>软件层</h3><p>在这里，我们需要根据我们作为副屏的设备的屏幕分辨率来计算我们需要在 VirtScreen 中设置的分辨率参数。</p><p>我的 Huawei Pad M6 是 2560*1600 的分辨率，但 VirtScreen 最高支持只有 1920*1080，所以我们需要选择 1280*800，并开启高分辨率选项。</p><p>VNC 那边只需要根据自己的需求设置一下密码即可。</p><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>在 VirtScreen 的 Display 界面点击 “Enable Virtual Screen”，切换到 VNC 界面点击 “Start VNC Server”，可以勾选右侧的 “Auto”。</p><p>Pad 端只需要安装任意一个 VNC 客户端即可，我这里使用的是”VNC Viewer”。</p><h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><p><img src="https://bu.dusays.com/2022/10/04/633b1bd1ba8f4.webp" alt="效果图"></p>]]></content>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+    <category term="Linux" scheme="https://zhul.in/tags/Linux/"/>
+    
+    <category term="Hardware" scheme="https://zhul.in/tags/Hardware/"/>
+    
+  </entry>
   
   <entry>
     <title>在 Archlinux 下使用 l2tp 协议连接校园网</title>
@@ -1376,7 +1403,7 @@
     <published>2020-12-18T16:00:00.000Z</published>
     <updated>2021-10-13T13:48:10.000Z</updated>
     
-    <content type="html"><![CDATA[<p>学业繁忙，不便花太多时间在接收问题的反馈上，特制定此须知。须知非常繁杂，一来是为了尽可能多的获得问题的信息，同时便于我归类，二来是为了提升你们的反馈成本以过滤低级问题。</p><p>本须知仅针对Rom自身的bug反馈，对于其他奇奇怪怪的问题(比如下载链接挂了一类的)可以直接评论反馈。无法开机等一类bug就用不着反馈了，我发布的每一个版本都经过我亲自测试，出现此类问题就是你自己的操作问题。</p><p>以下是正文</p><ol><li><p>仅接受邮箱反馈 <a href="mailto:&#x7a;&#104;&#x75;&#108;&#108;&#x79;&#x62;&#x40;&#111;&#117;&#x74;&#x6c;&#111;&#111;&#107;&#46;&#x63;&#x6f;&#109;">&#x7a;&#104;&#x75;&#108;&#108;&#x79;&#x62;&#x40;&#111;&#117;&#x74;&#x6c;&#111;&#111;&#107;&#46;&#x63;&#x6f;&#109;</a></p></li><li><p>请在默认Kernel，卸载所有模块，删除所有调度，卸载所有奇奇怪怪的软件(比如黑阈或者Thanos)的情况下进行反馈，具体原因请看<a href="../../../../2020/11/13/RomFlash_Q&A/#%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BC%BA%E8%B0%83%E5%8F%8D%E9%A6%88%E9%97%AE%E9%A2%98%E6%97%B6%E4%B8%8D%E8%A6%81%E4%BD%BF%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E5%86%85%E6%A0%B8%E6%A8%A1%E5%9D%97%E4%BF%AE%E6%94%B9">这里</a></p></li><li><p>仅接受Rom最新版本的问题反馈</p></li><li><p>进行反馈时请注明自己的Gapps版本(如系统内置、X月X日的XXXGapps等等)</p></li><li><p>请注明bug的具体表现，以及复现方法，如有可能附上log</p></li><li><p>偶然性bug请不要反馈，除非你能够抓到当时的log</p></li><li><p>log请以附件的形式发送，文件名请改为202XXXXX+酷安用户名的形式，文件名后缀为.log，如: 20201231竹林里有冰.log</p></li></ol><p>以上没有做到的，我会立刻拉黑。当然，我会允许你继续查看我的动态，因为拉黑你的目的只是为了防止我的时间再被你浪费而不是为了对你进行报复。</p>]]></content>
+    <content type="html"><![CDATA[<p>学业繁忙，不便花太多时间在接收问题的反馈上，特制定此须知。须知非常繁杂，一来是为了尽可能多的获得问题的信息，同时便于我归类，二来是为了提升你们的反馈成本以过滤低级问题。</p><p>本须知仅针对Rom自身的bug反馈，对于其他奇奇怪怪的问题(比如下载链接挂了一类的)可以直接评论反馈。无法开机等一类bug就用不着反馈了，我发布的每一个版本都经过我亲自测试，出现此类问题就是你自己的操作问题。</p><p>以下是正文</p><ol><li><p>仅接受邮箱反馈 <a href="mailto:&#x7a;&#x68;&#x75;&#108;&#x6c;&#121;&#98;&#x40;&#111;&#x75;&#116;&#108;&#111;&#111;&#x6b;&#x2e;&#x63;&#111;&#x6d;">&#x7a;&#x68;&#x75;&#108;&#x6c;&#121;&#98;&#x40;&#111;&#x75;&#116;&#108;&#111;&#111;&#x6b;&#x2e;&#x63;&#111;&#x6d;</a></p></li><li><p>请在默认Kernel，卸载所有模块，删除所有调度，卸载所有奇奇怪怪的软件(比如黑阈或者Thanos)的情况下进行反馈，具体原因请看<a href="../../../../2020/11/13/RomFlash_Q&A/#%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BC%BA%E8%B0%83%E5%8F%8D%E9%A6%88%E9%97%AE%E9%A2%98%E6%97%B6%E4%B8%8D%E8%A6%81%E4%BD%BF%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E5%86%85%E6%A0%B8%E6%A8%A1%E5%9D%97%E4%BF%AE%E6%94%B9">这里</a></p></li><li><p>仅接受Rom最新版本的问题反馈</p></li><li><p>进行反馈时请注明自己的Gapps版本(如系统内置、X月X日的XXXGapps等等)</p></li><li><p>请注明bug的具体表现，以及复现方法，如有可能附上log</p></li><li><p>偶然性bug请不要反馈，除非你能够抓到当时的log</p></li><li><p>log请以附件的形式发送，文件名请改为202XXXXX+酷安用户名的形式，文件名后缀为.log，如: 20201231竹林里有冰.log</p></li></ol><p>以上没有做到的，我会立刻拉黑。当然，我会允许你继续查看我的动态，因为拉黑你的目的只是为了防止我的时间再被你浪费而不是为了对你进行报复。</p>]]></content>
     
     
       

@@ -18,26 +18,25 @@
   <meta name="author" content="竹林里有冰">
   <meta name="keywords" content="博客, 技术, Fedora">
   
-    <meta name="description" content="由于高考爆炸，所以不得不进入浙江工地大专来度过自己接下来四年的人生（希望到时候可以借助学校的力量润出去）。  学校这边由于某些不可描述的原因，将校园卡与宽带捆绑销售，且每次登陆校园网时都需要使用定制的 l2tp 协议客户端进行上网，且该客户端将会禁用用户的无线网卡（这不明摆着想让我们宿舍每个人都花一次钱）。  更惨的是，学校仅提供了 Windows 与 MacOS 的客户端。 在 BearChi">
+    <meta name="description" content="由于浙江工地大专的朝晖尚9宿舍实在是太小了，我没有办法放下一块便携显示屏，所以只能把家中闲置的 Huawei Pad M6 作为自己的副屏。  经过一轮搜索下来，我找到了 VirtScreen 作为工具。 安装在 Archlinux 上，大概有三种以上的方式进行安装:  一、使用 AUR 上的 virtscreen 遇到的唯一一个麻烦是作为依赖之一的 python-quamash 在 pytho">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在 Archlinux 下使用 l2tp 协议连接校园网">
-<meta property="og:url" content="https://zhul.in/2022/09/29/use-l2tp-protocol-to-connect-internet/index.html">
+<meta property="og:title" content="使用 VirtScreen 将 Pad 作为副屏">
+<meta property="og:url" content="https://zhul.in/2022/10/04/use-virtscreen-to-turn-pad-into-another-screen/index.html">
 <meta property="og:site_name" content="竹林里有冰的博客">
-<meta property="og:description" content="由于高考爆炸，所以不得不进入浙江工地大专来度过自己接下来四年的人生（希望到时候可以借助学校的力量润出去）。  学校这边由于某些不可描述的原因，将校园卡与宽带捆绑销售，且每次登陆校园网时都需要使用定制的 l2tp 协议客户端进行上网，且该客户端将会禁用用户的无线网卡（这不明摆着想让我们宿舍每个人都花一次钱）。  更惨的是，学校仅提供了 Windows 与 MacOS 的客户端。 在 BearChi">
+<meta property="og:description" content="由于浙江工地大专的朝晖尚9宿舍实在是太小了，我没有办法放下一块便携显示屏，所以只能把家中闲置的 Huawei Pad M6 作为自己的副屏。  经过一轮搜索下来，我找到了 VirtScreen 作为工具。 安装在 Archlinux 上，大概有三种以上的方式进行安装:  一、使用 AUR 上的 virtscreen 遇到的唯一一个麻烦是作为依赖之一的 python-quamash 在 pytho">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://bu.dusays.com/2022/09/29/63353e0e1978c.png">
-<meta property="og:image" content="https://bu.dusays.com/2022/09/29/63354161dbe28.png">
-<meta property="article:published_time" content="2022-09-29T06:30:46.000Z">
-<meta property="article:modified_time" content="2022-09-29T06:57:32.000Z">
+<meta property="og:image" content="https://bu.dusays.com/2022/10/04/633b1bd1ba8f4.webp">
+<meta property="article:published_time" content="2022-10-03T16:19:20.000Z">
+<meta property="article:modified_time" content="2022-10-03T17:29:34.000Z">
 <meta property="article:author" content="竹林里有冰">
-<meta property="article:tag" content="Archlinux">
-<meta property="article:tag" content="Network">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Hardware">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://bu.dusays.com/2022/09/29/63353e0e1978c.png">
+<meta name="twitter:image" content="https://bu.dusays.com/2022/10/04/633b1bd1ba8f4.webp">
   
   
   
-  <title>在 Archlinux 下使用 l2tp 协议连接校园网 - 竹林里有冰的博客</title>
+  <title>使用 VirtScreen 将 Pad 作为副屏 - 竹林里有冰的博客</title>
 
   <link  rel="stylesheet" href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/4.6.0/css/bootstrap.min.css" />
 
@@ -241,7 +240,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="在 Archlinux 下使用 l2tp 协议连接校园网"></span>
+            <span id="subtitle" data-typed-text="使用 VirtScreen 将 Pad 作为副屏"></span>
           
         </div>
 
@@ -252,8 +251,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-09-29 14:30" pubdate>
-          2022年9月29日 下午
+        <time datetime="2022-10-04 00:19" pubdate>
+          2022年10月4日 凌晨
         </time>
       </span>
     
@@ -265,7 +264,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          493 字
+          796 字
         
       </span>
     
@@ -277,7 +276,7 @@
         
         
           <!-- compatible with older versions-->
-          3 分钟
+          4 分钟
         
       </span>
     
@@ -315,13 +314,13 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">在 Archlinux 下使用 l2tp 协议连接校园网</h1>
+            <h1 style="display: none">使用 VirtScreen 将 Pad 作为副屏</h1>
             
               <p class="note note-info">
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2022年9月29日 下午
+                    本文最后更新于：2022年10月4日 凌晨
                   
                 
               </p>
@@ -329,19 +328,24 @@
             <div class="markdown-body">
               
               <blockquote>
-<p>由于高考爆炸，所以不得不进入浙江工地大专来度过自己接下来四年的人生（希望到时候可以借助学校的力量润出去）。</p>
+<p>由于浙江工地大专的朝晖尚9宿舍实在是太小了，我没有办法放下一块便携显示屏，所以只能把家中闲置的 Huawei Pad M6 作为自己的副屏。</p>
 </blockquote>
-<p>学校这边由于某些不可描述的原因，将校园卡与宽带捆绑销售，且每次登陆校园网时都需要使用定制的 l2tp 协议客户端进行上网，且该客户端将会禁用用户的无线网卡（<del>这不明摆着想让我们宿舍每个人都花一次钱</del>）。</p>
-<p><img src="https://bu.dusays.com/2022/09/29/63353e0e1978c.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="学校定制的 l2tp 拨号客户端"></p>
-<p>更惨的是，学校仅提供了 Windows 与 MacOS 的客户端。</p>
-<p>在 <a target="_blank" rel="noopener" href="https://imbearchild.cyou/">BearChild</a> 的提醒下，我意识到 Linux 下也可以有 l2tp 协议。</p>
-<p>谷歌搜索了一番，我在简书上捞到了这篇文章<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/85cd5bd3c7a2">《ubuntu 连校园网 via l2tp》</a>。不过这显然有些麻烦，我们的客户端不需要 pppoe 拨号，只需要插上网线后连接 l2tp 协议即可联网。</p>
-<p>所幸，NetworkManager 非常贴心地为我们提供了 l2tp 的插件，在 Archlinux 下使用如下命令即可完成安装。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo pacman -S networkmanager-l2tp<br></code></pre></td></tr></table></figure>
-
-<p>安装完成后，就可以在图形化界面下进行我们的设置操作。</p>
-<p>由于定制的客户端已经把 l2tp 服务器 ip 写死且显示在界面上了，我们就不需要再去抓包截取服务器 ip，直接使用这边的 <code>192.168.115.1</code> 即可。</p>
-<p><img src="https://bu.dusays.com/2022/09/29/63354161dbe28.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="KDE 下的 NetworkManager l2tp 设置界面"></p>
+<p>经过一轮搜索下来，我找到了 <a target="_blank" rel="noopener" href="https://github.com/kbumsik/VirtScreen">VirtScreen</a> 作为工具。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>在 Archlinux 上，大概有三种以上的方式进行安装: </p>
+<p>一、使用 AUR 上的 <a target="_blank" rel="noopener" href="https://aur.archlinux.org/package/virtscreen/">virtscreen</a></p>
+<p>遇到的唯一一个麻烦是作为依赖之一的 <code>python-quamash</code> 在 python3.10 上无法直接安装。通过 AUR 的评论区得知，需要将 <code>collections.Mapping</code> 改为 <code>collections.abc.Mapping</code> 方可通过安装。</p>
+<p>二、使用 dderjoel 的 fork 进行安装</p>
+<p>见 <a target="_blank" rel="noopener" href="https://github.com/dderjoel/VirtScreen/blob/master/package/archlinux/PKGBUILD">https://github.com/dderjoel/VirtScreen/blob/master/package/archlinux/PKGBUILD</a></p>
+<p>三、直接通过 appimage 安装，不过需要自己手动安装 <code>x11vnc</code></p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h3 id="系统层"><a href="#系统层" class="headerlink" title="系统层"></a>系统层</h3><p>打开软件以后，我们需要先在 <code>Display-&gt;Virtual Display-&gt;Advaced</code> 选择 VIRTUAL1 作为显示屏。</p>
+<p>如果没有这个选项，可能需要根据自己的显卡做出相应的调整。</p>
+<p>可以参考 <a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/Extreme_Multihead#Using_a_virtual_output">ArchWiki</a>。</p>
+<h3 id="软件层"><a href="#软件层" class="headerlink" title="软件层"></a>软件层</h3><p>在这里，我们需要根据我们作为副屏的设备的屏幕分辨率来计算我们需要在 VirtScreen 中设置的分辨率参数。</p>
+<p>我的 Huawei Pad M6 是 2560*1600 的分辨率，但 VirtScreen 最高支持只有 1920*1080，所以我们需要选择 1280*800，并开启高分辨率选项。</p>
+<p>VNC 那边只需要根据自己的需求设置一下密码即可。</p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>在 VirtScreen 的 Display 界面点击 “Enable Virtual Screen”，切换到 VNC 界面点击 “Start VNC Server”，可以勾选右侧的 “Auto”。</p>
+<p>Pad 端只需要安装任意一个 VNC 客户端即可，我这里使用的是”VNC Viewer”。</p>
+<h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><p><img src="https://bu.dusays.com/2022/10/04/633b1bd1ba8f4.webp" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="效果图"></p>
 
               
             </div>
@@ -353,9 +357,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Archlinux/">#Archlinux</a>
+        <a href="/tags/Linux/">#Linux</a>
       
-        <a href="/tags/Network/">#Network</a>
+        <a href="/tags/Hardware/">#Hardware</a>
       
     </div>
   
@@ -367,8 +371,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>在 Archlinux 下使用 l2tp 协议连接校园网</div>
-      <div>https://zhul.in/2022/09/29/use-l2tp-protocol-to-connect-internet/</div>
+      <div>使用 VirtScreen 将 Pad 作为副屏</div>
+      <div>https://zhul.in/2022/10/04/use-virtscreen-to-turn-pad-into-another-screen/</div>
     </div>
     <div class="license-meta">
       
@@ -380,13 +384,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年9月29日</div>
+          <div>2022年10月4日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2022年9月29日</div>
+          <div>2022年10月4日</div>
         </div>
       
       <div class="license-meta-item">
@@ -427,18 +431,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/10/04/use-virtscreen-to-turn-pad-into-another-screen/" title="使用 VirtScreen 将 Pad 作为副屏">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">使用 VirtScreen 将 Pad 作为副屏</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/08/10/add-sticker-support-for-element/" title="为 Element 添加自己喜欢的贴纸">
-                        <span class="hidden-mobile">为 Element 添加自己喜欢的贴纸</span>
+                      <a href="/2022/09/29/use-l2tp-protocol-to-connect-internet/" title="在 Archlinux 下使用 l2tp 协议连接校园网">
+                        <span class="hidden-mobile">在 Archlinux 下使用 l2tp 协议连接校园网</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
