@@ -5,6 +5,7 @@ sticky:
 tags:
 - Fedora
 - RPM Package
+- Github Action
 ---
 
 一直打算用 Github Action 跑 rpmbuild 构建 rpm 包，然后传到 Action 的 Artifacts 里面，用户就可以在登陆 Github 帐号的情况下进行下载。只要不发 Release，应该就不算「再分发」的行为，也就自然规避了再分发闭源软件的法律风险。
