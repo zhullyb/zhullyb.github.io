@@ -28,7 +28,7 @@
 <meta property="og:image" content="https://bu.dusays.com/2022/11/04/6364d4f46ff1c.png">
 <meta property="og:image" content="https://bu.dusays.com/2022/11/04/6364dbbfeb8f6.png">
 <meta property="article:published_time" content="2022-11-04T08:41:28.000Z">
-<meta property="article:modified_time" content="2022-11-04T09:52:38.000Z">
+<meta property="article:modified_time" content="2022-11-06T16:02:31.000Z">
 <meta property="article:author" content="竹林里有冰">
 <meta property="article:tag" content="Network">
 <meta property="article:tag" content="Github Action">
@@ -321,7 +321,7 @@
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2022年11月4日 下午
+                    本文最后更新于：2022年11月7日 凌晨
                   
                 
               </p>
@@ -334,7 +334,7 @@
 <p>我的博客是使用 HK vps + Github Pages 两处部署实现的，通过 dnspod 免费版的域名分境内/外解析实现了分流。当境内的访客访问我的博客时，他们将会被解析到香港的 vps 上以获得更好的体验，而境外的访客将会被解析到 Github pages，毕竟 Github Pages 在境外的速度并不慢，并且稳定性肯定比我这小鸡要好得多。</p>
 <p>不过关于通过 dns 解析分流这件事，之前看<a target="_blank" rel="noopener" href="https://www.cities.ee/read-1553.html">城南旧事</a>的博客中有提到可以使用境外的 GeoScaling 完成，其免费支持全球分as、城市、经纬等智能解析，也支持自编辑脚本，看起来以后可以去试一试。</p>
 <p><img src="https://bu.dusays.com/2022/11/04/6364d4f46ff1c.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="Dnspod截图"></p>
-<p>而 Hexo 框架最被人诟病的一点是更新麻烦。这一点不可否认，使用 <code>hexo generate</code> 生成静态网页文件再部署到服务器上的过程在一台新设备上是不小的工作量，它设计 git、nodejs 的安装，涉及到 ssh key 和 rsync，整个环境的搭建就要废上不小的工夫。</p>
+<p>而 Hexo 框架最被人诟病的一点是更新麻烦。这一点不可否认，使用 <code>hexo generate</code> 生成静态网页文件再部署到服务器上的过程在一台新设备上是不小的工作量，它涉及 git、nodejs 的安装，涉及到 ssh key 和 rsync，整个环境的搭建就要废上不小的工夫。</p>
 <p>在博客内容的更新方面，我选择了将整个 Hexo 的 workdir 全部上传到 github，使用 Github Action 帮助我同时完成静态页面的生成和 Github Pages 及 vps 的部署工作。具体的代码可以直接<a target="_blank" rel="noopener" href="https://github.com/zhullyb/zhullyb.github.io/blob/master/.github/workflows/deploy.yml">见我的 GIthub 仓库</a>，我在这里简单讲下思路。</p>
 <ol>
 <li><p>安装 nodejs</p>
@@ -409,7 +409,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2022年11月4日</div>
+          <div>2022年11月7日</div>
         </div>
       
       <div class="license-meta-item">
