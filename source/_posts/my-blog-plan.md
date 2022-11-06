@@ -20,7 +20,7 @@ tags:
 
 ![Dnspod截图](https://bu.dusays.com/2022/11/04/6364d4f46ff1c.png)
 
-而 Hexo 框架最被人诟病的一点是更新麻烦。这一点不可否认，使用 `hexo generate` 生成静态网页文件再部署到服务器上的过程在一台新设备上是不小的工作量，它设计 git、nodejs 的安装，涉及到 ssh key 和 rsync，整个环境的搭建就要废上不小的工夫。
+而 Hexo 框架最被人诟病的一点是更新麻烦。这一点不可否认，使用 `hexo generate` 生成静态网页文件再部署到服务器上的过程在一台新设备上是不小的工作量，它涉及 git、nodejs 的安装，涉及到 ssh key 和 rsync，整个环境的搭建就要废上不小的工夫。
 
 在博客内容的更新方面，我选择了将整个 Hexo 的 workdir 全部上传到 github，使用 Github Action 帮助我同时完成静态页面的生成和 Github Pages 及 vps 的部署工作。具体的代码可以直接[见我的 GIthub 仓库](https://github.com/zhullyb/zhullyb.github.io/blob/master/.github/workflows/deploy.yml)，我在这里简单讲下思路。
 
