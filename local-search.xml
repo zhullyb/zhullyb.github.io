@@ -4,6 +4,29 @@
   
   
   <entry>
+    <title>使用 vercel+supabase 免费部署 umami</title>
+    <link href="/2022/11/08/free-umami-deploy-plan/"/>
+    <url>/2022/11/08/free-umami-deploy-plan/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>讲起静态网站的访客统计，我最先使用的是百度统计，但后来转到了 umeng，发现后续的几天百度爬虫的光顾次数反而多了起来。好家伙，使用百度统计相当于把自己网站访问量向百度全盘托出，<del>我说我的博客怎么还不被百度收录呢</del>。</p><p>后来，umeng 推出了新的服务条款，好像是说不再向未备案的站点提供服务，随后不得不转向自部署的开源网站统计程序。</p></blockquote><p>umami 提供了多种部署方式，在 vps 上可以非常轻松地使用 docker 一键部署，但上次 vps 到期时用 1Mbps 的小水管拖了好久都没有把博客前几个月的访客数据拖下来，一气之下我选择直接丢掉了这些可有可无的数据。</p><p>所以这一次，我决定放弃在自己的 vps 上部署，转去探索免费的部署方案。</p><p>umami 的官方文档上提供了非常多的部署方案，我个人比较喜欢 vercel，本站的随机图片 api 就是挂在 vercel 上的，界面比较简洁，且境内访问还算OK。</p><p><img src="https://bu.dusays.com/2022/11/08/6369ee9308dc3.png" alt="umami官方文档提供的部署方案"></p><p>但问题在于 vercel 本身并不提供免费的数据库，所以我们不得不去寻找一些长期免费提供数据库的供应商，我选择了 <a href="https://supabase.com/pricing">supabase</a>。</p><p>在下图中选择顶栏的 <strong>Pricing</strong> 后看到这个 <strong>$0/month</strong> 就<del>疯狂戳烂这个 Get Started</del></p><p><img src="https://bu.dusays.com/2022/11/08/6369ef8d3451e.png" alt="supabase价目表"></p><p>随便填写个项目名然后输入一个足够强大的密码，地区选择美国就行，东部西部无所谓（毕竟我也不知道 vercel 的机房是在东部还是西部）</p><p><img src="https://bu.dusays.com/2022/11/08/6369f03faba15.png" alt="创建项目ing"></p><p>看到这个小小的绿标就说明数据库正在初始化(<del>你先别急，让我先急</del></p><p><img src="https://bu.dusays.com/2022/11/08/6369f0d98a59c.png" alt="项目初始化中"></p><p><img src="https://bu.dusays.com/2022/11/08/6369f209c27aa.png" alt="进行一通设置，把网站关闭后直接打入冷宫（x"></p><p>随后打开官方文档，点击其<a href="https://umami.is/docs/running-on-vercel">描述 vercel 那一页</a>中大大的 <strong>Deploy</strong></p><p><img src="https://bu.dusays.com/2022/11/08/6369f2bda5f78.png" alt="vercel on Document"></p><p>初始化过程中，vercel 会要求你创建一个 git 仓库，一般似有库就够了。</p><p><img src="https://bu.dusays.com/2022/11/08/6369f33ccf6d0.png" alt="创建仓库"></p><p>随后需要我们设置两个环境变量，第一个 <code>DATABASE_URL</code> 就是我们刚刚从 supabase 中复制下来并替换好 password 的 url，第二个 <code>HASH_SALT</code>需要你随意生成一长串字符串<del>（比如你可以找一个新手让他帮你退出 vim</del></p><p><img src="https://bu.dusays.com/2022/11/08/6369f3adbd34d.png" alt="设置环境变量"></p><p>点击 <strong>Deploy</strong> 并等上两分钟，我们就部署完啦（首页没东西，白屏是正常的</p><p><img src="https://bu.dusays.com/2022/11/08/6369f58f6acd4.png" alt="部署成功"></p><p>来到项目首页，点击任意域名即可访问到我们部署的 umami，不过 vercel 的域名近年来也有被污染的情况，建议在设置里绑定自己的域名。</p><p><img src="https://bu.dusays.com/2022/11/08/6369f5ec7a0e2.png" alt="项目首页"></p><p>哦对了，别忘了 umami 的默认用户名密码是<code>admin</code>和<code>umami</code>，别到时候点击进去看到登陆框一脸懵，这是在文档里写过的。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Network</tag>
+      
+      <tag>umami</tag>
+      
+      <tag>OpenSource Project</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>我的博客部署方案</title>
     <link href="/2022/11/04/my-blog-plan/"/>
     <url>/2022/11/04/my-blog-plan/</url>
@@ -1079,7 +1102,7 @@
     <link href="/2020/12/19/Before-Report-A-Rom-Issue/"/>
     <url>/2020/12/19/Before-Report-A-Rom-Issue/</url>
     
-    <content type="html"><![CDATA[<p>学业繁忙，不便花太多时间在接收问题的反馈上，特制定此须知。须知非常繁杂，一来是为了尽可能多的获得问题的信息，同时便于我归类，二来是为了提升你们的反馈成本以过滤低级问题。</p><p>本须知仅针对Rom自身的bug反馈，对于其他奇奇怪怪的问题(比如下载链接挂了一类的)可以直接评论反馈。无法开机等一类bug就用不着反馈了，我发布的每一个版本都经过我亲自测试，出现此类问题就是你自己的操作问题。</p><p>以下是正文</p><ol><li><p>仅接受邮箱反馈 <a href="mailto:&#x7a;&#x68;&#117;&#108;&#108;&#121;&#x62;&#64;&#x6f;&#x75;&#x74;&#108;&#x6f;&#x6f;&#x6b;&#x2e;&#99;&#x6f;&#x6d;">&#x7a;&#x68;&#117;&#108;&#108;&#121;&#x62;&#64;&#x6f;&#x75;&#x74;&#108;&#x6f;&#x6f;&#x6b;&#x2e;&#99;&#x6f;&#x6d;</a></p></li><li><p>请在默认Kernel，卸载所有模块，删除所有调度，卸载所有奇奇怪怪的软件(比如黑阈或者Thanos)的情况下进行反馈，具体原因请看<a href="../../../../2020/11/13/RomFlash_Q&A/#%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BC%BA%E8%B0%83%E5%8F%8D%E9%A6%88%E9%97%AE%E9%A2%98%E6%97%B6%E4%B8%8D%E8%A6%81%E4%BD%BF%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E5%86%85%E6%A0%B8%E6%A8%A1%E5%9D%97%E4%BF%AE%E6%94%B9">这里</a></p></li><li><p>仅接受Rom最新版本的问题反馈</p></li><li><p>进行反馈时请注明自己的Gapps版本(如系统内置、X月X日的XXXGapps等等)</p></li><li><p>请注明bug的具体表现，以及复现方法，如有可能附上log</p></li><li><p>偶然性bug请不要反馈，除非你能够抓到当时的log</p></li><li><p>log请以附件的形式发送，文件名请改为202XXXXX+酷安用户名的形式，文件名后缀为.log，如: 20201231竹林里有冰.log</p></li></ol><p>以上没有做到的，我会立刻拉黑。当然，我会允许你继续查看我的动态，因为拉黑你的目的只是为了防止我的时间再被你浪费而不是为了对你进行报复。</p>]]></content>
+    <content type="html"><![CDATA[<p>学业繁忙，不便花太多时间在接收问题的反馈上，特制定此须知。须知非常繁杂，一来是为了尽可能多的获得问题的信息，同时便于我归类，二来是为了提升你们的反馈成本以过滤低级问题。</p><p>本须知仅针对Rom自身的bug反馈，对于其他奇奇怪怪的问题(比如下载链接挂了一类的)可以直接评论反馈。无法开机等一类bug就用不着反馈了，我发布的每一个版本都经过我亲自测试，出现此类问题就是你自己的操作问题。</p><p>以下是正文</p><ol><li><p>仅接受邮箱反馈 <a href="mailto:&#122;&#x68;&#117;&#108;&#108;&#x79;&#98;&#64;&#x6f;&#117;&#x74;&#108;&#111;&#111;&#107;&#46;&#x63;&#111;&#109;">&#122;&#x68;&#117;&#108;&#108;&#x79;&#98;&#64;&#x6f;&#117;&#x74;&#108;&#111;&#111;&#107;&#46;&#x63;&#111;&#109;</a></p></li><li><p>请在默认Kernel，卸载所有模块，删除所有调度，卸载所有奇奇怪怪的软件(比如黑阈或者Thanos)的情况下进行反馈，具体原因请看<a href="../../../../2020/11/13/RomFlash_Q&A/#%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BC%BA%E8%B0%83%E5%8F%8D%E9%A6%88%E9%97%AE%E9%A2%98%E6%97%B6%E4%B8%8D%E8%A6%81%E4%BD%BF%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E5%86%85%E6%A0%B8%E6%A8%A1%E5%9D%97%E4%BF%AE%E6%94%B9">这里</a></p></li><li><p>仅接受Rom最新版本的问题反馈</p></li><li><p>进行反馈时请注明自己的Gapps版本(如系统内置、X月X日的XXXGapps等等)</p></li><li><p>请注明bug的具体表现，以及复现方法，如有可能附上log</p></li><li><p>偶然性bug请不要反馈，除非你能够抓到当时的log</p></li><li><p>log请以附件的形式发送，文件名请改为202XXXXX+酷安用户名的形式，文件名后缀为.log，如: 20201231竹林里有冰.log</p></li></ol><p>以上没有做到的，我会立刻拉黑。当然，我会允许你继续查看我的动态，因为拉黑你的目的只是为了防止我的时间再被你浪费而不是为了对你进行报复。</p>]]></content>
     
     
     
