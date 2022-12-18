@@ -52,7 +52,7 @@ tags:
 
 #### 浙江大学
 
-[http://mirrors.zju.edu.cn/](http://mirrors.zju.edu.cn/)
+[https://mirrors.zju.edu.cn/](https://mirrors.zju.edu.cn/)
 
 #### 北京外国语大学
 
@@ -68,7 +68,7 @@ tags:
 
 #### 北京理工大学
 
-[http://mirror.bit.edu.cn/web/](http://mirror.bit.edu.cn/web/)
+[https://mirrors.bit.edu.cn/web/](https://mirrors.bit.edu.cn/web/)
 
 #### 上海交通大学
 
@@ -82,7 +82,7 @@ tags:
 
 [http://mirror.lzu.edu.cn/](http://mirror.lzu.edu.cn/)
 
-#### 南京大学（2021-05-29发现无法访问，具体情况未知）
+#### 南京大学
 
 [http://mirrors.nju.edu.cn/](http://mirrors.nju.edu.cn/)
 
@@ -92,15 +92,11 @@ tags:
 
 #### 南京邮电大学
 
-[http://mirrors.njupt.edu.cn/](http://mirrors.njupt.edu.cn/)
+[https://mirrors.njupt.edu.cn/](https://mirrors.njupt.edu.cn/)
 
 #### 山东大学
 
-[http://mirrors.sdu.edu.cn/](http://mirrors.sdu.edu.cn/)
-
-#### 华中科技大学
-
-[http://mirror.hust.edu.cn/](http://mirror.hust.edu.cn/)
+[https://mirrors.sdu.edu.cn/](https://mirrors.sdu.edu.cn/)
 
 #### 东北大学
 
