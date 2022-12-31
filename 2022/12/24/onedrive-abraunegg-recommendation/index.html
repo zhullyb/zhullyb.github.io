@@ -18,35 +18,28 @@
   <meta name="author" content="竹林里有冰">
   <meta name="keywords" content="博客, 技术, Fedora">
   
-    <meta name="description" content="讲起静态网站的访客统计，我最先使用的是百度统计，但后来转到了 umeng，发现后续的几天百度爬虫的光顾次数反而多了起来。好家伙，使用百度统计相当于把自己网站访问量向百度全盘托出，我说我的博客怎么还不被百度收录呢。 后来，umeng 推出了新的服务条款，好像是说不再向未备案的站点提供服务，随后不得不转向自部署的开源网站统计程序。  umami 提供了多种部署方式，在 vps 上可以非常轻松地使用">
+    <meta name="description" content="这款 Linux 下的 OneDrive 客户端我其实一年前就已经在用了，最近打算给自己的 vps 重装系统并重新部署下 aria 的下载服务，顺便把上传到 OneDrive 的功能增加进去，便又想到了这款运行在命令行中的第三方开源 Linux 客户端，去谷歌上搜索了一番，依然没有什么成规模的中文博客去写它的用法，于是就打算自己来写。那肯定不是因为我博客这个月没有什么题材  安装abrauneg">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用 vercel+supabase 免费部署 umami">
-<meta property="og:url" content="https://zhul.in/2022/11/08/free-umami-deploy-plan/index.html">
+<meta property="og:title" content="onedrive(by abraunegg) —— 一个 Linux 下的开源 OneDrive 客户端(cli)">
+<meta property="og:url" content="https://zhul.in/2022/12/24/onedrive-abraunegg-recommendation/index.html">
 <meta property="og:site_name" content="竹林里有冰的博客">
-<meta property="og:description" content="讲起静态网站的访客统计，我最先使用的是百度统计，但后来转到了 umeng，发现后续的几天百度爬虫的光顾次数反而多了起来。好家伙，使用百度统计相当于把自己网站访问量向百度全盘托出，我说我的博客怎么还不被百度收录呢。 后来，umeng 推出了新的服务条款，好像是说不再向未备案的站点提供服务，随后不得不转向自部署的开源网站统计程序。  umami 提供了多种部署方式，在 vps 上可以非常轻松地使用">
+<meta property="og:description" content="这款 Linux 下的 OneDrive 客户端我其实一年前就已经在用了，最近打算给自己的 vps 重装系统并重新部署下 aria 的下载服务，顺便把上传到 OneDrive 的功能增加进去，便又想到了这款运行在命令行中的第三方开源 Linux 客户端，去谷歌上搜索了一番，依然没有什么成规模的中文博客去写它的用法，于是就打算自己来写。那肯定不是因为我博客这个月没有什么题材  安装abrauneg">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://bu.dusays.com/2022/11/08/6369ee9308dc3.png">
-<meta property="og:image" content="https://bu.dusays.com/2022/11/08/6369ef8d3451e.png">
-<meta property="og:image" content="https://bu.dusays.com/2022/11/08/6369f03faba15.png">
-<meta property="og:image" content="https://bu.dusays.com/2022/11/08/6369f0d98a59c.png">
-<meta property="og:image" content="https://bu.dusays.com/2022/11/08/6369f209c27aa.png">
-<meta property="og:image" content="https://bu.dusays.com/2022/11/08/6369f2bda5f78.png">
-<meta property="og:image" content="https://bu.dusays.com/2022/11/08/6369f33ccf6d0.png">
-<meta property="og:image" content="https://bu.dusays.com/2022/11/08/6369f3adbd34d.png">
-<meta property="og:image" content="https://bu.dusays.com/2022/11/08/6369f58f6acd4.png">
-<meta property="og:image" content="https://bu.dusays.com/2022/11/08/6369f5ec7a0e2.png">
-<meta property="article:published_time" content="2022-11-08T05:37:53.000Z">
+<meta property="og:image" content="https://bu.dusays.com/2022/12/24/63a71425507b6.png">
+<meta property="article:published_time" content="2022-12-24T14:40:13.000Z">
 <meta property="article:modified_time" content="2022-12-31T00:15:13.000Z">
 <meta property="article:author" content="竹林里有冰">
-<meta property="article:tag" content="Network">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Archlinux">
+<meta property="article:tag" content="Experience">
 <meta property="article:tag" content="OpenSource Project">
-<meta property="article:tag" content="umami">
+<meta property="article:tag" content="OneDrive">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://bu.dusays.com/2022/11/08/6369ee9308dc3.png">
+<meta name="twitter:image" content="https://bu.dusays.com/2022/12/24/63a71425507b6.png">
   
   
   
-  <title>使用 vercel+supabase 免费部署 umami - 竹林里有冰的博客</title>
+  <title>onedrive(by abraunegg) —— 一个 Linux 下的开源 OneDrive 客户端(cli) - 竹林里有冰的博客</title>
 
   <link  rel="stylesheet" href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/4.6.0/css/bootstrap.min.css" />
 
@@ -250,7 +243,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="使用 vercel+supabase 免费部署 umami"></span>
+            <span id="subtitle" data-typed-text="onedrive(by abraunegg) —— 一个 Linux 下的开源 OneDrive 客户端(cli)"></span>
           
         </div>
 
@@ -261,8 +254,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-11-08 13:37" pubdate>
-          2022年11月8日 下午
+        <time datetime="2022-12-24 22:40" pubdate>
+          2022年12月24日 晚上
         </time>
       </span>
     
@@ -274,7 +267,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          921 字
+          2.4k 字
         
       </span>
     
@@ -286,7 +279,7 @@
         
         
           <!-- compatible with older versions-->
-          5 分钟
+          13 分钟
         
       </span>
     
@@ -324,7 +317,7 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">使用 vercel+supabase 免费部署 umami</h1>
+            <h1 style="display: none">onedrive(by abraunegg) —— 一个 Linux 下的开源 OneDrive 客户端(cli)</h1>
             
               <p class="note note-info">
                 
@@ -338,32 +331,54 @@
             <div class="markdown-body">
               
               <blockquote>
-<p>讲起静态网站的访客统计，我最先使用的是百度统计，但后来转到了 umeng，发现后续的几天百度爬虫的光顾次数反而多了起来。好家伙，使用百度统计相当于把自己网站访问量向百度全盘托出，<del>我说我的博客怎么还不被百度收录呢</del>。</p>
-<p>后来，umeng 推出了新的服务条款，好像是说不再向未备案的站点提供服务，随后不得不转向自部署的开源网站统计程序。</p>
+<p>这款 Linux 下的 OneDrive 客户端我其实一年前就已经在用了，最近打算给自己的 vps 重装系统并重新部署下 aria 的下载服务，顺便把上传到 OneDrive 的功能增加进去，便又想到了这款运行在命令行中的第三方开源 Linux 客户端，去谷歌上搜索了一番，依然没有什么成规模的中文博客去写它的用法，于是就打算自己来写。<del>那肯定不是因为我博客这个月没有什么题材</del></p>
 </blockquote>
-<p>umami 提供了多种部署方式，在 vps 上可以非常轻松地使用 docker 一键部署，但上次 vps 到期时用 1Mbps 的小水管拖了好久都没有把博客前几个月的访客数据拖下来，一气之下我选择直接丢掉了这些可有可无的数据。</p>
-<p>所以这一次，我决定放弃在自己的 vps 上部署，转去探索免费的部署方案。</p>
-<p>umami 的官方文档上提供了非常多的部署方案，我个人比较喜欢 vercel，本站的随机图片 api 就是挂在 vercel 上的，界面比较简洁，且境内访问还算OK。</p>
-<p><img src="https://bu.dusays.com/2022/11/08/6369ee9308dc3.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="umami官方文档提供的部署方案"></p>
-<p>但问题在于 vercel 本身并不提供免费的数据库，所以我们不得不去寻找一些长期免费提供数据库的供应商，我选择了 <a target="_blank" rel="noopener" href="https://supabase.com/pricing">supabase</a>。</p>
-<p>在下图中选择顶栏的 <strong>Pricing</strong> 后看到这个 <strong>$0/month</strong> 就<del>疯狂戳烂这个 Get Started</del></p>
-<p><img src="https://bu.dusays.com/2022/11/08/6369ef8d3451e.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="supabase价目表"></p>
-<p>随便填写个项目名然后输入一个足够强大的密码，地区选择美国就行，东部西部无所谓（毕竟我也不知道 vercel 的机房是在东部还是西部）</p>
-<p><img src="https://bu.dusays.com/2022/11/08/6369f03faba15.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="创建项目ing"></p>
-<p>看到这个小小的绿标就说明数据库正在初始化(<del>你先别急，让我先急</del></p>
-<p><img src="https://bu.dusays.com/2022/11/08/6369f0d98a59c.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="项目初始化中"></p>
-<p><img src="https://bu.dusays.com/2022/11/08/6369f209c27aa.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="进行一通设置，把网站关闭后直接打入冷宫（x"></p>
-<p>随后打开官方文档，点击其<a target="_blank" rel="noopener" href="https://umami.is/docs/running-on-vercel">描述 vercel 那一页</a>中大大的 <strong>Deploy</strong></p>
-<p><img src="https://bu.dusays.com/2022/11/08/6369f2bda5f78.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="vercel on Document"></p>
-<p>初始化过程中，vercel 会要求你创建一个 git 仓库，一般私有库就够了。</p>
-<p><img src="https://bu.dusays.com/2022/11/08/6369f33ccf6d0.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="创建仓库"></p>
-<p>随后需要我们设置两个环境变量，第一个 <code>DATABASE_URL</code> 就是我们刚刚从 supabase 中复制下来并替换好 password 的 url，第二个 <code>HASH_SALT</code>需要你随意生成一长串字符串<del>（比如你可以找一个新手让他帮你退出 vim</del></p>
-<p><img src="https://bu.dusays.com/2022/11/08/6369f3adbd34d.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="设置环境变量"></p>
-<p>点击 <strong>Deploy</strong> 并等上两分钟，我们就部署完啦（首页没东西，白屏是正常的</p>
-<p><img src="https://bu.dusays.com/2022/11/08/6369f58f6acd4.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="部署成功"></p>
-<p>来到项目首页，点击任意域名即可访问到我们部署的 umami，不过 vercel 的域名近年来也有被污染的情况，建议在设置里绑定自己的域名。</p>
-<p><img src="https://bu.dusays.com/2022/11/08/6369f5ec7a0e2.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="项目首页"></p>
-<p>哦对了，别忘了 umami 的默认用户名密码是<code>admin</code>和<code>umami</code>，别到时候点击进去看到登陆框一脸懵，这是在文档里写过的。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>abraunegg 用 D 语言写的 OneDrive 客户端安装起来并不是什么难事，Ubuntu/Debian/Fedora 等常见发行版的仓库中均有它的身影，具体情况在 <a target="_blank" rel="noopener" href="https://github.com/abraunegg/onedrive/blob/master/docs/INSTALL.md">Github 项目页面</a>中都有描述。</p>
+<p>在 Archlinux 下，我可以直接从 AUR/ArchlinuxCN 中安装 <code>onedrive-abraunegg</code> 这个包来安装这个项目。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo pacman -S onedrive-abraunegg<br></code></pre></td></tr></table></figure>
+
+<h2 id="运行前配置"><a href="#运行前配置" class="headerlink" title="运行前配置"></a>运行前配置</h2><blockquote>
+<p>本章内容中的所用到的和没有用到的命令都可以在<a target="_blank" rel="noopener" href="https://github.com/abraunegg/onedrive/blob/master/docs/USAGE.md">该项目的 Github 仓库</a>中找到。</p>
+</blockquote>
+<p>在终端直接运行 <code>onedrive</code> 命令，程序将打印出一行地址。</p>
+<p><img src="https://bu.dusays.com/2022/12/24/63a71dbfd6ed3.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="登陆地址"></p>
+<p>使用浏览器打开地址，就会跳出微软的登陆页面，正常登陆即可。</p>
+<p>登陆成功后，浏览器将会显示一片白屏，不必慌张，直接将浏览器地址栏中的网址复制后粘贴进终端中即可完成配置，获取到的 <code>refresh_token</code> 将会被保存到 <code>$HOME/.config/onedrive</code> 下。</p>
+<p><img src="https://bu.dusays.com/2022/12/24/63a71e1f9c916.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="浏览器显示白屏"></p>
+<p><img src="https://bu.dusays.com/2022/12/24/63a71ec6d5aca.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="授权成功"></p>
+<p>账号授权成功以后我有两个迫切的需求需要在开始同步前解决: </p>
+<ul>
+<li>我不希望把我 OneDrive 里所有的文件下载下来，我在 OneDrive 中存放了至少 1T 的数据，而我的系统盘就只有 512G，这绝对是放不下的，所以我想仅同步部分文件夹。</li>
+<li>我需要修改被同步到的文件夹的路径，我不想把 OneDrive 上的文件下载到我的 <code>/home</code> 下。</li>
+</ul>
+<hr>
+<p>要解决第一个需求，我们可以通过创建 <code>sync_list</code> 的方式指定我们要同步的文件，在 <code>$HOME/.config/onedrive</code> 路径下创建 <code>sync_list</code> ，并填入需要的文件或文件夹名，或在 <code>!</code>或<code>-</code> 后面写上不想同步的文件或文件夹名即可，支持通配符，在<a target="_blank" rel="noopener" href="https://github.com/abraunegg/onedrive/blob/master/docs/USAGE.md#performing-a-selective-sync-via-sync_list-file">原仓库的文档中</a>给出了非常详细的描述。</p>
+<hr>
+<p>我们可以先使用 <code>onedrive --display-config</code> 命令查看我们当前的配置情况。（我这边直接应用 Github 文档中展示的内容）</p>
+<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs gradle">onedrive version                             = vX.Y.Z-A-bcdefghi<br>Config path                                  = <span class="hljs-regexp">/home/</span>alex<span class="hljs-regexp">/.config/</span>onedrive<br>Config <span class="hljs-keyword">file</span> found in config path             = <span class="hljs-keyword">true</span><br>Config option <span class="hljs-string">&#x27;sync_dir&#x27;</span>                     = <span class="hljs-regexp">/home/</span>alex/OneDrive<br>Config option <span class="hljs-string">&#x27;enable_logging&#x27;</span>               = <span class="hljs-keyword">false</span><br>...<br>Selective sync <span class="hljs-string">&#x27;sync_list&#x27;</span> configured        = <span class="hljs-keyword">false</span><br>Config option <span class="hljs-string">&#x27;sync_business_shared_folders&#x27;</span> = <span class="hljs-keyword">false</span><br>Business Shared Folders configured           = <span class="hljs-keyword">false</span><br>Config option <span class="hljs-string">&#x27;webhook_enabled&#x27;</span>              = <span class="hljs-keyword">false</span><br></code></pre></td></tr></table></figure>
+
+<p>这很显然，OneDrive 中的文件默认将会被保存到 <code>$HOME/OneDrive</code> 中。为了修改这个位置项，我们直接在 <code>$HOME/.config/onedrive/</code> 路径下创建一个名为 <code>config</code> 的文件，把此处给的 c<a target="_blank" rel="noopener" href="https://github.com/abraunegg/onedrive/blob/master/docs/USAGE.md#the-default-configuration-file-is-listed-below">onfiguration examples</a> 全部复制进去，找到 <code>sync_dir</code> 把前面的注释删掉，改成自己喜欢的路径 <del>（别问我为什么写 /tmp，问就是我内存够大</del></p>
+<p><img src="https://bu.dusays.com/2022/12/25/63a7282ee55e7.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="修改同步路径！"></p>
+<p>修改好此处的配置文件后，可以再次运行 <code>onedrive --display-config</code> 检查自己的配置文件格式有没有问题、自己更改的配置项有没有生效，这样就解决了我的第二个需求。</p>
+<h2 id="Standalone-Mode-Monitor-Mode"><a href="#Standalone-Mode-Monitor-Mode" class="headerlink" title="Standalone Mode / Monitor Mode?"></a>Standalone Mode / Monitor Mode?</h2><p>这款 OneDrive 客户端支持以两种方式运行，monitor 模式将会监控本地磁盘上的文件状态，因而在同步路径内的文件从一个路径移动到另一个路径时，客户端将不会傻傻地执行「在原路径删除远端文件-重新上传新路径的本地文件」的这一个过程，具体使用 monitor 或 standalone 模式还请自行斟酌，可参考 <a target="_blank" rel="noopener" href="https://github.com/abraunegg/onedrive/blob/master/docs/known-issues.md#moving-files-into-different-folders-should-not-cause-data-to-delete-and-be-re-uploaded">Moving files into different folders should not cause data to delete and be re-uploaded</a> .</p>
+<h2 id="开始同步"><a href="#开始同步" class="headerlink" title="开始同步"></a>开始同步</h2><p>使用该客户端执行同步的命令很简单，即</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">onedrive --synchronize<br></code></pre></td></tr></table></figure>
+
+<p>但可选的运行参数很多，我只举出最常用的几个例子</p>
+<h3 id="–dry-run"><a href="#–dry-run" class="headerlink" title="–dry-run"></a>–dry-run</h3><p>使用 <code>--dry-run</code> 选项后，OneDrive 将不会执行同步操作，它将在终端输出原本将会被执行的操作以供你排查自己的配置是否正确。</p>
+<h3 id="–local-first"><a href="#–local-first" class="headerlink" title="–local-first"></a>–local-first</h3><p>字面意思，<code>--local-first</code> 即为本地优先，同步时如果遇到文件冲突将会优先参考本地的情况。</p>
+<h3 id="–single-directory"><a href="#–single-directory" class="headerlink" title="–single-directory"></a>–single-directory</h3><p><code>--single-directory</code> 后面需要跟一个子文件夹在 OneDrive 根目录中的相对路径，这将使本次的同步操作仅对单个文件夹生效。</p>
+<h3 id="–download-only"><a href="#–download-only" class="headerlink" title="–download-only"></a>–download-only</h3><p>字面意思，<code>--download-only</code> 即为仅下载模式。</p>
+<h3 id="–upload-only"><a href="#–upload-only" class="headerlink" title="–upload-only"></a>–upload-only</h3><p>字面意思，<code>--upload-only</code>即为仅上传模式，后跟 <code>--no-remote-delete</code>将不会在 OneDrive 网盘中删除本地相较于网盘中缺少的文件，真正做到 upload only.</p>
+<h3 id="–resync"><a href="#–resync" class="headerlink" title="–resync"></a>–resync</h3><p>当下列配置项被更改时，需要执行 <code>--resync</code> 来确保客户端正在按照更新后的配置文件来同步你的数据</p>
+<ul>
+<li>sync_dir</li>
+<li>skip_dir</li>
+<li>skip_file</li>
+<li>drive_id</li>
+<li>Modifying sync_list</li>
+<li>Modifying business_shared_folders</li>
+</ul>
 
               
             </div>
@@ -375,11 +390,15 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Network/">#Network</a>
+        <a href="/tags/Linux/">#Linux</a>
+      
+        <a href="/tags/Archlinux/">#Archlinux</a>
+      
+        <a href="/tags/Experience/">#Experience</a>
       
         <a href="/tags/OpenSource-Project/">#OpenSource Project</a>
       
-        <a href="/tags/umami/">#umami</a>
+        <a href="/tags/OneDrive/">#OneDrive</a>
       
     </div>
   
@@ -391,8 +410,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>使用 vercel+supabase 免费部署 umami</div>
-      <div>https://zhul.in/2022/11/08/free-umami-deploy-plan/</div>
+      <div>onedrive(by abraunegg) —— 一个 Linux 下的开源 OneDrive 客户端(cli)</div>
+      <div>https://zhul.in/2022/12/24/onedrive-abraunegg-recommendation/</div>
     </div>
     <div class="license-meta">
       
@@ -404,7 +423,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年11月8日</div>
+          <div>2022年12月24日</div>
         </div>
       
       
@@ -451,18 +470,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2022/11/21/a-few-words-about-the-events-of-november-2022/" title="【翻译】关于2022年11月的事件的一些话[Z-Library]">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">【翻译】关于2022年11月的事件的一些话[Z-Library]</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/11/04/my-blog-plan/" title="我的博客部署方案">
-                        <span class="hidden-mobile">我的博客部署方案</span>
+                      <a href="/2022/11/21/a-few-words-about-the-events-of-november-2022/" title="【翻译】关于2022年11月的事件的一些话[Z-Library]">
+                        <span class="hidden-mobile">【翻译】关于2022年11月的事件的一些话[Z-Library]</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
