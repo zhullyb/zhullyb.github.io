@@ -4,6 +4,7 @@ date: 2022-04-14 05:55:18
 sticky:
 tags:
 - Experience
+- OpenSource Project
 ---
 
 前两天在 PC 端有 OCR 的需求，需求如下

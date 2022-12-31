@@ -41,7 +41,7 @@ umami 的官方文档上提供了非常多的部署方案，我个人比较喜�
 
 ![vercel on Document](https://bu.dusays.com/2022/11/08/6369f2bda5f78.png)
 
-初始化过程中，vercel 会要求你创建一个 git 仓库，一般似有库就够了。
+初始化过程中，vercel 会要求你创建一个 git 仓库，一般私有库就够了。
 
 ![创建仓库](https://bu.dusays.com/2022/11/08/6369f33ccf6d0.png)
 
