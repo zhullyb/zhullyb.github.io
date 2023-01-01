@@ -63,7 +63,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"zhul.in","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://bu.dusays.com/2022/08/14/62f800fc26770.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"zhul.in","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://bu.dusays.com/2022/08/14/62f800fc26770.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -72,6 +72,8 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
+  
+
 
   
 <!-- hexo injector head_end start --><script async defer data-website-id="5346b89b-f4bf-4593-971d-1f41a1118bc1" src="https://umami.zhul.in/umami.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/rss.xml" title="竹林里有冰的博客" type="application/atom+xml">
@@ -108,7 +110,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
-                首页
+                <span>首页</span>
               </a>
             </li>
           
@@ -120,7 +122,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                归档
+                <span>归档</span>
               </a>
             </li>
           
@@ -132,7 +134,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                标签
+                <span>标签</span>
               </a>
             </li>
           
@@ -144,7 +146,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
-                关于
+                <span>关于</span>
               </a>
             </li>
           
@@ -156,7 +158,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/links/">
                 <i class="iconfont icon-link-fill"></i>
-                友链
+                <span>友链</span>
               </a>
             </li>
           
@@ -169,7 +171,7 @@
               <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="iconfont icon-books"></i>
-                其他
+                <span>其他</span>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 
@@ -178,7 +180,7 @@
                   
                   <a class="dropdown-item" href="/rss.xml">
                     
-                    rss订阅
+                    <span>rss订阅</span>
                   </a>
                 
                   
@@ -186,7 +188,7 @@
                   
                   <a class="dropdown-item" href="/collections/">
                     
-                    收藏
+                    <span>收藏</span>
                   </a>
                 
                   
@@ -194,7 +196,7 @@
                   
                   <a class="dropdown-item" href="/linux-source/">
                     
-                    Linux软件源
+                    <span>Linux软件源</span>
                   </a>
                 
               </div>
@@ -204,15 +206,16 @@
         
           <li class="nav-item" id="search-btn">
             <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+              <i class="iconfont icon-search"></i>
             </a>
           </li>
           
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
-                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
           </li>
         
       </ul>
@@ -270,10 +273,10 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2021/04/04/yay-more/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/04/04/yay-more/" target="_self">
         <div>
-          
-          yay是一个AUR Helper，他可以执行pacman的几乎所有操作，并在此基础上添加了很多额外用法。 我没有在网络上查找到关于yay的、除了pacman基础用法和安装AUR包以外的中文教程，英文的也几乎没有看到，这也是我写这篇文章的原因所在。 本文通篇详讲yay的每一个设置&#x2F;选项（大概就是archwiki那种干涩的行文思路），最后会给出我自己的一些常用命令，但不会做解释。 写作时参考了yay
+          yay是一个AUR Helper，他可以执行pacman的几乎所有操作，并在此基础上添加了很多额外用法。 我没有在网络上查找到关于yay的、除了pacman基础用法和安装AUR包以外的中文教程，英文的也几乎没有看到，这也是我写这篇文章的原因所在。 本文通篇详讲yay的每一个设置/选项（大概就是archwiki那种干涩的行文思路），最后会给出我自己的一些常用命令，但不会做解释。 写作时参考了yay
         </div>
       </a>
 
@@ -316,9 +319,9 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2022/12/24/onedrive-abraunegg-recommendation/" target="_self">
+      
+      <a class="index-excerpt " href="/2022/12/24/onedrive-abraunegg-recommendation/" target="_self">
         <div>
-          
           这款 Linux 下的 OneDrive 客户端我其实一年前就已经在用了，最近打算给自己的 vps 重装系统并重新部署下 aria 的下载服务，顺便把上传到 OneDrive 的功能增加进去，便又想到了这款运行在命令行中的第三方开源 Linux 客户端，去谷歌上搜索了一番，依然没有什么成规模的中文博客去写它的用法，于是就打算自己来写。那肯定不是因为我博客这个月没有什么题材  安装abrauneg
         </div>
       </a>
@@ -364,9 +367,9 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2022/11/21/a-few-words-about-the-events-of-november-2022/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/11/21/a-few-words-about-the-events-of-november-2022/" target="_self">
         <div>
-          
           正如我们所知道的那样，Z-Library 的主域名在前不久已经被美国警方给 take down 了，目前仅剩下 Telegram Bot 和 Tor 网络两种访问方式是我们仍然可以信任的。在11月18日，Z-Library 于其博客上发布了一篇新的文章（onion链接），此处是我的翻译版本。    As many of you know, on November 3rd most of our
         </div>
       </a>
@@ -406,9 +409,9 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2022/11/08/free-umami-deploy-plan/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/11/08/free-umami-deploy-plan/" target="_self">
         <div>
-          
           讲起静态网站的访客统计，我最先使用的是百度统计，但后来转到了 umeng，发现后续的几天百度爬虫的光顾次数反而多了起来。好家伙，使用百度统计相当于把自己网站访问量向百度全盘托出，我说我的博客怎么还不被百度收录呢。 后来，umeng 推出了新的服务条款，好像是说不再向未备案的站点提供服务，随后不得不转向自部署的开源网站统计程序。  umami 提供了多种部署方式，在 vps 上可以非常轻松地使用
         </div>
       </a>
@@ -450,9 +453,9 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2022/11/04/my-blog-plan/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/11/04/my-blog-plan/" target="_self">
         <div>
-          
           一直以来，我的博客使用的几乎都是 Hexo 框架。 静态博客的一大优点就是可以支持 Serverless 部署，这使得我们可以直接在 Github Pages、Vercel 等平台直接部署上我的博客，如果用上 .eu.org 或者非洲国家免费域名就可以实现零成本的博客部署。 当然，我现在的博客并非是零成本搭建的，如你所见，我购入了印度国别域名 zhul.in 来凑出 竹林 的谐音。并在 Githu
         </div>
       </a>
@@ -492,9 +495,9 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2022/10/04/use-virtscreen-to-turn-pad-into-another-screen/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/10/04/use-virtscreen-to-turn-pad-into-another-screen/" target="_self">
         <div>
-          
           由于浙江工地大专的朝晖尚9宿舍实在是太小了，我没有办法放下一块便携显示屏，所以只能把家中闲置的 Huawei Pad M6 作为自己的副屏。  经过一轮搜索下来，我找到了 VirtScreen 作为工具。 安装在 Archlinux 上，大概有三种以上的方式进行安装:  一、使用 AUR 上的 virtscreen 遇到的唯一一个麻烦是作为依赖之一的 python-quamash 在 pytho
         </div>
       </a>
@@ -534,9 +537,9 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2022/09/29/use-l2tp-protocol-to-connect-internet/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/09/29/use-l2tp-protocol-to-connect-internet/" target="_self">
         <div>
-          
           由于高考爆炸，所以不得不进入浙江工地大专来度过自己接下来四年的人生（希望到时候可以借助学校的力量润出去）。  学校这边由于某些不可描述的原因，将校园卡与宽带捆绑销售，且每次登陆校园网时都需要使用定制的 l2tp 协议客户端进行上网，且该客户端将会禁用用户的无线网卡（这不明摆着想让我们宿舍每个人都花一次钱）。  更惨的是，学校仅提供了 Windows 与 MacOS 的客户端。 在 BearChi
         </div>
       </a>
@@ -576,10 +579,10 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2022/08/10/add-sticker-support-for-element/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/08/10/add-sticker-support-for-element/" target="_self">
         <div>
-          
-          在读这篇文章之前，你应该已经知道 element、matrix 是什么，这部分内容咱就不过多展开讲了。  需要准备的 PC 端 element python3.6+ 环境 能够挂静态资源的站点（比如 Github Pages、Gitlab Pages、Vercel 等免费平台的账号） 可能需要能够突破大局域网限制的网络环境  需要用到的项目 maunium&#x2F;stickerpicker 克隆主项目
+          在读这篇文章之前，你应该已经知道 element、matrix 是什么，这部分内容咱就不过多展开讲了。  需要准备的 PC 端 element python3.6+ 环境 能够挂静态资源的站点（比如 Github Pages、Gitlab Pages、Vercel 等免费平台的账号） 可能需要能够突破大局域网限制的网络环境  需要用到的项目 maunium/stickerpicker 克隆主项目
         </div>
       </a>
 
@@ -609,9 +612,9 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2022/08/04/a-fucking-store-about-openssl3-and-nodejs16/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/08/04/a-fucking-store-about-openssl3-and-nodejs16/" target="_self">
         <div>
-          
           今年上半年升级 Fedora 36 的时候遇到了这个问题。 那会儿很无奈，一直在等 nodejs16 合并提供 --openssl-legacy-provider 的那个 PR。nodejs16 是一个 lts 版本，照道理来说，既然要提供 Long-term Support，而 openssl 1 作为它的依赖之一，生命周期结束又在 nodejs16 之前，那是不是应该给 nodejs16 b
         </div>
       </a>
@@ -653,9 +656,9 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2022/07/25/restore-the-sound-of-hollywood/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/07/25/restore-the-sound-of-hollywood/" target="_self">
         <div>
-          
           我刚开始接触 Linux 下的 hollywood 时，我记得它运行时是有声音的，应该是 007 的主题音乐，如今再次装上 hollywood，却发现音乐没了。 在 Github 找到 hollywood，发现有一个 issue 也提到了这个问题。 原作者在该 issue 中回复道  没错，它只是一段视频，音频受到版权保护。  所以不难看出，作者因为版权问题而去掉了音频，进而导致 hollywoo
         </div>
       </a>
@@ -782,8 +785,6 @@
       
     })(window, document);
   </script>
-
-
 
 
 

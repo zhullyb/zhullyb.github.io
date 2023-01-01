@@ -63,7 +63,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"zhul.in","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://bu.dusays.com/2022/08/14/62f800fc26770.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"zhul.in","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://bu.dusays.com/2022/08/14/62f800fc26770.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -72,6 +72,8 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
+  
+
 
   
 <!-- hexo injector head_end start --><script async defer data-website-id="5346b89b-f4bf-4593-971d-1f41a1118bc1" src="https://umami.zhul.in/umami.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/rss.xml" title="竹林里有冰的博客" type="application/atom+xml">
@@ -108,7 +110,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
-                首页
+                <span>首页</span>
               </a>
             </li>
           
@@ -120,7 +122,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                归档
+                <span>归档</span>
               </a>
             </li>
           
@@ -132,7 +134,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                标签
+                <span>标签</span>
               </a>
             </li>
           
@@ -144,7 +146,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
-                关于
+                <span>关于</span>
               </a>
             </li>
           
@@ -156,7 +158,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/links/">
                 <i class="iconfont icon-link-fill"></i>
-                友链
+                <span>友链</span>
               </a>
             </li>
           
@@ -169,7 +171,7 @@
               <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="iconfont icon-books"></i>
-                其他
+                <span>其他</span>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 
@@ -178,7 +180,7 @@
                   
                   <a class="dropdown-item" href="/rss.xml">
                     
-                    rss订阅
+                    <span>rss订阅</span>
                   </a>
                 
                   
@@ -186,7 +188,7 @@
                   
                   <a class="dropdown-item" href="/collections/">
                     
-                    收藏
+                    <span>收藏</span>
                   </a>
                 
                   
@@ -194,7 +196,7 @@
                   
                   <a class="dropdown-item" href="/linux-source/">
                     
-                    Linux软件源
+                    <span>Linux软件源</span>
                   </a>
                 
               </div>
@@ -204,15 +206,16 @@
         
           <li class="nav-item" id="search-btn">
             <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+              <i class="iconfont icon-search"></i>
             </a>
           </li>
           
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
-                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
           </li>
         
       </ul>
@@ -268,9 +271,9 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2021/02/27/change-your-firefox-icon-into-a-bluedoge/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/02/27/change-your-firefox-icon-into-a-bluedoge/" target="_self">
         <div>
-          
           事情的起因是这样的。  Solidot Mozilla 强调 Firefox 的 logo 仍然包含小狐狸  2021-02-27 20:02 #Firefox 过去几天一个广泛流传的 meme 宣称，Firefox 著名的红色小狐狸 logo 正被逐渐简化直至消失。Mozilla 官方博客对此做出了回应，强调 Firefox 的 logo 将会始终包含小狐狸，他们没有消除狐狸的计划。作为反击这一
         </div>
       </a>
@@ -310,10 +313,10 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2021/02/07/extract-payload-dot-bin-on-archlinux/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/02/07/extract-payload-dot-bin-on-archlinux/" target="_self">
         <div>
-          
-          解包A&#x2F;B机型的OTA更新包时，会发现zip文件中只有一个payload.bin文件 解包这个文件，我们需要用到这个叫payload_dumper的python脚本，同时需要安装依赖: community&#x2F;python-google-api-core和python-bsdiff4，我解包的时候发现缺少python3版本的python-bsdiff4，因此已经打包上传至AUR 1234git clo
+          解包A/B机型的OTA更新包时，会发现zip文件中只有一个payload.bin文件 解包这个文件，我们需要用到这个叫payload_dumper的python脚本，同时需要安装依赖: community/python-google-api-core和python-bsdiff4，我解包的时候发现缺少python3版本的python-bsdiff4，因此已经打包上传至AUR 1234git clo
         </div>
       </a>
 
@@ -356,9 +359,9 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2021/01/25/how-to-solve-the-adb-devices-unauthorized-problem/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/01/25/how-to-solve-the-adb-devices-unauthorized-problem/" target="_self">
         <div>
-          
           在调试安卓设备的时候，我们经常会遇到adb未授权的问题，本方案适用于未开机时遇到以下两种情况。  当我们编译eng的时候，adb应该会默认授权所有设备，但是有部分Rom并不会。  当我们编译userdebug的时候，adb就不会授权给所有设备了，如果卡开机，使用adb抓取log将会是非常麻烦的事情。   此时我们需要手动导入我们的adbkey  手机重启到Recovery模式  找到你电脑的adb
         </div>
       </a>
@@ -400,10 +403,10 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2021/01/20/python-virtualenv/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/01/20/python-virtualenv/" target="_self">
         <div>
-          
-          在python使用中，我们经常会遇到本地默认python版本与程序所需要的python版本不一致的问题，此时我们需要创建一个虚拟的python环境。 安装目标python版本Ubuntu系主程序参考https:&#x2F;&#x2F;www.cnblogs.com&#x2F;m3721w&#x2F;articles&#x2F;10344887.html pip12sudo apt isntall python-pip		#python2sudo
+          在python使用中，我们经常会遇到本地默认python版本与程序所需要的python版本不一致的问题，此时我们需要创建一个虚拟的python环境。 安装目标python版本Ubuntu系主程序参考https://www.cnblogs.com/m3721w/articles/10344887.html pip12sudo apt isntall python-pip		#python2sudo
         </div>
       </a>
 
@@ -444,9 +447,9 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2021/01/01/Why-I-dont-recommend-Manjaro/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/01/01/Why-I-dont-recommend-Manjaro/" target="_self">
         <div>
-          
           说起Linux发行版，很多人都会去推荐Manjaro给新手使用，原因很简单——安装简单、有庞大的AUR和ArchlinuxCN提供软件、有丰富的ArchWiki以供新手查阅。那么，为什么大多数Archlinux用户（包括我）始终不推荐Manjaro作为自己使用的发行版呢。  首先来了解一下两款Linux发行版Archlinux Archlinux是一款滚动发行版，所有的软件全部都基于上游最新的源代
         </div>
       </a>
@@ -484,9 +487,9 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2020/12/22/Did-UOS-have-Secure-Boot-Signature/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2020/12/22/Did-UOS-have-Secure-Boot-Signature/" target="_self">
         <div>
-          
           以下内容来自2020年12月22日晚上的大佬对话，非本人原创。 吃瓜群众:  话说UOS到底有没有Secure boot签名啊  某dalao:  用的是ubuntu的  吃瓜群众:  哪来的签名？  某dalao:  这就不得不讲到另一个槽点了s  吃瓜群众:  ubuntu给他们签？  某dalao:  不不不，用的是ubuntu签好名的那个binary 然后ubuntu的那个binary会在
         </div>
       </a>
@@ -528,9 +531,9 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2020/12/19/Before-Report-A-Rom-Issue/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2020/12/19/Before-Report-A-Rom-Issue/" target="_self">
         <div>
-          
           学业繁忙，不便花太多时间在接收问题的反馈上，特制定此须知。须知非常繁杂，一来是为了尽可能多的获得问题的信息，同时便于我归类，二来是为了提升你们的反馈成本以过滤低级问题。 本须知仅针对Rom自身的bug反馈，对于其他奇奇怪怪的问题(比如下载链接挂了一类的)可以直接评论反馈。无法开机等一类bug就用不着反馈了，我发布的每一个版本都经过我亲自测试，出现此类问题就是你自己的操作问题。 以下是正文  仅接受
         </div>
       </a>
@@ -568,9 +571,9 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2020/10/08/NoHello/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2020/10/08/NoHello/" target="_self">
         <div>
-          
           Don’t Just Say “Hello” in Chat. 别在向别人问问题的时候问“在吗？” 英文原版请查阅这里，此处是我个人的翻译版。  123452010-07-19 12:32:12 你: 在吗？2010-07-19 12:32:15 我: 在的。## 我就这这里静静的等待你打字描述自己的问题2010-07-19 12:34:01 你: 我正在进行 [莫些事情] 然后我正尝试 [等等。
         </div>
       </a>
@@ -608,10 +611,10 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2020/08/10/AndroidUnpack/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2020/08/10/AndroidUnpack/" target="_self">
         <div>
-          
-          123brotli -d system.new.dat.brsdat2img system.transfer.list system.new.datmount system.img &amp;#123;known_path&amp;#125;  Get brotli here &amp; sdat2img here
+          123brotli -d system.new.dat.brsdat2img system.transfer.list system.new.datmount system.img &#123;known_path&#125;  Get brotli here &amp; sdat2img here
         </div>
       </a>
 
@@ -652,9 +655,9 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2020/07/11/GitNotes/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2020/07/11/GitNotes/" target="_self">
         <div>
-          
           git自动填入账号密码打开终端，输入 1git config --global credential.helper store 此时，我们就已经开启了git账号密码的本地储存，在下一次push时只要输入账号密码就可以一劳永逸了。 git设置默认的commit编辑器1git config --global core.editor $editor_name  Ps: $editor_name指的是你选
         </div>
       </a>
@@ -781,8 +784,6 @@
       
     })(window, document);
   </script>
-
-
 
 
 

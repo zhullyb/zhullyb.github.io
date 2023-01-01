@@ -63,7 +63,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"zhul.in","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://bu.dusays.com/2022/08/14/62f800fc26770.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"zhul.in","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://bu.dusays.com/2022/08/14/62f800fc26770.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -72,6 +72,8 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
+  
+
 
   
 <!-- hexo injector head_end start --><script async defer data-website-id="5346b89b-f4bf-4593-971d-1f41a1118bc1" src="https://umami.zhul.in/umami.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/rss.xml" title="竹林里有冰的博客" type="application/atom+xml">
@@ -108,7 +110,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
-                首页
+                <span>首页</span>
               </a>
             </li>
           
@@ -120,7 +122,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                归档
+                <span>归档</span>
               </a>
             </li>
           
@@ -132,7 +134,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                标签
+                <span>标签</span>
               </a>
             </li>
           
@@ -144,7 +146,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
-                关于
+                <span>关于</span>
               </a>
             </li>
           
@@ -156,7 +158,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/links/">
                 <i class="iconfont icon-link-fill"></i>
-                友链
+                <span>友链</span>
               </a>
             </li>
           
@@ -169,7 +171,7 @@
               <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="iconfont icon-books"></i>
-                其他
+                <span>其他</span>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 
@@ -178,7 +180,7 @@
                   
                   <a class="dropdown-item" href="/rss.xml">
                     
-                    rss订阅
+                    <span>rss订阅</span>
                   </a>
                 
                   
@@ -186,7 +188,7 @@
                   
                   <a class="dropdown-item" href="/collections/">
                     
-                    收藏
+                    <span>收藏</span>
                   </a>
                 
                   
@@ -194,7 +196,7 @@
                   
                   <a class="dropdown-item" href="/linux-source/">
                     
-                    Linux软件源
+                    <span>Linux软件源</span>
                   </a>
                 
               </div>
@@ -204,15 +206,16 @@
         
           <li class="nav-item" id="search-btn">
             <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+              <i class="iconfont icon-search"></i>
             </a>
           </li>
           
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
-                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
           </li>
         
       </ul>
@@ -268,10 +271,10 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2020/07/11/RepoNotes/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2020/07/11/RepoNotes/" target="_self">
         <div>
-          
-          清除同步过程中产生的不完整碎片文件在源码路径&#x2F;.repo下搜索tmp_pack将搜索结果中出现的所有文件全部删除 以下命令仅供参考 1rm -rf *&#x2F;*&#x2F;*&#x2F;*&#x2F;objects&#x2F;pack&#x2F;tmp_pack_*  repo自动同步下载脚本123456789echo #!&#x2F;bin&#x2F;bashecho &quot;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;start repo sync&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&quot;repo sync  -
+          清除同步过程中产生的不完整碎片文件在源码路径/.repo下搜索tmp_pack将搜索结果中出现的所有文件全部删除 以下命令仅供参考 1rm -rf */*/*/*/objects/pack/tmp_pack_*  repo自动同步下载脚本123456789echo #!/bin/bashecho &quot;======start repo sync======&quot;repo sync  -
         </div>
       </a>
 
@@ -310,10 +313,10 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2020/07/11/china-mainland-mirrorlist/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2020/07/11/china-mainland-mirrorlist/" target="_self">
         <div>
-          
-          企业镜像阿里https:&#x2F;&#x2F;developer.aliyun.com&#x2F;mirror&#x2F; 腾讯https:&#x2F;&#x2F;mirrors.cloud.tencent.com&#x2F; 网易http:&#x2F;&#x2F;mirrors.163.com&#x2F; 华为https:&#x2F;&#x2F;mirrors.huaweicloud.com&#x2F; 首都在线http:&#x2F;&#x2F;mirrors.yun-idc.com&#x2F; 搜狐http:&#x2F;&#x2F;mirrors.sohu.com&#x2F;
+          企业镜像阿里https://developer.aliyun.com/mirror/ 腾讯https://mirrors.cloud.tencent.com/ 网易http://mirrors.163.com/ 华为https://mirrors.huaweicloud.com/ 首都在线http://mirrors.yun-idc.com/ 搜狐http://mirrors.sohu.com/
         </div>
       </a>
 
@@ -352,10 +355,10 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2020/03/03/set-proxy-for-cmd-under-windows/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2020/03/03/set-proxy-for-cmd-under-windows/" target="_self">
         <div>
-          
-          cmd打开方法按住win+R键，调出一个运行框，接着输入cmd并回车即可 设置cmd代理一般性使用的如果是ShadowsockR的话，代理端口都是1080，v2ray的话则是10808 ShadowsocksR12set http_proxy&#x3D;http:&#x2F;&#x2F;127.0.0.1:1080set https_proxy&#x3D;http:&#x2F;&#x2F;127.0.0.1:1080 v2ray12set http_pro
+          cmd打开方法按住win+R键，调出一个运行框，接着输入cmd并回车即可 设置cmd代理一般性使用的如果是ShadowsockR的话，代理端口都是1080，v2ray的话则是10808 ShadowsocksR12set http_proxy=http://127.0.0.1:1080set https_proxy=http://127.0.0.1:1080 v2ray12set http_pro
         </div>
       </a>
 
@@ -481,8 +484,6 @@
       
     })(window, document);
   </script>
-
-
 
 
 

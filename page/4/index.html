@@ -63,7 +63,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"zhul.in","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://bu.dusays.com/2022/08/14/62f800fc26770.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"zhul.in","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://bu.dusays.com/2022/08/14/62f800fc26770.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -72,6 +72,8 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
+  
+
 
   
 <!-- hexo injector head_end start --><script async defer data-website-id="5346b89b-f4bf-4593-971d-1f41a1118bc1" src="https://umami.zhul.in/umami.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/rss.xml" title="竹林里有冰的博客" type="application/atom+xml">
@@ -108,7 +110,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
-                首页
+                <span>首页</span>
               </a>
             </li>
           
@@ -120,7 +122,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                归档
+                <span>归档</span>
               </a>
             </li>
           
@@ -132,7 +134,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                标签
+                <span>标签</span>
               </a>
             </li>
           
@@ -144,7 +146,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
-                关于
+                <span>关于</span>
               </a>
             </li>
           
@@ -156,7 +158,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/links/">
                 <i class="iconfont icon-link-fill"></i>
-                友链
+                <span>友链</span>
               </a>
             </li>
           
@@ -169,7 +171,7 @@
               <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="iconfont icon-books"></i>
-                其他
+                <span>其他</span>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 
@@ -178,7 +180,7 @@
                   
                   <a class="dropdown-item" href="/rss.xml">
                     
-                    rss订阅
+                    <span>rss订阅</span>
                   </a>
                 
                   
@@ -186,7 +188,7 @@
                   
                   <a class="dropdown-item" href="/collections/">
                     
-                    收藏
+                    <span>收藏</span>
                   </a>
                 
                   
@@ -194,7 +196,7 @@
                   
                   <a class="dropdown-item" href="/linux-source/">
                     
-                    Linux软件源
+                    <span>Linux软件源</span>
                   </a>
                 
               </div>
@@ -204,15 +206,16 @@
         
           <li class="nav-item" id="search-btn">
             <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+              <i class="iconfont icon-search"></i>
             </a>
           </li>
           
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
-                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
           </li>
         
       </ul>
@@ -268,10 +271,10 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2021/10/01/bring-firefox-old-topbar-back/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/10/01/bring-firefox-old-topbar-back/" target="_self">
         <div>
-          
-          在Firefox更新UI以后，我就一直感觉不太适应。顶栏的一个个标签页占用的体积达到了原来的1.5~2倍。Thanks to black7375&#x2F;Firefox-UI-Fix ，我们得以把以前的顶栏找回来。  加载新的cssclone该github项目并进入对应路径后，执行install.sh 123git clone https:&#x2F;&#x2F;github.com&#x2F;black7375&#x2F;Firefox
+          在Firefox更新UI以后，我就一直感觉不太适应。顶栏的一个个标签页占用的体积达到了原来的1.5~2倍。Thanks to black7375/Firefox-UI-Fix ，我们得以把以前的顶栏找回来。  加载新的cssclone该github项目并进入对应路径后，执行install.sh 123git clone https://github.com/black7375/Firefox
         </div>
       </a>
 
@@ -312,9 +315,9 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2021/09/21/csdn-copied-my-article/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/09/21/csdn-copied-my-article/" target="_self">
         <div>
-          
           今天在网站自搜的时候偶然间发现了一个叫「程序员宝宝」的站点转载了我去年在知乎专栏上发的一篇文章《Ubuntu下对deepin-wine的使用详解》。 转载的质量并不高，超链接都没有转载上去，只有干巴巴的图片和文字。翻到结尾处，我一口老血喷出。   我就纳闷了，我作为原创博主，自己都没有给这篇文章挂上CC的版权协议，怎么就有人自称是原创给我挂上了CC协议，要知道我知乎还明确勾选了「转载需要申请」呢。
         </div>
       </a>
@@ -345,10 +348,10 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2021/09/11/detailed-explanation-for-aur/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/09/11/detailed-explanation-for-aur/" target="_self">
         <div>
-          
-          虽然对于没有能力手动修改&#x2F;编写PKGBUILD的Arch用户其实是不应该使用AUR中的包的，这些软件的PKGBUILD可以由个人随意发布，并不能保证安全性，但是作为Archlinux的特色，但随着AUR Helper的趋于便利，还是吸引了不少小白使用AUR。本文将主要讲一讲 AUR Helper 帮助我们安装软件时到底做了些什么事情，并提供一些使用AUR Helper构建时常见错误的解决方案。
+          虽然对于没有能力手动修改/编写PKGBUILD的Arch用户其实是不应该使用AUR中的包的，这些软件的PKGBUILD可以由个人随意发布，并不能保证安全性，但是作为Archlinux的特色，但随着AUR Helper的趋于便利，还是吸引了不少小白使用AUR。本文将主要讲一讲 AUR Helper 帮助我们安装软件时到底做了些什么事情，并提供一些使用AUR Helper构建时常见错误的解决方案。
         </div>
       </a>
 
@@ -387,9 +390,9 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2021/09/05/wrong-fonts-color-fix-under-kde-with-a-dark-theme/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/09/05/wrong-fonts-color-fix-under-kde-with-a-dark-theme/" target="_self">
         <div>
-          
           9月6日更新：AUR的wemeet-bin维护者sukanka已经将咱的运行指令直接打进了包内，故本文已经基本失去原本的应用意义，但仍可以作为一个案例来解决类似问题。  在使用腾讯最近推出的Linux原生腾讯会议的时候，咱遇到了个十分影响体验的问题。 我在使用KDE的暗色主题，腾讯回忆自作主张将字体颜色调成了白色。然而，字体背景是白色的没，因此导致对比度下降，字体难以辨认。效果大概是这个鬼样子:
         </div>
       </a>
@@ -431,9 +434,9 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2021/07/23/build-a-rpm-package-from-aur-with-archlinux/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/07/23/build-a-rpm-package-from-aur-with-archlinux/" target="_self">
         <div>
-          
           前一阵子，某Q群里的某初中生居然跳上了Fedora这辆灵车，还一直缠着我要我给他整个打rpm包的教程，说什么要复兴FedoraCN之类的我听不懂的话。碰巧听说Fedora似乎还没有wechat-uos，于是我就寻思着给Fedora打一个，顺便熟悉一下dnf的操作。 事实上，Fedora和Archlinux的目录结构很相似，理论上来讲Archlinux的大部分包都可以直接解压后塞到Fedora里直
         </div>
       </a>
@@ -477,9 +480,9 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2021/06/06/download-openharmony-source-code/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/06/06/download-openharmony-source-code/" target="_self">
         <div>
-          
           不知道为什么，总是有人告诉我鸿蒙已经开源了，不信可以自己去看源码balabala，其实鸿蒙的手机端目前为止依然没有开源，或者说没有完整完整开源。本文我将介绍如何拉取一份openharmony开源的源码。  首先需要准备以下东西  一台装有类unix环境的电脑（wsl大概也行） 6G磁盘剩余空间 互联网（如果使用手机流量的话大概是1.5G）   安装git没什么好说的，不再赘述。  设置git用户
         </div>
       </a>
@@ -510,9 +513,9 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2021/05/30/share-xiaomi-bluetooth-mouse-on-both-windows-and-linux/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/05/30/share-xiaomi-bluetooth-mouse-on-both-windows-and-linux/" target="_self">
         <div>
-          
           我自己使用的鼠标是一只小米的无线蓝牙双模鼠标。但是由于我的USB接口不是很充裕，我平时还是蓝牙鼠标用的比较多。 但是，每当我在Windows和Archlinux上切换时，我不得不重新配对我的蓝牙鼠标。原因我在翻译Archwiki上关于蓝牙鼠标相关叙述时已经解释得非常清楚了，我摘在下面： “首先，计算机保存蓝牙设备的 MAC 地址和配对密钥；然后，蓝牙设备保存计算机的 MAC 地址和配对密钥。这两
         </div>
       </a>
@@ -554,9 +557,9 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2021/05/29/choose-the-last-archlinux-mirror-site-in-china/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/05/29/choose-the-last-archlinux-mirror-site-in-china/" target="_self">
         <div>
-          
           找到最新的Archlinux镜像源我是testing+kde-unstable用户，平均每天更新4次，对于我而言，选择最新的Archlinux镜像是非常重要的。 Archlinux的主源并不开放给个人用户使用，仅开放给一级镜像站进行同步，因此我们需要手动寻找国内较新的镜像站。（理论上来说一级镜像站应该比二级镜像站更新，但是有些一级镜像站的同步频率并不高，同步延迟可能会比某些二级镜像站还要高） 一个
         </div>
       </a>
@@ -594,10 +597,10 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2021/05/27/relieve-the-pressure-of-tuna-mirror-site-please/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/05/27/relieve-the-pressure-of-tuna-mirror-site-please/" target="_self">
         <div>
-          
-          不知道从什么时候开始，我总觉得tuna的镜像站提供的下载速度越来越慢，直到我前几天翻开tuna镜像站的「服务器状态」，我被眼前的景象给震惊到了。  我在这里大致观察了一下这张图：服务器流量主要是由四个部分组成，「http-ipv4」、「https-ipv4」、「http-ipv6」和「https-ipv6」。光是从过去24小时的平均出站流量来计算的话，大约就是2.4Gb&#x2F;s，如果观察图中的流量高峰
+          不知道从什么时候开始，我总觉得tuna的镜像站提供的下载速度越来越慢，直到我前几天翻开tuna镜像站的「服务器状态」，我被眼前的景象给震惊到了。  我在这里大致观察了一下这张图：服务器流量主要是由四个部分组成，「http-ipv4」、「https-ipv4」、「http-ipv6」和「https-ipv6」。光是从过去24小时的平均出站流量来计算的话，大约就是2.4Gb/s，如果观察图中的流量高峰
         </div>
       </a>
 
@@ -636,9 +639,9 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2021/05/23/why-i-use-archlinux/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/05/23/why-i-use-archlinux/" target="_self">
         <div>
-          
           对于我而言，我用Archlinux主要的原因就是实用主义。我可以很负责的说，Arch真的是在我所有用过的发行版当中最符合实用主义的一个了。 很多大佬一提到Archlinux就扯些什么kiss原则，在我看来则不然。 整洁规范的系统规范代码为的不是为了什么Art of Code，而是可读性的提升；遵循kiss原则亦是如此。 配置文件的路径写好了，符合规范，我们就能一下子找到，我们是为了实用主义而遵守k
         </div>
       </a>
@@ -763,8 +766,6 @@
       
     })(window, document);
   </script>
-
-
 
 
 

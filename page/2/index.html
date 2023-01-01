@@ -63,7 +63,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"zhul.in","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://bu.dusays.com/2022/08/14/62f800fc26770.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"zhul.in","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://bu.dusays.com/2022/08/14/62f800fc26770.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -72,6 +72,8 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
+  
+
 
   
 <!-- hexo injector head_end start --><script async defer data-website-id="5346b89b-f4bf-4593-971d-1f41a1118bc1" src="https://umami.zhul.in/umami.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/rss.xml" title="竹林里有冰的博客" type="application/atom+xml">
@@ -108,7 +110,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
-                首页
+                <span>首页</span>
               </a>
             </li>
           
@@ -120,7 +122,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                归档
+                <span>归档</span>
               </a>
             </li>
           
@@ -132,7 +134,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                标签
+                <span>标签</span>
               </a>
             </li>
           
@@ -144,7 +146,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
-                关于
+                <span>关于</span>
               </a>
             </li>
           
@@ -156,7 +158,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/links/">
                 <i class="iconfont icon-link-fill"></i>
-                友链
+                <span>友链</span>
               </a>
             </li>
           
@@ -169,7 +171,7 @@
               <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="iconfont icon-books"></i>
-                其他
+                <span>其他</span>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 
@@ -178,7 +180,7 @@
                   
                   <a class="dropdown-item" href="/rss.xml">
                     
-                    rss订阅
+                    <span>rss订阅</span>
                   </a>
                 
                   
@@ -186,7 +188,7 @@
                   
                   <a class="dropdown-item" href="/collections/">
                     
-                    收藏
+                    <span>收藏</span>
                   </a>
                 
                   
@@ -194,7 +196,7 @@
                   
                   <a class="dropdown-item" href="/linux-source/">
                     
-                    Linux软件源
+                    <span>Linux软件源</span>
                   </a>
                 
               </div>
@@ -204,15 +206,16 @@
         
           <li class="nav-item" id="search-btn">
             <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+              <i class="iconfont icon-search"></i>
             </a>
           </li>
           
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
-                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
           </li>
         
       </ul>
@@ -268,9 +271,9 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2022/07/03/fcitx5-blinking-on-tg-under-wayland-kde/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/07/03/fcitx5-blinking-on-tg-under-wayland-kde/" target="_self">
         <div>
-          
           文章开头，先要感谢 fcitx5 的开发者 老K 帮我 debug 这个问题  鬼畜的文字候选框在新装的 Fedora 36 KDE Wayland 下使用 fcitx5 时遇到了文字候选框前后移动晃眼的问题（如下图）  解决方案当我向老K提出这个问题上的时候，老K告诉我这是预期行为，一共有两个解决方案。  使用 qt 的 text input 关掉 kwin 的淡入淡出特效  但由于我并不熟悉
         </div>
       </a>
@@ -312,9 +315,9 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2022/05/30/use-caddy-to-proxy-wikipedia/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/05/30/use-caddy-to-proxy-wikipedia/" target="_self">
         <div>
-          
           反代的目的无非是两点  满足自己在无代理情况下访问无法访问的站点的需求 方便将站点分享给亲朋好友。  一直以来，我都想用 caddy 去反代一份维基百科来用，今天刚好就顺手解决了。 注意事项 用于反代的机子需要有对目标站点的访问能力 最好准备一个新的域名作为白手套，防止被污染 建议增加密码保护，一来使得小鸡流量不被滥用，二来防止防火墙检测到站点内容 本文使用的 caddy 开启了 replace_
         </div>
       </a>
@@ -352,10 +355,10 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2022/05/11/setup-a-local-fedora-source/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/05/11/setup-a-local-fedora-source/" target="_self">
         <div>
-          
-          Fedora 36 在多次跳票后，总算是在 5月10日正式发布了。截止北京时间 5月11日凌晨两点，上海交通大学开源镜像站的上游 rsync:&#x2F;&#x2F;download-ib01.fedoraproject.org&#x2F;  仍然没有同步 Fedora 36 的 Release 源。鉴于 Release 自 freeze 以后基本是不会有什么大变动的，也不需要及时同步更新，干脆就直接建立一个本地的镜像源。
+          Fedora 36 在多次跳票后，总算是在 5月10日正式发布了。截止北京时间 5月11日凌晨两点，上海交通大学开源镜像站的上游 rsync://download-ib01.fedoraproject.org/  仍然没有同步 Fedora 36 的 Release 源。鉴于 Release 自 freeze 以后基本是不会有什么大变动的，也不需要及时同步更新，干脆就直接建立一个本地的镜像源。
         </div>
       </a>
 
@@ -394,9 +397,9 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2022/04/14/fastocr-experience/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/04/14/fastocr-experience/" target="_self">
         <div>
-          
           前两天在 PC 端有 OCR 的需求，需求如下  自带框选功能或者图片上传前的编辑功能 硬盘占用小，不要 electron (((已经受够了 支持系统托盘或者快捷键快速调出 免费  在李皓奇的推荐下试用了 Arch 群兔兔拿 python 和 qt 写的 fastocr，体验可以说是相当不错了。四个要求基本都能完美满足！  支持 百度、有道、旷视Face++ 三家的接口，免费额度绝对够我试用的（大
         </div>
       </a>
@@ -436,9 +439,9 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2022/03/31/upload-pic-to-lskypro-with-curl/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/03/31/upload-pic-to-lskypro-with-curl/" target="_self">
         <div>
-          
           前一阵子为了图床折腾了好长一段时间。刚开始用的是 cloudinary，虽然每月有限制，但强在境内访问速度还不错，可惜后来 res.cloudinary.com 这个域名在某些地方被 DNS 污染了，而自定义域名是付费版的功能，就不得不放弃了。 后来也尝试过 npm图床 的方案，可惜面对这种滥用公共资源的行为我无法接受（肯定不是因为受不了那繁琐的上传步骤，随便传张图都得 bump 下版本号的原因）
         </div>
       </a>
@@ -480,9 +483,9 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2022/03/06/run-rpmbuild-with-github-action/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/03/06/run-rpmbuild-with-github-action/" target="_self">
         <div>
-          
           一直打算用 Github Action 跑 rpmbuild 构建 rpm 包，然后传到 Action 的 Artifacts 里面，用户就可以在登陆 Github 帐号的情况下进行下载。只要不发 Release，应该就不算「再分发」的行为，也就自然规避了再分发闭源软件的法律风险。 然而，现有的那些 Action 几乎全都是针对 CentOS 老古董定制的，，有些甚至连 buildrequires
         </div>
       </a>
@@ -524,9 +527,9 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2022/02/07/how-to-package-a-git-rpm-package/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/02/07/how-to-package-a-git-rpm-package/" target="_self">
         <div>
-          
           本文中，笔者通过 github api 获取最新的 commit_id ，以一种曲线救国的方式成功为 rpm 打下了一个 -git 包。 On Archlinux用过 AUR 的 Arch 用户应该知道，makepkg 支持 “-git” 包。当我们执行 makepkg 时，PKGBUILD 中的 pkgver 函数会自动被运行，并将输出的结果作为本次打包的版本号。这是一个非常棒的设计，我们不需
         </div>
       </a>
@@ -566,9 +569,9 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2022/01/19/the-common-software-hidden-in-mirrors/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/01/19/the-common-software-hidden-in-mirrors/" target="_self">
         <div>
-          
           前两天在下载 微PE 的时候眼睛突然一瞥，发现了山东大学的开源镜像站。突然间才发现在各个开源镜像站点中提供了许多那些我们误以为只能顶着断断续续的 Github  网络才能下载的软件。 下面这张列表主要来自山东大学的镜像站中的「常用软件」和南京大学的「github-release」。我严重怀疑南京大学就是把整个 tuna 给搬了一遍过来。     山东大学 南京大学 清华大学    7-zip ht
         </div>
       </a>
@@ -599,9 +602,9 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2022/01/12/dnf-module-in-setting-up-the-jekyll/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/01/12/dnf-module-in-setting-up-the-jekyll/" target="_self">
         <div>
-          
           起因我之前的博客一直用的是这个主题，直接使用 Fedora 官方源里的 rubygem-jekyll 似乎无法正常安装 Gemfile 中的依赖。之前使用 Archlinux 的时候，我是直接从 AUR 安装了一个 ruby-2.6 来使用的，但最近转到 Fedora 以后似乎就没法用这样的方案来解决了。 好在天无绝人之路，Fedora 也提供了安装老版本的 ruby 的方案——使用 dnf 的
         </div>
       </a>
@@ -639,9 +642,9 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2022/01/01/pacman-gpgme-error-no-data/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2022/01/01/pacman-gpgme-error-no-data/" target="_self">
         <div>
-          
           好久没有更新博客了，今天来炒一炒暑假里的冷饭。故事的主人公是 星外之神，目前正在北大读书的大佬，那天帮他解决问题以后还恬不知耻地问他要了个友链。  情景再现当初是使用pacman更新时遇上了「GPGME 错误：无数据」的问题，我尝试复现了下，大概是下面这样的情况。 123456789101112[zhullyb@Archlinux ~]$ sudo pacman -Syu错误：GPGME 错误：
         </div>
       </a>
@@ -766,8 +769,6 @@
       
     })(window, document);
   </script>
-
-
 
 
 

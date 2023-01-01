@@ -63,7 +63,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"zhul.in","root":"/","version":"1.9.0","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://bu.dusays.com/2022/08/14/62f800fc26770.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+    var CONFIG = {"hostname":"zhul.in","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://bu.dusays.com/2022/08/14/62f800fc26770.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -72,6 +72,8 @@
   </script>
   <script  src="/js/utils.js" ></script>
   <script  src="/js/color-schema.js" ></script>
+  
+
 
   
 <!-- hexo injector head_end start --><script async defer data-website-id="5346b89b-f4bf-4593-971d-1f41a1118bc1" src="https://umami.zhul.in/umami.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/rss.xml" title="竹林里有冰的博客" type="application/atom+xml">
@@ -108,7 +110,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/">
                 <i class="iconfont icon-home-fill"></i>
-                首页
+                <span>首页</span>
               </a>
             </li>
           
@@ -120,7 +122,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/archives/">
                 <i class="iconfont icon-archive-fill"></i>
-                归档
+                <span>归档</span>
               </a>
             </li>
           
@@ -132,7 +134,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/tags/">
                 <i class="iconfont icon-tags-fill"></i>
-                标签
+                <span>标签</span>
               </a>
             </li>
           
@@ -144,7 +146,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/about/">
                 <i class="iconfont icon-user-fill"></i>
-                关于
+                <span>关于</span>
               </a>
             </li>
           
@@ -156,7 +158,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/links/">
                 <i class="iconfont icon-link-fill"></i>
-                友链
+                <span>友链</span>
               </a>
             </li>
           
@@ -169,7 +171,7 @@
               <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="iconfont icon-books"></i>
-                其他
+                <span>其他</span>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 
@@ -178,7 +180,7 @@
                   
                   <a class="dropdown-item" href="/rss.xml">
                     
-                    rss订阅
+                    <span>rss订阅</span>
                   </a>
                 
                   
@@ -186,7 +188,7 @@
                   
                   <a class="dropdown-item" href="/collections/">
                     
-                    收藏
+                    <span>收藏</span>
                   </a>
                 
                   
@@ -194,7 +196,7 @@
                   
                   <a class="dropdown-item" href="/linux-source/">
                     
-                    Linux软件源
+                    <span>Linux软件源</span>
                   </a>
                 
               </div>
@@ -204,15 +206,16 @@
         
           <li class="nav-item" id="search-btn">
             <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+              <i class="iconfont icon-search"></i>
             </a>
           </li>
           
         
         
           <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
-                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
           </li>
         
       </ul>
@@ -268,9 +271,9 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2021/05/21/create-a-random-picture-api-with-vercel/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/05/21/create-a-random-picture-api-with-vercel/" target="_self">
         <div>
-          
           如果你的网络环境不算太差的话，你在访问我博客的时候应该可以看到顶部有一张背景图。假如你访问我的博客时留心观察，你或许会发现每次你访问我博客时的背景都是不一样的。如果你没玩够，或许你可以尝试点击这里，我总共搜集了20张壁纸供诸位赏玩。 是的，这是使用php实现的随机图片api，托管于vercel，你可以在aya的博客上找到我使用的代码。具体配置方式我不再赘述。 然而，我们还需要解决一个问题: php
         </div>
       </a>
@@ -308,9 +311,9 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2021/04/27/hide-simsun-from-deepin-wine-tim/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/04/27/hide-simsun-from-deepin-wine-tim/" target="_self">
         <div>
-          
           本文中，我通过bwrap命令对运行Tim的wine程序屏蔽了simsun字体以获得了一个更为舒适的字体渲染效果。我所使用的Tim为deepin-wine-tim，至于deepin-wine-qq通过相同的方式应该也能达到相同的效果，spark商店的Tim我自己测试下来似乎是没法达到这样的效果，而使用其他方法安装simsun字体的网友们则需要注意灵活变通，不要照抄我给出的字体路径。  在Archl
         </div>
       </a>
@@ -352,9 +355,9 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2021/04/23/disable-firefox-nightmode-when-your-system-is-using-that/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/04/23/disable-firefox-nightmode-when-your-system-is-using-that/" target="_self">
         <div>
-          
           在我使用Archlinux的时候经常会使用一些暗色主题，但是我并不希望我浏览网页时一些自作聪明的网页自动切换成夜间模式。 这个设置我找了好久，每次在谷歌上检索都会跳出来一堆教我改Firefox主题的、用插件开夜间模式的，却都不是我的目的。 我们所需要做的是在浏览器地址栏输入about:config进入高级设置 搜索并添加一个值 1ui.systemUsesDarkTheme  将这个选项的数值设置
         </div>
       </a>
@@ -392,10 +395,10 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2021/04/16/fuck-jekyll-github-metadata-on-gitlab/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/04/16/fuck-jekyll-github-metadata-on-gitlab/" target="_self">
         <div>
-          
-          我的博客是挂在GitlabPages上的，在为博客更换主题的时候遇到了一点点小麻烦。 报错如图：  当然，我这边也会附上详细的报错日志，以便后人能够通过关键词搜索到。 12345678910111213Configuration file: &#x2F;builds&#x2F;zhullyb&#x2F;test&#x2F;_config.yml            Source: &#x2F;builds&#x2F;zhullyb&#x2F;test
+          我的博客是挂在GitlabPages上的，在为博客更换主题的时候遇到了一点点小麻烦。 报错如图：  当然，我这边也会附上详细的报错日志，以便后人能够通过关键词搜索到。 12345678910111213Configuration file: /builds/zhullyb/test/_config.yml            Source: /builds/zhullyb/test
         </div>
       </a>
 
@@ -432,9 +435,9 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2021/04/16/the-software-i-use-on-archlinux/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/04/16/the-software-i-use-on-archlinux/" target="_self">
         <div>
-          
           最近基本固定了在Archlinux上的常用软件，也供各位参考一下。 我是KDE用户，所以KDE家的软件会用得比较多。  浏览器：Firefox，Chromium备用（主要是使用chromium的网页翻译功能，还有就是打开一些对Firefox不太友好的网站） 下载器：curl，wget，motrix    根据不同使用场景更换下载器 终端：konsole 输入法：fcitx5-chinese-ad
         </div>
       </a>
@@ -474,10 +477,10 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2021/04/15/login-chromium-with-the-api-of-chrome/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/04/15/login-chromium-with-the-api-of-chrome/" target="_self">
         <div>
-          
-          今年两三月的时候，Google限制了chromium的同步api次数，导致各个发行版内置的chromium将不再能继续使用Google的数据同步功能。 今天在翻 archlinuxcn 的群组的时候翻到了一段脚本: https:&#x2F;&#x2F;gist.github.com&#x2F;foutrelis&#x2F;14e339596b89813aa9c37fd1b4e5d9d5 大意就是说，由于Archlinux特殊的chrom
+          今年两三月的时候，Google限制了chromium的同步api次数，导致各个发行版内置的chromium将不再能继续使用Google的数据同步功能。 今天在翻 archlinuxcn 的群组的时候翻到了一段脚本: https://gist.github.com/foutrelis/14e339596b89813aa9c37fd1b4e5d9d5 大意就是说，由于Archlinux特殊的chrom
         </div>
       </a>
 
@@ -514,10 +517,10 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2021/04/13/where-will-appimage-put-its-file/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/04/13/where-will-appimage-put-its-file/" target="_self">
         <div>
-          
-          我不饿：  有人知道怎么删除appimage的用户数据吗？  liolok | 李皓奇:  还是可以在用户的家目录下面乱写的吧  Lipis Apple:  不太讲武德：~&#x2F;.local&#x2F;share&#x2F;(app) 算讲武德：~&#x2F;.config&#x2F;(app) 不讲武德：~&#x2F;.(app)
+          我不饿：  有人知道怎么删除appimage的用户数据吗？  liolok | 李皓奇:  还是可以在用户的家目录下面乱写的吧  Lipis Apple:  不太讲武德：~/.local/share/(app) 算讲武德：~/.config/(app) 不讲武德：~/.(app)
         </div>
       </a>
 
@@ -554,10 +557,10 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2021/04/11/use-motrix-install-of-firefox-to-download/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/04/11/use-motrix-install-of-firefox-to-download/" target="_self">
         <div>
-          
-          本文是一篇个人笔记，不具有太强的技术性，仅仅是为后来者指个方向。  熟悉我的人都知道，我是一个Firefox的忠实用户，原因有二： ​    一&#x2F; Firefox国际版同步功能国内可用 ​    二&#x2F; moz:&#x2F;&#x2F;a（Firefox用户应该能在地址栏直接访问这个链接） 但是Motrix没有推出适用于Firefox的接管浏览器下载功能的插件，于是只能用aria2的插件。这个插件内置了AriaNG,
+          本文是一篇个人笔记，不具有太强的技术性，仅仅是为后来者指个方向。  熟悉我的人都知道，我是一个Firefox的忠实用户，原因有二： ​    一/ Firefox国际版同步功能国内可用 ​    二/ moz://a（Firefox用户应该能在地址栏直接访问这个链接） 但是Motrix没有推出适用于Firefox的接管浏览器下载功能的插件，于是只能用aria2的插件。这个插件内置了AriaNG,
         </div>
       </a>
 
@@ -594,10 +597,10 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2021/03/14/lets-fuck-dm-and-use-startx/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/03/14/lets-fuck-dm-and-use-startx/" target="_self">
         <div>
-          
-          在正常情况下，我们会给Linux装上一个DisplayManager以方便我们输入账号密码来进入图形化系统，但是我不想要额外装一个DM来启动我的图形化系统（而且之前我一直用的sddm也出过一小阵子的问题） 首先卸载我的sddm 1sudo pacman -Rsnc sddm sddm-kcm  安装startx所在的软件包 1sudo pacman -S xorg-xinit  从&#x2F;etc&#x2F;X11
+          在正常情况下，我们会给Linux装上一个DisplayManager以方便我们输入账号密码来进入图形化系统，但是我不想要额外装一个DM来启动我的图形化系统（而且之前我一直用的sddm也出过一小阵子的问题） 首先卸载我的sddm 1sudo pacman -Rsnc sddm sddm-kcm  安装startx所在的软件包 1sudo pacman -S xorg-xinit  从/etc/X11
         </div>
       </a>
 
@@ -634,9 +637,9 @@
         </a>
       </h1>
 
-      <a class="index-excerpt" href="/2021/03/12/arch-source/" target="_self">
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2021/03/12/arch-source/" target="_self">
         <div>
-          
           无力维护，现已将 arch.zhullyb.top 和 mirror.zhullyb.top 的所有请求分别转发到 Clansty 维护的 repo.lwqwq.com 和 pacman.ltd ，如果您凑巧看到本消息，建议立即访问 pacman.ltd 并按照其要求修改源配置文件。Hello，这里是竹林里有冰的私人源。 其实Archlinux已经有了一个打包了各种常用软件的第三方源叫archli
         </div>
       </a>
@@ -761,8 +764,6 @@
       
     })(window, document);
   </script>
-
-
 
 
 
