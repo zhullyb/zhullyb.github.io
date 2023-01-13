@@ -17,7 +17,7 @@ tags:
 - 能够挂静态资源的站点（比如 Github Pages、Gitlab Pages、Vercel 等免费平台的账号）
 - 可能需要能够突破大局域网限制的网络环境
 
-需要用到的项目 [maunium/stickerpicker](maunium/stickerpicker)
+需要用到的项目 [maunium/stickerpicker](https://github.com/maunium/stickerpicker)
 
 ## 克隆主项目
 
