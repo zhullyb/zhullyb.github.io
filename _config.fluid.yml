@@ -1019,6 +1019,11 @@ links:
       link: "https://blog.i1nfo.com/",
       avatar: "https://blog.i1nfo.com/images/iinfo-sq.png"
     }
+    - {
+      title: "树下集熵",
+      intro: "the mirror of life",
+      link: "https://www.entropy-tree.top/"
+    }
 
   # 当成员头像加载失败时，替换为指定图片
   # When the member avatar fails to load, replace the specified image
