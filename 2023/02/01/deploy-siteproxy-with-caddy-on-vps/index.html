@@ -18,28 +18,28 @@
   <meta name="author" content="竹林里有冰">
   <meta name="keywords" content="博客, 技术, Fedora">
   
-    <meta name="description" content="这款 Linux 下的 OneDrive 客户端我其实一年前就已经在用了，最近打算给自己的 vps 重装系统并重新部署下 aria 的下载服务，顺便把上传到 OneDrive 的功能增加进去，便又想到了这款运行在命令行中的第三方开源 Linux 客户端，去谷歌上搜索了一番，依然没有什么成规模的中文博客去写它的用法，于是就打算自己来写。那肯定不是因为我博客这个月没有什么题材  安装abrauneg">
+    <meta name="description" content="之前趁着春节活动的时候在某 vps 服务商买了 1 年的 vps，线路不算太好，但勉强够用，于是打算在上面部署一些反代程序。在群友的推荐下，发现了这款名为 siteproxy 的开源项目。 siteproxy 相较于我在 r.zhullyb.top 部署的那个反代，其特点是可以运行在 vps 上，且将会替换被反代页面上的所有 url，因此遇到使用相对路径的网页也可以从容应对。 在项目的 READM">
 <meta property="og:type" content="article">
-<meta property="og:title" content="onedrive(by abraunegg) —— 一个 Linux 下的开源 OneDrive 客户端(cli)">
-<meta property="og:url" content="https://zhul.in/2022/12/24/onedrive-abraunegg-recommendation/index.html">
+<meta property="og:title" content="在 vps 上配合 caddy 部署 siteproxy">
+<meta property="og:url" content="https://zhul.in/2023/02/01/deploy-siteproxy-with-caddy-on-vps/index.html">
 <meta property="og:site_name" content="竹林里有冰的博客">
-<meta property="og:description" content="这款 Linux 下的 OneDrive 客户端我其实一年前就已经在用了，最近打算给自己的 vps 重装系统并重新部署下 aria 的下载服务，顺便把上传到 OneDrive 的功能增加进去，便又想到了这款运行在命令行中的第三方开源 Linux 客户端，去谷歌上搜索了一番，依然没有什么成规模的中文博客去写它的用法，于是就打算自己来写。那肯定不是因为我博客这个月没有什么题材  安装abrauneg">
+<meta property="og:description" content="之前趁着春节活动的时候在某 vps 服务商买了 1 年的 vps，线路不算太好，但勉强够用，于是打算在上面部署一些反代程序。在群友的推荐下，发现了这款名为 siteproxy 的开源项目。 siteproxy 相较于我在 r.zhullyb.top 部署的那个反代，其特点是可以运行在 vps 上，且将会替换被反代页面上的所有 url，因此遇到使用相对路径的网页也可以从容应对。 在项目的 READM">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://bu.dusays.com/2022/12/24/63a71425507b6.png">
-<meta property="article:published_time" content="2022-12-24T14:40:13.000Z">
-<meta property="article:modified_time" content="2022-12-31T00:15:13.000Z">
+<meta property="og:image" content="https://bu.dusays.com/2023/02/01/63da866e26712.png">
+<meta property="article:published_time" content="2023-02-01T14:33:53.000Z">
+<meta property="article:modified_time" content="2023-02-01T15:40:53.000Z">
 <meta property="article:author" content="竹林里有冰">
-<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="nodejs">
 <meta property="article:tag" content="Archlinux">
 <meta property="article:tag" content="OpenSource Project">
-<meta property="article:tag" content="Experience">
-<meta property="article:tag" content="OneDrive">
+<meta property="article:tag" content="siteproxy">
+<meta property="article:tag" content="Caddy">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://bu.dusays.com/2022/12/24/63a71425507b6.png">
+<meta name="twitter:image" content="https://bu.dusays.com/2023/02/01/63da866e26712.png">
   
   
   
-  <title>onedrive(by abraunegg) —— 一个 Linux 下的开源 OneDrive 客户端(cli) - 竹林里有冰的博客</title>
+  <title>在 vps 上配合 caddy 部署 siteproxy - 竹林里有冰的博客</title>
 
   <link  rel="stylesheet" href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/4.6.0/css/bootstrap.min.css" />
 
@@ -246,7 +246,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="onedrive(by abraunegg) —— 一个 Linux 下的开源 OneDrive 客户端(cli)"></span>
+            <span id="subtitle" data-typed-text="在 vps 上配合 caddy 部署 siteproxy"></span>
           
         </div>
 
@@ -257,8 +257,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-12-24 22:40" pubdate>
-          2022年12月24日 晚上
+        <time datetime="2023-02-01 22:33" pubdate>
+          2023年2月1日 晚上
         </time>
       </span>
     
@@ -270,7 +270,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          2.4k 字
+          2.3k 字
         
       </span>
     
@@ -282,7 +282,7 @@
         
         
           <!-- compatible with older versions-->
-          13 分钟
+          12 分钟
         
       </span>
     
@@ -320,13 +320,13 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">onedrive(by abraunegg) —— 一个 Linux 下的开源 OneDrive 客户端(cli)</h1>
+            <h1 style="display: none">在 vps 上配合 caddy 部署 siteproxy</h1>
             
               <p class="note note-info">
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2022年12月31日 早上
+                    本文最后更新于：2023年2月1日 晚上
                   
                 
               </p>
@@ -334,56 +334,45 @@
             
               <div class="markdown-body">
                 
-                <blockquote>
-<p>这款 Linux 下的 OneDrive 客户端我其实一年前就已经在用了，最近打算给自己的 vps 重装系统并重新部署下 aria 的下载服务，顺便把上传到 OneDrive 的功能增加进去，便又想到了这款运行在命令行中的第三方开源 Linux 客户端，去谷歌上搜索了一番，依然没有什么成规模的中文博客去写它的用法，于是就打算自己来写。<del>那肯定不是因为我博客这个月没有什么题材</del></p>
-</blockquote>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>abraunegg 用 D 语言写的 OneDrive 客户端安装起来并不是什么难事，Ubuntu/Debian/Fedora 等常见发行版的仓库中均有它的身影，具体情况在 <a target="_blank" rel="noopener" href="https://github.com/abraunegg/onedrive/blob/master/docs/INSTALL.md">Github 项目页面</a>中都有描述。</p>
-<p>在 Archlinux 下，我可以直接从 AUR/ArchlinuxCN 中安装 <code>onedrive-abraunegg</code> 这个包来安装这个项目。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo pacman -S onedrive-abraunegg<br></code></pre></td></tr></table></figure>
-
-<h2 id="运行前配置"><a href="#运行前配置" class="headerlink" title="运行前配置"></a>运行前配置</h2><blockquote>
-<p>本章内容中的所用到的和没有用到的命令都可以在<a target="_blank" rel="noopener" href="https://github.com/abraunegg/onedrive/blob/master/docs/USAGE.md">该项目的 Github 仓库</a>中找到。</p>
-</blockquote>
-<p>在终端直接运行 <code>onedrive</code> 命令，程序将打印出一行地址。</p>
-<p><img src="https://bu.dusays.com/2022/12/24/63a71dbfd6ed3.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="登陆地址"></p>
-<p>使用浏览器打开地址，就会跳出微软的登陆页面，正常登陆即可。</p>
-<p>登陆成功后，浏览器将会显示一片白屏，不必慌张，直接将浏览器地址栏中的网址复制后粘贴进终端中即可完成配置，获取到的 <code>refresh_token</code> 将会被保存到 <code>$HOME/.config/onedrive</code> 下。</p>
-<p><img src="https://bu.dusays.com/2022/12/24/63a71e1f9c916.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="浏览器显示白屏"></p>
-<p><img src="https://bu.dusays.com/2022/12/24/63a71ec6d5aca.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="授权成功"></p>
-<p>账号授权成功以后我有两个迫切的需求需要在开始同步前解决: </p>
+                <p>之前趁着春节活动的时候在某 vps 服务商买了 1 年的 vps，线路不算太好，但勉强够用，于是打算在上面部署一些反代程序。在群友的推荐下，发现了这款名为 <a target="_blank" rel="noopener" href="https://github.com/netptop/siteproxy">siteproxy</a> 的开源项目。</p>
+<p>siteproxy 相较于我在 <code>r.zhullyb.top</code> 部署的那个反代，其特点是可以运行在 vps 上，且将会替换被反代页面上的所有 url，因此遇到使用相对路径的网页也可以从容应对。</p>
+<p>在项目的 README 中介绍了一种部署方案，但我仍有以下几点不太满意</p>
 <ul>
-<li>我不希望把我 OneDrive 里所有的文件下载下来，我在 OneDrive 中存放了至少 1T 的数据，而我的系统盘就只有 512G，这绝对是放不下的，所以我想仅同步部分文件夹。</li>
-<li>我需要修改被同步到的文件夹的路径，我不想把 OneDrive 上的文件下载到我的 <code>/home</code> 下。</li>
+<li>README 中的方案仅支持 nginx 部署，但我希望使用 caddy</li>
+<li>README 中的方案使用 npm 安装了 <code>forever</code> 来达到保活的目的，甚至为此安装了 nvm，但我一不希望使用 npm 在系统上安装软件、二不希望安装 nvm 与 forever</li>
+<li>原项目把根目录页做成了一个导航，指向了一些比较敏感的站点，而我希望换掉这个网页。</li>
 </ul>
-<hr>
-<p>要解决第一个需求，我们可以通过创建 <code>sync_list</code> 的方式指定我们要同步的文件，在 <code>$HOME/.config/onedrive</code> 路径下创建 <code>sync_list</code> ，并填入需要的文件或文件夹名，或在 <code>!</code>或<code>-</code> 后面写上不想同步的文件或文件夹名即可，支持通配符，在<a target="_blank" rel="noopener" href="https://github.com/abraunegg/onedrive/blob/master/docs/USAGE.md#performing-a-selective-sync-via-sync_list-file">原仓库的文档中</a>给出了非常详细的描述。</p>
-<hr>
-<p>我们可以先使用 <code>onedrive --display-config</code> 命令查看我们当前的配置情况。（我这边直接应用 Github 文档中展示的内容）</p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs gradle">onedrive version                             = vX.Y.Z-A-bcdefghi<br>Config path                                  = <span class="hljs-regexp">/home/</span>alex<span class="hljs-regexp">/.config/</span>onedrive<br>Config <span class="hljs-keyword">file</span> found in config path             = <span class="hljs-keyword">true</span><br>Config option <span class="hljs-string">&#x27;sync_dir&#x27;</span>                     = <span class="hljs-regexp">/home/</span>alex/OneDrive<br>Config option <span class="hljs-string">&#x27;enable_logging&#x27;</span>               = <span class="hljs-keyword">false</span><br>...<br>Selective sync <span class="hljs-string">&#x27;sync_list&#x27;</span> configured        = <span class="hljs-keyword">false</span><br>Config option <span class="hljs-string">&#x27;sync_business_shared_folders&#x27;</span> = <span class="hljs-keyword">false</span><br>Business Shared Folders configured           = <span class="hljs-keyword">false</span><br>Config option <span class="hljs-string">&#x27;webhook_enabled&#x27;</span>              = <span class="hljs-keyword">false</span><br></code></pre></td></tr></table></figure>
+<p>因此这篇博客也就应运而生。</p>
+<h2 id="反代-8011-端口"><a href="#反代-8011-端口" class="headerlink" title="反代 8011 端口"></a>反代 8011 端口</h2><p>根据项目 README 的描述，我们应当使用 nginx 去反代 <code>127.0.0.1:8011</code> 端口，但我是 caddy 用户，此前也<a href="/2022/05/30/use-caddy-to-proxy-wikipedia/">有过使用 caddy 反代</a>的经验，所以很容易写出一段使得程序可以正确运行的 <code>Caddyfile</code>。</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs nginx">example.<span class="hljs-section">com</span> &#123;<br>        <span class="hljs-attribute">reverse_proxy</span>   <span class="hljs-number">127.0.0.1:8011</span> &#123;<br>                <span class="hljs-attribute">header_up</span> Host &#123;upstream_hostport&#125;<br>                <span class="hljs-attribute">header_up</span> X-Real-IP &#123;http.request.remote.host&#125;<br>                <span class="hljs-attribute">header_up</span> X-Forwarded-For &#123;http.request.remote.host&#125;<br>                <span class="hljs-attribute">header_up</span> X-Forwarded-Port &#123;http.request.port&#125;<br>                <span class="hljs-attribute">header_up</span> X-Forwarded-Proto &#123;http.request.scheme&#125;<br>                <span class="hljs-attribute">header_up</span> Accept-Encoding identity<br>        &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<p>这很显然，OneDrive 中的文件默认将会被保存到 <code>$HOME/OneDrive</code> 中。为了修改这个位置项，我们直接在 <code>$HOME/.config/onedrive/</code> 路径下创建一个名为 <code>config</code> 的文件，把此处给的 c<a target="_blank" rel="noopener" href="https://github.com/abraunegg/onedrive/blob/master/docs/USAGE.md#the-default-configuration-file-is-listed-below">onfiguration examples</a> 全部复制进去，找到 <code>sync_dir</code> 把前面的注释删掉，改成自己喜欢的路径 <del>（别问我为什么写 /tmp，问就是我内存够大</del></p>
-<p><img src="https://bu.dusays.com/2022/12/25/63a7282ee55e7.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="修改同步路径！"></p>
-<p>修改好此处的配置文件后，可以再次运行 <code>onedrive --display-config</code> 检查自己的配置文件格式有没有问题、自己更改的配置项有没有生效，这样就解决了我的第二个需求。</p>
-<h2 id="Standalone-Mode-Monitor-Mode"><a href="#Standalone-Mode-Monitor-Mode" class="headerlink" title="Standalone Mode / Monitor Mode?"></a>Standalone Mode / Monitor Mode?</h2><p>这款 OneDrive 客户端支持以两种方式运行，monitor 模式将会监控本地磁盘上的文件状态，因而在同步路径内的文件从一个路径移动到另一个路径时，客户端将不会傻傻地执行「在原路径删除远端文件-重新上传新路径的本地文件」的这一个过程，具体使用 monitor 或 standalone 模式还请自行斟酌，可参考 <a target="_blank" rel="noopener" href="https://github.com/abraunegg/onedrive/blob/master/docs/known-issues.md#moving-files-into-different-folders-should-not-cause-data-to-delete-and-be-re-uploaded">Moving files into different folders should not cause data to delete and be re-uploaded</a> .</p>
-<h2 id="开始同步"><a href="#开始同步" class="headerlink" title="开始同步"></a>开始同步</h2><p>使用该客户端执行同步的命令很简单，即</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">onedrive --synchronize<br></code></pre></td></tr></table></figure>
+<p>将 <code>example.com</code> 的 A 记录解析到 vps 主机的 ip，并使用 <code>systemctl</code> 重新启动 caddy，这一步就算完成了。</p>
+<h2 id="安装-nodejs"><a href="#安装-nodejs" class="headerlink" title="安装 nodejs"></a>安装 nodejs</h2><p>我在 vps 上安装的发行版是 Archlinux，所以直接 <code>pacman -S nodejs</code> 安装完就是了，别的发行版应该也可以直接调用系统默认的包管理器安装 <code>node</code> 或者 <code>nodejs</code> 完成这一步。</p>
+<h2 id="下载程序"><a href="#下载程序" class="headerlink" title="下载程序"></a>下载程序</h2><p>首先，我们需要一个地方来存放我们下载的程序，我使用的是 <code>/opt</code> 路径。</p>
+<p>我们可以直接根据 README 所说的，直接 clone 整个项目，但我本人并不想这么做，项目里似乎有太多对于 vps 用户没有用的东西了。此外，整个项目首页我也不想要，首页的导航指向了一些比较敏感的网站，而我的反代就想安安心心的一个人用。</p>
+<p>综合以上需求，我所需要的文件一共就五个: </p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">├── config.js<br>├── index.js<br>├── logger.js<br>├── package.json<br>└── Proxy.js<br></code></pre></td></tr></table></figure>
 
-<p>但可选的运行参数很多，我只举出最常用的几个例子</p>
-<h3 id="–dry-run"><a href="#–dry-run" class="headerlink" title="–dry-run"></a>–dry-run</h3><p>使用 <code>--dry-run</code> 选项后，OneDrive 将不会执行同步操作，它将在终端输出原本将会被执行的操作以供你排查自己的配置是否正确。</p>
-<h3 id="–local-first"><a href="#–local-first" class="headerlink" title="–local-first"></a>–local-first</h3><p>字面意思，<code>--local-first</code> 即为本地优先，同步时如果遇到文件冲突将会优先参考本地的情况。</p>
-<h3 id="–single-directory"><a href="#–single-directory" class="headerlink" title="–single-directory"></a>–single-directory</h3><p><code>--single-directory</code> 后面需要跟一个子文件夹在 OneDrive 根目录中的相对路径，这将使本次的同步操作仅对单个文件夹生效。</p>
-<h3 id="–download-only"><a href="#–download-only" class="headerlink" title="–download-only"></a>–download-only</h3><p>字面意思，<code>--download-only</code> 即为仅下载模式。</p>
-<h3 id="–upload-only"><a href="#–upload-only" class="headerlink" title="–upload-only"></a>–upload-only</h3><p>字面意思，<code>--upload-only</code>即为仅上传模式，后跟 <code>--no-remote-delete</code>将不会在 OneDrive 网盘中删除本地相较于网盘中缺少的文件，真正做到 upload only.</p>
-<h3 id="–resync"><a href="#–resync" class="headerlink" title="–resync"></a>–resync</h3><p>当下列配置项被更改时，需要执行 <code>--resync</code> 来确保客户端正在按照更新后的配置文件来同步你的数据</p>
-<ul>
-<li>sync_dir</li>
-<li>skip_dir</li>
-<li>skip_file</li>
-<li>drive_id</li>
-<li>Modifying sync_list</li>
-<li>Modifying business_shared_folders</li>
-</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">mkdir</span> -p /opt/siteproxy<br><span class="hljs-built_in">cd</span> /opt/siteproxy<br>wget https://raw.githubusercontent.com/netptop/siteproxy/master/&#123;config.js,index.js,logger.js,package.json,Proxy.js&#125;<br></code></pre></td></tr></table></figure>
 
+<p>然后补上一个 <code>index.html</code></p>
+<p>我这边选择直接使用 JavaScript 将对于 / 的访问直接重定向到我的博客。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript">&lt;html&gt;<span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">http-equiv</span>=<span class="hljs-string">&quot;refresh&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;0; url=https://zhul.in/&quot;</span> /&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span></span><span class="language-xml"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>Redirect to <span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;&quot;</span>&gt;</span>https://zhul.in/<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span></span>&lt;/html&gt;<br></code></pre></td></tr></table></figure>
+
+<h3 id="安装依赖"><a href="#安装依赖" class="headerlink" title="安装依赖"></a>安装依赖</h3><p>在 <code>/opt/siteproxy</code> 目录下执行</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">npm install<br></code></pre></td></tr></table></figure>
+
+<p>npm 将会根据 <code>package.json</code> 的内容自动安装所需的依赖。</p>
+<h2 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-variable">$EDITOR</span> /opt/siteproxy/config.js<br></code></pre></td></tr></table></figure>
+
+<p>按照 README 所说，修改 <code>serverName</code> 字段</p>
+<p><img src="https://bu.dusays.com/2023/02/01/63da866e26712.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="需要修改的 serverName 字段"></p>
+<h2 id="设置开机自启动"><a href="#设置开机自启动" class="headerlink" title="设置开机自启动"></a>设置开机自启动</h2><p>这里我选择使用 systemd 帮助我实现 siteproxy 程序的开机自启动，service 文件是我直接根据 frp 程序提供的 service 改的。</p>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs abnf">cat /usr/lib/systemd/system/siteproxy.service <br>-----<br>[Unit]<br><span class="hljs-attribute">Description</span><span class="hljs-operator">=</span>SiteProxy<br><span class="hljs-attribute">After</span><span class="hljs-operator">=</span>network-online.target<br><span class="hljs-attribute">Wants</span><span class="hljs-operator">=</span>network-online.target<br><br>[Service]<br><span class="hljs-attribute">Type</span><span class="hljs-operator">=</span>simple<br><span class="hljs-attribute">User</span><span class="hljs-operator">=</span>nobody<br><span class="hljs-attribute">Restart</span><span class="hljs-operator">=</span>on-failure<br><span class="hljs-attribute">RestartSec</span><span class="hljs-operator">=</span><span class="hljs-number">5</span>s<br><span class="hljs-attribute">Environment</span><span class="hljs-operator">=</span><span class="hljs-string">&quot;NODE_PATH=/opt/siteproxy/&quot;</span><br><span class="hljs-attribute">ExecStart</span><span class="hljs-operator">=</span>node --tls-min-v1.<span class="hljs-number">0</span> /opt/siteproxy/index.js <br><br>[Install]<br><span class="hljs-attribute">WantedBy</span><span class="hljs-operator">=</span>multi-user.target<br></code></pre></td></tr></table></figure>
+
+<p>随后使用 <code>systemctl enable siteproxy --now</code> 启动即可访问。</p>
+<h2 id="为反代站点添加访问密码（可选）"><a href="#为反代站点添加访问密码（可选）" class="headerlink" title="为反代站点添加访问密码（可选）"></a>为反代站点添加访问密码（可选）</h2><p>参考<a href="/2021/10/21/picuploader-on-archlinux-with-caddy/#%E8%AE%BE%E7%BD%AE%E8%AE%BF%E9%97%AE%E5%AF%86%E7%A0%81%EF%BC%88%E5%8F%AF%E9%80%89%EF%BC%89">我的另一篇博客</a>。</p>
+<h2 id="使用防火墙程序禁止-8011-的公网访问（可选）"><a href="#使用防火墙程序禁止-8011-的公网访问（可选）" class="headerlink" title="使用防火墙程序禁止 8011 的公网访问（可选）"></a>使用防火墙程序禁止 8011 的公网访问（可选）</h2>
                 
               </div>
             
@@ -395,15 +384,15 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Linux/">#Linux</a>
+        <a href="/tags/nodejs/">#nodejs</a>
       
         <a href="/tags/Archlinux/">#Archlinux</a>
       
         <a href="/tags/OpenSource-Project/">#OpenSource Project</a>
       
-        <a href="/tags/Experience/">#Experience</a>
+        <a href="/tags/siteproxy/">#siteproxy</a>
       
-        <a href="/tags/OneDrive/">#OneDrive</a>
+        <a href="/tags/Caddy/">#Caddy</a>
       
     </div>
   
@@ -415,8 +404,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>onedrive(by abraunegg) —— 一个 Linux 下的开源 OneDrive 客户端(cli)</div>
-      <div>https://zhul.in/2022/12/24/onedrive-abraunegg-recommendation/</div>
+      <div>在 vps 上配合 caddy 部署 siteproxy</div>
+      <div>https://zhul.in/2023/02/01/deploy-siteproxy-with-caddy-on-vps/</div>
     </div>
     <div class="license-meta">
       
@@ -428,13 +417,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2022年12月24日</div>
+          <div>2023年2月1日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2022年12月31日</div>
+          <div>2023年2月1日</div>
         </div>
       
       
@@ -477,18 +466,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/02/01/deploy-siteproxy-with-caddy-on-vps/" title="在 vps 上配合 caddy 部署 siteproxy">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">在 vps 上配合 caddy 部署 siteproxy</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2022/11/21/a-few-words-about-the-events-of-november-2022/" title="【翻译】关于2022年11月的事件的一些话[Z-Library]">
-                        <span class="hidden-mobile">【翻译】关于2022年11月的事件的一些话[Z-Library]</span>
+                      <a href="/2022/12/24/onedrive-abraunegg-recommendation/" title="onedrive(by abraunegg) —— 一个 Linux 下的开源 OneDrive 客户端(cli)">
+                        <span class="hidden-mobile">onedrive(by abraunegg) —— 一个 Linux 下的开源 OneDrive 客户端(cli)</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
