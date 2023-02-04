@@ -107,5 +107,5 @@ tags:
 
 ***
 
-**推荐阅读:  [《libadwaita：修复 Linux 桌面的可用性问题》](https://hanjingxue-boling.github.io/Whiteboard/translation/libadwaita-gtk4-TheEvilSkeleton/)**
+**推荐阅读:  [《libadwaita：修复 Linux 桌面的可用性问题》](https://whiteboard-ui8.pages.dev/translation/libadwaita-gtk4-TheEvilSkeleton/)**
 

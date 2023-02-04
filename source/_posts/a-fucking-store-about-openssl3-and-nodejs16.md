@@ -14,7 +14,7 @@ tags:
 
 那会儿很无奈，一直在等 nodejs16 合并提供 `--openssl-legacy-provider` 的[那个 PR](https://github.com/nodejs/node/pull/42972)。nodejs16 是一个 lts 版本，照道理来说，既然要提供 Long-term Support，而 openssl 1 作为它的依赖之一，生命周期结束又在 nodejs16 之前，那是不是应该给 nodejs16 backport 在 nodejs17 上实现的 `--openssl-legacy-provider` 参数选项呢？否则绝大多数发行版都会在 openssl 1 的生命周期结束之前切换到 openssl 3，那 nodejs16 不就没法用了嘛。
 
-然而，nodejs 在他们的官网上发布的[一篇博客](https://nodejs.org/en/blog/announcements/nodejs16-eol/)刷新了我的世界观，而此前的那个 PR 甚至一度被关停。（此处有[寒晶雪提供的中文翻译](https://hanjingxue-boling.github.io/Whiteboard/translation/nodejs-eol-v16-0626/)）
+然而，nodejs 在他们的官网上发布的[一篇博客](https://nodejs.org/en/blog/announcements/nodejs16-eol/)刷新了我的世界观，而此前的那个 PR 甚至一度被关停。（此处有[寒晶雪提供的中文翻译](https://whiteboard-ui8.pages.dev/translation/nodejs-eol-v16-0626/)）
 
 博客称他们将会把 nodejs16 的生命周期结束时间提前以防止 openssl 1 生命周期在 nodejs16 生命周期结束之前结束（这种做法甚至还有先例）
 
