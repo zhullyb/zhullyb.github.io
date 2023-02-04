@@ -29,7 +29,7 @@
 <meta property="og:image" content="https://bu.dusays.com/2022/08/04/62ebadf02a5b3.png">
 <meta property="og:image" content="https://bu.dusays.com/2022/08/04/62ebb0927943f.png">
 <meta property="article:published_time" content="2022-08-04T09:31:49.000Z">
-<meta property="article:modified_time" content="2022-08-22T15:42:13.000Z">
+<meta property="article:modified_time" content="2023-02-04T01:51:09.000Z">
 <meta property="article:author" content="竹林里有冰">
 <meta property="article:tag" content="Fedora">
 <meta property="article:tag" content="nodejs">
@@ -326,7 +326,7 @@
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2022年8月22日 晚上
+                    本文最后更新于：2023年2月4日 上午
                   
                 
               </p>
@@ -337,7 +337,7 @@
                 <p><img src="https://bu.dusays.com/2022/08/04/62eba4eabc963.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="长毛象的截图.png"></p>
 <p>今年上半年升级 Fedora 36 的时候遇到了这个问题。</p>
 <p>那会儿很无奈，一直在等 nodejs16 合并提供 <code>--openssl-legacy-provider</code> 的<a target="_blank" rel="noopener" href="https://github.com/nodejs/node/pull/42972">那个 PR</a>。nodejs16 是一个 lts 版本，照道理来说，既然要提供 Long-term Support，而 openssl 1 作为它的依赖之一，生命周期结束又在 nodejs16 之前，那是不是应该给 nodejs16 backport 在 nodejs17 上实现的 <code>--openssl-legacy-provider</code> 参数选项呢？否则绝大多数发行版都会在 openssl 1 的生命周期结束之前切换到 openssl 3，那 nodejs16 不就没法用了嘛。</p>
-<p>然而，nodejs 在他们的官网上发布的<a target="_blank" rel="noopener" href="https://nodejs.org/en/blog/announcements/nodejs16-eol/">一篇博客</a>刷新了我的世界观，而此前的那个 PR 甚至一度被关停。（此处有<a target="_blank" rel="noopener" href="https://hanjingxue-boling.github.io/Whiteboard/translation/nodejs-eol-v16-0626/">寒晶雪提供的中文翻译</a>）</p>
+<p>然而，nodejs 在他们的官网上发布的<a target="_blank" rel="noopener" href="https://nodejs.org/en/blog/announcements/nodejs16-eol/">一篇博客</a>刷新了我的世界观，而此前的那个 PR 甚至一度被关停。（此处有<a target="_blank" rel="noopener" href="https://whiteboard-ui8.pages.dev/translation/nodejs-eol-v16-0626/">寒晶雪提供的中文翻译</a>）</p>
 <p>博客称他们将会把 nodejs16 的生命周期结束时间提前以防止 openssl 1 生命周期在 nodejs16 生命周期结束之前结束（这种做法甚至还有先例）</p>
 <p>很无奈，那会儿有两个 npm 管理的软件没法在 Fedora 36 上编译出来，就一直搁置了下去。</p>
 <hr>
@@ -398,7 +398,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2022年8月22日</div>
+          <div>2023年2月4日</div>
         </div>
       
       
