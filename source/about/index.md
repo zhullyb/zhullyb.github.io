@@ -18,6 +18,8 @@ date: 2021-05-01 23:53:19
 
 因此这个域名我将尽我可能续费下去，而如果后期服务器费用无法承担的话我也做好诶迁移到 serverless 的准备。
 
+本站的访问情况统计: https://umami.zhul.in/share/bBTFefk1/blog
+
 ## My Websites
 
 博客(本站): [https://zhul.in](https://zhul.in)
