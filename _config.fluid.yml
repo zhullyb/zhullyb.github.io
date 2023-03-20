@@ -345,7 +345,7 @@ navbar:
       submenu: [
       { key: 'rss订阅', link: '/rss.xml' },
       { key: '收藏', link: '/collections/' },
-      { key: 'Private Blog', link: 'https://zhullyb.eu.org/' }
+#      { key: 'Private Blog', link: 'https://zhullyb.eu.org/' }
       ]
     }
 
