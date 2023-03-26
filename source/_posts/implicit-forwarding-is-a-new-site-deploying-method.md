@@ -57,5 +57,5 @@ tags:
 
 ***
 
-那么应[某些群友的要求](https://bu.dusays.com/2023/02/01/63da866e26712.png)，本文的第二作者为 [Finley](https://blog.f1nley.xyz)，通信作者为 [LanStarD](https://blog.chordvers.com/)。
+那么应[某些群友的要求](https://bu.dusays.com/2023/03/26/64201607999e3.png)，本文的第二作者为 [Finley](https://blog.f1nley.xyz)，通信作者为 [LanStarD](https://blog.chordvers.com/)。
 
