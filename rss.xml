@@ -6,7 +6,7 @@
   <link href="https://zhul.in/rss.xml" rel="self"/>
   
   <link href="https://zhul.in/"/>
-  <updated>2023-02-01T15:40:53.000Z</updated>
+  <updated>2023-03-26T09:56:08.000Z</updated>
   <id>https://zhul.in/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>隐式转发——骚套路建站方案</title>
+    <link href="https://zhul.in/2023/03/26/implicit-forwarding-is-a-new-site-deploying-method/"/>
+    <id>https://zhul.in/2023/03/26/implicit-forwarding-is-a-new-site-deploying-method/</id>
+    <published>2023-03-25T16:10:02.000Z</published>
+    <updated>2023-03-26T09:56:08.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>其实很久以前就接触到了国内 DNS 解析服务商提供的这个「隐式 URL」 这种 “DNS 记录类型”了，但我域名没有备案，一直没有机会去体验。</p><p><img src="https://bu.dusays.com/2023/03/26/641f1e2cd8809.png" alt="DNSPOD 的解析面板中提供的记录类型"></p><p>今天社团内某个同学在折腾自己博客的时候又用到了「隐式 URL」，于是就借此机会了解了一下相关内容。</p><p><a href="https://docs.dnspod.cn/dns/help-redirect-url/">DNSPOD 文档的描述</a>如下</p><blockquote><p><strong>隐性转发</strong>：用的是 iframe 框架技术、非重定向技术，效果为浏览器地址栏输入 <code>http://www.dnspod.cn</code> 回车，打开网站内容是目标地址 <code>http://cloud.tencent.com/</code> 的网站内容，但地址栏显示当前地址 <code>http://www.dnspod.cn</code> 。</p></blockquote><p>也就是说，所谓「隐式 URL」，只不过是域名解析的服务商用他们的服务器去响应了访客的请求，并回应了一段使用了 iframe 的 html 。这段代码打开了一个大小为 100% 的窗口去请求了被“隐式代理”的站点。我这位同学域名是备案在阿里云下的，阿里云所使用的 html 代码如下:</p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;!doctype <span class="hljs-keyword">html</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">frameset</span> <span class="hljs-attr">rows</span>=<span class="hljs-string">&quot;100%&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">frame</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;http://example.com&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">noframes</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;http://example.com&quot;</span>&gt;</span>Click here<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">noframes</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">frameset</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure><p>在下图中，我通过更改 hosts 文件实现将百度的域名在本地被解析到 localhost，并使用 iframe 标签将 b 站嵌入到页面中。当然，这并不能说明什么事情，不过是我个人的恶趣味罢了。</p><p><img src="https://bu.dusays.com/2023/03/26/641f2272ab7fb.png" alt="example"></p><p>将 <code>http://example.com</code>改为目标站点，我们完全可以摆脱国内云服务商，在自己的服务器上直接实现「隐式代理」的效果。</p><p><strong>而这种方案，恰巧可以用于在境内机子上建站，尤其是针对未备案的域名。</strong></p><p>碍于 Github Pages 在境内的访问体验并不好，所以直接把博客部署在 Github Pages 下一直都不是首选，因此很多人都会选择去购买一台境内的小鸡，带宽虽然不大，但跑个博客什么的其实没什么大问题，但备案就很麻烦了。</p><p>我们可以通过在 Github Pages（或者其他境外的服务器） 上挂一个 <code>index.html</code> ，html 中使用 iframe 嵌套一个部署在境内小鸡上的网页来规避掉备案的问题。而境内小鸡可以选用非标准端口去监听请求。</p><img src="https://bu.dusays.com/2023/03/26/642014b05bb43.png" alt="使用隐式转发" style="zoom:67%;" /><img src="https://bu.dusays.com/2023/03/26/642014519ce2a.png" alt="2.drawio.png" style="zoom:67%;" /><p>这样带来的好处是访客只需要从境外的服务器上获取一个不到 1 KB 大小的 html ，随后的所有请求都是指向境内云服务器的，所以网页打开时的体验会得到改善。</p><p>隐式转发拥有以下优势：</p><ul><li>直接向境内的云服务器发送请求，速度会得到改善 （相比于直接部署在境外服务器上的方案）</li><li>不怎么消耗境外服务器的流量 （相比于使用境外服务器反向代理的方案）</li><li>浏览器的地址栏不会直接显示 ip 或端口号（相比于未备案使用境内服务器的非标准端口的方案）</li><li>不需要备案（相比于备案后使用境内服务器的 80/443 端口的方案）</li></ul><p>但也存在以下劣势：</p><ul><li>移动端设备访问时好像还是会展示 PC 端的界面（存疑</li><li>现代浏览器访问时可能会有 <code>strict-origin-when-cross-origin</code> 的问题（一般好像是出现在 iframe 的 html 是 https 访问，而目标站点是 http 访问的情况？）</li><li>一些古老的浏览器可能不支持 iframe （？</li><li>访问目标站点的其他路径时，浏览器地址栏的显示的地址不会变</li></ul><hr><p>那么应<a href="https://bu.dusays.com/2023/02/01/63da866e26712.png">某些群友的要求</a>，本文的第二作者为 <a href="https://blog.f1nley.xyz/">Finley</a>，通信作者为 <a href="https://blog.chordvers.com/">LanStarD</a>。</p>]]></content>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+    <category term="Network" scheme="https://zhul.in/tags/Network/"/>
+    
+  </entry>
   
   <entry>
     <title>在 vps 上配合 caddy 部署 siteproxy</title>
@@ -1556,7 +1581,7 @@
     <published>2020-12-18T16:00:00.000Z</published>
     <updated>2021-10-13T13:48:10.000Z</updated>
     
-    <content type="html"><![CDATA[<p>学业繁忙，不便花太多时间在接收问题的反馈上，特制定此须知。须知非常繁杂，一来是为了尽可能多的获得问题的信息，同时便于我归类，二来是为了提升你们的反馈成本以过滤低级问题。</p><p>本须知仅针对Rom自身的bug反馈，对于其他奇奇怪怪的问题(比如下载链接挂了一类的)可以直接评论反馈。无法开机等一类bug就用不着反馈了，我发布的每一个版本都经过我亲自测试，出现此类问题就是你自己的操作问题。</p><p>以下是正文</p><ol><li><p>仅接受邮箱反馈 <a href="mailto:&#x7a;&#104;&#117;&#108;&#x6c;&#x79;&#98;&#x40;&#111;&#117;&#x74;&#108;&#111;&#x6f;&#107;&#46;&#x63;&#x6f;&#x6d;">&#x7a;&#104;&#117;&#108;&#x6c;&#x79;&#98;&#x40;&#111;&#117;&#x74;&#108;&#111;&#x6f;&#107;&#46;&#x63;&#x6f;&#x6d;</a></p></li><li><p>请在默认Kernel，卸载所有模块，删除所有调度，卸载所有奇奇怪怪的软件(比如黑阈或者Thanos)的情况下进行反馈，具体原因请看<a href="../../../../2020/11/13/RomFlash_Q&A/#%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BC%BA%E8%B0%83%E5%8F%8D%E9%A6%88%E9%97%AE%E9%A2%98%E6%97%B6%E4%B8%8D%E8%A6%81%E4%BD%BF%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E5%86%85%E6%A0%B8%E6%A8%A1%E5%9D%97%E4%BF%AE%E6%94%B9">这里</a></p></li><li><p>仅接受Rom最新版本的问题反馈</p></li><li><p>进行反馈时请注明自己的Gapps版本(如系统内置、X月X日的XXXGapps等等)</p></li><li><p>请注明bug的具体表现，以及复现方法，如有可能附上log</p></li><li><p>偶然性bug请不要反馈，除非你能够抓到当时的log</p></li><li><p>log请以附件的形式发送，文件名请改为202XXXXX+酷安用户名的形式，文件名后缀为.log，如: 20201231竹林里有冰.log</p></li></ol><p>以上没有做到的，我会立刻拉黑。当然，我会允许你继续查看我的动态，因为拉黑你的目的只是为了防止我的时间再被你浪费而不是为了对你进行报复。</p>]]></content>
+    <content type="html"><![CDATA[<p>学业繁忙，不便花太多时间在接收问题的反馈上，特制定此须知。须知非常繁杂，一来是为了尽可能多的获得问题的信息，同时便于我归类，二来是为了提升你们的反馈成本以过滤低级问题。</p><p>本须知仅针对Rom自身的bug反馈，对于其他奇奇怪怪的问题(比如下载链接挂了一类的)可以直接评论反馈。无法开机等一类bug就用不着反馈了，我发布的每一个版本都经过我亲自测试，出现此类问题就是你自己的操作问题。</p><p>以下是正文</p><ol><li><p>仅接受邮箱反馈 <a href="mailto:&#122;&#104;&#117;&#108;&#x6c;&#x79;&#x62;&#64;&#x6f;&#x75;&#x74;&#x6c;&#111;&#111;&#x6b;&#46;&#x63;&#111;&#109;">&#122;&#104;&#117;&#108;&#x6c;&#x79;&#x62;&#64;&#x6f;&#x75;&#x74;&#x6c;&#111;&#111;&#x6b;&#46;&#x63;&#111;&#109;</a></p></li><li><p>请在默认Kernel，卸载所有模块，删除所有调度，卸载所有奇奇怪怪的软件(比如黑阈或者Thanos)的情况下进行反馈，具体原因请看<a href="../../../../2020/11/13/RomFlash_Q&A/#%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BC%BA%E8%B0%83%E5%8F%8D%E9%A6%88%E9%97%AE%E9%A2%98%E6%97%B6%E4%B8%8D%E8%A6%81%E4%BD%BF%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E5%86%85%E6%A0%B8%E6%A8%A1%E5%9D%97%E4%BF%AE%E6%94%B9">这里</a></p></li><li><p>仅接受Rom最新版本的问题反馈</p></li><li><p>进行反馈时请注明自己的Gapps版本(如系统内置、X月X日的XXXGapps等等)</p></li><li><p>请注明bug的具体表现，以及复现方法，如有可能附上log</p></li><li><p>偶然性bug请不要反馈，除非你能够抓到当时的log</p></li><li><p>log请以附件的形式发送，文件名请改为202XXXXX+酷安用户名的形式，文件名后缀为.log，如: 20201231竹林里有冰.log</p></li></ol><p>以上没有做到的，我会立刻拉黑。当然，我会允许你继续查看我的动态，因为拉黑你的目的只是为了防止我的时间再被你浪费而不是为了对你进行报复。</p>]]></content>
     
     
       
