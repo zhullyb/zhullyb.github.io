@@ -1,5 +1,5 @@
 ---
-title: troubles-when-applying-azure-education
+title: Azure 教育订阅申请时遇到的麻烦
 date: 2023-05-12 23:38:29
 sticky:
 execrpt: 本文记录了申请 Azure 教育订阅时遇到的麻烦和与客服对线的邮件
