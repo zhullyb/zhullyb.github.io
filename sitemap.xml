@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zhul.in/2023/06/24/connect-china-mobile-with-router-in-zjut-dormitory/</loc>
+    
+    <lastmod>2023-06-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zhul.in/2023/06/24/redmi-ac2100-router-with-padavan/</loc>
     
     <lastmod>2023-06-24</lastmod>
@@ -801,6 +810,13 @@
   </url>
   
   <url>
+    <loc>https://zhul.in/tags/Router/</loc>
+    <lastmod>2023-06-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://zhul.in/tags/OpenSource-Project/</loc>
     <lastmod>2023-06-24</lastmod>
     <changefreq>weekly</changefreq>
@@ -872,13 +888,6 @@
   
   <url>
     <loc>https://zhul.in/tags/PicUploader/</loc>
-    <lastmod>2023-06-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/%E8%B7%AF%E7%94%B1%E5%99%A8/</loc>
     <lastmod>2023-06-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
