@@ -30,7 +30,81 @@ DNS 建议前两个填写学校的内网 DNS 地址( 172.16.7.10 ， 172.16.7.30
 
 这份脚本我已经开源到 [github gist](https://gist.github.com/zhullyb/4c8708df5724c42f913d3d86ed49d929) 了，在顶部填好自己网页认证时的账号密码以后就可以用了。
 
-<script src="https://gist.github.com/zhullyb/4c8708df5724c42f913d3d86ed49d929.js"></script>
+```bash
+#!/bin/bash
+# 浙江工业大学校园网网页认证
+
+# 此处需要填写网页认证时使用的账号和密码
+user_account=
+user_password=
+
+# 针对路由器，用于设置路由表以方便访问学校内网
+# 可能需要将路由器 DNS 设置为 172.16.7.10 和 172.16.7.30 以获取正确的内网服务器 ip
+if `ip route | grep -q 10.129.0.1`; then
+  gateway=10.129.0.1
+elif `ip route | grep -1 10.136.0.1`; then
+  gateway=10.136.0.1
+fi
+
+if whoami | grep -q "admin\|root" && [ -n "$gateway" ]; then
+  route add -net 192.168.210.111 netmask 255.255.255.255 gw ${gateway}
+  route add -net 192.168.210.112 netmask 255.255.255.255 gw ${gateway}
+  route add -net 192.168.210.100 netmask 255.255.255.255 gw ${gateway}
+  route add -net 172.16.0.0 netmask 255.255.0.0 gw ${gateway}
+fi
+
+
+# 尝试访问内网服务器，如果未通过网页认证则会获得 url 跳转信息，用于判断用户为朝晖校区或屏峰校区，并获取用户 ip
+test_curl=$(curl -s http://172.16.19.160)
+wlan_user_ip=$(echo ${test_curl} | grep -oE 'wlanuserip=[0-9\.]+' | grep -oE '[0-9\.]+')
+
+# 教学区的 Zjut-stu 认证请求
+if echo "${test_curl}" | grep -q "192.168.8.1"; then \
+  curl -s "http://192.168.8.1:801/eportal/?c=Portal&a=login" \
+      --data-urlencode "login_method=1" \
+      --data-urlencode "user_account=,0,${user_account}" \
+      --data-urlencode "user_password=${user_password}" \
+      --data-urlencode "wlan_user_ip=${wlan_user_ip}"
+# 朝晖校区宿舍楼内的移动宽带的认证请求
+elif echo "${test_curl}" | grep -q "192.168.210.112"; then \
+curl "http://192.168.210.112:801/eportal/?c=ACSetting&a=Login&protocol=http:&hostname=192.168.210.112&iTermType=1&mac=000000000000&ip=${wlan_user_ip}&enAdvert=0&loginMethod=1" \
+  -X POST \
+  -d "DDDDD=,0,${user_account}@cmcczhyx" \
+  -d "upass=${user_password}" \
+  -d 'R1=0' \
+  -d 'R2=0' \
+  -d 'R6=0' \
+  -d 'para=00' \
+  -d '0MKKey=123456' \
+  -d 'buttonClicked=' \
+  -d 'redirect_url=' \
+  -d 'err_flag=' \
+  -d 'username=' \
+  -d 'password=' \
+  -d 'user=' \
+  -d 'cmd=' \
+  -d 'Login='
+# 屏峰校区宿舍楼内的移动宽带的认证请求
+elif echo "${test_curl}" | grep -q "192.168.210.111"; then \
+curl "http://192.168.210.111:801/eportal/?c=ACSetting&a=Login&protocol=http:&hostname=192.168.210.111&iTermType=1&mac=000000000000&ip=${wlan_user_ip}&enAdvert=0&loginMethod=1" \
+  -X POST \
+  -d "DDDDD=,0,${user_account}@cmcczhyx" \
+  -d "upass=${user_password}" \
+  -d 'R1=0' \
+  -d 'R2=0' \
+  -d 'R6=0' \
+  -d 'para=00' \
+  -d '0MKKey=123456' \
+  -d 'buttonClicked=' \
+  -d 'redirect_url=' \
+  -d 'err_flag=' \
+  -d 'username=' \
+  -d 'password=' \
+  -d 'user=' \
+  -d 'cmd=' \
+  -d 'Login='
+fi
+```
 
 在 Padavan 的设置界面中，我们去打开 ssh 服务
 
