@@ -4,7 +4,7 @@ date: 2023-06-24 00:22:53
 sticky:
 execrpt:
 tags:
-- 路由器
+- Router
 - Network
 ---
 
@@ -126,7 +126,7 @@ Padavan 的默认 WIFI 名是 PDCN 和 PDCN_5G，WIFI 密码是 1234567890
 
 浏览器输入 192.168.123.1 就可以进入默认的后台管理页面，管理页面的用户名和密码都是 admin
 
-![Padavan 设置界面](https://bu.dusays.com/2023/06/24/6495d716bfcd8.png)
+![Padavan 设置界面](https://bu.dusays.com/2023/06/24/6496ac4f3170f.png)
 
 > 参考文章: 
 >
