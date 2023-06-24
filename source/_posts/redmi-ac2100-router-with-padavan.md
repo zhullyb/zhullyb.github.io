@@ -133,3 +133,5 @@ Padavan 的默认 WIFI 名是 PDCN 和 PDCN_5G，WIFI 密码是 1234567890
 > [《小米/红米AC2100刷OpenWrt/Padavan/第三方固件的详细教程（2022年8月23日更新）》](https://www.bilibili.com/read/cv18237601/)
 >
 > [《小米、红米 AC2100 一键开启 SSH，可自定义安装各种插件》](https://zhuanlan.zhihu.com/p/260531160)
+>
+> [《解决SSH no matching host key type found 问题》](https://blog.alanwei.com/blog/2022/01/24/ssh-no-matching-host-key-type-found/)
