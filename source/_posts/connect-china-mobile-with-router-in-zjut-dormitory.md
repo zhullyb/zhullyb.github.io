@@ -42,7 +42,7 @@ user_password=
 # 可能需要将路由器 DNS 设置为 172.16.7.10 和 172.16.7.30 以获取正确的内网服务器 ip
 if `ip route | grep -q 10.129.0.1`; then
   gateway=10.129.0.1
-elif `ip route | grep -1 10.136.0.1`; then
+elif `ip route | grep -q 10.136.0.1`; then
   gateway=10.136.0.1
 fi
 
