@@ -98,7 +98,7 @@ curl "http://192.168.210.112:801/eportal/?c=ACSetting&a=Login&protocol=http:&hos
 elif echo "${test_curl}" | grep -q "192.168.210.111"; then \
 curl "http://192.168.210.111:801/eportal/?c=ACSetting&a=Login&protocol=http:&hostname=192.168.210.111&iTermType=1&mac=000000000000&ip=${wlan_user_ip}&enAdvert=0&loginMethod=1" \
   -X POST \
-  -d "DDDDD=,0,${user_account}@cmcczhyx" \
+  -d "DDDDD=,0,${user_account}@cmccpfyx" \
   -d "upass=${user_password}" \
   -d 'R1=0' \
   -d 'R2=0' \
