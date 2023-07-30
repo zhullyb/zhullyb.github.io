@@ -18,29 +18,24 @@
   <meta name="author" content="竹林里有冰">
   <meta name="keywords" content="博客, 技术, Fedora">
   
-    <meta name="description" content="进入大学已经快一年了，但我的 Azure 教育订阅申请一直没有成功，每年有 100 刀的额度，再这样下去就要亏掉近 700 元了，于是便打算趁期中考试刚结束的闲暇时间把 Azure 的教育订阅给过了。 我拥有 *.edu.cn 的邮箱，并且通过了 Github Student Pack 的认证，但每次在 https:&#x2F;&#x2F;signup.azure.com&#x2F;studentverification?of">
+    <meta name="description" content="由于学校社团的招新需要，我写了一个依赖于 go-cqhttp 运行的 QQ Bot，并没有实现什么花里胡哨的功能，只是实现了关键词回复和新人入群时的欢迎语。因为没考虑后续维护的问题，代码也写得比较草，但毕竟是能跑。这么一个小型的程序并不会占用的多少的服务器资源，单独为这么一个 Bot 去开一台国内的 vps 似乎是有些大材小用了，刚好我手上有一台运行在 OpenWRT 上的 Phicomm N1">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Azure 教育订阅申请时遇到的麻烦">
-<meta property="og:url" content="https://zhul.in/2023/05/12/troubles-when-applying-azure-education/index.html">
+<meta property="og:title" content="在运行OpenWRT的N1盒子上部署 QQBot">
+<meta property="og:url" content="https://zhul.in/2023/07/31/run-qq-bot-on-phicomm-n1-openwrt/index.html">
 <meta property="og:site_name" content="竹林里有冰的博客">
-<meta property="og:description" content="进入大学已经快一年了，但我的 Azure 教育订阅申请一直没有成功，每年有 100 刀的额度，再这样下去就要亏掉近 700 元了，于是便打算趁期中考试刚结束的闲暇时间把 Azure 的教育订阅给过了。 我拥有 *.edu.cn 的邮箱，并且通过了 Github Student Pack 的认证，但每次在 https:&#x2F;&#x2F;signup.azure.com&#x2F;studentverification?of">
+<meta property="og:description" content="由于学校社团的招新需要，我写了一个依赖于 go-cqhttp 运行的 QQ Bot，并没有实现什么花里胡哨的功能，只是实现了关键词回复和新人入群时的欢迎语。因为没考虑后续维护的问题，代码也写得比较草，但毕竟是能跑。这么一个小型的程序并不会占用的多少的服务器资源，单独为这么一个 Bot 去开一台国内的 vps 似乎是有些大材小用了，刚好我手上有一台运行在 OpenWRT 上的 Phicomm N1">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://bu.dusays.com/2023/05/13/645e646bc5b58.png">
-<meta property="og:image" content="https://bu.dusays.com/2023/05/12/645e5fdfb25a3.png">
-<meta property="og:image" content="https://bu.dusays.com/2023/05/12/645e60ad79001.png">
-<meta property="og:image" content="https://bu.dusays.com/2023/05/13/645e62bae0c0a.png">
-<meta property="og:image" content="https://bu.dusays.com/2023/05/13/645e639e2c9d1.png">
-<meta property="og:image" content="https://bu.dusays.com/2023/05/13/645e63e39523f.png">
-<meta property="article:published_time" content="2023-05-12T15:38:29.000Z">
-<meta property="article:modified_time" content="2023-05-12T16:11:08.000Z">
+<meta property="article:published_time" content="2023-07-30T20:11:31.000Z">
+<meta property="article:modified_time" content="2023-07-30T21:22:34.000Z">
 <meta property="article:author" content="竹林里有冰">
-<meta property="article:tag" content="Azure">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Network">
+<meta property="article:tag" content="QQ Bot">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://bu.dusays.com/2023/05/13/645e646bc5b58.png">
   
   
   
-  <title>Azure 教育订阅申请时遇到的麻烦 - 竹林里有冰的博客</title>
+  <title>在运行OpenWRT的N1盒子上部署 QQBot - 竹林里有冰的博客</title>
 
   <link  rel="stylesheet" href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/4.6.0/css/bootstrap.min.css" />
 
@@ -239,7 +234,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Azure 教育订阅申请时遇到的麻烦"></span>
+            <span id="subtitle" data-typed-text="在运行OpenWRT的N1盒子上部署 QQBot"></span>
           
         </div>
 
@@ -250,8 +245,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-05-12 23:38" pubdate>
-          2023年5月12日 晚上
+        <time datetime="2023-07-31 04:11" pubdate>
+          2023年7月31日 凌晨
         </time>
       </span>
     
@@ -263,7 +258,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          1.1k 字
+          4.3k 字
         
       </span>
     
@@ -275,7 +270,7 @@
         
         
           <!-- compatible with older versions-->
-          6 分钟
+          22 分钟
         
       </span>
     
@@ -313,13 +308,13 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Azure 教育订阅申请时遇到的麻烦</h1>
+            <h1 style="display: none">在运行OpenWRT的N1盒子上部署 QQBot</h1>
             
               <p class="note note-info">
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2023年5月13日 凌晨
+                    本文最后更新于：2023年7月31日 凌晨
                   
                 
               </p>
@@ -327,21 +322,27 @@
             
               <div class="markdown-body">
                 
-                <p>进入大学已经快一年了，但我的 Azure 教育订阅申请一直没有成功，每年有 100 刀的额度，<del>再这样下去就要亏掉近 700 元了</del>，于是便打算趁期中考试刚结束的闲暇时间把 Azure 的教育订阅给过了。</p>
-<p>我拥有 *.edu.cn 的邮箱，并且通过了 Github Student Pack 的认证，但每次在 <a target="_blank" rel="noopener" href="https://signup.azure.com/studentverification?offerType=1">https://signup.azure.com/studentverification?offerType=1</a> 页面尝试申请 Azure 订阅时，总是会得到一句冷冷的「你没有资格使用 Azure 免费帐户」。于是，我找到了 Azure 订阅支持客服帮忙，链接是这个: <a target="_blank" rel="noopener" href="https://azureforeducation.microsoft.com/en-us/institutions/Contact">https://azureforeducation.microsoft.com/en-us/institutions/Contact</a>，简要填写了我的基本信息后就开始等待邮件回复了。</p>
-<p><img src="https://bu.dusays.com/2023/05/13/645e646bc5b58.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="提交工单"></p>
-<p>我是周四上午申请的，不到一个小时就等来了微软的工单生成通知</p>
-<p><img src="https://bu.dusays.com/2023/05/12/645e5fdfb25a3.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="微软的工单通知"></p>
-<p>但光有这工单也没有用，我只能继续等人工客服的介入。</p>
-<p>在周五的早上十点，我收到了来自人工客服的邮件，并且在几分钟后收到了来自人工客服的电话（电话是 021 开头的，是归属地为上海的座机打来的，但客服操着严重的港台口音，可能是港台那边的客服通过上海的座机中转打给我的？）: </p>
-<p><img src="https://bu.dusays.com/2023/05/12/645e60ad79001.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="人工客服的邮件"></p>
-<p>但很显然，这封邮件并没有提供任何行之有效的方案，我只能按照邮件中的指示将我的截图发了过去。不过客服不知道出于什么原因一定要求全屏截图（如果电话说的是全面屏，那也是指 PC 端的全屏截图），可能是他们有什么工作制度吧。回复邮件的时候一定要选择<strong>回复全部</strong>，好像是他们只使用 <a href="mailto:&#x73;&#x75;&#x70;&#112;&#x6f;&#x72;&#x74;&#x40;&#x6d;&#97;&#x69;&#108;&#x2e;&#115;&#117;&#112;&#x70;&#111;&#x72;&#116;&#46;&#x6d;&#105;&#x63;&#x72;&#111;&#115;&#111;&#x66;&#x74;&#46;&#99;&#111;&#109;">&#x73;&#x75;&#x70;&#112;&#x6f;&#x72;&#x74;&#x40;&#x6d;&#97;&#x69;&#108;&#x2e;&#115;&#117;&#112;&#x70;&#111;&#x72;&#116;&#46;&#x6d;&#105;&#x63;&#x72;&#111;&#115;&#111;&#x66;&#x74;&#46;&#99;&#111;&#109;</a> 这一个邮箱与我们通信，微软的服务器收到内容后会将我们发送的内容再抄送给给我们分配的客服手上，如果不选择「回复全部」的话，客服可能就看不到之前的通信记录了。</p>
-<p>于是就在当天下午的2点收到了人工客服的第二封邮件，说是已经帮我提交到了后台处理。</p>
-<p><img src="https://bu.dusays.com/2023/05/13/645e62bae0c0a.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="来自人工客服的第二封邮件"></p>
-<p>20 分钟后，我收到了这封应该是系统自动发送的邮件，说明我的账号因异常而触发了审查所以过不了 Azure 的教育订阅，需要我提交能够佐证我的学生身份的东西上去，当晚7点我便按照要求回信。</p>
-<p><img src="https://bu.dusays.com/2023/05/13/645e639e2c9d1.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="1683907484369.png"></p>
-<p>当晚8点半，我便收到了来自系统的消息，得知异常已经解除，再次申请 Azure 学生认证就成功了。</p>
-<p><img src="https://bu.dusays.com/2023/05/13/645e63e39523f.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="异常解除"></p>
+                <p>由于学校社团的招新需要，我写了一个依赖于 go-cqhttp 运行的 QQ Bot，并没有实现什么花里胡哨的功能，只是实现了关键词回复和新人入群时的欢迎语。因为没考虑后续维护的问题，代码也写得比较草，但毕竟是能跑。这么一个小型的程序并不会占用的多少的服务器资源，单独为这么一个 Bot 去开一台国内的 vps 似乎是有些大材小用了，刚好我手上有一台运行在 OpenWRT 上的 Phicomm N1 盒子，反正也是 Linux 系统，便打算拿来挂 QQ Bot。</p>
+<h2 id="安装-JDK"><a href="#安装-JDK" class="headerlink" title="安装 JDK"></a>安装 JDK</h2><p>由于腾讯近几个月对于 Bot 风控非常严格，所以不得不采用 SignServer 项目 <a target="_blank" rel="noopener" href="https://github.com/fuqiuluo/unidbg-fetch-qsign">fuqiuluo/unidbg-fetch-qsign</a> 来确保 Bot 账号不会被风控一次保证 Bot 运行的稳定性。而这个项目又是使用 Java 开发的，因此需要先安装 JDK/JRE。但 OpenWRT 的开发者可能并没有考虑到在路由器设备上运行 Java 程序的需求，因此 OpenWRT 的源里面是没有预先打包 JDK 的，因此我们需要额外安装。我直接 google 搜索了 <code>install java on openwrt</code> 的关键词，在 Github 找到了这个脚本: <a target="_blank" rel="noopener" href="https://gist.github.com/simonswine/64773a80e748f36615e3251234f29d1d%E3%80%82%E4%BD%86%E5%BE%88%E9%81%97%E6%86%BE%EF%BC%8C%E4%BB%A3%E7%A0%81%E8%B7%91%E4%B8%8D%E8%B5%B7%E6%9D%A5%EF%BC%8C%E4%B8%8B%E8%BD%BD%E6%97%B6%E6%8F%90%E7%A4%BA">https://gist.github.com/simonswine/64773a80e748f36615e3251234f29d1d。但很遗憾，代码跑不起来，下载时提示</a> 404。于是我打开脚本细细一看，脚本中 jdk 的版本号和设备的架构均需要改动。具体改动如下:</p>
+<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs diff"><span class="hljs-deletion">- REVISION=8.212.04-r0</span><br><span class="hljs-addition">+ REVISION=8.302.08-r1</span><br># 版本号请自行去仓库内翻最新的<br>......<br><span class="hljs-deletion">- URL=http://dl-cdn.alpinelinux.org/alpine/v3.10/community/armv7/</span><br><span class="hljs-addition">+ URL=http://dl-cdn.alpinelinux.org/alpine/v3.14/community/aarch64/</span><br>......<br><span class="hljs-deletion">- # verify packages</span><br><span class="hljs-deletion">- sha256sum -c &lt;&lt;EOF</span><br><span class="hljs-deletion">- e2fce9ee7348e9322c542206c3c3949e40690716d65e9f0e44dbbfca95d59d8c  openjdk8-8.212.04-r0.apk</span><br><span class="hljs-deletion">- 26ad786ff1ebeeb7cd24abee10bc56211a026a2d871cf161bb309563e1fcbabc  openjdk8-jre-8.212.04-r0.apk</span><br><span class="hljs-deletion">- 947d5f72ed2dc367c97d1429158913c9366f9c6ae01b7311dd8546b10ded8743  openjdk8-jre-base-- 8.212.04-r0.apk</span><br><span class="hljs-deletion">- c6a65402bf0a7051c60b45e1c6a8f4277a68a8b7e807078f20db17e0233dea8e  openjdk8-jre-lib-8.212.04-r0.apk</span><br><span class="hljs-deletion">- EOF</span><br># 我这里直接将 sha256 校验给删除了，有兴趣可以自己去更新这几个文件的文件名和其对应的哈希值<br></code></pre></td></tr></table></figure>
+
+<p>随后 <code>chmod +x</code> 授予脚本可执行权限后直接执行，我们就将 alpine linux 上的 openjdk 成功解包并安装到了我们的 OpenWRT 中，我们只需要配置好环境变量即可完成安装。但我又比较懒，我看见 SignServer 的启动脚本里是可以通过读取 <code>$JAVA_HOME</code> 来获取 Java 二进制可执行文件的代码逻辑，于是我便在每次启动 SignServer 脚本前提前执行 <code>export JAVA_HOME=/opt/java-1.8-openjdk</code> 即可。</p>
+<h2 id="安装-screen"><a href="#安装-screen" class="headerlink" title="安装 screen"></a>安装 screen</h2><p>相比起前面 JDK 的安装，这一步 screen 的安装反而没有那么麻烦，<a target="_blank" rel="noopener" href="https://openwrt.org/packages/pkgdata/screen">在最新版本的 OpenWRT 源中，screen 已经被包括进去了</a>，我们直接把 OpenWRT 换好源，从源里就可以安装。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">opkg update<br>opkg install screen<br></code></pre></td></tr></table></figure>
+
+<h2 id="下载-fixed-版本的-go-cqhttp"><a href="#下载-fixed-版本的-go-cqhttp" class="headerlink" title="下载 fixed 版本的 go-cqhttp"></a>下载 fixed 版本的 go-cqhttp</h2><p>由于 SignServer 更新，在其请求中多添加了 key 的参数要求，导致原版 go-cqhttp 的最新 release 中释出的二进制文件无法适配最新版的 SignServer，我暂时选用了一个<a target="_blank" rel="noopener" href="https://openwrt.org/packages/pkgdata/screen">修复了这个问题的 fork</a> 去运行 Bot。下载到 OpenWRT 后记得也要授予可执行文件。</p>
+<h2 id="安装-Python-脚本中所需要使用到的库"><a href="#安装-Python-脚本中所需要使用到的库" class="headerlink" title="安装 Python 脚本中所需要使用到的库"></a>安装 Python 脚本中所需要使用到的库</h2><p>OpenWRT 自带了 python 和 pip，这让我很欣慰。直接使用 pip 安装 flask 和 xlrd 等库即可，完全没有难度。</p>
+<h2 id="运行-SignServer"><a href="#运行-SignServer" class="headerlink" title="运行 SignServer"></a>运行 SignServer</h2><p>这一步很简单，将原项目的 Release 下载下来解压后上传到 OpenWRT 的某个路径后，开个 screen 窗口，设置好 JAVA_HOME 变量后再去调用 SignServer 中自带的 shell 脚本即可</p>
+<h2 id="运行-go-cqhttp"><a href="#运行-go-cqhttp" class="headerlink" title="运行 go-cqhttp"></a>运行 go-cqhttp</h2><p>这一步也很简单，得益于 go 静态链接的特性，我们不需要为 go-cqhttp 安装任何额外的依赖就可以执行 Release 中的二进制文件，直接将我们在 PC 上登录好的 session、配置好的 device.json、config.yml 等文件上传到 N1 ，开个 screen 窗口运行即可。</p>
+<h2 id="运行主程序"><a href="#运行主程序" class="headerlink" title="运行主程序"></a>运行主程序</h2><p>这个没什么好讲的，同样是开个 screen 窗口运行 <code>python main.py</code> 的事情</p>
+<p>python 代码如下:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> flask <span class="hljs-keyword">import</span> Flask,request<br><span class="hljs-keyword">import</span> requests<br><span class="hljs-keyword">import</span> xlrd<br><br><span class="hljs-comment"># 读取 xls 中的关键词以及回应语句，将其加载到 dict 数据结构中</span><br>_data2 = xlrd.open_workbook(<span class="hljs-string">&#x27;/root/8yue222.xls&#x27;</span>)<br>main_table2 = _data2.sheets()[<span class="hljs-number">0</span>]<br>key_lst2 = main_table2.col_values(<span class="hljs-number">0</span>)[<span class="hljs-number">1</span>:]<br>value_lst2 = main_table2.col_values(<span class="hljs-number">1</span>)[<span class="hljs-number">1</span>:]<br>final_dict = <span class="hljs-built_in">dict</span>(<span class="hljs-built_in">zip</span>(key_lst2,value_lst2))<br><span class="hljs-comment"># 读取第二份 xls，并对相同的关键词做覆盖</span><br>_data = xlrd.open_workbook(<span class="hljs-string">&#x27;/root/daihao.xls&#x27;</span>)<br>main_table = _data.sheets()[<span class="hljs-number">0</span>]<br>key_lst = main_table.col_values(<span class="hljs-number">4</span>)[<span class="hljs-number">1</span>:]<br>key_lst = [<span class="hljs-built_in">str</span>(<span class="hljs-built_in">int</span>(item)) <span class="hljs-keyword">if</span> <span class="hljs-built_in">type</span>(item) == <span class="hljs-built_in">float</span> <span class="hljs-keyword">else</span> item <span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> key_lst <span class="hljs-keyword">if</span> item != <span class="hljs-string">&#x27;&#x27;</span>]<br>key_lst.remove(<span class="hljs-string">&#x27;Gary&#x27;</span>)<br>value_lst = main_table.col_values(<span class="hljs-number">5</span>)[<span class="hljs-number">1</span>:]<br>value_lst = [<span class="hljs-built_in">str</span>(<span class="hljs-built_in">int</span>(item)) <span class="hljs-keyword">if</span> <span class="hljs-built_in">type</span>(item) == <span class="hljs-built_in">float</span> <span class="hljs-keyword">else</span> item <span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> value_lst <span class="hljs-keyword">if</span> item != <span class="hljs-string">&#x27;&#x27;</span>]<br>final_dict.update(<span class="hljs-built_in">dict</span>(<span class="hljs-built_in">zip</span>(key_lst,value_lst)))<br><br>app = Flask(__name__)<br><span class="hljs-keyword">class</span> <span class="hljs-title class_">API</span>:<br><span class="hljs-meta">        @staticmethod</span><br>        <span class="hljs-keyword">def</span> <span class="hljs-title function_">send</span>(<span class="hljs-params">message</span>):<br>                url = <span class="hljs-string">&quot;http://127.0.0.1:5700/send_msg&quot;</span><br>                data = request.get_json()<br>                params = &#123;<br>                        <span class="hljs-string">&quot;group_id&quot;</span>:data[<span class="hljs-string">&#x27;group_id&#x27;</span>],<br>                        <span class="hljs-string">&quot;message&quot;</span>:message<br>                &#125;<br>                requests.get(url,params=params)<br><br><span class="hljs-meta">@app.route(<span class="hljs-params"><span class="hljs-string">&#x27;/&#x27;</span>, methods=[<span class="hljs-string">&quot;POST&quot;</span>]</span>)</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">post_data</span>():<br>    data = request.get_json()<br>    <span class="hljs-built_in">print</span>(data)<br>    <span class="hljs-keyword">if</span> data[<span class="hljs-string">&#x27;post_type&#x27;</span>] == <span class="hljs-string">&#x27;message&#x27;</span>:<br>        message = data[<span class="hljs-string">&#x27;message&#x27;</span>]<br>        messagex()<br>    <span class="hljs-keyword">elif</span> data[<span class="hljs-string">&#x27;post_type&#x27;</span>] == <span class="hljs-string">&#x27;notice&#x27;</span> <span class="hljs-keyword">and</span> data[<span class="hljs-string">&#x27;notice_type&#x27;</span>] == <span class="hljs-string">&#x27;group_increase&#x27;</span>:<br>        welcome()<br>    <span class="hljs-keyword">else</span>:<br>        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;忽略消息&quot;</span>)<br><br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;OK&quot;</span><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">messagex</span>():<br>        data = request.get_json()<br>        message = data[<span class="hljs-string">&#x27;message&#x27;</span>].replace(<span class="hljs-string">&#x27;％&#x27;</span>,<span class="hljs-string">&#x27;%&#x27;</span>)<br>        <span class="hljs-keyword">for</span> key <span class="hljs-keyword">in</span> final_dict.keys():<br>                <span class="hljs-keyword">if</span> key == message:<br>                        API.send(final_dict[key])<br>                        <span class="hljs-keyword">break</span><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">welcome</span>():<br>        data = request.get_json()<br>        group_id = data[<span class="hljs-string">&#x27;group_id&#x27;</span>]<br>        user_id = data[<span class="hljs-string">&#x27;user_id&#x27;</span>]<br>        API.send(<span class="hljs-string">&quot;[CQ:at,qq=&#123;&#125;] 欢迎来到浙江工业大学，精弘网络欢迎各位的到来！如果想进一步了解我们，请戳精弘首页：www.jh.zjut.edu.cn\n输入 菜单 获取精小弘机器人的菜单 哦！\n请及时修改群名片\n格式如下：姓名+专业/大类&quot;</span>.<span class="hljs-built_in">format</span>(user_id))<br><br><span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:<br>    app.run(host=<span class="hljs-string">&#x27;0.0.0.0&#x27;</span>, port=<span class="hljs-number">5701</span>)<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p> 参考资料: </p>
+<p><a target="_blank" rel="noopener" href="https://gist.github.com/simonswine/64773a80e748f36615e3251234f29d1d">https://gist.github.com/simonswine/64773a80e748f36615e3251234f29d1d</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_64126275/article/details/128586651">https://blog.csdn.net/qq_64126275/article/details/128586651</a></p>
+</blockquote>
 
                 
               </div>
@@ -354,7 +355,11 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Azure/">#Azure</a>
+        <a href="/tags/Linux/">#Linux</a>
+      
+        <a href="/tags/Network/">#Network</a>
+      
+        <a href="/tags/QQ-Bot/">#QQ Bot</a>
       
     </div>
   
@@ -366,8 +371,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Azure 教育订阅申请时遇到的麻烦</div>
-      <div>https://zhul.in/2023/05/12/troubles-when-applying-azure-education/</div>
+      <div>在运行OpenWRT的N1盒子上部署 QQBot</div>
+      <div>https://zhul.in/2023/07/31/run-qq-bot-on-phicomm-n1-openwrt/</div>
     </div>
     <div class="license-meta">
       
@@ -379,13 +384,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年5月12日</div>
+          <div>2023年7月31日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2023年5月13日</div>
+          <div>2023年7月31日</div>
         </div>
       
       
@@ -428,18 +433,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/06/24/redmi-ac2100-router-with-padavan/" title="为红米 Redmi AC2100 路由器刷入 Padavan">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">为红米 Redmi AC2100 路由器刷入 Padavan</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/05/03/checkout-lfs-file-after-repo-sync/" title="执行 repo sync 后将 git-lfs 中的资源文件 checkout">
-                        <span class="hidden-mobile">执行 repo sync 后将 git-lfs 中的资源文件 checkout</span>
+                      <a href="/2023/06/24/connect-china-mobile-with-router-in-zjut-dormitory/" title="在浙工大宿舍使用路由器连接移动网络(校园网)">
+                        <span class="hidden-mobile">在浙工大宿舍使用路由器连接移动网络(校园网)</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
