@@ -46,7 +46,7 @@ opkg install screen
 
 ## 下载 fixed 版本的 go-cqhttp
 
-由于 SignServer 更新，在其请求中多添加了 key 的参数要求，导致原版 go-cqhttp 的最新 release 中释出的二进制文件无法适配最新版的 SignServer，我暂时选用了一个[修复了这个问题的 fork](https://openwrt.org/packages/pkgdata/screen) 去运行 Bot。下载到 OpenWRT 后记得也要授予可执行文件。
+由于 SignServer 更新，在其请求中多添加了 key 的参数要求，导致原版 go-cqhttp 的最新 release 中释出的二进制文件无法适配最新版的 SignServer，我暂时选用了一个[修复了这个问题的 fork](https://github.com/tomato-aoarasi/go-cqhttp-1.1.0-sign-fixed/) 去运行 Bot。下载到 OpenWRT 后记得也要授予可执行文件。
 
 ## 安装 Python 脚本中所需要使用到的库
 
