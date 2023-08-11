@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://bu.dusays.com/2023/08/10/64d4e3ca6aa29.png">
 <meta property="og:image" content="https://bu.dusays.com/2023/08/10/64d4e4e5b1e68.png">
 <meta property="article:published_time" content="2023-08-03T17:19:22.000Z">
-<meta property="article:modified_time" content="2023-08-10T21:04:34.000Z">
+<meta property="article:modified_time" content="2023-08-11T20:17:40.000Z">
 <meta property="article:author" content="竹林里有冰">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="Network">
@@ -265,7 +265,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          6.7k 字
+          7.9k 字
         
       </span>
     
@@ -277,7 +277,7 @@
         
         
           <!-- compatible with older versions-->
-          34 分钟
+          40 分钟
         
       </span>
     
@@ -321,7 +321,7 @@
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2023年8月11日 凌晨
+                    本文最后更新于：2023年8月12日 凌晨
                   
                 
               </p>
@@ -341,6 +341,7 @@
 <h2 id="关于备案"><a href="#关于备案" class="headerlink" title="关于备案"></a>关于备案</h2><h3 id="不备案的影响"><a href="#不备案的影响" class="headerlink" title="不备案的影响"></a>不备案的影响</h3><p>当你通过域名去访问境内服务器的 80 (http 默认端口) 和 443 (https 默认端口)时，如果该域名没有备案或者境内这台云服务器的云服务器商不知道你在别的服务商那里有备案的情况下，则会对请求进行拦截。对于访问 80 的请求，将会直接劫持 http 请求以重定向到他们的备案提示页面；对于访问 443 的请求，由于 https 没法被劫持，则会通过连接重置的方式阻止你访问。如果你确定你需要使用中国大陆境内的云服务器，应当采取「备案」和「接入备案」两种方式分别解决上述两种情况。</p>
 <h3 id="备案方法"><a href="#备案方法" class="headerlink" title="备案方法"></a>备案方法</h3><p>每个省都有自己对应的管局，而各省的管局对于备案的规则都有些差异，而个人备案一般是找自己户籍所在地的管局去备案，详细的可以看<a target="_blank" rel="noopener" href="https://help.aliyun.com/zh/icp-filing/user-guide/icp-filing-regulations-of-the-miit-for-different-regions">阿里云写的文档</a>。</p>
 <h3 id="使用中国大陆境外的云服务器"><a href="#使用中国大陆境外的云服务器" class="headerlink" title="使用中国大陆境外的云服务器"></a>使用中国大陆境外的云服务器</h3><p>可以选择和我一样去中国大陆以外的地区部署云服务，但由于众所周知的原因，访问别的国家或地区的服务器可能会有速度慢、延迟高等问题，这涉及到线路优化，也比较复杂。更糟糕的情况是，你甚至有可能刚开出来一台机子就发现这个 ip 在中国大陆境内是无法访问到的，这也是比较尴尬的地方。一般来说，可以选择在境内的云服务器商那里实名认证（不是备案）去购买他们的境外服务器（比如 ucloud 新用户优惠的香港云服务器，<del>ucloud 的客户经理看到了能不能再送我一台机子啊</del>），这种机子是线路相对比较好的。</p>
+<p>选购中国大陆境外的云服务器时，厂商可能会提供测试 ip 来帮助你判断线路质量，可以使用 ipip.net 提供的 <a target="_blank" rel="noopener" href="https://www.ipip.net/product/client.html">besttrace</a> 程序来查看数据包经过的地方，很可能你买一台香港的服务器，数据却要从日本或者美国绕一圈，这就非常尴尬。</p>
 <h2 id="域名部分"><a href="#域名部分" class="headerlink" title="域名部分"></a>域名部分</h2><h3 id="域名注册"><a href="#域名注册" class="headerlink" title="域名注册"></a>域名注册</h3><p>要获得一个域名，最简单的方式是花钱。境内的阿里云、腾讯云、华为云等几家比较有名的云服务器厂商均有域名注册的业务且价格基本差距不大，可以随便找一个注册。而境外的域名注册商，我这边个人推荐 namesilo，这家支持支付宝付款且价格尚可，首次购买前可以去搜索引擎搜一搜近期的优惠码，可能会有一些优惠折扣。（可恶我没有拿到 aff 回扣）</p>
 <h3 id="域名解析"><a href="#域名解析" class="headerlink" title="域名解析"></a>域名解析</h3><h4 id="域名解析的作用"><a href="#域名解析的作用" class="headerlink" title="域名解析的作用"></a>域名解析的作用</h4><p>如果你了解了 dns 的作用，那我们可以来简单讲讲域名解析是干什么的。dns 服务器将会告诉用户的设备某一个域名它对应的 ip 是多少，而域名解析这一步就是告诉世界上所有的 dns 服务器这个域名从此刻开始对应的 ip 是多少，以便世界上所有的 dns 服务器向网民在需要时告知他们正确的 ip 地址。</p>
 <p>要实现这一步骤并不复杂，作为初学者我们也不必去担心会不会有人把你花钱买来的域名指向错误的 ip 地址，这些都交给域名解析服务去解决。几乎每一家提供的域名解析服务页面上都会指导你去将域名的 NameServer 设置为他们家的服务器，这里也不做教学。</p>
@@ -458,8 +459,8 @@
 
 <p>dist/ 表示我想要上传当前路径下的 dist 文件夹下的所有文件</p>
 <p>root@<your_server_ip> 这一段和前面的 ssh 与 sftp 一样，都表示用户名和对应的服务器 ip，</p>
-<p><code>:var/www/jh</code> 表示文件将被上传到服务器的这个路径下</p>
-<blockquote>
+<p><code>:var/www/jh</code> 表示文件将被上传到服务器的这个路径下。</p>
+<p>以下是 rsync 的一些常用参数：</p>
 <ul>
 <li><p><code>-a</code>：以归档模式进行同步，即保持文件的所有属性（如权限、属主、属组、时间戳等）。</p>
 </li>
@@ -475,11 +476,54 @@
 <li><code>--progress</code>选项表示显示文件传输的进度信息，包括已经传输的字节数、传输速度和估计剩余时间等。</li>
 </ul>
 <p>使用<code>-P</code>选项可以方便地同时启用这两个选项，以便在文件传输期间显示进度信息，并在中断后继续传输。</p>
-<p>——节选自 chatgpt 的回答，内容准确性经过本人认可</p>
 </li>
 </ul>
-</blockquote>
-<h2 id="附-其他相关的一些操作技巧（还没写完，等我填坑）"><a href="#附-其他相关的一些操作技巧（还没写完，等我填坑）" class="headerlink" title="附 : 其他相关的一些操作技巧（还没写完，等我填坑）"></a>附 : 其他相关的一些操作技巧（还没写完，等我填坑）</h2><h3 id="Linux-常用命令"><a href="#Linux-常用命令" class="headerlink" title="Linux 常用命令"></a>Linux 常用命令</h3><h3 id="使用-ssh-copy-id-将本地的-ssh-公钥复制到服务器上"><a href="#使用-ssh-copy-id-将本地的-ssh-公钥复制到服务器上" class="headerlink" title="使用 ssh-copy-id 将本地的 ssh 公钥复制到服务器上"></a>使用 ssh-copy-id 将本地的 ssh 公钥复制到服务器上</h3><h3 id="常用的一些debug手段"><a href="#常用的一些debug手段" class="headerlink" title="常用的一些debug手段"></a>常用的一些debug手段</h3><h3 id="配置-sshd-以加强服务器的安全性"><a href="#配置-sshd-以加强服务器的安全性" class="headerlink" title="配置 sshd 以加强服务器的安全性"></a>配置 sshd 以加强服务器的安全性</h3><h3 id="包管理器是什么"><a href="#包管理器是什么" class="headerlink" title="包管理器是什么"></a>包管理器是什么</h3><h3 id="systemd-的作用与使用方法"><a href="#systemd-的作用与使用方法" class="headerlink" title="systemd 的作用与使用方法"></a>systemd 的作用与使用方法</h3><h3 id="防火墙的配置"><a href="#防火墙的配置" class="headerlink" title="防火墙的配置"></a>防火墙的配置</h3>
+<h2 id="附-其他相关的一些操作技巧（还没写完，等我填坑）"><a href="#附-其他相关的一些操作技巧（还没写完，等我填坑）" class="headerlink" title="附 : 其他相关的一些操作技巧（还没写完，等我填坑）"></a>附 : 其他相关的一些操作技巧（还没写完，等我填坑）</h2><h3 id="Linux-常用命令"><a href="#Linux-常用命令" class="headerlink" title="Linux 常用命令"></a>Linux 常用命令</h3><h3 id="使用-ssh-copy-id-将本地的-ssh-公钥复制到服务器上"><a href="#使用-ssh-copy-id-将本地的-ssh-公钥复制到服务器上" class="headerlink" title="使用 ssh-copy-id 将本地的 ssh 公钥复制到服务器上"></a>使用 ssh-copy-id 将本地的 ssh 公钥复制到服务器上</h3><h3 id="常用的一些debug手段"><a href="#常用的一些debug手段" class="headerlink" title="常用的一些debug手段"></a>常用的一些debug手段</h3><h3 id="配置-sshd-以加强服务器的安全性"><a href="#配置-sshd-以加强服务器的安全性" class="headerlink" title="配置 sshd 以加强服务器的安全性"></a>配置 sshd 以加强服务器的安全性</h3><h3 id="包管理器是什么"><a href="#包管理器是什么" class="headerlink" title="包管理器是什么"></a>包管理器是什么</h3><h3 id="systemd-的作用与使用方法"><a href="#systemd-的作用与使用方法" class="headerlink" title="systemd 的作用与使用方法"></a>systemd 的作用与使用方法</h3><p>systemd 是一个用于管理 Linux 系统的服务管理器和初始化系统。</p>
+<h4 id="使用-systemctl-命令管理服务状态"><a href="#使用-systemctl-命令管理服务状态" class="headerlink" title="使用 systemctl 命令管理服务状态"></a>使用 systemctl 命令管理服务状态</h4><p>在我们静态网页部署这一块，我们主要用 <code>systemctl</code> 命令去管理一些服务的状态，比如我们想要将 caddy 设置为开机自启，这样我们即使重启了服务器，caddy 也能自动开始提供服务。</p>
+<p>以下是一些常见的 <code>systemctl</code> 命令：</p>
+<ul>
+<li><code>systemctl start</code>：启动服务。</li>
+<li><code>systemctl stop</code>：停止服务。</li>
+<li><code>systemctl restart</code>：重新启动服务。</li>
+<li><code>systemctl status</code>：查看服务的状态。</li>
+<li><code>systemctl enable</code>：使服务在启动时自动启动。</li>
+<li><code>systemctl disable</code>：使服务在启动时不自动启动。</li>
+</ul>
+<h4 id="使用-journalctl-命令来查看日志消息"><a href="#使用-journalctl-命令来查看日志消息" class="headerlink" title="使用 journalctl 命令来查看日志消息"></a>使用 journalctl 命令来查看日志消息</h4><p>在服务出现问题的时候，我们可以通过 <code>systemctl</code> 命令去查看服务在运行过程中留下的日志消息，方便我们去排错。</p>
+<p>以下是一些常见的 <code>journalctl</code> 命令：</p>
+<ul>
+<li><code>journalctl -b</code>: 显示当前系统日志。</li>
+<li><code>journalctl -b -1</code>: 显示最近一条系统日志。</li>
+<li><code>journalctl -b -10</code>: 显示最近 10 条系统日志。</li>
+<li><code>journalctl -u &lt;unit&gt;</code>: 显示指定单元的日志。</li>
+<li><code>journalctl -u &lt;unit&gt; -b</code>: 显示指定单元的最近系统日志。</li>
+<li><code>journalctl -u &lt;unit&gt; -b -1</code>: 显示指定单元的最近一条系统日志。</li>
+<li><code>journalctl -u &lt;unit&gt; -b -10</code>: 显示指定单元的最近 10 条系统日志。</li>
+</ul>
+<p>还可以使用 <code>journalctl</code> 命令来导出日志消息到文件。例如，以下命令将当前系统日志导出到 <code>/home/user/journal.log</code> 文件：</p>
+<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arcade">journalctl &gt; <span class="hljs-regexp">/home/u</span>ser/journal.<span class="hljs-built_in">log</span><br></code></pre></td></tr></table></figure>
+
+<h3 id="防火墙的配置"><a href="#防火墙的配置" class="headerlink" title="防火墙的配置"></a>防火墙的配置</h3><p>关于防火墙，iptables 是 Linux 系统中最早使用的防火墙工具，它基于内核模块来过滤网络数据包。nftables 是 iptables 的继任者，与 iptables 相比，nftables 更简单易用，同时性能也更好。</p>
+<p>但我这边想要推荐的是 ufw，他是 iptables 的一个前端，它提供一个更简单、更易于使用的命令行界面。UFW 基于 iptables 来实现其功能，但它不被用来直接使用 iptables 命令。UFW 使用自己的命令来配置防火墙，这些命令被转换为 iptables 命令并执行。</p>
+<p>查看 ufw 状态</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo ufw status<br></code></pre></td></tr></table></figure>
+
+<p>禁用所有端口</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo ufw deny all<br></code></pre></td></tr></table></figure>
+
+<p>开放 22 端口(ssh 的默认端口，禁用可能导致服务器失联)</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo ufw allow 22<br></code></pre></td></tr></table></figure>
+
+<p>开放 80 端口</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo ufw allow 80<br></code></pre></td></tr></table></figure>
+
+<p>开放 443 端口</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo ufw allow 443<br></code></pre></td></tr></table></figure>
+
+<p>启用 ufw</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo ufw <span class="hljs-built_in">enable</span><br></code></pre></td></tr></table></figure>
+
+
                 
               </div>
             
@@ -528,7 +572,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2023年8月11日</div>
+          <div>2023年8月12日</div>
         </div>
       
       
