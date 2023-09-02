@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zhul.in/2023/09/02/python-selenium-start-difficult-in-china-mainland/</loc>
+    
+    <lastmod>2023-09-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zhul.in/2023/08/04/static-webpage-deployment-for-a-beginner/</loc>
     
     <lastmod>2023-08-11</lastmod>
@@ -688,7 +697,7 @@
 
   <url>
     <loc>https://zhul.in/</loc>
-    <lastmod>2023-08-11</lastmod>
+    <lastmod>2023-09-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -696,287 +705,301 @@
   
   <url>
     <loc>https://zhul.in/tags/Android/</loc>
-    <lastmod>2023-08-11</lastmod>
+    <lastmod>2023-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/Rom%E7%BC%96%E8%AF%91/</loc>
-    <lastmod>2023-08-11</lastmod>
+    <lastmod>2023-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/Linux/</loc>
-    <lastmod>2023-08-11</lastmod>
+    <lastmod>2023-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/Rom/</loc>
-    <lastmod>2023-08-11</lastmod>
+    <lastmod>2023-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/%E5%A4%A7%E4%BD%AC%E5%AF%B9%E8%AF%9D%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2023-08-11</lastmod>
+    <lastmod>2023-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/deepin/</loc>
-    <lastmod>2023-08-11</lastmod>
+    <lastmod>2023-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2023-08-11</lastmod>
+    <lastmod>2023-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/%E7%BF%BB%E8%AF%91/</loc>
-    <lastmod>2023-08-11</lastmod>
+    <lastmod>2023-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/Z-Library/</loc>
-    <lastmod>2023-08-11</lastmod>
+    <lastmod>2023-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/Fedora/</loc>
-    <lastmod>2023-08-11</lastmod>
+    <lastmod>2023-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/nodejs/</loc>
-    <lastmod>2023-08-11</lastmod>
+    <lastmod>2023-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/openssl/</loc>
-    <lastmod>2023-08-11</lastmod>
+    <lastmod>2023-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/Archlinux/</loc>
-    <lastmod>2023-08-11</lastmod>
+    <lastmod>2023-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/Firefox/</loc>
-    <lastmod>2023-08-11</lastmod>
+    <lastmod>2023-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/Bwrap/</loc>
-    <lastmod>2023-08-11</lastmod>
+    <lastmod>2023-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/RPM-Package/</loc>
-    <lastmod>2023-08-11</lastmod>
+    <lastmod>2023-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/Fun/</loc>
-    <lastmod>2023-08-11</lastmod>
+    <lastmod>2023-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/%E9%95%9C%E5%83%8F%E7%AB%99/</loc>
-    <lastmod>2023-08-11</lastmod>
+    <lastmod>2023-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/Network/</loc>
-    <lastmod>2023-08-11</lastmod>
+    <lastmod>2023-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/Router/</loc>
-    <lastmod>2023-08-11</lastmod>
+    <lastmod>2023-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/OpenSource-Project/</loc>
-    <lastmod>2023-08-11</lastmod>
+    <lastmod>2023-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/siteproxy/</loc>
-    <lastmod>2023-08-11</lastmod>
+    <lastmod>2023-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/Caddy/</loc>
-    <lastmod>2023-08-11</lastmod>
+    <lastmod>2023-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/electron/</loc>
-    <lastmod>2023-08-11</lastmod>
+    <lastmod>2023-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/Python/</loc>
-    <lastmod>2023-08-11</lastmod>
+    <lastmod>2023-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/Experience/</loc>
-    <lastmod>2023-08-11</lastmod>
+    <lastmod>2023-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/KDE/</loc>
-    <lastmod>2023-08-11</lastmod>
+    <lastmod>2023-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/umami/</loc>
-    <lastmod>2023-08-11</lastmod>
+    <lastmod>2023-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/Github-Action/</loc>
-    <lastmod>2023-08-11</lastmod>
+    <lastmod>2023-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/OneDrive/</loc>
-    <lastmod>2023-08-11</lastmod>
+    <lastmod>2023-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/PicUploader/</loc>
-    <lastmod>2023-08-11</lastmod>
+    <lastmod>2023-09-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/python/</loc>
+    <lastmod>2023-09-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/selenium/</loc>
+    <lastmod>2023-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/QQ-Bot/</loc>
-    <lastmod>2023-08-11</lastmod>
+    <lastmod>2023-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/Windows/</loc>
-    <lastmod>2023-08-11</lastmod>
+    <lastmod>2023-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/Vue-js/</loc>
-    <lastmod>2023-08-11</lastmod>
+    <lastmod>2023-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/Azure/</loc>
-    <lastmod>2023-08-11</lastmod>
+    <lastmod>2023-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/Casual-Talk/</loc>
-    <lastmod>2023-08-11</lastmod>
+    <lastmod>2023-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/Shell-Script/</loc>
-    <lastmod>2023-08-11</lastmod>
+    <lastmod>2023-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/%E5%9B%BE%E5%BA%8A/</loc>
-    <lastmod>2023-08-11</lastmod>
+    <lastmod>2023-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/Lsky-Pro/</loc>
-    <lastmod>2023-08-11</lastmod>
+    <lastmod>2023-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/Hardware/</loc>
-    <lastmod>2023-08-11</lastmod>
+    <lastmod>2023-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/Waydroid/</loc>
-    <lastmod>2023-08-11</lastmod>
+    <lastmod>2023-09-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
