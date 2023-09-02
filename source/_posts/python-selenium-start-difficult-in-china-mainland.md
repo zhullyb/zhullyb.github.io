@@ -9,7 +9,7 @@ tags:
 - Linux 
 ---
 
-之前因为学校社团迎新的需求，就临时写了一个 QQ Bot，最近又给 bot 加上了 [/q 的功能](/q 的功能)，原理是通过 python 的 selenium 去启动一个 headless Firefox 去截由 jinja2 模板引擎生成的 html 的图。
+之前因为学校社团迎新的需求，就临时写了一个 QQ Bot，最近又给 bot 加上了 [/q 的功能](https://github.com/zhullyb/qq-quote-generator)，原理是通过 python 的 selenium 去启动一个 headless Firefox 去截由 jinja2 模板引擎生成的 html 的图。
 
 每次这个 bot 重启的时候都因为 selenium 而需要花费好几秒的时间，甚至经常概率性启动失败。我就寻思者应该把这个图片生成的 generator 从 bot 中抽出来，这样就不至于每次重启 bot 都要遭此一劫。但就在我将 generator 打包成 docker 部署上云服务器的时候，发现居然无法启动。于是手动进 docker 的 shell 开 python 的交互式终端，发现在创建 firefox 的 webdriver 对象的时候异常缓慢，等了半分钟以后蹲到一个报错如下:
 
