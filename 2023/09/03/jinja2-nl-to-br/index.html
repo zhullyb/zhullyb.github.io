@@ -18,24 +18,25 @@
   <meta name="author" content="竹林里有冰">
   <meta name="keywords" content="博客, 技术, Fedora">
   
-    <meta name="description" content="之前因为学校社团迎新的需求，就临时写了一个 QQ Bot，最近又给 bot 加上了 &#x2F;q 的功能，原理是通过 python 的 selenium 去启动一个 headless Firefox 去截由 jinja2 模板引擎生成的 html 的图。 每次这个 bot 重启的时候都因为 selenium 而需要花费好几秒的时间，甚至经常概率性启动失败。我就寻思者应该把这个图片生成的 generator">
+    <meta name="description" content="在使用 python 的 jinja2 模板引擎生成 html 的时候，会遇到 \n 换行符无法被正常换行的问题。我本能的想法就是将 \n 替换成 html 标签 &lt;br &#x2F;&gt;，但失败了，jinja2 有自动转义的功能，直接将标签原模原样地渲染了出来，并没有生效。而为这一段代码块关闭自动转义则会有被 js 注入的风险，因此这也不是上策。 在 jinja2 的官方文档中，提出了使用 fi">
 <meta property="og:type" content="article">
-<meta property="og:title" content="手动指定 python-selenium 的 driver path 以解决在中国大陆网络环境下启动卡住的问题">
-<meta property="og:url" content="https://zhul.in/2023/09/02/python-selenium-start-difficult-in-china-mainland/index.html">
+<meta property="og:title" content="jinja2 中如何优雅地实现换行">
+<meta property="og:url" content="https://zhul.in/2023/09/03/jinja2-nl-to-br/index.html">
 <meta property="og:site_name" content="竹林里有冰的博客">
-<meta property="og:description" content="之前因为学校社团迎新的需求，就临时写了一个 QQ Bot，最近又给 bot 加上了 &#x2F;q 的功能，原理是通过 python 的 selenium 去启动一个 headless Firefox 去截由 jinja2 模板引擎生成的 html 的图。 每次这个 bot 重启的时候都因为 selenium 而需要花费好几秒的时间，甚至经常概率性启动失败。我就寻思者应该把这个图片生成的 generator">
+<meta property="og:description" content="在使用 python 的 jinja2 模板引擎生成 html 的时候，会遇到 \n 换行符无法被正常换行的问题。我本能的想法就是将 \n 替换成 html 标签 &lt;br &#x2F;&gt;，但失败了，jinja2 有自动转义的功能，直接将标签原模原样地渲染了出来，并没有生效。而为这一段代码块关闭自动转义则会有被 js 注入的风险，因此这也不是上策。 在 jinja2 的官方文档中，提出了使用 fi">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-09-01T17:59:18.000Z">
-<meta property="article:modified_time" content="2023-09-02T00:25:50.000Z">
+<meta property="article:published_time" content="2023-09-03T05:37:35.000Z">
+<meta property="article:modified_time" content="2023-09-02T16:52:51.000Z">
 <meta property="article:author" content="竹林里有冰">
 <meta property="article:tag" content="Linux">
-<meta property="article:tag" content="python">
-<meta property="article:tag" content="selenium">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="jinja2">
+<meta property="article:tag" content="CSS">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>手动指定 python-selenium 的 driver path 以解决在中国大陆网络环境下启动卡住的问题 - 竹林里有冰的博客</title>
+  <title>jinja2 中如何优雅地实现换行 - 竹林里有冰的博客</title>
 
   <link  rel="stylesheet" href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/4.6.0/css/bootstrap.min.css" />
 
@@ -234,7 +235,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="手动指定 python-selenium 的 driver path 以解决在中国大陆网络环境下启动卡住的问题"></span>
+            <span id="subtitle" data-typed-text="jinja2 中如何优雅地实现换行"></span>
           
         </div>
 
@@ -245,8 +246,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-09-02 01:59" pubdate>
-          2023年9月2日 凌晨
+        <time datetime="2023-09-03 13:37" pubdate>
+          2023年9月3日 下午
         </time>
       </span>
     
@@ -258,7 +259,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          3.5k 字
+          1.1k 字
         
       </span>
     
@@ -270,7 +271,7 @@
         
         
           <!-- compatible with older versions-->
-          18 分钟
+          6 分钟
         
       </span>
     
@@ -308,13 +309,13 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">手动指定 python-selenium 的 driver path 以解决在中国大陆网络环境下启动卡住的问题</h1>
+            <h1 style="display: none">jinja2 中如何优雅地实现换行</h1>
             
               <p class="note note-info">
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2023年9月2日 早上
+                    本文最后更新于：2023年9月3日 凌晨
                   
                 
               </p>
@@ -322,24 +323,15 @@
             
               <div class="markdown-body">
                 
-                <p>之前因为学校社团迎新的需求，就临时写了一个 QQ Bot，最近又给 bot 加上了 <a target="_blank" rel="noopener" href="https://github.com/zhullyb/qq-quote-generator">/q 的功能</a>，原理是通过 python 的 selenium 去启动一个 headless Firefox 去截由 jinja2 模板引擎生成的 html 的图。</p>
-<p>每次这个 bot 重启的时候都因为 selenium 而需要花费好几秒的时间，甚至经常概率性启动失败。我就寻思者应该把这个图片生成的 generator 从 bot 中抽出来，这样就不至于每次重启 bot 都要遭此一劫。但就在我将 generator 打包成 docker 部署上云服务器的时候，发现居然无法启动。于是手动进 docker 的 shell 开 python 的交互式终端，发现在创建 firefox 的 webdriver 对象的时候异常缓慢，等了半分钟以后蹲到一个报错如下:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs pyth">Traceback (most recent call last):<br>  File &quot;/usr/local/lib/python3.11/site-packages/selenium/webdriver/common/driver_finder.py&quot;, line 38, in get_path<br>    path = SeleniumManager().driver_location(options) if path is None else path<br>           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^<br>  File &quot;/usr/local/lib/python3.11/site-packages/selenium/webdriver/common/selenium_manager.py&quot;, line 95, in driver_location<br>    output = self.run(args)<br>             ^^^^^^^^^^^^^^<br>  File &quot;/usr/local/lib/python3.11/site-packages/selenium/webdriver/common/selenium_manager.py&quot;, line 141, in run<br>    raise WebDriverException(f&quot;Unsuccessful command executed: &#123;command&#125;.\n&#123;result&#125;&#123;stderr&#125;&quot;)<br>selenium.common.exceptions.WebDriverException: Message: Unsuccessful command executed: /usr/local/lib/python3.11/site-packages/selenium/webdriver/common/linux/selenium-manager --browser firefox --output json.<br>&#123;&#x27;code&#x27;: 65, &#x27;message&#x27;: &#x27;error sending request for url (https://github.com/mozilla/geckodriver/releases/latest): connection error: unexpected end of file&#x27;, &#x27;driver_path&#x27;: &#x27;&#x27;, &#x27;browser_path&#x27;: &#x27;&#x27;&#125;<br><br><br>The above exception was the direct cause of the following exception:<br><br>Traceback (most recent call last):<br>  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;<br>  File &quot;/usr/local/lib/python3.11/site-packages/selenium/webdriver/firefox/webdriver.py&quot;, line 59, in __init__<br>    self.service.path = DriverFinder.get_path(self.service, options)<br>                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^<br>  File &quot;/usr/local/lib/python3.11/site-packages/selenium/webdriver/common/driver_finder.py&quot;, line 41, in get_path<br>    raise NoSuchDriverException(msg) from err<br>selenium.common.exceptions.NoSuchDriverException: Message: Unable to obtain driver for firefox using Selenium Manager.; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location<br></code></pre></td></tr></table></figure>
-
-<p>我才发现 selenium 试图访问 <a target="_blank" rel="noopener" href="https://github.com/mozilla/geckodriver/releases/latest">https://github.com/mozilla/geckodriver/releases/latest</a> 且访问失败了。仔细阅读了 selenium 项目的文档发现新版本的 selenium 会尝试自动下载 webdriver:</p>
+                <p>在使用 python 的 jinja2 模板引擎生成 html 的时候，会遇到 <code>\n</code> 换行符无法被正常换行的问题。我本能的想法就是将 <code>\n</code> 替换成 html 标签 &lt;br /&gt;，但失败了，jinja2 有自动转义的功能，直接将标签原模原样地渲染了出来，并没有生效。而为这一段代码块关闭自动转义则会有被 js 注入的风险，因此这也不是上策。</p>
+<p>在 jinja2 的官方文档中，提出了使用 filter 的方案。也就是说，filter 将 <code>\n</code> 识别出来，并自动替换成 &lt;br /&gt; 标签，并且使用 Markup 函数将这一段 html 文本标记成安全且无需转义的。见: <a target="_blank" rel="noopener" href="https://jinja.palletsprojects.com/en/3.1.x/api/#custom-filters">https://jinja.palletsprojects.com/en/3.1.x/api/#custom-filters</a></p>
 <blockquote>
-<p>As of Selenium 4.6, Selenium downloads the correct driver for you. You shouldn’t need to do anything.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> re<br><span class="hljs-keyword">from</span> jinja2 <span class="hljs-keyword">import</span> pass_eval_context<br><span class="hljs-keyword">from</span> markupsafe <span class="hljs-keyword">import</span> Markup, escape<br><br><span class="hljs-meta">@pass_eval_context</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">nl2br</span>(<span class="hljs-params">eval_ctx, value</span>):<br>    br = <span class="hljs-string">&quot;&lt;br&gt;\n&quot;</span><br><br>    <span class="hljs-keyword">if</span> eval_ctx.autoescape:<br>        value = escape(value)<br>        br = Markup(br)<br><br>    result = <span class="hljs-string">&quot;\n\n&quot;</span>.join(<br>        <span class="hljs-string">f&quot;&lt;p&gt;<span class="hljs-subst">&#123;br.join(p.splitlines())&#125;</span>&lt;\p&gt;&quot;</span><br>        <span class="hljs-keyword">for</span> p <span class="hljs-keyword">in</span> re.split(<span class="hljs-string">r&quot;(?:\r\n|\r(?!\n)|\n)&#123;2,&#125;&quot;</span>, value)<br>    )<br>    <span class="hljs-keyword">return</span> Markup(result) <span class="hljs-keyword">if</span> autoescape <span class="hljs-keyword">else</span> result<br></code></pre></td></tr></table></figure>
 </blockquote>
-<p>表面上看上去我不需要做任何事情，但项目组忽略了中国大陆的网络环境。</p>
-<p>服务是要在境内的云服务器上跑的，我也不敢开代理，现在比较靠谱的方案是我去手动指定 Firefox 的 geckodriver，避免 selenium 去帮我自动下载一份。在 <a target="_blank" rel="noopener" href="https://selenium-python.readthedocs.io/api.html#module-selenium.webdriver.firefox.webdriver">python-selenium 的官方文档</a>中是让我们创建 Firefox 的 webdriver 时去传入一个 <code>executable_path=&#39;geckodriver&#39;</code> 的关键词参数，可惜这是过时的用法，应该是维护者还没来得及更新文档。</p>
-<p>随后便在 stackoverflow 上找到了新版 selenium <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/76550506/typeerror-webdriver-init-got-an-unexpected-keyword-argument-executable-p">手动指定 Chrome 的 chromedriver 的方法</a></p>
-<blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python">&gt;<span class="hljs-keyword">from</span> selenium <span class="hljs-keyword">import</span> webdriver<br>&gt;<span class="hljs-keyword">from</span> selenium.webdriver.chrome.service <span class="hljs-keyword">import</span> Service<br><br>&gt;service = Service(executable_path=<span class="hljs-string">&#x27;chromedriver.exe&#x27;</span>) <br>&gt;options = webdriver.ChromeOptions()<br>&gt;driver = webdriver.Chrome(service=service, options=options)<br>&gt;<span class="hljs-comment"># ...</span><br>&gt;driver.quit()<br></code></pre></td></tr></table></figure>
-</blockquote>
-<p>原文给的是 chrome 的方案，但 Firefox 的方案基本也是一致的，应该也是去创建一个 service 对象，猜一猜就能猜到。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> selenium <span class="hljs-keyword">import</span> webdriver<br><span class="hljs-keyword">from</span> selenium.webdriver.firefox.service <span class="hljs-keyword">import</span> Service<br><span class="hljs-keyword">from</span> selenium.webdriver.firefox.options <span class="hljs-keyword">import</span> Options<br><br>service = Service(executable_path=<span class="hljs-string">&#x27;/root/geckodriver&#x27;</span>) <span class="hljs-comment"># 我这里是 docker 打包，懒得创建一个普通用户了，就直接用了 root 用户的 home 目录</span><br>options = Options(<span class="hljs-string">&quot;--headless&quot;</span>)<br>driver = webdriver.Firefox(service=service, options=options)<br><span class="hljs-comment"># ...</span><br>driver.quit()<br></code></pre></td></tr></table></figure>
-
-<p>手动指定 geckodriver 后，在我 1 核 1 G 的小主机上创建 webdriver 对象，基本都可以秒完成。</p>
+<p>使用这段代码后，我遇到了连续两个换行符被识别成一个换行符的问题，依然不满意。</p>
+<p>在 <a target="_blank" rel="noopener" href="https://github.com/pallets/flask/issues/2628">issue#2628</a> 中，我找到了一个相对优雅的解决方案——使用 css 样式来完成这个任务。</p>
+<p>通过设置 <code>white-space: pre-line;</code> 的 css 样式，html 在被渲染时将会不再忽略换行符，浏览器就能够在没有 br 标签标注的情况下实现自动换行。而如果设置为 <code>white-space: pre-wrap;</code> 则多个空格将不会再被合并成一个空格，直接治好了我在入门 html 时的各种不适。</p>
+<p>此外，通过 <code>word-break: break-word;</code> 的 css 样式可以实现只有当一个单词一整行都显示不下时，才会拆分换行该单词的效果，可以避免 break-all 拆分所有单词或者 normal 时遇到长单词直接元素溢出的问题。</p>
 
                 
               </div>
@@ -354,9 +346,11 @@
       
         <a href="/tags/Linux/">#Linux</a>
       
-        <a href="/tags/python/">#python</a>
+        <a href="/tags/Python/">#Python</a>
       
-        <a href="/tags/selenium/">#selenium</a>
+        <a href="/tags/jinja2/">#jinja2</a>
+      
+        <a href="/tags/CSS/">#CSS</a>
       
     </div>
   
@@ -368,8 +362,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>手动指定 python-selenium 的 driver path 以解决在中国大陆网络环境下启动卡住的问题</div>
-      <div>https://zhul.in/2023/09/02/python-selenium-start-difficult-in-china-mainland/</div>
+      <div>jinja2 中如何优雅地实现换行</div>
+      <div>https://zhul.in/2023/09/03/jinja2-nl-to-br/</div>
     </div>
     <div class="license-meta">
       
@@ -381,13 +375,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年9月2日</div>
+          <div>2023年9月3日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2023年9月2日</div>
+          <div>2023年9月3日</div>
         </div>
       
       
@@ -430,18 +424,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/09/03/jinja2-nl-to-br/" title="jinja2 中如何优雅地实现换行">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">jinja2 中如何优雅地实现换行</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/08/04/static-webpage-deployment-for-a-beginner/" title="从零开始的静态网页部署（到个人云服务器）">
-                        <span class="hidden-mobile">从零开始的静态网页部署（到个人云服务器）</span>
+                      <a href="/2023/09/02/python-selenium-start-difficult-in-china-mainland/" title="手动指定 python-selenium 的 driver path 以解决在中国大陆网络环境下启动卡住的问题">
+                        <span class="hidden-mobile">手动指定 python-selenium 的 driver path 以解决在中国大陆网络环境下启动卡住的问题</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
