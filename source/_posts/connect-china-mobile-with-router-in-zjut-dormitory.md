@@ -50,7 +50,7 @@ DNS 建议前两个填写学校的内网 DNS 地址( 172.16.7.10 ， 172.16.7.30
 
 顶部 TODO 处要写的账号密码就是那个有图书馆背景的网页认证密码。
 
-![](https://download.tooc.xlj0.com/uploads/22/Screenshot_20230917_014344.png)
+![](https://bu.dusays.com/2023/09/17/6506a036d0f55.png)
 
 ```bash
 #!/bin/bash
