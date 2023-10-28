@@ -1070,7 +1070,7 @@ static_prefix:
 
   github_markdown: https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/github-markdown-css/4.0.0/
 
-  jquery: https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.5.1/
+  jquery: https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.6.0/
 
   bootstrap: https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/4.6.0/
 
@@ -1098,7 +1098,7 @@ static_prefix:
 
   valine: https://lib.baomitu.com/valine/1.4.17/
 
-  waline: https://lib.baomitu.com/waline/2.5.1/
+  waline: https://cdn.staticfile.org/waline/2.15.5/
 
   gitalk: https://lib.baomitu.com/gitalk/1.7.2/
 
