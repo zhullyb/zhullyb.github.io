@@ -4,7 +4,7 @@ date: 2023-09-02 01:59:18
 sticky:
 execrpt:
 tags:
-- python
+- Python
 - selenium
 - Linux 
 ---
