@@ -21,7 +21,7 @@ tags:
 
 通过 curl 命令，我们就可以看到 b23.tv 短链接重定向到了哪个页面。
 
-![](https://bu.dusays.com/2023/10/29/653d4476f1286.png)
+![](https://bu.dusays.com/2023/10/29/653d49fe955f7.png)
 
 这是所携带的 GET 请求参数
 
