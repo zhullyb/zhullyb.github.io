@@ -1034,6 +1034,12 @@ links:
       link: "https://lonesome.cn/",
       avatar: "https://bu.dusays.com/2023/10/29/653dce34279de.webp"
     }
+    - {
+      title: "青鸟の博客",
+      intro: "一只不会飞的小笨鸟",
+      link: "https://blog.bluebird.icu/",
+      avatar: "https://download.tooc.xlj0.com/uploads/206/img/head.jpg"
+    }
 
   # 当成员头像加载失败时，替换为指定图片
   # When the member avatar fails to load, replace the specified image
