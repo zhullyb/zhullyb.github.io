@@ -1028,6 +1028,12 @@ links:
       title: "chloris",
       link: "https://www.cnblogs.com/chloris/"
     }
+    - {
+      title: "",
+      intro: "也许大概应该可能 maybe/possible 会发（水）点文章",
+      link: "https://lonesome.cn/",
+      avatar: "https://bu.dusays.com/2023/10/29/653dce34279de.webp"
+    }
 
   # 当成员头像加载失败时，替换为指定图片
   # When the member avatar fails to load, replace the specified image
