@@ -13,7 +13,7 @@ tags:
 - Fun
 ---
 
-在[上一篇博客](/2023/11/01/unveiling-sunflower-smart-adapter-api-intercepting-utilizing-api-android-packet-sniffing/)中，我们介绍了如何在本地局域网中通过发送 http 请求控制向日葵智能插座 C2 的开关状态。但这还远远不够，我自己是小米生态链的忠实用户，在宿舍里也接入了四五个小米的智能，因此我想把这个智能插座接入米家，实现离家时一键关闭。
+在[上一篇博客](/2023/11/01/unveiling-sunflower-smart-adapter-api-intercepting-utilizing-api-android-packet-sniffing/)中，我们介绍了如何在本地局域网中通过发送 http 请求控制向日葵智能插座 C2 的开关状态。但这还远远不够，我自己是小米生态链的忠实用户，在宿舍里也接入了四五个米家的智能设备，因此我想把这个智能插座接入米家，实现离家时一键关闭。
 
 在阅读[小米IoT开发者平台](https://iot.mi.com/)的接入文档后，我发现米家对于个人开发者并不友好，接入文档大部分要完成企业认证以后才能实现。在谷歌一番搜索过后，我发现了通过假设 Home Assistant 后通过巴法云接入米家的方案。但我眼下就这一个非米家的智能家具，暂时还不想去碰 Home Assistant 那套体系。
 
