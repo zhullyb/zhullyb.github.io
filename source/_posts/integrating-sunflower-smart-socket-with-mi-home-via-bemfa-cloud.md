@@ -60,6 +60,8 @@ tags:
 参考代码如下:
 
 ```python
+#!/usr/bin/python3
+
 import paho.mqtt.client as mqtt
 import requests
 
