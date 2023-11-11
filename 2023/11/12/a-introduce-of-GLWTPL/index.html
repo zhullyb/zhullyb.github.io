@@ -18,32 +18,25 @@
   <meta name="author" content="竹林里有冰">
   <meta name="keywords" content="博客, 技术, Fedora">
   
-    <meta name="description" content="在上一篇博客中，我们介绍了如何在本地局域网中通过发送 http 请求控制向日葵智能插座 C2 的开关状态。但这还远远不够，我自己是小米生态链的忠实用户，在宿舍里也接入了四五个米家的智能设备，因此我想把这个智能插座接入米家，实现离家时一键关闭。 在阅读小米IoT开发者平台的接入文档后，我发现米家对于个人开发者并不友好，接入文档大部分要完成企业认证以后才能实现。在谷歌一番搜索过后，我发现了通过假设 H">
+    <meta name="description" content="说实话，当我第一次看见 GLWTPL( Good Luck With That Public License ) 的时候，我差点把嘴里的饭给喷出来了，这是一个非常有意思的开源许可证。原文请直接戳原仓库 -&gt; https:&#x2F;&#x2F;github.com&#x2F;me-shaon&#x2F;GLWTPL  如果你对你的代码有这样的感觉: 12当我写下这段代码的时候，只有上帝和我知道我在写什么。现在只有上帝知道了。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="通过巴法云将向日葵智能插座接入米家，实现小爱同学远程控制">
-<meta property="og:url" content="https://zhul.in/2023/11/02/integrating-sunflower-smart-socket-with-mi-home-via-bemfa-cloud/index.html">
+<meta property="og:title" content="【翻译】GLWTPL——祝你好运开源许可证">
+<meta property="og:url" content="https://zhul.in/2023/11/12/a-introduce-of-GLWTPL/index.html">
 <meta property="og:site_name" content="竹林里有冰的博客">
-<meta property="og:description" content="在上一篇博客中，我们介绍了如何在本地局域网中通过发送 http 请求控制向日葵智能插座 C2 的开关状态。但这还远远不够，我自己是小米生态链的忠实用户，在宿舍里也接入了四五个米家的智能设备，因此我想把这个智能插座接入米家，实现离家时一键关闭。 在阅读小米IoT开发者平台的接入文档后，我发现米家对于个人开发者并不友好，接入文档大部分要完成企业认证以后才能实现。在谷歌一番搜索过后，我发现了通过假设 H">
+<meta property="og:description" content="说实话，当我第一次看见 GLWTPL( Good Luck With That Public License ) 的时候，我差点把嘴里的饭给喷出来了，这是一个非常有意思的开源许可证。原文请直接戳原仓库 -&gt; https:&#x2F;&#x2F;github.com&#x2F;me-shaon&#x2F;GLWTPL  如果你对你的代码有这样的感觉: 12当我写下这段代码的时候，只有上帝和我知道我在写什么。现在只有上帝知道了。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://bu.dusays.com/2023/11/02/65430fbf56dee.png">
-<meta property="og:image" content="https://bu.dusays.com/2023/11/02/654310bb3133b.png">
-<meta property="og:image" content="https://bu.dusays.com/2023/11/02/654312974e393.png">
-<meta property="article:published_time" content="2023-11-02T02:17:02.000Z">
-<meta property="article:modified_time" content="2023-11-02T06:46:12.000Z">
+<meta property="og:image" content="https://bu.dusays.com/2023/11/12/654fb6e4581bf.gif">
+<meta property="article:published_time" content="2023-11-11T17:09:09.000Z">
+<meta property="article:modified_time" content="2023-11-11T17:26:52.000Z">
 <meta property="article:author" content="竹林里有冰">
-<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="翻译">
 <meta property="article:tag" content="Fun">
-<meta property="article:tag" content="Python">
-<meta property="article:tag" content="IoT">
-<meta property="article:tag" content="MiAI">
-<meta property="article:tag" content="NetWork">
-<meta property="article:tag" content="Hardware">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://bu.dusays.com/2023/11/02/65430fbf56dee.png">
+<meta name="twitter:image" content="https://bu.dusays.com/2023/11/12/654fb6e4581bf.gif">
   
   
   
-  <title>通过巴法云将向日葵智能插座接入米家，实现小爱同学远程控制 - 竹林里有冰的博客</title>
+  <title>【翻译】GLWTPL——祝你好运开源许可证 - 竹林里有冰的博客</title>
 
   <link  rel="stylesheet" href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/4.6.0/css/bootstrap.min.css" />
 
@@ -242,7 +235,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="通过巴法云将向日葵智能插座接入米家，实现小爱同学远程控制"></span>
+            <span id="subtitle" data-typed-text="【翻译】GLWTPL——祝你好运开源许可证"></span>
           
         </div>
 
@@ -253,8 +246,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-11-02 10:17" pubdate>
-          2023年11月2日 上午
+        <time datetime="2023-11-12 01:09" pubdate>
+          2023年11月12日 凌晨
         </time>
       </span>
     
@@ -266,7 +259,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          2.3k 字
+          2k 字
         
       </span>
     
@@ -278,7 +271,7 @@
         
         
           <!-- compatible with older versions-->
-          12 分钟
+          11 分钟
         
       </span>
     
@@ -316,13 +309,13 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">通过巴法云将向日葵智能插座接入米家，实现小爱同学远程控制</h1>
+            <h1 style="display: none">【翻译】GLWTPL——祝你好运开源许可证</h1>
             
               <p class="note note-info">
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2023年11月2日 下午
+                    本文最后更新于：2023年11月12日 凌晨
                   
                 
               </p>
@@ -330,57 +323,62 @@
             
               <div class="markdown-body">
                 
-                <p>在<a href="/2023/11/01/unveiling-sunflower-smart-adapter-api-intercepting-utilizing-api-android-packet-sniffing/">上一篇博客</a>中，我们介绍了如何在本地局域网中通过发送 http 请求控制向日葵智能插座 C2 的开关状态。但这还远远不够，我自己是小米生态链的忠实用户，在宿舍里也接入了四五个米家的智能设备，因此我想把这个智能插座接入米家，实现离家时一键关闭。</p>
-<p>在阅读<a target="_blank" rel="noopener" href="https://iot.mi.com/">小米IoT开发者平台</a>的接入文档后，我发现米家对于个人开发者并不友好，接入文档大部分要完成企业认证以后才能实现。在谷歌一番搜索过后，我发现了通过假设 Home Assistant 后通过巴法云接入米家的方案。但我眼下就这一个非米家的智能家具，暂时还不想去碰 Home Assistant 那套体系。</p>
-<p>因此我便找上了<a target="_blank" rel="noopener" href="https://cloud.bemfa.com/">巴法云</a>。在巴法云的官网中提到，他们是「专注物联网设备接入&amp;一站式解决方案」，对于个人开发者，目前平台免费使用。网站的文档虽然并不优雅美观，却透露出实用主义的气息，针对接入提供了 TCP 长连接和 MQTT 两种方案，看着就很适合实现我的需求。</p>
-<p>在巴法云文档中的「<a target="_blank" rel="noopener" href="https://cloud.bemfa.com/docs/#/?id=_21-%e8%ae%a2%e9%98%85%e5%8f%91%e5%b8%83%e6%a8%a1%e5%bc%8f">五分钟入门</a>」那一栏介绍了远程控制的业务逻辑:</p>
-<blockquote>
-<p>如果单片机订阅了一个主题，手机往这个主题推送个消息指令，单片机由于订阅了这个主题，就可以收到发往这个主题的消息，就可以达到手机控制单片机的目的。</p>
+                <blockquote>
+<p>说实话，当我第一次看见 GLWTPL( Good Luck With That Public License ) 的时候，我差点把嘴里的饭给喷出来了，这是一个非常有意思的开源许可证。原文请直接戳原仓库 -&gt; <a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL">https://github.com/me-shaon/GLWTPL</a></p>
 </blockquote>
-<p>所以我需要在巴法云的控制台创建一个针对于智能插座的主题，让我局域网内的一台设备订阅这个主题。接入米家以后，米家需要控制向日葵的智能插座时就向巴法云的这个主题推送一条消息，局域网内的设备就能接收到推送消息，进而调用智能插座的 api 实现远程开关。在这里，我选择使用一台刷了 Armbian 的 N1 作为局域网内的转发器。整个控制流程看上去是下面这个样子:</p>
-<p><img src="https://bu.dusays.com/2023/11/02/65430fbf56dee.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="控制流程图"></p>
-<p>我并不知道 tcp 长连接的数据传输应该如何实现，但看起来 MQTT 是一个比较成熟的协议，因此我选择使用 MQTT 作为巴法云和 N1 之间的通讯协议。</p>
-<p>在巴法云的控制台，选择 MQTT 设备云，创建一个新的主题，注意需要以 001~009 结尾，否则在米家里看不见创建的这个主题。</p>
-<blockquote>
-<blockquote>
-<p>当主题名字后三位是001时为插座设备。</p>
-</blockquote>
-<blockquote>
-<p>当主题名字后三位是002时为灯泡设备。</p>
-</blockquote>
-<blockquote>
-<p>当主题名字后三位是003时为风扇设备。</p>
-</blockquote>
-<blockquote>
-<p>当主题名字后三位是004时为传感器设备。</p>
-</blockquote>
-<blockquote>
-<p>当主题名字后三位是005时为空调设备。</p>
-</blockquote>
-<blockquote>
-<p>当主题名字后三位是006时为开关设备。</p>
-</blockquote>
-<blockquote>
-<p>当主题名字后三位是009时为窗帘设备。</p>
-</blockquote>
-<p>当主题名字为其他时，默认为普通主题节点，不会同步到米家。</p>
-</blockquote>
-<p><img src="https://bu.dusays.com/2023/11/02/654310bb3133b.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="创建新主题"></p>
-<p>此时，我便可以在手机的米家中找到巴法云并接入这个插座。</p>
-<p><img src="https://bu.dusays.com/2023/11/02/654312974e393.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="米家找连接巴法云"></p>
-<p>至此，米家那边的接入已经完成了，虽然没法在米家中找到对应设备的卡片，但是可以在小爱同学的小爱训练计划中找到对应的设备。</p>
-<p>我们还需要让本地的 N1 盒子使用 MQTT 协议订阅巴法云的消息。</p>
-<p>参考代码如下:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#!/usr/bin/python3</span><br><br><span class="hljs-keyword">import</span> paho.mqtt.client <span class="hljs-keyword">as</span> mqtt<br><span class="hljs-keyword">import</span> requests<br><br><span class="hljs-comment"># 智能插座相关</span><br>host = <span class="hljs-string">&#x27;&#x27;</span><br>sn = <span class="hljs-string">&#x27;&#x27;</span><br>key = <span class="hljs-string">&#x27;&#x27;</span><br>time = <span class="hljs-string">&#x27;&#x27;</span><br><br><span class="hljs-comment"># 巴法云相关</span><br>client_id = <span class="hljs-string">&#x27;&#x27;</span><br>theme = <span class="hljs-string">&#x27;&#x27;</span><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">set_adapter_status</span>(<span class="hljs-params">status: <span class="hljs-built_in">bool</span></span>):<br>    url = <span class="hljs-string">&#x27;http://&#x27;</span> + host + <span class="hljs-string">&#x27;/plug&#x27;</span><br>    requests.get(url, params=&#123;<br>        <span class="hljs-string">&quot;status&quot;</span>: <span class="hljs-number">1</span> <span class="hljs-keyword">if</span> status <span class="hljs-keyword">else</span> <span class="hljs-number">0</span>,<br>        <span class="hljs-string">&quot;sn&quot;</span>: sn,<br>        <span class="hljs-string">&quot;key&quot;</span>: key,<br>        <span class="hljs-string">&quot;_api&quot;</span>: <span class="hljs-string">&quot;set_plug_status&quot;</span>,<br>        <span class="hljs-string">&quot;time&quot;</span>: time,<br>        <span class="hljs-string">&quot;index&quot;</span>: <span class="hljs-number">0</span><br>    &#125;)<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">on_connect</span>(<span class="hljs-params">client, userdata, flags, rc</span>):<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Connection returned with result code:&quot;</span> + <span class="hljs-built_in">str</span>(rc))<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">on_message</span>(<span class="hljs-params">client, userdata, msg</span>):<br>    <span class="hljs-keyword">if</span> msg.payload.decode(<span class="hljs-string">&quot;utf-8&quot;</span>) == <span class="hljs-string">&#x27;on&#x27;</span>:<br>        set_adapter_status(<span class="hljs-literal">True</span>)<br>    <span class="hljs-keyword">elif</span> msg.payload.decode(<span class="hljs-string">&quot;utf-8&quot;</span>) == <span class="hljs-string">&#x27;off&#x27;</span>:<br>        set_adapter_status(<span class="hljs-literal">False</span>)<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">on_subscribe</span>(<span class="hljs-params">client, userdata, mid, granted_qos</span>):<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Subscribed: &quot;</span> + <span class="hljs-built_in">str</span>(mid) + <span class="hljs-string">&quot; &quot;</span> + <span class="hljs-built_in">str</span>(granted_qos))<br>    <br>client = mqtt.Client(client_id=client_id, clean_session=<span class="hljs-literal">False</span>, protocol=mqtt.MQTTv311)<br>client.on_connect = on_connect<br>client.on_message = on_message<br>client.on_subscribe = on_subscribe<br><br>client.connect(<span class="hljs-string">&quot;bemfa.com&quot;</span>, <span class="hljs-number">9501</span>, <span class="hljs-number">60</span>)<br>client.subscribe(theme, qos=<span class="hljs-number">1</span>)<br>client.loop_forever()<br></code></pre></td></tr></table></figure>
+<p>如果你对你的代码有这样的感觉:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs">当我写下这段代码的时候，只有上帝和我知道我在写什么。<br>现在只有上帝知道了。<br></code></pre></td></tr></table></figure>
 
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
-<li><p><a target="_blank" rel="noopener" href="https://cloud.bemfa.com/docs/#/">巴法开放平台</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/Mickey-7/p/17402095.html">Python MQTT客户端  paho-mqtt</a></p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://www.emqx.com/zh/blog/comparision-of-python-mqtt-client">Python MQTT 客户端对比</a></p>
-</li>
+<p>那不如来考虑一下将这份<a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/LICENSE">开源许可证</a>添加到你的项目中！</p>
+<p>并且，祝你未来的自己、人类同胞、外星人或人工智能机器人（可以编码并会毁灭人类）——实际上是任何敢于参与你的项目的人好运。</p>
+<p><img src="https://bu.dusays.com/2023/11/12/654fb6e4581bf.gif" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="good-luck.gif"></p>
+<p>当然，它还有一个<a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/NSFW_LICENSE">脏话版本</a>。干杯！</p>
+<h2 id="可能的使用场景"><a href="#可能的使用场景" class="headerlink" title="可能的使用场景"></a>可能的使用场景</h2><ul>
+<li>你写了一些你并不为此自豪的代码，但你想要将它开源。</li>
+<li>你想要将你写的代码“放生”，但不想为此负任何责任。</li>
+<li>“无论如何我都已经写完了”，并且你没有时间/意图对你的代码进行修复、修改或改进。</li>
+<li>想要将自己参加的黑客马拉松/代码竞赛的代码是打造成一个爆火的仓库？该使用什么开源许可证？这就是为你量身打造的开源许可证！</li>
+<li>你的大学课设或科研工作与这份许可证是天作之合。</li>
 </ul>
+<h2 id="一些翻译版本"><a href="#一些翻译版本" class="headerlink" title="一些翻译版本"></a>一些翻译版本</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_al-AL">Albanian - Shqip</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_ar-AR">Arabic - العربية</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_bn-BN">Bangla - বাংলা</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_zh-HK">Cantonese - 廣東話</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_cat-CAT">Catalan - Català</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_hr-HR">Croatian - Hrvatski</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_da-DK">Danish - Dansk</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_nl-NL">Dutch - Nederlands</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_fr-FR">French - Français</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/translations/NSFW_LICENSE_gl-GL">Galician - Galego</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_ka-GE">Georgian - ქართული</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_de-DE">German - Deutsch</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_gr-GR">Greek - Ελληνικά</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_he-HE">Hebrew - עברית</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_id-ID">Indonesian - Bahasa Indonesia</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_it-IT">Italian - Italiano</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_ja-JP">Japanese - 日本語</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_ko-KR">Korea - 한국어</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_lv-LV">Latvian - Latviski</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_pt-BR">Portuguese - Português (BR)</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_ru-RU">Russian - Русский</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_zh-CN">Simplified Chinese - 简体中文</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_es-ES">Spanish - Español</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_sv-SE">Swedish - Svenska</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_zh-TW">Traditional Chinese - 正體中文</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_tr-TR">Turkish - Türkçe</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_vn-VN">Vietnamese - Tiếng Việt</a></li>
+</ul>
+<blockquote>
+<p>本译文翻译于 2023 年 11 月 12 日，日后大概率也不会对本文进行任何改进，故也采用 GLWTPL 向所有人授权。</p>
+</blockquote>
+<hr>
+<h2 id="附"><a href="#附" class="headerlink" title="附"></a>附</h2><p>此协议的英文原版：</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">               GLWT(Good Luck <span class="hljs-keyword">With</span> That) <span class="hljs-built_in">Public</span> License<br>                 Copyright (c) Everyone, <span class="hljs-keyword">except</span> Author<br><br>Everyone <span class="hljs-keyword">is</span> permitted <span class="hljs-keyword">to</span> <span class="hljs-keyword">copy</span>, distribute, modify, merge, sell, publish,<br>sublicense <span class="hljs-keyword">or</span> whatever they want <span class="hljs-keyword">with</span> this software but at their OWN RISK.<br><br>                            Preamble<br><br>The author has absolutely <span class="hljs-keyword">no</span> clue what the code <span class="hljs-keyword">in</span> this project does.<br>It might just <span class="hljs-keyword">work</span> <span class="hljs-keyword">or</span> <span class="hljs-keyword">not</span>, there <span class="hljs-keyword">is</span> <span class="hljs-keyword">no</span> third <span class="hljs-keyword">option</span>.<br><br><br>                GOOD LUCK <span class="hljs-keyword">WITH</span> THAT <span class="hljs-built_in">PUBLIC</span> LICENSE<br>   TERMS <span class="hljs-keyword">AND</span> CONDITIONS <span class="hljs-keyword">FOR</span> COPYING, DISTRIBUTION, <span class="hljs-keyword">AND</span> MODIFICATION<br><br>  <span class="hljs-number">0.</span> You just <span class="hljs-keyword">DO</span> WHATEVER YOU WANT <span class="hljs-keyword">TO</span> <span class="hljs-keyword">as</span> long <span class="hljs-keyword">as</span> you NEVER LEAVE A<br>TRACE <span class="hljs-keyword">TO</span> TRACK THE AUTHOR <span class="hljs-keyword">of</span> the original product <span class="hljs-keyword">to</span> blame <span class="hljs-keyword">for</span> <span class="hljs-keyword">or</span> hold<br>responsible.<br><br><span class="hljs-keyword">IN</span> <span class="hljs-keyword">NO</span> EVENT SHALL THE AUTHORS BE LIABLE <span class="hljs-keyword">FOR</span> <span class="hljs-keyword">ANY</span> CLAIM, DAMAGES <span class="hljs-keyword">OR</span> OTHER<br>LIABILITY, WHETHER <span class="hljs-keyword">IN</span> AN ACTION <span class="hljs-keyword">OF</span> CONTRACT, TORT <span class="hljs-keyword">OR</span> OTHERWISE, ARISING<br><span class="hljs-keyword">FROM</span>, <span class="hljs-keyword">OUT</span> <span class="hljs-keyword">OF</span> <span class="hljs-keyword">OR</span> <span class="hljs-keyword">IN</span> <span class="hljs-keyword">CONNECTION</span> <span class="hljs-keyword">WITH</span> THE SOFTWARE <span class="hljs-keyword">OR</span> THE USE <span class="hljs-keyword">OR</span> OTHER<br>DEALINGS <span class="hljs-keyword">IN</span> THE SOFTWARE.<br><br>Good luck <span class="hljs-keyword">and</span> Godspeed.<br></code></pre></td></tr></table></figure>
+
+<p>此协议在 Github 上的中文翻译版本：</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs ada">GLWT（Good Luck <span class="hljs-keyword">With</span> That，祝你好运）公共许可证<br>版权所有© 每个人，除了作者<br><br>任何人都被允许复制、分发、修改、合并、销售、出版、再授权或<br>任何其它操作，但风险自负。<br><br>作者对这个项目中的代码一无所知。<br>代码处于可用或不可用状态，没有第三种情况。<br><br><br>                祝你好运公共许可证<br>            复制、分发和修改的条款和条件<br><br><span class="hljs-number">0</span> ：在不导致作者被指责或承担责任的情况下，你可以做任何你想<br>要做的事情。<br><br>无论是在合同行为、侵权行为或其它因使用本软件产生的情形，作<br>者不对任何索赔、损害承担责任。<br><br>祖宗保佑。<br></code></pre></td></tr></table></figure>
+
 
                 
               </div>
@@ -393,19 +391,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Linux/">#Linux</a>
+        <a href="/tags/%E7%BF%BB%E8%AF%91/">#翻译</a>
       
         <a href="/tags/Fun/">#Fun</a>
-      
-        <a href="/tags/Python/">#Python</a>
-      
-        <a href="/tags/IoT/">#IoT</a>
-      
-        <a href="/tags/MiAI/">#MiAI</a>
-      
-        <a href="/tags/NetWork/">#NetWork</a>
-      
-        <a href="/tags/Hardware/">#Hardware</a>
       
     </div>
   
@@ -417,8 +405,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>通过巴法云将向日葵智能插座接入米家，实现小爱同学远程控制</div>
-      <div>https://zhul.in/2023/11/02/integrating-sunflower-smart-socket-with-mi-home-via-bemfa-cloud/</div>
+      <div>【翻译】GLWTPL——祝你好运开源许可证</div>
+      <div>https://zhul.in/2023/11/12/a-introduce-of-GLWTPL/</div>
     </div>
     <div class="license-meta">
       
@@ -430,13 +418,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年11月2日</div>
+          <div>2023年11月12日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2023年11月2日</div>
+          <div>2023年11月12日</div>
         </div>
       
       
@@ -479,18 +467,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/11/12/a-introduce-of-GLWTPL/" title="【翻译】GLWTPL——祝你好运开源许可证">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">【翻译】GLWTPL——祝你好运开源许可证</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/11/01/unveiling-sunflower-smart-adapter-api-intercepting-utilizing-api-android-packet-sniffing/" title="使用 Root 后的安卓手机获取向日葵智能插座 C2 的开关 api">
-                        <span class="hidden-mobile">使用 Root 后的安卓手机获取向日葵智能插座 C2 的开关 api</span>
+                      <a href="/2023/11/02/integrating-sunflower-smart-socket-with-mi-home-via-bemfa-cloud/" title="通过巴法云将向日葵智能插座接入米家，实现小爱同学远程控制">
+                        <span class="hidden-mobile">通过巴法云将向日葵智能插座接入米家，实现小爱同学远程控制</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
