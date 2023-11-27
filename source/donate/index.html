@@ -4,25 +4,62 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>要饭专栏 - 竹林里有冰的博客</title>
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/element-plus/2.3.12/index.css">
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/3.3.4/vue.global.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/element-plus/2.3.12/index.full.js"></script>
 </head>
 <body>
-    <h1>要饭专栏</h1>
-    <hr>
-    <p>全天24小时无人值守要饭，要饭我们是专业的。</p>
-    <hr>
-    <h2>捐款码</h2>
-    <div style="display: flex;">
-        <img src="https://bu.dusays.com/2023/11/14/6552d6098f43c.jpg" alt="">
-        <img src="https://bu.dusays.com/2023/11/14/6552d6098f397.png" alt="">
+    <div id="app">
+        <el-container>
+            <el-header>
+                <h1>Donate to zhullyb</h1>
+            </el-header>
+            <el-main>
+                <el-card>
+                    <p>Unattended 7x24hr ask for begging. To ask for begging, we are professional.</p>
+                    <el-divider></el-divider>
+                    <el-radio-group v-model="radio" size="medium">
+                        <el-radio-button label="wechat" @click="useWechat">WeChat Pay</el-radio-button>
+                        <el-radio-button label="alipay" @click="useAlipay">AliPay</el-radio-button>
+                        <el-radio-button label="paypal" @click="usePayPal">PayPal</el-radio-button>
+                    </el-radio-group>
+                    <el-divider></el-divider>
+                    <el-image v-if="radio === 'zhullyb'" src="https://bu.dusays.com/2022/03/20/d9af04eba27b5.png" fit="scale-down" previewSrcList></el-image>
+                    <el-image v-if="radio === 'wechat'" src="https://bu.dusays.com/2023/11/14/6552d6098f397.png" fit="scale-down" previewSrcList></el-image>
+                    <el-image v-if="radio === 'alipay'" src="https://bu.dusays.com/2023/11/14/6552d6098f43c.jpg" fit="scale-down" previewSrcList></el-image>
+                </el-card>
+            </el-main>
+            <el-footer>
+                <p>© 2020-2023 竹林里有冰的博客</p>
+            </el-footer>
+        </el-container>
     </div>
-    <footer>
-        <hr>
-        <p>&copy 2020-2023 <a href="https://zhul.in">竹林里有冰的博客</a></p>
-    </footer>
 </body>
 </html>
-<style>
-    img {
-        max-width: 20%;
+
+<script>
+    const vue3Composition = {
+        setup() {
+            const radio = Vue.ref('zhullyb')
+            const useWechat = () => {
+                radio.value = 'wechat'
+            }
+            const useAlipay = () => {
+                radio.value = 'alipay'
+            }
+            const usePayPal = () => {
+                window.location.href = 'https://www.paypal.me/realzhullyb'
+            }
+            return {
+                radio,
+                useWechat,
+                useAlipay,
+                usePayPal
+            }
+        }
     }
+    Vue.createApp(vue3Composition).use(ElementPlus).mount('#app')
+</script>
+
+<style>
 </style>
