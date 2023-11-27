@@ -18,25 +18,25 @@
   <meta name="author" content="竹林里有冰">
   <meta name="keywords" content="博客, 技术, Fedora">
   
-    <meta name="description" content="说实话，当我第一次看见 GLWTPL( Good Luck With That Public License ) 的时候，我差点把嘴里的饭给喷出来了，这是一个非常有意思的开源许可证。原文请直接戳原仓库 -&gt; https:&#x2F;&#x2F;github.com&#x2F;me-shaon&#x2F;GLWTPL  如果你对你的代码有这样的感觉: 12当我写下这段代码的时候，只有上帝和我知道我在写什么。现在只有上帝知道了。">
+    <meta name="description" content="我的博客换到 fluid 主题已经有两年了，期间一直有为博客更换字体的想法，但之前没有前端开发的相关知识支撑我换字体的需求。不过现在，我已经有了一些 Vue.js 的开发经验，相信能支撑我完成这个目标。  我在谷歌搜索到了这篇文章——《Hexo博客Fluid主题，字体全局更改为霞鹜文楷体》。 文章中直接修改了 themes&#x2F;fluid&#x2F;layout&#x2F;_partial&#x2F;head.ejs 让文章生成时">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【翻译】GLWTPL——祝你好运开源许可证">
-<meta property="og:url" content="https://zhul.in/2023/11/12/a-introduce-of-GLWTPL/index.html">
+<meta property="og:title" content="在 Hexo Fluid 主题中使用霞鹜文楷">
+<meta property="og:url" content="https://zhul.in/2023/11/28/use-lxgw-wenkai-in-hexo-fluid/index.html">
 <meta property="og:site_name" content="竹林里有冰的博客">
-<meta property="og:description" content="说实话，当我第一次看见 GLWTPL( Good Luck With That Public License ) 的时候，我差点把嘴里的饭给喷出来了，这是一个非常有意思的开源许可证。原文请直接戳原仓库 -&gt; https:&#x2F;&#x2F;github.com&#x2F;me-shaon&#x2F;GLWTPL  如果你对你的代码有这样的感觉: 12当我写下这段代码的时候，只有上帝和我知道我在写什么。现在只有上帝知道了。">
+<meta property="og:description" content="我的博客换到 fluid 主题已经有两年了，期间一直有为博客更换字体的想法，但之前没有前端开发的相关知识支撑我换字体的需求。不过现在，我已经有了一些 Vue.js 的开发经验，相信能支撑我完成这个目标。  我在谷歌搜索到了这篇文章——《Hexo博客Fluid主题，字体全局更改为霞鹜文楷体》。 文章中直接修改了 themes&#x2F;fluid&#x2F;layout&#x2F;_partial&#x2F;head.ejs 让文章生成时">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://bu.dusays.com/2023/11/12/654fb6e4581bf.gif">
-<meta property="article:published_time" content="2023-11-11T17:09:09.000Z">
-<meta property="article:modified_time" content="2023-11-12T05:54:17.000Z">
+<meta property="og:image" content="https://bu.dusays.com/2023/11/28/6564d0f926e58.png">
+<meta property="og:image" content="https://bu.dusays.com/2023/11/28/6564cea5c71ca.png">
+<meta property="article:published_time" content="2023-11-27T16:16:23.000Z">
+<meta property="article:modified_time" content="2023-11-27T17:27:00.000Z">
 <meta property="article:author" content="竹林里有冰">
-<meta property="article:tag" content="翻译">
-<meta property="article:tag" content="Fun">
+<meta property="article:tag" content="Hexo">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://bu.dusays.com/2023/11/12/654fb6e4581bf.gif">
+<meta name="twitter:image" content="https://bu.dusays.com/2023/11/28/6564d0f926e58.png">
   
   
   
-  <title>【翻译】GLWTPL——祝你好运开源许可证 - 竹林里有冰的博客</title>
+  <title>在 Hexo Fluid 主题中使用霞鹜文楷 - 竹林里有冰的博客</title>
 
   <link  rel="stylesheet" href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/4.6.0/css/bootstrap.min.css" />
 
@@ -235,7 +235,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="【翻译】GLWTPL——祝你好运开源许可证"></span>
+            <span id="subtitle" data-typed-text="在 Hexo Fluid 主题中使用霞鹜文楷"></span>
           
         </div>
 
@@ -246,8 +246,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-11-12 01:09" pubdate>
-          2023年11月12日 凌晨
+        <time datetime="2023-11-28 00:16" pubdate>
+          2023年11月28日 凌晨
         </time>
       </span>
     
@@ -259,7 +259,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          2k 字
+          1.3k 字
         
       </span>
     
@@ -271,7 +271,7 @@
         
         
           <!-- compatible with older versions-->
-          10 分钟
+          7 分钟
         
       </span>
     
@@ -309,13 +309,13 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">【翻译】GLWTPL——祝你好运开源许可证</h1>
+            <h1 style="display: none">在 Hexo Fluid 主题中使用霞鹜文楷</h1>
             
               <p class="note note-info">
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2023年11月12日 下午
+                    本文最后更新于：2023年11月28日 凌晨
                   
                 
               </p>
@@ -323,62 +323,25 @@
             
               <div class="markdown-body">
                 
-                <blockquote>
-<p>说实话，当我第一次看见 GLWTPL( Good Luck With That Public License ) 的时候，我差点把嘴里的饭给喷出来了，这是一个非常有意思的开源许可证。原文请直接戳原仓库 -&gt; <a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL">https://github.com/me-shaon/GLWTPL</a></p>
-</blockquote>
-<p>如果你对你的代码有这样的感觉:</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs">当我写下这段代码的时候，只有上帝和我知道我在写什么。<br>现在只有上帝知道了。<br></code></pre></td></tr></table></figure>
+                <p>我的博客换到 fluid 主题已经有两年了，期间一直有为博客更换字体的想法，但之前没有前端开发的相关知识支撑我换字体的需求。不过现在，我已经有了一些 Vue.js 的开发经验，相信能支撑我完成这个目标。</p>
+<p><img src="https://bu.dusays.com/2023/11/28/6564d0f926e58.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="最终成品"></p>
+<p>我在谷歌搜索到了这篇文章——<a target="_blank" rel="noopener" href="https://penghh.fun/2023/05/07/2023-5-7-hexo_blog_font/">《Hexo博客Fluid主题，字体全局更改为霞鹜文楷体》</a>。</p>
+<p>文章中直接修改了 <code>themes/fluid/layout/_partial/head.ejs</code> 让文章生成时在 html 的 head 标签中引入 lxgw-wenkai-screen-webfont 的 css 文件，并使用自定义 css 方案。但这种方案我不喜欢，我的 fluid 主题是通过 npm 安装 hexo-theme-fluid 的方式引入的，这意味着我不能直接编辑 <code>themes/fluid</code> 下的文件，包括文章中需要编辑的 <code>head.ejs</code> 和 <code>_config.yml</code> 。</p>
+<p>我翻阅了 <a target="_blank" rel="noopener" href="https://github.com/chawyehsu/lxgw-wenkai-webfont">lxgw-wenkai-webfont</a> 的 README，找到了使用 cdn 引入的方式。我们需要在 html 的 head 标签中加上下面这段:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css&quot;</span> /&gt;</span><br></code></pre></td></tr></table></figure>
 
-<p>那不如来考虑一下将这份<a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/LICENSE">开源许可证</a>添加到你的项目中！</p>
-<p>并且，祝你未来的自己、人类同胞、外星人或人工智能机器人（可以编码并会毁灭人类）——实际上是任何敢于参与你的项目的人好运。</p>
-<p><img src="https://bu.dusays.com/2023/11/12/654fb6e4581bf.gif" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="good-luck.gif"></p>
-<p>当然，它还有一个<a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/NSFW_LICENSE">脏话版本</a>。干杯！</p>
-<h2 id="可能的使用场景"><a href="#可能的使用场景" class="headerlink" title="可能的使用场景"></a>可能的使用场景</h2><ul>
-<li>你写了一些你并不为此自豪的代码，但你想要将它开源。</li>
-<li>你想要将你写的代码“放生”，但不想为此负任何责任。</li>
-<li>“无论如何我都已经写完了”，并且你没有时间/意图对你的代码进行修复、修改或改进。</li>
-<li>想要将自己参加的黑客马拉松/代码竞赛的代码打造成一个爆火的仓库？该使用什么开源许可证？这就是为你量身打造的开源许可证！</li>
-<li>你的大学课设或科研工作与这份许可证是天作之合。</li>
-</ul>
-<h2 id="一些翻译版本"><a href="#一些翻译版本" class="headerlink" title="一些翻译版本"></a>一些翻译版本</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_al-AL">Albanian - Shqip</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_ar-AR">Arabic - العربية</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_bn-BN">Bangla - বাংলা</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_zh-HK">Cantonese - 廣東話</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_cat-CAT">Catalan - Català</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_hr-HR">Croatian - Hrvatski</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_da-DK">Danish - Dansk</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_nl-NL">Dutch - Nederlands</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_fr-FR">French - Français</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/translations/NSFW_LICENSE_gl-GL">Galician - Galego</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_ka-GE">Georgian - ქართული</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_de-DE">German - Deutsch</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_gr-GR">Greek - Ελληνικά</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_he-HE">Hebrew - עברית</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_id-ID">Indonesian - Bahasa Indonesia</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_it-IT">Italian - Italiano</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_ja-JP">Japanese - 日本語</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_ko-KR">Korea - 한국어</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_lv-LV">Latvian - Latviski</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_pt-BR">Portuguese - Português (BR)</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_ru-RU">Russian - Русский</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_zh-CN">Simplified Chinese - 简体中文</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_es-ES">Spanish - Español</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_sv-SE">Swedish - Svenska</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_zh-TW">Traditional Chinese - 正體中文</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_tr-TR">Turkish - Türkçe</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/me-shaon/GLWTPL/blob/master/translations/LICENSE_vn-VN">Vietnamese - Tiếng Việt</a></li>
-</ul>
-<blockquote>
-<p>本译文翻译于 2023 年 11 月 12 日，日后大概率也不会对本文进行任何改进，故也采用 GLWTPL 向所有人授权。</p>
-</blockquote>
-<hr>
-<h2 id="附"><a href="#附" class="headerlink" title="附"></a>附</h2><p>此协议的英文原版：</p>
-<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">               GLWT(Good Luck <span class="hljs-keyword">With</span> That) <span class="hljs-built_in">Public</span> License<br>                 Copyright (c) Everyone, <span class="hljs-keyword">except</span> Author<br><br>Everyone <span class="hljs-keyword">is</span> permitted <span class="hljs-keyword">to</span> <span class="hljs-keyword">copy</span>, distribute, modify, merge, sell, publish,<br>sublicense <span class="hljs-keyword">or</span> whatever they want <span class="hljs-keyword">with</span> this software but at their OWN RISK.<br><br>                            Preamble<br><br>The author has absolutely <span class="hljs-keyword">no</span> clue what the code <span class="hljs-keyword">in</span> this project does.<br>It might just <span class="hljs-keyword">work</span> <span class="hljs-keyword">or</span> <span class="hljs-keyword">not</span>, there <span class="hljs-keyword">is</span> <span class="hljs-keyword">no</span> third <span class="hljs-keyword">option</span>.<br><br><br>                GOOD LUCK <span class="hljs-keyword">WITH</span> THAT <span class="hljs-built_in">PUBLIC</span> LICENSE<br>   TERMS <span class="hljs-keyword">AND</span> CONDITIONS <span class="hljs-keyword">FOR</span> COPYING, DISTRIBUTION, <span class="hljs-keyword">AND</span> MODIFICATION<br><br>  <span class="hljs-number">0.</span> You just <span class="hljs-keyword">DO</span> WHATEVER YOU WANT <span class="hljs-keyword">TO</span> <span class="hljs-keyword">as</span> long <span class="hljs-keyword">as</span> you NEVER LEAVE A<br>TRACE <span class="hljs-keyword">TO</span> TRACK THE AUTHOR <span class="hljs-keyword">of</span> the original product <span class="hljs-keyword">to</span> blame <span class="hljs-keyword">for</span> <span class="hljs-keyword">or</span> hold<br>responsible.<br><br><span class="hljs-keyword">IN</span> <span class="hljs-keyword">NO</span> EVENT SHALL THE AUTHORS BE LIABLE <span class="hljs-keyword">FOR</span> <span class="hljs-keyword">ANY</span> CLAIM, DAMAGES <span class="hljs-keyword">OR</span> OTHER<br>LIABILITY, WHETHER <span class="hljs-keyword">IN</span> AN ACTION <span class="hljs-keyword">OF</span> CONTRACT, TORT <span class="hljs-keyword">OR</span> OTHERWISE, ARISING<br><span class="hljs-keyword">FROM</span>, <span class="hljs-keyword">OUT</span> <span class="hljs-keyword">OF</span> <span class="hljs-keyword">OR</span> <span class="hljs-keyword">IN</span> <span class="hljs-keyword">CONNECTION</span> <span class="hljs-keyword">WITH</span> THE SOFTWARE <span class="hljs-keyword">OR</span> THE USE <span class="hljs-keyword">OR</span> OTHER<br>DEALINGS <span class="hljs-keyword">IN</span> THE SOFTWARE.<br><br>Good luck <span class="hljs-keyword">and</span> Godspeed.<br></code></pre></td></tr></table></figure>
+<p>但我注意到我想要的 lxgw-wenkai-screen-webfont 在 <a target="_blank" rel="noopener" href="https://staticfile.org/">staticfile.org</a> 上也有 cdn 提供，且该 cdn 有海外节点，是不错的选择，所以我要通过下面这段引入:</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.7.0/style.min.css&quot;</span> /&gt;</span><br></code></pre></td></tr></table></figure>
 
-<p>此协议在 Github 上的中文翻译版本：</p>
-<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs ada">GLWT（Good Luck <span class="hljs-keyword">With</span> That，祝你好运）公共许可证<br>版权所有© 每个人，除了作者<br><br>任何人都被允许复制、分发、修改、合并、销售、出版、再授权或<br>任何其它操作，但风险自负。<br><br>作者对这个项目中的代码一无所知。<br>代码处于可用或不可用状态，没有第三种情况。<br><br><br>                祝你好运公共许可证<br>            复制、分发和修改的条款和条件<br><br><span class="hljs-number">0</span> ：在不导致作者被指责或承担责任的情况下，你可以做任何你想<br>要做的事情。<br><br>无论是在合同行为、侵权行为或其它因使用本软件产生的情形，作<br>者不对任何索赔、损害承担责任。<br><br>祖宗保佑。<br></code></pre></td></tr></table></figure>
+<p>但要如何引入呢？</p>
+<p>在 hexo 的<a target="_blank" rel="noopener" href="https://hexo.io/docs/plugins.html">官方文档</a>中，我找到了一个方案。可以在博客的 workdir 下创建一个 <code>scripts</code> 文件夹，在当中放入需要执行的 js 脚本。</p>
+<p><img src="https://bu.dusays.com/2023/11/28/6564cea5c71ca.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="hexo 文档"></p>
+<p>在这篇名为<a target="_blank" rel="noopener" href="https://www.zywvvd.com/notes/hexo/theme/fluid/fluid-add-umami/fluid-add-umami/">《Fluid -23- 添加 Umami 统计》</a> 的文章里，我找到了在 hexo 生成静态文件时直接注入的方式。</p>
+<p>在 <code>scripts/font.js</code> 中写入:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript">hexo.<span class="hljs-property">extend</span>.<span class="hljs-property">injector</span>.<span class="hljs-title function_">register</span>(<span class="hljs-string">&#x27;head_end&#x27;</span>,<br><span class="hljs-string">&#x27;&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.7.0/style.min.css&quot; /&gt;&#x27;</span>,<br><span class="hljs-string">&#x27;default&#x27;</span>);<br></code></pre></td></tr></table></figure>
 
+<p>这样一来，字体文件的 css 便被我们成功引入了，我们还需要指定页面使用霞鹜文楷作为默认字体。</p>
+<p>在 fluid 主题的配置文件 <code>_config.fluid.yml</code> 中，有一个名为 <code>font-family</code> 的配置项，直接写上 <code>font-family: &quot;LXGW Wenkai Screen&quot;</code> 便可大功告成。</p>
 
                 
               </div>
@@ -391,9 +354,7 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/%E7%BF%BB%E8%AF%91/">#翻译</a>
-      
-        <a href="/tags/Fun/">#Fun</a>
+        <a href="/tags/Hexo/">#Hexo</a>
       
     </div>
   
@@ -405,8 +366,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>【翻译】GLWTPL——祝你好运开源许可证</div>
-      <div>https://zhul.in/2023/11/12/a-introduce-of-GLWTPL/</div>
+      <div>在 Hexo Fluid 主题中使用霞鹜文楷</div>
+      <div>https://zhul.in/2023/11/28/use-lxgw-wenkai-in-hexo-fluid/</div>
     </div>
     <div class="license-meta">
       
@@ -418,13 +379,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年11月12日</div>
+          <div>2023年11月28日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2023年11月12日</div>
+          <div>2023年11月28日</div>
         </div>
       
       
@@ -467,18 +428,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/11/28/use-lxgw-wenkai-in-hexo-fluid/" title="在 Hexo Fluid 主题中使用霞鹜文楷">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">在 Hexo Fluid 主题中使用霞鹜文楷</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/11/02/integrating-sunflower-smart-socket-with-mi-home-via-bemfa-cloud/" title="通过巴法云将向日葵智能插座接入米家，实现小爱同学远程控制">
-                        <span class="hidden-mobile">通过巴法云将向日葵智能插座接入米家，实现小爱同学远程控制</span>
+                      <a href="/2023/11/12/a-introduce-of-GLWTPL/" title="【翻译】GLWTPL——祝你好运开源许可证">
+                        <span class="hidden-mobile">【翻译】GLWTPL——祝你好运开源许可证</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
