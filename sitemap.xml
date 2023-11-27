@@ -452,7 +452,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2020/10/08/NoHello/</loc>
+    <loc>https://zhul.in/2020/07/11/GitNotes/</loc>
     
     <lastmod>2022-08-22</lastmod>
     
@@ -461,7 +461,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2020/07/11/GitNotes/</loc>
+    <loc>https://zhul.in/2020/10/08/NoHello/</loc>
     
     <lastmod>2022-08-22</lastmod>
     
@@ -506,15 +506,6 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/07/23/build-a-rpm-package-from-aur-with-archlinux/</loc>
-    
-    <lastmod>2022-08-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zhul.in/2021/02/27/change-your-firefox-icon-into-a-bluedoge/</loc>
     
     <lastmod>2022-08-22</lastmod>
@@ -524,7 +515,25 @@
   </url>
   
   <url>
+    <loc>https://zhul.in/2021/07/23/build-a-rpm-package-from-aur-with-archlinux/</loc>
+    
+    <lastmod>2022-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zhul.in/2021/05/29/choose-the-last-archlinux-mirror-site-in-china/</loc>
+    
+    <lastmod>2022-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2021/09/21/csdn-copied-my-article/</loc>
     
     <lastmod>2022-08-22</lastmod>
     
@@ -543,15 +552,6 @@
   
   <url>
     <loc>https://zhul.in/2021/12/03/dev-app-update-in-wolai/</loc>
-    
-    <lastmod>2022-08-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/09/21/csdn-copied-my-article/</loc>
     
     <lastmod>2022-08-22</lastmod>
     
@@ -791,14 +791,14 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/tags/%E7%BF%BB%E8%AF%91/</loc>
+    <loc>https://zhul.in/tags/%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2023-11-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://zhul.in/tags/%E7%AC%94%E8%AE%B0/</loc>
+    <loc>https://zhul.in/tags/%E7%BF%BB%E8%AF%91/</loc>
     <lastmod>2023-11-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
