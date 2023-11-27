@@ -371,7 +371,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/09/05/wrong-fonts-color-fix-under-kde-with-a-dark-theme/</loc>
+    <loc>https://zhul.in/2021/05/23/why-i-use-archlinux/</loc>
     
     <lastmod>2022-08-22</lastmod>
     
@@ -380,7 +380,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/05/23/why-i-use-archlinux/</loc>
+    <loc>https://zhul.in/2021/09/05/wrong-fonts-color-fix-under-kde-with-a-dark-theme/</loc>
     
     <lastmod>2022-08-22</lastmod>
     
@@ -578,7 +578,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/04/27/hide-simsun-from-deepin-wine-tim/</loc>
+    <loc>https://zhul.in/2022/02/07/how-to-package-a-git-rpm-package/</loc>
     
     <lastmod>2022-08-22</lastmod>
     
@@ -587,7 +587,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2022/02/07/how-to-package-a-git-rpm-package/</loc>
+    <loc>https://zhul.in/2021/04/27/hide-simsun-from-deepin-wine-tim/</loc>
     
     <lastmod>2022-08-22</lastmod>
     
@@ -668,7 +668,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2020/12/19/Before-Report-A-Rom-Issue/</loc>
+    <loc>https://zhul.in/2020/08/10/AndroidUnpack/</loc>
     
     <lastmod>2021-10-13</lastmod>
     
@@ -677,7 +677,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2020/08/10/AndroidUnpack/</loc>
+    <loc>https://zhul.in/2020/12/19/Before-Report-A-Rom-Issue/</loc>
     
     <lastmod>2021-10-13</lastmod>
     
@@ -749,13 +749,6 @@
 
   
   <url>
-    <loc>https://zhul.in/tags/Rom/</loc>
-    <lastmod>2023-11-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://zhul.in/tags/Android/</loc>
     <lastmod>2023-11-27</lastmod>
     <changefreq>weekly</changefreq>
@@ -771,6 +764,13 @@
   
   <url>
     <loc>https://zhul.in/tags/Linux/</loc>
+    <lastmod>2023-11-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/Rom/</loc>
     <lastmod>2023-11-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
