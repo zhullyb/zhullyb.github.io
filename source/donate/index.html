@@ -10,14 +10,15 @@
 </head>
 <body>
     <div id="app">
-        <el-container>
+        <el-container class="container">
             <el-header>
                 <h1>Donate to zhullyb</h1>
             </el-header>
             <el-main>
-                <el-card>
+                <el-card class="center-card">
                     <p>全天24小时无人值守要饭，要饭我们是专业的。</p>
-                    <p>Unattended 7x24hr ask for begging. To ask for begging, we are professional.</p>
+                    <p>Unattended 7x24hr ask for begging.</p>
+                    <p>To ask for begging, we are professional.</p>
                     <el-divider></el-divider>
                     <el-radio-group v-model="radio" size="medium">
                         <el-radio-button label="wechat" @click="useWechat">WeChat Pay</el-radio-button>
@@ -64,16 +65,29 @@
 
 <style>
     @media (max-width: 768px) {
-        .el-image {
+        el-image {
             width: 100%;
             height: auto;
         }
     }
 
     @media (min-width: 769px) {
-        .el-image {
+        el-image {
             max-width: 400px;
             height: auto;
         }
+
+        .center-card {
+            width: 400px;
+        }
+    }
+
+    #app {
+        text-align: center;
+        margin: auto;
+    }
+
+    .container {
+        align-items: center;
     }
 </style>
