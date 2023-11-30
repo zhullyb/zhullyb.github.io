@@ -88,6 +88,7 @@ def set_adapter_status(status: bool):
 
 def on_connect(client, userdata, flags, rc):
     print("Connection returned with result code:" + str(rc))
+	client.subscribe(theme, qos=1)
 
 def on_message(client, userdata, msg):
     if msg.payload.decode("utf-8") == 'on':
@@ -104,7 +105,6 @@ client.on_message = on_message
 client.on_subscribe = on_subscribe
 
 client.connect("bemfa.com", 9501, 60)
-client.subscribe(theme, qos=1)
 client.loop_forever()
 ```
 
