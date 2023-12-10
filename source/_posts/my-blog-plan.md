@@ -67,7 +67,7 @@ tags:
 
    ![github secret setting](https://bu.dusays.com/2022/11/04/6364dbbfeb8f6.png)
 
-   我这边直接从[点墨阁](https://blog.zzy-ac.top/2021/07/06/yong-github-actions-bu-shu-hexo/)那边抄了点代码直接用。
+   我这边直接从[点墨阁](https://blog.m-l.cc/2021/07/06/yong-github-actions-bu-shu-hexo/)那边抄了点代码直接用。
 
 8. 使用 hexo 的 deploy 插件调用 rsync 将静态文件上传到自己服务器的对应目录（static server 你应当已经设置好了）
 
