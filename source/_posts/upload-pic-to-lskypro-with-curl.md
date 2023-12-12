@@ -31,11 +31,29 @@ Typora 一直是我写博客的主用 Markdown 编辑器，之前我采用 Typor
 ```bash
 #!/bin/bash
 
-export TOKEN=YOU_TYPE_IT
-export UPLOAD_API_URL=https://7bu.top/api/upload
+API_URL="https://7bu.top/api/v1"
+
+AUTH_TOKEN=""
+
+markdown=false
+while [[ "$#" -gt 0 ]]; do
+    case $1 in
+        -m|--markdown) markdown=true; shift ;;
+        *) break ;;
+    esac
+done
 
 for images in "$@"; do
-        curl -s -X POST $UPLOAD_API_URL -F "token=$TOKEN" -F "image=@$images" | jq -r .data.url
+    UPLOAD_RESPONSE=$(curl -s -X POST "$API_URL/upload" \
+        -H 'Content-Type: multipart/form-data' \
+        -H "Authorization: Bearer $AUTH_TOKEN" \
+        -F "file=@$images")
+
+    if [ "$markdown" = true ]; then
+        echo "$UPLOAD_RESPONSE" | jq -r .data.links.markdown
+    else
+        echo "$UPLOAD_RESPONSE" | jq -r .data.links.url
+    fi
 done
 ```
 
@@ -44,3 +62,5 @@ done
 需要借助 jq 来读取返回的 json，各 Linux 发行版源内应该都有打包，自行安装即可。
 
 授予x可执行权限后，Typora 内直接填写自定义命令输入脚本所在位置即可实现 Typora 自动上传图片了。
+
+> 2023/12/12更新: 支持 -m 或 --markdown 参数，使脚本输出 markdown 格式的链接。
