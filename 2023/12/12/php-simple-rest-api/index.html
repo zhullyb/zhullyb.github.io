@@ -1,0 +1,846 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://bu.dusays.com/2022/08/14/62f8012834a0a.ico">
+  <link rel="icon" href="https://bu.dusays.com/2022/08/14/62f8012834a0a.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="竹林里有冰">
+  <meta name="keywords" content="博客, 技术, Fedora">
+  
+    <meta name="description" content="我这学期有一门偏向前端的 WEB 课程，期末大作业要求使用 PHP 作为后端语言实现一个简单的影评系统，应该是不允许使用框架，使用中文关键字在搜索引擎上搜了一阵子似乎没有可供参考的案例，后来就找到了这篇博客，当中的许多观点与我不谋而合，因此我将这篇博客翻译成中文，原文戳这里: https:&#x2F;&#x2F;amirkamizi.com&#x2F;blog&#x2F;php-simple-rest-api  介绍上周 @rapid">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【翻译】使用 PHP 构建简单的 REST API">
+<meta property="og:url" content="https://zhul.in/2023/12/12/php-simple-rest-api/index.html">
+<meta property="og:site_name" content="竹林里有冰的博客">
+<meta property="og:description" content="我这学期有一门偏向前端的 WEB 课程，期末大作业要求使用 PHP 作为后端语言实现一个简单的影评系统，应该是不允许使用框架，使用中文关键字在搜索引擎上搜了一阵子似乎没有可供参考的案例，后来就找到了这篇博客，当中的许多观点与我不谋而合，因此我将这篇博客翻译成中文，原文戳这里: https:&#x2F;&#x2F;amirkamizi.com&#x2F;blog&#x2F;php-simple-rest-api  介绍上周 @rapid">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://bu.dusays.com/2023/12/12/6577fcdf64a96.png">
+<meta property="og:image" content="https://bu.dusays.com/2023/12/12/6577fd77c3d06.png">
+<meta property="og:image" content="https://bu.dusays.com/2023/12/12/6577fdca88f76.png">
+<meta property="og:image" content="https://bu.dusays.com/2023/12/12/6577fdf646402.png">
+<meta property="og:image" content="https://bu.dusays.com/2023/12/12/6577fe0c3a95b.png">
+<meta property="article:published_time" content="2023-12-12T05:07:32.000Z">
+<meta property="article:modified_time" content="2023-12-12T06:37:16.000Z">
+<meta property="article:author" content="竹林里有冰">
+<meta property="article:tag" content="翻译">
+<meta property="article:tag" content="PHP">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://bu.dusays.com/2023/12/12/6577fcdf64a96.png">
+  
+  
+  
+  <title>【翻译】使用 PHP 构建简单的 REST API - 竹林里有冰的博客</title>
+
+  <link  rel="stylesheet" href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/4.6.0/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-y/hint.css/2.6.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"zhul.in","root":"/","version":"1.9.4","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://bu.dusays.com/2022/08/14/62f800fc26770.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml"};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.7.0/style.min.css" /><script async defer data-website-id="5346b89b-f4bf-4593-971d-1f41a1118bc1" src="https://umami.zhul.in/umami.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/rss.xml" title="竹林里有冰的博客" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>竹林里有冰的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-books"></i>
+                <span>其他</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/rss.xml">
+                    
+                    <span>rss订阅</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/collections/">
+                    
+                    <span>收藏</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://randompic.zhul.in/api/randomtoppic.php') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="【翻译】使用 PHP 构建简单的 REST API"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-12-12 13:07" pubdate>
+          2023年12月12日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          9.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          46 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">【翻译】使用 PHP 构建简单的 REST API</h1>
+            
+              <p class="note note-info">
+                
+                  
+                    <!-- compatible with older versions-->
+                    本文最后更新于：2023年12月12日 下午
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <blockquote>
+<p>我这学期有一门偏向前端的 WEB 课程，期末大作业要求使用 PHP 作为后端语言实现一个简单的影评系统，应该是不允许使用框架，使用中文关键字在搜索引擎上搜了一阵子似乎没有可供参考的案例，后来就找到了这篇博客，当中的许多观点与我不谋而合，因此我将这篇博客翻译成中文，原文戳这里: <a target="_blank" rel="noopener" href="https://amirkamizi.com/blog/php-simple-rest-api">https://amirkamizi.com/blog/php-simple-rest-api</a></p>
+</blockquote>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>上周 @rapid_api 发了一个非常好的关于<a target="_blank" rel="noopener" href="https://twitter.com/Rapid_API/status/1486423046424563714">使用 nodejs 和 express 创建 REST API</a> 的教程帖子。我想要帮助你使用 PHP 开发同样简单的 REST API。</p>
+<p>首先，如果你不了解 REST API，请复辟查看这个 <a target="_blank" rel="noopener" href="https://twitter.com/Rapid_API/status/1452932706967461890">Twitter 帖子</a>。</p>
+<h2 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h2><p>在我们开始之前，我想提一句，当我写这篇帖子的时候，我想确保：</p>
+<ol>
+<li>我使用单纯的 PHP，不使用框架</li>
+<li>我使用最简单的函数和结构体以便所有人都可以理解并跟上</li>
+<li>我将主体部分分开</li>
+</ol>
+<p>现在让我们开始吧</p>
+<h2 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h2><p>在我本地的机器上，我创建了一个叫 api 的文件夹于 xampp &gt; htdocs，在里面有一个叫 index.php 的文件</p>
+<p>如果你没有 xampp 或者你不知道如何把 php 跑起来，请务必查看<a target="_blank" rel="noopener" href="https://amirkamizi.com/blog/introduction-to-php">这篇文章</a></p>
+<p>现在，如果你尝试访问 localhost/api，你将得到一个空的响应，因为 index.php 文件是孔德</p>
+<h2 id="优雅的-URL"><a href="#优雅的-URL" class="headerlink" title="优雅的 URL"></a>优雅的 URL</h2><p>项目中，我们需要处理的第一件事是 url</p>
+<p>REST API 的关键特性之一是每一个 url 负责一个资源和一个操作</p>
+<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><p>这时候如果我创建一个 users.php，我需要访问</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">localhost<span class="hljs-regexp">/api/u</span>sers.php<br></code></pre></td></tr></table></figure>
+
+<p>我需要为每一个 user id 创建一个新的文件</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">localhost<span class="hljs-regexp">/api/u</span>sers/<span class="hljs-number">1</span>.php<br>localhost<span class="hljs-regexp">/api/u</span>sers/<span class="hljs-number">2</span>.php<br></code></pre></td></tr></table></figure>
+
+<p>以此类推。</p>
+<p>这种方案有两个问题</p>
+<ol>
+<li>为每个用户创建一个新文件是非常无聊和耗时的</li>
+<li>路由不优雅，每个路径后面都带有 .php</li>
+</ol>
+<h3 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h3><p>让我们解决这个问题。</p>
+<p>正如我所提到的，我不想使用任何框架，并且我想使用最简单的、最让人能够理解的方案</p>
+<p>让我们看看如何解决这个问题</p>
+<p>在 api 文件夹下创建一个叫 .htaccess 的文件，并且将下面的文本复制进去</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs htaccess">RewriteEngine On<br>RewriteBase /api<br>RewriteCond %&#123;REQUEST_FILENAME&#125; !-d<br>RewriteCond %&#123;REQUEST_FILENAME&#125; !-f<br>RewriteRule ^(.+)$ index.php [QSA,L]<br></code></pre></td></tr></table></figure>
+
+<p>我们告诉服务器，将所有指向 /api 的请求都转发到 index.php 文件</p>
+<p>现在，所有的 url 都指向 index.php 了，比如下面的 url 都是指向 index.php 的</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk">api/users<br>api<span class="hljs-regexp">/users/</span><span class="hljs-number">10</span><br>api<span class="hljs-regexp">/users/</span><span class="hljs-number">5</span><br></code></pre></td></tr></table></figure>
+
+<p>现在我们同时解决了这两个问题</p>
+<ol>
+<li>所有的 url 都被一个文件处理</li>
+<li>url 都很优雅，结尾处没有 .php</li>
+</ol>
+<h2 id="URI"><a href="#URI" class="headerlink" title="URI"></a>URI</h2><p>但如何知道用户请求的是哪个 uri 呢？</p>
+<p>很简单，使用 $_SERVER 超全局变量</p>
+<p>让我们来看一些例子</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-comment">// url api/users</span><br><span class="hljs-keyword">echo</span> <span class="hljs-variable">$_SERVER</span>[<span class="hljs-string">&#x27;REQUEST_URI&#x27;</span>];<br><span class="hljs-comment">// /api/users</span><br><br><span class="hljs-comment">// url api/users/5</span><br><span class="hljs-keyword">echo</span> <span class="hljs-variable">$_SERVER</span>[<span class="hljs-string">&#x27;REQUEST_URI&#x27;</span>];<br><span class="hljs-comment">// /api/users/5</span><br><br><span class="hljs-comment">// url api</span><br><span class="hljs-keyword">echo</span> <span class="hljs-variable">$_SERVER</span>[<span class="hljs-string">&#x27;REQUEST_URI&#x27;</span>];<br><span class="hljs-comment">// /api</span><br></code></pre></td></tr></table></figure>
+
+<p>看见了吗？这就是我们所需要的</p>
+<p>现在，使用一个简单的 if 或者 switch 语句，我们就可以处理不同的路径了</p>
+<p>如果你从来没有用过这些语句，去读<a target="_blank" rel="noopener" href="https://amirkamizi.com/blog/php-conditionals">这篇文章</a>。</p>
+<h2 id="请求方法"><a href="#请求方法" class="headerlink" title="请求方法"></a>请求方法</h2><p>接下来，我们需要从请求中获取请求的方法，以查看它是GET、POST、PUT、PATCH还是DELETE。</p>
+<p>你可以从 $_SERVER 超全局数组中获取这个信息。</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-variable">$_SERVER</span>[<span class="hljs-string">&#x27;REQUEST_METHOD&#x27;</span>]<br></code></pre></td></tr></table></figure>
+
+<p>让我们将这两个值存储在变量中：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs php">php<br><span class="hljs-variable">$uri</span> = <span class="hljs-variable">$_SERVER</span>[<span class="hljs-string">&#x27;REQUEST_URI&#x27;</span>];<br><span class="hljs-variable">$method</span> = <span class="hljs-variable">$_SERVER</span>[<span class="hljs-string">&#x27;REQUEST_METHOD&#x27;</span>];<br></code></pre></td></tr></table></figure>
+
+<p>我们可以在一个简单的 switch 语句中使用这两个变量来处理不同的请求。</p>
+<p>我们需要判断以下请求</p>
+<ul>
+<li>api/users 的 GET 请求</li>
+<li>api/users/{id} 的 GET 请求</li>
+<li>api/users 的 POST 请求</li>
+<li>api/users/{id} 的 PUT 请求</li>
+<li>api/users/{id} 的 DELETE 请求</li>
+</ul>
+<p>让我们编写针对上述请求的 switch 语句</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-keyword">switch</span> (<span class="hljs-variable">$method</span> | <span class="hljs-variable">$uri</span>) &#123;<br>   <span class="hljs-comment">/*</span><br><span class="hljs-comment">   * Path: GET /api/users</span><br><span class="hljs-comment">   * Task: show all the users</span><br><span class="hljs-comment">   */</span><br>   <span class="hljs-keyword">case</span> (<span class="hljs-variable">$method</span> == <span class="hljs-string">&#x27;GET&#x27;</span> &amp;&amp; <span class="hljs-variable">$uri</span> == <span class="hljs-string">&#x27;/api/users&#x27;</span>):<br>       <span class="hljs-keyword">break</span>;<br>   <span class="hljs-comment">/*</span><br><span class="hljs-comment">   * Path: GET /api/users/&#123;id&#125;</span><br><span class="hljs-comment">   * Task: get one user</span><br><span class="hljs-comment">   */</span><br>   <span class="hljs-keyword">case</span> (<span class="hljs-variable">$method</span> == <span class="hljs-string">&#x27;GET&#x27;</span> &amp;&amp; <span class="hljs-title function_ invoke__">preg_match</span>(<span class="hljs-string">&#x27;/\/api\/users\/[1-9]/&#x27;</span>, <span class="hljs-variable">$uri</span>)):<br>       <span class="hljs-keyword">break</span>;<br>   <span class="hljs-comment">/*</span><br><span class="hljs-comment">   * Path: POST /api/users</span><br><span class="hljs-comment">   * Task: store one user</span><br><span class="hljs-comment">   */</span><br>   <span class="hljs-keyword">case</span> (<span class="hljs-variable">$method</span> == <span class="hljs-string">&#x27;POST&#x27;</span> &amp;&amp; <span class="hljs-variable">$uri</span> == <span class="hljs-string">&#x27;/api/users&#x27;</span>):<br>       <span class="hljs-keyword">break</span>;<br>   <span class="hljs-comment">/*</span><br><span class="hljs-comment">   * Path: PUT /api/users/&#123;id&#125;</span><br><span class="hljs-comment">   * Task: update one user</span><br><span class="hljs-comment">   */</span><br>   <span class="hljs-keyword">case</span> (<span class="hljs-variable">$method</span> == <span class="hljs-string">&#x27;PUT&#x27;</span> &amp;&amp; <span class="hljs-title function_ invoke__">preg_match</span>(<span class="hljs-string">&#x27;/\/api\/users\/[1-9]/&#x27;</span>, <span class="hljs-variable">$uri</span>)):<br>       <span class="hljs-keyword">break</span>;<br>   <span class="hljs-comment">/*</span><br><span class="hljs-comment">   * Path: DELETE /api/users/&#123;id&#125;</span><br><span class="hljs-comment">   * Task: delete one user</span><br><span class="hljs-comment">   */</span><br>   <span class="hljs-keyword">case</span> (<span class="hljs-variable">$method</span> == <span class="hljs-string">&#x27;DELETE&#x27;</span> &amp;&amp; <span class="hljs-title function_ invoke__">preg_match</span>(<span class="hljs-string">&#x27;/\/api\/users\/[1-9]/&#x27;</span>, <span class="hljs-variable">$uri</span>)):<br>       <span class="hljs-keyword">break</span>;<br>   <span class="hljs-comment">/*</span><br><span class="hljs-comment">   * Path: ?</span><br><span class="hljs-comment">   * Task: this path doesn&#x27;t match any of the defined paths</span><br><span class="hljs-comment">   *      throw an error</span><br><span class="hljs-comment">   */</span><br>   <span class="hljs-keyword">default</span>:<br>       <span class="hljs-keyword">break</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>当我们想要在 switch 语句中使用两个变量，我们可以使用 | 符号</p>
+<p>如果你想知道 preg_match 是如何工作的，看<a target="_blank" rel="noopener" href="https://amirkamizi.com/blog/php-regular-expressions">这篇文章</a>。</p>
+<h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><p>现在是说说数据。储存数据的最好方法是将数据储存在数据库中。但在这篇教程中，我不想使用数据库。因此，我们使用一个 json 文件当作数据库来保证数据的持久性。</p>
+<p>我的 json 文件看起来长成这个样子：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br>   <span class="hljs-attr">&quot;1&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Pratham&quot;</span><span class="hljs-punctuation">,</span><br>   <span class="hljs-attr">&quot;2&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Amir&quot;</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+
+<p>如果你想知道如何使用 json，看<a target="_blank" rel="noopener" href="https://amirkamizi.com/blog/php-xml-and-json">这篇文章</a></p>
+<p>我加载 json 数据并将其转换为数组，然后在 php 使用他们。如果我想要更改数据，我将数组转换回 json 并将其重新写入文件。</p>
+<p>要将整个文件作为一个字符串读取并存储在变量中，我使用：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-title function_ invoke__">file_get_contents</span>(<span class="hljs-variable">$jsonFile</span>);<br></code></pre></td></tr></table></figure>
+
+<p>而要将json写入文件，我使用：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-title function_ invoke__">file_put_contents</span>(<span class="hljs-variable">$jsonFile</span>, <span class="hljs-variable">$data</span>);<br></code></pre></td></tr></table></figure>
+
+<p>好了，现在我们的数据库处理好了，让我们开始处理所有的路径。</p>
+<p>我使用 Postman 发送请求并查看响应。</p>
+<h2 id="获取所有用户"><a href="#获取所有用户" class="headerlink" title="获取所有用户"></a>获取所有用户</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-keyword">case</span> (<span class="hljs-variable">$method</span> == <span class="hljs-string">&#x27;GET&#x27;</span> &amp;&amp; <span class="hljs-variable">$uri</span> == <span class="hljs-string">&#x27;/api/users&#x27;</span>):<br>   <span class="hljs-title function_ invoke__">header</span>(<span class="hljs-string">&#x27;Content-Type: application/json&#x27;</span>);<br>   <span class="hljs-keyword">echo</span> <span class="hljs-title function_ invoke__">json_encode</span>(<span class="hljs-variable">$users</span>, JSON_PRETTY_PRINT);<br>   <span class="hljs-keyword">break</span>;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://bu.dusays.com/2023/12/12/6577fcdf64a96.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload></p>
+<h2 id="获取单个用户"><a href="#获取单个用户" class="headerlink" title="获取单个用户"></a>获取单个用户</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-keyword">case</span> (<span class="hljs-variable">$method</span> == <span class="hljs-string">&#x27;GET&#x27;</span> &amp;&amp; <span class="hljs-title function_ invoke__">preg_match</span>(<span class="hljs-string">&#x27;/\/api\/users\/[1-9]/&#x27;</span>, <span class="hljs-variable">$uri</span>)):<br>   <span class="hljs-title function_ invoke__">header</span>(<span class="hljs-string">&#x27;Content-Type: application/json&#x27;</span>);<br>   <span class="hljs-comment">// get the id</span><br>   <span class="hljs-variable">$id</span> = <span class="hljs-title function_ invoke__">basename</span>(<span class="hljs-variable">$uri</span>);<br>   <span class="hljs-keyword">if</span> (!<span class="hljs-title function_ invoke__">array_key_exists</span>(<span class="hljs-variable">$id</span>, <span class="hljs-variable">$users</span>)) &#123;<br>       <span class="hljs-title function_ invoke__">http_response_code</span>(<span class="hljs-number">404</span>);<br>       <span class="hljs-keyword">echo</span> <span class="hljs-title function_ invoke__">json_encode</span>([<span class="hljs-string">&#x27;error&#x27;</span> =&gt; <span class="hljs-string">&#x27;user does not exist&#x27;</span>]);<br>       <span class="hljs-keyword">break</span>;<br>   &#125;<br>   <span class="hljs-variable">$responseData</span> = [<span class="hljs-variable">$id</span> =&gt; <span class="hljs-variable">$users</span>[<span class="hljs-variable">$id</span>]];<br>   <span class="hljs-keyword">echo</span> <span class="hljs-title function_ invoke__">json_encode</span>(<span class="hljs-variable">$responseData</span>, JSON_PRETTY_PRINT);<br>   <span class="hljs-keyword">break</span>;<br></code></pre></td></tr></table></figure>
+
+<p><strong>basename</strong>($uri) 会将 uri 的最后一部分给我。比如一个 api/users/10 这样的路径，它会返回 10.</p>
+<p>然后我使用 <strong>array_key_exists</strong> 检查是否存在一个 id 为 10 的用户</p>
+<p><img src="https://bu.dusays.com/2023/12/12/6577fd77c3d06.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload></p>
+<h2 id="添加一个新用户"><a href="#添加一个新用户" class="headerlink" title="添加一个新用户"></a>添加一个新用户</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-keyword">case</span> (<span class="hljs-variable">$method</span> == <span class="hljs-string">&#x27;POST&#x27;</span> &amp;&amp; <span class="hljs-variable">$uri</span> == <span class="hljs-string">&#x27;/api/users&#x27;</span>):<br>   <span class="hljs-title function_ invoke__">header</span>(<span class="hljs-string">&#x27;Content-Type: application/json&#x27;</span>);<br>   <span class="hljs-variable">$requestBody</span> = <span class="hljs-title function_ invoke__">json_decode</span>(<span class="hljs-title function_ invoke__">file_get_contents</span>(<span class="hljs-string">&#x27;php://input&#x27;</span>), <span class="hljs-literal">true</span>);<br>   <span class="hljs-variable">$name</span> = <span class="hljs-variable">$requestBody</span>[<span class="hljs-string">&#x27;name&#x27;</span>];<br>   <span class="hljs-keyword">if</span> (<span class="hljs-keyword">empty</span>(<span class="hljs-variable">$name</span>)) &#123;<br>       <span class="hljs-title function_ invoke__">http_response_code</span>(<span class="hljs-number">404</span>);<br>       <span class="hljs-keyword">echo</span> <span class="hljs-title function_ invoke__">json_encode</span>([<span class="hljs-string">&#x27;error&#x27;</span> =&gt; <span class="hljs-string">&#x27;Please add name of the user&#x27;</span>]);<br>   &#125;<br>   <span class="hljs-variable">$users</span>[] = <span class="hljs-variable">$name</span>;<br>   <span class="hljs-variable">$data</span> = <span class="hljs-title function_ invoke__">json_encode</span>(<span class="hljs-variable">$users</span>, JSON_PRETTY_PRINT);<br>   <span class="hljs-title function_ invoke__">file_put_contents</span>(<span class="hljs-variable">$jsonFile</span>, <span class="hljs-variable">$data</span>);<br>   <span class="hljs-keyword">echo</span> <span class="hljs-title function_ invoke__">json_encode</span>([<span class="hljs-string">&#x27;message&#x27;</span> =&gt; <span class="hljs-string">&#x27;user added successfully&#x27;</span>]);<br>   <span class="hljs-keyword">break</span>;<br></code></pre></td></tr></table></figure>
+
+<p>我使用 <strong>file_get_contents(‘php://input’)</strong> 以获取请求的 body 部分。由于在这个例子中我使用的是 json，我将会解码 json 以便我可以获取到名字。</p>
+<p><img src="https://bu.dusays.com/2023/12/12/6577fdca88f76.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload></p>
+<h2 id="更新一个用户"><a href="#更新一个用户" class="headerlink" title="更新一个用户"></a>更新一个用户</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-keyword">case</span> (<span class="hljs-variable">$method</span> == <span class="hljs-string">&#x27;PUT&#x27;</span> &amp;&amp; <span class="hljs-title function_ invoke__">preg_match</span>(<span class="hljs-string">&#x27;/\/api\/users\/[1-9]/&#x27;</span>, <span class="hljs-variable">$uri</span>)):<br>   <span class="hljs-title function_ invoke__">header</span>(<span class="hljs-string">&#x27;Content-Type: application/json&#x27;</span>);<br>   <span class="hljs-comment">// get the id</span><br>   <span class="hljs-variable">$id</span> = <span class="hljs-title function_ invoke__">basename</span>(<span class="hljs-variable">$uri</span>);<br>   <span class="hljs-keyword">if</span> (!<span class="hljs-title function_ invoke__">array_key_exists</span>(<span class="hljs-variable">$id</span>, <span class="hljs-variable">$users</span>)) &#123;<br>       <span class="hljs-title function_ invoke__">http_response_code</span>(<span class="hljs-number">404</span>);<br>       <span class="hljs-keyword">echo</span> <span class="hljs-title function_ invoke__">json_encode</span>([<span class="hljs-string">&#x27;error&#x27;</span> =&gt; <span class="hljs-string">&#x27;user does not exist&#x27;</span>]);<br>       <span class="hljs-keyword">break</span>;<br>   &#125;<br>   <span class="hljs-variable">$requestBody</span> = <span class="hljs-title function_ invoke__">json_decode</span>(<span class="hljs-title function_ invoke__">file_get_contents</span>(<span class="hljs-string">&#x27;php://input&#x27;</span>), <span class="hljs-literal">true</span>);<br>   <span class="hljs-variable">$name</span> = <span class="hljs-variable">$requestBody</span>[<span class="hljs-string">&#x27;name&#x27;</span>];<br>   <span class="hljs-keyword">if</span> (<span class="hljs-keyword">empty</span>(<span class="hljs-variable">$name</span>)) &#123;<br>       <span class="hljs-title function_ invoke__">http_response_code</span>(<span class="hljs-number">404</span>);<br>       <span class="hljs-keyword">echo</span> <span class="hljs-title function_ invoke__">json_encode</span>([<span class="hljs-string">&#x27;error&#x27;</span> =&gt; <span class="hljs-string">&#x27;Please add name of the user&#x27;</span>]);<br>   &#125;<br>   <span class="hljs-variable">$users</span>[<span class="hljs-variable">$id</span>] = <span class="hljs-variable">$name</span>;<br>   <span class="hljs-variable">$data</span> = <span class="hljs-title function_ invoke__">json_encode</span>(<span class="hljs-variable">$users</span>, JSON_PRETTY_PRINT);<br>   <span class="hljs-title function_ invoke__">file_put_contents</span>(<span class="hljs-variable">$jsonFile</span>, <span class="hljs-variable">$data</span>);<br>   <span class="hljs-keyword">echo</span> <span class="hljs-title function_ invoke__">json_encode</span>([<span class="hljs-string">&#x27;message&#x27;</span> =&gt; <span class="hljs-string">&#x27;user updated successfully&#x27;</span>]);<br>   <span class="hljs-keyword">break</span>;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://bu.dusays.com/2023/12/12/6577fdf646402.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload></p>
+<h2 id="删除一个用户"><a href="#删除一个用户" class="headerlink" title="删除一个用户"></a>删除一个用户</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-keyword">case</span> (<span class="hljs-variable">$method</span> == <span class="hljs-string">&#x27;DELETE&#x27;</span> &amp;&amp; <span class="hljs-title function_ invoke__">preg_match</span>(<span class="hljs-string">&#x27;/\/api\/users\/[1-9]/&#x27;</span>, <span class="hljs-variable">$uri</span>)):<br>   <span class="hljs-title function_ invoke__">header</span>(<span class="hljs-string">&#x27;Content-Type: application/json&#x27;</span>);<br>   <span class="hljs-comment">// get the id</span><br>   <span class="hljs-variable">$id</span> = <span class="hljs-title function_ invoke__">basename</span>(<span class="hljs-variable">$uri</span>);<br>   <span class="hljs-keyword">if</span> (<span class="hljs-keyword">empty</span>(<span class="hljs-variable">$users</span>[<span class="hljs-variable">$id</span>])) &#123;<br>       <span class="hljs-title function_ invoke__">http_response_code</span>(<span class="hljs-number">404</span>);<br>       <span class="hljs-keyword">echo</span> <span class="hljs-title function_ invoke__">json_encode</span>([<span class="hljs-string">&#x27;error&#x27;</span> =&gt; <span class="hljs-string">&#x27;user does not exist&#x27;</span>]);<br>       <span class="hljs-keyword">break</span>;<br>   &#125;<br>   <span class="hljs-keyword">unset</span>(<span class="hljs-variable">$users</span>[<span class="hljs-variable">$id</span>]);<br>   <span class="hljs-variable">$data</span> = <span class="hljs-title function_ invoke__">json_encode</span>(<span class="hljs-variable">$users</span>, JSON_PRETTY_PRINT);<br>   <span class="hljs-title function_ invoke__">file_put_contents</span>(<span class="hljs-variable">$jsonFile</span>, <span class="hljs-variable">$data</span>);<br>   <span class="hljs-keyword">echo</span> <span class="hljs-title function_ invoke__">json_encode</span>([<span class="hljs-string">&#x27;message&#x27;</span> =&gt; <span class="hljs-string">&#x27;user deleted successfully&#x27;</span>]);<br>   <span class="hljs-keyword">break</span>;<br></code></pre></td></tr></table></figure>
+
+<p><img src="https://bu.dusays.com/2023/12/12/6577fe0c3a95b.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload></p>
+<h2 id="最终文件"><a href="#最终文件" class="headerlink" title="最终文件"></a>最终文件</h2><p>现在我们的 index.php 文件看起来是这样的</p>
+<p>在 70 行左右的代码中，我们使用 PHP 创建了一个 RESTful API，很神奇吧？</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-meta">&lt;?php</span><br><span class="hljs-variable">$jsonFile</span> = <span class="hljs-string">&#x27;users.json&#x27;</span>;<br><span class="hljs-variable">$data</span> = <span class="hljs-title function_ invoke__">file_get_contents</span>(<span class="hljs-variable">$jsonFile</span>);<br><span class="hljs-variable">$users</span> = <span class="hljs-title function_ invoke__">json_decode</span>(<span class="hljs-variable">$data</span>, <span class="hljs-literal">true</span>);<br><span class="hljs-variable">$uri</span> = <span class="hljs-variable">$_SERVER</span>[<span class="hljs-string">&#x27;REQUEST_URI&#x27;</span>];<br><span class="hljs-variable">$method</span> = <span class="hljs-variable">$_SERVER</span>[<span class="hljs-string">&#x27;REQUEST_METHOD&#x27;</span>];<br><span class="hljs-keyword">switch</span> (<span class="hljs-variable">$method</span> | <span class="hljs-variable">$uri</span>) &#123;<br>   <span class="hljs-keyword">case</span> (<span class="hljs-variable">$method</span> == <span class="hljs-string">&#x27;GET&#x27;</span> &amp;&amp; <span class="hljs-variable">$uri</span> == <span class="hljs-string">&#x27;/api/users&#x27;</span>):<br>       <span class="hljs-title function_ invoke__">header</span>(<span class="hljs-string">&#x27;Content-Type: application/json&#x27;</span>);<br>       <span class="hljs-keyword">echo</span> <span class="hljs-title function_ invoke__">json_encode</span>(<span class="hljs-variable">$users</span>, JSON_PRETTY_PRINT);<br>       <span class="hljs-keyword">break</span>;<br>   <span class="hljs-keyword">case</span> (<span class="hljs-variable">$method</span> == <span class="hljs-string">&#x27;GET&#x27;</span> &amp;&amp; <span class="hljs-title function_ invoke__">preg_match</span>(<span class="hljs-string">&#x27;/\/api\/users\/[1-9]/&#x27;</span>, <span class="hljs-variable">$uri</span>)):<br>       <span class="hljs-title function_ invoke__">header</span>(<span class="hljs-string">&#x27;Content-Type: application/json&#x27;</span>);<br>       <span class="hljs-variable">$id</span> = <span class="hljs-title function_ invoke__">basename</span>(<span class="hljs-variable">$uri</span>);<br>       <span class="hljs-keyword">if</span> (!<span class="hljs-title function_ invoke__">array_key_exists</span>(<span class="hljs-variable">$id</span>, <span class="hljs-variable">$users</span>)) &#123;<br>           <span class="hljs-title function_ invoke__">http_response_code</span>(<span class="hljs-number">404</span>);<br>           <span class="hljs-keyword">echo</span> <span class="hljs-title function_ invoke__">json_encode</span>([<span class="hljs-string">&#x27;error&#x27;</span> =&gt; <span class="hljs-string">&#x27;user does not exist&#x27;</span>]);<br>           <span class="hljs-keyword">break</span>;<br>       &#125;<br>       <span class="hljs-variable">$responseData</span> = [<span class="hljs-variable">$id</span> =&gt; <span class="hljs-variable">$users</span>[<span class="hljs-variable">$id</span>]];<br>       <span class="hljs-keyword">echo</span> <span class="hljs-title function_ invoke__">json_encode</span>(<span class="hljs-variable">$responseData</span>, JSON_PRETTY_PRINT);<br>       <span class="hljs-keyword">break</span>;<br>   <span class="hljs-keyword">case</span> (<span class="hljs-variable">$method</span> == <span class="hljs-string">&#x27;POST&#x27;</span> &amp;&amp; <span class="hljs-variable">$uri</span> == <span class="hljs-string">&#x27;/api/users&#x27;</span>):<br>       <span class="hljs-title function_ invoke__">header</span>(<span class="hljs-string">&#x27;Content-Type: application/json&#x27;</span>);<br>       <span class="hljs-variable">$requestBody</span> = <span class="hljs-title function_ invoke__">json_decode</span>(<span class="hljs-title function_ invoke__">file_get_contents</span>(<span class="hljs-string">&#x27;php://input&#x27;</span>), <span class="hljs-literal">true</span>);<br>       <span class="hljs-variable">$name</span> = <span class="hljs-variable">$requestBody</span>[<span class="hljs-string">&#x27;name&#x27;</span>];<br>       <span class="hljs-keyword">if</span> (<span class="hljs-keyword">empty</span>(<span class="hljs-variable">$name</span>)) &#123;<br>           <span class="hljs-title function_ invoke__">http_response_code</span>(<span class="hljs-number">404</span>);<br>           <span class="hljs-keyword">echo</span> <span class="hljs-title function_ invoke__">json_encode</span>([<span class="hljs-string">&#x27;error&#x27;</span> =&gt; <span class="hljs-string">&#x27;Please add name of the user&#x27;</span>]);<br>       &#125;<br>       <span class="hljs-variable">$users</span>[] = <span class="hljs-variable">$name</span>;<br>       <span class="hljs-variable">$data</span> = <span class="hljs-title function_ invoke__">json_encode</span>(<span class="hljs-variable">$users</span>, JSON_PRETTY_PRINT);<br>       <span class="hljs-title function_ invoke__">file_put_contents</span>(<span class="hljs-variable">$jsonFile</span>, <span class="hljs-variable">$data</span>);<br>       <span class="hljs-keyword">echo</span> <span class="hljs-title function_ invoke__">json_encode</span>([<span class="hljs-string">&#x27;message&#x27;</span> =&gt; <span class="hljs-string">&#x27;user added successfully&#x27;</span>]);<br>       <span class="hljs-keyword">break</span>;<br>   <span class="hljs-keyword">case</span> (<span class="hljs-variable">$method</span> == <span class="hljs-string">&#x27;PUT&#x27;</span> &amp;&amp; <span class="hljs-title function_ invoke__">preg_match</span>(<span class="hljs-string">&#x27;/\/api\/users\/[1-9]/&#x27;</span>, <span class="hljs-variable">$uri</span>)):<br>       <span class="hljs-title function_ invoke__">header</span>(<span class="hljs-string">&#x27;Content-Type: application/json&#x27;</span>);<br>       <span class="hljs-variable">$id</span> = <span class="hljs-title function_ invoke__">basename</span>(<span class="hljs-variable">$uri</span>);<br>       <span class="hljs-keyword">if</span> (!<span class="hljs-title function_ invoke__">array_key_exists</span>(<span class="hljs-variable">$id</span>, <span class="hljs-variable">$users</span>)) &#123;<br>           <span class="hljs-title function_ invoke__">http_response_code</span>(<span class="hljs-number">404</span>);<br>           <span class="hljs-keyword">echo</span> <span class="hljs-title function_ invoke__">json_encode</span>([<span class="hljs-string">&#x27;error&#x27;</span> =&gt; <span class="hljs-string">&#x27;user does not exist&#x27;</span>]);<br>           <span class="hljs-keyword">break</span>;<br>       &#125;<br>       <span class="hljs-variable">$requestBody</span> = <span class="hljs-title function_ invoke__">json_decode</span>(<span class="hljs-title function_ invoke__">file_get_contents</span>(<span class="hljs-string">&#x27;php://input&#x27;</span>), <span class="hljs-literal">true</span>);<br>       <span class="hljs-variable">$name</span> = <span class="hljs-variable">$requestBody</span>[<span class="hljs-string">&#x27;name&#x27;</span>];<br>       <span class="hljs-keyword">if</span> (<span class="hljs-keyword">empty</span>(<span class="hljs-variable">$name</span>)) &#123;<br>           <span class="hljs-title function_ invoke__">http_response_code</span>(<span class="hljs-number">404</span>);<br>           <span class="hljs-keyword">echo</span> <span class="hljs-title function_ invoke__">json_encode</span>([<span class="hljs-string">&#x27;error&#x27;</span> =&gt; <span class="hljs-string">&#x27;Please add name of the user&#x27;</span>]);<br>       &#125;<br>       <span class="hljs-variable">$users</span>[<span class="hljs-variable">$id</span>] = <span class="hljs-variable">$name</span>;<br>       <span class="hljs-variable">$data</span> = <span class="hljs-title function_ invoke__">json_encode</span>(<span class="hljs-variable">$users</span>, JSON_PRETTY_PRINT);<br>       <span class="hljs-title function_ invoke__">file_put_contents</span>(<span class="hljs-variable">$jsonFile</span>, <span class="hljs-variable">$data</span>);<br>       <span class="hljs-keyword">echo</span> <span class="hljs-title function_ invoke__">json_encode</span>([<span class="hljs-string">&#x27;message&#x27;</span> =&gt; <span class="hljs-string">&#x27;user updated successfully&#x27;</span>]);<br>       <span class="hljs-keyword">break</span>;<br>   <span class="hljs-keyword">case</span> (<span class="hljs-variable">$method</span> == <span class="hljs-string">&#x27;DELETE&#x27;</span> &amp;&amp; <span class="hljs-title function_ invoke__">preg_match</span>(<span class="hljs-string">&#x27;/\/api\/users\/[1-9]/&#x27;</span>, <span class="hljs-variable">$uri</span>)):<br>       <span class="hljs-title function_ invoke__">header</span>(<span class="hljs-string">&#x27;Content-Type: application/json&#x27;</span>);<br>       <span class="hljs-variable">$id</span> = <span class="hljs-title function_ invoke__">basename</span>(<span class="hljs-variable">$uri</span>);<br>       <span class="hljs-keyword">if</span> (<span class="hljs-keyword">empty</span>(<span class="hljs-variable">$users</span>[<span class="hljs-variable">$id</span>])) &#123;<br>           <span class="hljs-title function_ invoke__">http_response_code</span>(<span class="hljs-number">404</span>);<br>           <span class="hljs-keyword">echo</span> <span class="hljs-title function_ invoke__">json_encode</span>([<span class="hljs-string">&#x27;error&#x27;</span> =&gt; <span class="hljs-string">&#x27;user does not exist&#x27;</span>]);<br>           <span class="hljs-keyword">break</span>;<br>       &#125;<br>       <span class="hljs-keyword">unset</span>(<span class="hljs-variable">$users</span>[<span class="hljs-variable">$id</span>]);<br>       <span class="hljs-variable">$data</span> = <span class="hljs-title function_ invoke__">json_encode</span>(<span class="hljs-variable">$users</span>, JSON_PRETTY_PRINT);<br>       <span class="hljs-title function_ invoke__">file_put_contents</span>(<span class="hljs-variable">$jsonFile</span>, <span class="hljs-variable">$data</span>);<br>       <span class="hljs-keyword">echo</span> <span class="hljs-title function_ invoke__">json_encode</span>([<span class="hljs-string">&#x27;message&#x27;</span> =&gt; <span class="hljs-string">&#x27;user deleted successfully&#x27;</span>]);<br>       <span class="hljs-keyword">break</span>;<br>   <span class="hljs-keyword">default</span>:<br>       <span class="hljs-title function_ invoke__">http_response_code</span>(<span class="hljs-number">404</span>);<br>       <span class="hljs-keyword">echo</span> <span class="hljs-title function_ invoke__">json_encode</span>([<span class="hljs-string">&#x27;error&#x27;</span> =&gt; <span class="hljs-string">&quot;We cannot find what you&#x27;re looking for.&quot;</span>]);<br>       <span class="hljs-keyword">break</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="额外内容"><a href="#额外内容" class="headerlink" title="额外内容"></a>额外内容</h2><p>在这种情况下，我不希望删除我的所有用户，所以我加了一个新的语句，如果只剩下最后一个用户，它将不会被删除，像这样</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs php"><span class="hljs-keyword">if</span> (<span class="hljs-title function_ invoke__">sizeof</span>(<span class="hljs-variable">$users</span>) == <span class="hljs-number">1</span>)&#123;<br>   <span class="hljs-title function_ invoke__">http_response_code</span>(<span class="hljs-number">404</span>);<br>   <span class="hljs-keyword">echo</span> <span class="hljs-title function_ invoke__">json_encode</span>([<span class="hljs-string">&#x27;error&#x27;</span> =&gt; <span class="hljs-string">&#x27;there is only one user left. you cannot delete it!&#x27;</span>]);<br>   <span class="hljs-keyword">break</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h2><p>你可以在<a target="_blank" rel="noopener" href="https://github.com/amirkamizi/php-simple-restful-api">我的 github</a> 上看到完整注释的源代码以及 post man 集合</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>现在你知道如何在 PHP 中创建一个简单的 RESTful API。</p>
+<p>我推荐你打开一个 PHP 文件并复习所有的这些我们进行的步骤，并且像本文一样添加一些额外的资源</p>
+<p>如果你有任何的建议、问题或者观点，请联系文章原作者，他期待着听到你的声音。</p>
+<h2 id="要点"><a href="#要点" class="headerlink" title="要点"></a>要点</h2><ul>
+<li>不使用框架，用 PHP 创建一个 RESTful API</li>
+<li>在 PHP 中使用优雅的 URL</li>
+<li>处理请求的 body</li>
+<li>使用 Json 文件作为你的数据库</li>
+<li>使用多个变量作为 switch 的关键词</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E7%BF%BB%E8%AF%91/">#翻译</a>
+      
+        <a href="/tags/PHP/">#PHP</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>【翻译】使用 PHP 构建简单的 REST API</div>
+      <div>https://zhul.in/2023/12/12/php-simple-rest-api/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>竹林里有冰</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年12月12日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2023年12月12日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-nc"></i>
+                  </span>
+                </a>
+              
+                <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/11/28/use-lxgw-wenkai-in-hexo-fluid/" title="在 Hexo Fluid 主题中使用霞鹜文楷">
+                        <span class="hidden-mobile">在 Hexo Fluid 主题中使用霞鹜文楷</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="waline"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#waline', function() {
+      Fluid.utils.createCssLink('https://cdn.staticfile.org/waline/2.15.5/waline.min.css')
+      Fluid.utils.createScript('https://cdn.staticfile.org/waline/2.15.5/waline.min.js', function() {
+        var options = Object.assign(
+          {"serverURL":"https://waline.zhul.in","path":"window.location.pathname","meta":["nick","mail","link"],"requiredMeta":["nick"],"lang":"zh-CN","emoji":["https://cdn1.tianli0.top/npm/@waline/emojis@1.0.1/weibo"],"dark":"html[data-user-color-scheme=\"dark\"]","wordLimit":0,"pageSize":10,"login":"disable","locale":{"placeholder":"快发个评论让我知道你在看（x"}},
+          {
+            el: '#waline',
+            path: window.location.pathname
+          }
+        )
+        Waline.init(options);
+        Fluid.utils.waitElementVisible('#waline .vcontent', () => {
+          var imgSelector = '#waline .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/4.6.0/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/tocbot/4.12.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/clipboard.js/2.0.6/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
