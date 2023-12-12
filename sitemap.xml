@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://zhul.in/2022/03/31/upload-pic-to-lskypro-with-curl/</loc>
+    <loc>https://zhul.in/2023/12/12/php-simple-rest-api/</loc>
     
     <lastmod>2023-12-12</lastmod>
     
@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2023/12/12/php-simple-rest-api/</loc>
+    <loc>https://zhul.in/2022/03/31/upload-pic-to-lskypro-with-curl/</loc>
     
     <lastmod>2023-12-12</lastmod>
     
@@ -977,20 +977,6 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/tags/jinja2/</loc>
-    <lastmod>2023-12-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/CSS/</loc>
-    <lastmod>2023-12-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://zhul.in/tags/IoT/</loc>
     <lastmod>2023-12-12</lastmod>
     <changefreq>weekly</changefreq>
@@ -1013,6 +999,20 @@
   
   <url>
     <loc>https://zhul.in/tags/Hardware/</loc>
+    <lastmod>2023-12-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/jinja2/</loc>
+    <lastmod>2023-12-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/CSS/</loc>
     <lastmod>2023-12-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
