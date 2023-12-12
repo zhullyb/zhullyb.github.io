@@ -14,7 +14,7 @@ tags:
 
 上周 @rapid_api 发了一个非常好的关于[使用 nodejs 和 express 创建 REST API](https://twitter.com/Rapid_API/status/1486423046424563714) 的教程帖子。我想要帮助你使用 PHP 开发同样简单的 REST API。
 
-首先，如果你不了解 REST API，请复辟查看这个 [Twitter 帖子](https://twitter.com/Rapid_API/status/1452932706967461890)。
+首先，如果你不了解 REST API，请务必查看这个 [Twitter 帖子](https://twitter.com/Rapid_API/status/1452932706967461890)。
 
 ## 目标
 
