@@ -5,6 +5,7 @@ tags:
 - Archlinux
 - PicUploader
 - KDE
+- PHP
 ---
 
 [上一篇文章](/2021/10/21/picuploader-on-archlinux-with-caddy/)我们在Archlinux中成功部署了PicUploader的web端，本文我们来讲讲如何为KDE的dolphin添加右键快捷键上传，效果类似这样。（gif图来自[PicUploader作者的博客](https://www.xiebruce.top/17.html))

@@ -6,6 +6,7 @@ tags:
 - Archlinux
 - Caddy
 - PicUploader
+- PHP
 ---
 
 > 之前找对大陆网络友好的图床时，找到了cloudinary，但是全英文界面对操作增加了不少难度，其页面也不是很简洁，让我一下打消了使用网页版的念头。通过搜索，找到了 PicUploader 这一方案，使用php编写，支持cloudinary的api。
