@@ -430,7 +430,7 @@ if (sizeof($users) == 1){
 
 ## 源码
 
-你可以在[我的 github](https://github.com/amirkamizi/php-simple-restful-api) 上看到完整注释的源代码以及 post man 集合
+你可以在[原作者的 github](https://github.com/amirkamizi/php-simple-restful-api) 上看到完整注释的源代码以及 post man 集合
 
 ## 总结
 
