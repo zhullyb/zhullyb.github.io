@@ -24,7 +24,6 @@
                     <el-radio-group v-model="radio" size="medium">
                         <el-radio-button label="wechat" @click="useWechat">WeChat Pay</el-radio-button>
                         <el-radio-button label="alipay" @click="useAlipay">AliPay</el-radio-button>
-                        <el-radio-button label="paypal" @click="usePayPal">PayPal</el-radio-button>
                     </el-radio-group>
                     <el-divider></el-divider>
                     <el-image v-if="radio === 'zhullyb'" src="https://bu.dusays.com/2022/03/20/d9af04eba27b5.png" fit="scale-down"></el-image>
@@ -50,14 +49,10 @@
             const useAlipay = () => {
                 radio.value = 'alipay'
             }
-            const usePayPal = () => {
-                window.location.href = 'https://www.paypal.me/realzhullyb'
-            }
             return {
                 radio,
                 useWechat,
-                useAlipay,
-                usePayPal
+                useAlipay
             }
         }
     }
