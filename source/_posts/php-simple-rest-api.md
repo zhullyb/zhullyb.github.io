@@ -32,7 +32,7 @@ tags:
 
 如果你没有 xampp 或者你不知道如何把 php 跑起来，请务必查看[这篇文章](https://amirkamizi.com/blog/introduction-to-php)
 
-现在，如果你尝试访问 localhost/api，你将得到一个空的响应，因为 index.php 文件是孔德
+现在，如果你尝试访问 localhost/api，你将得到一个空的响应，因为 index.php 文件是空的
 
 ## 优雅的 URL
 
