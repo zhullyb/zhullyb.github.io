@@ -136,7 +136,6 @@ $_SERVER['REQUEST_METHOD']
 让我们将这两个值存储在变量中：
 
 ```php
-php
 $uri = $_SERVER['REQUEST_URI'];
 $method = $_SERVER['REQUEST_METHOD'];
 ```
