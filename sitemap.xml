@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zhul.in/2023/11/02/integrating-sunflower-smart-socket-with-mi-home-via-bemfa-cloud/</loc>
+    
+    <lastmod>2023-12-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2023/12/27/php-and-vuejs-project-deploy-on-caddy/</loc>
+    
+    <lastmod>2023-12-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zhul.in/2023/12/12/php-simple-rest-api/</loc>
     
     <lastmod>2023-12-22</lastmod>
@@ -41,15 +59,6 @@
     <loc>https://zhul.in/2022/11/04/my-blog-plan/</loc>
     
     <lastmod>2023-12-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2023/11/02/integrating-sunflower-smart-socket-with-mi-home-via-bemfa-cloud/</loc>
-    
-    <lastmod>2023-11-30</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -344,7 +353,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/04/16/the-software-i-use-on-archlinux/</loc>
+    <loc>https://zhul.in/2021/12/12/the-history-of-cutefish/</loc>
     
     <lastmod>2022-08-22</lastmod>
     
@@ -353,7 +362,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/12/12/the-history-of-cutefish/</loc>
+    <loc>https://zhul.in/2021/04/16/the-software-i-use-on-archlinux/</loc>
     
     <lastmod>2022-08-22</lastmod>
     
@@ -479,7 +488,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2020/10/08/NoHello/</loc>
+    <loc>https://zhul.in/2020/07/11/RepoNotes/</loc>
     
     <lastmod>2022-08-22</lastmod>
     
@@ -488,7 +497,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2020/07/11/RepoNotes/</loc>
+    <loc>https://zhul.in/2020/10/08/NoHello/</loc>
     
     <lastmod>2022-08-22</lastmod>
     
@@ -963,14 +972,14 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/tags/KDE/</loc>
+    <loc>https://zhul.in/tags/umami/</loc>
     <lastmod>2023-12-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://zhul.in/tags/umami/</loc>
+    <loc>https://zhul.in/tags/KDE/</loc>
     <lastmod>2023-12-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -985,13 +994,6 @@
   
   <url>
     <loc>https://zhul.in/tags/MiAI/</loc>
-    <lastmod>2023-12-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/NetWork/</loc>
     <lastmod>2023-12-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1047,6 +1049,13 @@
   </url>
   
   <url>
+    <loc>https://zhul.in/tags/Vue-js/</loc>
+    <lastmod>2023-12-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://zhul.in/tags/PicUploader/</loc>
     <lastmod>2023-12-27</lastmod>
     <changefreq>weekly</changefreq>
@@ -1062,13 +1071,6 @@
   
   <url>
     <loc>https://zhul.in/tags/Windows/</loc>
-    <lastmod>2023-12-27</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Vue-js/</loc>
     <lastmod>2023-12-27</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

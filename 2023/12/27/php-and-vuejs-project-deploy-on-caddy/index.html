@@ -18,29 +18,27 @@
   <meta name="author" content="竹林里有冰">
   <meta name="keywords" content="博客, 技术, Fedora">
   
-    <meta name="description" content="进入大学已经快一年了，但我的 Azure 教育订阅申请一直没有成功，每年有 100 刀的额度，再这样下去就要亏掉近 700 元了，于是便打算趁期中考试刚结束的闲暇时间把 Azure 的教育订阅给过了。 我拥有 *.edu.cn 的邮箱，并且通过了 Github Student Pack 的认证，但每次在 https:&#x2F;&#x2F;signup.azure.com&#x2F;studentverification?of">
+    <meta name="description" content="这学期修了一门叫《用HTML5 和 PHP编写JavaScript，jQuery 和 AJAX脚本》的 web 课（对，听起来很奇怪的名字）。期末大作业是写一个影评系统，前端允许使用框架，后端仅允许使用 php，具体的作业要求如下  （源码会在验收结束以后开源） 大作业写了得要有三个礼拜，工作时长加起来得有 30 个小时，想着验收之前上线一段时间积累一些评论数据，验收的时候也会更加顺利一些，于是">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Azure 教育订阅申请时遇到的麻烦">
-<meta property="og:url" content="https://zhul.in/2023/05/12/troubles-when-applying-azure-education/index.html">
+<meta property="og:title" content="vuejs、php、caddy 与 docker —— web 期末大作业上云部署">
+<meta property="og:url" content="https://zhul.in/2023/12/27/php-and-vuejs-project-deploy-on-caddy/index.html">
 <meta property="og:site_name" content="竹林里有冰的博客">
-<meta property="og:description" content="进入大学已经快一年了，但我的 Azure 教育订阅申请一直没有成功，每年有 100 刀的额度，再这样下去就要亏掉近 700 元了，于是便打算趁期中考试刚结束的闲暇时间把 Azure 的教育订阅给过了。 我拥有 *.edu.cn 的邮箱，并且通过了 Github Student Pack 的认证，但每次在 https:&#x2F;&#x2F;signup.azure.com&#x2F;studentverification?of">
+<meta property="og:description" content="这学期修了一门叫《用HTML5 和 PHP编写JavaScript，jQuery 和 AJAX脚本》的 web 课（对，听起来很奇怪的名字）。期末大作业是写一个影评系统，前端允许使用框架，后端仅允许使用 php，具体的作业要求如下  （源码会在验收结束以后开源） 大作业写了得要有三个礼拜，工作时长加起来得有 30 个小时，想着验收之前上线一段时间积累一些评论数据，验收的时候也会更加顺利一些，于是">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://bu.dusays.com/2023/05/13/645e646bc5b58.png">
-<meta property="og:image" content="https://bu.dusays.com/2023/05/12/645e5fdfb25a3.png">
-<meta property="og:image" content="https://bu.dusays.com/2023/05/12/645e60ad79001.png">
-<meta property="og:image" content="https://bu.dusays.com/2023/05/13/645e62bae0c0a.png">
-<meta property="og:image" content="https://bu.dusays.com/2023/05/13/645e639e2c9d1.png">
-<meta property="og:image" content="https://bu.dusays.com/2023/05/13/645e63e39523f.png">
-<meta property="article:published_time" content="2023-05-12T15:38:29.000Z">
-<meta property="article:modified_time" content="2023-05-12T16:11:08.000Z">
+<meta property="og:image" content="https://bu.dusays.com/2023/12/28/658c4c3128ae4.png">
+<meta property="article:published_time" content="2023-12-27T14:09:00.000Z">
+<meta property="article:modified_time" content="2023-12-27T16:09:41.000Z">
 <meta property="article:author" content="竹林里有冰">
-<meta property="article:tag" content="Azure">
+<meta property="article:tag" content="Network">
+<meta property="article:tag" content="Caddy">
+<meta property="article:tag" content="PHP">
+<meta property="article:tag" content="Vue.js">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://bu.dusays.com/2023/05/13/645e646bc5b58.png">
+<meta name="twitter:image" content="https://bu.dusays.com/2023/12/28/658c4c3128ae4.png">
   
   
   
-  <title>Azure 教育订阅申请时遇到的麻烦 - 竹林里有冰的博客</title>
+  <title>vuejs、php、caddy 与 docker —— web 期末大作业上云部署 - 竹林里有冰的博客</title>
 
   <link  rel="stylesheet" href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/4.6.0/css/bootstrap.min.css" />
 
@@ -239,7 +237,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Azure 教育订阅申请时遇到的麻烦"></span>
+            <span id="subtitle" data-typed-text="vuejs、php、caddy 与 docker —— web 期末大作业上云部署"></span>
           
         </div>
 
@@ -250,8 +248,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-05-12 23:38" pubdate>
-          2023年5月12日 晚上
+        <time datetime="2023-12-27 22:09" pubdate>
+          2023年12月27日 晚上
         </time>
       </span>
     
@@ -263,7 +261,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          1.1k 字
+          2k 字
         
       </span>
     
@@ -275,7 +273,7 @@
         
         
           <!-- compatible with older versions-->
-          6 分钟
+          11 分钟
         
       </span>
     
@@ -313,13 +311,13 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Azure 教育订阅申请时遇到的麻烦</h1>
+            <h1 style="display: none">vuejs、php、caddy 与 docker —— web 期末大作业上云部署</h1>
             
               <p class="note note-info">
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2023年5月13日 凌晨
+                    本文最后更新于：2023年12月28日 凌晨
                   
                 
               </p>
@@ -327,21 +325,40 @@
             
               <div class="markdown-body">
                 
-                <p>进入大学已经快一年了，但我的 Azure 教育订阅申请一直没有成功，每年有 100 刀的额度，<del>再这样下去就要亏掉近 700 元了</del>，于是便打算趁期中考试刚结束的闲暇时间把 Azure 的教育订阅给过了。</p>
-<p>我拥有 *.edu.cn 的邮箱，并且通过了 Github Student Pack 的认证，但每次在 <a target="_blank" rel="noopener" href="https://signup.azure.com/studentverification?offerType=1">https://signup.azure.com/studentverification?offerType=1</a> 页面尝试申请 Azure 订阅时，总是会得到一句冷冷的「你没有资格使用 Azure 免费帐户」。于是，我找到了 Azure 订阅支持客服帮忙，链接是这个: <a target="_blank" rel="noopener" href="https://azureforeducation.microsoft.com/en-us/institutions/Contact">https://azureforeducation.microsoft.com/en-us/institutions/Contact</a>，简要填写了我的基本信息后就开始等待邮件回复了。</p>
-<p><img src="https://bu.dusays.com/2023/05/13/645e646bc5b58.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="提交工单"></p>
-<p>我是周四上午申请的，不到一个小时就等来了微软的工单生成通知</p>
-<p><img src="https://bu.dusays.com/2023/05/12/645e5fdfb25a3.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="微软的工单通知"></p>
-<p>但光有这工单也没有用，我只能继续等人工客服的介入。</p>
-<p>在周五的早上十点，我收到了来自人工客服的邮件，并且在几分钟后收到了来自人工客服的电话（电话是 021 开头的，是归属地为上海的座机打来的，但客服操着严重的港台口音，可能是港台那边的客服通过上海的座机中转打给我的？）: </p>
-<p><img src="https://bu.dusays.com/2023/05/12/645e60ad79001.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="人工客服的邮件"></p>
-<p>但很显然，这封邮件并没有提供任何行之有效的方案，我只能按照邮件中的指示将我的截图发了过去。不过客服不知道出于什么原因一定要求全屏截图（如果电话说的是全面屏，那也是指 PC 端的全屏截图），可能是他们有什么工作制度吧。回复邮件的时候一定要选择<strong>回复全部</strong>，好像是他们只使用 <a href="mailto:&#x73;&#117;&#x70;&#112;&#111;&#114;&#116;&#x40;&#109;&#x61;&#x69;&#108;&#x2e;&#x73;&#x75;&#112;&#112;&#x6f;&#114;&#x74;&#46;&#x6d;&#x69;&#x63;&#114;&#x6f;&#x73;&#x6f;&#102;&#116;&#x2e;&#x63;&#111;&#x6d;">&#x73;&#117;&#x70;&#112;&#111;&#114;&#116;&#x40;&#109;&#x61;&#x69;&#108;&#x2e;&#x73;&#x75;&#112;&#112;&#x6f;&#114;&#x74;&#46;&#x6d;&#x69;&#x63;&#114;&#x6f;&#x73;&#x6f;&#102;&#116;&#x2e;&#x63;&#111;&#x6d;</a> 这一个邮箱与我们通信，微软的服务器收到内容后会将我们发送的内容再抄送给给我们分配的客服手上，如果不选择「回复全部」的话，客服可能就看不到之前的通信记录了。</p>
-<p>于是就在当天下午的2点收到了人工客服的第二封邮件，说是已经帮我提交到了后台处理。</p>
-<p><img src="https://bu.dusays.com/2023/05/13/645e62bae0c0a.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="来自人工客服的第二封邮件"></p>
-<p>20 分钟后，我收到了这封应该是系统自动发送的邮件，说明我的账号因异常而触发了审查所以过不了 Azure 的教育订阅，需要我提交能够佐证我的学生身份的东西上去，当晚7点我便按照要求回信。</p>
-<p><img src="https://bu.dusays.com/2023/05/13/645e639e2c9d1.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="1683907484369.png"></p>
-<p>当晚8点半，我便收到了来自系统的消息，得知异常已经解除，再次申请 Azure 学生认证就成功了。</p>
-<p><img src="https://bu.dusays.com/2023/05/13/645e63e39523f.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="异常解除"></p>
+                <blockquote>
+<p>这学期修了一门叫《用HTML5 和 PHP编写JavaScript，jQuery 和 AJAX脚本》的 web 课（对，听起来很奇怪的名字）。期末大作业是写一个影评系统，前端允许使用框架，后端仅允许使用 php，具体的作业要求如下</p>
+<p><img src="https://bu.dusays.com/2023/12/28/658c4c3128ae4.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="作业要求"></p>
+<p>（源码会在验收结束以后开源）</p>
+<p>大作业写了得要有三个礼拜，工作时长加起来得有 30 个小时，想着验收之前上线一段时间积累一些评论数据，验收的时候也会更加顺利一些，于是就开始尝试在服务器上部署。部署的过程还是比较复杂的，所以写下这篇博客记录一下。</p>
+</blockquote>
+<h2 id="后端部分"><a href="#后端部分" class="headerlink" title="后端部分"></a>后端部分</h2><p>早前有<a href="https://zhul.in/2021/10/21/picuploader-on-archlinux-with-caddy/">《PicUploader使用系列（一）——在Archlinux上使用Caddy部署PicUploader》</a>的经验，便觉得使用 Caddy + php-fpm 部署的方式多少有点麻烦了，这次便尝试了使用 Docker 部署、Caddy 反代的方式。</p>
+<p>Dockerfile 如下:</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs dockerfile"><span class="hljs-keyword">FROM</span> php:<span class="hljs-number">8</span>-apache<br><span class="hljs-keyword">RUN</span><span class="language-bash"> docker-php-ext-install mysqli</span><br><span class="hljs-keyword">RUN</span><span class="language-bash"> a2enmod rewrite</span><br><span class="hljs-keyword">COPY</span><span class="language-bash"> . /var/www/html</span><br><span class="hljs-keyword">EXPOSE</span> <span class="hljs-number">80</span><br></code></pre></td></tr></table></figure>
+
+<p>在后端的根目录下有一个 .htaccess 文件，将所有的请求都交给 index.php 来处理，这样就可以根据我的<a href="https://zhul.in/2023/12/12/php-simple-rest-api/">上一篇博客</a>中所提到的方式去构建不使用任何 php 框架实现的简易 router 效果</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs htaccess">RewriteEngine On<br>RewriteRule ^(.*) index.php [QSA,L]<br></code></pre></td></tr></table></figure>
+
+<p>构建 Docker 镜像时使用 <code>docker build . -t mrs-php</code> 命令，运行 docker 容器时使用命令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker run -d \<br>    -p 7788:80 \<br>    --name mrs-php \<br>    -v /path/to/uploads:/var/www/html/uploads \<br>    --restart unless-stopped \<br>    mrs-php<br></code></pre></td></tr></table></figure>
+
+<p>这样，后端就在 7788 端口上开起来了，后续 Caddy 只要将打到 <code>/api/*</code> 和 <code>/uploads/*</code> 的请求转发到 7788 端口即可，避免了使用 php-fpm 时需要的配置。<code>uploads</code> 目录是用来存放图片的，我将这个路径挂在在宿主机的目录下，方便备份导入等操作。</p>
+<h3 id="mysql-连接时的小插曲"><a href="#mysql-连接时的小插曲" class="headerlink" title="mysql 连接时的小插曲"></a>mysql 连接时的小插曲</h3><p>需要注意的是，在 Docker 容器中运行的 php 如果想要访问宿主机上的 mysql，需要注意修改 mysql 服务器的 ip 地址，并允许 mysql 接收来自非本机的请求。</p>
+<p>在宿主机中运行 <code>ip -br a</code> 命令可以看到 docker 所采用的虚拟网卡的 ip 地址</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs elixir">docker0          <span class="hljs-title class_">UP</span>             <span class="hljs-number">172.17</span>.<span class="hljs-number">0.1</span>/<span class="hljs-number">16</span> fe80::<span class="hljs-number">42</span><span class="hljs-symbol">:eff</span><span class="hljs-symbol">:febf</span><span class="hljs-symbol">:b26c/</span><span class="hljs-number">64</span><br></code></pre></td></tr></table></figure>
+
+<p>我这边得到的 ip 地址是 172.17.0.1，所以在 php 那边访问的数据库 ip 地址就应该是 172.17.0.1，而非 localhost 或者 127.0.0.1</p>
+<p>此外，需要允许宿主机的 mysql 接收来自 Docker 容器的请求</p>
+<p>使用 <code>docker network inspect bridge</code> 命令可以查到 docker 容器的 ip 地址，接着需要去允许来自这个 ip 的请求。建议去网上自行搜索，因为 mysql 语句我自己也不熟悉。我使用的 mysql 版本是 8，语句似乎和以前的版本不兼容？我使用下面三个命令轮着输就好了（有时候报错，有时侯又不报错），有大佬懂的话评论区讲讲。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs mysql">use mysql;<br>GRANT ALL ON *.* TO &#x27;root&#x27;@&#x27;%&#x27;;<br>update user set host=&#x27;%&#x27; where user=&#x27;root&#x27;;<br>GRANT ALL ON *.* TO &#x27;root&#x27;@&#x27;%&#x27;;<br></code></pre></td></tr></table></figure>
+
+<h2 id="前端部分"><a href="#前端部分" class="headerlink" title="前端部分"></a>前端部分</h2><p>前端部分部署起来没什么难度</p>
+<p>我使用的是 vite 开发的 vuejs 项目，直接使用 <code>pnpm build</code> 构建出静态文件，然后放入了 <code>/var/www/mrs</code> 目录，这部分没什么可说的</p>
+<h2 id="Caddy-配置"><a href="#Caddy-配置" class="headerlink" title="Caddy 配置"></a>Caddy 配置</h2><p>Caddy 配置如下</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs awk">example.com &#123;<br>    handle <span class="hljs-regexp">/api/</span>* &#123;<br>        reverse_proxy localhost:<span class="hljs-number">7788</span><br>    &#125;<br><br>    handle <span class="hljs-regexp">/uploads/</span>* &#123;<br>        reverse_proxy localhost:<span class="hljs-number">7788</span><br>    &#125;<br><br>    handle /* &#123;<br>        root * <span class="hljs-regexp">/var/</span>www/mrs<br>        file_server<br>        try_files &#123;path&#125; /<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>将打到 <code>/api/*</code> 和 <code>/uploads/*</code> 都交给 7788 端口的后端进行处理，前端部分要使用 <code>try_files</code> 将请求都指向 <code>/</code> 或 <code>/index.html</code> 交由 vue-router 处理，否则 caddy 就找不到对应的文件了。这里我尝试过使用 route 关键词代替 handle，但 <code>try_files</code> 的功能没有生效，这两者的区别官方文档中有提到，但我没看懂，等我以后看看有没有机会去折腾了。</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考:"></a>参考:</h2><p><a target="_blank" rel="noopener" href="https://homeboyc.cn/blog/%E4%BD%BF%E7%94%A8caddy%E9%85%8D%E7%BD%AE%E5%90%8C%E4%B8%80%E5%9F%9F%E5%90%8D%E4%B8%8B%E7%9A%84%E5%89%8D%E5%90%8E%E5%88%86%E7%A6%BB/">使用Caddy配置同一域名下的前后分离</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.lyh543.cn/notes/linux/caddy.html">Caddy 2</a></p>
 
                 
               </div>
@@ -354,7 +371,13 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Azure/">#Azure</a>
+        <a href="/tags/Network/">#Network</a>
+      
+        <a href="/tags/Caddy/">#Caddy</a>
+      
+        <a href="/tags/PHP/">#PHP</a>
+      
+        <a href="/tags/Vue-js/">#Vue.js</a>
       
     </div>
   
@@ -366,8 +389,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Azure 教育订阅申请时遇到的麻烦</div>
-      <div>https://zhul.in/2023/05/12/troubles-when-applying-azure-education/</div>
+      <div>vuejs、php、caddy 与 docker —— web 期末大作业上云部署</div>
+      <div>https://zhul.in/2023/12/27/php-and-vuejs-project-deploy-on-caddy/</div>
     </div>
     <div class="license-meta">
       
@@ -379,13 +402,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年5月12日</div>
+          <div>2023年12月27日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2023年5月13日</div>
+          <div>2023年12月28日</div>
         </div>
       
       
@@ -428,18 +451,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/06/24/redmi-ac2100-router-with-padavan/" title="为红米 Redmi AC2100 路由器刷入 Padavan">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">为红米 Redmi AC2100 路由器刷入 Padavan</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/05/03/checkout-lfs-file-after-repo-sync/" title="执行 repo sync 后将 git-lfs 中的资源文件 checkout">
-                        <span class="hidden-mobile">执行 repo sync 后将 git-lfs 中的资源文件 checkout</span>
+                      <a href="/2023/12/12/php-simple-rest-api/" title="【翻译】使用 PHP 构建简单的 REST API">
+                        <span class="hidden-mobile">【翻译】使用 PHP 构建简单的 REST API</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
