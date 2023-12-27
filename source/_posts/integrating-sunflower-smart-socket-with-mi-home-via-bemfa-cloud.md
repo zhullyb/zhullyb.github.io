@@ -6,7 +6,7 @@ execrpt:
 tags:
 - IoT
 - MiAI
-- NetWork
+- Network
 - Linux
 - Python
 - Hardware
