@@ -22,7 +22,7 @@ tags:
 
 ![CORS Missing Allow Origin](https://bu.dusays.com/2024/01/11/659ec607c69af.png)
 
-vite 启动的 dev 开发服务器使用的域是 localhost:5173 ，而 php 后端我指定的是 127.0.0.1:8080 ，前后端并不运行在一个域下，前端使用 Axios(AJAX) 向后端发送请求获取资源输入 CORS 跨域资源共享的范畴。
+vite 启动的 dev 开发服务器使用的域是 `http://localhost:5173` ，而 php 后端我指定的是 `http://127.0.0.1:8080` ，前后端并不运行在一个域下，前端使用 Axios(AJAX) 向后端发送请求获取资源输入 CORS 跨域资源共享的范畴。
 
 关于跨域资源共享 CORS 的相关内容，[阮一峰老师在 2016 年就已经在他的博客中有过解释](https://www.ruanyifeng.com/blog/2016/04/cors.html)，看了下也是全网中文内容中解释得比较通俗易懂的，因此本文在这方面不过多做解释。错误的提示信息是 Missing Allow Origin，结合阮一峰老师的博文，我们应该在后端向前端发送的 http 响应头中添加 `Access-Control-Allow-Origin` 这一字段。
 
