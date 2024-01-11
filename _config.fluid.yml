@@ -1034,6 +1034,12 @@ links:
       link: "https://blog.bluebird.icu/",
       avatar: "https://download.tooc.xlj0.com/uploads/206/img/head.jpg"
     }
+    - {
+      title: "浅浅子的博客",
+      intro: "内心丰盈者独行也如众",
+      link: "http://qianqianzyk.top/",
+      avatar: "https://bu.dusays.com/2024/01/11/659f548c17c9b.jpg"
+    }
 
   # 当成员头像加载失败时，替换为指定图片
   # When the member avatar fails to load, replace the specified image
