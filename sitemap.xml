@@ -533,15 +533,6 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/07/23/build-a-rpm-package-from-aur-with-archlinux/</loc>
-    
-    <lastmod>2022-08-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zhul.in/2021/10/01/bring-firefox-old-topbar-back/</loc>
     
     <lastmod>2022-08-22</lastmod>
@@ -552,6 +543,15 @@
   
   <url>
     <loc>https://zhul.in/2021/02/27/change-your-firefox-icon-into-a-bluedoge/</loc>
+    
+    <lastmod>2022-08-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2021/07/23/build-a-rpm-package-from-aur-with-archlinux/</loc>
     
     <lastmod>2022-08-22</lastmod>
     
@@ -614,7 +614,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2022/02/07/how-to-package-a-git-rpm-package/</loc>
+    <loc>https://zhul.in/2021/04/27/hide-simsun-from-deepin-wine-tim/</loc>
     
     <lastmod>2022-08-22</lastmod>
     
@@ -623,7 +623,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/04/27/hide-simsun-from-deepin-wine-tim/</loc>
+    <loc>https://zhul.in/2022/02/07/how-to-package-a-git-rpm-package/</loc>
     
     <lastmod>2022-08-22</lastmod>
     
@@ -883,13 +883,6 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/tags/RPM-Package/</loc>
-    <lastmod>2024-01-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://zhul.in/tags/Firefox/</loc>
     <lastmod>2024-01-12</lastmod>
     <changefreq>weekly</changefreq>
@@ -898,6 +891,13 @@
   
   <url>
     <loc>https://zhul.in/tags/Bwrap/</loc>
+    <lastmod>2024-01-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/RPM-Package/</loc>
     <lastmod>2024-01-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
