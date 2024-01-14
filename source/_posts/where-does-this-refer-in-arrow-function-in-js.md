@@ -45,11 +45,11 @@ new b().u2()
 
 这个问题涉及到 JavaScript 中箭头函数的作用域以及 this 指向。
 
-在 JS 中使用 function 关键字定义的普通函数中，this 指针遵循一个规则：谁调用指向谁。即 `obj.func()` 这种调用情况下，func 方法内部的this指向obj；如果没有调用者，则严格模式下 this 为 undefined，非严格模式下 this 指向window(浏览器)或者global(node环境)。
+**在 JS 中使用 function 关键字定义的普通函数中，this 指针遵循一个规则：谁调用指向谁。**即 `obj.func()` 这种调用情况下，func 方法内部的this指向obj；如果没有调用者，则严格模式下 this 为 undefined，非严格模式下 this 指向window(浏览器)或者global(node环境)。
 
-而箭头函数比较特殊，箭头函数的 this 在定义时就被绑定，绑定的是定义时所在作用域中的 this。
+而箭头函数比较特殊，**箭头函数的 this 在定义时就被绑定，绑定的是定义时所在作用域中的 this。**
 
-在老师给的示例代码中，第一行对 a 这个变量进行了赋值，而这个操作不会创建新的作用域，因此 a 中定义的 u2 的 this 指向的是全局对象。因此在 Es Module 默认启用 strict mode 的情况下，全局对象的 this 指向 undefined，进而导致 a 的 u2 内 this 也指向 undefined，this.x 就抛了 TypeError；而在 CommonJS 未启用 strict mode 的情况下，全局对象的 this 指向全局对象，因而 u2 内的 this 也指向全局对象，因此 this 存在，this.x 就不会抛 TypeError，只会报 undefined。
+在老师给的示例代码中，第一行定义了 a 这个对象字面量，而**定义对象字面量不会创建新的作用域**，因此 a 中定义的 u2 的 this 指向的是全局对象。因此在 Es Module 默认启用 strict mode 的情况下，全局对象的 this 指向 undefined，进而导致 a 的 u2 内 this 也指向 undefined，this.x 就抛了 TypeError；而在 CommonJS 未启用 strict mode 的情况下，全局对象的 this 指向全局对象，因而 u2 内的 this 也指向全局对象，因此 this 存在，this.x 就不会抛 TypeError，只会报 undefined。
 
 而 B 类在对象初始化阶段拥有一个新的作用域，因此箭头函数的 this 能够正确指向 B 被实例化出来的对象，因此也就能够正确读取到 this.x 的值。
 
