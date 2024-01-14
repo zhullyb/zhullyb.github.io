@@ -49,7 +49,7 @@ new b().u2()
 
 而箭头函数比较特殊，**箭头函数的 this 在定义时就被绑定，绑定的是定义时所在作用域中的 this。**
 
-在老师给的示例代码中，第一行定义了 a 这个对象字面量，而**定义对象字面量不会创建新的作用域**，因此 a 中定义的 u2 的 this 指向的是全局对象。因此在 Es Module 默认启用 strict mode 的情况下，全局对象的 this 指向 undefined，进而导致 a 的 u2 内 this 也指向 undefined，this.x 就抛了 TypeError；而在 CommonJS 未启用 strict mode 的情况下，全局对象的 this 指向全局对象，因而 u2 内的 this 也指向全局对象，因此 this 存在，this.x 就不会抛 TypeError，只会报 undefined。
+在老师给的示例代码中，第一行定义了 a 这个对象字面量，而**定义对象字面量不会创建新的作用域**，因此 a 中定义的 u2 的 this 指向的是全局对象。因此在 Es Module 默认启用 strict mode 的情况下，全局对象的 this 指向 undefined，进而导致 a 的 u2 内 this 也指向 undefined，this.x 就抛了 TypeError；而在 **CommonJS 未启用 strict mode 的情况下，全局对象的 this 指向全局对象**，因而 u2 内的 this 也指向全局对象，因此 this 存在，this.x 就不会抛 TypeError，只会报 undefined。
 
 而 B 类在对象初始化阶段拥有一个新的作用域，因此箭头函数的 this 能够正确指向 B 被实例化出来的对象，因此也就能够正确读取到 this.x 的值。
 
