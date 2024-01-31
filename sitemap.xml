@@ -978,20 +978,6 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/tags/Python/</loc>
-    <lastmod>2024-01-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Privacy/</loc>
-    <lastmod>2024-01-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://zhul.in/tags/OpenSource-Project/</loc>
     <lastmod>2024-01-31</lastmod>
     <changefreq>weekly</changefreq>
@@ -1007,6 +993,20 @@
   
   <url>
     <loc>https://zhul.in/tags/Caddy/</loc>
+    <lastmod>2024-01-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/Python/</loc>
+    <lastmod>2024-01-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/Privacy/</loc>
     <lastmod>2024-01-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
