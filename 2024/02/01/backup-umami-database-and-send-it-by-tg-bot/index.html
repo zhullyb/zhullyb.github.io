@@ -26,8 +26,9 @@
 <meta property="og:description" content="前一阵子看到点墨的博客「定时备份mysql&#x2F;mariadb数据库并上传至tgbot」，我意识到个人站点的数据库 dump 使用 TG Bot 存放是一个非常合适的做法。个人站点的数据库体积本身就不大，TG Bot 又有官方提供的 api，非常适合自动化任务。我就寻思着给我的 umami 数据库也写个定时任务备份一下，也不至于之前做一次迁移数据全部爆炸的悲剧重演。 我的 umami 是「使用 ver">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://bu.dusays.com/2024/01/31/65ba6aae157e6.png">
+<meta property="og:image" content="https://bu.dusays.com/2024/02/01/65ba709420151.png">
 <meta property="article:published_time" content="2024-01-31T16:00:01.000Z">
-<meta property="article:modified_time" content="2024-01-31T16:07:37.000Z">
+<meta property="article:modified_time" content="2024-01-31T16:09:03.000Z">
 <meta property="article:author" content="竹林里有冰">
 <meta property="article:tag" content="umami">
 <meta property="article:tag" content="Shell Script">
@@ -352,6 +353,7 @@
 <p>确保脚本正常工作后，使用 <code>crontab -e</code> 设置自动任务</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">0 2 * * * /root/umami_db_dumper.sh<br></code></pre></td></tr></table></figure>
 
+<p><img src="https://bu.dusays.com/2024/02/01/65ba709420151.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="数据库备份"></p>
 
                 
               </div>
