@@ -63,3 +63,4 @@ apt install postgresql-client
 0 2 * * * /root/umami_db_dumper.sh
 ```
 
+![数据库备份](https://bu.dusays.com/2024/02/01/65ba709420151.png)
