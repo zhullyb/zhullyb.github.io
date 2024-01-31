@@ -18,22 +18,26 @@
   <meta name="author" content="竹林里有冰">
   <meta name="keywords" content="博客, 技术, Fedora">
   
-    <meta name="description" content="学业繁忙，不便花太多时间在接收问题的反馈上，特制定此须知。须知非常繁杂，一来是为了尽可能多的获得问题的信息，同时便于我归类，二来是为了提升你们的反馈成本以过滤低级问题。 本须知仅针对Rom自身的bug反馈，对于其他奇奇怪怪的问题(比如下载链接挂了一类的)可以直接评论反馈。无法开机等一类bug就用不着反馈了，我发布的每一个版本都经过我亲自测试，出现此类问题就是你自己的操作问题。 以下是正文  仅接受">
+    <meta name="description" content="前一阵子看到点墨的博客「定时备份mysql&#x2F;mariadb数据库并上传至tgbot」，我意识到个人站点的数据库 dump 使用 TG Bot 存放是一个非常合适的做法。个人站点的数据库体积本身就不大，TG Bot 又有官方提供的 api，非常适合自动化任务。我就寻思着给我的 umami 数据库也写个定时任务备份一下，也不至于之前做一次迁移数据全部爆炸的悲剧重演。 我的 umami 是「使用 ver">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Rom自身bug反馈须知">
-<meta property="og:url" content="https://zhul.in/2020/12/19/Before-Report-A-Rom-Issue/index.html">
+<meta property="og:title" content="备份 umami 数据库，并使用 TG Bot 进行备份">
+<meta property="og:url" content="https://zhul.in/2024/02/01/backup-umami-database-and-send-it-by-tg-bot/index.html">
 <meta property="og:site_name" content="竹林里有冰的博客">
-<meta property="og:description" content="学业繁忙，不便花太多时间在接收问题的反馈上，特制定此须知。须知非常繁杂，一来是为了尽可能多的获得问题的信息，同时便于我归类，二来是为了提升你们的反馈成本以过滤低级问题。 本须知仅针对Rom自身的bug反馈，对于其他奇奇怪怪的问题(比如下载链接挂了一类的)可以直接评论反馈。无法开机等一类bug就用不着反馈了，我发布的每一个版本都经过我亲自测试，出现此类问题就是你自己的操作问题。 以下是正文  仅接受">
+<meta property="og:description" content="前一阵子看到点墨的博客「定时备份mysql&#x2F;mariadb数据库并上传至tgbot」，我意识到个人站点的数据库 dump 使用 TG Bot 存放是一个非常合适的做法。个人站点的数据库体积本身就不大，TG Bot 又有官方提供的 api，非常适合自动化任务。我就寻思着给我的 umami 数据库也写个定时任务备份一下，也不至于之前做一次迁移数据全部爆炸的悲剧重演。 我的 umami 是「使用 ver">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-12-18T16:00:00.000Z">
-<meta property="article:modified_time" content="2021-10-13T13:48:10.000Z">
+<meta property="og:image" content="https://bu.dusays.com/2024/01/31/65ba6aae157e6.png">
+<meta property="article:published_time" content="2024-01-31T16:00:01.000Z">
+<meta property="article:modified_time" content="2024-01-31T16:03:53.000Z">
 <meta property="article:author" content="竹林里有冰">
-<meta property="article:tag" content="Rom">
+<meta property="article:tag" content="umami">
+<meta property="article:tag" content="Shell Script">
+<meta property="article:tag" content="Bot">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://bu.dusays.com/2024/01/31/65ba6aae157e6.png">
   
   
   
-  <title>Rom自身bug反馈须知 - 竹林里有冰的博客</title>
+  <title>备份 umami 数据库，并使用 TG Bot 进行备份 - 竹林里有冰的博客</title>
 
   <link  rel="stylesheet" href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/4.6.0/css/bootstrap.min.css" />
 
@@ -240,7 +244,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Rom自身bug反馈须知"></span>
+            <span id="subtitle" data-typed-text="备份 umami 数据库，并使用 TG Bot 进行备份"></span>
           
         </div>
 
@@ -251,8 +255,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2020-12-19 00:00" pubdate>
-          2020年12月19日 凌晨
+        <time datetime="2024-02-01 00:00" pubdate>
+          2024年2月1日 凌晨
         </time>
       </span>
     
@@ -264,7 +268,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          622 字
+          1.5k 字
         
       </span>
     
@@ -276,7 +280,7 @@
         
         
           <!-- compatible with older versions-->
-          4 分钟
+          8 分钟
         
       </span>
     
@@ -314,13 +318,13 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Rom自身bug反馈须知</h1>
+            <h1 style="display: none">备份 umami 数据库，并使用 TG Bot 进行备份</h1>
             
               <p class="note note-info">
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2021年10月13日 晚上
+                    本文最后更新于：2024年2月1日 凌晨
                   
                 
               </p>
@@ -328,26 +332,26 @@
             
               <div class="markdown-body">
                 
-                <p>学业繁忙，不便花太多时间在接收问题的反馈上，特制定此须知。须知非常繁杂，一来是为了尽可能多的获得问题的信息，同时便于我归类，二来是为了提升你们的反馈成本以过滤低级问题。</p>
-<p>本须知仅针对Rom自身的bug反馈，对于其他奇奇怪怪的问题(比如下载链接挂了一类的)可以直接评论反馈。无法开机等一类bug就用不着反馈了，我发布的每一个版本都经过我亲自测试，出现此类问题就是你自己的操作问题。</p>
-<p>以下是正文</p>
-<ol>
-<li><p>仅接受邮箱反馈 <a href="mailto:&#122;&#104;&#117;&#x6c;&#x6c;&#121;&#x62;&#64;&#x6f;&#117;&#x74;&#108;&#111;&#x6f;&#x6b;&#x2e;&#99;&#x6f;&#x6d;">&#122;&#104;&#117;&#x6c;&#x6c;&#121;&#x62;&#64;&#x6f;&#117;&#x74;&#108;&#111;&#x6f;&#x6b;&#x2e;&#99;&#x6f;&#x6d;</a></p>
-</li>
-<li><p>请在默认Kernel，卸载所有模块，删除所有调度，卸载所有奇奇怪怪的软件(比如黑阈或者Thanos)的情况下进行反馈，具体原因请看<a href="../../../../2020/11/13/RomFlash_Q&A/#%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BC%BA%E8%B0%83%E5%8F%8D%E9%A6%88%E9%97%AE%E9%A2%98%E6%97%B6%E4%B8%8D%E8%A6%81%E4%BD%BF%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E5%86%85%E6%A0%B8%E6%A8%A1%E5%9D%97%E4%BF%AE%E6%94%B9">这里</a></p>
-</li>
-<li><p>仅接受Rom最新版本的问题反馈</p>
-</li>
-<li><p>进行反馈时请注明自己的Gapps版本(如系统内置、X月X日的XXXGapps等等)</p>
-</li>
-<li><p>请注明bug的具体表现，以及复现方法，如有可能附上log</p>
-</li>
-<li><p>偶然性bug请不要反馈，除非你能够抓到当时的log</p>
-</li>
-<li><p>log请以附件的形式发送，文件名请改为202XXXXX+酷安用户名的形式，文件名后缀为.log，如: 20201231竹林里有冰.log</p>
-</li>
-</ol>
-<p>以上没有做到的，我会立刻拉黑。当然，我会允许你继续查看我的动态，因为拉黑你的目的只是为了防止我的时间再被你浪费而不是为了对你进行报复。</p>
+                <p>前一阵子看到点墨的博客<a target="_blank" rel="noopener" href="https://blog.m-l.cc/2023/11/09/ding-shi-bei-fen-mysql-mariadb-shu-ju-ku-bing-shang-chuan-zhi-tgbot/">「定时备份mysql/mariadb数据库并上传至tgbot」</a>，我意识到个人站点的数据库 dump 使用 TG Bot 存放是一个非常合适的做法。个人站点的数据库体积本身就不大，TG Bot 又有官方提供的 api，非常适合自动化任务。我就寻思着给我的 umami 数据库也写个定时任务备份一下，也不至于之前做一次迁移数据全部爆炸的悲剧重演。</p>
+<p>我的 umami 是<a href="/2022/11/08/free-umami-deploy-plan/">「使用 vercel+supabase 免费部署 umami」</a>部署出来的，数据库在 supabase 上，因此我们先打开 supabase 的 dashboard，获取到数据库的 url。</p>
+<p><img src="https://bu.dusays.com/2024/01/31/65ba6aae157e6.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="supabase 操作面板"></p>
+<p>密码我自然是不记得了，不过好在 Firefox 的密码管理器帮我记住了，直接去设置里就能找到。即使密码忘了也不要紧，往下翻有重置密码的按钮。</p>
+<p>随后就要开始编写我们的教本了，这是我的</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-meta">#!/bin/bash</span><br><br>DATABASE_URL=<span class="hljs-string">&quot;postgres://&quot;</span><br>DATE=$(<span class="hljs-built_in">date</span> <span class="hljs-string">&#x27;+%F&#x27;</span>)<br><br>TG_BOT_TOKEN=<span class="hljs-string">&#x27;1145141919:ABCDEFGHIJKLVMNOPQRSTUVWXYZabcdefgh&#x27;</span><br>TG_CHAT_ID=<span class="hljs-string">&#x27;9191415411&#x27;</span><br><br>pg_dump <span class="hljs-variable">$&#123;DATABASE_URL&#125;</span> &gt; umami_dump_<span class="hljs-variable">$&#123;DATE&#125;</span>.sql<br>curl -F document=@umami_dump_<span class="hljs-variable">$&#123;DATE&#125;</span>.sql https://api.telegram.org/bot<span class="hljs-variable">$&#123;TG_BOT_TOKEN&#125;</span>/sendDocument?chat_id=<span class="hljs-variable">$&#123;TG_CHAT_ID&#125;</span><br><span class="hljs-built_in">rm</span> umami_dump_<span class="hljs-variable">$&#123;DATE&#125;</span>.sql<br></code></pre></td></tr></table></figure>
+
+<p>将这段代码保存为 <code>umami_db_dumper.sh</code>，随后 <code>chmod +x ./umami_db_dumper.sh</code> 授予可执行权限。</p>
+<p>可以先在命令行中执行命令试一下这段脚本是否正常工作</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">./umami_db_dumper.sh<br></code></pre></td></tr></table></figure>
+
+<p>这段代码在我本机正常工作，可惜在我的 Ubuntu VPS 上报错</p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs pgsql">pg_dump: error: <span class="hljs-keyword">server</span> <span class="hljs-keyword">version</span>: <span class="hljs-number">14.1</span>; pg_dump <span class="hljs-keyword">version</span>: <span class="hljs-number">12.17</span> (Ubuntu <span class="hljs-number">12.17</span><span class="hljs-number">-0</span>ubuntu0<span class="hljs-number">.20</span><span class="hljs-number">.04</span><span class="hljs-number">.1</span>)<br>pg_dump: error: aborting because <span class="hljs-keyword">of</span> <span class="hljs-keyword">server</span> <span class="hljs-keyword">version</span> mismatch<br></code></pre></td></tr></table></figure>
+
+<p>看上去是 VPS 上的 PostgreSQL 版本过低，Google 搜索一顿后，我在一篇<a target="_blank" rel="noopener" href="https://devopsworld.medium.com/upgrade-pg-dump-version-in-ubuntu-545d691d4695">「Upgrade pg_dump version in ubuntu | by Anushareddy」</a> 文章中找到了方案，添加 PostgreSQL 官方提供的 apt 源将 VPS 上的 PostgreSQL 更新到新版即可解决。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -<br><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;deb http://apt.postgresql.org/pub/repos/apt/ <span class="hljs-subst">$(lsb_release -cs)</span>-pgdg main&quot;</span> &gt; /etc/apt/sources.list.d/pgdg.list<br>apt update<br>apt install postgresql-client<br></code></pre></td></tr></table></figure>
+
+<p>确保脚本正常工作后，使用 <code>crontab -e</code> 设置自动任务</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">0 2 * * * /root/umami_db_dumper.sh<br></code></pre></td></tr></table></figure>
+
 
                 
               </div>
@@ -360,7 +364,11 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Rom/">#Rom</a>
+        <a href="/tags/umami/">#umami</a>
+      
+        <a href="/tags/Shell-Script/">#Shell Script</a>
+      
+        <a href="/tags/Bot/">#Bot</a>
       
     </div>
   
@@ -372,8 +380,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Rom自身bug反馈须知</div>
-      <div>https://zhul.in/2020/12/19/Before-Report-A-Rom-Issue/</div>
+      <div>备份 umami 数据库，并使用 TG Bot 进行备份</div>
+      <div>https://zhul.in/2024/02/01/backup-umami-database-and-send-it-by-tg-bot/</div>
     </div>
     <div class="license-meta">
       
@@ -385,13 +393,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2020年12月19日</div>
+          <div>2024年2月1日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2021年10月13日</div>
+          <div>2024年2月1日</div>
         </div>
       
       
@@ -434,18 +442,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2020/12/22/Did-UOS-have-Secure-Boot-Signature/" title="UOS到底有没有Secure Boot签名/UOS引导怎么修复">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">UOS到底有没有Secure Boot签名/UOS引导怎么修复</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/10/08/NoHello/" title="No Hello">
-                        <span class="hidden-mobile">No Hello</span>
+                      <a href="/2024/01/14/where-does-this-refer-in-arrow-function-in-js/" title="在 JavaScript 中，箭头函数中的 this 指针到底指向哪里？">
+                        <span class="hidden-mobile">在 JavaScript 中，箭头函数中的 this 指针到底指向哪里？</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
