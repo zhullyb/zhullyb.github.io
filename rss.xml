@@ -6,7 +6,7 @@
   <link href="https://zhul.in/rss.xml" rel="self"/>
   
   <link href="https://zhul.in/"/>
-  <updated>2024-02-01T20:45:08.000Z</updated>
+  <updated>2024-01-31T16:09:36.000Z</updated>
   <id>https://zhul.in/</id>
   
   <author>
@@ -15,29 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>将 umami 从 v1 迁移到 v2 版本</title>
-    <link href="https://zhul.in/2024/02/02/umami-migrate-v1-to-v2/"/>
-    <id>https://zhul.in/2024/02/02/umami-migrate-v1-to-v2/</id>
-    <published>2024-02-01T20:39:48.000Z</published>
-    <updated>2024-02-01T20:45:08.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>网上相关的文章挺多的，但我遇到了奇怪的问题。不过我现在打算睡了，也就记一笔，等我睡醒以后找个时间来把这篇博客补完。</p><p>主要遇到的问题是 supabase 的 connection pooling 举动，以及 6543 端口不能使用预备语句，需要改为 5432 端口的问题，这一点我还没查清楚。反正就是从 supabase 获取 connection pooling 的 url，把端口号改 5432 就能用了。</p>]]></content>
-    
-    
-      
-      
-        
-        
-    <summary type="html"></summary>
-        
-      
-    
-    
-    
-    
-  </entry>
   
   <entry>
     <title>备份 umami 数据库，并使用 TG Bot 保存 dump 文件</title>
@@ -514,7 +491,7 @@
     <published>2023-05-12T15:38:29.000Z</published>
     <updated>2023-05-12T16:11:08.000Z</updated>
     
-    <content type="html"><![CDATA[<p>进入大学已经快一年了，但我的 Azure 教育订阅申请一直没有成功，每年有 100 刀的额度，<del>再这样下去就要亏掉近 700 元了</del>，于是便打算趁期中考试刚结束的闲暇时间把 Azure 的教育订阅给过了。</p><p>我拥有 *.edu.cn 的邮箱，并且通过了 Github Student Pack 的认证，但每次在 <a href="https://signup.azure.com/studentverification?offerType=1">https://signup.azure.com/studentverification?offerType=1</a> 页面尝试申请 Azure 订阅时，总是会得到一句冷冷的「你没有资格使用 Azure 免费帐户」。于是，我找到了 Azure 订阅支持客服帮忙，链接是这个: <a href="https://azureforeducation.microsoft.com/en-us/institutions/Contact">https://azureforeducation.microsoft.com/en-us/institutions/Contact</a>，简要填写了我的基本信息后就开始等待邮件回复了。</p><p><img src="https://bu.dusays.com/2023/05/13/645e646bc5b58.png" alt="提交工单"></p><p>我是周四上午申请的，不到一个小时就等来了微软的工单生成通知</p><p><img src="https://bu.dusays.com/2023/05/12/645e5fdfb25a3.png" alt="微软的工单通知"></p><p>但光有这工单也没有用，我只能继续等人工客服的介入。</p><p>在周五的早上十点，我收到了来自人工客服的邮件，并且在几分钟后收到了来自人工客服的电话（电话是 021 开头的，是归属地为上海的座机打来的，但客服操着严重的港台口音，可能是港台那边的客服通过上海的座机中转打给我的？）: </p><p><img src="https://bu.dusays.com/2023/05/12/645e60ad79001.png" alt="人工客服的邮件"></p><p>但很显然，这封邮件并没有提供任何行之有效的方案，我只能按照邮件中的指示将我的截图发了过去。不过客服不知道出于什么原因一定要求全屏截图（如果电话说的是全面屏，那也是指 PC 端的全屏截图），可能是他们有什么工作制度吧。回复邮件的时候一定要选择<strong>回复全部</strong>，好像是他们只使用 <a href="mailto:&#x73;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#x6d;&#x61;&#105;&#108;&#x2e;&#115;&#x75;&#112;&#112;&#x6f;&#x72;&#116;&#x2e;&#x6d;&#105;&#x63;&#x72;&#x6f;&#115;&#111;&#102;&#x74;&#46;&#99;&#x6f;&#x6d;">&#x73;&#117;&#112;&#112;&#111;&#114;&#116;&#64;&#x6d;&#x61;&#105;&#108;&#x2e;&#115;&#x75;&#112;&#112;&#x6f;&#x72;&#116;&#x2e;&#x6d;&#105;&#x63;&#x72;&#x6f;&#115;&#111;&#102;&#x74;&#46;&#99;&#x6f;&#x6d;</a> 这一个邮箱与我们通信，微软的服务器收到内容后会将我们发送的内容再抄送给给我们分配的客服手上，如果不选择「回复全部」的话，客服可能就看不到之前的通信记录了。</p><p>于是就在当天下午的2点收到了人工客服的第二封邮件，说是已经帮我提交到了后台处理。</p><p><img src="https://bu.dusays.com/2023/05/13/645e62bae0c0a.png" alt="来自人工客服的第二封邮件"></p><p>20 分钟后，我收到了这封应该是系统自动发送的邮件，说明我的账号因异常而触发了审查所以过不了 Azure 的教育订阅，需要我提交能够佐证我的学生身份的东西上去，当晚7点我便按照要求回信。</p><p><img src="https://bu.dusays.com/2023/05/13/645e639e2c9d1.png" alt="1683907484369.png"></p><p>当晚8点半，我便收到了来自系统的消息，得知异常已经解除，再次申请 Azure 学生认证就成功了。</p><p><img src="https://bu.dusays.com/2023/05/13/645e63e39523f.png" alt="异常解除"></p>]]></content>
+    <content type="html"><![CDATA[<p>进入大学已经快一年了，但我的 Azure 教育订阅申请一直没有成功，每年有 100 刀的额度，<del>再这样下去就要亏掉近 700 元了</del>，于是便打算趁期中考试刚结束的闲暇时间把 Azure 的教育订阅给过了。</p><p>我拥有 *.edu.cn 的邮箱，并且通过了 Github Student Pack 的认证，但每次在 <a href="https://signup.azure.com/studentverification?offerType=1">https://signup.azure.com/studentverification?offerType=1</a> 页面尝试申请 Azure 订阅时，总是会得到一句冷冷的「你没有资格使用 Azure 免费帐户」。于是，我找到了 Azure 订阅支持客服帮忙，链接是这个: <a href="https://azureforeducation.microsoft.com/en-us/institutions/Contact">https://azureforeducation.microsoft.com/en-us/institutions/Contact</a>，简要填写了我的基本信息后就开始等待邮件回复了。</p><p><img src="https://bu.dusays.com/2023/05/13/645e646bc5b58.png" alt="提交工单"></p><p>我是周四上午申请的，不到一个小时就等来了微软的工单生成通知</p><p><img src="https://bu.dusays.com/2023/05/12/645e5fdfb25a3.png" alt="微软的工单通知"></p><p>但光有这工单也没有用，我只能继续等人工客服的介入。</p><p>在周五的早上十点，我收到了来自人工客服的邮件，并且在几分钟后收到了来自人工客服的电话（电话是 021 开头的，是归属地为上海的座机打来的，但客服操着严重的港台口音，可能是港台那边的客服通过上海的座机中转打给我的？）: </p><p><img src="https://bu.dusays.com/2023/05/12/645e60ad79001.png" alt="人工客服的邮件"></p><p>但很显然，这封邮件并没有提供任何行之有效的方案，我只能按照邮件中的指示将我的截图发了过去。不过客服不知道出于什么原因一定要求全屏截图（如果电话说的是全面屏，那也是指 PC 端的全屏截图），可能是他们有什么工作制度吧。回复邮件的时候一定要选择<strong>回复全部</strong>，好像是他们只使用 <a href="mailto:&#x73;&#x75;&#x70;&#x70;&#111;&#x72;&#x74;&#x40;&#109;&#x61;&#x69;&#108;&#46;&#115;&#x75;&#112;&#x70;&#x6f;&#x72;&#116;&#x2e;&#109;&#105;&#x63;&#114;&#111;&#x73;&#x6f;&#x66;&#x74;&#x2e;&#99;&#111;&#x6d;">&#x73;&#x75;&#x70;&#x70;&#111;&#x72;&#x74;&#x40;&#109;&#x61;&#x69;&#108;&#46;&#115;&#x75;&#112;&#x70;&#x6f;&#x72;&#116;&#x2e;&#109;&#105;&#x63;&#114;&#111;&#x73;&#x6f;&#x66;&#x74;&#x2e;&#99;&#111;&#x6d;</a> 这一个邮箱与我们通信，微软的服务器收到内容后会将我们发送的内容再抄送给给我们分配的客服手上，如果不选择「回复全部」的话，客服可能就看不到之前的通信记录了。</p><p>于是就在当天下午的2点收到了人工客服的第二封邮件，说是已经帮我提交到了后台处理。</p><p><img src="https://bu.dusays.com/2023/05/13/645e62bae0c0a.png" alt="来自人工客服的第二封邮件"></p><p>20 分钟后，我收到了这封应该是系统自动发送的邮件，说明我的账号因异常而触发了审查所以过不了 Azure 的教育订阅，需要我提交能够佐证我的学生身份的东西上去，当晚7点我便按照要求回信。</p><p><img src="https://bu.dusays.com/2023/05/13/645e639e2c9d1.png" alt="1683907484369.png"></p><p>当晚8点半，我便收到了来自系统的消息，得知异常已经解除，再次申请 Azure 学生认证就成功了。</p><p><img src="https://bu.dusays.com/2023/05/13/645e63e39523f.png" alt="异常解除"></p>]]></content>
     
     
       
@@ -676,11 +653,11 @@
   </entry>
   
   <entry>
-    <title>使用 vercel+supabase 免费部署 umami</title>
+    <title>【已过期】使用 vercel+supabase 免费部署 umami</title>
     <link href="https://zhul.in/2022/11/08/free-umami-deploy-plan/"/>
     <id>https://zhul.in/2022/11/08/free-umami-deploy-plan/</id>
     <published>2022-11-08T05:37:53.000Z</published>
-    <updated>2022-12-31T00:15:13.000Z</updated>
+    <updated>2024-02-04T12:33:10.000Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p>讲起静态网站的访客统计，我最先使用的是百度统计，但后来转到了 umeng，发现后续的几天百度爬虫的光顾次数反而多了起来。好家伙，使用百度统计相当于把自己网站访问量向百度全盘托出，<del>我说我的博客怎么还不被百度收录呢</del>。</p><p>后来，umeng 推出了新的服务条款，好像是说不再向未备案的站点提供服务，随后不得不转向自部署的开源网站统计程序。</p></blockquote><p>umami 提供了多种部署方式，在 vps 上可以非常轻松地使用 docker 一键部署，但上次 vps 到期时用 1Mbps 的小水管拖了好久都没有把博客前几个月的访客数据拖下来，一气之下我选择直接丢掉了这些可有可无的数据。</p><p>所以这一次，我决定放弃在自己的 vps 上部署，转去探索免费的部署方案。</p><p>umami 的官方文档上提供了非常多的部署方案，我个人比较喜欢 vercel，本站的随机图片 api 就是挂在 vercel 上的，界面比较简洁，且境内访问还算OK。</p><p><img src="https://bu.dusays.com/2022/11/08/6369ee9308dc3.png" alt="umami官方文档提供的部署方案"></p><p>但问题在于 vercel 本身并不提供免费的数据库，所以我们不得不去寻找一些长期免费提供数据库的供应商，我选择了 <a href="https://supabase.com/pricing">supabase</a>。</p><p>在下图中选择顶栏的 <strong>Pricing</strong> 后看到这个 <strong>$0/month</strong> 就<del>疯狂戳烂这个 Get Started</del></p><p><img src="https://bu.dusays.com/2022/11/08/6369ef8d3451e.png" alt="supabase价目表"></p><p>随便填写个项目名然后输入一个足够强大的密码，地区选择美国就行，东部西部无所谓（毕竟我也不知道 vercel 的机房是在东部还是西部）</p><p><img src="https://bu.dusays.com/2022/11/08/6369f03faba15.png" alt="创建项目ing"></p><p>看到这个小小的绿标就说明数据库正在初始化(<del>你先别急，让我先急</del></p><p><img src="https://bu.dusays.com/2022/11/08/6369f0d98a59c.png" alt="项目初始化中"></p><p><img src="https://bu.dusays.com/2022/11/08/6369f209c27aa.png" alt="进行一通设置，把网站关闭后直接打入冷宫（x"></p><p>随后打开官方文档，点击其<a href="https://umami.is/docs/running-on-vercel">描述 vercel 那一页</a>中大大的 <strong>Deploy</strong></p><p><img src="https://bu.dusays.com/2022/11/08/6369f2bda5f78.png" alt="vercel on Document"></p><p>初始化过程中，vercel 会要求你创建一个 git 仓库，一般私有库就够了。</p><p><img src="https://bu.dusays.com/2022/11/08/6369f33ccf6d0.png" alt="创建仓库"></p><p>随后需要我们设置两个环境变量，第一个 <code>DATABASE_URL</code> 就是我们刚刚从 supabase 中复制下来并替换好 password 的 url，第二个 <code>HASH_SALT</code>需要你随意生成一长串字符串<del>（比如你可以找一个新手让他帮你退出 vim</del></p><p><img src="https://bu.dusays.com/2022/11/08/6369f3adbd34d.png" alt="设置环境变量"></p><p>点击 <strong>Deploy</strong> 并等上两分钟，我们就部署完啦（首页没东西，白屏是正常的</p><p><img src="https://bu.dusays.com/2022/11/08/6369f58f6acd4.png" alt="部署成功"></p><p>来到项目首页，点击任意域名即可访问到我们部署的 umami，不过 vercel 的域名近年来也有被污染的情况，建议在设置里绑定自己的域名。</p><p><img src="https://bu.dusays.com/2022/11/08/6369f5ec7a0e2.png" alt="项目首页"></p><p>哦对了，别忘了 umami 的默认用户名密码是<code>admin</code>和<code>umami</code>，别到时候点击进去看到登陆框一脸懵，这是在文档里写过的。</p>]]></content>
     
@@ -2128,7 +2105,7 @@
     <published>2020-12-18T16:00:00.000Z</published>
     <updated>2021-10-13T13:48:10.000Z</updated>
     
-    <content type="html"><![CDATA[<p>学业繁忙，不便花太多时间在接收问题的反馈上，特制定此须知。须知非常繁杂，一来是为了尽可能多的获得问题的信息，同时便于我归类，二来是为了提升你们的反馈成本以过滤低级问题。</p><p>本须知仅针对Rom自身的bug反馈，对于其他奇奇怪怪的问题(比如下载链接挂了一类的)可以直接评论反馈。无法开机等一类bug就用不着反馈了，我发布的每一个版本都经过我亲自测试，出现此类问题就是你自己的操作问题。</p><p>以下是正文</p><ol><li><p>仅接受邮箱反馈 <a href="mailto:&#122;&#x68;&#117;&#108;&#x6c;&#121;&#98;&#x40;&#x6f;&#117;&#x74;&#x6c;&#x6f;&#x6f;&#107;&#x2e;&#99;&#111;&#109;">&#122;&#x68;&#117;&#108;&#x6c;&#121;&#98;&#x40;&#x6f;&#117;&#x74;&#x6c;&#x6f;&#x6f;&#107;&#x2e;&#99;&#111;&#109;</a></p></li><li><p>请在默认Kernel，卸载所有模块，删除所有调度，卸载所有奇奇怪怪的软件(比如黑阈或者Thanos)的情况下进行反馈，具体原因请看<a href="../../../../2020/11/13/RomFlash_Q&A/#%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BC%BA%E8%B0%83%E5%8F%8D%E9%A6%88%E9%97%AE%E9%A2%98%E6%97%B6%E4%B8%8D%E8%A6%81%E4%BD%BF%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E5%86%85%E6%A0%B8%E6%A8%A1%E5%9D%97%E4%BF%AE%E6%94%B9">这里</a></p></li><li><p>仅接受Rom最新版本的问题反馈</p></li><li><p>进行反馈时请注明自己的Gapps版本(如系统内置、X月X日的XXXGapps等等)</p></li><li><p>请注明bug的具体表现，以及复现方法，如有可能附上log</p></li><li><p>偶然性bug请不要反馈，除非你能够抓到当时的log</p></li><li><p>log请以附件的形式发送，文件名请改为202XXXXX+酷安用户名的形式，文件名后缀为.log，如: 20201231竹林里有冰.log</p></li></ol><p>以上没有做到的，我会立刻拉黑。当然，我会允许你继续查看我的动态，因为拉黑你的目的只是为了防止我的时间再被你浪费而不是为了对你进行报复。</p>]]></content>
+    <content type="html"><![CDATA[<p>学业繁忙，不便花太多时间在接收问题的反馈上，特制定此须知。须知非常繁杂，一来是为了尽可能多的获得问题的信息，同时便于我归类，二来是为了提升你们的反馈成本以过滤低级问题。</p><p>本须知仅针对Rom自身的bug反馈，对于其他奇奇怪怪的问题(比如下载链接挂了一类的)可以直接评论反馈。无法开机等一类bug就用不着反馈了，我发布的每一个版本都经过我亲自测试，出现此类问题就是你自己的操作问题。</p><p>以下是正文</p><ol><li><p>仅接受邮箱反馈 <a href="mailto:&#122;&#x68;&#117;&#x6c;&#x6c;&#x79;&#x62;&#x40;&#111;&#x75;&#x74;&#108;&#x6f;&#x6f;&#107;&#x2e;&#x63;&#111;&#109;">&#122;&#x68;&#117;&#x6c;&#x6c;&#x79;&#x62;&#x40;&#111;&#x75;&#x74;&#108;&#x6f;&#x6f;&#107;&#x2e;&#x63;&#111;&#109;</a></p></li><li><p>请在默认Kernel，卸载所有模块，删除所有调度，卸载所有奇奇怪怪的软件(比如黑阈或者Thanos)的情况下进行反馈，具体原因请看<a href="../../../../2020/11/13/RomFlash_Q&A/#%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BC%BA%E8%B0%83%E5%8F%8D%E9%A6%88%E9%97%AE%E9%A2%98%E6%97%B6%E4%B8%8D%E8%A6%81%E4%BD%BF%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E5%86%85%E6%A0%B8%E6%A8%A1%E5%9D%97%E4%BF%AE%E6%94%B9">这里</a></p></li><li><p>仅接受Rom最新版本的问题反馈</p></li><li><p>进行反馈时请注明自己的Gapps版本(如系统内置、X月X日的XXXGapps等等)</p></li><li><p>请注明bug的具体表现，以及复现方法，如有可能附上log</p></li><li><p>偶然性bug请不要反馈，除非你能够抓到当时的log</p></li><li><p>log请以附件的形式发送，文件名请改为202XXXXX+酷安用户名的形式，文件名后缀为.log，如: 20201231竹林里有冰.log</p></li></ol><p>以上没有做到的，我会立刻拉黑。当然，我会允许你继续查看我的动态，因为拉黑你的目的只是为了防止我的时间再被你浪费而不是为了对你进行报复。</p>]]></content>
     
     
       
