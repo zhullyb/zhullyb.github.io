@@ -1014,6 +1014,12 @@ links:
       avatar: "https://blog.i1nfo.com/images/iinfo-sq.png"
     }
     - {
+      title: "Node Sans",
+      intro: "不知道 Node 和 Sans 有什么关系",
+      link: "https://blog.node189.top",
+      avatar: "https://bu.dusays.com/2024/02/07/65c37927314ac.jpg"
+    }
+    - {
       title: "树下集熵",
       intro: "the mirror of life",
       link: "https://www.entropy-tree.top/"
