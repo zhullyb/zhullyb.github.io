@@ -10,7 +10,7 @@ tags:
 
 说来惭愧，其实我用了这么久的 Linux，一直没有学会编写 crontab 脚本。一行的开头写上五位莫名其妙的数字或星号，后面跟上需要执行的命令，看上去很 kiss，~~但我确实记不住，以至于我现在每次写 crontab 都是让 ChatGPT 来帮我写。~~
 
-不过我最近查阅 Linux 下设置开机自启脚本的方案的时候，意外地看到 crontab 中居然可以用 `@reboot command` 的方式去写，这让我意识到 crontab 也是有一些简单的语法糖的。在查阅了 [crontab 的 manual](https://man.archlinux.org/man/crontab.5.en) 后，我发现一共有下面这么几种 @ 写法的语法糖。这是在全网大部分的 crontab 中文教程中是没有的。
+不过我最近查阅 Linux 下设置开机自启脚本的方案的时候，意外地看到 crontab 中居然可以用 `@reboot command` 的方式去写，这让我意识到 crontab 也是有一些简单的语法糖的。在查阅了 [crontab 的 manual](https://man.archlinux.org/man/crontab.5.en#EXTENSIONS) 后，我发现一共有下面这么几种 @ 写法的语法糖。这是在全网大部分的 crontab 中文教程中是没有的。
 
 | 语法糖      | 执行条件     | 等效表达式  |
 | ----------- | ------------ | ----------- |
