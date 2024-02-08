@@ -23,3 +23,10 @@ tags:
 | `@hourly`   | 一小时一次   | `0 * * * *` |
 
 这几个简单的语法糖可以满足大部分 crontab 的情况，免去了对使用者学习并记忆 crontab 的表达式的要求。
+
+比如说，如果我希望我的系统在每次开机时都用 TG Bot 发送一条上线信息，那就是
+
+```bash
+@reboot curl -s -X POST https://api.telegram.org/bot{id}:{apikey}/sendMessage -d chat_id={uid} -d text="`date`"
+```
+
