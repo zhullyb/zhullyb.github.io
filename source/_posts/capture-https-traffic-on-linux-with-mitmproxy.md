@@ -110,6 +110,7 @@ sudo update-ca-trust
 
 ## 抓包成功
 
+![命令行下看到流量信息](https://bu.dusays.com/2024/02/29/65e097dfe1f17.png)
 ![mitmweb 正常获取解密后的流量信息](https://bu.dusays.com/2024/02/29/65e09780dd2c0.png)
 
 我们可以看到 mitmproxy 成功捕获并解密的 https 流量，针对图片等信息甚至可以直接实现预览。
