@@ -1064,6 +1064,12 @@ links:
       link: "https://blog.m-l.cc/",
       avatar: "https://bu.dusays.com/2024/02/16/65ce4796c447d.png"
     }
+    - {
+      title: "T-ON-Y的小窝",
+      intro: "wwwww",
+      link: "https://tonywu.top/",
+      avatar: "https://s2.loli.net/2024/03/03/lw6xsP7uFTYcRUk.jpg"
+    }
 
   # 当成员头像加载失败时，替换为指定图片
   # When the member avatar fails to load, replace the specified image
