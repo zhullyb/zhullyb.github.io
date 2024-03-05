@@ -345,7 +345,7 @@ navbar:
       submenu: [
       { key: 'rss订阅', link: '/rss.xml' },
       { key: '收藏', link: '/collections/' },
-      { key: '小笔记', link: 'https://notes.zhul.in/' },
+      { key: '流水账', link: 'https://notes.5435486.xyz/' },
       { key: '给我打钱', link: 'https://zhul.in/donate' }
       ]
     }
