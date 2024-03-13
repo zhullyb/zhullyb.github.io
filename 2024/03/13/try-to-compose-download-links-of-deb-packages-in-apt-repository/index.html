@@ -18,29 +18,30 @@
   <meta name="author" content="竹林里有冰">
   <meta name="keywords" content="博客, 技术, Fedora">
   
-    <meta name="description" content="进入大学已经快一年了，但我的 Azure 教育订阅申请一直没有成功，每年有 100 刀的额度，再这样下去就要亏掉近 700 元了，于是便打算趁期中考试刚结束的闲暇时间把 Azure 的教育订阅给过了。 我拥有 *.edu.cn 的邮箱，并且通过了 Github Student Pack 的认证，但每次在 https:&#x2F;&#x2F;signup.azure.com&#x2F;studentverification?of">
+    <meta name="description" content="大概一周前，有一个来源不明的 Linux 微信，从包的结构来看是基于 qt 实现的图形化界面，deb 包中的 control 信息表明是腾讯团队官方出品的。今天听人说 UOS 的商店上架了最新的微信，便尝试从 UOS 的官方仓库提取下载链接，帮助 AUR Maintainer 获取到新的地址。 在我的《deepin-elf-verify究竟是何物？》这篇文章中，我成功从 uos.deepin.cn">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Azure 教育订阅申请时遇到的麻烦">
-<meta property="og:url" content="https://zhul.in/2023/05/12/troubles-when-applying-azure-education/index.html">
+<meta property="og:title" content="小记 - 尝试拼凑出 apt 仓库中的 deb 包下载地址">
+<meta property="og:url" content="https://zhul.in/2024/03/13/try-to-compose-download-links-of-deb-packages-in-apt-repository/index.html">
 <meta property="og:site_name" content="竹林里有冰的博客">
-<meta property="og:description" content="进入大学已经快一年了，但我的 Azure 教育订阅申请一直没有成功，每年有 100 刀的额度，再这样下去就要亏掉近 700 元了，于是便打算趁期中考试刚结束的闲暇时间把 Azure 的教育订阅给过了。 我拥有 *.edu.cn 的邮箱，并且通过了 Github Student Pack 的认证，但每次在 https:&#x2F;&#x2F;signup.azure.com&#x2F;studentverification?of">
+<meta property="og:description" content="大概一周前，有一个来源不明的 Linux 微信，从包的结构来看是基于 qt 实现的图形化界面，deb 包中的 control 信息表明是腾讯团队官方出品的。今天听人说 UOS 的商店上架了最新的微信，便尝试从 UOS 的官方仓库提取下载链接，帮助 AUR Maintainer 获取到新的地址。 在我的《deepin-elf-verify究竟是何物？》这篇文章中，我成功从 uos.deepin.cn">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://bu.dusays.com/2023/05/13/645e646bc5b58.png">
-<meta property="og:image" content="https://bu.dusays.com/2023/05/12/645e5fdfb25a3.png">
-<meta property="og:image" content="https://bu.dusays.com/2023/05/12/645e60ad79001.png">
-<meta property="og:image" content="https://bu.dusays.com/2023/05/13/645e62bae0c0a.png">
-<meta property="og:image" content="https://bu.dusays.com/2023/05/13/645e639e2c9d1.png">
-<meta property="og:image" content="https://bu.dusays.com/2023/05/13/645e63e39523f.png">
-<meta property="article:published_time" content="2023-05-12T15:38:29.000Z">
-<meta property="article:modified_time" content="2023-05-12T16:11:08.000Z">
+<meta property="og:image" content="https://bu.dusays.com/2024/03/13/65f1b344e5581.png">
+<meta property="og:image" content="https://bu.dusays.com/2024/03/13/65f1b5166810a.png">
+<meta property="og:image" content="https://bu.dusays.com/2024/03/13/65f1b5faccc86.png">
+<meta property="og:image" content="https://bu.dusays.com/2024/03/13/65f1b6a4c3239.png">
+<meta property="og:image" content="https://bu.dusays.com/2024/03/13/65f1b73567121.png">
+<meta property="article:published_time" content="2024-03-13T13:55:04.000Z">
+<meta property="article:modified_time" content="2024-03-13T14:25:18.000Z">
 <meta property="article:author" content="竹林里有冰">
-<meta property="article:tag" content="Azure">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="deepin">
+<meta property="article:tag" content="Apt">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://bu.dusays.com/2023/05/13/645e646bc5b58.png">
+<meta name="twitter:image" content="https://bu.dusays.com/2024/03/13/65f1b344e5581.png">
   
   
   
-  <title>Azure 教育订阅申请时遇到的麻烦 - 竹林里有冰的博客</title>
+  <title>小记 - 尝试拼凑出 apt 仓库中的 deb 包下载地址 - 竹林里有冰的博客</title>
 
   <link  rel="stylesheet" href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/4.6.0/css/bootstrap.min.css" />
 
@@ -255,7 +256,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Azure 教育订阅申请时遇到的麻烦"></span>
+            <span id="subtitle" data-typed-text="小记 - 尝试拼凑出 apt 仓库中的 deb 包下载地址"></span>
           
         </div>
 
@@ -266,8 +267,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-05-12 23:38" pubdate>
-          2023年5月12日 晚上
+        <time datetime="2024-03-13 21:55" pubdate>
+          2024年3月13日 晚上
         </time>
       </span>
     
@@ -279,7 +280,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          1.1k 字
+          2.1k 字
         
       </span>
     
@@ -291,7 +292,7 @@
         
         
           <!-- compatible with older versions-->
-          6 分钟
+          11 分钟
         
       </span>
     
@@ -329,13 +330,13 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Azure 教育订阅申请时遇到的麻烦</h1>
+            <h1 style="display: none">小记 - 尝试拼凑出 apt 仓库中的 deb 包下载地址</h1>
             
               <p class="note note-info">
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2023年5月13日 凌晨
+                    本文最后更新于：2024年3月13日 晚上
                   
                 
               </p>
@@ -343,21 +344,37 @@
             
               <div class="markdown-body">
                 
-                <p>进入大学已经快一年了，但我的 Azure 教育订阅申请一直没有成功，每年有 100 刀的额度，<del>再这样下去就要亏掉近 700 元了</del>，于是便打算趁期中考试刚结束的闲暇时间把 Azure 的教育订阅给过了。</p>
-<p>我拥有 *.edu.cn 的邮箱，并且通过了 Github Student Pack 的认证，但每次在 <a target="_blank" rel="noopener" href="https://signup.azure.com/studentverification?offerType=1">https://signup.azure.com/studentverification?offerType=1</a> 页面尝试申请 Azure 订阅时，总是会得到一句冷冷的「你没有资格使用 Azure 免费帐户」。于是，我找到了 Azure 订阅支持客服帮忙，链接是这个: <a target="_blank" rel="noopener" href="https://azureforeducation.microsoft.com/en-us/institutions/Contact">https://azureforeducation.microsoft.com/en-us/institutions/Contact</a>，简要填写了我的基本信息后就开始等待邮件回复了。</p>
-<p><img src="https://bu.dusays.com/2023/05/13/645e646bc5b58.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="提交工单"></p>
-<p>我是周四上午申请的，不到一个小时就等来了微软的工单生成通知</p>
-<p><img src="https://bu.dusays.com/2023/05/12/645e5fdfb25a3.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="微软的工单通知"></p>
-<p>但光有这工单也没有用，我只能继续等人工客服的介入。</p>
-<p>在周五的早上十点，我收到了来自人工客服的邮件，并且在几分钟后收到了来自人工客服的电话（电话是 021 开头的，是归属地为上海的座机打来的，但客服操着严重的港台口音，可能是港台那边的客服通过上海的座机中转打给我的？）: </p>
-<p><img src="https://bu.dusays.com/2023/05/12/645e60ad79001.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="人工客服的邮件"></p>
-<p>但很显然，这封邮件并没有提供任何行之有效的方案，我只能按照邮件中的指示将我的截图发了过去。不过客服不知道出于什么原因一定要求全屏截图（如果电话说的是全面屏，那也是指 PC 端的全屏截图），可能是他们有什么工作制度吧。回复邮件的时候一定要选择<strong>回复全部</strong>，好像是他们只使用 <a href="mailto:&#115;&#117;&#x70;&#112;&#x6f;&#x72;&#116;&#x40;&#109;&#97;&#x69;&#108;&#x2e;&#115;&#x75;&#x70;&#x70;&#111;&#x72;&#x74;&#x2e;&#x6d;&#105;&#99;&#114;&#x6f;&#115;&#x6f;&#102;&#116;&#46;&#x63;&#x6f;&#109;">&#115;&#117;&#x70;&#112;&#x6f;&#x72;&#116;&#x40;&#109;&#97;&#x69;&#108;&#x2e;&#115;&#x75;&#x70;&#x70;&#111;&#x72;&#x74;&#x2e;&#x6d;&#105;&#99;&#114;&#x6f;&#115;&#x6f;&#102;&#116;&#46;&#x63;&#x6f;&#109;</a> 这一个邮箱与我们通信，微软的服务器收到内容后会将我们发送的内容再抄送给给我们分配的客服手上，如果不选择「回复全部」的话，客服可能就看不到之前的通信记录了。</p>
-<p>于是就在当天下午的2点收到了人工客服的第二封邮件，说是已经帮我提交到了后台处理。</p>
-<p><img src="https://bu.dusays.com/2023/05/13/645e62bae0c0a.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="来自人工客服的第二封邮件"></p>
-<p>20 分钟后，我收到了这封应该是系统自动发送的邮件，说明我的账号因异常而触发了审查所以过不了 Azure 的教育订阅，需要我提交能够佐证我的学生身份的东西上去，当晚7点我便按照要求回信。</p>
-<p><img src="https://bu.dusays.com/2023/05/13/645e639e2c9d1.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="1683907484369.png"></p>
-<p>当晚8点半，我便收到了来自系统的消息，得知异常已经解除，再次申请 Azure 学生认证就成功了。</p>
-<p><img src="https://bu.dusays.com/2023/05/13/645e63e39523f.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="异常解除"></p>
+                <p>大概一周前，有一个来源不明的 Linux 微信，从包的结构来看是基于 qt 实现的图形化界面，deb 包中的 control 信息表明是腾讯团队官方出品的。今天听人说 UOS 的商店上架了最新的微信，便尝试从 UOS 的官方仓库提取下载链接，帮助 AUR Maintainer 获取到新的地址。</p>
+<p>在我的<a href="https://zhul.in/2021/11/20/what-is-deepin-elf-verify/">《deepin-elf-verify究竟是何物？》</a>这篇文章中，我成功从 uos.deepin.cn 下载到了来自 UOS 中的软件包。可惜，当我采用同样的方法搜索 weixin 或者 wechat 字样时，没有得到任何结果。</p>
+<p>UOS 上的软件来源起码来自两个仓库，一个是与系统有关的软件，比如 Linux Kernel，GCC 一类开源软件，应该就是来自我之前下载到 deepin-elf-verify 的那个源。除此之外，还有一个 appstore 源，里面存放的都是应用商店中上架的软件（大部分可能是闭源的）。</p>
+<p>在 chinauos.com 下载到最新的 ISO 安装镜像后，直接在虚拟机中走完正常的安装流畅，然后直捣黄龙。</p>
+<p><img src="https://bu.dusays.com/2024/03/13/65f1b344e5581.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="源地址"></p>
+<p>可以看出，<code>/etc/apt/sources.list.d/appstore.list</code> 文件中列出的源很有可能就是我们要找的新版微信的所在源。</p>
+<p>可惜直接访问的时候，源地址给出了 403。他们似乎不愿意公开源地址的 filelist index。</p>
+<p>不过没关系，既然 UOS Desktop 目前仍然依赖 APT 实现软件安装，那它的源应该仍然符合 Debian 的 APT Repository 目录结构。</p>
+<p>根据 <a target="_blank" rel="noopener" href="https://wiki.debian.org/DebianRepository/Format">DebianWiki 中的描述</a></p>
+<blockquote>
+<p>gives an example: </p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs 1c">deb https:<span class="hljs-comment">//deb.debian.org/debian stable main contrib non-free</span><br></code></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>An archive can have either source packages or binary packages or both but they have to be specified separately to apt. </p>
+<p>The uri, in this case <em><code>https://deb.debian.org/debian</code></em> specifies the root of the archive. Often Debian archives are in the <em>debian/</em> directory on the server but can be anywhere else (many mirrors for example have it in a <em>pub/linux/debian</em> directory, for example). </p>
+<p>The distribution part (<em>stable</em> in this case) specifies a subdirectory in <strong>$ARCHIVE_ROOT/dists</strong>. It can contain additional slashes to specify subdirectories nested deeper, eg. <em>stable/updates</em>. distribution typically corresponds to <strong>Suite</strong> or <strong>Codename</strong> specified in the <strong>Release</strong> files. <em><strong>FIXME is this enforced anyhow?</strong></em> </p>
+<p>To download packages from a repository apt would download an <strong>InRelease</strong> or <strong>Release</strong> file from the <strong>$ARCHIVE_ROOT/dists/$DISTRIBUTION</strong> directory. </p>
+</blockquote>
+<p>我尝试了访问 <code>https://pro-store-packages.uniontech.com/appstor e/dists/eagle-pro/Release</code>，获得了一系列索引文件的索引。</p>
+<p><img src="https://bu.dusays.com/2024/03/13/65f1b5166810a.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="索引的索引（很拗口）"></p>
+<p>第一段中就能看到熟悉的 <code>Packages</code> 文件。根据我 deepin-elf-verify 相关博客中记载，这个文件中会保存 deb 文件的相对路径。我们先拼出 amd64 架构的 Packages 文件下载链接: <a target="_blank" rel="noopener" href="https://pro-store-packages.uniontech.com/appstore/dists/eagle-pro/appstore/binary-amd64/Packages">https://pro-store-packages.uniontech.com/appstore/dists/eagle-pro/appstore/binary-amd64/Packages</a></p>
+<p><img src="https://bu.dusays.com/2024/03/13/65f1b5faccc86.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="deb 包详细信息"></p>
+<p>这里可以看到源中每一个 deb 包的信息。图中红色方框框出的便是其中一个 deb 包在源中的相对路径。</p>
+<p>我们可以使用 grep 命令去检索 weixin 或者 wechat 关键词</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">curl -sL https://pro-store-packages.uniontech.com/appstore/dists/eagle-pro/appstore/binary-amd64/Packages | grep -E <span class="hljs-string">&quot;weixin|wechat&quot;</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://bu.dusays.com/2024/03/13/65f1b6a4c3239.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="获取到我们想要的 deb 包的相对路径"></p>
+<p>在这个路径前加上之前 <code>appstore.list</code> 文件中给出的 url 前缀，即可拼凑出 deb 包的完整下载地址: <a target="_blank" rel="noopener" href="https://pro-store-packages.uniontech.com/appstore/pool/appstore/c/com.tencent.wechat/com.tencent.wechat_1.0.0.236_amd64.deb">https://pro-store-packages.uniontech.com/appstore/pool/appstore/c/com.tencent.wechat/com.tencent.wechat_1.0.0.236_amd64.deb</a></p>
+<p>放到浏览器中尝试，果然可以正常下载</p>
+<p><img src="https://bu.dusays.com/2024/03/13/65f1b73567121.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="正常下载"></p>
 
                 
               </div>
@@ -370,7 +387,11 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Azure/">#Azure</a>
+        <a href="/tags/Linux/">#Linux</a>
+      
+        <a href="/tags/deepin/">#deepin</a>
+      
+        <a href="/tags/Apt/">#Apt</a>
       
     </div>
   
@@ -382,8 +403,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Azure 教育订阅申请时遇到的麻烦</div>
-      <div>https://zhul.in/2023/05/12/troubles-when-applying-azure-education/</div>
+      <div>小记 - 尝试拼凑出 apt 仓库中的 deb 包下载地址</div>
+      <div>https://zhul.in/2024/03/13/try-to-compose-download-links-of-deb-packages-in-apt-repository/</div>
     </div>
     <div class="license-meta">
       
@@ -395,13 +416,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年5月12日</div>
+          <div>2024年3月13日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2023年5月13日</div>
+          <div>2024年3月13日</div>
         </div>
       
       
@@ -444,18 +465,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/06/24/redmi-ac2100-router-with-padavan/" title="为红米 Redmi AC2100 路由器刷入 Padavan">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">为红米 Redmi AC2100 路由器刷入 Padavan</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/05/03/checkout-lfs-file-after-repo-sync/" title="执行 repo sync 后将 git-lfs 中的资源文件 checkout">
-                        <span class="hidden-mobile">执行 repo sync 后将 git-lfs 中的资源文件 checkout</span>
+                      <a href="/2024/02/29/capture-https-traffic-on-linux-with-mitmproxy/" title="在 Linux 下使用 mitmproxy 抓取 HTTPS 流量">
+                        <span class="hidden-mobile">在 Linux 下使用 mitmproxy 抓取 HTTPS 流量</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

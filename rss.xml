@@ -6,7 +6,7 @@
   <link href="https://zhul.in/rss.xml" rel="self"/>
   
   <link href="https://zhul.in/"/>
-  <updated>2024-02-29T14:43:02.000Z</updated>
+  <updated>2024-03-13T14:25:18.000Z</updated>
   <id>https://zhul.in/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>小记 - 尝试拼凑出 apt 仓库中的 deb 包下载地址</title>
+    <link href="https://zhul.in/2024/03/13/try-to-compose-download-links-of-deb-packages-in-apt-repository/"/>
+    <id>https://zhul.in/2024/03/13/try-to-compose-download-links-of-deb-packages-in-apt-repository/</id>
+    <published>2024-03-13T13:55:04.000Z</published>
+    <updated>2024-03-13T14:25:18.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>大概一周前，有一个来源不明的 Linux 微信，从包的结构来看是基于 qt 实现的图形化界面，deb 包中的 control 信息表明是腾讯团队官方出品的。今天听人说 UOS 的商店上架了最新的微信，便尝试从 UOS 的官方仓库提取下载链接，帮助 AUR Maintainer 获取到新的地址。</p><p>在我的<a href="https://zhul.in/2021/11/20/what-is-deepin-elf-verify/">《deepin-elf-verify究竟是何物？》</a>这篇文章中，我成功从 uos.deepin.cn 下载到了来自 UOS 中的软件包。可惜，当我采用同样的方法搜索 weixin 或者 wechat 字样时，没有得到任何结果。</p><p>UOS 上的软件来源起码来自两个仓库，一个是与系统有关的软件，比如 Linux Kernel，GCC 一类开源软件，应该就是来自我之前下载到 deepin-elf-verify 的那个源。除此之外，还有一个 appstore 源，里面存放的都是应用商店中上架的软件（大部分可能是闭源的）。</p><p>在 chinauos.com 下载到最新的 ISO 安装镜像后，直接在虚拟机中走完正常的安装流畅，然后直捣黄龙。</p><p><img src="https://bu.dusays.com/2024/03/13/65f1b344e5581.png" alt="源地址"></p><p>可以看出，<code>/etc/apt/sources.list.d/appstore.list</code> 文件中列出的源很有可能就是我们要找的新版微信的所在源。</p><p>可惜直接访问的时候，源地址给出了 403。他们似乎不愿意公开源地址的 filelist index。</p><p>不过没关系，既然 UOS Desktop 目前仍然依赖 APT 实现软件安装，那它的源应该仍然符合 Debian 的 APT Repository 目录结构。</p><p>根据 <a href="https://wiki.debian.org/DebianRepository/Format">DebianWiki 中的描述</a></p><blockquote><p>gives an example: </p><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs 1c">deb https:<span class="hljs-comment">//deb.debian.org/debian stable main contrib non-free</span><br></code></pre></td></tr></table></figure></blockquote><blockquote><p>An archive can have either source packages or binary packages or both but they have to be specified separately to apt. </p><p>The uri, in this case <em><code>https://deb.debian.org/debian</code></em> specifies the root of the archive. Often Debian archives are in the <em>debian/</em> directory on the server but can be anywhere else (many mirrors for example have it in a <em>pub/linux/debian</em> directory, for example). </p><p>The distribution part (<em>stable</em> in this case) specifies a subdirectory in <strong>$ARCHIVE_ROOT/dists</strong>. It can contain additional slashes to specify subdirectories nested deeper, eg. <em>stable/updates</em>. distribution typically corresponds to <strong>Suite</strong> or <strong>Codename</strong> specified in the <strong>Release</strong> files. <em><strong>FIXME is this enforced anyhow?</strong></em> </p><p>To download packages from a repository apt would download an <strong>InRelease</strong> or <strong>Release</strong> file from the <strong>$ARCHIVE_ROOT/dists/$DISTRIBUTION</strong> directory. </p></blockquote><p>我尝试了访问 <code>https://pro-store-packages.uniontech.com/appstor e/dists/eagle-pro/Release</code>，获得了一系列索引文件的索引。</p><p><img src="https://bu.dusays.com/2024/03/13/65f1b5166810a.png" alt="索引的索引（很拗口）"></p><p>第一段中就能看到熟悉的 <code>Packages</code> 文件。根据我 deepin-elf-verify 相关博客中记载，这个文件中会保存 deb 文件的相对路径。我们先拼出 amd64 架构的 Packages 文件下载链接: <a href="https://pro-store-packages.uniontech.com/appstore/dists/eagle-pro/appstore/binary-amd64/Packages">https://pro-store-packages.uniontech.com/appstore/dists/eagle-pro/appstore/binary-amd64/Packages</a></p><p><img src="https://bu.dusays.com/2024/03/13/65f1b5faccc86.png" alt="deb 包详细信息"></p><p>这里可以看到源中每一个 deb 包的信息。图中红色方框框出的便是其中一个 deb 包在源中的相对路径。</p><p>我们可以使用 grep 命令去检索 weixin 或者 wechat 关键词</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">curl -sL https://pro-store-packages.uniontech.com/appstore/dists/eagle-pro/appstore/binary-amd64/Packages | grep -E <span class="hljs-string">&quot;weixin|wechat&quot;</span><br></code></pre></td></tr></table></figure><p><img src="https://bu.dusays.com/2024/03/13/65f1b6a4c3239.png" alt="获取到我们想要的 deb 包的相对路径"></p><p>在这个路径前加上之前 <code>appstore.list</code> 文件中给出的 url 前缀，即可拼凑出 deb 包的完整下载地址: <a href="https://pro-store-packages.uniontech.com/appstore/pool/appstore/c/com.tencent.wechat/com.tencent.wechat_1.0.0.236_amd64.deb">https://pro-store-packages.uniontech.com/appstore/pool/appstore/c/com.tencent.wechat/com.tencent.wechat_1.0.0.236_amd64.deb</a></p><p>放到浏览器中尝试，果然可以正常下载</p><p><img src="https://bu.dusays.com/2024/03/13/65f1b73567121.png" alt="正常下载"></p>]]></content>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+    <category term="Linux" scheme="https://zhul.in/tags/Linux/"/>
+    
+    <category term="deepin" scheme="https://zhul.in/tags/deepin/"/>
+    
+    <category term="Apt" scheme="https://zhul.in/tags/Apt/"/>
+    
+  </entry>
   
   <entry>
     <title>在 Linux 下使用 mitmproxy 抓取 HTTPS 流量</title>
@@ -578,7 +607,7 @@
     <published>2023-05-12T15:38:29.000Z</published>
     <updated>2023-05-12T16:11:08.000Z</updated>
     
-    <content type="html"><![CDATA[<p>进入大学已经快一年了，但我的 Azure 教育订阅申请一直没有成功，每年有 100 刀的额度，<del>再这样下去就要亏掉近 700 元了</del>，于是便打算趁期中考试刚结束的闲暇时间把 Azure 的教育订阅给过了。</p><p>我拥有 *.edu.cn 的邮箱，并且通过了 Github Student Pack 的认证，但每次在 <a href="https://signup.azure.com/studentverification?offerType=1">https://signup.azure.com/studentverification?offerType=1</a> 页面尝试申请 Azure 订阅时，总是会得到一句冷冷的「你没有资格使用 Azure 免费帐户」。于是，我找到了 Azure 订阅支持客服帮忙，链接是这个: <a href="https://azureforeducation.microsoft.com/en-us/institutions/Contact">https://azureforeducation.microsoft.com/en-us/institutions/Contact</a>，简要填写了我的基本信息后就开始等待邮件回复了。</p><p><img src="https://bu.dusays.com/2023/05/13/645e646bc5b58.png" alt="提交工单"></p><p>我是周四上午申请的，不到一个小时就等来了微软的工单生成通知</p><p><img src="https://bu.dusays.com/2023/05/12/645e5fdfb25a3.png" alt="微软的工单通知"></p><p>但光有这工单也没有用，我只能继续等人工客服的介入。</p><p>在周五的早上十点，我收到了来自人工客服的邮件，并且在几分钟后收到了来自人工客服的电话（电话是 021 开头的，是归属地为上海的座机打来的，但客服操着严重的港台口音，可能是港台那边的客服通过上海的座机中转打给我的？）: </p><p><img src="https://bu.dusays.com/2023/05/12/645e60ad79001.png" alt="人工客服的邮件"></p><p>但很显然，这封邮件并没有提供任何行之有效的方案，我只能按照邮件中的指示将我的截图发了过去。不过客服不知道出于什么原因一定要求全屏截图（如果电话说的是全面屏，那也是指 PC 端的全屏截图），可能是他们有什么工作制度吧。回复邮件的时候一定要选择<strong>回复全部</strong>，好像是他们只使用 <a href="mailto:&#115;&#x75;&#112;&#112;&#x6f;&#x72;&#116;&#x40;&#x6d;&#97;&#x69;&#x6c;&#46;&#115;&#x75;&#112;&#x70;&#111;&#x72;&#x74;&#x2e;&#109;&#105;&#x63;&#x72;&#x6f;&#115;&#x6f;&#x66;&#116;&#46;&#99;&#111;&#109;">&#115;&#x75;&#112;&#112;&#x6f;&#x72;&#116;&#x40;&#x6d;&#97;&#x69;&#x6c;&#46;&#115;&#x75;&#112;&#x70;&#111;&#x72;&#x74;&#x2e;&#109;&#105;&#x63;&#x72;&#x6f;&#115;&#x6f;&#x66;&#116;&#46;&#99;&#111;&#109;</a> 这一个邮箱与我们通信，微软的服务器收到内容后会将我们发送的内容再抄送给给我们分配的客服手上，如果不选择「回复全部」的话，客服可能就看不到之前的通信记录了。</p><p>于是就在当天下午的2点收到了人工客服的第二封邮件，说是已经帮我提交到了后台处理。</p><p><img src="https://bu.dusays.com/2023/05/13/645e62bae0c0a.png" alt="来自人工客服的第二封邮件"></p><p>20 分钟后，我收到了这封应该是系统自动发送的邮件，说明我的账号因异常而触发了审查所以过不了 Azure 的教育订阅，需要我提交能够佐证我的学生身份的东西上去，当晚7点我便按照要求回信。</p><p><img src="https://bu.dusays.com/2023/05/13/645e639e2c9d1.png" alt="1683907484369.png"></p><p>当晚8点半，我便收到了来自系统的消息，得知异常已经解除，再次申请 Azure 学生认证就成功了。</p><p><img src="https://bu.dusays.com/2023/05/13/645e63e39523f.png" alt="异常解除"></p>]]></content>
+    <content type="html"><![CDATA[<p>进入大学已经快一年了，但我的 Azure 教育订阅申请一直没有成功，每年有 100 刀的额度，<del>再这样下去就要亏掉近 700 元了</del>，于是便打算趁期中考试刚结束的闲暇时间把 Azure 的教育订阅给过了。</p><p>我拥有 *.edu.cn 的邮箱，并且通过了 Github Student Pack 的认证，但每次在 <a href="https://signup.azure.com/studentverification?offerType=1">https://signup.azure.com/studentverification?offerType=1</a> 页面尝试申请 Azure 订阅时，总是会得到一句冷冷的「你没有资格使用 Azure 免费帐户」。于是，我找到了 Azure 订阅支持客服帮忙，链接是这个: <a href="https://azureforeducation.microsoft.com/en-us/institutions/Contact">https://azureforeducation.microsoft.com/en-us/institutions/Contact</a>，简要填写了我的基本信息后就开始等待邮件回复了。</p><p><img src="https://bu.dusays.com/2023/05/13/645e646bc5b58.png" alt="提交工单"></p><p>我是周四上午申请的，不到一个小时就等来了微软的工单生成通知</p><p><img src="https://bu.dusays.com/2023/05/12/645e5fdfb25a3.png" alt="微软的工单通知"></p><p>但光有这工单也没有用，我只能继续等人工客服的介入。</p><p>在周五的早上十点，我收到了来自人工客服的邮件，并且在几分钟后收到了来自人工客服的电话（电话是 021 开头的，是归属地为上海的座机打来的，但客服操着严重的港台口音，可能是港台那边的客服通过上海的座机中转打给我的？）: </p><p><img src="https://bu.dusays.com/2023/05/12/645e60ad79001.png" alt="人工客服的邮件"></p><p>但很显然，这封邮件并没有提供任何行之有效的方案，我只能按照邮件中的指示将我的截图发了过去。不过客服不知道出于什么原因一定要求全屏截图（如果电话说的是全面屏，那也是指 PC 端的全屏截图），可能是他们有什么工作制度吧。回复邮件的时候一定要选择<strong>回复全部</strong>，好像是他们只使用 <a href="mailto:&#115;&#117;&#x70;&#112;&#x6f;&#x72;&#116;&#x40;&#109;&#97;&#x69;&#108;&#x2e;&#115;&#x75;&#x70;&#x70;&#111;&#x72;&#x74;&#x2e;&#x6d;&#105;&#99;&#114;&#x6f;&#115;&#x6f;&#102;&#116;&#46;&#x63;&#x6f;&#109;">&#115;&#117;&#x70;&#112;&#x6f;&#x72;&#116;&#x40;&#109;&#97;&#x69;&#108;&#x2e;&#115;&#x75;&#x70;&#x70;&#111;&#x72;&#x74;&#x2e;&#x6d;&#105;&#99;&#114;&#x6f;&#115;&#x6f;&#102;&#116;&#46;&#x63;&#x6f;&#109;</a> 这一个邮箱与我们通信，微软的服务器收到内容后会将我们发送的内容再抄送给给我们分配的客服手上，如果不选择「回复全部」的话，客服可能就看不到之前的通信记录了。</p><p>于是就在当天下午的2点收到了人工客服的第二封邮件，说是已经帮我提交到了后台处理。</p><p><img src="https://bu.dusays.com/2023/05/13/645e62bae0c0a.png" alt="来自人工客服的第二封邮件"></p><p>20 分钟后，我收到了这封应该是系统自动发送的邮件，说明我的账号因异常而触发了审查所以过不了 Azure 的教育订阅，需要我提交能够佐证我的学生身份的东西上去，当晚7点我便按照要求回信。</p><p><img src="https://bu.dusays.com/2023/05/13/645e639e2c9d1.png" alt="1683907484369.png"></p><p>当晚8点半，我便收到了来自系统的消息，得知异常已经解除，再次申请 Azure 学生认证就成功了。</p><p><img src="https://bu.dusays.com/2023/05/13/645e63e39523f.png" alt="异常解除"></p>]]></content>
     
     
       
@@ -2192,7 +2221,7 @@
     <published>2020-12-18T16:00:00.000Z</published>
     <updated>2021-10-13T13:48:10.000Z</updated>
     
-    <content type="html"><![CDATA[<p>学业繁忙，不便花太多时间在接收问题的反馈上，特制定此须知。须知非常繁杂，一来是为了尽可能多的获得问题的信息，同时便于我归类，二来是为了提升你们的反馈成本以过滤低级问题。</p><p>本须知仅针对Rom自身的bug反馈，对于其他奇奇怪怪的问题(比如下载链接挂了一类的)可以直接评论反馈。无法开机等一类bug就用不着反馈了，我发布的每一个版本都经过我亲自测试，出现此类问题就是你自己的操作问题。</p><p>以下是正文</p><ol><li><p>仅接受邮箱反馈 <a href="mailto:&#122;&#104;&#x75;&#x6c;&#x6c;&#x79;&#x62;&#64;&#x6f;&#117;&#x74;&#108;&#111;&#111;&#x6b;&#x2e;&#99;&#111;&#109;">&#122;&#104;&#x75;&#x6c;&#x6c;&#x79;&#x62;&#64;&#x6f;&#117;&#x74;&#108;&#111;&#111;&#x6b;&#x2e;&#99;&#111;&#109;</a></p></li><li><p>请在默认Kernel，卸载所有模块，删除所有调度，卸载所有奇奇怪怪的软件(比如黑阈或者Thanos)的情况下进行反馈，具体原因请看<a href="../../../../2020/11/13/RomFlash_Q&A/#%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BC%BA%E8%B0%83%E5%8F%8D%E9%A6%88%E9%97%AE%E9%A2%98%E6%97%B6%E4%B8%8D%E8%A6%81%E4%BD%BF%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E5%86%85%E6%A0%B8%E6%A8%A1%E5%9D%97%E4%BF%AE%E6%94%B9">这里</a></p></li><li><p>仅接受Rom最新版本的问题反馈</p></li><li><p>进行反馈时请注明自己的Gapps版本(如系统内置、X月X日的XXXGapps等等)</p></li><li><p>请注明bug的具体表现，以及复现方法，如有可能附上log</p></li><li><p>偶然性bug请不要反馈，除非你能够抓到当时的log</p></li><li><p>log请以附件的形式发送，文件名请改为202XXXXX+酷安用户名的形式，文件名后缀为.log，如: 20201231竹林里有冰.log</p></li></ol><p>以上没有做到的，我会立刻拉黑。当然，我会允许你继续查看我的动态，因为拉黑你的目的只是为了防止我的时间再被你浪费而不是为了对你进行报复。</p>]]></content>
+    <content type="html"><![CDATA[<p>学业繁忙，不便花太多时间在接收问题的反馈上，特制定此须知。须知非常繁杂，一来是为了尽可能多的获得问题的信息，同时便于我归类，二来是为了提升你们的反馈成本以过滤低级问题。</p><p>本须知仅针对Rom自身的bug反馈，对于其他奇奇怪怪的问题(比如下载链接挂了一类的)可以直接评论反馈。无法开机等一类bug就用不着反馈了，我发布的每一个版本都经过我亲自测试，出现此类问题就是你自己的操作问题。</p><p>以下是正文</p><ol><li><p>仅接受邮箱反馈 <a href="mailto:&#x7a;&#104;&#117;&#x6c;&#108;&#x79;&#x62;&#64;&#111;&#117;&#x74;&#x6c;&#x6f;&#x6f;&#107;&#46;&#x63;&#x6f;&#x6d;">&#x7a;&#104;&#117;&#x6c;&#108;&#x79;&#x62;&#64;&#111;&#117;&#x74;&#x6c;&#x6f;&#x6f;&#107;&#46;&#x63;&#x6f;&#x6d;</a></p></li><li><p>请在默认Kernel，卸载所有模块，删除所有调度，卸载所有奇奇怪怪的软件(比如黑阈或者Thanos)的情况下进行反馈，具体原因请看<a href="../../../../2020/11/13/RomFlash_Q&A/#%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BC%BA%E8%B0%83%E5%8F%8D%E9%A6%88%E9%97%AE%E9%A2%98%E6%97%B6%E4%B8%8D%E8%A6%81%E4%BD%BF%E7%94%A8%E7%AC%AC%E4%B8%89%E6%96%B9%E5%86%85%E6%A0%B8%E6%A8%A1%E5%9D%97%E4%BF%AE%E6%94%B9">这里</a></p></li><li><p>仅接受Rom最新版本的问题反馈</p></li><li><p>进行反馈时请注明自己的Gapps版本(如系统内置、X月X日的XXXGapps等等)</p></li><li><p>请注明bug的具体表现，以及复现方法，如有可能附上log</p></li><li><p>偶然性bug请不要反馈，除非你能够抓到当时的log</p></li><li><p>log请以附件的形式发送，文件名请改为202XXXXX+酷安用户名的形式，文件名后缀为.log，如: 20201231竹林里有冰.log</p></li></ol><p>以上没有做到的，我会立刻拉黑。当然，我会允许你继续查看我的动态，因为拉黑你的目的只是为了防止我的时间再被你浪费而不是为了对你进行报复。</p>]]></content>
     
     
       
