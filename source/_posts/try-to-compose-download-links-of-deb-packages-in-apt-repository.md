@@ -41,8 +41,7 @@ UOS 上的软件来源起码来自两个仓库，一个是与系统有关的软�
 >
 > To download packages from a repository apt would download an **InRelease** or **Release** file from the **$ARCHIVE_ROOT/dists/$DISTRIBUTION** directory. 
 
-我尝试了访问 `https://pro-store-packages.uniontech.com/appstor
-e/dists/eagle-pro/Release`，获得了一系列索引文件的索引。
+我尝试了访问 `https://pro-store-packages.uniontech.com/appstore/dists/eagle-pro/Release`，获得了一系列索引文件的索引。
 
 ![索引的索引（很拗口）](https://bu.dusays.com/2024/03/13/65f1b5166810a.png)
 
