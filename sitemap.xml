@@ -860,13 +860,6 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/tags/Rom/</loc>
-    <lastmod>2024-03-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://zhul.in/tags/%E5%A4%A7%E4%BD%AC%E5%AF%B9%E8%AF%9D%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2024-03-13</lastmod>
     <changefreq>weekly</changefreq>
@@ -881,6 +874,13 @@
   </url>
   
   <url>
+    <loc>https://zhul.in/tags/Rom/</loc>
+    <lastmod>2024-03-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://zhul.in/tags/%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2024-03-13</lastmod>
     <changefreq>weekly</changefreq>
@@ -889,13 +889,6 @@
   
   <url>
     <loc>https://zhul.in/tags/%E7%BF%BB%E8%AF%91/</loc>
-    <lastmod>2024-03-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Z-Library/</loc>
     <lastmod>2024-03-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -923,14 +916,14 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/tags/Fun/</loc>
+    <loc>https://zhul.in/tags/Z-Library/</loc>
     <lastmod>2024-03-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://zhul.in/tags/Archlinux/</loc>
+    <loc>https://zhul.in/tags/Fun/</loc>
     <lastmod>2024-03-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -952,6 +945,13 @@
   
   <url>
     <loc>https://zhul.in/tags/Bot/</loc>
+    <lastmod>2024-03-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/Archlinux/</loc>
     <lastmod>2024-03-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

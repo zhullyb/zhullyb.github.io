@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://bu.dusays.com/2024/03/13/65f1b6a4c3239.png">
 <meta property="og:image" content="https://bu.dusays.com/2024/03/13/65f1b73567121.png">
 <meta property="article:published_time" content="2024-03-13T13:55:04.000Z">
-<meta property="article:modified_time" content="2024-03-13T14:25:18.000Z">
+<meta property="article:modified_time" content="2024-03-13T14:35:15.000Z">
 <meta property="article:author" content="竹林里有冰">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="deepin">
@@ -363,7 +363,7 @@
 <p>The distribution part (<em>stable</em> in this case) specifies a subdirectory in <strong>$ARCHIVE_ROOT/dists</strong>. It can contain additional slashes to specify subdirectories nested deeper, eg. <em>stable/updates</em>. distribution typically corresponds to <strong>Suite</strong> or <strong>Codename</strong> specified in the <strong>Release</strong> files. <em><strong>FIXME is this enforced anyhow?</strong></em> </p>
 <p>To download packages from a repository apt would download an <strong>InRelease</strong> or <strong>Release</strong> file from the <strong>$ARCHIVE_ROOT/dists/$DISTRIBUTION</strong> directory. </p>
 </blockquote>
-<p>我尝试了访问 <code>https://pro-store-packages.uniontech.com/appstor e/dists/eagle-pro/Release</code>，获得了一系列索引文件的索引。</p>
+<p>我尝试了访问 <code>https://pro-store-packages.uniontech.com/appstore/dists/eagle-pro/Release</code>，获得了一系列索引文件的索引。</p>
 <p><img src="https://bu.dusays.com/2024/03/13/65f1b5166810a.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="索引的索引（很拗口）"></p>
 <p>第一段中就能看到熟悉的 <code>Packages</code> 文件。根据我 deepin-elf-verify 相关博客中记载，这个文件中会保存 deb 文件的相对路径。我们先拼出 amd64 架构的 Packages 文件下载链接: <a target="_blank" rel="noopener" href="https://pro-store-packages.uniontech.com/appstore/dists/eagle-pro/appstore/binary-amd64/Packages">https://pro-store-packages.uniontech.com/appstore/dists/eagle-pro/appstore/binary-amd64/Packages</a></p>
 <p><img src="https://bu.dusays.com/2024/03/13/65f1b5faccc86.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="deb 包详细信息"></p>
