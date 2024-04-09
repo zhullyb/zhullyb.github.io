@@ -12,6 +12,12 @@ tags:
 
 ***
 
+**2024.04.09 Updates:**
+
+几天前移动对网页认证的页面进行了更新，原有的脚本失效，本博客已更新适配新版网页认证的脚本。
+
+***
+
 **2023.7.10 Updates:**
 
 首先，搬到屏峰校区以后，l2tp 服务器确实依然为 192.168.115.1，这点挺奇怪的。
@@ -77,46 +83,19 @@ if whoami | grep -q "admin\|root" && [ -n "$gateway" ]; then
   route add -net 172.16.0.0 netmask 255.255.0.0 gw ${gateway}
 fi
 
-
+# 尝试访问内网服务器，如果未通过网页认证则会获得 url 跳转信息，用于判断用户为朝晖校区或屏峰校区，并获取用户 ip
 test_curl=$(curl -s http://172.16.19.160)
 wlan_user_ip=$(echo ${test_curl} | grep -oE 'wlanuserip=[0-9\.]+' | grep -oE '[0-9\.]+')
+wlan_ac_ip=$(echo ${test_curl} | grep -oE 'wlanacip=[0-9\.]+' | grep -oE '[0-9\.]+')
+wlan_user_mac=$(echo ${test_curl} | grep -oE 'usermac=[[:xdigit:]-]+' | cut -d'=' -f2 | tr -d '-')
+wlan_ac_name=$(echo ${test_curl} | grep -o "wlanacname=[^&]*" | cut -d'=' -f2)
 
+# 朝晖校区宿舍楼内的移动宽带的认证请求
 if echo "${test_curl}" | grep -q "192.168.210.112"; then \
-curl "http://192.168.210.112:801/eportal/?c=ACSetting&a=Login&protocol=http:&hostname=192.168.210.112&iTermType=1&mac=000000000000&ip=${wlan_user_ip}&enAdvert=0&loginMethod=1" \
-  -X POST \
-  -d "DDDDD=,0,${user_account}@cmcczhyx" \
-  -d "upass=${user_password}" \
-  -d 'R1=0' \
-  -d 'R2=0' \
-  -d 'R6=0' \
-  -d 'para=00' \
-  -d '0MKKey=123456' \
-  -d 'buttonClicked=' \
-  -d 'redirect_url=' \
-  -d 'err_flag=' \
-  -d 'username=' \
-  -d 'password=' \
-  -d 'user=' \
-  -d 'cmd=' \
-  -d 'Login='
+curl "http://192.168.210.112:801/eportal/portal/login?callback=dr1003&login_method=1&user_account=%2C0%2C${user_account}%40cmcczhyx&user_password=${user_password}&wlan_user_ip=${wlan_user_ip}&wlan_user_ipv6=&wlan_user_mac=${wlan_user_mac}&wlan_ac_ip=${wlan_ac_ip}&wlan_ac_name=${wlan_ac_name}&jsVersion=4.2.1&terminal_type=1&lang=zh-cn&v=5099&lang=zh"
+# 屏峰校区宿舍楼内的移动宽带的认证请求
 elif echo "${test_curl}" | grep -q "192.168.210.111"; then \
-curl "http://192.168.210.111:801/eportal/?c=ACSetting&a=Login&protocol=http:&hostname=192.168.210.111&iTermType=1&mac=000000000000&ip=${wlan_user_ip}&enAdvert=0&loginMethod=1" \
-  -X POST \
-  -d "DDDDD=,0,${user_account}@cmccpfyx" \
-  -d "upass=${user_password}" \
-  -d 'R1=0' \
-  -d 'R2=0' \
-  -d 'R6=0' \
-  -d 'para=00' \
-  -d '0MKKey=123456' \
-  -d 'buttonClicked=' \
-  -d 'redirect_url=' \
-  -d 'err_flag=' \
-  -d 'username=' \
-  -d 'password=' \
-  -d 'user=' \
-  -d 'cmd=' \
-  -d 'Login='
+curl "http://192.168.210.111:801/eportal/portal/login?callback=dr1003&login_method=1&user_account=%2C0%2C${user_account}%40cmccpfyx&user_password=${user_password}&wlan_user_ip=${wlan_user_ip}&wlan_user_ipv6=&wlan_user_mac=${wlan_user_mac}&wlan_ac_ip=${wlan_ac_ip}&wlan_ac_name=${wlan_ac_name}&jsVersion=4.2.1&terminal_type=1&lang=zh-cn&v=5099&lang=zh"
 fi
 ```
 
