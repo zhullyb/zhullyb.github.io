@@ -316,6 +316,50 @@
     <article class="col-12 col-md-12 mx-auto index-info">
       <h1 class="index-header">
         
+        <a href="/2024/04/29/update-a-rpm-spec-by-github-action/" target="_self">
+          使用 Github Action 更新用于 rpm 打包的 spec 文件
+        </a>
+      </h1>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2024/04/29/update-a-rpm-spec-by-github-action/" target="_self">
+        <div>
+          有一些软件包的上游本身就是使用 Github Action 发版的，每次 commit 都会触发 Github Action 去构建并分发新版本，使用构建时的时间日期作为版本号。针对这种包，手动更新费时费力，而规范的 specfile 应当是更新 %changelog 的，因此应当是使用 rpmdev-bumpspec 命令。只不过 rpmdev-bumpspec 需要在 rpm 系发行版或者装有
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-04-29 19:19" pubdate>
+              2024-04-29
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Fedora/">#Fedora</a>
+            
+              <a href="/tags/RPM-Package/">#RPM Package</a>
+            
+              <a href="/tags/Github-Action/">#Github Action</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h1 class="index-header">
+        
         <a href="/2024/04/24/generate-gantt-chart-with-python/" target="_self">
           使用 Python 生成甘特图(Gantt Chart)
         </a>
@@ -645,52 +689,6 @@
             <i class="iconfont icon-tags"></i>
             
               <a href="/tags/JavaScript/">#JavaScript</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2024/01/10/cors-when-using-splited-frontend-and-backend/" target="_self">
-          结合 Vue.js 与 php 完成的 web 期末大作业，讲讲前后端分离站点开发与部署中可能遇到的 CORS 跨域问题
-        </a>
-      </h1>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2024/01/10/cors-when-using-splited-frontend-and-backend/" target="_self">
-        <div>
-          在上一篇博客中，我讲到了 web 期末大作业的上云部署。整个项目是使用 Vue.js 作为前端，php 作为后端，mysql 作为数据库实现的。 在使用 Vue.js 开发前端界面时，我选择了使用 vite 脚手架帮助开发，这意味着我的作品将使用前后端分离的架构实现。因此在开发部署过程中均遇到了跨域的问题，故写下这篇博客记录下解决方案。 基于后端返回对应 http 响应头的解决方案开发阶段在我完成
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2024-01-10 23:55" pubdate>
-              2024-01-10
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E7%AC%94%E8%AE%B0/">#笔记</a>
-            
-              <a href="/tags/Network/">#Network</a>
-            
-              <a href="/tags/Vue-js/">#Vue.js</a>
-            
-              <a href="/tags/PHP/">#PHP</a>
             
           </div>
         
