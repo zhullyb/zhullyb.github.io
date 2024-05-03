@@ -11,7 +11,7 @@ tags:
 
 有一些软件包的上游本身就是使用 Github Action 发版的，每次 commit 都会触发 Github Action 去构建并分发新版本，使用构建时的时间日期作为版本号。针对这种包，手动更新费时费力，而规范的 specfile 应当是更新 `%changelog` 的，因此应当是使用 rpmdev-bumpspec 命令。只不过 rpmdev-bumpspec 需要在 rpm 系发行版或者装有 rpm 系列依赖包的发行版下执行，这不是随随便便一个 Linux 环境就能运行的。
 
-我找到了 [netoarmando/rpmdev-bumpspec-action](https://github.com/netoarmando/rpmdev-bumpspec-action) 这个 Github Action，它通过启动一个 Fedora 的 docker 实现了使用 rpmdev-bumpspec 的效果。虽然 release 中只有一个 2021 年构建的 v1 版本，但 Fedora 的版本高低不影响 rpmdev-bumpspec 的效果。
+我找到了 [netoarmando/rpmdev-bumpspec-action](https://github.com/netoarmando/rpmdev-bumpspec-action) 这个 Github Action，它通过启动一个 Fedora 的 docker 实现了使用 rpmdev-bumpspec 的效果。虽然 release 中只有一个 2021 年构建的 v1 版本，~~但 Fedora 的版本高低不影响 rpmdev-bumpspec 的效果。~~但每次 Github Action 执行时都会使用 fedora:latest 的 docker 重新构建一遍，不用担心 fedora 版本过低。
 
 于是我们便解决了最核心的问题——处理 spec 文件。接下来只要补充好头尾的步骤即可。
 
