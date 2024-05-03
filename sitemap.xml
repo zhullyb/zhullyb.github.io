@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zhul.in/2024/05/03/open-rpmbuild-in-the-way-of-archlinux-makepkg/</loc>
+    
+    <lastmod>2024-05-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zhul.in/2024/04/29/update-a-rpm-spec-by-github-action/</loc>
     
     <lastmod>2024-05-03</lastmod>
@@ -443,7 +452,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/12/12/the-history-of-cutefish/</loc>
+    <loc>https://zhul.in/2021/04/16/the-software-i-use-on-archlinux/</loc>
     
     <lastmod>2022-08-22</lastmod>
     
@@ -452,7 +461,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/04/16/the-software-i-use-on-archlinux/</loc>
+    <loc>https://zhul.in/2021/12/12/the-history-of-cutefish/</loc>
     
     <lastmod>2022-08-22</lastmod>
     
@@ -794,15 +803,6 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2020/12/19/Before-Report-A-Rom-Issue/</loc>
-    
-    <lastmod>2021-10-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zhul.in/2021/02/07/extract-payload-dot-bin-on-archlinux/</loc>
     
     <lastmod>2021-10-13</lastmod>
@@ -881,13 +881,6 @@
   
   <url>
     <loc>https://zhul.in/tags/Linux/</loc>
-    <lastmod>2024-05-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Rom/</loc>
     <lastmod>2024-05-03</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
