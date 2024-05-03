@@ -26,7 +26,7 @@
 <meta property="og:description" content="有一些软件包的上游本身就是使用 Github Action 发版的，每次 commit 都会触发 Github Action 去构建并分发新版本，使用构建时的时间日期作为版本号。针对这种包，手动更新费时费力，而规范的 specfile 应当是更新 %changelog 的，因此应当是使用 rpmdev-bumpspec 命令。只不过 rpmdev-bumpspec 需要在 rpm 系发行版或者装有">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-04-29T11:19:54.000Z">
-<meta property="article:modified_time" content="2024-04-29T12:58:36.000Z">
+<meta property="article:modified_time" content="2024-05-03T14:23:23.000Z">
 <meta property="article:author" content="竹林里有冰">
 <meta property="article:tag" content="Fedora">
 <meta property="article:tag" content="RPM Package">
@@ -274,7 +274,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          1.9k 字
+          2k 字
         
       </span>
     
@@ -330,7 +330,7 @@
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2024年4月29日 晚上
+                    本文最后更新于：2024年5月3日 晚上
                   
                 
               </p>
@@ -339,7 +339,7 @@
               <div class="markdown-body">
                 
                 <p>有一些软件包的上游本身就是使用 Github Action 发版的，每次 commit 都会触发 Github Action 去构建并分发新版本，使用构建时的时间日期作为版本号。针对这种包，手动更新费时费力，而规范的 specfile 应当是更新 <code>%changelog</code> 的，因此应当是使用 rpmdev-bumpspec 命令。只不过 rpmdev-bumpspec 需要在 rpm 系发行版或者装有 rpm 系列依赖包的发行版下执行，这不是随随便便一个 Linux 环境就能运行的。</p>
-<p>我找到了 <a target="_blank" rel="noopener" href="https://github.com/netoarmando/rpmdev-bumpspec-action">netoarmando/rpmdev-bumpspec-action</a> 这个 Github Action，它通过启动一个 Fedora 的 docker 实现了使用 rpmdev-bumpspec 的效果。虽然 release 中只有一个 2021 年构建的 v1 版本，但 Fedora 的版本高低不影响 rpmdev-bumpspec 的效果。</p>
+<p>我找到了 <a target="_blank" rel="noopener" href="https://github.com/netoarmando/rpmdev-bumpspec-action">netoarmando/rpmdev-bumpspec-action</a> 这个 Github Action，它通过启动一个 Fedora 的 docker 实现了使用 rpmdev-bumpspec 的效果。虽然 release 中只有一个 2021 年构建的 v1 版本，<del>但 Fedora 的版本高低不影响 rpmdev-bumpspec 的效果。</del>但每次 Github Action 执行时都会使用 fedora:latest 的 docker 重新构建一遍，不用担心 fedora 版本过低。</p>
 <p>于是我们便解决了最核心的问题——处理 spec 文件。接下来只要补充好头尾的步骤即可。</p>
 <hr>
 <p>首先使用 actions/checkout 释出仓库内的文件</p>
@@ -408,7 +408,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2024年4月29日</div>
+          <div>2024年5月3日</div>
         </div>
       
       
