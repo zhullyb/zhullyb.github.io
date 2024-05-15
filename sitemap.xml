@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zhul.in/2021/05/21/create-a-random-picture-api-with-vercel/</loc>
+    
+    <lastmod>2024-05-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2022/11/08/free-umami-deploy-plan/</loc>
+    
+    <lastmod>2024-05-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zhul.in/2024/05/03/open-rpmbuild-in-the-way-of-archlinux-makepkg/</loc>
     
     <lastmod>2024-05-03</lastmod>
@@ -95,15 +113,6 @@
     <loc>https://zhul.in/about/index.html</loc>
     
     <lastmod>2024-02-08</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2022/11/08/free-umami-deploy-plan/</loc>
-    
-    <lastmod>2024-02-04</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -239,15 +248,6 @@
     <loc>https://zhul.in/2023/07/31/run-qq-bot-on-phicomm-n1-openwrt/</loc>
     
     <lastmod>2023-10-28</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/05/21/create-a-random-picture-api-with-vercel/</loc>
-    
-    <lastmod>2023-10-05</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -623,7 +623,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/10/01/bring-firefox-old-topbar-back/</loc>
+    <loc>https://zhul.in/2021/07/23/build-a-rpm-package-from-aur-with-archlinux/</loc>
     
     <lastmod>2022-08-22</lastmod>
     
@@ -632,7 +632,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/07/23/build-a-rpm-package-from-aur-with-archlinux/</loc>
+    <loc>https://zhul.in/2021/10/01/bring-firefox-old-topbar-back/</loc>
     
     <lastmod>2022-08-22</lastmod>
     
@@ -978,6 +978,13 @@
   </url>
   
   <url>
+    <loc>https://zhul.in/tags/RPM-Package/</loc>
+    <lastmod>2024-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://zhul.in/tags/Firefox/</loc>
     <lastmod>2024-05-15</lastmod>
     <changefreq>weekly</changefreq>
@@ -986,13 +993,6 @@
   
   <url>
     <loc>https://zhul.in/tags/Bwrap/</loc>
-    <lastmod>2024-05-15</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/RPM-Package/</loc>
     <lastmod>2024-05-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1042,6 +1042,13 @@
   
   <url>
     <loc>https://zhul.in/tags/PHP/</loc>
+    <lastmod>2024-05-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/vercel/</loc>
     <lastmod>2024-05-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
