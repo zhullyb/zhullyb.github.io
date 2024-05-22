@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>使用 Windows 虚拟机运行虚拟专用网客户端为 Linux 提供内网环境</title>
+    <link href="/2024/05/23/setup-network-environment-for-non-linux-vpn-client-with-virtual-machine/"/>
+    <url>/2024/05/23/setup-network-environment-for-non-linux-vpn-client-with-virtual-machine/</url>
+    
+    <content type="html"><![CDATA[<h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>最近在某家公司实习，公司内部的 git 部署在内网环境上，需要通过虚拟专用网的客户端（天翼云的 AONE）才能够正常访问。很可惜，客户端只提供了 Windows 和 MacOS 的版本。</p><p><img src="https://bu.dusays.com/2024/05/23/664e29866c1ab.png"></p><p>工作的代码总是要提交的，我也不想改变我的开发环境，又不希望在 Windows 上使用 git-for-windows 这个近乎简陋的工具进行代码提交，更别说还有一些别的内网服务接下来可能也会用到。所以最好的颁发就是在 Linux 下也配置好能够访问内网的环境。</p><h2 id="理论"><a href="#理论" class="headerlink" title="理论"></a>理论</h2><p>在 Windows 下使用 AONE 的网络拓扑是这样的</p><p><img src="https://bu.dusays.com/2024/05/23/664e2b93de6f9.png"></p><p>而我的方案则是使用 Windows 虚拟机开启 AONE，并在这台虚拟机上开一个 socks5 server 负责代理 Linux 宿主机需要打到内网服务的流量。网络拓扑如下</p><p><img src="https://bu.dusays.com/2024/05/23/664e2e1b0da09.png"></p><p>根据 bilibili 上<a href="https://www.bilibili.com/video/BV11M4y1J7zP/">技术蛋老师的视频总结</a>，我们应该选择使用网卡桥接的网络配置，只有这个配置方式同时支持「宿主-&gt;虚拟机」和 「虚拟机-&gt;互联网」的网络。</p><p><img src="https://bu.dusays.com/2024/05/23/664e2fbb4a36b.webp" alt="图片来源: bilibili 技术蛋老师"></p><h2 id="实操"><a href="#实操" class="headerlink" title="实操"></a>实操</h2><h3 id="在-Windows-虚拟机中开启虚拟专用网客户端"><a href="#在-Windows-虚拟机中开启虚拟专用网客户端" class="headerlink" title="在 Windows 虚拟机中开启虚拟专用网客户端"></a>在 Windows 虚拟机中开启虚拟专用网客户端</h3><p>开启 AONE，不做赘述</p><h3 id="开启-socks-server，监听地址为-0-0-0-0-（或者设置为宿主机的-IP-地址）"><a href="#开启-socks-server，监听地址为-0-0-0-0-（或者设置为宿主机的-IP-地址）" class="headerlink" title="开启 socks server，监听地址为 0.0.0.0 （或者设置为宿主机的 IP 地址）"></a>开启 socks server，监听地址为 0.0.0.0 （或者设置为宿主机的 IP 地址）</h3><p>在「<a href="https://imbearchild.cyou/">熊孩子(BearChild)</a>」的推荐下，我这里采用的是大名鼎鼎的二级射线（某 V 字开头的常见软件），直接从 GIthub Release 中下载 Windows X64 的压缩包，简单配置下即可，如果没有什么特殊需求的话可以只修改图中的两处配置。</p><p><img src="https://bu.dusays.com/2024/05/23/664e328cd83b3.png"></p><p>在终端中通过该软件的 run 命令即可开启服务</p><p><img src="https://bu.dusays.com/2024/05/23/664e32e6c350a.png"></p><h3 id="在宿主机进行测试"><a href="#在宿主机进行测试" class="headerlink" title="在宿主机进行测试"></a>在宿主机进行测试</h3><p>我这里使用的是 mzz2017 编写的 gg 命令进行代理</p><p><img src="https://bu.dusays.com/2024/05/23/664e33c3e8320.png"></p><p>这里 curl 百度得到了正确的相应，说明通道是通的，gg 也可以用于代理浏览器。经实测能够正常访问公司内网服务，不便在博客中展示。</p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Linux</tag>
+      
+      <tag>Network</tag>
+      
+      <tag>Windows</tag>
+      
+      <tag>Virtual Machine</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>以 Archlinux 中 makepkg 的方式打开 rpmbuild</title>
     <link href="/2024/05/03/open-rpmbuild-in-the-way-of-archlinux-makepkg/"/>
     <url>/2024/05/03/open-rpmbuild-in-the-way-of-archlinux-makepkg/</url>
@@ -560,7 +585,7 @@
     <link href="/2023/05/12/troubles-when-applying-azure-education/"/>
     <url>/2023/05/12/troubles-when-applying-azure-education/</url>
     
-    <content type="html"><![CDATA[<p>进入大学已经快一年了，但我的 Azure 教育订阅申请一直没有成功，每年有 100 刀的额度，<del>再这样下去就要亏掉近 700 元了</del>，于是便打算趁期中考试刚结束的闲暇时间把 Azure 的教育订阅给过了。</p><p>我拥有 *.edu.cn 的邮箱，并且通过了 Github Student Pack 的认证，但每次在 <a href="https://signup.azure.com/studentverification?offerType=1">https://signup.azure.com/studentverification?offerType=1</a> 页面尝试申请 Azure 订阅时，总是会得到一句冷冷的「你没有资格使用 Azure 免费帐户」。于是，我找到了 Azure 订阅支持客服帮忙，链接是这个: <a href="https://azureforeducation.microsoft.com/en-us/institutions/Contact">https://azureforeducation.microsoft.com/en-us/institutions/Contact</a>，简要填写了我的基本信息后就开始等待邮件回复了。</p><p><img src="https://bu.dusays.com/2023/05/13/645e646bc5b58.png" alt="提交工单"></p><p>我是周四上午申请的，不到一个小时就等来了微软的工单生成通知</p><p><img src="https://bu.dusays.com/2023/05/12/645e5fdfb25a3.png" alt="微软的工单通知"></p><p>但光有这工单也没有用，我只能继续等人工客服的介入。</p><p>在周五的早上十点，我收到了来自人工客服的邮件，并且在几分钟后收到了来自人工客服的电话（电话是 021 开头的，是归属地为上海的座机打来的，但客服操着严重的港台口音，可能是港台那边的客服通过上海的座机中转打给我的？）: </p><p><img src="https://bu.dusays.com/2023/05/12/645e60ad79001.png" alt="人工客服的邮件"></p><p>但很显然，这封邮件并没有提供任何行之有效的方案，我只能按照邮件中的指示将我的截图发了过去。不过客服不知道出于什么原因一定要求全屏截图（如果电话说的是全面屏，那也是指 PC 端的全屏截图），可能是他们有什么工作制度吧。回复邮件的时候一定要选择<strong>回复全部</strong>，好像是他们只使用 <a href="mailto:&#115;&#117;&#x70;&#x70;&#111;&#114;&#x74;&#x40;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#115;&#117;&#x70;&#x70;&#111;&#x72;&#x74;&#x2e;&#109;&#x69;&#99;&#x72;&#x6f;&#x73;&#x6f;&#102;&#x74;&#46;&#x63;&#x6f;&#109;">&#115;&#117;&#x70;&#x70;&#111;&#114;&#x74;&#x40;&#x6d;&#x61;&#x69;&#x6c;&#x2e;&#115;&#117;&#x70;&#x70;&#111;&#x72;&#x74;&#x2e;&#109;&#x69;&#99;&#x72;&#x6f;&#x73;&#x6f;&#102;&#x74;&#46;&#x63;&#x6f;&#109;</a> 这一个邮箱与我们通信，微软的服务器收到内容后会将我们发送的内容再抄送给给我们分配的客服手上，如果不选择「回复全部」的话，客服可能就看不到之前的通信记录了。</p><p>于是就在当天下午的2点收到了人工客服的第二封邮件，说是已经帮我提交到了后台处理。</p><p><img src="https://bu.dusays.com/2023/05/13/645e62bae0c0a.png" alt="来自人工客服的第二封邮件"></p><p>20 分钟后，我收到了这封应该是系统自动发送的邮件，说明我的账号因异常而触发了审查所以过不了 Azure 的教育订阅，需要我提交能够佐证我的学生身份的东西上去，当晚7点我便按照要求回信。</p><p><img src="https://bu.dusays.com/2023/05/13/645e639e2c9d1.png" alt="1683907484369.png"></p><p>当晚8点半，我便收到了来自系统的消息，得知异常已经解除，再次申请 Azure 学生认证就成功了。</p><p><img src="https://bu.dusays.com/2023/05/13/645e63e39523f.png" alt="异常解除"></p>]]></content>
+    <content type="html"><![CDATA[<p>进入大学已经快一年了，但我的 Azure 教育订阅申请一直没有成功，每年有 100 刀的额度，<del>再这样下去就要亏掉近 700 元了</del>，于是便打算趁期中考试刚结束的闲暇时间把 Azure 的教育订阅给过了。</p><p>我拥有 *.edu.cn 的邮箱，并且通过了 Github Student Pack 的认证，但每次在 <a href="https://signup.azure.com/studentverification?offerType=1">https://signup.azure.com/studentverification?offerType=1</a> 页面尝试申请 Azure 订阅时，总是会得到一句冷冷的「你没有资格使用 Azure 免费帐户」。于是，我找到了 Azure 订阅支持客服帮忙，链接是这个: <a href="https://azureforeducation.microsoft.com/en-us/institutions/Contact">https://azureforeducation.microsoft.com/en-us/institutions/Contact</a>，简要填写了我的基本信息后就开始等待邮件回复了。</p><p><img src="https://bu.dusays.com/2023/05/13/645e646bc5b58.png" alt="提交工单"></p><p>我是周四上午申请的，不到一个小时就等来了微软的工单生成通知</p><p><img src="https://bu.dusays.com/2023/05/12/645e5fdfb25a3.png" alt="微软的工单通知"></p><p>但光有这工单也没有用，我只能继续等人工客服的介入。</p><p>在周五的早上十点，我收到了来自人工客服的邮件，并且在几分钟后收到了来自人工客服的电话（电话是 021 开头的，是归属地为上海的座机打来的，但客服操着严重的港台口音，可能是港台那边的客服通过上海的座机中转打给我的？）: </p><p><img src="https://bu.dusays.com/2023/05/12/645e60ad79001.png" alt="人工客服的邮件"></p><p>但很显然，这封邮件并没有提供任何行之有效的方案，我只能按照邮件中的指示将我的截图发了过去。不过客服不知道出于什么原因一定要求全屏截图（如果电话说的是全面屏，那也是指 PC 端的全屏截图），可能是他们有什么工作制度吧。回复邮件的时候一定要选择<strong>回复全部</strong>，好像是他们只使用 <a href="mailto:&#115;&#117;&#x70;&#112;&#111;&#114;&#x74;&#64;&#x6d;&#x61;&#x69;&#108;&#46;&#115;&#117;&#x70;&#112;&#111;&#114;&#116;&#x2e;&#109;&#x69;&#x63;&#x72;&#x6f;&#115;&#111;&#x66;&#116;&#46;&#99;&#x6f;&#109;">&#115;&#117;&#x70;&#112;&#111;&#114;&#x74;&#64;&#x6d;&#x61;&#x69;&#108;&#46;&#115;&#117;&#x70;&#112;&#111;&#114;&#116;&#x2e;&#109;&#x69;&#x63;&#x72;&#x6f;&#115;&#111;&#x66;&#116;&#46;&#99;&#x6f;&#109;</a> 这一个邮箱与我们通信，微软的服务器收到内容后会将我们发送的内容再抄送给给我们分配的客服手上，如果不选择「回复全部」的话，客服可能就看不到之前的通信记录了。</p><p>于是就在当天下午的2点收到了人工客服的第二封邮件，说是已经帮我提交到了后台处理。</p><p><img src="https://bu.dusays.com/2023/05/13/645e62bae0c0a.png" alt="来自人工客服的第二封邮件"></p><p>20 分钟后，我收到了这封应该是系统自动发送的邮件，说明我的账号因异常而触发了审查所以过不了 Azure 的教育订阅，需要我提交能够佐证我的学生身份的东西上去，当晚7点我便按照要求回信。</p><p><img src="https://bu.dusays.com/2023/05/13/645e639e2c9d1.png" alt="1683907484369.png"></p><p>当晚8点半，我便收到了来自系统的消息，得知异常已经解除，再次申请 Azure 学生认证就成功了。</p><p><img src="https://bu.dusays.com/2023/05/13/645e63e39523f.png" alt="异常解除"></p>]]></content>
     
     
     
