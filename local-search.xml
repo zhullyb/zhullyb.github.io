@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>使用动态公网 ip + ddns 实现 rustdesk 的 ip 直连</title>
+    <link href="/2024/06/30/dynamic-public-ip-and-ddns-for-rustdesk/"/>
+    <url>/2024/06/30/dynamic-public-ip-and-ddns-for-rustdesk/</url>
+    
+    <content type="html"><![CDATA[<p>最近跟风整了一台 n100 的迷你主机装了个 Archlinux 当 HomeServer，搭配上了显卡欺骗器，平常一直远程使用，因此需要实现稳定的远程桌面连接。开源软件 Rustdesk 本身对 Linux 的适配尚可，可惜官方提供的服务器位于境外，且前一阵子因为诈骗相关的风波使得官方对连接做出了一些限制，应当使用自建服务器或者 ip 直连。</p><p>单从网络安全的角度出发，最佳实践应该是通过 wireguard 或者别的协议先接入局域网，然后使用局域网内的 ip 直连，这是最稳妥的，但我有点懒，而且我可能会在多个设备上都有控制 HomeServer 的需求，给所有设备配置 wireguard 是一件挺麻烦的事情，因此我决定放弃安全性，直接公网裸奔。</p><p>在学校宿舍的电信宽带提供了一个动态公网 ip，因此只需要设置好 ddns 和端口转发就可以拿到一个固定的 domain + port 提供给 rustdesk 直连。</p><h2 id="在被控端-Rustdesk-允许直连访问"><a href="#在被控端-Rustdesk-允许直连访问" class="headerlink" title="在被控端 Rustdesk 允许直连访问"></a>在被控端 Rustdesk 允许直连访问</h2><p>在「设置」中的「安全」一栏选择「解锁安全设置」，拉到最下面的「安全」栏，勾选「允许 IP 直接访问」，并选择一个端口，范围在 1000 ~35535 之间且不要被本地的其他程序占用，Rustdesk 的默认值为 21118。</p><p>可以直接在局域网内的另一台设备进行测试，直接在 Rustdesk 中输入被控端的局域网 ip 和刚刚设置的端口，看看能不能访问得通，如果不行可能需要排查一下被控端访问墙设置的问题。</p><p><img src="https://bu.dusays.com/2024/06/30/66814701cf7ce.png"></p><h2 id="ddns"><a href="#ddns" class="headerlink" title="ddns"></a>ddns</h2><p>由于我的域名是交给 cloudflare 进行解析的，就找了个<a href="https://github.com/yulewang/cloudflare-api-v4-ddns/">支持 cloudflare 的 ddns 脚本</a>，大致的部署过程可以参考 <a href="https://www.rclogs.com/2023/06/%25e8%2587%25aa%25e5%25bb%25ba%25e5%259f%25ba%25e4%25ba%258ecloudflare%25e7%259a%2584ddns">「自建基于Cloudflare的DDNS」</a>，不过我小改了一下脚本中获取公网 ipv4 的方式，直接 ssh 到路由器上获取当前的 ipv4 地址，不依赖外部的服务。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">WAN_IP=`ssh -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa root@192.168.1.1 <span class="hljs-string">&#x27;ip -br a&#x27;</span> | grep pppoe-wan | awk <span class="hljs-string">&#x27;&#123;print $3&#125;&#x27;</span>`<br></code></pre></td></tr></table></figure><p>理论上来说，有不少路由器自身就支持不少域名解析商</p><h2 id="端口转发"><a href="#端口转发" class="headerlink" title="端口转发"></a>端口转发</h2><p>端口转发需要在路由器的后台设置进行，我这里路由器使用的是 openwrt 系统，大部分路由器应该都支持这个操作。</p><p>在「网络」-「防火墙」</p><p><img src="https://bu.dusays.com/2024/06/30/6681635804e68.png"></p><p>选择「端口转发」</p><p><img src="https://bu.dusays.com/2024/06/30/66817e416534c.png"></p><p>新建端口转发，共享名随便填，外部端口是你最终要在主控端输入的端口，内部 IP 地址是被控机 的 IP 地址，可以用 <code>ip -br a</code> 命令看到，内部端口就是上文在 Rustdesk 指定的端口号。</p><h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p>可以直接在主控端口输入 ddns 的域名和端口号，实现远程控制</p><p><img src="https://bu.dusays.com/2024/06/30/66817f77aae7e.png"></p>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Linux</tag>
+      
+      <tag>Shell Script</tag>
+      
+      <tag>Router</tag>
+      
+      <tag>OpenSource Project</tag>
+      
+      <tag>Rustdesk</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>使用 Windows 虚拟机运行虚拟专用网客户端为 Linux 提供内网环境</title>
     <link href="/2024/05/23/setup-network-environment-for-non-linux-vpn-client-with-virtual-machine/"/>
     <url>/2024/05/23/setup-network-environment-for-non-linux-vpn-client-with-virtual-machine/</url>
@@ -585,7 +612,7 @@
     <link href="/2023/05/12/troubles-when-applying-azure-education/"/>
     <url>/2023/05/12/troubles-when-applying-azure-education/</url>
     
-    <content type="html"><![CDATA[<p>进入大学已经快一年了，但我的 Azure 教育订阅申请一直没有成功，每年有 100 刀的额度，<del>再这样下去就要亏掉近 700 元了</del>，于是便打算趁期中考试刚结束的闲暇时间把 Azure 的教育订阅给过了。</p><p>我拥有 *.edu.cn 的邮箱，并且通过了 Github Student Pack 的认证，但每次在 <a href="https://signup.azure.com/studentverification?offerType=1">https://signup.azure.com/studentverification?offerType=1</a> 页面尝试申请 Azure 订阅时，总是会得到一句冷冷的「你没有资格使用 Azure 免费帐户」。于是，我找到了 Azure 订阅支持客服帮忙，链接是这个: <a href="https://azureforeducation.microsoft.com/en-us/institutions/Contact">https://azureforeducation.microsoft.com/en-us/institutions/Contact</a>，简要填写了我的基本信息后就开始等待邮件回复了。</p><p><img src="https://bu.dusays.com/2023/05/13/645e646bc5b58.png" alt="提交工单"></p><p>我是周四上午申请的，不到一个小时就等来了微软的工单生成通知</p><p><img src="https://bu.dusays.com/2023/05/12/645e5fdfb25a3.png" alt="微软的工单通知"></p><p>但光有这工单也没有用，我只能继续等人工客服的介入。</p><p>在周五的早上十点，我收到了来自人工客服的邮件，并且在几分钟后收到了来自人工客服的电话（电话是 021 开头的，是归属地为上海的座机打来的，但客服操着严重的港台口音，可能是港台那边的客服通过上海的座机中转打给我的？）: </p><p><img src="https://bu.dusays.com/2023/05/12/645e60ad79001.png" alt="人工客服的邮件"></p><p>但很显然，这封邮件并没有提供任何行之有效的方案，我只能按照邮件中的指示将我的截图发了过去。不过客服不知道出于什么原因一定要求全屏截图（如果电话说的是全面屏，那也是指 PC 端的全屏截图），可能是他们有什么工作制度吧。回复邮件的时候一定要选择<strong>回复全部</strong>，好像是他们只使用 <a href="mailto:&#115;&#117;&#112;&#112;&#x6f;&#x72;&#x74;&#64;&#x6d;&#x61;&#x69;&#108;&#x2e;&#x73;&#x75;&#x70;&#112;&#x6f;&#x72;&#116;&#46;&#109;&#x69;&#99;&#114;&#111;&#115;&#x6f;&#x66;&#116;&#x2e;&#99;&#x6f;&#x6d;">&#115;&#117;&#112;&#112;&#x6f;&#x72;&#x74;&#64;&#x6d;&#x61;&#x69;&#108;&#x2e;&#x73;&#x75;&#x70;&#112;&#x6f;&#x72;&#116;&#46;&#109;&#x69;&#99;&#114;&#111;&#115;&#x6f;&#x66;&#116;&#x2e;&#99;&#x6f;&#x6d;</a> 这一个邮箱与我们通信，微软的服务器收到内容后会将我们发送的内容再抄送给给我们分配的客服手上，如果不选择「回复全部」的话，客服可能就看不到之前的通信记录了。</p><p>于是就在当天下午的2点收到了人工客服的第二封邮件，说是已经帮我提交到了后台处理。</p><p><img src="https://bu.dusays.com/2023/05/13/645e62bae0c0a.png" alt="来自人工客服的第二封邮件"></p><p>20 分钟后，我收到了这封应该是系统自动发送的邮件，说明我的账号因异常而触发了审查所以过不了 Azure 的教育订阅，需要我提交能够佐证我的学生身份的东西上去，当晚7点我便按照要求回信。</p><p><img src="https://bu.dusays.com/2023/05/13/645e639e2c9d1.png" alt="1683907484369.png"></p><p>当晚8点半，我便收到了来自系统的消息，得知异常已经解除，再次申请 Azure 学生认证就成功了。</p><p><img src="https://bu.dusays.com/2023/05/13/645e63e39523f.png" alt="异常解除"></p>]]></content>
+    <content type="html"><![CDATA[<p>进入大学已经快一年了，但我的 Azure 教育订阅申请一直没有成功，每年有 100 刀的额度，<del>再这样下去就要亏掉近 700 元了</del>，于是便打算趁期中考试刚结束的闲暇时间把 Azure 的教育订阅给过了。</p><p>我拥有 *.edu.cn 的邮箱，并且通过了 Github Student Pack 的认证，但每次在 <a href="https://signup.azure.com/studentverification?offerType=1">https://signup.azure.com/studentverification?offerType=1</a> 页面尝试申请 Azure 订阅时，总是会得到一句冷冷的「你没有资格使用 Azure 免费帐户」。于是，我找到了 Azure 订阅支持客服帮忙，链接是这个: <a href="https://azureforeducation.microsoft.com/en-us/institutions/Contact">https://azureforeducation.microsoft.com/en-us/institutions/Contact</a>，简要填写了我的基本信息后就开始等待邮件回复了。</p><p><img src="https://bu.dusays.com/2023/05/13/645e646bc5b58.png" alt="提交工单"></p><p>我是周四上午申请的，不到一个小时就等来了微软的工单生成通知</p><p><img src="https://bu.dusays.com/2023/05/12/645e5fdfb25a3.png" alt="微软的工单通知"></p><p>但光有这工单也没有用，我只能继续等人工客服的介入。</p><p>在周五的早上十点，我收到了来自人工客服的邮件，并且在几分钟后收到了来自人工客服的电话（电话是 021 开头的，是归属地为上海的座机打来的，但客服操着严重的港台口音，可能是港台那边的客服通过上海的座机中转打给我的？）: </p><p><img src="https://bu.dusays.com/2023/05/12/645e60ad79001.png" alt="人工客服的邮件"></p><p>但很显然，这封邮件并没有提供任何行之有效的方案，我只能按照邮件中的指示将我的截图发了过去。不过客服不知道出于什么原因一定要求全屏截图（如果电话说的是全面屏，那也是指 PC 端的全屏截图），可能是他们有什么工作制度吧。回复邮件的时候一定要选择<strong>回复全部</strong>，好像是他们只使用 <a href="mailto:&#x73;&#117;&#112;&#x70;&#111;&#x72;&#x74;&#x40;&#109;&#x61;&#x69;&#108;&#46;&#x73;&#x75;&#112;&#112;&#x6f;&#114;&#116;&#x2e;&#x6d;&#105;&#99;&#114;&#x6f;&#115;&#x6f;&#102;&#x74;&#x2e;&#x63;&#x6f;&#109;">&#x73;&#117;&#112;&#x70;&#111;&#x72;&#x74;&#x40;&#109;&#x61;&#x69;&#108;&#46;&#x73;&#x75;&#112;&#112;&#x6f;&#114;&#116;&#x2e;&#x6d;&#105;&#99;&#114;&#x6f;&#115;&#x6f;&#102;&#x74;&#x2e;&#x63;&#x6f;&#109;</a> 这一个邮箱与我们通信，微软的服务器收到内容后会将我们发送的内容再抄送给给我们分配的客服手上，如果不选择「回复全部」的话，客服可能就看不到之前的通信记录了。</p><p>于是就在当天下午的2点收到了人工客服的第二封邮件，说是已经帮我提交到了后台处理。</p><p><img src="https://bu.dusays.com/2023/05/13/645e62bae0c0a.png" alt="来自人工客服的第二封邮件"></p><p>20 分钟后，我收到了这封应该是系统自动发送的邮件，说明我的账号因异常而触发了审查所以过不了 Azure 的教育订阅，需要我提交能够佐证我的学生身份的东西上去，当晚7点我便按照要求回信。</p><p><img src="https://bu.dusays.com/2023/05/13/645e639e2c9d1.png" alt="1683907484369.png"></p><p>当晚8点半，我便收到了来自系统的消息，得知异常已经解除，再次申请 Azure 学生认证就成功了。</p><p><img src="https://bu.dusays.com/2023/05/13/645e63e39523f.png" alt="异常解除"></p>]]></content>
     
     
     
