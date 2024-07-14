@@ -30,7 +30,7 @@
 <meta property="og:image" content="https://bu.dusays.com/2024/07/14/6693b76b9c1ca.png">
 <meta property="og:image" content="https://bu.dusays.com/2024/07/14/6693b7ba82d99.png">
 <meta property="article:published_time" content="2024-07-14T10:30:33.000Z">
-<meta property="article:modified_time" content="2024-07-14T11:52:41.000Z">
+<meta property="article:modified_time" content="2024-07-14T11:56:55.000Z">
 <meta property="article:author" content="竹林里有冰">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="笔记">
@@ -349,7 +349,7 @@
 <h2 id="打印机联网"><a href="#打印机联网" class="headerlink" title="打印机联网"></a>打印机联网</h2><p>首先使用 Windows 操作系统完成打印机的联网工作，在路由器的网页管理界面可以看到这台打印机的局域网 ip 是 192.168.123.20 ，记录备用。如果有条件的话，尽量将打印机的 MAC 地址与 IP 地址绑定，避免路由器将该 IP 分配给别的设备。</p>
 <p><img src="https://bu.dusays.com/2024/07/14/6693aa41c079b.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="路由器的网页管理界面"></p>
 <h2 id="安装-CUPS"><a href="#安装-CUPS" class="headerlink" title="安装 CUPS"></a>安装 CUPS</h2><p>随后按照 ArchWiki 的 <a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/CUPS">CUPS 页面</a>进行相关配置，CUPS 是苹果公司开源的打印系统，是目前 Linux 下最主流的打印方案。</p>
-<p>首先安装 cups ，如果需要「打印为 pdf」的功能，可以选装 cups-pdf</p>
+<p>首先安装 cups ，如果需要「打印为 pdf」的功能，可以选装 cups-pdf。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pacman -S cups<br></code></pre></td></tr></table></figure>
 
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pacman -S cups-pdf<br></code></pre></td></tr></table></figure>
@@ -368,7 +368,7 @@
 <p>但 HP Laser 103w 的驱动程序都不在这些软件包中，在 HP 的官网我们可以找到<a target="_blank" rel="noopener" href="https://support.hp.com/cn-zh/drivers/hp-laser-100-printer-series/model/2100769190">这个页面</a>，包含了 HP Laser 103w 的 Linux 驱动<a target="_blank" rel="noopener" href="https://ftp.hp.com/pub/softlib/software13/printers/CLP150/uld-hp_V1.00.39.12_00.15.tar.gz">下载地址</a>（已在 web.archive.org 存档）。通过下载下来的文件名，我们可以看见名字为 uld-hp，理论上可以直接通过压缩包内的安装脚本进行安装，但我通过这个名字顺藤摸瓜，找到了 <a target="_blank" rel="noopener" href="https://aur.archlinux.org/packages/hpuld">AUR/hpuld</a> 可以直接进行安装。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">yay -S hpuld<br></code></pre></td></tr></table></figure>
 
-<h2 id="添加打印机"><a href="#添加打印机" class="headerlink" title="添加打印机"></a>添加打印机</h2><p>打开设置中的打印机设置后，选择添加打印机，CUPS 直接帮我们找到了局域网下的打印机，并自动开始搜索驱动程序（虽然没搜到）</p>
+<h2 id="添加打印机"><a href="#添加打印机" class="headerlink" title="添加打印机"></a>添加打印机</h2><p>打开设置中的打印机设置后，选择添加打印机，CUPS 直接帮我们找到了局域网下的打印机，并自动开始搜索驱动程序（虽然没搜到）。</p>
 <p><img src="https://bu.dusays.com/2024/07/14/6693b6e81f9c4.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="自动搜索"></p>
 <p>但如果没能自动检测到打印机，也可以使用手动选项中的 AppSocket/HP JetDirect 手动输入打印机的 ip 地址进行配置。</p>
 <p>紧接着就到了选择驱动程序的阶段，厂商选择 HP，能够找到「HP Laser 10x Series」的选项，直接选择。</p>

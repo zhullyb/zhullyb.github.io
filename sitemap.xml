@@ -893,6 +893,20 @@
 
   
   <url>
+    <loc>https://zhul.in/tags/Android/</loc>
+    <lastmod>2024-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/Rom%E7%BC%96%E8%AF%91/</loc>
+    <lastmod>2024-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://zhul.in/tags/Linux/</loc>
     <lastmod>2024-07-14</lastmod>
     <changefreq>weekly</changefreq>
@@ -908,20 +922,6 @@
   
   <url>
     <loc>https://zhul.in/tags/deepin/</loc>
-    <lastmod>2024-07-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Android/</loc>
-    <lastmod>2024-07-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Rom%E7%BC%96%E8%AF%91/</loc>
     <lastmod>2024-07-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -984,20 +984,6 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/tags/Firefox/</loc>
-    <lastmod>2024-07-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Bwrap/</loc>
-    <lastmod>2024-07-14</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://zhul.in/tags/umami/</loc>
     <lastmod>2024-07-14</lastmod>
     <changefreq>weekly</changefreq>
@@ -1013,6 +999,20 @@
   
   <url>
     <loc>https://zhul.in/tags/Bot/</loc>
+    <lastmod>2024-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/Firefox/</loc>
+    <lastmod>2024-07-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/Bwrap/</loc>
     <lastmod>2024-07-14</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
