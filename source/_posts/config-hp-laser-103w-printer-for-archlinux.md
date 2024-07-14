@@ -23,7 +23,7 @@ tags:
 
 随后按照 ArchWiki 的 [CUPS 页面](https://wiki.archlinux.org/title/CUPS)进行相关配置，CUPS 是苹果公司开源的打印系统，是目前 Linux 下最主流的打印方案。
 
-首先安装 cups ，如果需要「打印为 pdf」的功能，可以选装 cups-pdf
+首先安装 cups ，如果需要「打印为 pdf」的功能，可以选装 cups-pdf。
 
 ```bash
 pacman -S cups
@@ -68,7 +68,7 @@ yay -S hpuld
 
 ## 添加打印机
 
-打开设置中的打印机设置后，选择添加打印机，CUPS 直接帮我们找到了局域网下的打印机，并自动开始搜索驱动程序（虽然没搜到）
+打开设置中的打印机设置后，选择添加打印机，CUPS 直接帮我们找到了局域网下的打印机，并自动开始搜索驱动程序（虽然没搜到）。
 
 ![自动搜索](https://bu.dusays.com/2024/07/14/6693b6e81f9c4.png)
 
