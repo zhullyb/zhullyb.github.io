@@ -18,29 +18,32 @@
   <meta name="author" content="竹林里有冰">
   <meta name="keywords" content="博客, 技术, Fedora">
   
-    <meta name="description" content="进入大学已经快一年了，但我的 Azure 教育订阅申请一直没有成功，每年有 100 刀的额度，再这样下去就要亏掉近 700 元了，于是便打算趁期中考试刚结束的闲暇时间把 Azure 的教育订阅给过了。 我拥有 *.edu.cn 的邮箱，并且通过了 Github Student Pack 的认证，但每次在 https:&#x2F;&#x2F;signup.azure.com&#x2F;studentverification?of">
+    <meta name="description" content="在今年的早些时候，我在 COPR 看到了一个新出现的名为「allow SSH」的按钮。  我在 COPR 的 User Documentation 中找到了对应的描述。  Sometimes it is useful to manually debug failed builds not locally but within the Copr infrastructure. That’s why">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Azure 教育订阅申请时遇到的麻烦">
-<meta property="og:url" content="https://zhul.in/2023/05/12/troubles-when-applying-azure-education/index.html">
+<meta property="og:title" content="尝试体验 Fedora COPR 中的 allow SSH 功能">
+<meta property="og:url" content="https://zhul.in/2024/07/15/try-ssh-connection-in-fedora-copr/index.html">
 <meta property="og:site_name" content="竹林里有冰的博客">
-<meta property="og:description" content="进入大学已经快一年了，但我的 Azure 教育订阅申请一直没有成功，每年有 100 刀的额度，再这样下去就要亏掉近 700 元了，于是便打算趁期中考试刚结束的闲暇时间把 Azure 的教育订阅给过了。 我拥有 *.edu.cn 的邮箱，并且通过了 Github Student Pack 的认证，但每次在 https:&#x2F;&#x2F;signup.azure.com&#x2F;studentverification?of">
+<meta property="og:description" content="在今年的早些时候，我在 COPR 看到了一个新出现的名为「allow SSH」的按钮。  我在 COPR 的 User Documentation 中找到了对应的描述。  Sometimes it is useful to manually debug failed builds not locally but within the Copr infrastructure. That’s why">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://bu.dusays.com/2023/05/13/645e646bc5b58.png">
-<meta property="og:image" content="https://bu.dusays.com/2023/05/12/645e5fdfb25a3.png">
-<meta property="og:image" content="https://bu.dusays.com/2023/05/12/645e60ad79001.png">
-<meta property="og:image" content="https://bu.dusays.com/2023/05/13/645e62bae0c0a.png">
-<meta property="og:image" content="https://bu.dusays.com/2023/05/13/645e639e2c9d1.png">
-<meta property="og:image" content="https://bu.dusays.com/2023/05/13/645e63e39523f.png">
-<meta property="article:published_time" content="2023-05-12T15:38:29.000Z">
-<meta property="article:modified_time" content="2023-05-12T16:11:08.000Z">
+<meta property="og:image" content="https://bu.dusays.com/2024/07/15/6694949de2921.png">
+<meta property="og:image" content="https://bu.dusays.com/2024/07/15/66949782e9177.png">
+<meta property="og:image" content="https://bu.dusays.com/2024/07/15/6694ca668003e.png">
+<meta property="og:image" content="https://bu.dusays.com/2024/07/15/6694988c63899.png">
+<meta property="og:image" content="https://bu.dusays.com/2024/07/15/669499b25cd1b.png">
+<meta property="og:image" content="https://bu.dusays.com/2024/07/15/669499b56e156.png">
+<meta property="og:image" content="https://bu.dusays.com/2024/07/15/6694bc062f6a3.png">
+<meta property="og:image" content="https://bu.dusays.com/2024/07/15/6694b09a57e06.png">
+<meta property="article:published_time" content="2024-07-15T03:14:12.000Z">
+<meta property="article:modified_time" content="2024-07-15T07:11:41.000Z">
 <meta property="article:author" content="竹林里有冰">
-<meta property="article:tag" content="Azure">
+<meta property="article:tag" content="Fedora">
+<meta property="article:tag" content="Experience">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://bu.dusays.com/2023/05/13/645e646bc5b58.png">
+<meta name="twitter:image" content="https://bu.dusays.com/2024/07/15/6694949de2921.png">
   
   
   
-  <title>Azure 教育订阅申请时遇到的麻烦 - 竹林里有冰的博客</title>
+  <title>尝试体验 Fedora COPR 中的 allow SSH 功能 - 竹林里有冰的博客</title>
 
   <link  rel="stylesheet" href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/4.6.0/css/bootstrap.min.css" />
 
@@ -255,7 +258,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Azure 教育订阅申请时遇到的麻烦"></span>
+            <span id="subtitle" data-typed-text="尝试体验 Fedora COPR 中的 allow SSH 功能"></span>
           
         </div>
 
@@ -266,8 +269,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-05-12 23:38" pubdate>
-          2023年5月12日 晚上
+        <time datetime="2024-07-15 11:14" pubdate>
+          2024年7月15日 上午
         </time>
       </span>
     
@@ -279,7 +282,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          1.1k 字
+          1.3k 字
         
       </span>
     
@@ -291,7 +294,7 @@
         
         
           <!-- compatible with older versions-->
-          6 分钟
+          7 分钟
         
       </span>
     
@@ -329,13 +332,13 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Azure 教育订阅申请时遇到的麻烦</h1>
+            <h1 style="display: none">尝试体验 Fedora COPR 中的 allow SSH 功能</h1>
             
               <p class="note note-info">
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2023年5月13日 凌晨
+                    本文最后更新于：2024年7月15日 下午
                   
                 
               </p>
@@ -343,21 +346,43 @@
             
               <div class="markdown-body">
                 
-                <p>进入大学已经快一年了，但我的 Azure 教育订阅申请一直没有成功，每年有 100 刀的额度，<del>再这样下去就要亏掉近 700 元了</del>，于是便打算趁期中考试刚结束的闲暇时间把 Azure 的教育订阅给过了。</p>
-<p>我拥有 *.edu.cn 的邮箱，并且通过了 Github Student Pack 的认证，但每次在 <a target="_blank" rel="noopener" href="https://signup.azure.com/studentverification?offerType=1">https://signup.azure.com/studentverification?offerType=1</a> 页面尝试申请 Azure 订阅时，总是会得到一句冷冷的「你没有资格使用 Azure 免费帐户」。于是，我找到了 Azure 订阅支持客服帮忙，链接是这个: <a target="_blank" rel="noopener" href="https://azureforeducation.microsoft.com/en-us/institutions/Contact">https://azureforeducation.microsoft.com/en-us/institutions/Contact</a>，简要填写了我的基本信息后就开始等待邮件回复了。</p>
-<p><img src="https://bu.dusays.com/2023/05/13/645e646bc5b58.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="提交工单"></p>
-<p>我是周四上午申请的，不到一个小时就等来了微软的工单生成通知</p>
-<p><img src="https://bu.dusays.com/2023/05/12/645e5fdfb25a3.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="微软的工单通知"></p>
-<p>但光有这工单也没有用，我只能继续等人工客服的介入。</p>
-<p>在周五的早上十点，我收到了来自人工客服的邮件，并且在几分钟后收到了来自人工客服的电话（电话是 021 开头的，是归属地为上海的座机打来的，但客服操着严重的港台口音，可能是港台那边的客服通过上海的座机中转打给我的？）: </p>
-<p><img src="https://bu.dusays.com/2023/05/12/645e60ad79001.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="人工客服的邮件"></p>
-<p>但很显然，这封邮件并没有提供任何行之有效的方案，我只能按照邮件中的指示将我的截图发了过去。不过客服不知道出于什么原因一定要求全屏截图（如果电话说的是全面屏，那也是指 PC 端的全屏截图），可能是他们有什么工作制度吧。回复邮件的时候一定要选择<strong>回复全部</strong>，好像是他们只使用 <a href="mailto:&#115;&#117;&#112;&#112;&#111;&#114;&#x74;&#64;&#x6d;&#97;&#105;&#x6c;&#x2e;&#x73;&#117;&#112;&#x70;&#x6f;&#114;&#x74;&#x2e;&#109;&#x69;&#99;&#114;&#x6f;&#115;&#111;&#x66;&#116;&#46;&#99;&#111;&#x6d;">&#115;&#117;&#112;&#112;&#111;&#114;&#x74;&#64;&#x6d;&#97;&#105;&#x6c;&#x2e;&#x73;&#117;&#112;&#x70;&#x6f;&#114;&#x74;&#x2e;&#109;&#x69;&#99;&#114;&#x6f;&#115;&#111;&#x66;&#116;&#46;&#99;&#111;&#x6d;</a> 这一个邮箱与我们通信，微软的服务器收到内容后会将我们发送的内容再抄送给给我们分配的客服手上，如果不选择「回复全部」的话，客服可能就看不到之前的通信记录了。</p>
-<p>于是就在当天下午的2点收到了人工客服的第二封邮件，说是已经帮我提交到了后台处理。</p>
-<p><img src="https://bu.dusays.com/2023/05/13/645e62bae0c0a.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="来自人工客服的第二封邮件"></p>
-<p>20 分钟后，我收到了这封应该是系统自动发送的邮件，说明我的账号因异常而触发了审查所以过不了 Azure 的教育订阅，需要我提交能够佐证我的学生身份的东西上去，当晚7点我便按照要求回信。</p>
-<p><img src="https://bu.dusays.com/2023/05/13/645e639e2c9d1.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="1683907484369.png"></p>
-<p>当晚8点半，我便收到了来自系统的消息，得知异常已经解除，再次申请 Azure 学生认证就成功了。</p>
-<p><img src="https://bu.dusays.com/2023/05/13/645e63e39523f.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="异常解除"></p>
+                <p>在今年的早些时候，我在 COPR 看到了一个新出现的名为「allow SSH」的按钮。</p>
+<p><img src="https://bu.dusays.com/2024/07/15/6694949de2921.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload></p>
+<p>我在 COPR 的 User Documentation 中找到了对应的描述。</p>
+<blockquote>
+<p>Sometimes it is useful to manually debug failed builds not locally but within the Copr infrastructure. That’s why it is possible to allow SSH access to a copr builder. More information in the <a target="_blank" rel="noopener" href="https://frostyx.cz/posts/ssh-access-to-copr-builders">SSH access to Copr builders</a> blog post.</p>
+</blockquote>
+<p>COPR 的这项功能允许包维护者远程访问自己没有的 CPU 架构或 Linux 发行版的 Linux 环境，大大减少打包时的痛点。</p>
+<h2 id="开始使用"><a href="#开始使用" class="headerlink" title="开始使用"></a>开始使用</h2><p>尝试点击按钮，获得如下界面，可以填写自己的 ssh 公钥，最多可以选择两台设备，如果选择的设备数量大于 2，则剩下的人物会维持在 pending 状态，直到被你 ssh 连接的构建机完成对应的构建任务。</p>
+<p><img src="https://bu.dusays.com/2024/07/15/66949782e9177.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload></p>
+<p>在该次构建的详情页面，等待 backend.log 按钮出现</p>
+<p><img src="https://bu.dusays.com/2024/07/15/6694ca668003e.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload></p>
+<p>在这个 url 对应的文件中，我们可以找到需要的 ssh 命令</p>
+<p><img src="https://bu.dusays.com/2024/07/15/6694988c63899.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload></p>
+<p>使用对应的 ssh 命令即可连上构建服务器</p>
+<p><img src="https://bu.dusays.com/2024/07/15/669499b25cd1b.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="连接成功"></p>
+<p>先跑个 neofetch 看看，双核 16G，看着还行。</p>
+<p><img src="https://bu.dusays.com/2024/07/15/669499b56e156.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="neofetch"></p>
+<p>随手跑了个 speedtest，竟然是千兆上下传对等的网速。</p>
+<p><img src="https://bu.dusays.com/2024/07/15/6694bc062f6a3.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="speedtest 结果"></p>
+<p>在这台机子上，我们可以使用 builder-live.log 中的命令手动触发一次构建（不过我这里跑了一半就报错了，疑似是系统不够完善）</p>
+<p><img src="https://bu.dusays.com/2024/07/15/6694b09a57e06.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="构建命令"></p>
+<p>不过很可惜，COPR 似乎并没有给我们中途去干预/调试构建过程的方案，仅仅是提供了一个可供自由操作的 Linux 环境。使用 copr-rpmbuild 命令可以进行对应的构建，但构建过程依然是在沙箱内进行，且没有给中途暂停/调试的机会。如果需要一步步手动的构建，还是建议使用 rpmbuild 命令进行。</p>
+<h2 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h2><ul>
+<li>使用 <code>copr-builder help</code> 命令可以获取打包机的提示信息</li>
+<li>使用 <code>copr-builder show</code> 命令查看剩余时间</li>
+<li>使用 <code>copr-builder prolong</code> 可以延长打包机的有效时长</li>
+<li>使用 <code>copr-builder release</code> 可以销毁当前的打包机环境</li>
+</ul>
+<h2 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h2><ul>
+<li>由于安全原因，构建结束后，只有 spec 文件和日志可以被存储到 copr 对应项目的服务器。打包机会使用一个独特的沙箱防止其构建产物被二次使用，哪怕是同一个用户都不行。</li>
+<li>为了避免资源艾琳娜贵妃，同一用户在同一时刻最多只能使用两台具有 ssh 访问权限的打包机。</li>
+<li>由于上面的两套规定，当 copr 构建失败时并不能自动启动 SSH 访问权限，需要用户手动在面板上 resubmit 当前任务并选择使用 SSH 访问权限。</li>
+<li>打包机在默认情况下 1 小时后自动销毁，除非你手动申请延长时间，最长为 48 小时。</li>
+<li>有些打包机只有 IPv6 的访问地址，你没得选。如果你无法连接 IPv6 网络，你可以取消当前的任务并重新发布并期待能给你下发一台具有 IPv4 访问地址的打包机（其实非常少），或者使用代理。</li>
+<li>如果 SRPM 构建失败，则不能 resubmit 当前任务。这是 COPR 的实现逻辑问题，未来可能得到改善。</li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://frostyx.cz/posts/ssh-access-to-copr-builders">「SSH access to Copr builders」</a></p>
 
                 
               </div>
@@ -370,7 +395,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Azure/">#Azure</a>
+        <a href="/tags/Fedora/">#Fedora</a>
+      
+        <a href="/tags/Experience/">#Experience</a>
       
     </div>
   
@@ -382,8 +409,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Azure 教育订阅申请时遇到的麻烦</div>
-      <div>https://zhul.in/2023/05/12/troubles-when-applying-azure-education/</div>
+      <div>尝试体验 Fedora COPR 中的 allow SSH 功能</div>
+      <div>https://zhul.in/2024/07/15/try-ssh-connection-in-fedora-copr/</div>
     </div>
     <div class="license-meta">
       
@@ -395,13 +422,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年5月12日</div>
+          <div>2024年7月15日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2023年5月13日</div>
+          <div>2024年7月15日</div>
         </div>
       
       
@@ -444,18 +471,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/06/24/redmi-ac2100-router-with-padavan/" title="为红米 Redmi AC2100 路由器刷入 Padavan">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">为红米 Redmi AC2100 路由器刷入 Padavan</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/05/03/checkout-lfs-file-after-repo-sync/" title="执行 repo sync 后将 git-lfs 中的资源文件 checkout">
-                        <span class="hidden-mobile">执行 repo sync 后将 git-lfs 中的资源文件 checkout</span>
+                      <a href="/2024/07/14/config-hp-laser-103w-printer-for-archlinux/" title="在 Arch Linux 下配置使用 HP Laser 103w 打印机无线打印">
+                        <span class="hidden-mobile">在 Arch Linux 下配置使用 HP Laser 103w 打印机无线打印</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
