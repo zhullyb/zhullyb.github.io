@@ -6,6 +6,7 @@ execrpt:
 tags:
 - Fedora
 - Experience
+- Linux
 ---
 
 在今年的早些时候，我在 COPR 看到了一个新出现的名为「allow SSH」的按钮。
