@@ -2,6 +2,42 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zhul.in/2021/09/21/csdn-copied-my-article/</loc>
+    
+    <lastmod>2024-07-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2024/07/18/my-blog-is-completely-proxied-and-translated-into-traditional-chinese/</loc>
+    
+    <lastmod>2024-07-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2022/11/04/my-blog-plan/</loc>
+    
+    <lastmod>2024-07-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2021/11/21/use-cloudflare-mirrors/</loc>
+    
+    <lastmod>2024-07-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zhul.in/about/index.html</loc>
     
     <lastmod>2024-07-18</lastmod>
@@ -230,15 +266,6 @@
     <loc>https://zhul.in/2021/10/24/picuploader-with-kde-action/</loc>
     
     <lastmod>2023-12-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2022/11/04/my-blog-plan/</loc>
-    
-    <lastmod>2023-12-10</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -695,15 +722,6 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/09/21/csdn-copied-my-article/</loc>
-    
-    <lastmod>2022-08-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zhul.in/2021/09/11/detailed-explanation-for-aur/</loc>
     
     <lastmod>2022-08-22</lastmod>
@@ -786,15 +804,6 @@
   
   <url>
     <loc>https://zhul.in/2021/04/16/fuck-jekyll-github-metadata-on-gitlab/</loc>
-    
-    <lastmod>2022-08-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/11/21/use-cloudflare-mirrors/</loc>
     
     <lastmod>2022-08-10</lastmod>
     
@@ -1105,6 +1114,13 @@
   </url>
   
   <url>
+    <loc>https://zhul.in/tags/Blog/</loc>
+    <lastmod>2024-07-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://zhul.in/tags/Python/</loc>
     <lastmod>2024-07-18</lastmod>
     <changefreq>weekly</changefreq>
@@ -1147,14 +1163,14 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/tags/crontab/</loc>
+    <loc>https://zhul.in/tags/Rustdesk/</loc>
     <lastmod>2024-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://zhul.in/tags/Rustdesk/</loc>
+    <loc>https://zhul.in/tags/crontab/</loc>
     <lastmod>2024-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1211,6 +1227,13 @@
   
   <url>
     <loc>https://zhul.in/tags/CSS/</loc>
+    <lastmod>2024-07-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/Cloudflare/</loc>
     <lastmod>2024-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
