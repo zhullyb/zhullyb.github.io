@@ -3,6 +3,7 @@ title: 我的博客被完整地反向代理，并自动翻译成了繁体中文
 date: 2024-07-18 11:22:37
 sticky: 99
 execrpt:
+index_img: https://bu.dusays.com/2024/07/18/66989dc8d2c8e.png
 tags:
 - Blog
 - Network
