@@ -48,9 +48,7 @@ if (
     const dnt = attr(_data + 'do-not-track');
     const domain = attr(_data + 'domains') || '';
     const domains = domain.split(',').map(n => n.trim());
-    const root = hostUrl
-      ? hostUrl.replace(/\/$/, '')
-      : currentScript.src.split('/').slice(0, -1).join('/');
+    const root = 'https://umami.zhul.in'
     const endpoint = `${root}/api/send`;
     const screen = `${width}x${height}`;
     const eventRegex = /data-umami-event-([\w-_]+)/;
