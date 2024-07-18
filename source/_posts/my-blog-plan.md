@@ -7,6 +7,7 @@ tags:
 - Network
 - Github Action
 - Hexo
+- Blog
 ---
 
 一直以来，我的博客使用的几乎都是 Hexo 框架。

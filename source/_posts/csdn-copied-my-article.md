@@ -1,9 +1,9 @@
 ---
 title: 记录一次原创文章被抄袭
 top: false
-tags:
-  - 
 date: 2021-09-21
+tags:
+- Blog
 ---
 
 今天在网站自搜的时候偶然间发现了一个叫「程序员宝宝」的站点转载了我去年在知乎专栏上发的一篇文章[《Ubuntu下对deepin-wine的使用详解》](https://zhuanlan.zhihu.com/p/141107518)。

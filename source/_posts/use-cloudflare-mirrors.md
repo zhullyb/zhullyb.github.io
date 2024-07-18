@@ -4,6 +4,7 @@ date: 2021-11-21 01:48:49
 sticky:
 index_img: https://bu.dusays.com/2022/08/10/62f3c9a9448a4.webp
 tags:
+- Cloudflare
 ---
 
 Cloudflare也开始提供[Linux开源镜像站](https://cloudflaremirrors.com/)了。
