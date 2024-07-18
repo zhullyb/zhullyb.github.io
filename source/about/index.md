@@ -10,7 +10,7 @@ date: 2021-05-01 23:53:19
 
 ~~Fedora 用户~~已经叛变到 Archlinux 了，也在维护某些 AUR 和 archlinuxcn 的包，~~dipper 机型的 crDroid Official Maintainer~~
 
-~~周更(月更(~~年更博主
+~~周更（月更（年更（~~月更博主
 
 ## About This Blog
 
