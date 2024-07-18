@@ -77,11 +77,11 @@ if (host !== 'zhul.in' && ! host.startsWith('localhost') && ! host.startsWith('1
 }
 ```
 
-## 给 waline 和 umami 设置限制
+### 给 waline 和 umami 设置限制
 
 我博客使用的 waline 和 umami 均是我自己在 vercel 上架设的，我自然可以根据访客的 referer 来判断请求的来源。不过看了下，vercel.json 文件并不能直接实现这个需求，可能需要我们自己来编写一些简易的中间件。
 
-#### waline
+#### Waline
 
 waline 文档中有明确提到，waline 基于 Koa 框架开发，可以[自行编写中间件](https://waline.js.org/reference/server/plugin.html#%E5%9F%BA%E4%BA%8E%E4%B8%AD%E9%97%B4%E4%BB%B6%E5%88%B6%E4%BD%9C)。
 
@@ -121,7 +121,7 @@ module.exports = Application({
 
 ![效果图](https://bu.dusays.com/2024/07/18/6698d6570a780.png)
 
-### umami
+#### umami
 
 对 umami 的第一次请求是 script.js，这个请求是因为 html 头部添加了 umami 的 script 链接，这一次请求是不带有 referer 的，因此，对方站点使用我的 umami 统计并不会给我的博客访问统计造成错乱——umami 能够自行分辨对方的站点是否是当初添加网站时填写的站点。但我不能忍的地方在与 umami 的数据库会记录对方站点的流量情况，这占用了我的数据库空间。
 
