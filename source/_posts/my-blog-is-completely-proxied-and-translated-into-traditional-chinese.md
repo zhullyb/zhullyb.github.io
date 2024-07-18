@@ -85,7 +85,7 @@ if (host !== 'zhul.in' && ! host.startsWith('localhost') && ! host.startsWith('1
 
 waline 文档中有明确提到，waline 基于 Koa 框架开发，可以[自行编写中间件](https://waline.js.org/reference/server/plugin.html#%E5%9F%BA%E4%BA%8E%E4%B8%AD%E9%97%B4%E4%BB%B6%E5%88%B6%E4%BD%9C)。
 
-```javascript
+```js
 // example/index.cjs
 const Application = require('@waline/vercel');
 
