@@ -960,6 +960,13 @@
   </url>
   
   <url>
+    <loc>https://zhul.in/tags/Z-Library/</loc>
+    <lastmod>2024-07-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://zhul.in/tags/Fedora/</loc>
     <lastmod>2024-07-18</lastmod>
     <changefreq>weekly</changefreq>
@@ -975,13 +982,6 @@
   
   <url>
     <loc>https://zhul.in/tags/openssl/</loc>
-    <lastmod>2024-07-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Z-Library/</loc>
     <lastmod>2024-07-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
