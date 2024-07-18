@@ -1,8 +1,8 @@
-const host = window.location.host
+const url = window.location.href
 if (
-  host !== 'zhul.in' &&
-  !host.startsWith('localhost') &&
-  !host.startsWith('127.0.0.1')
+  !url.includes('zhul.in') &&
+  !url.includes('localhost') &&
+  !url.includes('127.0.0.1')
 ) {
   document.body.innerHTML = [
     '<div style="margin: auto;">',
