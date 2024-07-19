@@ -99,9 +99,9 @@ module.exports = Application({
                     const referer = ctx.request.headers['referer'];
                     if (referer) {
                         if (
-                            !referer.startsWith('http://localhost') &&
-                            !referer.startsWith('http://127.0.0.1') &&
-                            !referer.startsWith('https://zhul.in')
+                            !referer.include('localhost') &&
+                            !referer.include('127.0.0.1') &&
+                            !referer.include('zhul.in')
                         ) {
                             ctx.status = 403
                             ctx.body = 'Forbidden'
