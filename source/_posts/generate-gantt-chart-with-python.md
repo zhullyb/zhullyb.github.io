@@ -3,6 +3,7 @@ title: 使用 Python 生成甘特图(Gantt Chart)
 date: 2024-04-24 12:02:58
 sticky:
 execrpt:
+index_img: https://bu.dusays.com/2024/04/24/662890f78f1da.png
 tags:
 - Python
 ---
