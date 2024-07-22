@@ -9,6 +9,7 @@ tags:
 - Shell Script
 - Rustdesk
 - Router
+- HomeServer
 ---
 
 最近跟风整了一台 n100 的迷你主机装了个 Archlinux 当 HomeServer，搭配上了显卡欺骗器，平常一直远程使用，因此需要实现稳定的远程桌面连接。开源软件 Rustdesk 本身对 Linux 的适配尚可，可惜官方提供的服务器位于境外，且前一阵子因为诈骗相关的风波使得官方对连接做出了一些限制，应当使用自建服务器或者 ip 直连。

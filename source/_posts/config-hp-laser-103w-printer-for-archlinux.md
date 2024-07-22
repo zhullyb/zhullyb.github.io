@@ -8,6 +8,7 @@ tags:
 - Hardware
 - Linux
 - Printer
+- HomeServer
 - 笔记
 ---
 
