@@ -6,7 +6,7 @@
   <link href="https://zhul.in/rss.xml" rel="self"/>
   
   <link href="https://zhul.in/"/>
-  <updated>2024-07-19T02:23:19.000Z</updated>
+  <updated>2024-07-22T15:47:10.000Z</updated>
   <id>https://zhul.in/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>为中柏 N100 小主机开启来电自启</title>
+    <link href="https://zhul.in/2024/07/22/enable-ac-power-loss-for-jumper-n100/"/>
+    <id>https://zhul.in/2024/07/22/enable-ac-power-loss-for-jumper-n100/</id>
+    <published>2024-07-22T15:31:51.000Z</published>
+    <updated>2024-07-22T15:47:10.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>因为收到通知，寝室过两天要断电 20 分钟，所以需要打开 N100 家里云的来电自启功能。</p><p>正常关机短暂等待数秒后，开机，狂按 Delete 键进入 BIOS。</p><p>在 Advanced 选项中选择「OEM Configuration」</p><p><img src="https://bu.dusays.com/2024/07/22/669e7e6ae10a4.webp"></p><p>可以在最后一行「AC Power Loss」中选择模式。</p><ul><li>Power Off: 关闭相关功能。</li><li>Power On: 传统意义上的来电自启，只要接通电源就会自启动。</li><li>Last State: 只有在上次关机是意外断电导致时，接通电源才会自启动。</li></ul><p><img src="https://bu.dusays.com/2024/07/22/669e7e5ab7ad6.webp"></p>]]></content>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+    <category term="笔记" scheme="https://zhul.in/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+    <category term="Hardware" scheme="https://zhul.in/tags/Hardware/"/>
+    
+    <category term="HomeServer" scheme="https://zhul.in/tags/HomeServer/"/>
+    
+  </entry>
   
   <entry>
     <title>我的博客被完整地反向代理，并自动翻译成了繁体中文</title>
@@ -79,7 +108,7 @@
     <link href="https://zhul.in/2024/07/14/config-hp-laser-103w-printer-for-archlinux/"/>
     <id>https://zhul.in/2024/07/14/config-hp-laser-103w-printer-for-archlinux/</id>
     <published>2024-07-14T10:30:33.000Z</published>
-    <updated>2024-07-14T11:56:55.000Z</updated>
+    <updated>2024-07-22T15:47:10.000Z</updated>
     
     <content type="html"><![CDATA[<p>我寝室有一台使用 wifi 连接的 HP Laser 103w 打印机，这些天刚好布置了新的 HomeServer，因此来记录一下这台打印机的配置过程，根据 HP 官网驱动包的名字「HP Laser 100 and HP Color Laser 150 Printer series Print Driver」推断，此过程应该能适用于所有的 HP Laser 100 及 HP Color Laser 150 系列的打印机。</p><h2 id="打印机联网"><a href="#打印机联网" class="headerlink" title="打印机联网"></a>打印机联网</h2><p>首先使用 Windows 操作系统完成打印机的联网工作，在路由器的网页管理界面可以看到这台打印机的局域网 ip 是 192.168.123.20 ，记录备用。如果有条件的话，尽量将打印机的 MAC 地址与 IP 地址绑定，避免路由器将该 IP 分配给别的设备。</p><p><img src="https://bu.dusays.com/2024/07/14/6693aa41c079b.png" alt="路由器的网页管理界面"></p><h2 id="安装-CUPS"><a href="#安装-CUPS" class="headerlink" title="安装 CUPS"></a>安装 CUPS</h2><p>随后按照 ArchWiki 的 <a href="https://wiki.archlinux.org/title/CUPS">CUPS 页面</a>进行相关配置，CUPS 是苹果公司开源的打印系统，是目前 Linux 下最主流的打印方案。</p><p>首先安装 cups ，如果需要「打印为 pdf」的功能，可以选装 cups-pdf。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pacman -S cups<br></code></pre></td></tr></table></figure><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pacman -S cups-pdf<br></code></pre></td></tr></table></figure><p>接着需要启动 cups 的服务，如果需要使用 cups 自带的 webui，可以直接启用 cups.service，这样就能在 <a href="http://localhost:631/">http://localhost:631</a> 看到对应的配置页面。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">systemctl <span class="hljs-built_in">enable</span> cups.service --now<br></code></pre></td></tr></table></figure><p>而如果你正在使用一些集成度较高的 DE 如 KDE 或 GNOME，可以安装 DE 对应的打印机管理程序。在 Arch Linux 下，KDE 自带的打印机管理程序包名为 <code>print-manager</code>，此外还需要安装安装 <code>system-config-printer</code> 打印机功能支持软件包。这种方案则不需要启动 cups.service，只需要启动 cups.socket 即可。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">pacman -S print-manager system-config-printer<br>systemctl <span class="hljs-built_in">enable</span> cups.socket<br></code></pre></td></tr></table></figure><h2 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h2><p>在常规的流程中，通常会安装 <code>ghostscript</code> 来适应 Non-PDF 打印机，这台 HP Laser 103w 也不例外。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pacman -S ghostscript<br></code></pre></td></tr></table></figure><p>如果是 PostScript 打印机可能还需要安装 <code>gsfonts</code> 包，但我这里不需要。</p><h2 id="安装驱动"><a href="#安装驱动" class="headerlink" title="安装驱动"></a>安装驱动</h2><p>OpenPrinting 维护的 <code>foomatic</code> 为很大一部分打印机提供的驱动文件，Gutenprint 维护的 gutenprint 包也包含了佳能(Canon)、爱普生(Epson)、利盟(Lexmark)、索尼(Sony)、奥林巴斯(Olympus) 以及 PCL 打印机的驱动程序。如果你的打印机型号和我的不同，可以尝试安装这些组织维护的驱动。具体的安装方法同样可以在 ArchWiki 的 <a href="https://wiki.archlinux.org/title/CUPS">CUPS 页面</a>找到。我上一台打印机 HP LaserJet 1020 所需的驱动是在 <a href="https://aur.archlinux.org/packages/foo2zjs-nightly">AUR/foo2zjs-nightly</a> 中取得的。</p><p>但 HP Laser 103w 的驱动程序都不在这些软件包中，在 HP 的官网我们可以找到<a href="https://support.hp.com/cn-zh/drivers/hp-laser-100-printer-series/model/2100769190">这个页面</a>，包含了 HP Laser 103w 的 Linux 驱动<a href="https://ftp.hp.com/pub/softlib/software13/printers/CLP150/uld-hp_V1.00.39.12_00.15.tar.gz">下载地址</a>（已在 web.archive.org 存档）。通过下载下来的文件名，我们可以看见名字为 uld-hp，理论上可以直接通过压缩包内的安装脚本进行安装，但我通过这个名字顺藤摸瓜，找到了 <a href="https://aur.archlinux.org/packages/hpuld">AUR/hpuld</a> 可以直接进行安装。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">yay -S hpuld<br></code></pre></td></tr></table></figure><h2 id="添加打印机"><a href="#添加打印机" class="headerlink" title="添加打印机"></a>添加打印机</h2><p>打开设置中的打印机设置后，选择添加打印机，CUPS 直接帮我们找到了局域网下的打印机，并自动开始搜索驱动程序（虽然没搜到）。</p><p><img src="https://bu.dusays.com/2024/07/14/6693b6e81f9c4.png" alt="自动搜索"></p><p>但如果没能自动检测到打印机，也可以使用手动选项中的 AppSocket/HP JetDirect 手动输入打印机的 ip 地址进行配置。</p><p>紧接着就到了选择驱动程序的阶段，厂商选择 HP，能够找到「HP Laser 10x Series」的选项，直接选择。</p><p><img src="https://bu.dusays.com/2024/07/14/6693b76b9c1ca.png" alt="选择驱动"></p><p>接着就可以完成打印机的添加。</p><p><img src="https://bu.dusays.com/2024/07/14/6693b7ba82d99.png" alt="完成添加"></p><p>随后便能正常打印文件啦！</p>]]></content>
     
@@ -105,6 +134,8 @@
     
     <category term="Printer" scheme="https://zhul.in/tags/Printer/"/>
     
+    <category term="HomeServer" scheme="https://zhul.in/tags/HomeServer/"/>
+    
   </entry>
   
   <entry>
@@ -112,7 +143,7 @@
     <link href="https://zhul.in/2024/06/30/dynamic-public-ip-and-ddns-for-rustdesk/"/>
     <id>https://zhul.in/2024/06/30/dynamic-public-ip-and-ddns-for-rustdesk/</id>
     <published>2024-06-30T10:15:00.000Z</published>
-    <updated>2024-06-30T15:53:48.000Z</updated>
+    <updated>2024-07-22T15:47:10.000Z</updated>
     
     <content type="html"><![CDATA[<p>最近跟风整了一台 n100 的迷你主机装了个 Archlinux 当 HomeServer，搭配上了显卡欺骗器，平常一直远程使用，因此需要实现稳定的远程桌面连接。开源软件 Rustdesk 本身对 Linux 的适配尚可，可惜官方提供的服务器位于境外，且前一阵子因为诈骗相关的风波使得官方对连接做出了一些限制，应当使用自建服务器或者 ip 直连。</p><p>单从网络安全的角度出发，最佳实践应该是通过 wireguard 或者别的协议先接入局域网，然后使用局域网内的 ip 直连，这是最稳妥的，但我有点懒，而且我可能会在多个设备上都有控制 HomeServer 的需求，给所有设备配置 wireguard 是一件挺麻烦的事情，因此我决定放弃安全性，直接公网裸奔。</p><p>在学校宿舍的电信宽带提供了一个动态公网 ip，因此只需要设置好 ddns 和端口转发就可以拿到一个固定的 domain + port 提供给 rustdesk 直连。</p><h2 id="在被控端-Rustdesk-允许直连访问"><a href="#在被控端-Rustdesk-允许直连访问" class="headerlink" title="在被控端 Rustdesk 允许直连访问"></a>在被控端 Rustdesk 允许直连访问</h2><p>在「设置」中的「安全」一栏选择「解锁安全设置」，拉到最下面的「安全」栏，勾选「允许 IP 直接访问」，并选择一个端口，范围在 1000 ~35535 之间且不要被本地的其他程序占用，Rustdesk 的默认值为 21118。</p><p>可以直接在局域网内的另一台设备进行测试，直接在 Rustdesk 中输入被控端的局域网 ip 和刚刚设置的端口，看看能不能访问得通，如果不行可能需要排查一下被控端访问墙设置的问题。</p><p><img src="https://bu.dusays.com/2024/06/30/66814701cf7ce.png"></p><h2 id="ddns"><a href="#ddns" class="headerlink" title="ddns"></a>ddns</h2><p>由于我的域名是交给 cloudflare 进行解析的，就找了个<a href="https://github.com/yulewang/cloudflare-api-v4-ddns/">支持 cloudflare 的 ddns 脚本</a>，大致的部署过程可以参考 <a href="https://www.rclogs.com/2023/06/%25e8%2587%25aa%25e5%25bb%25ba%25e5%259f%25ba%25e4%25ba%258ecloudflare%25e7%259a%2584ddns">「自建基于Cloudflare的DDNS」</a>，不过我小改了一下脚本中获取公网 ipv4 的方式，直接 ssh 到路由器上获取当前的 ipv4 地址，不依赖外部的服务。</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">WAN_IP=`ssh -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa root@192.168.1.1 <span class="hljs-string">&#x27;ip -br a&#x27;</span> | grep pppoe-wan | awk <span class="hljs-string">&#x27;&#123;print $3&#125;&#x27;</span>`<br></code></pre></td></tr></table></figure><p>理论上来说，有不少路由器自身就支持不少域名解析商</p><h2 id="端口转发"><a href="#端口转发" class="headerlink" title="端口转发"></a>端口转发</h2><p>端口转发需要在路由器的后台设置进行，我这里路由器使用的是 openwrt 系统，大部分路由器应该都支持这个操作。</p><p>在「网络」-「防火墙」</p><p><img src="https://bu.dusays.com/2024/06/30/6681635804e68.png"></p><p>选择「端口转发」</p><p><img src="https://bu.dusays.com/2024/06/30/66817e416534c.png"></p><p>新建端口转发，共享名随便填，外部端口是你最终要在主控端输入的端口，内部 IP 地址是被控机 的 IP 地址，可以用 <code>ip -br a</code> 命令看到，内部端口就是上文在 Rustdesk 指定的端口号。</p><h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p>可以直接在主控端口输入 ddns 的域名和端口号，实现远程控制</p><p><img src="https://bu.dusays.com/2024/06/30/66817f77aae7e.png"></p>]]></content>
     
@@ -131,6 +162,8 @@
     <category term="Linux" scheme="https://zhul.in/tags/Linux/"/>
     
     <category term="Shell Script" scheme="https://zhul.in/tags/Shell-Script/"/>
+    
+    <category term="HomeServer" scheme="https://zhul.in/tags/HomeServer/"/>
     
     <category term="Router" scheme="https://zhul.in/tags/Router/"/>
     
@@ -874,7 +907,7 @@
     <published>2023-05-12T15:38:29.000Z</published>
     <updated>2023-05-12T16:11:08.000Z</updated>
     
-    <content type="html"><![CDATA[<p>进入大学已经快一年了，但我的 Azure 教育订阅申请一直没有成功，每年有 100 刀的额度，<del>再这样下去就要亏掉近 700 元了</del>，于是便打算趁期中考试刚结束的闲暇时间把 Azure 的教育订阅给过了。</p><p>我拥有 *.edu.cn 的邮箱，并且通过了 Github Student Pack 的认证，但每次在 <a href="https://signup.azure.com/studentverification?offerType=1">https://signup.azure.com/studentverification?offerType=1</a> 页面尝试申请 Azure 订阅时，总是会得到一句冷冷的「你没有资格使用 Azure 免费帐户」。于是，我找到了 Azure 订阅支持客服帮忙，链接是这个: <a href="https://azureforeducation.microsoft.com/en-us/institutions/Contact">https://azureforeducation.microsoft.com/en-us/institutions/Contact</a>，简要填写了我的基本信息后就开始等待邮件回复了。</p><p><img src="https://bu.dusays.com/2023/05/13/645e646bc5b58.png" alt="提交工单"></p><p>我是周四上午申请的，不到一个小时就等来了微软的工单生成通知</p><p><img src="https://bu.dusays.com/2023/05/12/645e5fdfb25a3.png" alt="微软的工单通知"></p><p>但光有这工单也没有用，我只能继续等人工客服的介入。</p><p>在周五的早上十点，我收到了来自人工客服的邮件，并且在几分钟后收到了来自人工客服的电话（电话是 021 开头的，是归属地为上海的座机打来的，但客服操着严重的港台口音，可能是港台那边的客服通过上海的座机中转打给我的？）: </p><p><img src="https://bu.dusays.com/2023/05/12/645e60ad79001.png" alt="人工客服的邮件"></p><p>但很显然，这封邮件并没有提供任何行之有效的方案，我只能按照邮件中的指示将我的截图发了过去。不过客服不知道出于什么原因一定要求全屏截图（如果电话说的是全面屏，那也是指 PC 端的全屏截图），可能是他们有什么工作制度吧。回复邮件的时候一定要选择<strong>回复全部</strong>，好像是他们只使用 <a href="mailto:&#115;&#x75;&#112;&#112;&#111;&#x72;&#116;&#x40;&#x6d;&#x61;&#105;&#x6c;&#46;&#115;&#117;&#112;&#x70;&#111;&#114;&#x74;&#46;&#x6d;&#x69;&#99;&#x72;&#111;&#x73;&#111;&#x66;&#116;&#46;&#x63;&#111;&#x6d;">&#115;&#x75;&#112;&#112;&#111;&#x72;&#116;&#x40;&#x6d;&#x61;&#105;&#x6c;&#46;&#115;&#117;&#112;&#x70;&#111;&#114;&#x74;&#46;&#x6d;&#x69;&#99;&#x72;&#111;&#x73;&#111;&#x66;&#116;&#46;&#x63;&#111;&#x6d;</a> 这一个邮箱与我们通信，微软的服务器收到内容后会将我们发送的内容再抄送给给我们分配的客服手上，如果不选择「回复全部」的话，客服可能就看不到之前的通信记录了。</p><p>于是就在当天下午的2点收到了人工客服的第二封邮件，说是已经帮我提交到了后台处理。</p><p><img src="https://bu.dusays.com/2023/05/13/645e62bae0c0a.png" alt="来自人工客服的第二封邮件"></p><p>20 分钟后，我收到了这封应该是系统自动发送的邮件，说明我的账号因异常而触发了审查所以过不了 Azure 的教育订阅，需要我提交能够佐证我的学生身份的东西上去，当晚7点我便按照要求回信。</p><p><img src="https://bu.dusays.com/2023/05/13/645e639e2c9d1.png" alt="1683907484369.png"></p><p>当晚8点半，我便收到了来自系统的消息，得知异常已经解除，再次申请 Azure 学生认证就成功了。</p><p><img src="https://bu.dusays.com/2023/05/13/645e63e39523f.png" alt="异常解除"></p>]]></content>
+    <content type="html"><![CDATA[<p>进入大学已经快一年了，但我的 Azure 教育订阅申请一直没有成功，每年有 100 刀的额度，<del>再这样下去就要亏掉近 700 元了</del>，于是便打算趁期中考试刚结束的闲暇时间把 Azure 的教育订阅给过了。</p><p>我拥有 *.edu.cn 的邮箱，并且通过了 Github Student Pack 的认证，但每次在 <a href="https://signup.azure.com/studentverification?offerType=1">https://signup.azure.com/studentverification?offerType=1</a> 页面尝试申请 Azure 订阅时，总是会得到一句冷冷的「你没有资格使用 Azure 免费帐户」。于是，我找到了 Azure 订阅支持客服帮忙，链接是这个: <a href="https://azureforeducation.microsoft.com/en-us/institutions/Contact">https://azureforeducation.microsoft.com/en-us/institutions/Contact</a>，简要填写了我的基本信息后就开始等待邮件回复了。</p><p><img src="https://bu.dusays.com/2023/05/13/645e646bc5b58.png" alt="提交工单"></p><p>我是周四上午申请的，不到一个小时就等来了微软的工单生成通知</p><p><img src="https://bu.dusays.com/2023/05/12/645e5fdfb25a3.png" alt="微软的工单通知"></p><p>但光有这工单也没有用，我只能继续等人工客服的介入。</p><p>在周五的早上十点，我收到了来自人工客服的邮件，并且在几分钟后收到了来自人工客服的电话（电话是 021 开头的，是归属地为上海的座机打来的，但客服操着严重的港台口音，可能是港台那边的客服通过上海的座机中转打给我的？）: </p><p><img src="https://bu.dusays.com/2023/05/12/645e60ad79001.png" alt="人工客服的邮件"></p><p>但很显然，这封邮件并没有提供任何行之有效的方案，我只能按照邮件中的指示将我的截图发了过去。不过客服不知道出于什么原因一定要求全屏截图（如果电话说的是全面屏，那也是指 PC 端的全屏截图），可能是他们有什么工作制度吧。回复邮件的时候一定要选择<strong>回复全部</strong>，好像是他们只使用 <a href="mailto:&#x73;&#x75;&#x70;&#x70;&#x6f;&#x72;&#116;&#x40;&#x6d;&#97;&#105;&#x6c;&#46;&#x73;&#117;&#112;&#112;&#x6f;&#114;&#116;&#x2e;&#x6d;&#x69;&#x63;&#114;&#x6f;&#115;&#x6f;&#102;&#x74;&#x2e;&#99;&#x6f;&#x6d;">&#x73;&#x75;&#x70;&#x70;&#x6f;&#x72;&#116;&#x40;&#x6d;&#97;&#105;&#x6c;&#46;&#x73;&#117;&#112;&#112;&#x6f;&#114;&#116;&#x2e;&#x6d;&#x69;&#x63;&#114;&#x6f;&#115;&#x6f;&#102;&#x74;&#x2e;&#99;&#x6f;&#x6d;</a> 这一个邮箱与我们通信，微软的服务器收到内容后会将我们发送的内容再抄送给给我们分配的客服手上，如果不选择「回复全部」的话，客服可能就看不到之前的通信记录了。</p><p>于是就在当天下午的2点收到了人工客服的第二封邮件，说是已经帮我提交到了后台处理。</p><p><img src="https://bu.dusays.com/2023/05/13/645e62bae0c0a.png" alt="来自人工客服的第二封邮件"></p><p>20 分钟后，我收到了这封应该是系统自动发送的邮件，说明我的账号因异常而触发了审查所以过不了 Azure 的教育订阅，需要我提交能够佐证我的学生身份的东西上去，当晚7点我便按照要求回信。</p><p><img src="https://bu.dusays.com/2023/05/13/645e639e2c9d1.png" alt="1683907484369.png"></p><p>当晚8点半，我便收到了来自系统的消息，得知异常已经解除，再次申请 Azure 学生认证就成功了。</p><p><img src="https://bu.dusays.com/2023/05/13/645e63e39523f.png" alt="异常解除"></p>]]></content>
     
     
       
