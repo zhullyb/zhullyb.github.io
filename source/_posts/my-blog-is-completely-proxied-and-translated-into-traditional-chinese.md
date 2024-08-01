@@ -3,7 +3,7 @@ title: 我的博客被完整地反向代理，并自动翻译成了繁体中文
 date: 2024-07-18 11:22:37
 sticky: 99
 execrpt:
-index_img: https://bu.dusays.com/2024/07/18/66989dc8d2c8e.png
+index_img: https://bu.dusays.com/2024/08/01/66ab4ffa4eda3.webp
 tags:
 - Blog
 - Network
@@ -16,7 +16,7 @@ tags:
 
 ![](https://bu.dusays.com/2024/07/18/66989d79e740c.png)
 
-顶着我博客用的 favicon，但竟然不是我的域名。点进去一看，发现我的博客被翻译成了繁体中文，而且语句读上去也不是很通畅。[Archived here.](https://web.archive.org/web/20240718015038/https://theodorelobas.com/)![](https://bu.dusays.com/2024/07/18/66989dc8d2c8e.png)
+顶着我博客用的 favicon，但竟然不是我的域名。点进去一看，发现我的博客被翻译成了繁体中文，而且语句读上去也不是很通畅。[Archived here.](https://web.archive.org/web/20240718015038/https://theodorelobas.com/)![](https://bu.dusays.com/2024/08/01/66ab4ffa4eda3.webp)
 
 再打开关于页一看，把我的博客域名给干掉了，只留下一个反代域名。[Archived here.](http://web.archive.org/web/20240718034705/https://theodorelobas.com/?about/)
 

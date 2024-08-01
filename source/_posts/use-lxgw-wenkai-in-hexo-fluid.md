@@ -21,10 +21,12 @@ tags:
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css" />
 ```
 
-但我注意到我想要的 lxgw-wenkai-screen-webfont 在 [staticfile.org](https://staticfile.org/) 上也有 cdn 提供，且该 cdn 有海外节点，是不错的选择，所以我要通过下面这段引入:
+~~但我注意到我想要的 lxgw-wenkai-screen-webfont 在 [staticfile.org](https://staticfile.org/) 上也有 cdn 提供，且该 cdn 有海外节点，是不错的选择，所以我要通过下面这段引入:~~
+
+staticfile 已经因为供应链投毒被各 adblock 插件屏蔽，已改用 npmmirror
 
 ```html
-<link rel="stylesheet" href="https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.7.0/style.min.css" />
+<link rel="stylesheet" href="https://registry.npmmirror.com/lxgw-wenkai-screen-web/latest/files/style.min.css" />
 ```
 
 但要如何引入呢？
@@ -39,7 +41,7 @@ tags:
 
 ```javascript
 hexo.extend.injector.register('head_end',
-'<link rel="stylesheet" href="https://cdn.staticfile.org/lxgw-wenkai-screen-webfont/1.7.0/style.min.css" />',
+'<link rel="stylesheet" href="https://registry.npmmirror.com/lxgw-wenkai-screen-web/latest/files/style.min.css" />',
 'default');
 ```
 

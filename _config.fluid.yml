@@ -214,8 +214,8 @@ color:
 # 主题字体配置
 # Font
 font:
-  font_size: 17px
-  font_family: "LXGW Wenkai Screen"
+  font_size: 16px
+  font_family:
   letter_spacing: 0.02em
   code_font_size: 85%
 
