@@ -777,13 +777,13 @@ sup > a::before,
   padding: 3rem 0;
 }
 html {
-  font-size: 17px;
+  font-size: 16px;
   letter-spacing: 0.02em;
 }
 html,
 body {
   height: 100%;
-  font-family: LXGW Wenkai Screen;
+  font-family: var(--font-family-sans-serif);
   overflow-wrap: break-word;
 }
 body {
@@ -1436,7 +1436,7 @@ figure.highlight td.code > pre {
 .markdown-body {
   font-size: 1rem;
   line-height: 1.6;
-  font-family: LXGW Wenkai Screen;
+  font-family: var(--font-family-sans-serif);
   margin-bottom: 2rem;
   color: var(--post-text-color);
 }
