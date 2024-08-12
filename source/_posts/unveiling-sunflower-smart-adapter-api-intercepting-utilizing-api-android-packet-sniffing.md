@@ -15,11 +15,11 @@ tags:
 
 首先，拿到插座以后肯定还是下载向日葵的官方 App，完成 wifi 的链接，这里就不再赘述。
 
-![向日葵的操作界面](https://cdn.zhullyb.top/uploads/2024/08/12/65427474ba54d.jpg)
+![向日葵的操作界面](https://cdn.zhullyb.top/uploads/2024/08/12/65427474ba54d.webp)
 
 然后就可以打开我们的抓包软件。需要注意的是，原博客中抓到的接口是 http 协议，但这个接口在新版的 App 上已经变为了 https 协议，因此我们需要找一台 Root 过后的安卓机去抓包。抓包的步骤没什么好说的，用 Root 权限给本地安装自己的 CA 证书，然后打开抓包模式，在向日葵的 App 那边开关几次插座，回来就能看到这一段时间内的请求。
 
-![HttpCanary 操作界面](https://cdn.zhullyb.top/uploads/2024/08/12/654275e167583.png)
+![HttpCanary 操作界面](https://cdn.zhullyb.top/uploads/2024/08/12/654275e167583.webp)
 
 点开可以看到，这是一个 GET 请求，一共有如下几个参数
 
@@ -34,12 +34,12 @@ tags:
 
 登陆路由器后台，寻找疑似智能插座的设备，一般很容易就能找到。
 
-![路由器后台管理界面](https://cdn.zhullyb.top/uploads/2024/08/12/654277f0d5c2a.png)
+![路由器后台管理界面](https://cdn.zhullyb.top/uploads/2024/08/12/654277f0d5c2a.webp)
 
 使用 nmap 命令扫对应 ip 开放的端口。不知道是不是巧合，我和原博扫出来的端口都是 6767 端口。
 
-![扫描端口](https://cdn.zhullyb.top/uploads/2024/08/12/654278685f137.png)
+![扫描端口](https://cdn.zhullyb.top/uploads/2024/08/12/654278685f137.webp)
 
 将上面抓到的 url 的域名换成 `ip:port`，https 协议改成 http 协议，在浏览器中直接访问，获得了 0 的状态码，插座也正常开关。
 
-![浏览器操作测试](https://cdn.zhullyb.top/uploads/2024/08/12/654279513c1f8.png)
+![浏览器操作测试](https://cdn.zhullyb.top/uploads/2024/08/12/654279513c1f8.webp)

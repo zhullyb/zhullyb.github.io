@@ -66,7 +66,7 @@ docker0          DOWN           172.17.0.1/16 fe80::42:d1ff:febe:d513/64
 
 我们当然可以在安卓手机的 WIFI 连接页面填入 http 代理地址。
 
-![](https://cdn.zhullyb.top/uploads/2024/08/12/66ab548080ed6.jpg)
+![](https://cdn.zhullyb.top/uploads/2024/08/12/66ab548080ed6.webp)
 
 但这对我来说似乎并不是一个好主意：一来并不是所有的应用都会默认使用 http 代理服务器，二来这回导致抓包目标不明确，非目标应用的流量也会经过代理服务器。
 

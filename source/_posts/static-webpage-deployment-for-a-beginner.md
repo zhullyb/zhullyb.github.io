@@ -111,17 +111,17 @@ nano /etc/caddy/conf.d/example.conf
 
 ### 云服务器的安全组规则
 
-一般是国内的云服务厂商会有安全组规则这种东西，你可以理解成一个额外的防火墙。一般来说，80 和 443 两个端口被我们约定作为网页的默认端口，80 是 http 的端口，而 443 则是![image-20230810152620477](/home/zhullyb/.config/Typora/typora-user-images/image-20230810152620477.png) https 的端口。因此，我们需要在安全组规则这里去允许 80 和 443 两个端口能被外部访问到。截图中是阿里云的控制面板。![](https://cdn.zhullyb.top/uploads/2024/08/12/64d4e31fd5270.png)
+一般是国内的云服务厂商会有安全组规则这种东西，你可以理解成一个额外的防火墙。一般来说，80 和 443 两个端口被我们约定作为网页的默认端口，80 是 http 的端口，而 443 则是![image-20230810152620477](/home/zhullyb/.config/Typora/typora-user-images/image-20230810152620477.png) https 的端口。因此，我们需要在安全组规则这里去允许 80 和 443 两个端口能被外部访问到。截图中是阿里云的控制面板。![](https://cdn.zhullyb.top/uploads/2024/08/12/64d4e31fd5270.webp)
 
-![](https://cdn.zhullyb.top/uploads/2024/08/12/64d4e34db94ee.png)
+![](https://cdn.zhullyb.top/uploads/2024/08/12/64d4e34db94ee.webp)
 
 云服务商给的默认规则应该是下面这个样子的:
 
-![image-20230810151900653](https://cdn.zhullyb.top/uploads/2024/08/12/64d4e3ca6aa29.png)
+![image-20230810151900653](https://cdn.zhullyb.top/uploads/2024/08/12/64d4e3ca6aa29.webp)
 
 这里开放的 22 端口用于 ssh 连接服务器，而3389 则是 Windows 的远程桌面。我们可以使用「快速添加」按钮来开放 80 和 443 端口
 
-![](https://cdn.zhullyb.top/uploads/2024/08/12/64d4e4e5b1e68.png)
+![](https://cdn.zhullyb.top/uploads/2024/08/12/64d4e4e5b1e68.webp)
 
 ### Linux 下常见的文件路径及对应作用
 

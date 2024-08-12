@@ -47,7 +47,7 @@ makepkg会调用`curl` / `git`下载PKGBUILD中`source=()`部分中以`http(s)`�
 
 我们还是以钉钉为例，看看我们执行`yay dingtalk-bin`时到底发生了什么。
 
-![当你使用yay安装软件到底发生了什么](https://cdn.zhullyb.top/uploads/2024/08/12/62f3cdb03ec8c.jpg)
+![当你使用yay安装软件到底发生了什么](https://cdn.zhullyb.top/uploads/2024/08/12/62f3cdb03ec8c.webp)
 
 ## PartⅡ常见错误解决方案
 

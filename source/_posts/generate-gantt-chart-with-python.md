@@ -3,7 +3,7 @@ title: 使用 Python 生成甘特图(Gantt Chart)
 date: 2024-04-24 12:02:58
 sticky:
 execrpt:
-index_img: https://cdn.zhullyb.top/uploads/2024/08/12/662890f78f1da.png
+index_img: https://cdn.zhullyb.top/uploads/2024/08/12/662890f78f1da.webp
 tags:
 - Python
 ---
@@ -18,7 +18,7 @@ tags:
 
 项目中自带了一个 jupyter 的示例，算得上是非常简单易上手的了，依赖方面只要装好 matplotlib 就可以使用，不存在依赖地狱。尽管是三年前的项目，在我本机的 Python 3.11 上仍然能够正常运行。
 
-![](https://cdn.zhullyb.top/uploads/2024/08/12/66288ba6414d4.png)
+![](https://cdn.zhullyb.top/uploads/2024/08/12/66288ba6414d4.webp)
 
 
 
@@ -45,7 +45,7 @@ gantt(category_names, results, arrival_t).show()
 
 ```
 
-![](https://cdn.zhullyb.top/uploads/2024/08/12/662890f78f1da.png)
+![](https://cdn.zhullyb.top/uploads/2024/08/12/662890f78f1da.webp)
 
 ***
 
@@ -63,4 +63,4 @@ gantt(category_names, results, arrival_t).show()
 
 ```
 
-![](https://cdn.zhullyb.top/uploads/2024/08/12/662891bfa52fc.png)
+![](https://cdn.zhullyb.top/uploads/2024/08/12/662891bfa52fc.webp)

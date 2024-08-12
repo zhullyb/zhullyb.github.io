@@ -20,8 +20,8 @@ tags:
 
 支持 *百度*、*有道*、*旷视Face++* 三家的接口，免费额度绝对够我试用的（大不了一家用完了换一家嘛
 
-![设置界面](https://cdn.zhullyb.top/uploads/2024/08/12/488835757d5e3.png)
+![设置界面](https://cdn.zhullyb.top/uploads/2024/08/12/488835757d5e3.webp)
 
 此外，空间占用小，算上依赖也不过 31MB 的硬盘空间占用，连半个 electron 都不到，运行起来反而更加流畅 <^_^>
 
-![诶？哪里来的atpoossfl](https://cdn.zhullyb.top/uploads/2024/08/12/a404346841d02.png)
+![诶？哪里来的atpoossfl](https://cdn.zhullyb.top/uploads/2024/08/12/a404346841d02.webp)

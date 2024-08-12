@@ -10,7 +10,7 @@ tags:
 - Experience
 ---
 
-> 在[西木野羰基的博客](https://yanqiyu.info/)中看到了其在Fedora中使用waydroid跑明日方舟的[截图](https://cdn.zhullyb.top/uploads/2024/08/12/62f3cc0d6b9e8.png)，心里有有些痒痒了，决定在Archlinux上尝试使用waydroid。
+> 在[西木野羰基的博客](https://yanqiyu.info/)中看到了其在Fedora中使用waydroid跑明日方舟的[截图](https://cdn.zhullyb.top/uploads/2024/08/12/62f3cc0d6b9e8.webp)，心里有有些痒痒了，决定在Archlinux上尝试使用waydroid。
 
 ## Waydroid是什么
 

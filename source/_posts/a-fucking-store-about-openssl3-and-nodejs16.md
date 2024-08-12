@@ -8,7 +8,7 @@ tags:
 - openssl
 ---
 
-![长毛象的截图.png](https://cdn.zhullyb.top/uploads/2024/08/12/62eba4eabc963.png)
+![长毛象的截图.png](https://cdn.zhullyb.top/uploads/2024/08/12/62eba4eabc963.webp)
 
 今年上半年升级 Fedora 36 的时候遇到了这个问题。
 
@@ -26,7 +26,7 @@ tags:
 
 前几天我给 [atpoossfl 仓库](https://github.com/atpoossfl/repo)打了 rpm 版本的 nvm 以后，意外地发现 nvm 所提供的 nodejs 会自带 openssl。
 
-![此为 nvm 安装的 nodejs14 目录](https://cdn.zhullyb.top/uploads/2024/08/12/62ebadf02a5b3.png)
+![此为 nvm 安装的 nodejs14 目录](https://cdn.zhullyb.top/uploads/2024/08/12/62ebadf02a5b3.webp)
 
 所以我们只需要使用 nvm 安装的 nodejs16 即可解决 Fedora36 以后没有 openssl 1 的问题。
 
@@ -36,7 +36,7 @@ tags:
 
 更好的消息是，nodejs 已经在 `v16.17.0-proposal` 和 `v16.x-staging` 分支收下了这个为 nodejs16 提供 `--openssl-legacy-provider` 的 [commit](https://github.com/nodejs/node/commit/e7b99e8c8d229ee2cc1d657ae44f715e7e5f852f)。相信在不久的将来，这个 commit 将会进入主线，并在 `v16.17` 版本的 nodejs16 上发挥它的作用。
 
-![commit](https://cdn.zhullyb.top/uploads/2024/08/12/62ebb0927943f.png)
+![commit](https://cdn.zhullyb.top/uploads/2024/08/12/62ebb0927943f.webp)
 
 
 

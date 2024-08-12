@@ -20,7 +20,7 @@ tags:
 
 在我完成前后端的开发，并且经过 Apifox 的 mock 测试后，第一次在浏览器尝试前后端对接，遇到了 `CORS Missing Allow Origin` 的报错。
 
-![CORS Missing Allow Origin](https://cdn.zhullyb.top/uploads/2024/08/12/659ec607c69af.png)
+![CORS Missing Allow Origin](https://cdn.zhullyb.top/uploads/2024/08/12/659ec607c69af.webp)
 
 vite 启动的 dev 开发服务器使用的域是 `http://localhost:5173` ，而 php 后端我指定的是 `http://127.0.0.1:8080` ，前后端并不运行在一个域下，前端使用 Axios(AJAX) 向后端发送请求获取资源输入 CORS 跨域资源共享的范畴。
 
@@ -44,7 +44,7 @@ header('Access-Control-Allow-Origin: http://localhost:5173');
 
 再次刷新网页，获得了新的错误 `CORS Missing Allow Credentials`
 
-![CORS Missing Allow Credentials](https://cdn.zhullyb.top/uploads/2024/08/12/659ec95acc0bc.png)
+![CORS Missing Allow Credentials](https://cdn.zhullyb.top/uploads/2024/08/12/659ec95acc0bc.webp)
 
 这个问题处理起来也简单
 
