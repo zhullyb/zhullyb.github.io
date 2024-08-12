@@ -8,8 +8,8 @@
 <head>
   <meta charset="UTF-8">
 
-  <link rel="apple-touch-icon" sizes="76x76" href="https://bu.dusays.com/2022/08/14/62f8012834a0a.ico">
-  <link rel="icon" href="https://bu.dusays.com/2022/08/14/62f8012834a0a.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://cdn.zhullyb.top/favicon.ico">
+  <link rel="icon" href="https://cdn.zhullyb.top/favicon.ico">
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
@@ -29,12 +29,12 @@
 <meta property="og:description" content="这篇博客是受 Tiancy 之托，在2023年精弘网络暑期授课的前端系列第七节课时针对项目部署这一块内容时所产生的产物。在授课视频中，受时长所限，我不得不采用宝塔面板+纯 ip 访问的方式来完成一个简单的部署，但这终究不是什么优雅的方案: 宝塔的安全性堪忧、其隐私性也是备受争议，而纯 ip 访问的方式也过于简陋，且没有支持 https 访问。 因此这篇博客将以面对初学者的口吻去讲述如何从零开始部">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://zhul.in/home/zhullyb/.config/Typora/typora-user-images/image-20230810152620477.png">
-<meta property="og:image" content="https://bu.dusays.com/2023/08/10/64d4e31fd5270.png">
-<meta property="og:image" content="https://bu.dusays.com/2023/08/10/64d4e34db94ee.png">
-<meta property="og:image" content="https://bu.dusays.com/2023/08/10/64d4e3ca6aa29.png">
-<meta property="og:image" content="https://bu.dusays.com/2023/08/10/64d4e4e5b1e68.png">
+<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/64d4e31fd5270.png">
+<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/64d4e34db94ee.png">
+<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/64d4e3ca6aa29.png">
+<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/64d4e4e5b1e68.png">
 <meta property="article:published_time" content="2023-08-03T17:19:22.000Z">
-<meta property="article:modified_time" content="2023-08-11T21:23:14.000Z">
+<meta property="article:modified_time" content="2024-08-12T04:18:19.000Z">
 <meta property="article:author" content="竹林里有冰">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="Network">
@@ -83,7 +83,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"zhul.in","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://bu.dusays.com/2022/08/14/62f800fc26770.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"zhul.in","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -339,7 +339,7 @@
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2023年8月12日 凌晨
+                    本文最后更新于：2024年8月12日 中午
                   
                 
               </p>
@@ -382,12 +382,12 @@
 
 <p>这行命令表示我要编辑 <code>/etc/caddy/conf.d/example.conf</code> 这个文件，如果这个文件不存在则去创建这个文件。</p>
 <p>随后你可以根据自己的需求去编辑文件了，上下左右按键可以调整光标位置，直接敲键盘上的字母按键就可以把字母敲进去，想推出时使用 <code>ctrl+s</code> 保存，再使用 <code>ctrl+x</code> 退出就可以了。</p>
-<h3 id="云服务器的安全组规则"><a href="#云服务器的安全组规则" class="headerlink" title="云服务器的安全组规则"></a>云服务器的安全组规则</h3><p>一般是国内的云服务厂商会有安全组规则这种东西，你可以理解成一个额外的防火墙。一般来说，80 和 443 两个端口被我们约定作为网页的默认端口，80 是 http 的端口，而 443 则是<img src="/home/zhullyb/.config/Typora/typora-user-images/image-20230810152620477.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="image-20230810152620477"> https 的端口。因此，我们需要在安全组规则这里去允许 80 和 443 两个端口能被外部访问到。截图中是阿里云的控制面板。<img src="https://bu.dusays.com/2023/08/10/64d4e31fd5270.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload></p>
-<p><img src="https://bu.dusays.com/2023/08/10/64d4e34db94ee.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload></p>
+<h3 id="云服务器的安全组规则"><a href="#云服务器的安全组规则" class="headerlink" title="云服务器的安全组规则"></a>云服务器的安全组规则</h3><p>一般是国内的云服务厂商会有安全组规则这种东西，你可以理解成一个额外的防火墙。一般来说，80 和 443 两个端口被我们约定作为网页的默认端口，80 是 http 的端口，而 443 则是<img src="/home/zhullyb/.config/Typora/typora-user-images/image-20230810152620477.png" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="image-20230810152620477"> https 的端口。因此，我们需要在安全组规则这里去允许 80 和 443 两个端口能被外部访问到。截图中是阿里云的控制面板。<img src="https://cdn.zhullyb.top/uploads/2024/08/12/64d4e31fd5270.png" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
+<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/64d4e34db94ee.png" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
 <p>云服务商给的默认规则应该是下面这个样子的:</p>
-<p><img src="https://bu.dusays.com/2023/08/10/64d4e3ca6aa29.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="image-20230810151900653"></p>
+<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/64d4e3ca6aa29.png" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="image-20230810151900653"></p>
 <p>这里开放的 22 端口用于 ssh 连接服务器，而3389 则是 Windows 的远程桌面。我们可以使用「快速添加」按钮来开放 80 和 443 端口</p>
-<p><img src="https://bu.dusays.com/2023/08/10/64d4e4e5b1e68.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload></p>
+<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/64d4e4e5b1e68.png" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
 <h3 id="Linux-下常见的文件路径及对应作用"><a href="#Linux-下常见的文件路径及对应作用" class="headerlink" title="Linux 下常见的文件路径及对应作用"></a>Linux 下常见的文件路径及对应作用</h3><p>在这一章节中，我只罗列了几个比较常见的路径，更多的资料推荐查阅<a target="_blank" rel="noopener" href="https://www.runoob.com/linux/linux-system-contents.html">菜鸟教程</a>，写得还不错。<code>$USER</code> 指当前用户的用户名</p>
 <table>
 <thead>
@@ -618,7 +618,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2023年8月12日</div>
+          <div>2024年8月12日</div>
         </div>
       
       
@@ -807,7 +807,7 @@
     <div class="footer-inner">
   
     <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br /> <span>本网站由 <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img style="max-height: 50px" src="https://bu.dusays.com/2021/02/25/ba8d70971c408.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="又拍云" /></a> 提供 CDN 加速/云存储服务</span> 
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br /> <span>本网站由 <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img style="max-height: 50px" src="https://cdn.zhullyb.top/uploads/2024/08/12/ba8d70971c408.png" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="又拍云" /></a> 提供 CDN 加速/云存储服务</span> 
     </div>
   
   

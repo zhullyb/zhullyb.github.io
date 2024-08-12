@@ -8,8 +8,8 @@
 <head>
   <meta charset="UTF-8">
 
-  <link rel="apple-touch-icon" sizes="76x76" href="https://bu.dusays.com/2022/08/14/62f8012834a0a.ico">
-  <link rel="icon" href="https://bu.dusays.com/2022/08/14/62f8012834a0a.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://cdn.zhullyb.top/favicon.ico">
+  <link rel="icon" href="https://cdn.zhullyb.top/favicon.ico">
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
@@ -28,9 +28,9 @@
 <meta property="og:site_name" content="竹林里有冰的博客">
 <meta property="og:description" content="这款 Linux 下的 OneDrive 客户端我其实一年前就已经在用了，最近打算给自己的 vps 重装系统并重新部署下 aria 的下载服务，顺便把上传到 OneDrive 的功能增加进去，便又想到了这款运行在命令行中的第三方开源 Linux 客户端，去谷歌上搜索了一番，依然没有什么成规模的中文博客去写它的用法，于是就打算自己来写。那肯定不是因为我博客这个月没有什么题材  安装abrauneg">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://bu.dusays.com/2022/12/24/63a71425507b6.png">
+<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/63a71425507b6.png">
 <meta property="article:published_time" content="2022-12-24T14:40:13.000Z">
-<meta property="article:modified_time" content="2022-12-31T00:15:13.000Z">
+<meta property="article:modified_time" content="2024-08-12T04:18:19.000Z">
 <meta property="article:author" content="竹林里有冰">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="Archlinux">
@@ -38,7 +38,7 @@
 <meta property="article:tag" content="Experience">
 <meta property="article:tag" content="OneDrive">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://bu.dusays.com/2022/12/24/63a71425507b6.png">
+<meta name="twitter:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/63a71425507b6.png">
   
   
   
@@ -80,7 +80,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"zhul.in","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://bu.dusays.com/2022/08/14/62f800fc26770.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"zhul.in","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -336,7 +336,7 @@
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2022年12月31日 早上
+                    本文最后更新于：2024年8月12日 中午
                   
                 
               </p>
@@ -355,11 +355,11 @@
 <p>本章内容中的所用到的和没有用到的命令都可以在<a target="_blank" rel="noopener" href="https://github.com/abraunegg/onedrive/blob/master/docs/USAGE.md">该项目的 Github 仓库</a>中找到。</p>
 </blockquote>
 <p>在终端直接运行 <code>onedrive</code> 命令，程序将打印出一行地址。</p>
-<p><img src="https://bu.dusays.com/2022/12/24/63a71dbfd6ed3.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="登陆地址"></p>
+<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/63a71dbfd6ed3.png" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="登陆地址"></p>
 <p>使用浏览器打开地址，就会跳出微软的登陆页面，正常登陆即可。</p>
 <p>登陆成功后，浏览器将会显示一片白屏，不必慌张，直接将浏览器地址栏中的网址复制后粘贴进终端中即可完成配置，获取到的 <code>refresh_token</code> 将会被保存到 <code>$HOME/.config/onedrive</code> 下。</p>
-<p><img src="https://bu.dusays.com/2022/12/24/63a71e1f9c916.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="浏览器显示白屏"></p>
-<p><img src="https://bu.dusays.com/2022/12/24/63a71ec6d5aca.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="授权成功"></p>
+<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/63a71e1f9c916.png" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="浏览器显示白屏"></p>
+<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/63a71ec6d5aca.png" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="授权成功"></p>
 <p>账号授权成功以后我有两个迫切的需求需要在开始同步前解决: </p>
 <ul>
 <li>我不希望把我 OneDrive 里所有的文件下载下来，我在 OneDrive 中存放了至少 1T 的数据，而我的系统盘就只有 512G，这绝对是放不下的，所以我想仅同步部分文件夹。</li>
@@ -372,7 +372,7 @@
 <figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs gradle">onedrive version                             = vX.Y.Z-A-bcdefghi<br>Config path                                  = <span class="hljs-regexp">/home/</span>alex<span class="hljs-regexp">/.config/</span>onedrive<br>Config <span class="hljs-keyword">file</span> found in config path             = <span class="hljs-keyword">true</span><br>Config option <span class="hljs-string">&#x27;sync_dir&#x27;</span>                     = <span class="hljs-regexp">/home/</span>alex/OneDrive<br>Config option <span class="hljs-string">&#x27;enable_logging&#x27;</span>               = <span class="hljs-keyword">false</span><br>...<br>Selective sync <span class="hljs-string">&#x27;sync_list&#x27;</span> configured        = <span class="hljs-keyword">false</span><br>Config option <span class="hljs-string">&#x27;sync_business_shared_folders&#x27;</span> = <span class="hljs-keyword">false</span><br>Business Shared Folders configured           = <span class="hljs-keyword">false</span><br>Config option <span class="hljs-string">&#x27;webhook_enabled&#x27;</span>              = <span class="hljs-keyword">false</span><br></code></pre></td></tr></table></figure>
 
 <p>这很显然，OneDrive 中的文件默认将会被保存到 <code>$HOME/OneDrive</code> 中。为了修改这个位置项，我们直接在 <code>$HOME/.config/onedrive/</code> 路径下创建一个名为 <code>config</code> 的文件，把此处给的 c<a target="_blank" rel="noopener" href="https://github.com/abraunegg/onedrive/blob/master/docs/USAGE.md#the-default-configuration-file-is-listed-below">onfiguration examples</a> 全部复制进去，找到 <code>sync_dir</code> 把前面的注释删掉，改成自己喜欢的路径 <del>（别问我为什么写 /tmp，问就是我内存够大</del></p>
-<p><img src="https://bu.dusays.com/2022/12/25/63a7282ee55e7.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="修改同步路径！"></p>
+<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/63a7282ee55e7.png" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="修改同步路径！"></p>
 <p>修改好此处的配置文件后，可以再次运行 <code>onedrive --display-config</code> 检查自己的配置文件格式有没有问题、自己更改的配置项有没有生效，这样就解决了我的第二个需求。</p>
 <h2 id="Standalone-Mode-Monitor-Mode"><a href="#Standalone-Mode-Monitor-Mode" class="headerlink" title="Standalone Mode / Monitor Mode?"></a>Standalone Mode / Monitor Mode?</h2><p>这款 OneDrive 客户端支持以两种方式运行，monitor 模式将会监控本地磁盘上的文件状态，因而在同步路径内的文件从一个路径移动到另一个路径时，客户端将不会傻傻地执行「在原路径删除远端文件-重新上传新路径的本地文件」的这一个过程，具体使用 monitor 或 standalone 模式还请自行斟酌，可参考 <a target="_blank" rel="noopener" href="https://github.com/abraunegg/onedrive/blob/master/docs/known-issues.md#moving-files-into-different-folders-should-not-cause-data-to-delete-and-be-re-uploaded">Moving files into different folders should not cause data to delete and be re-uploaded</a> .</p>
 <h2 id="开始同步"><a href="#开始同步" class="headerlink" title="开始同步"></a>开始同步</h2><p>使用该客户端执行同步的命令很简单，即</p>
@@ -444,7 +444,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2022年12月31日</div>
+          <div>2024年8月12日</div>
         </div>
       
       
@@ -633,7 +633,7 @@
     <div class="footer-inner">
   
     <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br /> <span>本网站由 <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img style="max-height: 50px" src="https://bu.dusays.com/2021/02/25/ba8d70971c408.png" srcset="https://bu.dusays.com/2022/08/14/62f800fc26770.gif" lazyload alt="又拍云" /></a> 提供 CDN 加速/云存储服务</span> 
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br /> <span>本网站由 <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img style="max-height: 50px" src="https://cdn.zhullyb.top/uploads/2024/08/12/ba8d70971c408.png" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="又拍云" /></a> 提供 CDN 加速/云存储服务</span> 
     </div>
   
   
