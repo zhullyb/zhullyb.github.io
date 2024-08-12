@@ -15,7 +15,7 @@ tags:
 
 在 Advanced 选项中选择「OEM Configuration」
 
-![](https://bu.dusays.com/2024/07/22/669e7e6ae10a4.webp)
+![](https://cdn.zhullyb.top/uploads/2024/08/12/669e7e6ae10a4.webp)
 
 可以在最后一行「AC Power Loss」中选择模式。
 
@@ -23,4 +23,4 @@ tags:
 - Power On: 传统意义上的来电自启，只要接通电源就会自启动。
 - Last State: 只有在上次关机是意外断电导致时，接通电源才会自启动。
 
-![](https://bu.dusays.com/2024/07/22/669e7e5ab7ad6.webp)
+![](https://cdn.zhullyb.top/uploads/2024/08/12/669e7e5ab7ad6.webp)

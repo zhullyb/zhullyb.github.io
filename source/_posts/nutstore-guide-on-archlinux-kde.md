@@ -20,11 +20,11 @@ yay -S nutstore
 
 双击图标，咦？怎么白屏了？
 
-![白屏](https://bu.dusays.com/2022/08/10/62f3cc797bc09.webp)
+![白屏](https://cdn.zhullyb.top/uploads/2024/08/12/62f3cc797bc09.webp)
 
 看看AUR评论区，有人说`nutstore-experimental`修了？
 
-![AUR评论区](https://bu.dusays.com/2022/08/10/62f3cc7df08ad.webp)
+![AUR评论区](https://cdn.zhullyb.top/uploads/2024/08/12/62f3cc7df08ad.webp)
 
 对比了一下，就是改了改`/opt/nutstore/conf/nutstore.properties`
 
@@ -36,15 +36,15 @@ sudo sed -i 's|webui.enable=true|webui.enable=false|' /opt/nutstore/conf/nutstor
 
 ## 窗口太小不能登陆
 
-![调出窗口规则设置界面](https://bu.dusays.com/2022/08/10/62f3cc822fbe9.webp)
+![调出窗口规则设置界面](https://cdn.zhullyb.top/uploads/2024/08/12/62f3cc822fbe9.webp)
 
-![进行设置](https://bu.dusays.com/2022/08/10/62f3cc864a783.webp)
+![进行设置](https://cdn.zhullyb.top/uploads/2024/08/12/62f3cc864a783.webp)
 
-![完成](https://bu.dusays.com/2022/08/10/62f3cc89ca4eb.webp)
+![完成](https://cdn.zhullyb.top/uploads/2024/08/12/62f3cc89ca4eb.webp)
 
 ## 桌面使用了暗色主题导致部分字体不清晰？
 
-![这字体鬼看得见？](https://bu.dusays.com/2022/08/10/62f3cc8f193b1.webp)
+![这字体鬼看得见？](https://cdn.zhullyb.top/uploads/2024/08/12/62f3cc8f193b1.webp)
 
 参考[使用fakehome方案暂时解决跑在KDE暗色主题下的程序使用亮色字体的问题](/2021/09/05/wrong-fonts-color-fix-under-kde-with-a-dark-theme/)编写启动命令
 
@@ -52,13 +52,13 @@ sudo sed -i 's|webui.enable=true|webui.enable=false|' /opt/nutstore/conf/nutstor
 bwrap --dev-bind / / --tmpfs $HOME/.config /usr/bin/nutstore
 ```
 
-![测试通过](https://bu.dusays.com/2022/08/10/62f3cc9245d26.webp)
+![测试通过](https://cdn.zhullyb.top/uploads/2024/08/12/62f3cc9245d26.webp)
 
 ## 本地markdown文件的文件类型被识别成了「坚果云 Markdown」
 
 这个是由于坚果云自作主张推广他自己并不好用的lightapp，写了几条 mime 的规则，如图
 
-![没错，整整5个xml](https://bu.dusays.com/2022/08/10/62f3cc95f0dd1.webp)
+![没错，整整5个xml](https://cdn.zhullyb.top/uploads/2024/08/12/62f3cc95f0dd1.webp)
 
 看来在我们的启动命令中也需要防止坚果云接触到`$HOME/.local/share/`这个路径，所以现在的启动命令得写成这样。
 

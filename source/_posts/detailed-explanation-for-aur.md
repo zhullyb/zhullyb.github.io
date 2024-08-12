@@ -47,7 +47,7 @@ makepkg会调用`curl` / `git`下载PKGBUILD中`source=()`部分中以`http(s)`�
 
 我们还是以钉钉为例，看看我们执行`yay dingtalk-bin`时到底发生了什么。
 
-![当你使用yay安装软件到底发生了什么](https://bu.dusays.com/2022/08/10/62f3cdb03ec8c.jpg)
+![当你使用yay安装软件到底发生了什么](https://cdn.zhullyb.top/uploads/2024/08/12/62f3cdb03ec8c.jpg)
 
 ## PartⅡ常见错误解决方案
 
@@ -83,7 +83,7 @@ PKGBUILD: line XXX XXX: command not found
 
    国内的网络问题不用多说了，大多数情况下都是Github连接不上。
 
-   ![yay下载失败](https://bu.dusays.com/2022/08/10/62f3cc9c9dda8.webp)
+   ![yay下载失败](https://cdn.zhullyb.top/uploads/2024/08/12/62f3cc9c9dda8.webp)
 
    最简单的解决方案就是把source里下载失败的东西通过特殊手段（比如你浏览器设置下代理，或者找找fastgit这种反代）下载下来以后直接扔到PKGBUILD所在的路径，然后手动执行`makepkg -si`。
 
@@ -95,7 +95,7 @@ PKGBUILD: line XXX XXX: command not found
 
    当你的yay出现这个询问菜单时，（也就是出现`Diffs to show`/`显示哪些差异？`字样时）
 
-   ![](https://bu.dusays.com/2022/08/10/62f3cca0c7aba.webp)
+   ![](https://cdn.zhullyb.top/uploads/2024/08/12/62f3cca0c7aba.webp)
 
    我们再开一个终端，输入
 

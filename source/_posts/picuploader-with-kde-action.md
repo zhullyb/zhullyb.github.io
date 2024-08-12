@@ -101,7 +101,7 @@ sudo chmod 777 -R /var/www/image/logs/
 
 ## 最终结果
 
-<center><img src="https://bu.dusays.com/2022/08/10/62f36f57f34aa.gif" width = "" height = ""></center>
+<center><img src="https://cdn.zhullyb.top/uploads/2024/08/12/62f36f57f34aa.gif" width = "" height = ""></center>
 
 ## 参考链接
 

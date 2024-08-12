@@ -9,7 +9,7 @@ tags:
 
 我的博客换到 fluid 主题已经有两年了，期间一直有为博客更换字体的想法，但之前没有前端开发的相关知识支撑我换字体的需求。不过现在，我已经有了一些 Vue.js 的开发经验，相信能支撑我完成这个目标。
 
-![最终成品](https://bu.dusays.com/2023/11/28/6564d0f926e58.png)
+![最终成品](https://cdn.zhullyb.top/uploads/2024/08/12/6564d0f926e58.png)
 
 我在谷歌搜索到了这篇文章——[《Hexo博客Fluid主题，字体全局更改为霞鹜文楷体》](https://penghh.fun/2023/05/07/2023-5-7-hexo_blog_font/)。
 
@@ -33,7 +33,7 @@ staticfile 已经因为供应链投毒被各 adblock 插件屏蔽，已改用 np
 
 在 hexo 的[官方文档](https://hexo.io/docs/plugins.html)中，我找到了一个方案。可以在博客的 workdir 下创建一个 `scripts` 文件夹，在当中放入需要执行的 js 脚本。
 
-![hexo 文档](https://bu.dusays.com/2023/11/28/6564cea5c71ca.png)
+![hexo 文档](https://cdn.zhullyb.top/uploads/2024/08/12/6564cea5c71ca.png)
 
 在这篇名为[《Fluid -23- 添加 Umami 统计》](https://www.zywvvd.com/notes/hexo/theme/fluid/fluid-add-umami/fluid-add-umami/) 的文章里，我找到了在 hexo 生成静态文件时直接注入的方式。
 

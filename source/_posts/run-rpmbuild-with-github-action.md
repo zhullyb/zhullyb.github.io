@@ -22,7 +22,7 @@ tags:
 - 允许仓库内自带本地 source
 - 移除针对 srpm 的构建
 
-![](https://bu.dusays.com/2022/03/06/bb263c91c7bf4.png)
+![](https://cdn.zhullyb.top/uploads/2024/08/12/bb263c91c7bf4.png)
 
 改完后的 action 在 [zhullyb/rpmbuild-github-action](https://github.com/zhullyb/rpmbuild-github-action)，欢迎使用。
 

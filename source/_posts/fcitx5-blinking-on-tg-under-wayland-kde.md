@@ -14,7 +14,7 @@ tags:
 
 在新装的 Fedora 36 KDE Wayland 下使用 fcitx5 时遇到了文字候选框前后移动晃眼的问题（如下图）
 
-![fcitx5 blinking](https://bu.dusays.com/2022/07/03/62c13162a6efc.gif)
+![fcitx5 blinking](https://cdn.zhullyb.top/uploads/2024/08/12/62c13162a6efc.gif)
 
 ## 解决方案
 
@@ -29,7 +29,7 @@ tags:
 
 然后我们需要让 KWin 去启动 fcitx5。KCM 为此提供了一个非常简单的方式，如下图
 
-![选择 fcitx5 就好啦](https://bu.dusays.com/2022/07/03/62c134907ada9.png)
+![选择 fcitx5 就好啦](https://cdn.zhullyb.top/uploads/2024/08/12/62c134907ada9.png)
 
 随后需要确保环境变量没有设置 `QT_IM_MODULE `。一定要确保这个变量不存在，连空也不行，必须是 unset。
 
@@ -72,7 +72,7 @@ Input Context without group
 
 ### /proc 查看程序运行时的环境变量
 
-![获取到的环境变量](https://bu.dusays.com/2022/07/03/62c138b030469.png)
+![获取到的环境变量](https://cdn.zhullyb.top/uploads/2024/08/12/62c138b030469.png)
 
 ## 参考资料
 

@@ -16,6 +16,6 @@ tags:       笔记
 
 主要的配置过程我就图解了，退出前记得保存配置。
 
-![step 1](https://bu.dusays.com/2022/08/10/62f36d3a79438.png)
-![step 2](https://bu.dusays.com/2022/08/10/62f36d3d08a23.png)
+![step 1](https://cdn.zhullyb.top/uploads/2024/08/12/62f36d3a79438.png)
+![step 2](https://cdn.zhullyb.top/uploads/2024/08/12/62f36d3d08a23.png)
 

@@ -240,7 +240,7 @@ case ($method == 'GET' && $uri == '/api/users'):
    break;
 ```
 
-![](https://bu.dusays.com/2023/12/12/6577fcdf64a96.png)
+![](https://cdn.zhullyb.top/uploads/2024/08/12/6577fcdf64a96.png)
 
 ## 获取单个用户
 
@@ -263,7 +263,7 @@ case ($method == 'GET' && preg_match('/\/api\/users\/[1-9]/', $uri)):
 
 然后我使用 **array_key_exists** 检查是否存在一个 id 为 10 的用户
 
-![](https://bu.dusays.com/2023/12/12/6577fd77c3d06.png)
+![](https://cdn.zhullyb.top/uploads/2024/08/12/6577fd77c3d06.png)
 
 ## 添加一个新用户
 
@@ -285,7 +285,7 @@ case ($method == 'POST' && $uri == '/api/users'):
 
 我使用 **file_get_contents('php://input')** 以获取请求的 body 部分。由于在这个例子中我使用的是 json，我将会解码 json 以便我可以获取到名字。
 
-![](https://bu.dusays.com/2023/12/12/6577fdca88f76.png)
+![](https://cdn.zhullyb.top/uploads/2024/08/12/6577fdca88f76.png)
 
 ## 更新一个用户
 
@@ -312,7 +312,7 @@ case ($method == 'PUT' && preg_match('/\/api\/users\/[1-9]/', $uri)):
    break;
 ```
 
-![](https://bu.dusays.com/2023/12/12/6577fdf646402.png)
+![](https://cdn.zhullyb.top/uploads/2024/08/12/6577fdf646402.png)
 
 ## 删除一个用户
 
@@ -333,7 +333,7 @@ case ($method == 'DELETE' && preg_match('/\/api\/users\/[1-9]/', $uri)):
    break;
 ```
 
-![](https://bu.dusays.com/2023/12/12/6577fe0c3a95b.png)
+![](https://cdn.zhullyb.top/uploads/2024/08/12/6577fe0c3a95b.png)
 
 ## 最终文件
 
