@@ -28,19 +28,19 @@
 <meta property="og:site_name" content="竹林里有冰的博客">
 <meta property="og:description" content="大概一周前，有一个来源不明的 Linux 微信，从包的结构来看是基于 qt 实现的图形化界面，deb 包中的 control 信息表明是腾讯团队官方出品的。今天听人说 UOS 的商店上架了最新的微信，便尝试从 UOS 的官方仓库提取下载链接，帮助 AUR Maintainer 获取到新的地址。 在我的《deepin-elf-verify究竟是何物？》这篇文章中，我成功从 uos.deepin.cn">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/65f1b344e5581.png">
-<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/65f1b5166810a.png">
-<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/65f1b5faccc86.png">
-<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/65f1b6a4c3239.png">
-<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/65f1b73567121.png">
+<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/65f1b344e5581.webp">
+<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/65f1b5166810a.webp">
+<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/65f1b5faccc86.webp">
+<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/65f1b6a4c3239.webp">
+<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/65f1b73567121.webp">
 <meta property="article:published_time" content="2024-03-13T13:55:04.000Z">
-<meta property="article:modified_time" content="2024-08-12T04:18:19.000Z">
+<meta property="article:modified_time" content="2024-08-12T07:22:18.000Z">
 <meta property="article:author" content="竹林里有冰">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="deepin">
 <meta property="article:tag" content="Apt">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/65f1b344e5581.png">
+<meta name="twitter:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/65f1b344e5581.webp">
   
   
   
@@ -338,7 +338,7 @@
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2024年8月12日 中午
+                    本文最后更新于：2024年8月12日 下午
                   
                 
               </p>
@@ -350,7 +350,7 @@
 <p>在我的<a href="https://zhul.in/2021/11/20/what-is-deepin-elf-verify/">《deepin-elf-verify究竟是何物？》</a>这篇文章中，我成功从 uos.deepin.cn 下载到了来自 UOS 中的软件包。可惜，当我采用同样的方法搜索 weixin 或者 wechat 字样时，没有得到任何结果。</p>
 <p>UOS 上的软件来源起码来自两个仓库，一个是与系统有关的软件，比如 Linux Kernel，GCC 一类开源软件，应该就是来自我之前下载到 deepin-elf-verify 的那个源。除此之外，还有一个 appstore 源，里面存放的都是应用商店中上架的软件（大部分可能是闭源的）。</p>
 <p>在 chinauos.com 下载到最新的 ISO 安装镜像后，直接在虚拟机中走完正常的安装流畅，然后直捣黄龙。</p>
-<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/65f1b344e5581.png" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="源地址"></p>
+<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/65f1b344e5581.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="源地址"></p>
 <p>可以看出，<code>/etc/apt/sources.list.d/appstore.list</code> 文件中列出的源很有可能就是我们要找的新版微信的所在源。</p>
 <p>可惜直接访问的时候，源地址给出了 403。他们似乎不愿意公开源地址的 filelist index。</p>
 <p>不过没关系，既然 UOS Desktop 目前仍然依赖 APT 实现软件安装，那它的源应该仍然符合 Debian 的 APT Repository 目录结构。</p>
@@ -366,17 +366,17 @@
 <p>To download packages from a repository apt would download an <strong>InRelease</strong> or <strong>Release</strong> file from the <strong>$ARCHIVE_ROOT/dists/$DISTRIBUTION</strong> directory. </p>
 </blockquote>
 <p>我尝试了访问 <code>https://pro-store-packages.uniontech.com/appstore/dists/eagle-pro/Release</code>，获得了一系列索引文件的索引。</p>
-<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/65f1b5166810a.png" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="索引的索引（很拗口）"></p>
+<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/65f1b5166810a.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="索引的索引（很拗口）"></p>
 <p>第一段中就能看到熟悉的 <code>Packages</code> 文件。根据我 deepin-elf-verify 相关博客中记载，这个文件中会保存 deb 文件的相对路径。我们先拼出 amd64 架构的 Packages 文件下载链接: <a target="_blank" rel="noopener" href="https://pro-store-packages.uniontech.com/appstore/dists/eagle-pro/appstore/binary-amd64/Packages">https://pro-store-packages.uniontech.com/appstore/dists/eagle-pro/appstore/binary-amd64/Packages</a></p>
-<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/65f1b5faccc86.png" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="deb 包详细信息"></p>
+<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/65f1b5faccc86.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="deb 包详细信息"></p>
 <p>这里可以看到源中每一个 deb 包的信息。图中红色方框框出的便是其中一个 deb 包在源中的相对路径。</p>
 <p>我们可以使用 grep 命令去检索 weixin 或者 wechat 关键词</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">curl -sL https://pro-store-packages.uniontech.com/appstore/dists/eagle-pro/appstore/binary-amd64/Packages | grep -E <span class="hljs-string">&quot;weixin|wechat&quot;</span><br></code></pre></td></tr></table></figure>
 
-<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/65f1b6a4c3239.png" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="获取到我们想要的 deb 包的相对路径"></p>
+<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/65f1b6a4c3239.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="获取到我们想要的 deb 包的相对路径"></p>
 <p>在这个路径前加上之前 <code>appstore.list</code> 文件中给出的 url 前缀，即可拼凑出 deb 包的完整下载地址: <a target="_blank" rel="noopener" href="https://pro-store-packages.uniontech.com/appstore/pool/appstore/c/com.tencent.wechat/com.tencent.wechat_1.0.0.236_amd64.deb">https://pro-store-packages.uniontech.com/appstore/pool/appstore/c/com.tencent.wechat/com.tencent.wechat_1.0.0.236_amd64.deb</a></p>
 <p>放到浏览器中尝试，果然可以正常下载</p>
-<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/65f1b73567121.png" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="正常下载"></p>
+<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/65f1b73567121.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="正常下载"></p>
 
                 
               </div>
@@ -613,7 +613,7 @@
     <div class="footer-inner">
   
     <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br /> <span>本网站由 <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img style="max-height: 50px" src="https://cdn.zhullyb.top/uploads/2024/08/12/ba8d70971c408.png" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="又拍云" /></a> 提供 CDN 加速/云存储服务</span> 
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br /> <span>本网站由 <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img style="max-height: 50px" src="https://cdn.zhullyb.top/uploads/2024/08/12/ba8d70971c408.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="又拍云" /></a> 提供 CDN 加速/云存储服务</span> 
     </div>
   
   

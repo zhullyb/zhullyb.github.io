@@ -28,15 +28,15 @@
 <meta property="og:site_name" content="竹林里有冰的博客">
 <meta property="og:description" content="最近在做微信小程序的时候遇到了图片资源过大无法正常打包的问题，没什么太好的方法，只能是使用图床托管这些图片资源。但部分图片的体积实在太大，即使是采用了境内 cdn 的图床，即使是采用 webp 对图片进行了压缩，部分图片都需要小几秒去把图片加载出来，这导致的用户体验就不是很好了，因此我们需要实现图片预加载的功能。  在 uniapp 的官方文档中，我找到了 uni.preloadPage(OBJE">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/6609d97bc4f7f.png">
-<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/6609db8a213da.png">
+<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/6609d97bc4f7f.webp">
+<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/6609db8a213da.webp">
 <meta property="article:published_time" content="2024-03-31T21:31:25.000Z">
-<meta property="article:modified_time" content="2024-08-12T04:18:19.000Z">
+<meta property="article:modified_time" content="2024-08-12T07:22:18.000Z">
 <meta property="article:author" content="竹林里有冰">
 <meta property="article:tag" content="Vue.js">
 <meta property="article:tag" content="uniapp">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/6609d97bc4f7f.png">
+<meta name="twitter:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/6609d97bc4f7f.webp">
   
   
   
@@ -334,7 +334,7 @@
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2024年8月12日 中午
+                    本文最后更新于：2024年8月12日 下午
                   
                 
               </p>
@@ -351,13 +351,13 @@
 <p>在UniApp中，图片预加载可以通过使用<code>uni.getImageInfo</code>方法来实现。这个方法可以获取图片的信息，包括宽度、高度等。可以在应用启动时就开始加载图片，以提高后续图片显示的速度。</p>
 </blockquote>
 <p>很遗憾，经过实测，提前使用 <code>getImageInfo()</code> 方法并不能实现图片的预加载。<code>getImageInfo()</code> 获取时的 Type 是 xhr，而后续图片加载时的 Type 为 webp，图片会被重复下载，并没有实现预加载的作用。</p>
-<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/6609d97bc4f7f.png" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="下载测试"></p>
+<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/6609d97bc4f7f.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="下载测试"></p>
 <p>上图中，蓝色部分是 <code>getImageInfo()</code> 的网络请求，红色部分是真正的图片加载请求，可谓是一点用都没有，该加载慢还是加载慢。</p>
 <hr>
 <p>那有没有什么办法能够实现预加载呢？我没找到优雅的方法，选择在应用的首页创建一个 <code>display: none</code> 的 view 将所有的图片先加载一遍。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;template&gt;<br>    &lt;view style=&quot;display: none;&quot;&gt;<br>        &lt;image<br>            v-for=&quot;image in imageToPreload&quot;<br>            :src=&quot;image&quot;<br>        /&gt;<br>    &lt;/view&gt;<br>&lt;/template&gt;<br>&lt;script setup lang=&quot;ts&quot;&gt;<br>const imageToPreload = [<br>    &quot;https://http.cat/100&quot;,<br>    &quot;https://http.cat/200&quot;,<br>    &quot;https://http.cat/300&quot;,<br>    &quot;https://http.cat/400&quot;,<br>    &quot;https://http.cat/500&quot;<br>]<br>&lt;/script&gt;<br></code></pre></td></tr></table></figure>
 
-<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/6609db8a213da.png" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="下载测试"></p>
+<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/6609db8a213da.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="下载测试"></p>
 <p>可以看到，红色部分的资源在 size 那一栏变成了 <code>(disk cache)</code>，加载时间也明显降低，虽然方法不优雅，但起码实现了图片资源的预加载。</p>
 
                 
@@ -593,7 +593,7 @@
     <div class="footer-inner">
   
     <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br /> <span>本网站由 <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img style="max-height: 50px" src="https://cdn.zhullyb.top/uploads/2024/08/12/ba8d70971c408.png" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="又拍云" /></a> 提供 CDN 加速/云存储服务</span> 
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br /> <span>本网站由 <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img style="max-height: 50px" src="https://cdn.zhullyb.top/uploads/2024/08/12/ba8d70971c408.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="又拍云" /></a> 提供 CDN 加速/云存储服务</span> 
     </div>
   
   

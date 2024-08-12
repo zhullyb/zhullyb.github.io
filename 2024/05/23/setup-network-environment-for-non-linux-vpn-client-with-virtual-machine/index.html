@@ -28,22 +28,22 @@
 <meta property="og:site_name" content="竹林里有冰的博客">
 <meta property="og:description" content="起因最近在某家公司实习，公司内部的 git 部署在内网环境上，需要通过虚拟专用网的客户端（天翼云的 AONE）才能够正常访问。很可惜，客户端只提供了 Windows 和 MacOS 的版本。  工作的代码总是要提交的，我也不想改变我的开发环境，又不希望在 Windows 上使用 git-for-windows 这个近乎简陋的工具进行代码提交，更别说还有一些别的内网服务接下来可能也会用到。所以最好的">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/664e29866c1ab.png">
-<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/664e2b93de6f9.png">
-<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/664e2e1b0da09.png">
+<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/664e29866c1ab.webp">
+<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/664e2b93de6f9.webp">
+<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/664e2e1b0da09.webp">
 <meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/664e2fbb4a36b.webp">
-<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/664e328cd83b3.png">
-<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/664e32e6c350a.png">
-<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/664e33c3e8320.png">
+<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/664e328cd83b3.webp">
+<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/664e32e6c350a.webp">
+<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/664e33c3e8320.webp">
 <meta property="article:published_time" content="2024-05-22T17:07:44.000Z">
-<meta property="article:modified_time" content="2024-08-12T04:18:19.000Z">
+<meta property="article:modified_time" content="2024-08-12T07:22:18.000Z">
 <meta property="article:author" content="竹林里有冰">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="Network">
 <meta property="article:tag" content="Windows">
 <meta property="article:tag" content="Virtual Machine">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/664e29866c1ab.png">
+<meta name="twitter:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/664e29866c1ab.webp">
   
   
   
@@ -341,7 +341,7 @@
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2024年8月12日 中午
+                    本文最后更新于：2024年8月12日 下午
                   
                 
               </p>
@@ -350,21 +350,21 @@
               <div class="markdown-body">
                 
                 <h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>最近在某家公司实习，公司内部的 git 部署在内网环境上，需要通过虚拟专用网的客户端（天翼云的 AONE）才能够正常访问。很可惜，客户端只提供了 Windows 和 MacOS 的版本。</p>
-<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/664e29866c1ab.png" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
+<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/664e29866c1ab.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
 <p>工作的代码总是要提交的，我也不想改变我的开发环境，又不希望在 Windows 上使用 git-for-windows 这个近乎简陋的工具进行代码提交，更别说还有一些别的内网服务接下来可能也会用到。所以最好的办法就是在 Linux 下也配置好能够访问内网的环境。</p>
 <h2 id="理论"><a href="#理论" class="headerlink" title="理论"></a>理论</h2><p>在 Windows 下使用 AONE 的网络拓扑是这样的</p>
-<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/664e2b93de6f9.png" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
+<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/664e2b93de6f9.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
 <p>而我的方案则是使用 Windows 虚拟机开启 AONE，并在这台虚拟机上开一个 socks5 server 负责代理 Linux 宿主机需要打到内网服务的流量。网络拓扑如下</p>
-<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/664e2e1b0da09.png" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
+<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/664e2e1b0da09.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
 <p>根据 bilibili 上<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV11M4y1J7zP/">技术蛋老师的视频总结</a>，我们应该选择使用网卡桥接的网络配置，只有这个配置方式同时支持「宿主-&gt;虚拟机」和 「虚拟机-&gt;互联网」的网络。</p>
 <p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/664e2fbb4a36b.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="图片来源: bilibili 技术蛋老师"></p>
 <h2 id="实操"><a href="#实操" class="headerlink" title="实操"></a>实操</h2><h3 id="在-Windows-虚拟机中开启虚拟专用网客户端"><a href="#在-Windows-虚拟机中开启虚拟专用网客户端" class="headerlink" title="在 Windows 虚拟机中开启虚拟专用网客户端"></a>在 Windows 虚拟机中开启虚拟专用网客户端</h3><p>开启 AONE，不做赘述</p>
 <h3 id="开启-socks-server，监听地址为-0-0-0-0-（或者设置为宿主机的-IP-地址）"><a href="#开启-socks-server，监听地址为-0-0-0-0-（或者设置为宿主机的-IP-地址）" class="headerlink" title="开启 socks server，监听地址为 0.0.0.0 （或者设置为宿主机的 IP 地址）"></a>开启 socks server，监听地址为 0.0.0.0 （或者设置为宿主机的 IP 地址）</h3><p>在「<a target="_blank" rel="noopener" href="https://imbearchild.cyou/">熊孩子(BearChild)</a>」的推荐下，我这里采用的是大名鼎鼎的二级射线（某 V 字开头的常见软件），直接从 GIthub Release 中下载 Windows X64 的压缩包，简单配置下即可，如果没有什么特殊需求的话可以只修改图中的两处配置。</p>
-<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/664e328cd83b3.png" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
+<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/664e328cd83b3.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
 <p>在终端中通过该软件的 run 命令即可开启服务</p>
-<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/664e32e6c350a.png" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
+<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/664e32e6c350a.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
 <h3 id="在宿主机进行测试"><a href="#在宿主机进行测试" class="headerlink" title="在宿主机进行测试"></a>在宿主机进行测试</h3><p>我这里使用的是 mzz2017 编写的 gg 命令进行代理，代理服务器的 ip 地址使用虚拟机下 ipconfig 命令获得的 ip 地址，端口号则对应上面配置文件中的 port 参数。</p>
-<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/664e33c3e8320.png" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
+<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/664e33c3e8320.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
 <p>这里 curl 百度得到了正确的相应，说明通道是通的，gg 也可以用于代理浏览器。经实测能够正常访问公司内网服务，不便在博客中展示。</p>
 
                 
@@ -604,7 +604,7 @@
     <div class="footer-inner">
   
     <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br /> <span>本网站由 <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img style="max-height: 50px" src="https://cdn.zhullyb.top/uploads/2024/08/12/ba8d70971c408.png" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="又拍云" /></a> 提供 CDN 加速/云存储服务</span> 
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br /> <span>本网站由 <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img style="max-height: 50px" src="https://cdn.zhullyb.top/uploads/2024/08/12/ba8d70971c408.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="又拍云" /></a> 提供 CDN 加速/云存储服务</span> 
     </div>
   
   

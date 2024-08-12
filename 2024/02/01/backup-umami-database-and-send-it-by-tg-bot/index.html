@@ -28,16 +28,16 @@
 <meta property="og:site_name" content="竹林里有冰的博客">
 <meta property="og:description" content="前一阵子看到点墨的博客「定时备份mysql&#x2F;mariadb数据库并上传至tgbot」，我意识到个人站点的数据库 dump 使用 TG Bot 存放是一个非常合适的做法。个人站点的数据库体积本身就不大，TG Bot 又有官方提供的 api，非常适合自动化任务。我就寻思着给我的 umami 数据库也写个定时任务备份一下，也不至于之前做一次迁移数据全部爆炸的悲剧重演。 我的 umami 是「使用 ver">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/65ba6aae157e6.png">
-<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/65c79455b2e40.png">
+<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/65ba6aae157e6.webp">
+<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/65c79455b2e40.webp">
 <meta property="article:published_time" content="2024-01-31T16:00:01.000Z">
-<meta property="article:modified_time" content="2024-08-12T04:18:19.000Z">
+<meta property="article:modified_time" content="2024-08-12T07:22:18.000Z">
 <meta property="article:author" content="竹林里有冰">
 <meta property="article:tag" content="umami">
 <meta property="article:tag" content="Shell Script">
 <meta property="article:tag" content="Bot">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/65ba6aae157e6.png">
+<meta name="twitter:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/65ba6aae157e6.webp">
   
   
   
@@ -335,7 +335,7 @@
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2024年8月12日 中午
+                    本文最后更新于：2024年8月12日 下午
                   
                 
               </p>
@@ -345,7 +345,7 @@
                 
                 <p>前一阵子看到点墨的博客<a target="_blank" rel="noopener" href="https://blog.m-l.cc/2023/11/09/ding-shi-bei-fen-mysql-mariadb-shu-ju-ku-bing-shang-chuan-zhi-tgbot/">「定时备份mysql/mariadb数据库并上传至tgbot」</a>，我意识到个人站点的数据库 dump 使用 TG Bot 存放是一个非常合适的做法。个人站点的数据库体积本身就不大，TG Bot 又有官方提供的 api，非常适合自动化任务。我就寻思着给我的 umami 数据库也写个定时任务备份一下，也不至于之前做一次迁移数据全部爆炸的悲剧重演。</p>
 <p>我的 umami 是<a href="/2022/11/08/free-umami-deploy-plan/">「使用 vercel+supabase 免费部署 umami」</a>部署出来的，数据库在 supabase 上，因此我们先打开 supabase 的 dashboard，获取到数据库的 url。</p>
-<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/65ba6aae157e6.png" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="supabase 操作面板"></p>
+<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/65ba6aae157e6.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="supabase 操作面板"></p>
 <p>密码我自然是不记得了，不过好在 Firefox 的密码管理器帮我记住了，直接去设置里就能找到。即使密码忘了也不要紧，往下翻有重置密码的按钮。</p>
 <p>随后就要开始编写我们的教本了，这是我的</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-meta">#!/bin/bash</span><br><br>DATABASE_URL=<span class="hljs-string">&quot;postgres://&quot;</span><br>DATE=$(<span class="hljs-built_in">date</span> <span class="hljs-string">&#x27;+%F&#x27;</span>)<br><br>TG_BOT_TOKEN=<span class="hljs-string">&#x27;1145141919:ABCDEFGHIJKLVMNOPQRSTUVWXYZabcdefgh&#x27;</span><br>TG_CHAT_ID=<span class="hljs-string">&#x27;9191415411&#x27;</span><br><br>pg_dump <span class="hljs-variable">$&#123;DATABASE_URL&#125;</span> &gt; umami_dump_<span class="hljs-variable">$&#123;DATE&#125;</span>.sql<br>curl -F document=@umami_dump_<span class="hljs-variable">$&#123;DATE&#125;</span>.sql https://api.telegram.org/bot<span class="hljs-variable">$&#123;TG_BOT_TOKEN&#125;</span>/sendDocument?chat_id=<span class="hljs-variable">$&#123;TG_CHAT_ID&#125;</span><br><span class="hljs-built_in">rm</span> umami_dump_<span class="hljs-variable">$&#123;DATE&#125;</span>.sql<br></code></pre></td></tr></table></figure>
@@ -363,7 +363,7 @@
 <p>确保脚本正常工作后，使用 <code>crontab -e</code> 设置自动任务</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">0 2 * * * /root/umami_db_dumper.sh<br></code></pre></td></tr></table></figure>
 
-<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/65c79455b2e40.png" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="数据库备份"></p>
+<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/65c79455b2e40.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="数据库备份"></p>
 
                 
               </div>
@@ -600,7 +600,7 @@
     <div class="footer-inner">
   
     <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br /> <span>本网站由 <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img style="max-height: 50px" src="https://cdn.zhullyb.top/uploads/2024/08/12/ba8d70971c408.png" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="又拍云" /></a> 提供 CDN 加速/云存储服务</span> 
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br /> <span>本网站由 <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img style="max-height: 50px" src="https://cdn.zhullyb.top/uploads/2024/08/12/ba8d70971c408.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="又拍云" /></a> 提供 CDN 加速/云存储服务</span> 
     </div>
   
   

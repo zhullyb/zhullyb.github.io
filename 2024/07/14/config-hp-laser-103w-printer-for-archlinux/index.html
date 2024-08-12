@@ -28,12 +28,12 @@
 <meta property="og:site_name" content="竹林里有冰的博客">
 <meta property="og:description" content="我寝室有一台使用 wifi 连接的 HP Laser 103w 打印机，这些天刚好布置了新的 HomeServer，因此来记录一下这台打印机的配置过程，根据 HP 官网驱动包的名字「HP Laser 100 and HP Color Laser 150 Printer series Print Driver」推断，此过程应该能适用于所有的 HP Laser 100 及 HP Color Laser">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/6693aa41c079b.png">
-<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/6693b6e81f9c4.png">
-<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/6693b76b9c1ca.png">
-<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/6693b7ba82d99.png">
+<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/6693aa41c079b.webp">
+<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/6693b6e81f9c4.webp">
+<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/6693b76b9c1ca.webp">
+<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/6693b7ba82d99.webp">
 <meta property="article:published_time" content="2024-07-14T10:30:33.000Z">
-<meta property="article:modified_time" content="2024-08-12T04:18:19.000Z">
+<meta property="article:modified_time" content="2024-08-12T07:22:18.000Z">
 <meta property="article:author" content="竹林里有冰">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="笔记">
@@ -42,7 +42,7 @@
 <meta property="article:tag" content="Printer">
 <meta property="article:tag" content="HomeServer">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/6693aa41c079b.png">
+<meta name="twitter:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/6693aa41c079b.webp">
   
   
   
@@ -340,7 +340,7 @@
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2024年8月12日 中午
+                    本文最后更新于：2024年8月12日 下午
                   
                 
               </p>
@@ -350,7 +350,7 @@
                 
                 <p>我寝室有一台使用 wifi 连接的 HP Laser 103w 打印机，这些天刚好布置了新的 HomeServer，因此来记录一下这台打印机的配置过程，根据 HP 官网驱动包的名字「HP Laser 100 and HP Color Laser 150 Printer series Print Driver」推断，此过程应该能适用于所有的 HP Laser 100 及 HP Color Laser 150 系列的打印机。</p>
 <h2 id="打印机联网"><a href="#打印机联网" class="headerlink" title="打印机联网"></a>打印机联网</h2><p>首先使用 Windows 操作系统完成打印机的联网工作，在路由器的网页管理界面可以看到这台打印机的局域网 ip 是 192.168.123.20 ，记录备用。如果有条件的话，尽量将打印机的 MAC 地址与 IP 地址绑定，避免路由器将该 IP 分配给别的设备。</p>
-<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/6693aa41c079b.png" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="路由器的网页管理界面"></p>
+<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/6693aa41c079b.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="路由器的网页管理界面"></p>
 <h2 id="安装-CUPS"><a href="#安装-CUPS" class="headerlink" title="安装 CUPS"></a>安装 CUPS</h2><p>随后按照 ArchWiki 的 <a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/CUPS">CUPS 页面</a>进行相关配置，CUPS 是苹果公司开源的打印系统，是目前 Linux 下最主流的打印方案。</p>
 <p>首先安装 cups ，如果需要「打印为 pdf」的功能，可以选装 cups-pdf。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pacman -S cups<br></code></pre></td></tr></table></figure>
@@ -372,12 +372,12 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">yay -S hpuld<br></code></pre></td></tr></table></figure>
 
 <h2 id="添加打印机"><a href="#添加打印机" class="headerlink" title="添加打印机"></a>添加打印机</h2><p>打开设置中的打印机设置后，选择添加打印机，CUPS 直接帮我们找到了局域网下的打印机，并自动开始搜索驱动程序（虽然没搜到）。</p>
-<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/6693b6e81f9c4.png" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="自动搜索"></p>
+<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/6693b6e81f9c4.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="自动搜索"></p>
 <p>但如果没能自动检测到打印机，也可以使用手动选项中的 AppSocket/HP JetDirect 手动输入打印机的 ip 地址进行配置。</p>
 <p>紧接着就到了选择驱动程序的阶段，厂商选择 HP，能够找到「HP Laser 10x Series」的选项，直接选择。</p>
-<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/6693b76b9c1ca.png" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="选择驱动"></p>
+<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/6693b76b9c1ca.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="选择驱动"></p>
 <p>接着就可以完成打印机的添加。</p>
-<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/6693b7ba82d99.png" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="完成添加"></p>
+<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/6693b7ba82d99.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="完成添加"></p>
 <p>随后便能正常打印文件啦！</p>
 
                 
@@ -621,7 +621,7 @@
     <div class="footer-inner">
   
     <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br /> <span>本网站由 <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img style="max-height: 50px" src="https://cdn.zhullyb.top/uploads/2024/08/12/ba8d70971c408.png" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="又拍云" /></a> 提供 CDN 加速/云存储服务</span> 
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br /> <span>本网站由 <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img style="max-height: 50px" src="https://cdn.zhullyb.top/uploads/2024/08/12/ba8d70971c408.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="又拍云" /></a> 提供 CDN 加速/云存储服务</span> 
     </div>
   
   

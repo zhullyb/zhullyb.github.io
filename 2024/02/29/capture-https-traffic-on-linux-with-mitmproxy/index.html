@@ -28,20 +28,20 @@
 <meta property="og:site_name" content="竹林里有冰的博客">
 <meta property="og:description" content="作为部分 AUR Package 的 maintainer，一直以来我都有在 Linux 下抓取 https 流量的需求，比如抓取应用内的更新检测时访问的 url 地址。之前一直没有空去研究，趁着最近课少，总算是完成了这个目标。 在这里我使用的 mitmproxy，基于 python 和 webui 的一款开源简洁的流量代理软件，可以用于抓取 https 流量信息。 安装 mitmproxy在 A">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/65e092503d5bb.png">
-<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/65e09559dceef.png">
-<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/65e0963840449.png">
-<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/65e097dfe1f17.png">
-<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/65e09780dd2c0.png">
+<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/65e092503d5bb.webp">
+<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/65e09559dceef.webp">
+<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/65e0963840449.webp">
+<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/65e097dfe1f17.webp">
+<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/65e09780dd2c0.webp">
 <meta property="article:published_time" content="2024-02-29T14:03:58.000Z">
-<meta property="article:modified_time" content="2024-08-12T04:18:19.000Z">
+<meta property="article:modified_time" content="2024-08-12T07:22:18.000Z">
 <meta property="article:author" content="竹林里有冰">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="mitmproxy">
 <meta property="article:tag" content="Network">
 <meta property="article:tag" content="Archlnux">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/65e092503d5bb.png">
+<meta name="twitter:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/65e092503d5bb.webp">
   
   
   
@@ -339,7 +339,7 @@
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2024年8月12日 中午
+                    本文最后更新于：2024年8月12日 下午
                   
                 
               </p>
@@ -359,7 +359,7 @@
 <li>mitmweb</li>
 </ul>
 <p>我们只要使用 mitmweb 即可同时打开 8080 的代理端口和 8081 端口的 webui。访问 <a target="_blank" rel="noopener" href="http://127.0.0.1:8081/">http://127.0.0.1:8081</a> 即可看到 mitmproxy 的网页。</p>
-<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/65e092503d5bb.png" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="mitmweb 的界面"></p>
+<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/65e092503d5bb.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="mitmweb 的界面"></p>
 <p>当然，也可以在 mitmweb 命令后面追加 -p <PORT> 和 –web-port=<PORT> 分别设置代理端口和 webui 的端口。</p>
 <p>首先，我们先运行一次 <code>mitmweb</code></p>
 <h2 id="安装-ca-证书"><a href="#安装-ca-证书" class="headerlink" title="安装 ca 证书"></a>安装 ca 证书</h2><p>为了解密 https 流量，我们需要为系统安装上 mitmproxy 自己的证书文件，让系统信任我们的证书。</p>
@@ -385,12 +385,12 @@
 <p>这样便完成了 ca 证书的安装</p>
 <h2 id="使目标软件使用-8080-端口通信"><a href="#使目标软件使用-8080-端口通信" class="headerlink" title="使目标软件使用 8080 端口通信"></a>使目标软件使用 8080 端口通信</h2><p>其实我试过使用透明代理进行抓包，只不过我的 Archlinux 是作为日常主力机使用的，系统无时无刻不在向外通信，透明代理以后 mitmproxy 的 webui 各种刷屏，便放弃了这个想法，选择指定目标软件使用 8080 端口通信。</p>
 <p>网上比较常见的做法是使用 <code>proxychains-ng</code> 代理目标软件。这个方案是可行的，只不过我这边测试下来，部分软件使用 proxychains 代理以后出现了仍然不使用代理、无法联网、甚至直接崩溃的情况。</p>
-<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/65e09559dceef.png" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="程序崩溃"></p>
+<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/65e09559dceef.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="程序崩溃"></p>
 <p>因此我转向了 <a target="_blank" rel="noopener" href="https://github.com/mzz2017/gg">gg</a>。gg 和 proxychains-ng 的定位相同，都是使目标命令通过指定的代理进行通信，只不过 gg 解决了部分 golang 编写的软件无法被 proxychains 代理的问题，并支持一些常见的用来国际联网的协议。</p>
 <p>在不对 gg 进行配置的情况下，每次启动时，gg 都会要求我们输入代理地址，这正合我意。</p>
-<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/65e0963840449.png" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="gg 要求输入代理地址"></p>
+<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/65e0963840449.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="gg 要求输入代理地址"></p>
 <p>此时，软件正常启动，流量全部经过 mitmproxy，可以在 webui 上看到具体情况</p>
-<h2 id="抓包成功"><a href="#抓包成功" class="headerlink" title="抓包成功"></a>抓包成功</h2><p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/65e097dfe1f17.png" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="命令行下看到流量信息"><br><img src="https://cdn.zhullyb.top/uploads/2024/08/12/65e09780dd2c0.png" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="mitmweb 正常获取解密后的流量信息"></p>
+<h2 id="抓包成功"><a href="#抓包成功" class="headerlink" title="抓包成功"></a>抓包成功</h2><p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/65e097dfe1f17.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="命令行下看到流量信息"><br><img src="https://cdn.zhullyb.top/uploads/2024/08/12/65e09780dd2c0.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="mitmweb 正常获取解密后的流量信息"></p>
 <p>我们可以看到 mitmproxy 成功捕获并解密的 https 流量，针对图片等信息甚至可以直接实现预览。</p>
 
                 
@@ -630,7 +630,7 @@
     <div class="footer-inner">
   
     <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br /> <span>本网站由 <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img style="max-height: 50px" src="https://cdn.zhullyb.top/uploads/2024/08/12/ba8d70971c408.png" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="又拍云" /></a> 提供 CDN 加速/云存储服务</span> 
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br /> <span>本网站由 <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img style="max-height: 50px" src="https://cdn.zhullyb.top/uploads/2024/08/12/ba8d70971c408.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="又拍云" /></a> 提供 CDN 加速/云存储服务</span> 
     </div>
   
   
