@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zhul.in/2023/06/24/connect-china-mobile-with-router-in-zjut-dormitory/</loc>
+    
+    <lastmod>2024-08-12</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zhul.in/2021/01/01/Why-I-dont-recommend-Manjaro/</loc>
     
     <lastmod>2024-08-12</lastmod>
@@ -84,15 +93,6 @@
   
   <url>
     <loc>https://zhul.in/2024/07/14/config-hp-laser-103w-printer-for-archlinux/</loc>
-    
-    <lastmod>2024-08-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2023/06/24/connect-china-mobile-with-router-in-zjut-dormitory/</loc>
     
     <lastmod>2024-08-12</lastmod>
     
