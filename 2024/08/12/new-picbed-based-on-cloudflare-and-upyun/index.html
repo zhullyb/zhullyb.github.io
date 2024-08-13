@@ -21,30 +21,30 @@
   <meta name="author" content="竹林里有冰">
   <meta name="keywords" content="博客, 技术, Fedora">
   
-    <meta name="description" content="纵使安卓下有小黄鸟 HttpCanary 这种抓包神器，但手机一块 6 英寸的小屏实在是不方便分析流量情况，还得是 PC 的屏幕更大一些，处理起流量信息来更得心应手一些。 把话说在前面，目前的安卓抓包有不小的限制  Android 7 以下的版本: 直接以普通用户的权限安装 ssl 证书即可被信任 Android 7 以上的版本: 安全性较低的应用: 需要使用 root 权限将证书移动至 &#x2F;sys">
+    <meta name="description" content="一直以来，我使用的都是使用付费的第三方图床，可惜最近几年为了节省成本，境内的稳定性出现了一些问题。过去一年中光是我本人遇到的无法访问的情况就有三四次，其中两次持续时间超过 2 小时，甚至有网友特意来 at 我告知我博客使用的图床出问题了，还有两次是在我作品验收前 24 小时内出现，幸亏我及时切换了资源链接。此外，境外 CDN 也从原先的 Cloudflare 换掉了，目前海外的解析结果似乎只有一">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在 Linux 下使用 mitmproxy 抓取安卓手机上的 HTTPS 流量">
-<meta property="og:url" content="https://zhul.in/2024/07/31/capture-android-https-traffic-on-linux-with-mitmproxy/index.html">
+<meta property="og:title" content="自建图床小记一|基于 DNS 解析分流的 Cloudflare &amp;&amp; 又拍云 CDN 的图床架构">
+<meta property="og:url" content="https://zhul.in/2024/08/12/new-picbed-based-on-cloudflare-and-upyun/index.html">
 <meta property="og:site_name" content="竹林里有冰的博客">
-<meta property="og:description" content="纵使安卓下有小黄鸟 HttpCanary 这种抓包神器，但手机一块 6 英寸的小屏实在是不方便分析流量情况，还得是 PC 的屏幕更大一些，处理起流量信息来更得心应手一些。 把话说在前面，目前的安卓抓包有不小的限制  Android 7 以下的版本: 直接以普通用户的权限安装 ssl 证书即可被信任 Android 7 以上的版本: 安全性较低的应用: 需要使用 root 权限将证书移动至 &#x2F;sys">
+<meta property="og:description" content="一直以来，我使用的都是使用付费的第三方图床，可惜最近几年为了节省成本，境内的稳定性出现了一些问题。过去一年中光是我本人遇到的无法访问的情况就有三四次，其中两次持续时间超过 2 小时，甚至有网友特意来 at 我告知我博客使用的图床出问题了，还有两次是在我作品验收前 24 小时内出现，幸亏我及时切换了资源链接。此外，境外 CDN 也从原先的 Cloudflare 换掉了，目前海外的解析结果似乎只有一">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/66ab548080ed6.webp">
-<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/66ab54f08dfd6.webp">
-<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/66ab5970a6ac7.webp">
-<meta property="article:published_time" content="2024-07-31T08:02:28.000Z">
-<meta property="article:modified_time" content="2024-08-12T07:22:18.000Z">
+<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/80402e4da4ef7.webp">
+<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/13/03d8243b67593.webp">
+<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/13/a0387d2919850.webp">
+<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/13/d03d7b3155514.webp">
+<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/13/eb7186205b380.webp">
+<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/13/782a665cabe05.webp">
+<meta property="article:published_time" content="2024-08-12T09:07:11.000Z">
+<meta property="article:modified_time" content="2024-08-13T12:52:43.000Z">
 <meta property="article:author" content="竹林里有冰">
-<meta property="article:tag" content="Android">
-<meta property="article:tag" content="Linux">
-<meta property="article:tag" content="Archlinux">
-<meta property="article:tag" content="mitmproxy">
-<meta property="article:tag" content="Network">
+<meta property="article:tag" content="CDN">
+<meta property="article:tag" content="图床搭建">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/66ab548080ed6.webp">
+<meta name="twitter:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/80402e4da4ef7.webp">
   
   
   
-  <title>在 Linux 下使用 mitmproxy 抓取安卓手机上的 HTTPS 流量 - 竹林里有冰的博客</title>
+  <title>自建图床小记一|基于 DNS 解析分流的 Cloudflare &amp;&amp; 又拍云 CDN 的图床架构 - 竹林里有冰的博客</title>
 
   <link  rel="stylesheet" href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/4.6.0/css/bootstrap.min.css" />
 
@@ -259,7 +259,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="在 Linux 下使用 mitmproxy 抓取安卓手机上的 HTTPS 流量"></span>
+            <span id="subtitle" data-typed-text="自建图床小记一|基于 DNS 解析分流的 Cloudflare &amp;&amp; 又拍云 CDN 的图床架构"></span>
           
         </div>
 
@@ -270,8 +270,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-07-31 16:02" pubdate>
-          2024年7月31日 下午
+        <time datetime="2024-08-12 17:07" pubdate>
+          2024年8月12日 下午
         </time>
       </span>
     
@@ -283,7 +283,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          1k 字
+          1.3k 字
         
       </span>
     
@@ -295,7 +295,7 @@
         
         
           <!-- compatible with older versions-->
-          6 分钟
+          7 分钟
         
       </span>
     
@@ -332,13 +332,13 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">在 Linux 下使用 mitmproxy 抓取安卓手机上的 HTTPS 流量</h1>
+            <h1 id="seo-header">自建图床小记一|基于 DNS 解析分流的 Cloudflare &amp;&amp; 又拍云 CDN 的图床架构</h1>
             
               <p id="updated-time" class="note note-info" style="">
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2024年8月12日 下午
+                    本文最后更新于：2024年8月13日 晚上
                   
                 
               </p>
@@ -346,50 +346,41 @@
             
               <div class="markdown-body">
                 
-                <p>纵使安卓下有小黄鸟 HttpCanary 这种抓包神器，但手机一块 6 英寸的小屏实在是不方便分析流量情况，还得是 PC 的屏幕更大一些，处理起流量信息来更得心应手一些。</p>
-<p>把话说在前面，目前的安卓抓包有不小的限制</p>
-<ul>
-<li>Android 7 以下的版本: 直接以普通用户的权限安装 ssl 证书即可被信任</li>
-<li>Android 7 以上的版本:<ul>
-<li>安全性较低的应用: <strong>需要使用 root 权限</strong>将证书移动至 <code>/system/etc/security/cacerts</code>使证书被系统信任</li>
-<li>安全性较高的应用（比如微信 7.0 以上的版本）: 在满足上一条条件的情况下，需要阻止第三方应用使用自带的 ssl 证书信任范围（绕过 SSL Pinning）。通常情况下需要额外的手段对目标应用进行篡改，比如使用 <a target="_blank" rel="noopener" href="https://github.com/Fuzion24/JustTrustMe">justTrustMe</a> 这个 xposed 模块，或者 <a target="_blank" rel="noopener" href="https://github.com/frida/frida/">frida</a>。</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<p>除此之外，Linux 版本 &gt;= 5.5 的安卓设备也可以使用 <a target="_blank" rel="noopener" href="https://github.com/gojue/ecapture">eCapture</a> 这款基于 eBPF Linux  内核模块实现的抓包软件，算是种奇技淫巧。</p>
+                <blockquote>
+<p>一直以来，我使用的都是使用付费的第三方图床，可惜最近几年为了节省成本，境内的稳定性出现了一些问题。过去一年中光是我本人遇到的无法访问的情况就有三四次，其中两次持续时间超过 2 小时，甚至有网友特意来 at 我告知我博客使用的图床出问题了，还有两次是在我作品验收前 24 小时内出现，幸亏我及时切换了资源链接。此外，境外 CDN 也从原先的 Cloudflare 换掉了，目前海外的解析结果似乎只有一个在美国的节点，其余地区（尤其是日本香港新加坡等常用的落地地区）的访问质量不佳，Google 的 page speed test 甚至提示我的图片拖慢了网站加载速度。</p>
 </blockquote>
-<p>本文只讨论 Android 7 以上版本中安全性较低的应用，因为我当前的抓包目标局限于一款安全性不高的外包软件。</p>
-<h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><p>见「<a href="/2024/02/29/capture-https-traffic-on-linux-with-mitmproxy/">在 Linux 下使用 mitmproxy 抓取 HTTPS 流量</a>」</p>
-<h2 id="安装-ssl-证书"><a href="#安装-ssl-证书" class="headerlink" title="安装 ssl 证书"></a>安装 ssl 证书</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cp</span> <span class="hljs-variable">$HOME</span>/.mitmproxy/mitmproxy-ca-cert.pem $(openssl x509 -subject_hash_old -<span class="hljs-keyword">in</span> <span class="hljs-variable">$HOME</span>/.mitmproxy/mitmproxy-ca-cert.pem | <span class="hljs-built_in">head</span> -n 1).0<br></code></pre></td></tr></table></figure>
+<p>基于上述种种原因，我开始选择自建图床，前前后后折腾了快一周后，新图床终于投入使用，目前我的博客已经完成了所有图片资源的切换。</p>
+<h2 id="架构设计"><a href="#架构设计" class="headerlink" title="架构设计"></a>架构设计</h2><p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/80402e4da4ef7.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="图床架构设计图"></p>
+<p>这一套架构使用 Dnspod 免费版实现在境内外的解析分流，将境内的流量导向又拍云 CDN 为境内的访客提供服务，在境外使用量大管饱的 Cloudflare CDN 节省成本，为全球提供加速访问。</p>
+<h2 id="为什么是又拍云"><a href="#为什么是又拍云" class="headerlink" title="为什么是又拍云"></a>为什么是又拍云</h2><p>如你所见，我的博客底部挂了又拍云的 logo。<a target="_blank" rel="noopener" href="https://www.upyun.com/league">又拍云联盟</a>为个人开发者提供了每个月 10GB 存储和 15GB 的免费 CDN 流量，在每年通过申请后会以 67 元无门槛代金券的形式发放到账号，也不用担心某个月超了一点点而付出额外的费用。</p>
+<h2 id="为什么是-Cloudflare-R2"><a href="#为什么是-Cloudflare-R2" class="headerlink" title="为什么是 Cloudflare R2"></a>为什么是 Cloudflare R2</h2><p>作为自己的图床，必须要保证稳定性，境内访问的稳定性可以先放到一边，最重要的就是保证源文件的稳定性。不同于在自己的 VPS 上存储图片的方案，使用 Cloudflare R2 作为储存不需要关注 VPS 到期以后的图片迁移问题。使用 Cloudflare R2 作为储存，免费用量对于个人站点来说绰绰有余，在 10GB 存储容量超出之前不用考虑别的问题，也不用担心资金支持不下去导致的麻烦。而不使用又拍云提供的 10GB 存储也可以节省这部分的代金券金额，让代金券尽可能多的抵扣境内 CDN 流量带来的费用。</p>
+<h2 id="需要的东西"><a href="#需要的东西" class="headerlink" title="需要的东西"></a>需要的东西</h2><ul>
+<li>两个或两个以上的域名（其中一个需要备案）</li>
+<li>Cloudflare 所支持的境外支付方式（PayPal 账号 / Visa Card / Master Card），用于开通 Cloudflare R2 和 Cloudflare SaaS 接入</li>
+<li><del>很多很多钱</del>（其实没有很多，又拍云联盟每年的 67 元抵用券在我这里看来完全是够用的）</li>
+<li>聪明的大脑，能够快速敲击键盘的双手，<del>能够支持你熬夜的心脏</del></li>
+</ul>
+<p><em>* 在这一套架构中引入了香港 VPS 进行反向代理，一来是防止国内 CDN 与 Cloudflare 的网络连接质量过差导致的回源失败，二来也是方便我在没有国际联网的情况下进行图片的上传，但如果没有条件其实是可以去掉的。</em></p>
+<h2 id="DNS-解析"><a href="#DNS-解析" class="headerlink" title="DNS 解析"></a>DNS 解析</h2><p><img src="https://cdn.zhullyb.top/uploads/2024/08/13/03d8243b67593.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="DNS 解析方案 1"></p>
+<p>如上图，将图床域名 NS 接入 DnsPod，工具人域名 NS 接入 Cloudflare 即可实现境内外分流的效果。</p>
+<ol>
+<li>图床访问域名在境外 CNAME 解析到工具人域名</li>
+<li>图床访问域名在境内 CNAME 解析到境内 CDN 服务商</li>
+<li>工具人域名在 Cloudflare 上解析到任何站点都行，只需点亮解析时 Cloudflare CDN 代理按钮即可生效。</li>
+</ol>
+<p><img src="https://cdn.zhullyb.top/uploads/2024/08/13/a0387d2919850.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="代理按钮"></p>
+<p>但如果你的备案域名已经通过 NS 接入了 Cloudflare，可以采用下面这套架构。</p>
+<p><img src="https://cdn.zhullyb.top/uploads/2024/08/13/d03d7b3155514.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="DNS 解析方案 2"></p>
+<p><em>* 解析方案 2 中的图床访问域名和工具人域名可以是同属于同一二级域名的不同子域名</em></p>
+<p>这种方案要多一步，把图床访问域名 CNAME 解析到用于分流的工具人域名。</p>
+<h2 id="Cloudflare-SaaS-接入"><a href="#Cloudflare-SaaS-接入" class="headerlink" title="Cloudflare SaaS 接入"></a>Cloudflare SaaS 接入</h2><p><img src="https://cdn.zhullyb.top/uploads/2024/08/13/eb7186205b380.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="SaaS 接入"></p>
+<p>SaaS 接入大概就是如图所示，此外还要配置 Cloudflare Workers 的域名访问</p>
+<p><img src="https://cdn.zhullyb.top/uploads/2024/08/13/782a665cabe05.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="Cloudflare Workers 域名访问"></p>
+<p>这样就能保证在境外访问图床域名时将请求打到 Cloudflare Workers 上了，关于使用 Cloudflare Workers 构建图床 Restful API 相关的内容我放在下一篇博客讲，这里先放个代码防止有人看着急了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> <span class="hljs-title function_">hasValidHeader</span> = (<span class="hljs-params">request, env</span>) =&gt; &#123;<br>	<span class="hljs-keyword">return</span> request.<span class="hljs-property">headers</span>.<span class="hljs-title function_">get</span>(<span class="hljs-string">&#x27;X-Custom-Auth-Key&#x27;</span>) === env.<span class="hljs-property">AUTH_KEY_SECRET</span>;<br>&#125;;<br><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">authorizeRequest</span>(<span class="hljs-params">request, env, key</span>) &#123;<br>	<span class="hljs-keyword">switch</span> (request.<span class="hljs-property">method</span>) &#123;<br>		<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;PUT&#x27;</span>:<br>		<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;DELETE&#x27;</span>:<br>			<span class="hljs-keyword">return</span> <span class="hljs-title function_">hasValidHeader</span>(request, env);<br>		<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;GET&#x27;</span>:<br>			<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>		<span class="hljs-attr">default</span>:<br>			<span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>	&#125;<br>&#125;<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;<br>	<span class="hljs-keyword">async</span> <span class="hljs-title function_">fetch</span>(<span class="hljs-params">request, env</span>) &#123;<br>		<span class="hljs-keyword">const</span> url = <span class="hljs-keyword">new</span> <span class="hljs-title function_">URL</span>(request.<span class="hljs-property">url</span>);<br><br>		<span class="hljs-keyword">const</span> key = <span class="hljs-built_in">decodeURI</span>(url.<span class="hljs-property">pathname</span>.<span class="hljs-title function_">slice</span>(<span class="hljs-number">1</span>));<br><br>		<span class="hljs-keyword">if</span> (!<span class="hljs-title function_">authorizeRequest</span>(request, env, key)) &#123;<br>			<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Response</span>(<span class="hljs-string">&#x27;Forbidden&#x27;</span>, &#123; <span class="hljs-attr">status</span>: <span class="hljs-number">403</span> &#125;);<br>		&#125;<br><br>		<span class="hljs-keyword">switch</span> (request.<span class="hljs-property">method</span>) &#123;<br>			<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;PUT&#x27;</span>:<br>				<span class="hljs-keyword">const</span> objectExists = <span class="hljs-keyword">await</span> env.<span class="hljs-property">MY_BUCKET</span>.<span class="hljs-title function_">get</span>(key);<br><br>				<span class="hljs-keyword">if</span> (objectExists !== <span class="hljs-literal">null</span>) &#123;<br>					<span class="hljs-keyword">if</span> (request.<span class="hljs-property">headers</span>.<span class="hljs-title function_">get</span>(<span class="hljs-string">&#x27;Overwrite&#x27;</span>) !== <span class="hljs-string">&#x27;true&#x27;</span>) &#123;<br>						<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Response</span>(<span class="hljs-string">&#x27;Object Already Exists\n&#x27;</span>, &#123; <span class="hljs-attr">status</span>: <span class="hljs-number">409</span> &#125;);<br>					&#125;<br>				&#125;<br><br>				<span class="hljs-keyword">await</span> env.<span class="hljs-property">MY_BUCKET</span>.<span class="hljs-title function_">put</span>(key, request.<span class="hljs-property">body</span>);<br>				<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Response</span>(<span class="hljs-string">`Put <span class="hljs-subst">$&#123;key&#125;</span> successfully!\n`</span>);<br><br>			<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;GET&#x27;</span>:<br>				<span class="hljs-keyword">const</span> object = <span class="hljs-keyword">await</span> env.<span class="hljs-property">MY_BUCKET</span>.<span class="hljs-title function_">get</span>(key);<br><br>				<span class="hljs-keyword">if</span> (object === <span class="hljs-literal">null</span>) &#123;<br>					<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Response</span>(<span class="hljs-string">&#x27;Object Not Found\n&#x27;</span>, &#123; <span class="hljs-attr">status</span>: <span class="hljs-number">404</span> &#125;);<br>				&#125;<br><br>				<span class="hljs-keyword">const</span> headers = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Headers</span>();<br>				object.<span class="hljs-title function_">writeHttpMetadata</span>(headers);<br>				headers.<span class="hljs-title function_">set</span>(<span class="hljs-string">&#x27;etag&#x27;</span>, object.<span class="hljs-property">httpEtag</span>);<br><br>				<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Response</span>(object.<span class="hljs-property">body</span>, &#123;<br>					headers,<br>				&#125;);<br>			<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;DELETE&#x27;</span>:<br>				<span class="hljs-keyword">await</span> env.<span class="hljs-property">MY_BUCKET</span>.<span class="hljs-title function_">delete</span>(key);<br>				<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Response</span>(<span class="hljs-string">&#x27;Deleted!\n&#x27;</span>);<br><br>			<span class="hljs-attr">default</span>:<br>				<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Response</span>(<span class="hljs-string">&#x27;Method Not Allowed\n&#x27;</span>, &#123;<br>					<span class="hljs-attr">status</span>: <span class="hljs-number">405</span>,<br>					<span class="hljs-attr">headers</span>: &#123;<br>						<span class="hljs-title class_">Allow</span>: <span class="hljs-string">&#x27;PUT, GET, DELETE&#x27;</span>,<br>					&#125;,<br>				&#125;);<br>		&#125;<br>	&#125;,<br>&#125;;<br></code></pre></td></tr></table></figure>
 
-<p>此时我们就可以在家目录下找到一个以 .0 结尾的证书文件，我们的目标是将其放到手机的 <code>/system/etc/security/cacerts</code> 路径下。</p>
-<p>对于一些出厂安卓版本较低、system 分区采用可变文件系统的手机，我们可以很轻松的使用带有 root 权限的文件管理器将证书文件移动到对应的目录（我这里就是）；而对于出厂版本较高的手机，system 分区可能是不可写的，需要采用额外的奇技淫巧。</p>
-<blockquote>
-<p>1、通过 ADB 将 HTTP Toolkit CA 证书推送到设备上。</p>
-<p>2、从 /system/etc/security/cacerts/ 中复制所有系统证书到临时目录。</p>
-<p>3、在 /system/etc/security/cacerts/ 上面挂载一个 tmpfs 内存文件系统。这实际上将一个可写的全新空文件系统放在了 /system 的一小部分上面。 将复制的系统证书移回到该挂载点。</p>
-<p>4、将 HTTP Toolkit CA 证书也移动到该挂载点。</p>
-<p>5、更新临时挂载点中所有文件的权限为 644，并将系统文件的 SELinux 标签设置为 system_file，以使其看起来像是合法的 Android 系统文件。</p>
-<p>——<a target="_blank" rel="noopener" href="http://91fans.com.cn/post/certificate/">《安卓高版本安装系统证书 HTTPS 抓包 - 终极解决方案》</a> 「<a target="_blank" rel="noopener" href="http://web.archive.org/web/20240801045307/http://91fans.com.cn/post/certificate/#gsc.tab=0">archived here</a>」</p>
-</blockquote>
-<h2 id="让被抓包的应用流量经过-mitm-代理服务器"><a href="#让被抓包的应用流量经过-mitm-代理服务器" class="headerlink" title="让被抓包的应用流量经过 mitm 代理服务器"></a>让被抓包的应用流量经过 mitm 代理服务器</h2><p>mitmproxy 默认会在 pc 端的 8080 端口开启一个 http 代理服务器，我们要做的就是想办法让待抓包的应用流量被这个 http 代理服务器所代理。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">[zhullyb@Archlinux ~]$ ip -br a<br>lo               UNKNOWN        127.0.0.1/8 ::1/128 <br>enp0s31f6        UP             172.16.0.255/25 fe80::2df9:2927:cd44:65c/64 <br>wlp0s20f3        UP             192.168.20.212/24 fe80::a6bc:919:281e:dcab/64 <br>docker0          DOWN           172.17.0.1/16 fe80::42:d1ff:febe:d513/64<br></code></pre></td></tr></table></figure>
-
-<p>在这里我们能看到本机的无线网卡地址是 192.168.20.212，所以 http 代理服务器的地址就是 <a href="http://192.168.20.212:8080。（如果你的有线网卡和手机在同一局域网下，当然也可以用有线网卡的">http://192.168.20.212:8080。（如果你的有线网卡和手机在同一局域网下，当然也可以用有线网卡的</a> ip 地址）</p>
-<p>我们当然可以在安卓手机的 WIFI 连接页面填入 http 代理地址。</p>
-<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/66ab548080ed6.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
-<p>但这对我来说似乎并不是一个好主意：一来并不是所有的应用都会默认使用 http 代理服务器，二来这回导致抓包目标不明确，非目标应用的流量也会经过代理服务器。</p>
-<p>我选择了 Nekobox 这个常见的代理软件，它支持 http 代理服务器，且允许分应用代理。</p>
-<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/66ab54f08dfd6.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
-<p>可以看到能正常抓取 https 流量</p>
-<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/66ab5970a6ac7.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
 <h2 id="参见"><a href="#参见" class="headerlink" title="参见"></a>参见</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://ibukifalling.github.io/2023/06/07/Android-app-packet-capture/">安卓应用防抓包机制及一些绕过</a></li>
-<li><a target="_blank" rel="noopener" href="https://chorer.github.io/2022/05/19/A-%E5%AE%89%E5%8D%937.0%E7%B3%BB%E7%BB%9F%E6%8A%93%E5%8C%85%E6%96%B9%E6%A1%88/">安卓7.0+系统抓包方案</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.cnblogs.com/snad/p/17449454.html">frida抓包</a></li>
-<li><a target="_blank" rel="noopener" href="https://github.com/gojue/ecapture">gojue/ecapture</a></li>
-<li><a target="_blank" rel="noopener" href="http://91fans.com.cn/post/certificate/#gsc.tab=0">安卓高版本安装系统证书 HTTPS 抓包 - 终极解决方案</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.eallion.com/cdn-cname-cloudflare/">图床 CDN CNAME 接入 Cloudflare SaaS 实现分流</a></li>
 </ul>
 
                 
@@ -403,15 +394,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Android/" class="print-no-link">#Android</a>
+        <a href="/tags/CDN/" class="print-no-link">#CDN</a>
       
-        <a href="/tags/Linux/" class="print-no-link">#Linux</a>
-      
-        <a href="/tags/Archlinux/" class="print-no-link">#Archlinux</a>
-      
-        <a href="/tags/mitmproxy/" class="print-no-link">#mitmproxy</a>
-      
-        <a href="/tags/Network/" class="print-no-link">#Network</a>
+        <a href="/tags/%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/" class="print-no-link">#图床搭建</a>
       
     </div>
   
@@ -423,8 +408,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>在 Linux 下使用 mitmproxy 抓取安卓手机上的 HTTPS 流量</div>
-      <div>https://zhul.in/2024/07/31/capture-android-https-traffic-on-linux-with-mitmproxy/</div>
+      <div>自建图床小记一|基于 DNS 解析分流的 Cloudflare &amp;&amp; 又拍云 CDN 的图床架构</div>
+      <div>https://zhul.in/2024/08/12/new-picbed-based-on-cloudflare-and-upyun/</div>
     </div>
     <div class="license-meta">
       
@@ -436,13 +421,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年7月31日</div>
+          <div>2024年8月12日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2024年8月12日</div>
+          <div>2024年8月13日</div>
         </div>
       
       
@@ -485,18 +470,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/08/12/new-picbed-based-on-cloudflare-and-upyun/" title="自建图床小记一|基于 DNS 解析分流的 Cloudflare &amp;&amp; 又拍云 CDN 的图床架构">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">自建图床小记一|基于 DNS 解析分流的 Cloudflare &amp;&amp; 又拍云 CDN 的图床架构</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/07/22/enable-ac-power-loss-for-jumper-n100/" title="为中柏 N100 小主机开启来电自启">
-                        <span class="hidden-mobile">为中柏 N100 小主机开启来电自启</span>
+                      <a href="/2024/07/31/capture-android-https-traffic-on-linux-with-mitmproxy/" title="在 Linux 下使用 mitmproxy 抓取安卓手机上的 HTTPS 流量">
+                        <span class="hidden-mobile">在 Linux 下使用 mitmproxy 抓取安卓手机上的 HTTPS 流量</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
