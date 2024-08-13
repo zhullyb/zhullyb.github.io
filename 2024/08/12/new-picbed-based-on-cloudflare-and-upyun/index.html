@@ -35,10 +35,12 @@
 <meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/13/eb7186205b380.webp">
 <meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/13/782a665cabe05.webp">
 <meta property="article:published_time" content="2024-08-12T09:07:11.000Z">
-<meta property="article:modified_time" content="2024-08-13T12:57:20.000Z">
+<meta property="article:modified_time" content="2024-08-13T16:11:30.000Z">
 <meta property="article:author" content="竹林里有冰">
+<meta property="article:tag" content="图床">
+<meta property="article:tag" content="Cloudflare">
+<meta property="article:tag" content="Network">
 <meta property="article:tag" content="CDN">
-<meta property="article:tag" content="图床搭建">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/80402e4da4ef7.webp">
   
@@ -283,7 +285,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          1.3k 字
+          1.1k 字
         
       </span>
     
@@ -295,7 +297,7 @@
         
         
           <!-- compatible with older versions-->
-          7 分钟
+          6 分钟
         
       </span>
     
@@ -338,7 +340,7 @@
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2024年8月13日 晚上
+                    本文最后更新于：2024年8月14日 凌晨
                   
                 
               </p>
@@ -376,9 +378,7 @@
 <h2 id="Cloudflare-SaaS-接入"><a href="#Cloudflare-SaaS-接入" class="headerlink" title="Cloudflare SaaS 接入"></a>Cloudflare SaaS 接入</h2><p><img src="https://cdn.zhullyb.top/uploads/2024/08/13/eb7186205b380.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="SaaS 接入"></p>
 <p>SaaS 接入大概就是如图所示，此外还要配置 Cloudflare Workers 的域名访问</p>
 <p><img src="https://cdn.zhullyb.top/uploads/2024/08/13/782a665cabe05.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="Cloudflare Workers 域名访问"></p>
-<p>这样就能保证在境外访问图床域名时将请求打到 Cloudflare Workers 上了，关于使用 Cloudflare Workers 构建图床 Restful API 相关的内容我放在下一篇博客讲，这里先放个代码防止有人看着急了。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> <span class="hljs-title function_">hasValidHeader</span> = (<span class="hljs-params">request, env</span>) =&gt; &#123;<br>	<span class="hljs-keyword">return</span> request.<span class="hljs-property">headers</span>.<span class="hljs-title function_">get</span>(<span class="hljs-string">&#x27;X-Custom-Auth-Key&#x27;</span>) === env.<span class="hljs-property">AUTH_KEY_SECRET</span>;<br>&#125;;<br><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">authorizeRequest</span>(<span class="hljs-params">request, env, key</span>) &#123;<br>	<span class="hljs-keyword">switch</span> (request.<span class="hljs-property">method</span>) &#123;<br>		<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;PUT&#x27;</span>:<br>		<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;DELETE&#x27;</span>:<br>			<span class="hljs-keyword">return</span> <span class="hljs-title function_">hasValidHeader</span>(request, env);<br>		<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;GET&#x27;</span>:<br>			<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>		<span class="hljs-attr">default</span>:<br>			<span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>	&#125;<br>&#125;<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;<br>	<span class="hljs-keyword">async</span> <span class="hljs-title function_">fetch</span>(<span class="hljs-params">request, env</span>) &#123;<br>		<span class="hljs-keyword">const</span> url = <span class="hljs-keyword">new</span> <span class="hljs-title function_">URL</span>(request.<span class="hljs-property">url</span>);<br><br>		<span class="hljs-keyword">const</span> key = <span class="hljs-built_in">decodeURI</span>(url.<span class="hljs-property">pathname</span>.<span class="hljs-title function_">slice</span>(<span class="hljs-number">1</span>));<br><br>		<span class="hljs-keyword">if</span> (!<span class="hljs-title function_">authorizeRequest</span>(request, env, key)) &#123;<br>			<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Response</span>(<span class="hljs-string">&#x27;Forbidden&#x27;</span>, &#123; <span class="hljs-attr">status</span>: <span class="hljs-number">403</span> &#125;);<br>		&#125;<br><br>		<span class="hljs-keyword">switch</span> (request.<span class="hljs-property">method</span>) &#123;<br>			<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;PUT&#x27;</span>:<br>				<span class="hljs-keyword">const</span> objectExists = <span class="hljs-keyword">await</span> env.<span class="hljs-property">MY_BUCKET</span>.<span class="hljs-title function_">get</span>(key);<br><br>				<span class="hljs-keyword">if</span> (objectExists !== <span class="hljs-literal">null</span>) &#123;<br>					<span class="hljs-keyword">if</span> (request.<span class="hljs-property">headers</span>.<span class="hljs-title function_">get</span>(<span class="hljs-string">&#x27;Overwrite&#x27;</span>) !== <span class="hljs-string">&#x27;true&#x27;</span>) &#123;<br>						<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Response</span>(<span class="hljs-string">&#x27;Object Already Exists\n&#x27;</span>, &#123; <span class="hljs-attr">status</span>: <span class="hljs-number">409</span> &#125;);<br>					&#125;<br>				&#125;<br><br>				<span class="hljs-keyword">await</span> env.<span class="hljs-property">MY_BUCKET</span>.<span class="hljs-title function_">put</span>(key, request.<span class="hljs-property">body</span>);<br>				<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Response</span>(<span class="hljs-string">`Put <span class="hljs-subst">$&#123;key&#125;</span> successfully!\n`</span>);<br><br>			<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;GET&#x27;</span>:<br>				<span class="hljs-keyword">const</span> object = <span class="hljs-keyword">await</span> env.<span class="hljs-property">MY_BUCKET</span>.<span class="hljs-title function_">get</span>(key);<br><br>				<span class="hljs-keyword">if</span> (object === <span class="hljs-literal">null</span>) &#123;<br>					<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Response</span>(<span class="hljs-string">&#x27;Object Not Found\n&#x27;</span>, &#123; <span class="hljs-attr">status</span>: <span class="hljs-number">404</span> &#125;);<br>				&#125;<br><br>				<span class="hljs-keyword">const</span> headers = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Headers</span>();<br>				object.<span class="hljs-title function_">writeHttpMetadata</span>(headers);<br>				headers.<span class="hljs-title function_">set</span>(<span class="hljs-string">&#x27;etag&#x27;</span>, object.<span class="hljs-property">httpEtag</span>);<br><br>				<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Response</span>(object.<span class="hljs-property">body</span>, &#123;<br>					headers,<br>				&#125;);<br>			<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;DELETE&#x27;</span>:<br>				<span class="hljs-keyword">await</span> env.<span class="hljs-property">MY_BUCKET</span>.<span class="hljs-title function_">delete</span>(key);<br>				<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Response</span>(<span class="hljs-string">&#x27;Deleted!\n&#x27;</span>);<br><br>			<span class="hljs-attr">default</span>:<br>				<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Response</span>(<span class="hljs-string">&#x27;Method Not Allowed\n&#x27;</span>, &#123;<br>					<span class="hljs-attr">status</span>: <span class="hljs-number">405</span>,<br>					<span class="hljs-attr">headers</span>: &#123;<br>						<span class="hljs-title class_">Allow</span>: <span class="hljs-string">&#x27;PUT, GET, DELETE&#x27;</span>,<br>					&#125;,<br>				&#125;);<br>		&#125;<br>	&#125;,<br>&#125;;<br></code></pre></td></tr></table></figure>
-
+<p>这样就能保证在境外访问图床域名时将请求打到 Cloudflare Workers 上了，关于使用 Cloudflare Workers 构建图床 Restful API 相关的内容我放在<a href="/2024/08/12/build-restful-api-for-cloudflare-r2-with-cloudflare-workers/">下一篇博客</a>讲。</p>
 <h2 id="参见"><a href="#参见" class="headerlink" title="参见"></a>参见</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://www.eallion.com/cdn-cname-cloudflare/">图床 CDN CNAME 接入 Cloudflare SaaS 实现分流</a></li>
 </ul>
@@ -394,9 +394,13 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/CDN/" class="print-no-link">#CDN</a>
+        <a href="/tags/%E5%9B%BE%E5%BA%8A/" class="print-no-link">#图床</a>
       
-        <a href="/tags/%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/" class="print-no-link">#图床搭建</a>
+        <a href="/tags/Cloudflare/" class="print-no-link">#Cloudflare</a>
+      
+        <a href="/tags/Network/" class="print-no-link">#Network</a>
+      
+        <a href="/tags/CDN/" class="print-no-link">#CDN</a>
       
     </div>
   
@@ -427,7 +431,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2024年8月13日</div>
+          <div>2024年8月14日</div>
         </div>
       
       
@@ -469,6 +473,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/2024/08/13/build-restful-api-for-cloudflare-r2-with-cloudflare-workers/" title="使用 Cloudflare Workers 为 Cloudflare R2 构建 Restful API">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">使用 Cloudflare Workers 为 Cloudflare R2 构建 Restful API</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">

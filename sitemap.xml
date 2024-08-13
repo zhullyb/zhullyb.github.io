@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zhul.in/2024/08/13/build-restful-api-for-cloudflare-r2-with-cloudflare-workers/</loc>
+    
+    <lastmod>2024-08-13</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zhul.in/2024/08/12/new-picbed-based-on-cloudflare-and-upyun/</loc>
     
     <lastmod>2024-08-13</lastmod>
@@ -740,7 +749,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/05/23/why-i-use-archlinux/</loc>
+    <loc>https://zhul.in/2021/04/13/where-will-appimage-put-its-file/</loc>
     
     <lastmod>2022-08-22</lastmod>
     
@@ -749,7 +758,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/04/13/where-will-appimage-put-its-file/</loc>
+    <loc>https://zhul.in/2021/05/23/why-i-use-archlinux/</loc>
     
     <lastmod>2022-08-22</lastmod>
     
@@ -959,13 +968,6 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/tags/%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2024-08-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://zhul.in/tags/%E5%A4%A7%E4%BD%AC%E5%AF%B9%E8%AF%9D%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2024-08-13</lastmod>
     <changefreq>weekly</changefreq>
@@ -974,6 +976,13 @@
   
   <url>
     <loc>https://zhul.in/tags/deepin/</loc>
+    <lastmod>2024-08-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2024-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1064,6 +1073,34 @@
   </url>
   
   <url>
+    <loc>https://zhul.in/tags/RPM-Package/</loc>
+    <lastmod>2024-08-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/%E5%9B%BE%E5%BA%8A/</loc>
+    <lastmod>2024-08-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/Cloudflare/</loc>
+    <lastmod>2024-08-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/JavaScript/</loc>
+    <lastmod>2024-08-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://zhul.in/tags/mitmproxy/</loc>
     <lastmod>2024-08-13</lastmod>
     <changefreq>weekly</changefreq>
@@ -1072,13 +1109,6 @@
   
   <url>
     <loc>https://zhul.in/tags/Network/</loc>
-    <lastmod>2024-08-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/RPM-Package/</loc>
     <lastmod>2024-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1267,13 +1297,6 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/tags/Cloudflare/</loc>
-    <lastmod>2024-08-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://zhul.in/tags/Github-Action/</loc>
     <lastmod>2024-08-13</lastmod>
     <changefreq>weekly</changefreq>
@@ -1289,13 +1312,6 @@
   
   <url>
     <loc>https://zhul.in/tags/CDN/</loc>
-    <lastmod>2024-08-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/</loc>
     <lastmod>2024-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1351,13 +1367,6 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/tags/%E5%9B%BE%E5%BA%8A/</loc>
-    <lastmod>2024-08-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://zhul.in/tags/Lsky-Pro/</loc>
     <lastmod>2024-08-13</lastmod>
     <changefreq>weekly</changefreq>
@@ -1366,13 +1375,6 @@
   
   <url>
     <loc>https://zhul.in/tags/Waydroid/</loc>
-    <lastmod>2024-08-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/JavaScript/</loc>
     <lastmod>2024-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
