@@ -209,7 +209,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/05/03/open-rpmbuild-in-the-way-of-archlinux-makepkg/</loc>
+    <loc>https://zhul.in/2022/12/24/onedrive-abraunegg-recommendation/</loc>
     
     <lastmod>2024-08-12</lastmod>
     
@@ -218,7 +218,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2022/12/24/onedrive-abraunegg-recommendation/</loc>
+    <loc>https://zhul.in/2024/05/03/open-rpmbuild-in-the-way-of-archlinux-makepkg/</loc>
     
     <lastmod>2024-08-12</lastmod>
     
@@ -425,7 +425,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/06/06/download-openharmony-source-code/</loc>
+    <loc>https://zhul.in/2022/01/12/dnf-module-in-setting-up-the-jekyll/</loc>
     
     <lastmod>2024-08-12</lastmod>
     
@@ -434,7 +434,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2022/01/12/dnf-module-in-setting-up-the-jekyll/</loc>
+    <loc>https://zhul.in/2021/06/06/download-openharmony-source-code/</loc>
     
     <lastmod>2024-08-12</lastmod>
     
@@ -1148,13 +1148,6 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/tags/Blog/</loc>
-    <lastmod>2024-08-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://zhul.in/tags/Python/</loc>
     <lastmod>2024-08-13</lastmod>
     <changefreq>weekly</changefreq>
@@ -1163,6 +1156,13 @@
   
   <url>
     <loc>https://zhul.in/tags/Privacy/</loc>
+    <lastmod>2024-08-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/Blog/</loc>
     <lastmod>2024-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1239,20 +1239,6 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/tags/jinja2/</loc>
-    <lastmod>2024-08-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/CSS/</loc>
-    <lastmod>2024-08-13</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://zhul.in/tags/IoT/</loc>
     <lastmod>2024-08-13</lastmod>
     <changefreq>weekly</changefreq>
@@ -1261,6 +1247,20 @@
   
   <url>
     <loc>https://zhul.in/tags/MiAI/</loc>
+    <lastmod>2024-08-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/jinja2/</loc>
+    <lastmod>2024-08-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/CSS/</loc>
     <lastmod>2024-08-13</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
