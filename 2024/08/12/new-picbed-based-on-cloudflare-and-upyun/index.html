@@ -35,11 +35,11 @@
 <meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/13/eb7186205b380.webp">
 <meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/13/782a665cabe05.webp">
 <meta property="article:published_time" content="2024-08-12T09:07:11.000Z">
-<meta property="article:modified_time" content="2024-08-13T16:30:25.000Z">
+<meta property="article:modified_time" content="2024-08-13T16:37:23.000Z">
 <meta property="article:author" content="竹林里有冰">
+<meta property="article:tag" content="Network">
 <meta property="article:tag" content="图床">
 <meta property="article:tag" content="Cloudflare">
-<meta property="article:tag" content="Network">
 <meta property="article:tag" content="CDN">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/80402e4da4ef7.webp">
@@ -285,7 +285,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          1.1k 字
+          1.2k 字
         
       </span>
     
@@ -355,6 +355,7 @@
 <h2 id="架构设计"><a href="#架构设计" class="headerlink" title="架构设计"></a>架构设计</h2><p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/80402e4da4ef7.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="图床架构设计图"></p>
 <p>这一套架构使用 Dnspod 免费版实现在境内外的解析分流，将境内的流量导向又拍云 CDN 为境内的访客提供服务，在境外使用量大管饱的 Cloudflare CDN 节省成本，为全球提供加速访问。</p>
 <h2 id="为什么是又拍云"><a href="#为什么是又拍云" class="headerlink" title="为什么是又拍云"></a>为什么是又拍云</h2><p>如你所见，我的博客底部挂了又拍云的 logo。<a target="_blank" rel="noopener" href="https://www.upyun.com/league">又拍云联盟</a>为个人开发者提供了每个月 10GB 存储和 15GB 的免费 CDN 流量，在每年通过申请后会以 67 元无门槛代金券的形式发放到账号，也不用担心某个月超了一点点而付出额外的费用。</p>
+<p>相比之下，七牛云虽然控制台的前端 UI 不错，但出了这种事情导致其在我心里印象分极差: 「<a target="_blank" rel="noopener" href="https://blog.hanlin.press/2024/07/From-Shanxi-to-Qiniu/">从山西联通到组播IP：七牛云的奇怪视角（附分析和后日谈）</a>」<a target="_blank" rel="noopener" href="https://archive.md/ONeu3">Archived Here</a></p>
 <h2 id="为什么是-Cloudflare-R2"><a href="#为什么是-Cloudflare-R2" class="headerlink" title="为什么是 Cloudflare R2"></a>为什么是 Cloudflare R2</h2><p>作为自己的图床，必须要保证稳定性，境内访问的稳定性可以先放到一边，最重要的就是保证源文件的稳定性。不同于在自己的 VPS 上存储图片的方案，使用 Cloudflare R2 作为储存不需要关注 VPS 到期以后的图片迁移问题。使用 Cloudflare R2 作为储存，免费用量对于个人站点来说绰绰有余，在 10GB 存储容量超出之前不用考虑别的问题，也不用担心资金支持不下去导致的麻烦。而不使用又拍云提供的 10GB 存储也可以节省这部分的代金券金额，让代金券尽可能多的抵扣境内 CDN 流量带来的费用。</p>
 <h2 id="需要的东西"><a href="#需要的东西" class="headerlink" title="需要的东西"></a>需要的东西</h2><ul>
 <li>两个或两个以上的域名（其中一个需要备案）</li>
@@ -394,11 +395,11 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
+        <a href="/tags/Network/" class="print-no-link">#Network</a>
+      
         <a href="/tags/%E5%9B%BE%E5%BA%8A/" class="print-no-link">#图床</a>
       
         <a href="/tags/Cloudflare/" class="print-no-link">#Cloudflare</a>
-      
-        <a href="/tags/Network/" class="print-no-link">#Network</a>
       
         <a href="/tags/CDN/" class="print-no-link">#CDN</a>
       
