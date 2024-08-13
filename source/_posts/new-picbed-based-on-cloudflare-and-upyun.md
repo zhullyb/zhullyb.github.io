@@ -1,11 +1,13 @@
 ---
-title: 自建图床小记一|基于 DNS 解析分流的 Cloudflare && 又拍云 CDN 的图床架构
+title: 自建图床小记一——图床架构与 DNS 解析
 date: 2024-08-12 17:07:11
 sticky:
 execrpt:
 tags:
 - CDN
-- 图床搭建
+- 图床
+- Network
+- Cloudflare
 ---
 
 > 一直以来，我使用的都是使用付费的第三方图床，可惜最近几年为了节省成本，境内的稳定性出现了一些问题。过去一年中光是我本人遇到的无法访问的情况就有三四次，其中两次持续时间超过 2 小时，甚至有网友特意来 at 我告知我博客使用的图床出问题了，还有两次是在我作品验收前 24 小时内出现，幸亏我及时切换了资源链接。此外，境外 CDN 也从原先的 Cloudflare 换掉了，目前海外的解析结果似乎只有一个在美国的节点，其余地区（尤其是日本香港新加坡等常用的落地地区）的访问质量不佳，Google 的 page speed test 甚至提示我的图片拖慢了网站加载速度。
@@ -63,77 +65,7 @@ SaaS 接入大概就是如图所示，此外还要配置 Cloudflare Workers 的�
 
 ![Cloudflare Workers 域名访问](https://cdn.zhullyb.top/uploads/2024/08/13/782a665cabe05.webp)
 
-这样就能保证在境外访问图床域名时将请求打到 Cloudflare Workers 上了，关于使用 Cloudflare Workers 构建图床 Restful API 相关的内容我放在下一篇博客讲，这里先放个代码防止有人看着急了。
-
-```javascript
-const hasValidHeader = (request, env) => {
-	return request.headers.get('X-Custom-Auth-Key') === env.AUTH_KEY_SECRET;
-};
-
-function authorizeRequest(request, env, key) {
-	switch (request.method) {
-		case 'PUT':
-		case 'DELETE':
-			return hasValidHeader(request, env);
-		case 'GET':
-			return true;
-		default:
-			return false;
-	}
-}
-
-export default {
-	async fetch(request, env) {
-		const url = new URL(request.url);
-
-		const key = decodeURI(url.pathname.slice(1));
-
-		if (!authorizeRequest(request, env, key)) {
-			return new Response('Forbidden', { status: 403 });
-		}
-
-		switch (request.method) {
-			case 'PUT':
-				const objectExists = await env.MY_BUCKET.get(key);
-
-				if (objectExists !== null) {
-					if (request.headers.get('Overwrite') !== 'true') {
-						return new Response('Object Already Exists\n', { status: 409 });
-					}
-				}
-
-				await env.MY_BUCKET.put(key, request.body);
-				return new Response(`Put ${key} successfully!\n`);
-
-			case 'GET':
-				const object = await env.MY_BUCKET.get(key);
-
-				if (object === null) {
-					return new Response('Object Not Found\n', { status: 404 });
-				}
-
-				const headers = new Headers();
-				object.writeHttpMetadata(headers);
-				headers.set('etag', object.httpEtag);
-
-				return new Response(object.body, {
-					headers,
-				});
-			case 'DELETE':
-				await env.MY_BUCKET.delete(key);
-				return new Response('Deleted!\n');
-
-			default:
-				return new Response('Method Not Allowed\n', {
-					status: 405,
-					headers: {
-						Allow: 'PUT, GET, DELETE',
-					},
-				});
-		}
-	},
-};
-```
+这样就能保证在境外访问图床域名时将请求打到 Cloudflare Workers 上了，关于使用 Cloudflare Workers 构建图床 Restful API 相关的内容我放在[下一篇博客](/2024/08/13/build-restful-api-for-cloudflare-r2-with-cloudflare-workers/)讲。
 
 ## 参见
 
