@@ -75,20 +75,20 @@ acme.sh --issue --dns dns_cf -d cdn.example.com
 
 在我本地，Cloudflare 相关的 Token 和 ID 并没有被写入到 account.conf，而是被写在 `cdn.example.com_ecc/cdn.exampe.com.conf`，大概就没办法直接用这个 Action 了，不得不转去手搓。不过好在 Menci/acme 中还是能抄到不少的。
 
-### 压缩本地的 ca 文件夹
+#### 压缩本地的 ca 文件夹
 
 ```bash
 cd $HOME/.acme.sh/ && tar cz ca | base64 -w0
 ```
 
-### 安装 acme.sh
+#### 安装 acme.sh
 
 ```yaml
 - name: Install acme.sh
   run: curl https://get.acme.sh | sh
 ```
 
-### 解压 ca 文件夹
+#### 解压 ca 文件夹
 
 ```yaml
 - name: Extract account files for acme.sh
@@ -96,7 +96,7 @@ cd $HOME/.acme.sh/ && tar cz ca | base64 -w0
     echo "${{ secrets.ACME_SH_ACCOUNT_TAR }}" | base64 -d | tar -C ~/.acme.sh -xz
 ```
 
-### 执行 acme.sh 申请证书
+#### 执行 acme.sh 申请证书
 
 ```yaml
 - name: Issue Certificate
@@ -108,7 +108,7 @@ cd $HOME/.acme.sh/ && tar cz ca | base64 -w0
     ~/.acme.sh/acme.sh --issue --dns dns_cf --force -d ${{ env.domain }} --fullchain-file output/fullchain.pem --key-file output/key.pem
 ```
 
-### 压缩证书
+#### 压缩证书
 
 ```yaml
 - name: zip Certificate
@@ -116,7 +116,7 @@ cd $HOME/.acme.sh/ && tar cz ca | base64 -w0
     zip -j output/${{ env.domain }}_$(date +%Y%m%d).zip output/fullchain.pem output/key.pem
 ```
 
-### 通过 tg bot 发送压缩包给自己
+#### 通过 tg bot 发送压缩包给自己
 
 ```yaml
 - name: Push Certificate
@@ -126,7 +126,7 @@ cd $HOME/.acme.sh/ && tar cz ca | base64 -w0
     curl -s -X POST https://api.telegram.org/bot${TG_BOT_TOKEN}/sendDocument -F chat_id=${TG_CHAT_ID} -F document="@output/${{ env.domain }}_$(date +%Y%m%d).zip"
 ```
 
-### 部署到又拍云
+#### 部署到又拍云
 
 这里使用的是 [menci/deploy-certificate-to-upyun](https://github.com/Menci/deploy-certificate-to-upyun/)。由于又拍云没有提供上传 ssl 证书的 api，因此只能通过模拟用户登陆的方式实现。
 
