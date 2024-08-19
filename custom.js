@@ -20,9 +20,7 @@ if (
     'height: 100vh;',
     'display: flex;',
   ].join('')
-  setTimeout(() => {
-    window.location.href = 'https://zhul.in'
-  }, 5000)
+  window.location.href = 'https://zhul.in'
 } else {
 
   (window => {

@@ -785,7 +785,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2020/07/11/GitNotes/</loc>
+    <loc>https://zhul.in/2020/10/08/NoHello/</loc>
     
     <lastmod>2022-08-22</lastmod>
     
@@ -794,7 +794,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2020/10/08/NoHello/</loc>
+    <loc>https://zhul.in/2020/07/11/GitNotes/</loc>
     
     <lastmod>2022-08-22</lastmod>
     
@@ -977,13 +977,6 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/tags/%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2024-08-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://zhul.in/tags/%E5%A4%A7%E4%BD%AC%E5%AF%B9%E8%AF%9D%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2024-08-19</lastmod>
     <changefreq>weekly</changefreq>
@@ -999,6 +992,13 @@
   
   <url>
     <loc>https://zhul.in/tags/%E7%BF%BB%E8%AF%91/</loc>
+    <lastmod>2024-08-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2024-08-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1034,6 +1034,13 @@
   
   <url>
     <loc>https://zhul.in/tags/Fun/</loc>
+    <lastmod>2024-08-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/Archlinux/</loc>
     <lastmod>2024-08-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1076,13 +1083,6 @@
   
   <url>
     <loc>https://zhul.in/tags/%E5%9B%BE%E5%BA%8A/</loc>
-    <lastmod>2024-08-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Archlinux/</loc>
     <lastmod>2024-08-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1299,20 +1299,6 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/tags/jinja2/</loc>
-    <lastmod>2024-08-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/CSS/</loc>
-    <lastmod>2024-08-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://zhul.in/tags/IoT/</loc>
     <lastmod>2024-08-19</lastmod>
     <changefreq>weekly</changefreq>
@@ -1321,6 +1307,20 @@
   
   <url>
     <loc>https://zhul.in/tags/MiAI/</loc>
+    <lastmod>2024-08-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/jinja2/</loc>
+    <lastmod>2024-08-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/CSS/</loc>
     <lastmod>2024-08-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
