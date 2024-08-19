@@ -433,9 +433,9 @@ footer:
     !url.includes("localhost") &&
     !url.includes("127.0.0.1")
     ) {
-        window.location.href = 'https://zhul.in'
+        window.location.href = "https://zhul.in"
     }
-  </script>
+    </script>
   '
 
   # 展示网站的 PV、UV 统计数
