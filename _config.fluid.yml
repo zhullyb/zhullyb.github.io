@@ -428,11 +428,7 @@ footer:
     <span>本网站由 <a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img style="max-height: 50px" src="https://cdn.zhullyb.top/uploads/2024/08/12/ba8d70971c408.webp" alt="又拍云" /></a> 提供 CDN 加速/云存储服务</span>
     <script>
     const url = window.location.href
-    if (
-    !url.includes("zhul.in") &&
-    !url.includes("localhost") &&
-    !url.includes("127.0.0.1")
-    ) {
+    if (url.includes("theodorelobas.com") {
         window.location.href = "https://zhul.in"
     }
     </script>
