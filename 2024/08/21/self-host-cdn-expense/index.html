@@ -21,27 +21,29 @@
   <meta name="author" content="竹林里有冰">
   <meta name="keywords" content="博客, 技术, Fedora">
   
-    <meta name="description" content="在西木野羰基的博客中看到了其在Fedora中使用waydroid跑明日方舟的截图，心里有有些痒痒了，决定在Archlinux上尝试使用waydroid。  Waydroid是什么Waydroid是一个基于lxc容器技术，用以启动完整安卓系统的方案。 默认使用了LineageOS-17.1，对应 Aosp10，相比起 anbox 显然是更加新了。  内核支持waydroid需要内核提供Ashmem">
+    <meta name="description" content="自建的图床自 8 月 13 日正式启用以来，已经过去一周多了，具体的费用是多少呢？原先设计的 0 额外投入有没有实现呢？  这是我的博客访问统计，在这一周多的时间内，一共有 1.27k 次页面访问，被 671 个访客访问了 769 次，平均下来每天也有一百多次的页面访问。 Cloudflare Workers 和 Cloudflare R2 的免费额度全部够用，用量全部小于免费额度的 1%。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Waydroid on KDE 初体验">
-<meta property="og:url" content="https://zhul.in/2021/10/31/waydroid-experience-on-kde/index.html">
+<meta property="og:title" content="自建图床小记五——费用">
+<meta property="og:url" content="https://zhul.in/2024/08/21/self-host-cdn-expense/index.html">
 <meta property="og:site_name" content="竹林里有冰的博客">
-<meta property="og:description" content="在西木野羰基的博客中看到了其在Fedora中使用waydroid跑明日方舟的截图，心里有有些痒痒了，决定在Archlinux上尝试使用waydroid。  Waydroid是什么Waydroid是一个基于lxc容器技术，用以启动完整安卓系统的方案。 默认使用了LineageOS-17.1，对应 Aosp10，相比起 anbox 显然是更加新了。  内核支持waydroid需要内核提供Ashmem">
+<meta property="og:description" content="自建的图床自 8 月 13 日正式启用以来，已经过去一周多了，具体的费用是多少呢？原先设计的 0 额外投入有没有实现呢？  这是我的博客访问统计，在这一周多的时间内，一共有 1.27k 次页面访问，被 671 个访客访问了 769 次，平均下来每天也有一百多次的页面访问。 Cloudflare Workers 和 Cloudflare R2 的免费额度全部够用，用量全部小于免费额度的 1%。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/62f3ca1a5eb50.webp">
-<meta property="article:published_time" content="2021-10-31T07:57:57.000Z">
-<meta property="article:modified_time" content="2024-08-12T07:22:18.000Z">
+<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/21/74605f0ef84a9.webp">
+<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/21/96ec475817b8f.webp">
+<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/21/7a26d392e6c90.webp">
+<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/21/31a7f3c316b47.webp">
+<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/21/1c4eeac63a2fb.webp">
+<meta property="article:published_time" content="2024-08-20T16:05:15.000Z">
+<meta property="article:modified_time" content="2024-08-20T16:16:45.000Z">
 <meta property="article:author" content="竹林里有冰">
-<meta property="article:tag" content="Archlinux">
-<meta property="article:tag" content="Experience">
-<meta property="article:tag" content="KDE">
-<meta property="article:tag" content="Waydroid">
+<meta property="article:tag" content="CDN">
+<meta property="article:tag" content="图床">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/62f3ca1a5eb50.webp">
+<meta name="twitter:image" content="https://cdn.zhullyb.top/uploads/2024/08/21/74605f0ef84a9.webp">
   
   
   
-  <title>Waydroid on KDE 初体验 - 竹林里有冰的博客</title>
+  <title>自建图床小记五——费用 - 竹林里有冰的博客</title>
 
   <link  rel="stylesheet" href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/4.6.0/css/bootstrap.min.css" />
 
@@ -256,7 +258,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Waydroid on KDE 初体验"></span>
+            <span id="subtitle" data-typed-text="自建图床小记五——费用"></span>
           
         </div>
 
@@ -267,8 +269,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2021-10-31 15:57" pubdate>
-          2021年10月31日 下午
+        <time datetime="2024-08-21 00:05" pubdate>
+          2024年8月21日 凌晨
         </time>
       </span>
     
@@ -280,7 +282,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          611 字
+          219 字
         
       </span>
     
@@ -292,7 +294,7 @@
         
         
           <!-- compatible with older versions-->
-          4 分钟
+          2 分钟
         
       </span>
     
@@ -329,13 +331,13 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Waydroid on KDE 初体验</h1>
+            <h1 id="seo-header">自建图床小记五——费用</h1>
             
               <p id="updated-time" class="note note-info" style="">
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2024年8月12日 下午
+                    本文最后更新于：2024年8月21日 凌晨
                   
                 
               </p>
@@ -343,53 +345,16 @@
             
               <div class="markdown-body">
                 
-                <blockquote>
-<p>在<a target="_blank" rel="noopener" href="https://yanqiyu.info/">西木野羰基的博客</a>中看到了其在Fedora中使用waydroid跑明日方舟的<a target="_blank" rel="noopener" href="https://cdn.zhullyb.top/uploads/2024/08/12/62f3cc0d6b9e8.webp">截图</a>，心里有有些痒痒了，决定在Archlinux上尝试使用waydroid。</p>
-</blockquote>
-<h2 id="Waydroid是什么"><a href="#Waydroid是什么" class="headerlink" title="Waydroid是什么"></a>Waydroid是什么</h2><p>Waydroid是一个基于lxc容器技术，用以启动完整安卓系统的方案。</p>
-<p>默认使用了LineageOS-17.1，对应 Aosp10，相比起 anbox 显然是更加新了。</p>
-<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/62f3cb238c027.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="是长成这样"></p>
-<h2 id="内核支持"><a href="#内核支持" class="headerlink" title="内核支持"></a>内核支持</h2><p>waydroid需要内核提供<code>Ashmem</code>和<code>binder</code>支持，西木野羰基是使用的自己编译的内核。而我在使用Archlinux，因此直接使用<code>linux-zen</code>即可。</p>
-<blockquote>
-<p>注: AUR上的<code>linux-xanmod</code>虽然也有这些模块支持，但是在编译时设置了<code>psi=0</code>以提升性能，而waydroid恰巧需要<code>psi=1</code>的支持，故不可使用。</p>
-</blockquote>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>Archlinux已经有人将其打包上传到了AUR，我们直接安装即可。我使用的 AUR Helper 是 yay，所以直接</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">yay -S waydroid --noconfirm<br></code></pre></td></tr></table></figure>
-
-<p>再装个<code>python-pyclip</code>解决剪切板同步的问题</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">yay -S python-pyclip<br></code></pre></td></tr></table></figure>
-
-<h2 id="下载Waydroid镜像"><a href="#下载Waydroid镜像" class="headerlink" title="下载Waydroid镜像"></a>下载Waydroid镜像</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo waydroid init<br></code></pre></td></tr></table></figure>
-
-<p>这一步将会自动（从SourceForge）下载纯净的LineageOS镜像压缩包并解压，处于中国大陆网络环境的用户记得（          ）</p>
-<p>如果你需要Gapps，可以指定下载Gapps版本，但是这将需要你获取<code>Android ID</code>并向谷歌提交 Custom Rom 的 Gapps 申请。见<a target="_blank" rel="noopener" href="https://www.google.com/android/uncertified/">这里</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo waydroid init -s GAPPS<br></code></pre></td></tr></table></figure>
-
-<h2 id="启用服务"><a href="#启用服务" class="headerlink" title="启用服务"></a>启用服务</h2><p>这个没什么好说的，使用systemctl启动服务。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo systemctl start waydroid-container.service<br></code></pre></td></tr></table></figure>
-
-<h2 id="开启waydroid"><a href="#开启waydroid" class="headerlink" title="开启waydroid"></a>开启waydroid</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">waydroid session start<br></code></pre></td></tr></table></figure>
-
-<h2 id="一些简单的使用技巧"><a href="#一些简单的使用技巧" class="headerlink" title="一些简单的使用技巧"></a>一些简单的使用技巧</h2><p>如果你想直接展示整个系统界面，可以使用</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">waydroid show-full-ui<br></code></pre></td></tr></table></figure>
-
-<p>我们也可以用<code>waydroid app launch $&#123;package_name&#125;</code>的方式来启动单个应用（包名可以使用<code>waydroid app list</code>来获取</p>
-<p>当然，可以直接在Linux环境里 安装 某个apk</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">waydroid app install path/to/apkfile.apk<br></code></pre></td></tr></table></figure>
-
-<p>F11有助于解决应用分辨率问题，左Alt有助于解决键盘无法输入的问题。</p>
-<p>Github上有个<a target="_blank" rel="noopener" href="https://github.com/casualsnek/waydroid_script">脚本</a>，可以帮助 安装OpenGapps/Magisk/arm转译库/获取Android ID。</p>
-<h2 id="牢骚时间"><a href="#牢骚时间" class="headerlink" title="牢骚时间"></a>牢骚时间</h2><ul>
-<li>对AMD和英伟达的显卡支持都不太行</li>
-<li>不能直接输入中文，还是得借助安卓系统内的输入法。</li>
-<li>不自带arm转译库，通过脚本安装的转译库似乎兼容性挺差（至少我是成功打开什么arm软件</li>
-<li>系统运行的流畅度还可以</li>
-<li>相关的资料似乎有点少，官方的文档也没有写得太详细</li>
-<li>Waydroid会自动在<code>$HOME/.local/share/applications/</code>为wayland内的安装应用添加Desktop文件（这让我有些反感</li>
-</ul>
-<h2 id="一些截图"><a href="#一些截图" class="headerlink" title="一些截图"></a>一些截图</h2><p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/62f3cb26cba03.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
-<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/62f3cc722835c.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="原生安卓从未变过的应用抽屉"></p>
-<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/62f3cc76b986c.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="这充电速度太刺激啦！"></p>
+                <p>自建的图床自 8 月 13 日正式启用以来，已经过去一周多了，具体的费用是多少呢？原先设计的 0 额外投入有没有实现呢？</p>
+<p><img src="https://cdn.zhullyb.top/uploads/2024/08/21/74605f0ef84a9.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="博客访问统计"></p>
+<p>这是我的博客访问统计，在这一周多的时间内，一共有 1.27k 次页面访问，被 671 个访客访问了 769 次，平均下来每天也有一百多次的页面访问。</p>
+<p>Cloudflare Workers 和 Cloudflare R2 的免费额度全部够用，用量全部小于免费额度的 1%。</p>
+<p><img src="https://cdn.zhullyb.top/uploads/2024/08/21/96ec475817b8f.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="R2 的免费额度"></p>
+<p><img src="https://cdn.zhullyb.top/uploads/2024/08/21/7a26d392e6c90.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="R2 的用量"></p>
+<p><img src="https://cdn.zhullyb.top/uploads/2024/08/21/31a7f3c316b47.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="Cloudflare Workers 过去 24 小时内的请求次数"></p>
+<p>又拍云联盟每年可以领取 67 元的代金券，平均每天控制在 0.18 元内即可实现白嫖。</p>
+<p><img src="https://cdn.zhullyb.top/uploads/2024/08/21/1c4eeac63a2fb.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="又拍云账单"></p>
+<p><strong>可以看到，这一套图床在我博客当前和可见的未来的访客情况下，在不被人恶意刷流量的情况下，是不需要投入除域名续费以外的其他成本的。</strong></p>
 
                 
               </div>
@@ -402,13 +367,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Archlinux/" class="print-no-link">#Archlinux</a>
+        <a href="/tags/CDN/" class="print-no-link">#CDN</a>
       
-        <a href="/tags/Experience/" class="print-no-link">#Experience</a>
-      
-        <a href="/tags/KDE/" class="print-no-link">#KDE</a>
-      
-        <a href="/tags/Waydroid/" class="print-no-link">#Waydroid</a>
+        <a href="/tags/%E5%9B%BE%E5%BA%8A/" class="print-no-link">#图床</a>
       
     </div>
   
@@ -420,8 +381,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Waydroid on KDE 初体验</div>
-      <div>https://zhul.in/2021/10/31/waydroid-experience-on-kde/</div>
+      <div>自建图床小记五——费用</div>
+      <div>https://zhul.in/2024/08/21/self-host-cdn-expense/</div>
     </div>
     <div class="license-meta">
       
@@ -433,13 +394,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2021年10月31日</div>
+          <div>2024年8月21日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2024年8月12日</div>
+          <div>2024年8月21日</div>
         </div>
       
       
@@ -482,18 +443,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/11/05/please-dont-theme-our-apps/" title="【翻译】请别再使用主题装饰我们的软件">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">【翻译】请别再使用主题装饰我们的软件</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/10/24/picuploader-with-kde-action/" title="PicUploader使用系列（二）——为KDE的dolphin添加右键快捷菜单">
-                        <span class="hidden-mobile">PicUploader使用系列（二）——为KDE的dolphin添加右键快捷菜单</span>
+                      <a href="/2024/08/20/picbed-upload-script-and-image-migration/" title="自建图床小记四——上传脚本编写与图片迁移">
+                        <span class="hidden-mobile">自建图床小记四——上传脚本编写与图片迁移</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
