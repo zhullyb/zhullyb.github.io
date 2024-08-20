@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zhul.in/2024/08/20/picbed-upload-script-and-image-migration/</loc>
+    
+    <lastmod>2024-08-20</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zhul.in/2024/07/18/my-blog-is-completely-proxied-and-translated-into-traditional-chinese/</loc>
     
     <lastmod>2024-08-20</lastmod>
@@ -155,7 +164,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2022/04/14/fastocr-experience/</loc>
+    <loc>https://zhul.in/2022/07/03/fcitx5-blinking-on-tg-under-wayland-kde/</loc>
     
     <lastmod>2024-08-12</lastmod>
     
@@ -164,7 +173,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2022/07/03/fcitx5-blinking-on-tg-under-wayland-kde/</loc>
+    <loc>https://zhul.in/2022/04/14/fastocr-experience/</loc>
     
     <lastmod>2024-08-12</lastmod>
     
@@ -1271,14 +1280,14 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/tags/Experience/</loc>
+    <loc>https://zhul.in/tags/KDE/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://zhul.in/tags/KDE/</loc>
+    <loc>https://zhul.in/tags/Experience/</loc>
     <lastmod>2024-08-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
