@@ -10,6 +10,36 @@ tags:
 - Cloudflare
 ---
 
+**2024.08.20更新: **
+
+我将境外的 Github Pages 解析停了，所有流量全部指向我的 HK 的 vps。
+
+访问对方站点 /?about/ 时，在我服务器 /about/ 收到了一个奇怪的请求，访问对方别的路径时也会在我服务器的对应路径收到请求，UA 伪装成了 Google 家的爬虫:
+
+![caddy 日志](https://cdn.zhullyb.top/uploads/2024/08/20/82e8dc389f081.webp)
+
+（关于为什么有 Mozilla 字段，可以参见 [《是的，所有现代浏览器都假装自己是火狐》](https://imbearchild.cyou/archives/2024/04/yes-browser-are-faking-to-be-firefox/)）
+
+这个 ip 的归属地是新加坡 Cogent，合理怀疑是对方的源站 IP（也有可能只是对方用于请求的爬虫 ip）。直接通过 ip 访问对方站点，发现是 lnmp 的安装成功提示:
+
+![ip 访问](https://cdn.zhullyb.top/uploads/2024/08/20/4d181fd0bcc11.webp)
+
+我注意到对方站点在 html 结尾处加了如下字段
+
+![这里是直接请求的 archive 存档，所以有 archive 前缀](https://cdn.zhullyb.top/uploads/2024/08/20/057a829ec9e4a.webp)
+
+```html
+<!-- freevslinks --><div style="display:none"><a href="http://www.xxfseo.com/?time=1721267439">xxfseo.com</a></div><!-- /freevslinks -->
+```
+
+![官网](https://cdn.zhullyb.top/uploads/2024/08/20/b0449632623b2.webp)
+
+似乎是专业产生互联网垃圾的组织。
+
+我目前已经屏蔽了来自 `154.39.149.128` 这个 ip 的访问请求，对方的站点暂时性崩盘，以后可能会换用别的 ip 来爬也说不准，先到此为止吧。
+
+***
+
 ## 现象
 
 今早打开我的流量统计网站，发现我的博客有一个神奇的 referer
