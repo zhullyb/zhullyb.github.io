@@ -425,7 +425,9 @@ footer:
     <i class="iconfont icon-love"></i>
     <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a>
     <br />
-    <span>本网站由 <a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img style="max-height: 50px" src="https://cdn.zhullyb.top/uploads/2024/08/12/ba8d70971c408.webp" alt="又拍云" /></a> 提供 CDN 加速/云存储服务</span>
+    <a href="https://notbyai.fyi/" target="_blank"><img style="max-height: 50px; margin: 10px" src=https://cdn.zhullyb.top/uploads/2024/08/28/ae6dd98bdf60e.png alt="written by human, not by AI" /></a>
+    <br />
+    <span>本网站由 <a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img style="max-height: 50px;" src="https://cdn.zhullyb.top/uploads/2024/08/12/ba8d70971c408.webp" alt="又拍云" /></a> 提供 CDN 加速/云存储服务</span>
     <script>
     const url = window.location.href
     if (url.includes("theodorelobas.com") {
