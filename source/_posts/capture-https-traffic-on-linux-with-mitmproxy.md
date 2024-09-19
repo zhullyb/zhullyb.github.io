@@ -5,7 +5,7 @@ sticky:
 execrpt:
 tags:
 - Linux
-- Archlnux
+- Archlinux
 - Network
 - mitmproxy
 ---
