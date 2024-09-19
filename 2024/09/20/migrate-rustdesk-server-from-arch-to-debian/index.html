@@ -21,29 +21,30 @@
   <meta name="author" content="竹林里有冰">
   <meta name="keywords" content="博客, 技术, Fedora">
   
-    <meta name="description" content="进入大学已经快一年了，但我的 Azure 教育订阅申请一直没有成功，每年有 100 刀的额度，再这样下去就要亏掉近 700 元了，于是便打算趁期中考试刚结束的闲暇时间把 Azure 的教育订阅给过了。 我拥有 *.edu.cn 的邮箱，并且通过了 Github Student Pack 的认证，但每次在 https:&#x2F;&#x2F;signup.azure.com&#x2F;studentverification?of">
+    <meta name="description" content="这次迁移主要是两方面原因，一来是我安装了 Arch Linux 的 VPS 要过期了，续费价格过高，没有续费的动力；二来是手上的 VPS 越来越多，逐渐意识到 Arch Linux 作为滚动发行版，每次安装新的软件都要 Syu 甚至重启系统，实在没有太多的精力去维护，这也是为什么 Arch Linux 仅适合桌面发行版。 原本在 Arch Linux 上部署的 rustdesk server 我是">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Azure 教育订阅申请时遇到的麻烦">
-<meta property="og:url" content="https://zhul.in/2023/05/12/troubles-when-applying-azure-education/index.html">
+<meta property="og:title" content="将 Rustdesk 中继服务从 Arch Linux 迁移至 Debian">
+<meta property="og:url" content="https://zhul.in/2024/09/20/migrate-rustdesk-server-from-arch-to-debian/index.html">
 <meta property="og:site_name" content="竹林里有冰的博客">
-<meta property="og:description" content="进入大学已经快一年了，但我的 Azure 教育订阅申请一直没有成功，每年有 100 刀的额度，再这样下去就要亏掉近 700 元了，于是便打算趁期中考试刚结束的闲暇时间把 Azure 的教育订阅给过了。 我拥有 *.edu.cn 的邮箱，并且通过了 Github Student Pack 的认证，但每次在 https:&#x2F;&#x2F;signup.azure.com&#x2F;studentverification?of">
+<meta property="og:description" content="这次迁移主要是两方面原因，一来是我安装了 Arch Linux 的 VPS 要过期了，续费价格过高，没有续费的动力；二来是手上的 VPS 越来越多，逐渐意识到 Arch Linux 作为滚动发行版，每次安装新的软件都要 Syu 甚至重启系统，实在没有太多的精力去维护，这也是为什么 Arch Linux 仅适合桌面发行版。 原本在 Arch Linux 上部署的 rustdesk server 我是">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/645e646bc5b58.webp">
-<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/645e5fdfb25a3.webp">
-<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/645e60ad79001.webp">
-<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/645e62bae0c0a.webp">
-<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/645e639e2c9d1.webp">
-<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/645e63e39523f.webp">
-<meta property="article:published_time" content="2023-05-12T15:38:29.000Z">
-<meta property="article:modified_time" content="2024-08-12T07:22:18.000Z">
+<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/09/20/59d08477f8a0b.webp">
+<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/09/20/527c5b1151a57.webp">
+<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/09/20/cc715265b8b37.webp">
+<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/09/20/3108bac773390.webp">
+<meta property="article:published_time" content="2024-09-19T19:20:38.000Z">
+<meta property="article:modified_time" content="2024-09-19T20:28:28.000Z">
 <meta property="article:author" content="竹林里有冰">
-<meta property="article:tag" content="Azure">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Archlinux">
+<meta property="article:tag" content="Rustdesk">
+<meta property="article:tag" content="Debian">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/645e646bc5b58.webp">
+<meta name="twitter:image" content="https://cdn.zhullyb.top/uploads/2024/09/20/59d08477f8a0b.webp">
   
   
   
-  <title>Azure 教育订阅申请时遇到的麻烦 - 竹林里有冰的博客</title>
+  <title>将 Rustdesk 中继服务从 Arch Linux 迁移至 Debian - 竹林里有冰的博客</title>
 
   <link  rel="stylesheet" href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/4.6.0/css/bootstrap.min.css" />
 
@@ -258,7 +259,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Azure 教育订阅申请时遇到的麻烦"></span>
+            <span id="subtitle" data-typed-text="将 Rustdesk 中继服务从 Arch Linux 迁移至 Debian"></span>
           
         </div>
 
@@ -269,8 +270,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-05-12 23:38" pubdate>
-          2023年5月12日 晚上
+        <time datetime="2024-09-20 03:20" pubdate>
+          2024年9月20日 凌晨
         </time>
       </span>
     
@@ -282,7 +283,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          712 字
+          729 字
         
       </span>
     
@@ -331,13 +332,13 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Azure 教育订阅申请时遇到的麻烦</h1>
+            <h1 id="seo-header">将 Rustdesk 中继服务从 Arch Linux 迁移至 Debian</h1>
             
               <p id="updated-time" class="note note-info" style="">
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2024年8月12日 下午
+                    本文最后更新于：2024年9月20日 凌晨
                   
                 
               </p>
@@ -345,21 +346,37 @@
             
               <div class="markdown-body">
                 
-                <p>进入大学已经快一年了，但我的 Azure 教育订阅申请一直没有成功，每年有 100 刀的额度，<del>再这样下去就要亏掉近 700 元了</del>，于是便打算趁期中考试刚结束的闲暇时间把 Azure 的教育订阅给过了。</p>
-<p>我拥有 *.edu.cn 的邮箱，并且通过了 Github Student Pack 的认证，但每次在 <a target="_blank" rel="noopener" href="https://signup.azure.com/studentverification?offerType=1">https://signup.azure.com/studentverification?offerType=1</a> 页面尝试申请 Azure 订阅时，总是会得到一句冷冷的「你没有资格使用 Azure 免费帐户」。于是，我找到了 Azure 订阅支持客服帮忙，链接是这个: <a target="_blank" rel="noopener" href="https://azureforeducation.microsoft.com/en-us/institutions/Contact">https://azureforeducation.microsoft.com/en-us/institutions/Contact</a>，简要填写了我的基本信息后就开始等待邮件回复了。</p>
-<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/645e646bc5b58.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="提交工单"></p>
-<p>我是周四上午申请的，不到一个小时就等来了微软的工单生成通知</p>
-<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/645e5fdfb25a3.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="微软的工单通知"></p>
-<p>但光有这工单也没有用，我只能继续等人工客服的介入。</p>
-<p>在周五的早上十点，我收到了来自人工客服的邮件，并且在几分钟后收到了来自人工客服的电话（电话是 021 开头的，是归属地为上海的座机打来的，但客服操着严重的港台口音，可能是港台那边的客服通过上海的座机中转打给我的？）: </p>
-<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/645e60ad79001.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="人工客服的邮件"></p>
-<p>但很显然，这封邮件并没有提供任何行之有效的方案，我只能按照邮件中的指示将我的截图发了过去。不过客服不知道出于什么原因一定要求全屏截图（如果电话说的是全面屏，那也是指 PC 端的全屏截图），可能是他们有什么工作制度吧。回复邮件的时候一定要选择<strong>回复全部</strong>，好像是他们只使用 <a href="mailto:&#x73;&#x75;&#x70;&#112;&#x6f;&#x72;&#116;&#x40;&#109;&#x61;&#105;&#x6c;&#46;&#x73;&#x75;&#112;&#112;&#x6f;&#114;&#x74;&#x2e;&#x6d;&#105;&#x63;&#114;&#x6f;&#x73;&#x6f;&#102;&#x74;&#x2e;&#99;&#111;&#109;">&#x73;&#x75;&#x70;&#112;&#x6f;&#x72;&#116;&#x40;&#109;&#x61;&#105;&#x6c;&#46;&#x73;&#x75;&#112;&#112;&#x6f;&#114;&#x74;&#x2e;&#x6d;&#105;&#x63;&#114;&#x6f;&#x73;&#x6f;&#102;&#x74;&#x2e;&#99;&#111;&#109;</a> 这一个邮箱与我们通信，微软的服务器收到内容后会将我们发送的内容再抄送给给我们分配的客服手上，如果不选择「回复全部」的话，客服可能就看不到之前的通信记录了。</p>
-<p>于是就在当天下午的2点收到了人工客服的第二封邮件，说是已经帮我提交到了后台处理。</p>
-<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/645e62bae0c0a.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="来自人工客服的第二封邮件"></p>
-<p>20 分钟后，我收到了这封应该是系统自动发送的邮件，说明我的账号因异常而触发了审查所以过不了 Azure 的教育订阅，需要我提交能够佐证我的学生身份的东西上去，当晚7点我便按照要求回信。</p>
-<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/645e639e2c9d1.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="1683907484369.png"></p>
-<p>当晚8点半，我便收到了来自系统的消息，得知异常已经解除，再次申请 Azure 学生认证就成功了。</p>
-<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/645e63e39523f.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="异常解除"></p>
+                <p>这次迁移主要是两方面原因，一来是我安装了 Arch Linux 的 VPS 要过期了，续费价格过高，没有续费的动力；二来是手上的 VPS 越来越多，逐渐意识到 Arch Linux 作为滚动发行版，每次安装新的软件都要 Syu 甚至重启系统，实在没有太多的精力去维护，这也是为什么 Arch Linux 仅适合桌面发行版。</p>
+<p>原本在 Arch Linux 上部署的 rustdesk server 我是按照这篇文章「<a target="_blank" rel="noopener" href="https://www.liyp.cc/archives/1698241638248">(水文)在archlinux上部署rustdesk服务端</a>」部署的。本身没什么技巧，直接从 AUR 安装现成的 rustdesk-server-bin，使用 systemctl 启用 <code>rustdesk-server-hbbr.service</code> 和 <code>rustdesk-server-hbbs.service</code> 两个服务即可。</p>
+<p>Rustdesk 现在为 Debian 提供了官方的中继服务器的 deb 包，而谷歌搜了一圈都是下载 zip 包使用 pm2 管理进程，故写下此文。</p>
+<h2 id="备份原服务器的-rustdesk-密钥"><a href="#备份原服务器的-rustdesk-密钥" class="headerlink" title="备份原服务器的 rustdesk 密钥"></a>备份原服务器的 rustdesk 密钥</h2><p>AUR 上的安装方案将密钥放在 <code>/opt/rustdesk-server/data</code> 直接用 sftp 获取 <code>id_ed25519</code> 和 <code>id_ed25519.pub</code> 两个文件就行。如果是新部署的没有这两个文件也没事，rustdesk 服务在启动时可以自动创建，只不过需要在客户端重新输入公钥。</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs armasm"><span class="hljs-symbol">sftp</span>&gt; <span class="hljs-meta">get</span> /<span class="hljs-meta">opt</span>/rustdesk-server/<span class="hljs-meta">data</span>/id_ed25519<br><span class="hljs-symbol">sftp</span>&gt; <span class="hljs-meta">get</span> /<span class="hljs-meta">opt</span>/rustdesk-server/<span class="hljs-meta">data</span>/id_ed25519.pub<br></code></pre></td></tr></table></figure>
+
+<h2 id="在新服务器上下载-deb-包，进行安装"><a href="#在新服务器上下载-deb-包，进行安装" class="headerlink" title="在新服务器上下载 deb 包，进行安装"></a>在新服务器上下载 deb 包，进行安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs bash">apt install -y curl jq<br>version=$(curl -s https://api.github.com/repos/rustdesk/rustdesk-server/releases/latest | jq .tag_name)<br><br>hbbr_deb=rustdesk-server-hbbr_<span class="hljs-variable">$&#123;version:1:-1&#125;</span>_amd64.deb<br>hbbs_deb=rustdesk-server-hbbs_<span class="hljs-variable">$&#123;version:1:-1&#125;</span>_amd64.deb<br>utils_deb=rustdesk-server-utils_<span class="hljs-variable">$&#123;version:1:-1&#125;</span>_amd64.deb<br><br><span class="hljs-keyword">for</span> deb <span class="hljs-keyword">in</span> <span class="hljs-variable">$hbbr_deb</span> <span class="hljs-variable">$hbbs_deb</span> <span class="hljs-variable">$utils_deb</span><br><span class="hljs-keyword">do</span><br>    curl -L https://github.com/rustdesk/rustdesk-server/releases/download/<span class="hljs-variable">$&#123;version:1:-1&#125;</span>/<span class="hljs-variable">$&#123;deb&#125;</span> -o <span class="hljs-variable">$&#123;deb&#125;</span><br><span class="hljs-keyword">done</span><br><br>dpkg -i <span class="hljs-variable">$hbbr_deb</span> <span class="hljs-variable">$hbbs_deb</span> <span class="hljs-variable">$utils_deb</span><br><span class="hljs-built_in">rm</span> <span class="hljs-variable">$hbbr_deb</span> <span class="hljs-variable">$hbbs_deb</span> <span class="hljs-variable">$utils_deb</span><br></code></pre></td></tr></table></figure>
+
+<p>简单写了个脚本，仅适用 amd64，也没做异常处理，如果服务器在大陆境内需要自行解决 github 下载时可能出现的网络波动问题。</p>
+<p>dpkg 安装结束后默认会启用两个 systemd 服务并开机自启，所以不需要使用 systemctl 手动启用。</p>
+<h2 id="替换密钥"><a href="#替换密钥" class="headerlink" title="替换密钥"></a>替换密钥</h2><p>将刚刚备份的一个公钥和一个私钥放在 Debian 服务器的相应路径，问题是这个路径在哪里呢？</p>
+<p>通过翻看 rustdesk 的 service 文件，我们大概可以定位到是在 <code>/var/lib/rustdesk-server/</code> 路径下的</p>
+<p><img src="https://cdn.zhullyb.top/uploads/2024/09/20/59d08477f8a0b.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="service 问价你"></p>
+<p>直接对两个密钥文件进行替换，重启 rustdesk 相关的两个 service 服务即可。</p>
+<p><img src="https://cdn.zhullyb.top/uploads/2024/09/20/527c5b1151a57.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="密钥文件"></p>
+<h2 id="开放服务器防火墙"><a href="#开放服务器防火墙" class="headerlink" title="开放服务器防火墙"></a>开放服务器防火墙</h2><p>需要开放如下端口，记得 Linux 的防火墙和云服务供应商面板（如果有的话）上都要开放</p>
+<ul>
+<li>TCP(<strong>21115, 21116, 21117, 21118, 21119</strong>)</li>
+<li>UDP(<strong>21116</strong>)</li>
+</ul>
+<h2 id="客户端设置"><a href="#客户端设置" class="headerlink" title="客户端设置"></a>客户端设置</h2><p>id_ed25519.pub 对应客户端中需要输入的 Key，大概长成下面这个样子</p>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs abnf"><span class="hljs-attribute">rdtxujYccRLXwXOu2KR3V9cGgP51lEdSmE0HJHGNkn4</span><span class="hljs-operator">=</span><br></code></pre></td></tr></table></figure>
+
+<p><img src="https://cdn.zhullyb.top/uploads/2024/09/20/cc715265b8b37.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
+<p>ID 服务器直接输入中继服务器的 ip 或者解析到对应 ip 的域名即可，另外两个地址可以不填，RustDesk会自动推导（如果没有特别设定）</p>
+<h2 id="成果展示"><a href="#成果展示" class="headerlink" title="成果展示"></a>成果展示</h2><p><img src="https://cdn.zhullyb.top/uploads/2024/09/20/3108bac773390.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="成果展示"></p>
+<h2 id="参见"><a href="#参见" class="headerlink" title="参见"></a>参见</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://rustdesk.com/docs/en/self-host/rustdesk-server-oss/install/">Installation :: Documentation for RustDesk</a></li>
+<li><a target="_blank" rel="noopener" href="https://catcat.blog/rustdesk-debian-%E8%87%AA%E5%BB%BA%E4%B8%AD%E7%BB%A7%E6%9C%8D%E5%8A%A1%E5%99%A8.html">RustDesk Debian 自建中继服务器</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.liyp.cc/archives/1698241638248">(水文)在archlinux上部署rustdesk服务端</a></li>
+</ul>
 
                 
               </div>
@@ -372,7 +389,13 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Azure/" class="print-no-link">#Azure</a>
+        <a href="/tags/Linux/" class="print-no-link">#Linux</a>
+      
+        <a href="/tags/Archlinux/" class="print-no-link">#Archlinux</a>
+      
+        <a href="/tags/Rustdesk/" class="print-no-link">#Rustdesk</a>
+      
+        <a href="/tags/Debian/" class="print-no-link">#Debian</a>
       
     </div>
   
@@ -384,8 +407,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Azure 教育订阅申请时遇到的麻烦</div>
-      <div>https://zhul.in/2023/05/12/troubles-when-applying-azure-education/</div>
+      <div>将 Rustdesk 中继服务从 Arch Linux 迁移至 Debian</div>
+      <div>https://zhul.in/2024/09/20/migrate-rustdesk-server-from-arch-to-debian/</div>
     </div>
     <div class="license-meta">
       
@@ -397,13 +420,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年5月12日</div>
+          <div>2024年9月20日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2024年8月12日</div>
+          <div>2024年9月20日</div>
         </div>
       
       
@@ -446,18 +469,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/06/24/redmi-ac2100-router-with-padavan/" title="为红米 Redmi AC2100 路由器刷入 Padavan">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">为红米 Redmi AC2100 路由器刷入 Padavan</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/05/03/checkout-lfs-file-after-repo-sync/" title="执行 repo sync 后将 git-lfs 中的资源文件 checkout">
-                        <span class="hidden-mobile">执行 repo sync 后将 git-lfs 中的资源文件 checkout</span>
+                      <a href="/2024/08/21/self-host-cdn-expense/" title="自建图床小记五——费用">
+                        <span class="hidden-mobile">自建图床小记五——费用</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

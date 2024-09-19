@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zhul.in/2024/02/29/capture-https-traffic-on-linux-with-mitmproxy/</loc>
+    
+    <lastmod>2024-09-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2024/09/20/migrate-rustdesk-server-from-arch-to-debian/</loc>
+    
+    <lastmod>2024-09-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zhul.in/2024/08/21/self-host-cdn-expense/</loc>
     
     <lastmod>2024-08-20</lastmod>
@@ -56,7 +74,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/01/01/Why-I-dont-recommend-Manjaro/</loc>
+    <loc>https://zhul.in/2022/08/04/a-fucking-store-about-openssl3-and-nodejs16/</loc>
     
     <lastmod>2024-08-12</lastmod>
     
@@ -65,7 +83,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2022/08/04/a-fucking-store-about-openssl3-and-nodejs16/</loc>
+    <loc>https://zhul.in/2021/01/01/Why-I-dont-recommend-Manjaro/</loc>
     
     <lastmod>2024-08-12</lastmod>
     
@@ -93,15 +111,6 @@
   
   <url>
     <loc>https://zhul.in/2024/07/31/capture-android-https-traffic-on-linux-with-mitmproxy/</loc>
-    
-    <lastmod>2024-08-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2024/02/29/capture-https-traffic-on-linux-with-mitmproxy/</loc>
     
     <lastmod>2024-08-12</lastmod>
     
@@ -182,7 +191,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2022/07/03/fcitx5-blinking-on-tg-under-wayland-kde/</loc>
+    <loc>https://zhul.in/2022/11/08/free-umami-deploy-plan/</loc>
     
     <lastmod>2024-08-12</lastmod>
     
@@ -191,7 +200,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2022/11/08/free-umami-deploy-plan/</loc>
+    <loc>https://zhul.in/2022/07/03/fcitx5-blinking-on-tg-under-wayland-kde/</loc>
     
     <lastmod>2024-08-12</lastmod>
     
@@ -1170,13 +1179,6 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/tags/Archlnux/</loc>
-    <lastmod>2024-09-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://zhul.in/tags/%E9%95%9C%E5%83%8F%E7%AB%99/</loc>
     <lastmod>2024-09-19</lastmod>
     <changefreq>weekly</changefreq>
@@ -1233,14 +1235,14 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/tags/Privacy/</loc>
+    <loc>https://zhul.in/tags/Blog/</loc>
     <lastmod>2024-09-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://zhul.in/tags/Blog/</loc>
+    <loc>https://zhul.in/tags/Privacy/</loc>
     <lastmod>2024-09-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1339,6 +1341,13 @@
   
   <url>
     <loc>https://zhul.in/tags/CSS/</loc>
+    <lastmod>2024-09-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/Debian/</loc>
     <lastmod>2024-09-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
