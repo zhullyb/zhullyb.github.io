@@ -359,7 +359,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">bwrap --dev-bind / / --tmpfs <span class="hljs-variable">$HOME</span>/.config wemeet<br></code></pre></td></tr></table></figure>
 
 <p>软件启动确认没有问题后，我们可以更改腾讯会议desktop中的启动命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo <span class="hljs-variable">$EDITOR</span> /usr/share/applications/wemeetapp.desktop<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> <span class="hljs-variable">$EDITOR</span> /usr/share/applications/wemeetapp.desktop<br></code></pre></td></tr></table></figure>
 
 <p>将<code>Exec=</code>后面的命令改成我们刚刚启动所使用的命令即可。</p>
 <blockquote>

@@ -552,22 +552,22 @@
 <h3 id="防火墙的配置"><a href="#防火墙的配置" class="headerlink" title="防火墙的配置"></a>防火墙的配置</h3><p>关于防火墙，iptables 是 Linux 系统中最早使用的防火墙工具，它基于内核模块来过滤网络数据包。nftables 是 iptables 的继任者，与 iptables 相比，nftables 更简单易用，同时性能也更好。</p>
 <p>但我这边想要推荐的是 ufw，他是 iptables 的一个前端，它提供一个更简单、更易于使用的命令行界面。UFW 基于 iptables 来实现其功能，但它不被用来直接使用 iptables 命令。UFW 使用自己的命令来配置防火墙，这些命令被转换为 iptables 命令并执行。</p>
 <p>查看 ufw 状态</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo ufw status<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> ufw status<br></code></pre></td></tr></table></figure>
 
 <p>禁用所有端口</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo ufw deny all<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> ufw deny all<br></code></pre></td></tr></table></figure>
 
 <p>开放 22 端口(ssh 的默认端口，禁用可能导致服务器失联)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo ufw allow 22<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> ufw allow 22<br></code></pre></td></tr></table></figure>
 
 <p>开放 80 端口</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo ufw allow 80<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> ufw allow 80<br></code></pre></td></tr></table></figure>
 
 <p>开放 443 端口</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo ufw allow 443<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> ufw allow 443<br></code></pre></td></tr></table></figure>
 
 <p>启用 ufw</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo ufw <span class="hljs-built_in">enable</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> ufw <span class="hljs-built_in">enable</span><br></code></pre></td></tr></table></figure>
 
 <h3 id="包管理器是什么"><a href="#包管理器是什么" class="headerlink" title="包管理器是什么"></a>包管理器是什么</h3><h3 id="Linux-常用命令"><a href="#Linux-常用命令" class="headerlink" title="Linux 常用命令"></a>Linux 常用命令</h3><h3 id="常用的一些debug手段"><a href="#常用的一些debug手段" class="headerlink" title="常用的一些debug手段"></a>常用的一些debug手段</h3>
                 

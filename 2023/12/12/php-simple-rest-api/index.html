@@ -366,7 +366,7 @@
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs awk">localhost<span class="hljs-regexp">/api/u</span>sers.php<br></code></pre></td></tr></table></figure>
 
 <p>我需要为每一个 user id 创建一个新的文件</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs awk">localhost<span class="hljs-regexp">/api/u</span>sers/<span class="hljs-number">1</span>.php<br>localhost<span class="hljs-regexp">/api/u</span>sers/<span class="hljs-number">2</span>.php<br></code></pre></td></tr></table></figure>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">localhost</span>/api/users/<span class="hljs-number">1</span>.php<br><span class="hljs-attribute">localhost</span>/api/users/<span class="hljs-number">2</span>.php<br></code></pre></td></tr></table></figure>
 
 <p>以此类推。</p>
 <p>这种方案有两个问题</p>
@@ -382,7 +382,7 @@
 
 <p>我们告诉服务器，将所有指向 /api 的请求都转发到 index.php 文件</p>
 <p>现在，所有的 url 都指向 index.php 了，比如下面的 url 都是指向 index.php 的</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs awk">api/users<br>api<span class="hljs-regexp">/users/</span><span class="hljs-number">10</span><br>api<span class="hljs-regexp">/users/</span><span class="hljs-number">5</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">api/users<br>api/users/10<br>api/users/5<br></code></pre></td></tr></table></figure>
 
 <p>现在我们同时解决了这两个问题</p>
 <ol>

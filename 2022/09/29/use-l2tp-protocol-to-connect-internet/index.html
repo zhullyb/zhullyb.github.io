@@ -351,7 +351,7 @@
 <p>在 <a target="_blank" rel="noopener" href="https://imbearchild.cyou/">BearChild</a> 的提醒下，我意识到 Linux 下也可以有 l2tp 协议。</p>
 <p>谷歌搜索了一番，我在简书上捞到了这篇文章<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/85cd5bd3c7a2">《ubuntu 连校园网 via l2tp》</a>。不过这显然有些麻烦，我们的客户端不需要 pppoe 拨号，只需要插上网线后连接 l2tp 协议即可联网。</p>
 <p>所幸，NetworkManager 非常贴心地为我们提供了 l2tp 的插件，在 Archlinux 下使用如下命令即可完成安装。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo pacman -S networkmanager-l2tp<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> pacman -S networkmanager-l2tp<br></code></pre></td></tr></table></figure>
 
 <p>安装完成后，就可以在图形化界面下进行我们的设置操作。</p>
 <p>由于定制的客户端已经把 l2tp 服务器 ip 写死且显示在界面上了，我们就不需要再去抓包截取服务器 ip，直接使用这边的 <code>192.168.115.1</code> 即可。</p>

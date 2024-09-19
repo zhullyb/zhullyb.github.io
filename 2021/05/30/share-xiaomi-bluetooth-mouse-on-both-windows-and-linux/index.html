@@ -363,7 +363,7 @@
 <p>为了方便后面的解说，我用各种颜色标注了起来。</p>
 </blockquote>
 <p>在Linux下获取su权限以后，我们需要将Linux下随机分配给鼠标的蓝牙地址改成在Windows上获取的那个地址。上图中「红部分」划出来的就是Windows下获取的地址。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">[zhullyb@Archlinux ~]$ su<br>Password: <br>[root@Archlinux zhullyb]<span class="hljs-comment"># cd /var/lib/bluetooth/E0\:94\:67\:74\:0D\:5F/</span><br>[root@Archlinux E0:94:67:74:0D:5F]<span class="hljs-comment"># ls</span><br>C6:2A:1B:33:2E:71  cache  settings<br>[root@Archlinux E0:94:67:74:0D:5F]<span class="hljs-comment"># mv C6\:2A\:1B\:33\:2E\:71/ C4\:F6\:B3\:2C\:BD\:7E</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">[zhullyb@Archlinux ~]$ su<br>Password: <br>[root@Archlinux zhullyb]# <span class="hljs-built_in">cd</span> /var/lib/bluetooth/E0\:94\:67\:74\:0D\:5F/<br>[root@Archlinux E0:94:67:74:0D:5F]# <span class="hljs-built_in">ls</span><br>C6:2A:1B:33:2E:71  cache  settings<br>[root@Archlinux E0:94:67:74:0D:5F]# <span class="hljs-built_in">mv</span> C6\:2A\:1B\:33\:2E\:71/ C4\:F6\:B3\:2C\:BD\:7E<br></code></pre></td></tr></table></figure>
 
 <p>再编辑<code>/var/lib/bluetooth/&lt;本机蓝牙地址&gt;/&lt;鼠标蓝牙地址&gt;/info</code></p>
 <p>原文件如下：</p>

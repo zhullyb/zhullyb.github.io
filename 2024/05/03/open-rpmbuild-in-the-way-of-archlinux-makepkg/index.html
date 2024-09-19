@@ -366,10 +366,10 @@
 
 <p>现在在任何一个目录下执行 rpmbuild 相关命令，都会把 src 认为是构建目录，pkg 是最后安装目录，spec 文件和源文件早当前文件夹下，构建产物在当前文件夹下的 x86_64（或者别的架构名，这一层目录我还没有找到应该如何去掉）下。</p>
 <h2 id="自动安装依赖文件"><a href="#自动安装依赖文件" class="headerlink" title="自动安装依赖文件"></a>自动安装依赖文件</h2><p>Fedora 中的 rpmbuild 不带有 makepkg -s 的功能，不能自动安装依赖。不过这也不意味着需要自己傻傻地去翻 spec 看看需要哪些构建依赖。可以使用 dnf 的 builddep 命令实现</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo dnf builddep ./*.spec<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> dnf builddep ./*.spec<br></code></pre></td></tr></table></figure>
 
 <p>不过 dnf 没有什么完成构建后自动卸载依赖的选项。<del>这些依赖装完以后就一辈子赖在你的电脑上了</del>，才不是，可以在构建完成后使用 dnf 自带的后悔药功能撤销上一条命令执行的效果。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo dnf <span class="hljs-built_in">history</span> undo 0<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> dnf <span class="hljs-built_in">history</span> undo 0<br></code></pre></td></tr></table></figure>
 
 <p>不过如果在 builddep 过程中，dnf 从 updates 源里更新了一些软件，那么它在 undo 时可能就没法获取更新前的软件版本。会有 <code>Cannot find rpm nevra</code>  的提示</p>
 <p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/6635018238ffa.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>

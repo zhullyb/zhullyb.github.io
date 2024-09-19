@@ -359,14 +359,14 @@
 <p>再装个<code>python-pyclip</code>解决剪切板同步的问题</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">yay -S python-pyclip<br></code></pre></td></tr></table></figure>
 
-<h2 id="下载Waydroid镜像"><a href="#下载Waydroid镜像" class="headerlink" title="下载Waydroid镜像"></a>下载Waydroid镜像</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo waydroid init<br></code></pre></td></tr></table></figure>
+<h2 id="下载Waydroid镜像"><a href="#下载Waydroid镜像" class="headerlink" title="下载Waydroid镜像"></a>下载Waydroid镜像</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> waydroid init<br></code></pre></td></tr></table></figure>
 
 <p>这一步将会自动（从SourceForge）下载纯净的LineageOS镜像压缩包并解压，处于中国大陆网络环境的用户记得（          ）</p>
 <p>如果你需要Gapps，可以指定下载Gapps版本，但是这将需要你获取<code>Android ID</code>并向谷歌提交 Custom Rom 的 Gapps 申请。见<a target="_blank" rel="noopener" href="https://www.google.com/android/uncertified/">这里</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo waydroid init -s GAPPS<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> waydroid init -s GAPPS<br></code></pre></td></tr></table></figure>
 
 <h2 id="启用服务"><a href="#启用服务" class="headerlink" title="启用服务"></a>启用服务</h2><p>这个没什么好说的，使用systemctl启动服务。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo systemctl start waydroid-container.service<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> systemctl start waydroid-container.service<br></code></pre></td></tr></table></figure>
 
 <h2 id="开启waydroid"><a href="#开启waydroid" class="headerlink" title="开启waydroid"></a>开启waydroid</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">waydroid session start<br></code></pre></td></tr></table></figure>
 

@@ -349,7 +349,7 @@
 <p>答案是肯定的。</p>
 <p>得益于 git 的版本控制特色，在 hollywood 的 github 仓库中，我们可以找到原来的 <a target="_blank" rel="noopener" href="https://github.com/dustinkirkland/hollywood/blob/67839229f878a08521885e9fc05dd2d3ba10ddd1/share/hollywood/mi.mp4">mp4 文件</a>。</p>
 <p>下载这个 mp4 文件后，我们将其放入 <code>/usr/share/hollywood/</code> 路径下，重命名为 <code>soundwave.mp4</code>，并确保其被正确设定为 0644 权限。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sudo install -Dm644 ./mi.mp4 /usr/share/hollywood/soundwave.mp4<br></code></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> install -Dm644 ./mi.mp4 /usr/share/hollywood/soundwave.mp4<br></code></pre></td></tr></table></figure>
 
 <p>接下来试着跑一跑 <code>hollywood</code>，发现依然没有声音。再次查阅源码，发现缺少了 <code>mplayer</code> 这个依赖。</p>
 <p>使用包管理器安装 <code>mplayer</code> 后，运行 <code>hollywood</code> 就可以听到声音了。</p>
