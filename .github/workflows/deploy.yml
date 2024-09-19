@@ -58,4 +58,4 @@ jobs:
           ssh-keyscan -p 8022 aliyunhk.cname.5435486.xyz >> ~/.ssh/known_hosts
 
       - name: Deploy to VPS
-        run: pnpm deploy
+        run: pnpm run deploy
