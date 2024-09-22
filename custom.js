@@ -267,3 +267,37 @@ if (
   })(window);
 }
 
+const backgrounds = [
+  "https://cdn.zhullyb.top/uploads/2024/08/12/62f373292129a.webp",
+  "https://cdn.zhullyb.top/uploads/2024/08/12/62f3732b562d8.webp",
+  "https://cdn.zhullyb.top/uploads/2024/08/12/62f3732d6ebe2.webp",
+  "https://cdn.zhullyb.top/uploads/2024/08/12/62f3732f6b225.webp",
+  "https://cdn.zhullyb.top/uploads/2024/08/12/62f37332b1c8b.webp",
+  "https://cdn.zhullyb.top/uploads/2024/08/12/62f37338661d8.webp",
+  "https://cdn.zhullyb.top/uploads/2024/08/12/62f3733c35741.webp",
+  "https://cdn.zhullyb.top/uploads/2024/08/12/62f3733deca7f.webp",
+  "https://cdn.zhullyb.top/uploads/2024/08/12/62f373406909e.webp",
+  "https://cdn.zhullyb.top/uploads/2024/08/12/62f373423b6c0.webp",
+  "https://cdn.zhullyb.top/uploads/2024/08/12/62f37343c5254.webp",
+  "https://cdn.zhullyb.top/uploads/2024/08/12/62f37345532e7.webp",
+  "https://cdn.zhullyb.top/uploads/2024/08/12/62f373479efcf.webp",
+  "https://cdn.zhullyb.top/uploads/2024/08/12/62f3734a2de90.webp",
+  "https://cdn.zhullyb.top/uploads/2024/08/12/62f3734bea5a7.webp",
+  "https://cdn.zhullyb.top/uploads/2024/08/12/62f3734dc3404.webp",
+  "https://cdn.zhullyb.top/uploads/2024/08/12/62f3734fe20d3.webp",
+  "https://cdn.zhullyb.top/uploads/2024/08/12/62f37351bae52.webp",
+  "https://cdn.zhullyb.top/uploads/2024/08/12/62f373539bd9f.webp",
+  "https://cdn.zhullyb.top/uploads/2024/08/12/62f37354f1ec7.webp",
+  "https://cdn.zhullyb.top/uploads/2024/08/12/62f373569f4ef.webp",
+  "https://cdn.zhullyb.top/uploads/2024/08/12/62f3735851795.webp",
+  "https://cdn.zhullyb.top/uploads/2024/08/12/62f37359a2c36.webp",
+  "https://cdn.zhullyb.top/uploads/2024/08/12/5fd959de5f180.webp",
+  "https://cdn.zhullyb.top/uploads/2024/08/12/1ef8787039f53.webp",
+  "https://cdn.zhullyb.top/uploads/2024/08/12/fb261297a3570.webp",
+  "https://cdn.zhullyb.top/uploads/2024/08/12/62f374ea7b242.webp",
+  "https://cdn.zhullyb.top/uploads/2024/08/12/62f374ec8c14d.webp",
+  "https://cdn.zhullyb.top/uploads/2024/08/12/6609df9b83ecd.webp",
+]
+
+const banner = document.getElementById('banner')
+banner.style.background = `url(${backgrounds[Math.floor(Math.random() * backgrounds.length)]}) center center / cover no-repeat`
