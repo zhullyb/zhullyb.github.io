@@ -300,4 +300,4 @@ const backgrounds = [
 ]
 
 const banner = document.getElementById('banner')
-banner.style.background = `url(${backgrounds[Math.floor(Math.random() * backgrounds.length)]}) center center / cover no-repeat`
+// banner.style.background = `url(${backgrounds[Math.floor(Math.random() * backgrounds.length)]}) center center / cover no-repeat`
