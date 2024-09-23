@@ -267,7 +267,7 @@ if (
   })(window);
 }
 
-const backgrounds = [
+const imgs = [
   "https://cdn.zhullyb.top/uploads/2024/08/12/62f373292129a.webp",
   "https://cdn.zhullyb.top/uploads/2024/08/12/62f3732b562d8.webp",
   "https://cdn.zhullyb.top/uploads/2024/08/12/62f3732d6ebe2.webp",
@@ -299,5 +299,6 @@ const backgrounds = [
   "https://cdn.zhullyb.top/uploads/2024/08/12/6609df9b83ecd.webp",
 ]
 
+const luck_img = imgs[Math.floor(Math.random() * imgs.length)]
 const banner = document.getElementById('banner')
-banner.style.background = `url(${backgrounds[Math.floor(Math.random() * backgrounds.length)]}) center center / cover no-repeat`
+banner.style.background = `url(${luck_img}) center center / cover no-repeat`
