@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zhul.in/2024/09/25/random-banner-backgroud-image-implement-for-hexo-fluid-with-javascript/</loc>
+    
+    <lastmod>2024-09-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zhul.in/2024/09/24/log-last-water-boiling-water-with-sunlogin-adapter-power-consumption/</loc>
     
     <lastmod>2024-09-23</lastmod>
@@ -1253,14 +1262,14 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/tags/Privacy/</loc>
+    <loc>https://zhul.in/tags/Blog/</loc>
     <lastmod>2024-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://zhul.in/tags/Blog/</loc>
+    <loc>https://zhul.in/tags/Privacy/</loc>
     <lastmod>2024-09-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
