@@ -1081,6 +1081,12 @@ links:
       link: "https://blog.phlin.top/",
       avatar: "https://qiuniu.phlin.top/bucket/icon.png"
     }
+    - {
+      title: "消失在彩霞里的博客",
+      intro: "一只爱编程的小马",
+      link: "https://blog.aiyin.club/",
+      avatar: "https://image.familystudy.cn/image/other/avatar.jpg"
+    }
 
   # 当成员头像加载失败时，替换为指定图片
   # When the member avatar fails to load, replace the specified image
