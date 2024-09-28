@@ -6,9 +6,11 @@ date: 2021-05-01 23:53:19
 
 ## About Me
 
-咱是一只大二的大本钟，日常全靠摆，就读于浙江工学院。
+咱是一只大三的大本钟，日常全靠摆，就读于浙江工学院。
 
-~~Fedora 用户~~已经叛变到 Archlinux 了，也在维护某些 AUR 和 archlinuxcn 的包，~~dipper 机型的 crDroid Official Maintainer~~
+要吃不起饭了，来个实习救救我吧（
+
+~~Fedora 用户~~又双叒叕叛变到 Archlinux 了，也在维护某些 AUR 和 archlinuxcn 的包，~~dipper 机型的 crDroid Official Maintainer~~
 
 ~~周更（月更（年更（~~月更博主
 
