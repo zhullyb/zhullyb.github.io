@@ -343,10 +343,10 @@ navbar:
       icon: 'iconfont icon-books',
       link: '#',
       submenu: [
-        { key: 'rss订阅', link: '/rss.xml' },
-        { key: '收藏', link: '/collections/' },
-        { key: '流水账', link: 'https://notes.5435486.xyz/' },
-        { key: '给我打钱', link: 'https://zhul.in/donate' }
+        { key: 'rss订阅', link: '/rss.xml', icon: "iconfont icon-rss" },
+        { key: '收藏', link: '/collections/', icon: "iconfont icon-bookmark-fill" },
+        { key: '流水账', link: 'https://notes.5435486.xyz/', icon: "iconfont icon-book" },
+        { key: '给我打钱', link: 'https://zhul.in/donate', icon: "iconfont icon-qrcode" }
       ]
     }
 
@@ -924,7 +924,10 @@ about:
   # 更多图标可从 https://hexo.fluid-dev.com/docs/icon/ 查找，`class` 代表图标的 css class，添加 `qrcode` 后，图标不再是链接而是悬浮二维码
   # More icons can be found from https://hexo.fluid-dev.com/docs/en/icon/  `class` is the css class of the icon. If adding `qrcode`, The icon is no longer a link, but a hovering QR code
   icons:
-    #- { class: "iconfont icon-github-fill", link: "https://github.com", tip: "GitHub" }
+    - { class: "iconfont icon-github-fill", link: "https://github.com/zhullyb", tip: "GitHub" }
+    - { class: "iconfont icon-rss-fill", link: "/rss.xml", tip: "RSS" }
+    - { class: "iconfont icon-mail", link: "mailto:zhullyb@outlook.com", tip: "Email" }
+    - { class: "iconfont icon-book", link: "https://notes.5435486.xyz/", tip: "流水账" }
     #- { class: "iconfont icon-douban-fill", link: "https://douban.com", tip: "豆瓣" }
     #- { class: "iconfont icon-wechat-fill", qrcode: "/img/favicon.png" }
 
