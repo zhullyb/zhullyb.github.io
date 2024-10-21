@@ -8,8 +8,8 @@
 <head>
   <meta charset="UTF-8">
 
-  <link rel="apple-touch-icon" sizes="76x76" href="https://cdn.zhullyb.top/favicon.ico">
-  <link rel="icon" href="https://cdn.zhullyb.top/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://static.031130.xyz/favicon.ico">
+  <link rel="icon" href="https://static.031130.xyz/favicon.ico">
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
@@ -28,21 +28,21 @@
 <meta property="og:site_name" content="竹林里有冰的博客">
 <meta property="og:description" content="最近跟风整了一台 n100 的迷你主机装了个 Archlinux 当 HomeServer，搭配上了显卡欺骗器，平常一直远程使用，因此需要实现稳定的远程桌面连接。开源软件 Rustdesk 本身对 Linux 的适配尚可，可惜官方提供的服务器位于境外，且前一阵子因为诈骗相关的风波使得官方对连接做出了一些限制，应当使用自建服务器或者 ip 直连。 单从网络安全的角度出发，最佳实践应该是通过 wire">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/66814701cf7ce.webp">
-<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/6681635804e68.webp">
-<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/66817e416534c.webp">
-<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/66817f77aae7e.webp">
+<meta property="og:image" content="https://static.031130.xyz/uploads/2024/08/12/66814701cf7ce.webp">
+<meta property="og:image" content="https://static.031130.xyz/uploads/2024/08/12/6681635804e68.webp">
+<meta property="og:image" content="https://static.031130.xyz/uploads/2024/08/12/66817e416534c.webp">
+<meta property="og:image" content="https://static.031130.xyz/uploads/2024/08/12/66817f77aae7e.webp">
 <meta property="article:published_time" content="2024-06-30T10:15:00.000Z">
-<meta property="article:modified_time" content="2024-08-12T07:22:18.000Z">
+<meta property="article:modified_time" content="2024-10-21T14:34:43.000Z">
 <meta property="article:author" content="竹林里有冰">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="Shell Script">
-<meta property="article:tag" content="HomeServer">
 <meta property="article:tag" content="Router">
+<meta property="article:tag" content="HomeServer">
 <meta property="article:tag" content="OpenSource Project">
 <meta property="article:tag" content="Rustdesk">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/66814701cf7ce.webp">
+<meta name="twitter:image" content="https://static.031130.xyz/uploads/2024/08/12/66814701cf7ce.webp">
   
   
   
@@ -84,7 +84,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"zhul.in","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"zhul.in","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -340,7 +340,7 @@
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2024年8月12日 下午
+                    本文最后更新于：2024年10月21日 晚上
                   
                 
               </p>
@@ -353,19 +353,19 @@
 <p>在学校宿舍的电信宽带提供了一个动态公网 ip，因此只需要设置好 ddns 和端口转发就可以拿到一个固定的 domain + port 提供给 rustdesk 直连。</p>
 <h2 id="在被控端-Rustdesk-允许直连访问"><a href="#在被控端-Rustdesk-允许直连访问" class="headerlink" title="在被控端 Rustdesk 允许直连访问"></a>在被控端 Rustdesk 允许直连访问</h2><p>在「设置」中的「安全」一栏选择「解锁安全设置」，拉到最下面的「安全」栏，勾选「允许 IP 直接访问」，并选择一个端口，范围在 1000 ~35535 之间且不要被本地的其他程序占用，Rustdesk 的默认值为 21118。</p>
 <p>可以直接在局域网内的另一台设备进行测试，直接在 Rustdesk 中输入被控端的局域网 ip 和刚刚设置的端口，看看能不能访问得通，如果不行可能需要排查一下被控端访问墙设置的问题。</p>
-<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/66814701cf7ce.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
+<p><img src="https://static.031130.xyz/uploads/2024/08/12/66814701cf7ce.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
 <h2 id="ddns"><a href="#ddns" class="headerlink" title="ddns"></a>ddns</h2><p>由于我的域名是交给 cloudflare 进行解析的，就找了个<a target="_blank" rel="noopener" href="https://github.com/yulewang/cloudflare-api-v4-ddns/">支持 cloudflare 的 ddns 脚本</a>，大致的部署过程可以参考 <a target="_blank" rel="noopener" href="https://www.rclogs.com/2023/06/%25e8%2587%25aa%25e5%25bb%25ba%25e5%259f%25ba%25e4%25ba%258ecloudflare%25e7%259a%2584ddns">「自建基于Cloudflare的DDNS」</a>，不过我小改了一下脚本中获取公网 ipv4 的方式，直接 ssh 到路由器上获取当前的 ipv4 地址，不依赖外部的服务。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">WAN_IP=`ssh -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa root@192.168.1.1 <span class="hljs-string">&#x27;ip -br a&#x27;</span> | grep pppoe-wan | awk <span class="hljs-string">&#x27;&#123;print $3&#125;&#x27;</span>`<br></code></pre></td></tr></table></figure>
 
 <p>理论上来说，有不少路由器自身就支持不少域名解析商</p>
 <h2 id="端口转发"><a href="#端口转发" class="headerlink" title="端口转发"></a>端口转发</h2><p>端口转发需要在路由器的后台设置进行，我这里路由器使用的是 openwrt 系统，大部分路由器应该都支持这个操作。</p>
 <p>在「网络」-「防火墙」</p>
-<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/6681635804e68.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
+<p><img src="https://static.031130.xyz/uploads/2024/08/12/6681635804e68.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
 <p>选择「端口转发」</p>
-<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/66817e416534c.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
+<p><img src="https://static.031130.xyz/uploads/2024/08/12/66817e416534c.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
 <p>新建端口转发，共享名随便填，外部端口是你最终要在主控端输入的端口，内部 IP 地址是被控机 的 IP 地址，可以用 <code>ip -br a</code> 命令看到，内部端口就是上文在 Rustdesk 指定的端口号。</p>
 <h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p>可以直接在主控端口输入 ddns 的域名和端口号，实现远程控制</p>
-<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/66817f77aae7e.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
+<p><img src="https://static.031130.xyz/uploads/2024/08/12/66817f77aae7e.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
 
                 
               </div>
@@ -382,9 +382,9 @@
       
         <a href="/tags/Shell-Script/" class="print-no-link">#Shell Script</a>
       
-        <a href="/tags/HomeServer/" class="print-no-link">#HomeServer</a>
-      
         <a href="/tags/Router/" class="print-no-link">#Router</a>
+      
+        <a href="/tags/HomeServer/" class="print-no-link">#HomeServer</a>
       
         <a href="/tags/OpenSource-Project/" class="print-no-link">#OpenSource Project</a>
       
@@ -419,7 +419,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2024年8月12日</div>
+          <div>2024年10月21日</div>
         </div>
       
       
@@ -608,7 +608,7 @@
     <div class="footer-inner">
   
     <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br /> <a href="https://notbyai.fyi/" target="_blank"><img style="max-height: 50px; margin: 10px" src=https://cdn.zhullyb.top/uploads/2024/08/28/ae6dd98bdf60e.png alt="written by human, not by AI" /></a> <br /> <span>本网站由 <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img style="max-height: 50px;" loading="lazy" src="https://cdn.zhullyb.top/uploads/2024/08/12/ba8d70971c408.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="又拍云 Logo" /></a> 提供 CDN 加速/云存储服务</span> <script> const url = window.location.href if (url.includes("theodorelobas.com") { window.location.href = "https://zhul.in" } </script> 
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br /> <a href="https://notbyai.fyi/" target="_blank"><img style="max-height: 50px; margin: 10px" src=https://static.031130.xyz/uploads/2024/08/28/ae6dd98bdf60e.png alt="written by human, not by AI" /></a> <br /> <span>本网站由 <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img style="max-height: 50px;" loading="lazy" src="https://static.031130.xyz/uploads/2024/08/12/ba8d70971c408.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="又拍云 Logo" /></a> 提供 CDN 加速/云存储服务</span> <script> const url = window.location.href if (url.includes("theodorelobas.com") { window.location.href = "https://zhul.in" } </script> 
     </div>
   
   

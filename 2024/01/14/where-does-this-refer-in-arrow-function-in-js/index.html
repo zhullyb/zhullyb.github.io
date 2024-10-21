@@ -8,8 +8,8 @@
 <head>
   <meta charset="UTF-8">
 
-  <link rel="apple-touch-icon" sizes="76x76" href="https://cdn.zhullyb.top/favicon.ico">
-  <link rel="icon" href="https://cdn.zhullyb.top/favicon.ico">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://static.031130.xyz/favicon.ico">
+  <link rel="icon" href="https://static.031130.xyz/favicon.ico">
   
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
@@ -28,14 +28,14 @@
 <meta property="og:site_name" content="竹林里有冰的博客">
 <meta property="og:description" content="这学期期末复习的时候，学校里负责上 JavaScript 的老师给我们提出了一个问题。下面这段代码中，a.u2() 在 ES Module 下执行会抛出 TypeError 的异常，在 CommonJS 下运行则会输出 undefined，而 B 这个类的 u2 函数则能够在对象实例化以后正常运行。 1234567891011121314151617181920212223242526272829">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/65a2e1d093b78.webp">
-<meta property="og:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/65a2e379ba89e.webp">
+<meta property="og:image" content="https://static.031130.xyz/uploads/2024/08/12/65a2e1d093b78.webp">
+<meta property="og:image" content="https://static.031130.xyz/uploads/2024/08/12/65a2e379ba89e.webp">
 <meta property="article:published_time" content="2024-01-13T18:50:03.000Z">
-<meta property="article:modified_time" content="2024-08-12T07:22:18.000Z">
+<meta property="article:modified_time" content="2024-10-21T14:34:43.000Z">
 <meta property="article:author" content="竹林里有冰">
 <meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cdn.zhullyb.top/uploads/2024/08/12/65a2e1d093b78.webp">
+<meta name="twitter:image" content="https://static.031130.xyz/uploads/2024/08/12/65a2e1d093b78.webp">
   
   
   
@@ -77,7 +77,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"zhul.in","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"zhul.in","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -333,7 +333,7 @@
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2024年8月12日 下午
+                    本文最后更新于：2024年10月21日 晚上
                   
                 
               </p>
@@ -351,10 +351,10 @@
 <p>而 B 类在对象初始化阶段拥有一个新的作用域，因此箭头函数的 this 能够正确指向 B 被实例化出来的对象，因此也就能够正确读取到 this.x 的值。</p>
 <p>理论上来说，我们可以给全局对象也赋一个不一样的 x 值，这样 a.u2() 就能够读取到全局对象中的 x 值，验证我们的结论。</p>
 <p>在浏览器中，可以在代码的头部加一行 <code>var x = 10</code> 或者 <code>window.x = 10</code>，可以看到a.u2() 顺利的输出了 10，验证了我的结论。</p>
-<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/65a2e1d093b78.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="浏览器控制台调试"></p>
+<p><img src="https://static.031130.xyz/uploads/2024/08/12/65a2e1d093b78.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="浏览器控制台调试"></p>
 <p>但在 Node.js 中，直接使用 <code>var x = 10</code> 或者 <code>global.x = 10</code> 并不能达到我们想要的效果。因为Node.js 中的每个 CommonJS 模块都有其自己的模块作用域，即模块的顶层作用域不是全局作用域。在模块内部，<code>this</code> 关键字不是指向 <code>global</code> 对象，而是指向模块的导出对象。这是为了确保模块内部的作用域隔离和模块的封装性。</p>
 <p>那么我们可以通过为模块的导出对象添加一个 x 属性来验证我们的结论，我们可以使用 <code>exports.x = 10</code> 来为模块的顶层作用域添加一个值为 10 的 x 属性。</p>
-<p><img src="https://cdn.zhullyb.top/uploads/2024/08/12/65a2e379ba89e.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="nodejs 环境运行"></p>
+<p><img src="https://static.031130.xyz/uploads/2024/08/12/65a2e379ba89e.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="nodejs 环境运行"></p>
 <h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/Arrow_functions">箭头函数表达式 - JavaScript | MDN</a></p>
 <p><a target="_blank" rel="noopener" href="https://segmentfault.com/q/1010000022948115">ES6箭头函数作用域的问题</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.zhihu.com/tardis/zm/art/57204184">ES6箭头函数的this指向详解</a></p>
@@ -401,7 +401,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2024年8月12日</div>
+          <div>2024年10月21日</div>
         </div>
       
       
@@ -590,7 +590,7 @@
     <div class="footer-inner">
   
     <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br /> <a href="https://notbyai.fyi/" target="_blank"><img style="max-height: 50px; margin: 10px" src=https://cdn.zhullyb.top/uploads/2024/08/28/ae6dd98bdf60e.png alt="written by human, not by AI" /></a> <br /> <span>本网站由 <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img style="max-height: 50px;" loading="lazy" src="https://cdn.zhullyb.top/uploads/2024/08/12/ba8d70971c408.webp" srcset="https://cdn.zhullyb.top/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="又拍云 Logo" /></a> 提供 CDN 加速/云存储服务</span> <script> const url = window.location.href if (url.includes("theodorelobas.com") { window.location.href = "https://zhul.in" } </script> 
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br /> <a href="https://notbyai.fyi/" target="_blank"><img style="max-height: 50px; margin: 10px" src=https://static.031130.xyz/uploads/2024/08/28/ae6dd98bdf60e.png alt="written by human, not by AI" /></a> <br /> <span>本网站由 <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img style="max-height: 50px;" loading="lazy" src="https://static.031130.xyz/uploads/2024/08/12/ba8d70971c408.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="又拍云 Logo" /></a> 提供 CDN 加速/云存储服务</span> <script> const url = window.location.href if (url.includes("theodorelobas.com") { window.location.href = "https://zhul.in" } </script> 
     </div>
   
   
