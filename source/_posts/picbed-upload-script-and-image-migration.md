@@ -17,7 +17,7 @@ tags:
 
 主要还是给 Typora 用，实现这种效果
 
-![Typora 自动上传](https://cdn.zhullyb.top/uploads/2024/08/12/62f3b881e3c4c.gif)
+![Typora 自动上传](https://static.031130.xyz/uploads/2024/08/12/62f3b881e3c4c.gif)
 
 ```bash
 #!/bin/bash

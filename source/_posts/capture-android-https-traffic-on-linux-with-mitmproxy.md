@@ -66,17 +66,17 @@ docker0          DOWN           172.17.0.1/16 fe80::42:d1ff:febe:d513/64
 
 我们当然可以在安卓手机的 WIFI 连接页面填入 http 代理地址。
 
-![](https://cdn.zhullyb.top/uploads/2024/08/12/66ab548080ed6.webp)
+![](https://static.031130.xyz/uploads/2024/08/12/66ab548080ed6.webp)
 
 但这对我来说似乎并不是一个好主意：一来并不是所有的应用都会默认使用 http 代理服务器，二来这回导致抓包目标不明确，非目标应用的流量也会经过代理服务器。
 
 我选择了 Nekobox 这个常见的代理软件，它支持 http 代理服务器，且允许分应用代理。
 
-![](https://cdn.zhullyb.top/uploads/2024/08/12/66ab54f08dfd6.webp)
+![](https://static.031130.xyz/uploads/2024/08/12/66ab54f08dfd6.webp)
 
 可以看到能正常抓取 https 流量
 
-![](https://cdn.zhullyb.top/uploads/2024/08/12/66ab5970a6ac7.webp)
+![](https://static.031130.xyz/uploads/2024/08/12/66ab5970a6ac7.webp)
 
 ## 参见
 

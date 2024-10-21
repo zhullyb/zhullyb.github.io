@@ -94,7 +94,7 @@ $EDITOR /opt/siteproxy/config.js
 
 按照 README 所说，修改 `serverName` 字段
 
-![需要修改的 serverName 字段](https://cdn.zhullyb.top/uploads/2024/08/12/63da866e26712.webp)
+![需要修改的 serverName 字段](https://static.031130.xyz/uploads/2024/08/12/63da866e26712.webp)
 
 ## 设置开机自启动
 

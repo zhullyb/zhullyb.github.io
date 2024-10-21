@@ -9,7 +9,7 @@ tags:
 
 其实很久以前就接触到了国内 DNS 解析服务商提供的这个「隐式 URL」 这种 “DNS 记录类型”了，但我域名没有备案，一直没有机会去体验。
 
-![DNSPOD 的解析面板中提供的记录类型](https://cdn.zhullyb.top/uploads/2024/08/12/641f1e2cd8809.webp)
+![DNSPOD 的解析面板中提供的记录类型](https://static.031130.xyz/uploads/2024/08/12/641f1e2cd8809.webp)
 
 今天社团内某个同学在折腾自己博客的时候又用到了「隐式 URL」，于是就借此机会了解了一下相关内容。
 
@@ -25,7 +25,7 @@ tags:
 
 在下图中，我通过更改 hosts 文件实现将百度的域名在本地被解析到 localhost，并使用 iframe 标签将 b 站嵌入到页面中。当然，这并不能说明什么事情，不过是我个人的恶趣味罢了。
 
-![example](https://cdn.zhullyb.top/uploads/2024/08/12/641f2272ab7fb.webp)
+![example](https://static.031130.xyz/uploads/2024/08/12/641f2272ab7fb.webp)
 
 将 `http://example.com`改为目标站点，我们完全可以摆脱国内云服务商，在自己的服务器上直接实现「隐式代理」的效果。
 
@@ -35,9 +35,9 @@ tags:
 
 我们可以通过在 Github Pages（或者其他境外的服务器） 上挂一个 `index.html` ，html 中使用 iframe 嵌套一个部署在境内小鸡上的网页来规避掉备案的问题。而境内小鸡可以选用非标准端口去监听请求。
 
-<img src="https://cdn.zhullyb.top/uploads/2024/08/12/642014b05bb43.webp" alt="使用隐式转发" style="zoom:67%;" />
+<img src="https://static.031130.xyz/uploads/2024/08/12/642014b05bb43.webp" alt="使用隐式转发" style="zoom:67%;" />
 
-<img src="https://cdn.zhullyb.top/uploads/2024/08/12/642014519ce2a.webp" alt="2.drawio.png" style="zoom:67%;" />
+<img src="https://static.031130.xyz/uploads/2024/08/12/642014519ce2a.webp" alt="2.drawio.png" style="zoom:67%;" />
 
 这样带来的好处是访客只需要从境外的服务器上获取一个不到 1 KB 大小的 html ，随后的所有请求都是指向境内云服务器的，所以网页打开时的体验会得到改善。
 
@@ -57,5 +57,5 @@ tags:
 
 ***
 
-那么应[某些群友的要求](https://cdn.zhullyb.top/uploads/2024/08/12/64201607999e3.webp)，本文的第二作者为 [Finley](https://blog.f1nley.xyz)，通信作者为 [LanStarD](https://blog.chordvers.com/)。
+那么应[某些群友的要求](https://static.031130.xyz/uploads/2024/08/12/64201607999e3.webp)，本文的第二作者为 [Finley](https://blog.f1nley.xyz)，通信作者为 [LanStarD](https://blog.chordvers.com/)。
 

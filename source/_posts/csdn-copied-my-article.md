@@ -10,21 +10,21 @@ tags:
 
 转载的质量并不高，超链接都没有转载上去，只有干巴巴的图片和文字。翻到结尾处，我一口老血喷出。
 
- ![都不知道哪里来的版权申明](https://cdn.zhullyb.top/uploads/2024/08/12/62f3cacc1ff3f.webp)
+ ![都不知道哪里来的版权申明](https://static.031130.xyz/uploads/2024/08/12/62f3cacc1ff3f.webp)
 
 我就纳闷了，我作为原创博主，自己都没有给这篇文章挂上CC的版权协议，怎么就有人自称是原创给我挂上了CC协议，要知道我知乎还明确勾选了「转载需要申请」呢。
 
 抱着吃瓜的心态在谷歌上搜索，我发现了五篇抄袭我的文章。CSDN三篇，还有「程序员宝宝」和「程序员宅基地」使用相同UI的、被我怀疑是机器人搬运的站点。
 
-![谷歌搜索结果](https://cdn.zhullyb.top/uploads/2024/08/12/62f3cad01576d.webp)
+![谷歌搜索结果](https://static.031130.xyz/uploads/2024/08/12/62f3cad01576d.webp)
 
 CSDN那边，我在页面页脚处找到了「在线客服」，注册帐号后联系了客服，客服反应非常迅速，**5分钟内就对抄袭文章进行了下架处理，这点值得表扬。**
 
-![CSDN客服聊天记录1](https://cdn.zhullyb.top/uploads/2024/08/12/62f3cad3ceaa6.webp)
+![CSDN客服聊天记录1](https://static.031130.xyz/uploads/2024/08/12/62f3cad3ceaa6.webp)
 
-![CSDN客服聊天记录2](https://cdn.zhullyb.top/uploads/2024/08/12/62f3cad833827.webp)
+![CSDN客服聊天记录2](https://static.031130.xyz/uploads/2024/08/12/62f3cad833827.webp)
 
-![CSDN客服聊天记录3](https://cdn.zhullyb.top/uploads/2024/08/12/62f3cadacac4d.webp)
+![CSDN客服聊天记录3](https://static.031130.xyz/uploads/2024/08/12/62f3cadacac4d.webp)
 
 至于「程序员宝宝」和「程序员宅基地」这两个站点，在他们的版权申明中写得很清楚。
 

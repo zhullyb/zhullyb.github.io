@@ -16,11 +16,11 @@ tags:
 
 ### 一种是在 R2 的设置界面设置自定义域
 
-![设置自定义域](https://cdn.zhullyb.top/uploads/2024/08/13/61fe9ede194af.webp)
+![设置自定义域](https://static.031130.xyz/uploads/2024/08/13/61fe9ede194af.webp)
 
 ### 另一种是通过 Cloudflare Workers 进行访问
 
-![通过 Cloudflare Workers](https://cdn.zhullyb.top/uploads/2024/08/13/846164273571d.webp)
+![通过 Cloudflare Workers](https://static.031130.xyz/uploads/2024/08/13/846164273571d.webp)
 
 ***
 
@@ -34,7 +34,7 @@ tags:
 
 设置自定义域的访问方式存在较多的限制，让我们先来复习一下[上一篇博客中](/2024/08/12/new-picbed-based-on-cloudflare-and-upyun/)提到的 DNS 解析方案 1
 
-![DNS 解析方案 1](https://cdn.zhullyb.top/uploads/2024/08/13/03d8243b67593.webp)
+![DNS 解析方案 1](https://static.031130.xyz/uploads/2024/08/13/03d8243b67593.webp)
 
 在这里，我们需要将图床访问域名通过 NS 接入 DnsPod 实现境内外的分流，但 R2 所允许设置的自定义域必须是通过 NS 接入 Cloudflare 的，这存在冲突。那如果我们先将自定义域设置为通过 NS 接入 Cloudflare 的工具人域名，再将图床访问域名通过 CNAME 解析到工具人域名会不会有问题呢？恭喜你获得 403 Forbidden。
 
@@ -50,7 +50,7 @@ tags:
 
 最简单的上传方式是直接在 Cloudflare 进行网页上传，但这种方案不适合自动化脚本，也没法接入 Typora
 
-![直接在网页端进行上传](https://cdn.zhullyb.top/uploads/2024/08/13/b4d1b5b3edfae.webp)
+![直接在网页端进行上传](https://static.031130.xyz/uploads/2024/08/13/b4d1b5b3edfae.webp)
 
 #### 使用 Amazon S3 的兼容 API
 
@@ -68,7 +68,7 @@ Cloudflare R2 被设计为兼容 Amazon S3 的存储方案，自然兼容 Amazon
 
 [在 Cloudflare Docs 中明确提出可以使用 Cloudflare Workers 访问 Cloudflare R2 Bucket，](https://developers.cloudflare.com/r2/api/workers/workers-api-usage/#5-access-your-r2-bucket-from-your-worker)通过 Workers 设置界面的按钮，可以非常方便的将 R2 Bucket 作为一个 R2Object 绑定到 JavaScript 的一个变量中，[这里有相关的开发文档](https://developers.cloudflare.com/r2/api/workers/workers-api-reference/)。
 
-![绑定为变量](https://cdn.zhullyb.top/uploads/2024/08/13/45e58b47f3aeb.webp)
+![绑定为变量](https://static.031130.xyz/uploads/2024/08/13/45e58b47f3aeb.webp)
 
 ***
 
@@ -162,11 +162,11 @@ export default {
 
 填入代码后，还需要绑定两个变量，一个是 R2 Bucket
 
-![](https://cdn.zhullyb.top/uploads/2024/08/13/45e58b47f3aeb.webp)
+![](https://static.031130.xyz/uploads/2024/08/13/45e58b47f3aeb.webp)
 
 另一个是自己的管理密码
 
-![](https://cdn.zhullyb.top/uploads/2024/08/14/96da1f62f5fe7.webp)
+![](https://static.031130.xyz/uploads/2024/08/14/96da1f62f5fe7.webp)
 
 ## 如何使用 Cloudflare Workers 构建的 Restful API 进行文件操作？
 

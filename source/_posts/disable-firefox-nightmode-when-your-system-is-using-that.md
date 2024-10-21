@@ -18,9 +18,9 @@ ui.systemUsesDarkTheme
 
 将这个选项的**数值**设置为0即可。
 
-![步骤1](https://cdn.zhullyb.top/uploads/2024/08/12/62f36c8f05efd.webp)
+![步骤1](https://static.031130.xyz/uploads/2024/08/12/62f36c8f05efd.webp)
 
-![步骤2](https://cdn.zhullyb.top/uploads/2024/08/12/62f36cce30773.webp)
+![步骤2](https://static.031130.xyz/uploads/2024/08/12/62f36cce30773.webp)
 
 
 

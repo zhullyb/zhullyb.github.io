@@ -63,7 +63,7 @@ sticker-import <pack_url>
 
 matrix 的 `homeserver` 和 `access token` 可以在 PC 端 element 的设置里找到
 
-![element 在 pc 端上而设置界面](https://cdn.zhullyb.top/uploads/2024/08/12/62f4dab8c7647.webp)
+![element 在 pc 端上而设置界面](https://static.031130.xyz/uploads/2024/08/12/62f4dab8c7647.webp)
 
 tg 登陆时需要你输入手机号码，或者某一个 tg bot 的 token，这个大家都懂。
 
@@ -79,15 +79,15 @@ tg 登陆时需要你输入手机号码，或者某一个 tg bot 的 token，这
 
 在 element 的 pc 端找到任意一个对话框，输入 `/devtools` 并发送
 
-![如图](https://cdn.zhullyb.top/uploads/2024/08/12/62f4f4d55f4d3.webp)
+![如图](https://static.031130.xyz/uploads/2024/08/12/62f4f4d55f4d3.webp)
 
 将会出现如下页面，选择 `Explore account data`
 
-![1660220693791.png](https://cdn.zhullyb.top/uploads/2024/08/12/62f4f5179fd73.webp)
+![1660220693791.png](https://static.031130.xyz/uploads/2024/08/12/62f4f5179fd73.webp)
 
 找到 `m.widgets`，如果没有，就点击下图标出的按钮
 
-![1660220786171.png](https://cdn.zhullyb.top/uploads/2024/08/12/62f4f57459b6f.webp)
+![1660220786171.png](https://static.031130.xyz/uploads/2024/08/12/62f4f57459b6f.webp)
 
 在新的页面中，填写如下内容，url 那一行应当改为自己部署的页面，并发送请求
 
@@ -108,10 +108,10 @@ tg 登陆时需要你输入手机号码，或者某一个 tg bot 的 token，这
 }
 ```
 
-![发送请求](https://cdn.zhullyb.top/uploads/2024/08/12/62f4f6d9e120e.webp)
+![发送请求](https://static.031130.xyz/uploads/2024/08/12/62f4f6d9e120e.webp)
 
 重启 element，此时就可以享受到自己导入的 sticker 了，手机端的 element 设置也将会被同步。
 
 补一张效果图
 
-![效果图](https://cdn.zhullyb.top/uploads/2024/08/12/62f4f7728b1e6.webp)
+![效果图](https://static.031130.xyz/uploads/2024/08/12/62f4f7728b1e6.webp)

@@ -2,7 +2,7 @@
 title: Waydroid on KDE 初体验
 date: 2021-10-31 15:57:57
 sticky:
-index_img: https://cdn.zhullyb.top/uploads/2024/08/12/62f3ca1a5eb50.webp
+index_img: https://static.031130.xyz/uploads/2024/08/12/62f3ca1a5eb50.webp
 tags:
 - Archlinux
 - Waydroid
@@ -10,7 +10,7 @@ tags:
 - Experience
 ---
 
-> 在[西木野羰基的博客](https://yanqiyu.info/)中看到了其在Fedora中使用waydroid跑明日方舟的[截图](https://cdn.zhullyb.top/uploads/2024/08/12/62f3cc0d6b9e8.webp)，心里有有些痒痒了，决定在Archlinux上尝试使用waydroid。
+> 在[西木野羰基的博客](https://yanqiyu.info/)中看到了其在Fedora中使用waydroid跑明日方舟的[截图](https://static.031130.xyz/uploads/2024/08/12/62f3cc0d6b9e8.webp)，心里有有些痒痒了，决定在Archlinux上尝试使用waydroid。
 
 ## Waydroid是什么
 
@@ -18,7 +18,7 @@ Waydroid是一个基于lxc容器技术，用以启动完整安卓系统的方案
 
 默认使用了LineageOS-17.1，对应 Aosp10，相比起 anbox 显然是更加新了。
 
-![是长成这样](https://cdn.zhullyb.top/uploads/2024/08/12/62f3cb238c027.webp)
+![是长成这样](https://static.031130.xyz/uploads/2024/08/12/62f3cb238c027.webp)
 
 ## 内核支持
 
@@ -99,8 +99,8 @@ Github上有个[脚本](https://github.com/casualsnek/waydroid_script)，可以�
 
 ## 一些截图
 
-![](https://cdn.zhullyb.top/uploads/2024/08/12/62f3cb26cba03.webp)
+![](https://static.031130.xyz/uploads/2024/08/12/62f3cb26cba03.webp)
 
-![原生安卓从未变过的应用抽屉](https://cdn.zhullyb.top/uploads/2024/08/12/62f3cc722835c.webp)
+![原生安卓从未变过的应用抽屉](https://static.031130.xyz/uploads/2024/08/12/62f3cc722835c.webp)
 
-![这充电速度太刺激啦！](https://cdn.zhullyb.top/uploads/2024/08/12/62f3cc76b986c.webp)
+![这充电速度太刺激啦！](https://static.031130.xyz/uploads/2024/08/12/62f3cc76b986c.webp)

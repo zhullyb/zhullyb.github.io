@@ -24,7 +24,7 @@ tags:
 
 可以直接在局域网内的另一台设备进行测试，直接在 Rustdesk 中输入被控端的局域网 ip 和刚刚设置的端口，看看能不能访问得通，如果不行可能需要排查一下被控端访问墙设置的问题。
 
-![](https://cdn.zhullyb.top/uploads/2024/08/12/66814701cf7ce.webp)
+![](https://static.031130.xyz/uploads/2024/08/12/66814701cf7ce.webp)
 
 ## ddns
 
@@ -42,11 +42,11 @@ WAN_IP=`ssh -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa roo
 
 在「网络」-「防火墙」
 
-![](https://cdn.zhullyb.top/uploads/2024/08/12/6681635804e68.webp)
+![](https://static.031130.xyz/uploads/2024/08/12/6681635804e68.webp)
 
 选择「端口转发」
 
-![](https://cdn.zhullyb.top/uploads/2024/08/12/66817e416534c.webp)
+![](https://static.031130.xyz/uploads/2024/08/12/66817e416534c.webp)
 
 新建端口转发，共享名随便填，外部端口是你最终要在主控端输入的端口，内部 IP 地址是被控机 的 IP 地址，可以用 `ip -br a` 命令看到，内部端口就是上文在 Rustdesk 指定的端口号。
 
@@ -54,4 +54,4 @@ WAN_IP=`ssh -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa roo
 
 可以直接在主控端口输入 ddns 的域名和端口号，实现远程控制
 
-![](https://cdn.zhullyb.top/uploads/2024/08/12/66817f77aae7e.webp)
+![](https://static.031130.xyz/uploads/2024/08/12/66817f77aae7e.webp)

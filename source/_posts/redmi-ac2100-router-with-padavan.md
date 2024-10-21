@@ -20,23 +20,23 @@ tags:
 
 首先浏览器地址栏输入 192.168.31.1 (小米家的路由器默认好像都是这个 ip 地址)，看到下图界面，加不加入用户改善计划其实都是无所谓的，反正马上就要刷掉这个系统了。
 
-![路由器设置引导界面](https://cdn.zhullyb.top/uploads/2024/08/12/6495c9a227d2c.webp)
+![路由器设置引导界面](https://static.031130.xyz/uploads/2024/08/12/6495c9a227d2c.webp)
 
 此处选择「不插网线，继续配置」，因为我们没有标准的网络环境，还指望着这台路由器跑 l2tp 帮我们连校园网呢。
 
-![路由器设置引导界面](https://cdn.zhullyb.top/uploads/2024/08/12/6495ca724bf14.webp)
+![路由器设置引导界面](https://static.031130.xyz/uploads/2024/08/12/6495ca724bf14.webp)
 
 这里需要选择「自动获取IP」（静态 IP）好像也行，但别的选项在我的网络环境下恐怕都是没法继续配置下去的。
 
-![路由器设置引导界面](https://cdn.zhullyb.top/uploads/2024/08/12/6495cae48566d.webp)
+![路由器设置引导界面](https://static.031130.xyz/uploads/2024/08/12/6495cae48566d.webp)
 
 随后随手输个 WIFI 名称和密码，主要是记住密码进路由器后台管理。
 
-![路由器设置引导界面](https://cdn.zhullyb.top/uploads/2024/08/12/6495cb8eba4b5.webp)
+![路由器设置引导界面](https://static.031130.xyz/uploads/2024/08/12/6495cb8eba4b5.webp)
 
 设置完上述设置项以后，再次进入 192.168.31.1 ，就能看见路由器后台管理的登陆页面了。
 
-![路由器后台管理首页](https://cdn.zhullyb.top/uploads/2024/08/12/6495cc2ff1e02.webp)
+![路由器后台管理首页](https://static.031130.xyz/uploads/2024/08/12/6495cc2ff1e02.webp)
 
 ## 获取 ssh 权限
 
@@ -60,13 +60,13 @@ tags:
 /api/misystem/set_config_iotdev?bssid=Xiaomi&user_id=longdike&ssid=-h%3B%20echo%20-e%20'admin%5Cnadmin'%20%7C%20passwd%20root%3B
 ```
 
-![需要被去除的 url 部分](https://cdn.zhullyb.top/uploads/2024/08/12/6495ce20b91d1.webp)
+![需要被去除的 url 部分](https://static.031130.xyz/uploads/2024/08/12/6495ce20b91d1.webp)
 
-![被截剩的 url 部分](https://cdn.zhullyb.top/uploads/2024/08/12/6495ce1de2acd.webp)
+![被截剩的 url 部分](https://static.031130.xyz/uploads/2024/08/12/6495ce1de2acd.webp)
 
 两次请求的正常反馈应该长成下面这个样子。
 
-![正常反馈](https://cdn.zhullyb.top/uploads/2024/08/12/6495ce8d86b03.webp)
+![正常反馈](https://static.031130.xyz/uploads/2024/08/12/6495ce8d86b03.webp)
 
 此时应该就可以使用 ssh 访问路由器的 root 账户了，密码已经被改为了 admin
 
@@ -74,7 +74,7 @@ tags:
 ssh -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa root@192.168.31.1
 ```
 
-![登陆成功](https://cdn.zhullyb.top/uploads/2024/08/12/6495cf0b224c4.webp)
+![登陆成功](https://static.031130.xyz/uploads/2024/08/12/6495cf0b224c4.webp)
 
 ## 刷入 breed
 
@@ -82,25 +82,25 @@ ssh -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa root@192.16
 
 首先，我们到 breed 下载站上下载 breed 的镜像: https://breed.hackpascal.net/
 
-![需要下载的 breed 镜像](https://cdn.zhullyb.top/uploads/2024/08/12/6495cf9ca81de.webp)
+![需要下载的 breed 镜像](https://static.031130.xyz/uploads/2024/08/12/6495cf9ca81de.webp)
 
 随后，在电脑上这个存放了 breed 镜像的路径上开一个 http server，我这里选择的是 `darkhttpd`，Windows 或者 MacOS 用户可以选择使用 `miniserve`，他们呢起的是一样的效果，甚至可以使用 python 直接开一个 local server。
 
-![本地 http 服务](https://cdn.zhullyb.top/uploads/2024/08/12/6495d0bd79f4c.webp)
+![本地 http 服务](https://static.031130.xyz/uploads/2024/08/12/6495d0bd79f4c.webp)
 
 接下来，通过自己电脑在路由器局域网内的那个 ip 地址并添加端口号在浏览器上访问你开的 http server，直接右键复制 breed 镜像的下载链接。
 
-![查看本机 ip](https://cdn.zhullyb.top/uploads/2024/08/12/6495d0bd79f4d.webp)
+![查看本机 ip](https://static.031130.xyz/uploads/2024/08/12/6495d0bd79f4d.webp)
 
-![复制下载链接](https://cdn.zhullyb.top/uploads/2024/08/12/6495d10b09fe0.webp)
+![复制下载链接](https://static.031130.xyz/uploads/2024/08/12/6495d10b09fe0.webp)
 
 将 ssh 连接到的路由器终端 cd 到 /tmp 路径下，使用 wget 命令去下载你刚刚复制到的 url，这样我们就简单地将 breed 镜像传输到了路由器的内存上。再使用 `mtd -r write breed-mt7621-xiaomi-r3g.bin Bootloader` 刷入 breed，刷入成功后 ssh 将会自动断开连接，但并不会直接进入 breed。
 
-![Screenshot_20230623_203903.png](https://cdn.zhullyb.top/uploads/2024/08/12/6495d17602f3a.webp)
+![Screenshot_20230623_203903.png](https://static.031130.xyz/uploads/2024/08/12/6495d17602f3a.webp)
 
 我们需要先断开路由器的电源，使用一根针（比如取卡针）怼在 RESET 按钮上面，再次接通路由器的电源并持续按压 RESET 按钮几秒钟，浏览器这时就会进入 breed 状态，浏览器访问 192.168.1.1 就可以看到他的控制面板。
 
-![Breed Web 界面](https://cdn.zhullyb.top/uploads/2024/08/12/6495d2129a764.webp)
+![Breed Web 界面](https://static.031130.xyz/uploads/2024/08/12/6495d2129a764.webp)
 
 ## 刷入 Padavan
 
@@ -108,25 +108,25 @@ ssh -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa root@192.16
 
 首先去下载站下载适配 Redmi AC2100 的 Padavan 镜像: https://opt.cn2qq.com/padavan/
 
-![适配 Redmi AC2100 的 Padavan 镜像](https://cdn.zhullyb.top/uploads/2024/08/12/6495d5cbbb5b9.webp)
+![适配 Redmi AC2100 的 Padavan 镜像](https://static.031130.xyz/uploads/2024/08/12/6495d5cbbb5b9.webp)
 
 然后在 Breed 的 web 端控制台直接选择 Padavan 的系统镜像进行固件更新
 
-![固件更新界面](https://cdn.zhullyb.top/uploads/2024/08/12/6495d63261ad4.webp)
+![固件更新界面](https://static.031130.xyz/uploads/2024/08/12/6495d63261ad4.webp)
 
 确认后直接刷入
 
-![固件刷入中](https://cdn.zhullyb.top/uploads/2024/08/12/6495d64fd1e0e.webp)
+![固件刷入中](https://static.031130.xyz/uploads/2024/08/12/6495d64fd1e0e.webp)
 
 自动重启后，Padavan 就刷入完成了。
 
 Padavan 的默认 WIFI 名是 PDCN 和 PDCN_5G，WIFI 密码是 1234567890
 
-![Padavan 的默认 WIFI](https://cdn.zhullyb.top/uploads/2024/08/12/6495d6c11aa01.webp)
+![Padavan 的默认 WIFI](https://static.031130.xyz/uploads/2024/08/12/6495d6c11aa01.webp)
 
 浏览器输入 192.168.123.1 就可以进入默认的后台管理页面，管理页面的用户名和密码都是 admin
 
-![Padavan 设置界面](https://cdn.zhullyb.top/uploads/2024/08/12/6496ac4f3170f.webp)
+![Padavan 设置界面](https://static.031130.xyz/uploads/2024/08/12/6496ac4f3170f.webp)
 
 > 参考文章: 
 >

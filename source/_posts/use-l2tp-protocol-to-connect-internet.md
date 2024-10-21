@@ -12,7 +12,7 @@ tags:
 
 学校这边由于某些不可描述的原因，将校园卡与宽带捆绑销售，且每次登陆校园网时都需要使用定制的 l2tp 协议客户端进行上网，且该客户端将会禁用用户的无线网卡（~~这不明摆着想让我们宿舍每个人都花一次钱~~）。
 
-![学校定制的 l2tp 拨号客户端](https://cdn.zhullyb.top/uploads/2024/08/12/63353e0e1978c.webp)
+![学校定制的 l2tp 拨号客户端](https://static.031130.xyz/uploads/2024/08/12/63353e0e1978c.webp)
 
 更惨的是，学校仅提供了 Windows 与 MacOS 的客户端。
 
@@ -30,4 +30,4 @@ sudo pacman -S networkmanager-l2tp
 
 由于定制的客户端已经把 l2tp 服务器 ip 写死且显示在界面上了，我们就不需要再去抓包截取服务器 ip，直接使用这边的 `192.168.115.1` 即可。
 
-![KDE 下的 NetworkManager l2tp 设置界面](https://cdn.zhullyb.top/uploads/2024/08/12/63354161dbe28.webp)
+![KDE 下的 NetworkManager l2tp 设置界面](https://static.031130.xyz/uploads/2024/08/12/63354161dbe28.webp)

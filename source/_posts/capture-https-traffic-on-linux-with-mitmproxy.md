@@ -32,7 +32,7 @@ sudo pacman -S mitmproxy
 
 我们只要使用 mitmweb 即可同时打开 8080 的代理端口和 8081 端口的 webui。访问 http://127.0.0.1:8081 即可看到 mitmproxy 的网页。
 
-![mitmweb 的界面](https://cdn.zhullyb.top/uploads/2024/08/12/65e092503d5bb.webp)
+![mitmweb 的界面](https://static.031130.xyz/uploads/2024/08/12/65e092503d5bb.webp)
 
 当然，也可以在 mitmweb 命令后面追加 -p <PORT> 和 --web-port=<PORT> 分别设置代理端口和 webui 的端口。
 
@@ -98,19 +98,19 @@ sudo update-ca-trust
 
 网上比较常见的做法是使用 `proxychains-ng` 代理目标软件。这个方案是可行的，只不过我这边测试下来，部分软件使用 proxychains 代理以后出现了仍然不使用代理、无法联网、甚至直接崩溃的情况。
 
-![程序崩溃](https://cdn.zhullyb.top/uploads/2024/08/12/65e09559dceef.webp)
+![程序崩溃](https://static.031130.xyz/uploads/2024/08/12/65e09559dceef.webp)
 
 因此我转向了 [gg](https://github.com/mzz2017/gg)。gg 和 proxychains-ng 的定位相同，都是使目标命令通过指定的代理进行通信，只不过 gg 解决了部分 golang 编写的软件无法被 proxychains 代理的问题，并支持一些常见的用来国际联网的协议。
 
 在不对 gg 进行配置的情况下，每次启动时，gg 都会要求我们输入代理地址，这正合我意。
 
-![gg 要求输入代理地址](https://cdn.zhullyb.top/uploads/2024/08/12/65e0963840449.webp)
+![gg 要求输入代理地址](https://static.031130.xyz/uploads/2024/08/12/65e0963840449.webp)
 
 此时，软件正常启动，流量全部经过 mitmproxy，可以在 webui 上看到具体情况
 
 ## 抓包成功
 
-![命令行下看到流量信息](https://cdn.zhullyb.top/uploads/2024/08/12/65e097dfe1f17.webp)
-![mitmweb 正常获取解密后的流量信息](https://cdn.zhullyb.top/uploads/2024/08/12/65e09780dd2c0.webp)
+![命令行下看到流量信息](https://static.031130.xyz/uploads/2024/08/12/65e097dfe1f17.webp)
+![mitmweb 正常获取解密后的流量信息](https://static.031130.xyz/uploads/2024/08/12/65e09780dd2c0.webp)
 
 我们可以看到 mitmproxy 成功捕获并解密的 https 流量，针对图片等信息甚至可以直接实现预览。

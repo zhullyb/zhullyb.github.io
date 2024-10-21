@@ -22,7 +22,7 @@ CutefishOS 和 JingOS 目前只是官网互加友链的关系，并不是相同�
 
 第一次体验到这个UI其实是在21年的3月，在Archlinux的QQ群里，群主向我们推荐了 CyberOS ，这是一个基于 Archlinux 的发行版。
 
-![QQ群公告](https://cdn.zhullyb.top/uploads/2024/08/12/62f3cae911901.webp)
+![QQ群公告](https://static.031130.xyz/uploads/2024/08/12/62f3cae911901.webp)
 
 由于基于 Archlinux，我直接就添加了CyberOS的源作为第三方源安装上了CyberDE，~~那会儿还顺手水了篇博客，由于后来事情发展太快，这篇博客早就不适用了，就干脆删了，现在在我的Github还能找到那会儿的[存档](https://github.com/zhullyb/blog/blob/20210430/_posts/2021-03-21-install-cyber-desktop-on-your-archlinux.md)。~~
 

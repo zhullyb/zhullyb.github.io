@@ -25,13 +25,13 @@ tags:
 
 通过 Cloudflare SaaS 接入的域名通过验证后会自动获得由 Cloudflare 提供的由 Google Trust Services 签发的证书，不需要我们操心。
 
-![SSL Certificate provided by Cloudflare](https://cdn.zhullyb.top/uploads/2024/08/14/831d714565906.webp)
+![SSL Certificate provided by Cloudflare](https://static.031130.xyz/uploads/2024/08/14/831d714565906.webp)
 
 ### 境内
 
 咱选用的又拍云 CDN 提供了免费的 Let's Encrypt 证书及其自动续期服务，但需要我们把图床访问域名的 DNS CNAME 解析到他们家。
 
-![SSL Certificate provided by upyun](https://cdn.zhullyb.top/uploads/2024/08/14/b16f7752ef522.webp)
+![SSL Certificate provided by upyun](https://static.031130.xyz/uploads/2024/08/14/b16f7752ef522.webp)
 
 这里有个问题，我们这套图床架构在境外的解析是解析到 Cloudflare 的，不可能通过 Let's Encrypt 的 acme challenge。如果使用 upyun 申请 ssl 证书，则意味着每次更新都要我们手动将境外的 dns 解析记录暂时解析到又拍云，待证书更新成功后再解析回 Cloudflare，非常麻烦。
 
@@ -45,13 +45,13 @@ tags:
 
 我采用的是 Cloudflare，直接在个人资料页创建一个具有编辑 DNS 权限的 API 令牌
 
-![创建令牌](https://cdn.zhullyb.top/uploads/2024/08/14/c0262d4aea708.webp)
+![创建令牌](https://static.031130.xyz/uploads/2024/08/14/c0262d4aea708.webp)
 
-![获得令牌](https://cdn.zhullyb.top/uploads/2024/08/14/f30bfc93970bc.webp)
+![获得令牌](https://static.031130.xyz/uploads/2024/08/14/f30bfc93970bc.webp)
 
 随后在自己的域名页面，找到区域 ID 和 账户 ID
 
-![区域 ID 和 账户 ID](https://cdn.zhullyb.top/uploads/2024/08/14/4c8d4a2019812.webp)
+![区域 ID 和 账户 ID](https://static.031130.xyz/uploads/2024/08/14/4c8d4a2019812.webp)
 
 在自己的本机安装 acme.sh,设置好 Cloudflare DNS 的几个变量
 
@@ -67,7 +67,7 @@ export CF_Zone_ID=""
 acme.sh --issue --dns dns_cf -d cdn.example.com
 ```
 
-![ssl 证书到手](https://cdn.zhullyb.top/uploads/2024/08/14/c78bc5afa3641.webp)
+![ssl 证书到手](https://static.031130.xyz/uploads/2024/08/14/c78bc5afa3641.webp)
 
 ### 上 Github Action
 
@@ -143,7 +143,7 @@ cd $HOME/.acme.sh/ && tar cz ca | base64 -w0
     delete-unused-certificates: true
 ```
 
-![SSL 证书成功部署到又拍云](https://cdn.zhullyb.top/uploads/2024/08/14/222a754d25c97.webp)
+![SSL 证书成功部署到又拍云](https://static.031130.xyz/uploads/2024/08/14/222a754d25c97.webp)
 
 ## 参见
 

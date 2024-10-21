@@ -21,7 +21,7 @@ tags:
 
 并且，祝你未来的自己、人类同胞、外星人或人工智能机器人（可以编码并会毁灭人类）——实际上是任何敢于参与你的项目的人好运。
 
-![good-luck.gif](https://cdn.zhullyb.top/uploads/2024/08/12/654fb6e4581bf.gif)
+![good-luck.gif](https://static.031130.xyz/uploads/2024/08/12/654fb6e4581bf.gif)
 
 当然，它还有一个[脏话版本](https://github.com/me-shaon/GLWTPL/blob/master/NSFW_LICENSE)。干杯！
 

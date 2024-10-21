@@ -19,7 +19,7 @@ tags:
 
 评论的内容不仅透露着一股 AI 味，还和文章内容可谓是一点关系都没有，点开评论者的网站一看，一股塑料机翻味，怕是又是个来蹭 SEO 的广告哥。
 
-![广告哥留下的网站](https://cdn.zhullyb.top/uploads/2024/10/07/4673580090861.webp)
+![广告哥留下的网站](https://static.031130.xyz/uploads/2024/10/07/4673580090861.webp)
 
 根据 [waline 的官方文档](https://waline.js.org/advanced/faq.html#%E5%8F%91%E5%B8%83%E8%AF%84%E8%AE%BA%E5%BE%88%E6%85%A2%E6%80%8E%E4%B9%88%E5%8A%9E)所言，waline 是使用了 Akismet 提供的垃圾内容检测服务的。可惜它似乎对 AI 生成的垃圾没有分辨能力。因此我计划使用 GPT 代替 Akismet 对 waline 的新评论进行审核。
 
@@ -167,4 +167,4 @@ module.exports = Waline({
 
 在 waline 中设置好对应的环境变量，使用 npm 安装好对应的包，就算大功告成了。
 
-![](https://cdn.zhullyb.top/uploads/2024/10/12/45f06a78286de.webp)
+![](https://static.031130.xyz/uploads/2024/10/12/45f06a78286de.webp)

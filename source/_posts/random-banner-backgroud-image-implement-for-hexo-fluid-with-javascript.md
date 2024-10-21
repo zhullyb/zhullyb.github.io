@@ -12,13 +12,13 @@ tags:
 
 因为 API 太慢了。根据 [PageSpeed](https://pagespeed.web.dev/) 的测速，使用 API 的图片加载时间来到了整整 2.5s，这似乎有些不可忍受。
 
-![PageSpeed 测速](https://cdn.zhullyb.top/uploads/2024/09/25/3ef1a17bca955.webp)
+![PageSpeed 测速](https://static.031130.xyz/uploads/2024/09/25/3ef1a17bca955.webp)
 
 ### Vercel 冷启动问题
 
 当初年少无知，为了实现 banner 随机背景图，选择了[使用 vercel 创建随机图片 API](/2021/05/21/create-a-random-picture-api-with-vercel/)。这带来了一些问题，首先 vercel 在站点一段时间没人访问以后会进入一种类似休眠的模式，下一次启动将会经历一个冷启动（cold start）的过程。我认为这对于一个图片背景的随机 API 而言是不可忍受的。
 
-![冷启动](https://cdn.zhullyb.top/uploads/2024/09/24/f8cb9fd7a963e.webp)
+![冷启动](https://static.031130.xyz/uploads/2024/09/24/f8cb9fd7a963e.webp)
 
 观察图上就可以发现，第一次访问时花费了 1.9 秒，第二次只需要 0.5 秒，这是因为第一次是冷启动，需要花费更多时间。
 
@@ -38,7 +38,7 @@ Vercel 在大陆境内的访问质量其实并不算好，即使是使用了所�
 
 在 `_config.fluid.yml` 中，将所有的 `banner_img:` 字段全部置空，防止其加载默认的 `/img/default.png` 而白白浪费用户的流量。这个字段一共在配置文件中出现了九次。
 
-![字段置空](https://cdn.zhullyb.top/uploads/2024/09/25/70bd0b27f5aad.webp)
+![字段置空](https://static.031130.xyz/uploads/2024/09/25/70bd0b27f5aad.webp)
 
 ### 添加 js
 

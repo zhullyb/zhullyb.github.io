@@ -17,11 +17,11 @@ tags:
 
 在「[使用 Root 后的安卓手机获取向日葵智能插座 C2 的开关 api](/2023/11/01/unveiling-sunflower-smart-adapter-api-intercepting-utilizing-api-android-packet-sniffing/)」这篇文章中，我有过抓包向日葵官方 app 的流量数据的经验，这一次直接故技重施。很可惜，我发现**用电量数据**并不能直接从局域网内向智能插座获取，**必须要从向日葵官方的服务器拉下来**。其实想想也知道，用电数据一旦精确到小时级，日积月累下来会对硬件的存储提出一定的挑战，而比较合理的方案就是由硬件向官方的服务器每小时通信一次记录下来。
 
-![抓包](https://cdn.zhullyb.top/uploads/2024/09/24/bd6b0bdbab1da.webp)
+![抓包](https://static.031130.xyz/uploads/2024/09/24/bd6b0bdbab1da.webp)
 
 不过好消息是，**官方服务器的这个接口并没有进行鉴权**，不需要进行额外的操作，一条 curl 命令都能下载下来。
 
-![curl 命令下载用电量数据](https://cdn.zhullyb.top/uploads/2024/09/24/bf4ad72e00044.webp)
+![curl 命令下载用电量数据](https://static.031130.xyz/uploads/2024/09/24/bf4ad72e00044.webp)
 
 ```shell
 https://sl-api.oray.com/smartplug/powerconsumes/${SN}
@@ -29,7 +29,7 @@ https://sl-api.oray.com/smartplug/powerconsumes/${SN}
 
 SN 码也不需要自己去抓包，直接在官方应用的设备关于页面就能看到。
 
-![关于页面](https://cdn.zhullyb.top/uploads/2024/09/24/edca671f53571.webp)
+![关于页面](https://static.031130.xyz/uploads/2024/09/24/edca671f53571.webp)
 
 json 数据的结构很明显，最外层是一个 Array，里面有若干个 object
 
@@ -73,4 +73,4 @@ def last_water():
 
 那么数据都取到了，剩下的就是人机交互的部分，这部分夸张点的可以写 web，写小程序，甚至写个安卓应用挂个桌面插件，想怎么做都可以。我这里就单纯将数据接入 qqbot 扔到了宿舍群，简单写了个关键词触发。
 
-![宿舍群](https://cdn.zhullyb.top/uploads/2024/09/24/1a0637d61471f.webp)
+![宿舍群](https://static.031130.xyz/uploads/2024/09/24/1a0637d61471f.webp)
