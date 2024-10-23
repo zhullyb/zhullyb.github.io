@@ -3,10 +3,13 @@ title: 为 Hexo 添加 follow 认证
 date: 2024-10-23 23:11:32
 sticky:
 execrpt:
+index_img: https://static.031130.xyz/uploads/2024/10/24/a93fd67a5419d.png
 tags:
 - Hexo
 - Follow
 ---
+
+## 前言
 
 Follow 从今天开始不需要邀请码就可以开始使用部分功能了，除了只能订阅五个订阅源、成就系统没开放、签到不能获得 power 以外，还有部分功能没有解锁（如下图）
 
@@ -46,7 +49,7 @@ feedId:56144913816835091+userId:70410173045150720
 }
 ```
 
-***
+## 正篇
 
 那么问题来了，Hexo 用户应该如何使用「RSS 标签」的方案给我们的博客进行 Follow 认证呢？
 
@@ -67,9 +70,9 @@ feed:
       - atom.xml
 ```
 
-如果是个人用途，其实可以直接硬编码，在文件的倒数第二行把我们复制的 <follow_challenge> 放进去。
+如果是个人用途，其实可以直接硬编码，在文件的倒数第二行把我们复制的 `<follow_challenge>` 放进去。
 
-![image-20241023234703796](https://static.031130.xyz/uploads/2024/10/23/fae341d7985ea.webp)
+![](https://static.031130.xyz/uploads/2024/10/23/fae341d7985ea.webp)
 
 或者如果我们想要写得考究一些，那么可以是下面这个样子的
 
