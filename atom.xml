@@ -55,8 +55,10 @@
     {% endfor %}
   </entry>
   {% endfor %}
-  <follow_challenge>
-    <feedId>56144913816835091</feedId>
-    <userId>70410173045150720</userId>
-  </follow_challenge>
+  {% if config.feed.follow_challenge %}
+    <follow_challenge>
+      <feedId>{{ config.feed.follow_challenge.feedId }}</feedId>
+      <userId>{{ config.feed.follow_challenge.userId }}</userId>
+    </follow_challenge>
+  {% endif %}
 </feed>

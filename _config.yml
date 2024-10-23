@@ -122,3 +122,6 @@ feed:
     content_limit_delim: ' '
     template:
       - atom.xml
+    follow_challenge:
+      feedId: 56144913816835091
+      userId: 70410173045150720

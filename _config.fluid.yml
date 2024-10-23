@@ -433,8 +433,7 @@ footer:
     if (url.includes("theodorelobas.com") {
         window.location.href = "https://zhul.in"
     }
-    </script>
-  '
+    </script>'
 
   # 展示网站的 PV、UV 统计数
   # Display website PV and UV statistics
