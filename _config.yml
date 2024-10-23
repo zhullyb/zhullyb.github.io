@@ -120,3 +120,5 @@ feed:
     content: true
     content_limit:
     content_limit_delim: ' '
+    template:
+      - atom.xml
