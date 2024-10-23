@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zhul.in/2024/10/23/follow-cert-for-hexo-feed/</loc>
+    
+    <lastmod>2024-10-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zhul.in/2021/01/01/Why-I-dont-recommend-Manjaro/</loc>
     
     <lastmod>2024-10-21</lastmod>
@@ -38,7 +47,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/08/14/auto-renew-ssl-certificate-and-deploy-to-upyun-with-github-action/</loc>
+    <loc>https://zhul.in/2024/02/01/backup-umami-database-and-send-it-by-tg-bot/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -47,7 +56,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/02/01/backup-umami-database-and-send-it-by-tg-bot/</loc>
+    <loc>https://zhul.in/2024/08/14/auto-renew-ssl-certificate-and-deploy-to-upyun-with-github-action/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -137,7 +146,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2023/02/01/deploy-siteproxy-with-caddy-on-vps/</loc>
+    <loc>https://zhul.in/2021/09/21/csdn-copied-my-article/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -146,7 +155,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/09/21/csdn-copied-my-article/</loc>
+    <loc>https://zhul.in/2023/02/01/deploy-siteproxy-with-caddy-on-vps/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -200,7 +209,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/06/30/dynamic-public-ip-and-ddns-for-rustdesk/</loc>
+    <loc>https://zhul.in/2024/07/22/enable-ac-power-loss-for-jumper-n100/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -209,7 +218,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/07/22/enable-ac-power-loss-for-jumper-n100/</loc>
+    <loc>https://zhul.in/2024/06/30/dynamic-public-ip-and-ddns-for-rustdesk/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -245,7 +254,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/04/16/fuck-jekyll-github-metadata-on-gitlab/</loc>
+    <loc>https://zhul.in/2024/04/24/generate-gantt-chart-with-python/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -254,7 +263,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/04/24/generate-gantt-chart-with-python/</loc>
+    <loc>https://zhul.in/2021/04/16/fuck-jekyll-github-metadata-on-gitlab/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -335,7 +344,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/07/18/my-blog-is-completely-proxied-and-translated-into-traditional-chinese/</loc>
+    <loc>https://zhul.in/2022/11/04/my-blog-plan/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -344,7 +353,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2022/11/04/my-blog-plan/</loc>
+    <loc>https://zhul.in/2024/07/18/my-blog-is-completely-proxied-and-translated-into-traditional-chinese/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -578,15 +587,6 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/10/12/use-gpt-to-review-waline-comments/</loc>
-    
-    <lastmod>2024-10-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zhul.in/2022/09/29/use-l2tp-protocol-to-connect-internet/</loc>
     
     <lastmod>2024-10-21</lastmod>
@@ -596,7 +596,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2023/11/28/use-lxgw-wenkai-in-hexo-fluid/</loc>
+    <loc>https://zhul.in/2024/10/12/use-gpt-to-review-waline-comments/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -614,7 +614,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2022/10/04/use-virtscreen-to-turn-pad-into-another-screen/</loc>
+    <loc>https://zhul.in/2023/11/28/use-lxgw-wenkai-in-hexo-fluid/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -624,6 +624,15 @@
   
   <url>
     <loc>https://zhul.in/2021/10/31/waydroid-experience-on-kde/</loc>
+    
+    <lastmod>2024-10-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2022/10/04/use-virtscreen-to-turn-pad-into-another-screen/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -1103,7 +1112,14 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/tags/Archlinux/</loc>
+    <loc>https://zhul.in/tags/umami/</loc>
+    <lastmod>2024-10-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/Shell-Script/</loc>
     <lastmod>2024-10-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1152,14 +1168,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/tags/umami/</loc>
-    <lastmod>2024-10-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Shell-Script/</loc>
+    <loc>https://zhul.in/tags/Archlinux/</loc>
     <lastmod>2024-10-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1278,6 +1287,13 @@
   </url>
   
   <url>
+    <loc>https://zhul.in/tags/Blog/</loc>
+    <lastmod>2024-10-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://zhul.in/tags/OpenSource-Project/</loc>
     <lastmod>2024-10-23</lastmod>
     <changefreq>weekly</changefreq>
@@ -1293,13 +1309,6 @@
   
   <url>
     <loc>https://zhul.in/tags/Caddy/</loc>
-    <lastmod>2024-10-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Blog/</loc>
     <lastmod>2024-10-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1335,6 +1344,20 @@
   
   <url>
     <loc>https://zhul.in/tags/KDE/</loc>
+    <lastmod>2024-10-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/Hexo/</loc>
+    <lastmod>2024-10-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/Follow/</loc>
     <lastmod>2024-10-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1398,13 +1421,6 @@
   
   <url>
     <loc>https://zhul.in/tags/waline/</loc>
-    <lastmod>2024-10-23</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Hexo/</loc>
     <lastmod>2024-10-23</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
