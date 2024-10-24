@@ -348,7 +348,7 @@
 <li>将整个安装源码一千多个仓库一一执行这些命令的速度太慢了</li>
 </ul>
 <p>解决方案也很简单，直接检测每个 git 仓库下是否存在 <code>.lfsconfg</code> 文件，存在的话就执行 <code>git lfs install &amp;&amp; git lfs pull</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">repo forall -c <span class="hljs-string">&#x27;test -e .lfsconfig &amp;&amp; git lfs install &amp;&amp; git lfs pull&#x27;</span><br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash">repo forall -c <span class="hljs-string">&#x27;test -e .lfsconfig &amp;&amp; git lfs install &amp;&amp; git lfs pull&#x27;</span></code></pre></div>
 
 
                 

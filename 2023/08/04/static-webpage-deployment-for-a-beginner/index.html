@@ -372,13 +372,20 @@
 <h3 id="如何选择云服务器上要运行的-Linux-发行版"><a href="#如何选择云服务器上要运行的-Linux-发行版" class="headerlink" title="如何选择云服务器上要运行的 Linux 发行版"></a>如何选择云服务器上要运行的 Linux 发行版</h3><p>服务器上常用的 Linux 发行版主要是 Debian、Ubuntu、CentOS(这个死得差不多了) 这三个，那我个人更熟悉的是 Ubuntu，版本号越新越好，截止本文发出最新的 lts 版本是 22.04 lts，所以直接选择这个就行。</p>
 <h3 id="使用-ssh-连接上服务器"><a href="#使用-ssh-连接上服务器" class="headerlink" title="使用 ssh 连接上服务器"></a>使用 ssh 连接上服务器</h3><p>在云服务器的网页面板上选择好服务器的配置与运行的操作系统后，云服务商应该至少给你提供两样东西: 云服务器的 ip 和 root 用户的登陆密码。这可能是在网页面板上展示的，一些境外的云服务商可能是直接发送到你注册时预留的邮箱中的，这都无所谓。拿到这两样东西我们就可以使用 ssh 连接到服务器的终端，进行配置操作。</p>
 <p>打开自己系统的终端，使用如下命令去连接云服务器（Win10 以上的系统应该也已经自带 openssh 了）</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">ssh root@&lt;your_server_ip&gt;<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash">ssh root@&lt;your_server_ip&gt;</code></pre></div>
 
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs bash">[zhullyb@Archlinux ~]$ ssh root@120.55.63.96<br>The authenticity of host <span class="hljs-string">&#x27;120.55.63.96 (120.55.63.96)&#x27;</span> can<span class="hljs-string">&#x27;t be established.</span><br><span class="hljs-string">ED25519 key fingerprint is SHA256:Op8u4Fv+NvtOxJDKeBQ/jIsFpuR4EYTUt53qjG8k6ok.</span><br><span class="hljs-string">This key is not known by any other names.</span><br><span class="hljs-string">Are you sure you want to continue connecting (yes/no/[fingerprint])? yes</span><br><span class="hljs-string">Warning: Permanently added &#x27;</span>120.55.63.96<span class="hljs-string">&#x27; (ED25519) to the list of known hosts.</span><br><span class="hljs-string">root@120.55.63.96&#x27;</span>s password: <br>Welcome to Ubuntu 22.04.2 LTS (GNU/Linux 5.15.0-78-generic x86_64)<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash">[zhullyb@Archlinux ~]$ ssh root@120.55.63.96
+The authenticity of host <span class="hljs-string">&#x27;120.55.63.96 (120.55.63.96)&#x27;</span> can<span class="hljs-string">&#x27;t be established.</span>
+<span class="hljs-string">ED25519 key fingerprint is SHA256:Op8u4Fv+NvtOxJDKeBQ/jIsFpuR4EYTUt53qjG8k6ok.</span>
+<span class="hljs-string">This key is not known by any other names.</span>
+<span class="hljs-string">Are you sure you want to continue connecting (yes/no/[fingerprint])? yes</span>
+<span class="hljs-string">Warning: Permanently added &#x27;</span>120.55.63.96<span class="hljs-string">&#x27; (ED25519) to the list of known hosts.</span>
+<span class="hljs-string">root@120.55.63.96&#x27;</span>s password: 
+Welcome to Ubuntu 22.04.2 LTS (GNU/Linux 5.15.0-78-generic x86_64)</code></pre></div>
 
 <p>输入密码时，已经输入的密码部分在屏幕上不会显示，但无需理会，只要将云服务器的密码粘贴后直接敲回车就好。</p>
 <h3 id="如何编辑一个服务器上的文件"><a href="#如何编辑一个服务器上的文件" class="headerlink" title="如何编辑一个服务器上的文件"></a>如何编辑一个服务器上的文件</h3><p>一般来说，网上的教程会推荐你使用 vim 这个 tui 界面的编辑器去编辑这个文件，但 vim 的学习成本有点高，如果只是临时编辑服务器上的文件的话，我个人更加推荐使用 nano</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">nano /etc/caddy/conf.d/example.conf<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash">nano /etc/caddy/conf.d/example.conf</code></pre></div>
 
 <p>这行命令表示我要编辑 <code>/etc/caddy/conf.d/example.conf</code> 这个文件，如果这个文件不存在则去创建这个文件。</p>
 <p>随后你可以根据自己的需求去编辑文件了，上下左右按键可以调整光标位置，直接敲键盘上的字母按键就可以把字母敲进去，想推出时使用 <code>ctrl+s</code> 保存，再使用 <code>ctrl+x</code> 退出就可以了。</p>
@@ -431,39 +438,73 @@
 </tbody></table>
 <h3 id="caddy-的配置与使用"><a href="#caddy-的配置与使用" class="headerlink" title="caddy 的配置与使用"></a>caddy 的配置与使用</h3><p>caddy 是一个 web 服务器，他是使用 golang 写的一个平替品，拥有配置更简单、自动申请 Let’s Encrypt 证书的优势，我个人非常推荐非专业运维去使用这个。caddy 的官方文档在 <a target="_blank" rel="noopener" href="https://caddyserver.com/docs/">https://caddyserver.com/docs/</a> ，但我相信你们不会去看（我也没有认真看过），有问题可以尝试去问问 chatgpt 看看能不能得到想要的配置文件。caddy 现在已经迭代到 V2 版本了，与 V1 版本相比有一些语法差异以支持更多的功能，且许可证允许商用更加自由。</p>
 <p>caddy V2 支持使用 json 配置文件或者 Caddyfile，对于不复杂的需求我个人更推荐后者，简洁易懂。下面是我博客所使用的 Caddyfile 示例:</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs nginx"><span class="hljs-comment"># 这里表示，使用 zhul.in 这个域名访问 443 端口时，提供以下内容</span><br>zhul.in:443 &#123;<br>        <span class="hljs-comment"># 这里设置了所需提供内容的目录</span><br>        <span class="hljs-attribute">root</span> * /var/www/blog<br><br>        <span class="hljs-comment"># 这里设置的是开启 https 支持时所需要使用的 ssl 证书文件，但如果不设置也不碍事，caddy 会自动帮你申请 Let&#x27;s Encrypt 的 ssl 证书</span><br>        tls /var/www/key/zhul.in.cert /var/www/key/zhul.in.key<br><br>        <span class="hljs-comment"># 这里表示我们开启了 zstd 和 gzip 两种压缩算法，来减少数据传输量，不设置也没问题</span><br>        encode zstd gzip<br>        <span class="hljs-comment"># 这里表示我们开启了一个文件服务器，当你访问 https://zhul.in/example_file 时，caddy 会提供 /var/www/blog/example_file 这个文件的内容</span><br>        file_server<br><br>		<span class="hljs-comment"># 这里是错误处理部分</span><br>        handle_errors &#123;<br>        		<span class="hljs-comment"># 这里表示当发生错误时，将请求重定向到 /404.html 这个文件</span><br>               	<span class="hljs-attribute">rewrite</span> * /<span class="hljs-number">404</span>.html<br>            	<span class="hljs-comment"># 这里使用了模板来处理错误页面。当发生错误时，Caddy会使用模板引擎来填充错误页面的内容，以便向用户显示有关错误的相关信息。</span><br>                templates<br>            	<span class="hljs-comment">#这里表示继续使用文件服务器来提供错误页面</span><br>                file_server<br>        &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs nginx"><span class="hljs-comment"># 这里表示，使用 zhul.in 这个域名访问 443 端口时，提供以下内容</span>
+zhul.in:443 &#123;
+        <span class="hljs-comment"># 这里设置了所需提供内容的目录</span>
+        <span class="hljs-attribute">root</span> * /var/www/blog
+
+        <span class="hljs-comment"># 这里设置的是开启 https 支持时所需要使用的 ssl 证书文件，但如果不设置也不碍事，caddy 会自动帮你申请 Let&#x27;s Encrypt 的 ssl 证书</span>
+        tls /var/www/key/zhul.in.cert /var/www/key/zhul.in.key
+
+        <span class="hljs-comment"># 这里表示我们开启了 zstd 和 gzip 两种压缩算法，来减少数据传输量，不设置也没问题</span>
+        encode zstd gzip
+        <span class="hljs-comment"># 这里表示我们开启了一个文件服务器，当你访问 https://zhul.in/example_file 时，caddy 会提供 /var/www/blog/example_file 这个文件的内容</span>
+        file_server
+
+		<span class="hljs-comment"># 这里是错误处理部分</span>
+        handle_errors &#123;
+        		<span class="hljs-comment"># 这里表示当发生错误时，将请求重定向到 /404.html 这个文件</span>
+               	<span class="hljs-attribute">rewrite</span> * /<span class="hljs-number">404</span>.html
+            	<span class="hljs-comment"># 这里使用了模板来处理错误页面。当发生错误时，Caddy会使用模板引擎来填充错误页面的内容，以便向用户显示有关错误的相关信息。</span>
+                templates
+            	<span class="hljs-comment">#这里表示继续使用文件服务器来提供错误页面</span>
+                file_server
+        &#125;
+&#125;</code></pre></div>
 
 <p>你可以发现，如果要把这个 Caddyfile 写到最简单，仅仅是能跑的状态，只需要这几行:</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs nginx">zhul.in:443 &#123;<br>        <span class="hljs-attribute">root</span> * /var/www/blog<br>        <br>        file_server<br>&#125;<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs nginx">zhul.in:443 &#123;
+        <span class="hljs-attribute">root</span> * /var/www/blog
+        
+        file_server
+&#125;</code></pre></div>
 
 <p>这就是我为什么推荐非专业运维去使用 caddy 的原因，只需要三行代码就可以跑起来一个简单的服务。</p>
 <p>而部署一个 Vue.js 项目，我们可能会需要多加一行 <code>try_files &#123;path&#125; &#123;path&#125;/ /index.html</code> ，这一行代码的意思是当用户尝试访问 /example 时，实际需要用户的浏览器去访问 /index.html 这个地方，因为使用了 vue-router 的项目的编译产物只有 /index.html 而没有 /example.html，而后者的内容是包括在前者中的。以下的 Caddyfile 是精弘的首页正在使用的配置文件，应该可以适用于绝大多数的 Vue 项目:</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs nginx">www.myzjut.<span class="hljs-section">org</span> &#123;<br>        <span class="hljs-attribute">root</span> * /var/www/jh<br><br>        encode zstd gzip<br>        file_server<br>        try_files &#123;path&#125; &#123;path&#125; /index.<span class="hljs-attribute">html</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs nginx">www.myzjut.<span class="hljs-section">org</span> &#123;
+        <span class="hljs-attribute">root</span> * /var/www/jh
+
+        encode zstd gzip
+        file_server
+        try_files &#123;path&#125; &#123;path&#125; /index.<span class="hljs-attribute">html</span>
+&#125;</code></pre></div>
 
 <p>第一行省略了端口号，说明 80 和 443 端口都支持。</p>
 <h3 id="通过sftp-rsync将本地的静态网页上传到云服务器的对应目录"><a href="#通过sftp-rsync将本地的静态网页上传到云服务器的对应目录" class="headerlink" title="通过sftp/rsync将本地的静态网页上传到云服务器的对应目录"></a>通过sftp/rsync将本地的静态网页上传到云服务器的对应目录</h3><h4 id="使用-sftp-部署"><a href="#使用-sftp-部署" class="headerlink" title="使用 sftp 部署"></a>使用 sftp 部署</h4><blockquote>
 <p>sftp 是一个交互性比较强的上下传工具，如果不喜欢背命令的话可以考虑使用 sftp，操作起来都比较顺其自然</p>
 </blockquote>
 <p>首先，我们在本地 cd 到静态网页文件所在的路径，比如一个 Vue 项目编译产生的文件可能就会在 dist 下面</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> dist/<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> dist/</code></pre></div>
 
 <p>然后，我们使用 sftp 连接到服务器，这和 ssh 命令没什么两样的，就换了个命令名。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sftp root@&lt;your_server_ip&gt;<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash">sftp root@&lt;your_server_ip&gt;</code></pre></div>
 
 <p>输入 root 用户的密码后，命令行的提示符就会变成 <code>sftp &gt;</code> 的样子</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">[zhullyb@Archlinux ~]$ sftp root@&lt;your_server_ip&gt;<br>Connected to &lt;your_server_ip&gt;.<br>sftp&gt;<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash">[zhullyb@Archlinux ~]$ sftp root@&lt;your_server_ip&gt;
+Connected to &lt;your_server_ip&gt;.
+sftp&gt;</code></pre></div>
 
 <p>这是一个交互式的命令行窗口，可以使用 <code>cd</code>、<code>mkdir</code> 等几个简单的命令。我们先创建 <code>/var/www</code> 这个文件夹:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sftp&gt; <span class="hljs-built_in">mkdir</span> /var/www<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash">sftp&gt; <span class="hljs-built_in">mkdir</span> /var/www</code></pre></div>
 
 <p>再创建 <code>/var/www/jh</code> 这个文件夹:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sftp&gt; <span class="hljs-built_in">mkdir</span> /var/www/jh<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash">sftp&gt; <span class="hljs-built_in">mkdir</span> /var/www/jh</code></pre></div>
 
 <p>随后，我们就可以进入远程服务器的 <code>/var/www/jh</code> 目录下</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sftp&gt; <span class="hljs-built_in">cd</span> /var/www/jh<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash">sftp&gt; <span class="hljs-built_in">cd</span> /var/www/jh</code></pre></div>
 
 <p>这样我们就可以把本地的静态网页文件上传到服务器，使用 <code>put</code> 命令即可，下面的命令表示将本地当前目录下的所有文件以及其子文件夹全部内容都上传到服务器的当前文件夹，也就是 <code>/var/www/jh</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sftp&gt; put -r *<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash">sftp&gt; put -r *</code></pre></div>
 
 <p>再输入 <code>exit</code> 即可推出 sftp 状态。</p>
 <p>这边再教一些 sftp 使用中的常用命令:</p>
@@ -475,7 +516,7 @@
 <p>rsync 的交互性就不太强，是在本机操作的，需要提前写好一行比较长的命令去执行操作，比较适合写在脚本里。</p>
 </blockquote>
 <p>下面这行代码是我们精弘网络首页使用 github action 部署时的命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">rsync -avzP --delete dist/ root@&lt;your_server_ip&gt;:/var/www/jh/<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash">rsync -avzP --delete dist/ root@&lt;your_server_ip&gt;:/var/www/jh/</code></pre></div>
 
 <p>dist/ 表示我想要上传当前路径下的 dist 文件夹下的所有文件</p>
 <p>root@<your_server_ip> 这一段和前面的 ssh 与 sftp 一样，都表示用户名和对应的服务器 ip，</p>
@@ -547,27 +588,27 @@
 <li><code>journalctl -u &lt;unit&gt; -b -10</code>: 显示指定单元的最近 10 条系统日志。</li>
 </ul>
 <p>还可以使用 <code>journalctl</code> 命令来导出日志消息到文件。例如，以下命令将当前系统日志导出到 <code>/home/user/journal.log</code> 文件：</p>
-<figure class="highlight arcade"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arcade">journalctl &gt; <span class="hljs-regexp">/home/u</span>ser/journal.<span class="hljs-built_in">log</span><br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs arcade">journalctl &gt; <span class="hljs-regexp">/home/u</span>ser/journal.<span class="hljs-built_in">log</span></code></pre></div>
 
 <h3 id="防火墙的配置"><a href="#防火墙的配置" class="headerlink" title="防火墙的配置"></a>防火墙的配置</h3><p>关于防火墙，iptables 是 Linux 系统中最早使用的防火墙工具，它基于内核模块来过滤网络数据包。nftables 是 iptables 的继任者，与 iptables 相比，nftables 更简单易用，同时性能也更好。</p>
 <p>但我这边想要推荐的是 ufw，他是 iptables 的一个前端，它提供一个更简单、更易于使用的命令行界面。UFW 基于 iptables 来实现其功能，但它不被用来直接使用 iptables 命令。UFW 使用自己的命令来配置防火墙，这些命令被转换为 iptables 命令并执行。</p>
 <p>查看 ufw 状态</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> ufw status<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> ufw status</code></pre></div>
 
 <p>禁用所有端口</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> ufw deny all<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> ufw deny all</code></pre></div>
 
 <p>开放 22 端口(ssh 的默认端口，禁用可能导致服务器失联)</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> ufw allow 22<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> ufw allow 22</code></pre></div>
 
 <p>开放 80 端口</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> ufw allow 80<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> ufw allow 80</code></pre></div>
 
 <p>开放 443 端口</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> ufw allow 443<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> ufw allow 443</code></pre></div>
 
 <p>启用 ufw</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> ufw <span class="hljs-built_in">enable</span><br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> ufw <span class="hljs-built_in">enable</span></code></pre></div>
 
 <h3 id="包管理器是什么"><a href="#包管理器是什么" class="headerlink" title="包管理器是什么"></a>包管理器是什么</h3><h3 id="Linux-常用命令"><a href="#Linux-常用命令" class="headerlink" title="Linux 常用命令"></a>Linux 常用命令</h3><h3 id="常用的一些debug手段"><a href="#常用的一些debug手段" class="headerlink" title="常用的一些debug手段"></a>常用的一些debug手段</h3>
                 

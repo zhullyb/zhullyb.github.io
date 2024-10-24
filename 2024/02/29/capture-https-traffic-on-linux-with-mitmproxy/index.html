@@ -350,7 +350,7 @@
                 <p>作为部分 AUR Package 的 maintainer，一直以来我都有在 Linux 下抓取 https 流量的需求，比如抓取应用内的更新检测时访问的 url 地址。之前一直没有空去研究，趁着最近课少，总算是完成了这个目标。</p>
 <p>在这里我使用的 mitmproxy，基于 python 和 webui 的一款开源简洁的流量代理软件，可以用于抓取 https 流量信息。</p>
 <h2 id="安装-mitmproxy"><a href="#安装-mitmproxy" class="headerlink" title="安装 mitmproxy"></a>安装 mitmproxy</h2><p>在 Arch Linux 下，官方 <code>extra</code> 源中已经打包好了这款软件，直接使用下面的命令即可完成安装。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> pacman -S mitmproxy<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> pacman -S mitmproxy</code></pre></div>
 
 <h2 id="尝试运行-mitmweb"><a href="#尝试运行-mitmweb" class="headerlink" title="尝试运行 mitmweb"></a>尝试运行 mitmweb</h2><p>安装完成后，我们将会获得三个新的命令可用：</p>
 <ul>
@@ -364,7 +364,26 @@
 <p>首先，我们先运行一次 <code>mitmweb</code></p>
 <h2 id="安装-ca-证书"><a href="#安装-ca-证书" class="headerlink" title="安装 ca 证书"></a>安装 ca 证书</h2><p>为了解密 https 流量，我们需要为系统安装上 mitmproxy 自己的证书文件，让系统信任我们的证书。</p>
 <p>先来看看 <code>/usr/share/ca-certificates/trust-source/README</code> 这个文件</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs vim">This directory /usr/share/<span class="hljs-keyword">ca</span>-certificates/trust-<span class="hljs-keyword">source</span>/ contains CA certificates<br><span class="hljs-built_in">and</span> trust settings in the PEM <span class="hljs-keyword">file</span> format. The trust settings found here will <span class="hljs-keyword">be</span><br>interpreted with <span class="hljs-keyword">a</span> low priority - lower than the ones found in <br>/etc/<span class="hljs-keyword">ca</span>-certificates/trust-<span class="hljs-keyword">source</span>/ .<br><br>=============================================================================<br>QUICK HELP: To <span class="hljs-built_in">add</span> <span class="hljs-keyword">a</span> certificate in the simple PEM <span class="hljs-built_in">or</span> DER <span class="hljs-keyword">file</span> formats <span class="hljs-keyword">to</span> the<br>            <span class="hljs-keyword">list</span> of CAs trusted <span class="hljs-keyword">on</span> the <span class="hljs-built_in">system</span>:<br><br>            Copy it <span class="hljs-keyword">to</span> the<br>                    /usr/share/<span class="hljs-keyword">ca</span>-certificates/trust-<span class="hljs-keyword">source</span>/anchors/<br>            subdirectory, <span class="hljs-built_in">and</span> run the<br>                    <span class="hljs-keyword">update</span>-<span class="hljs-keyword">ca</span>-trust<br>            <span class="hljs-keyword">command</span>.<br><br>            If your certificate <span class="hljs-keyword">is</span> in the extended BEGIN TRUSTED <span class="hljs-keyword">file</span> format,<br>            then place it into the main trust-<span class="hljs-keyword">source</span>/ directory instead.<br>=============================================================================<br><br>Please refer <span class="hljs-keyword">to</span> the <span class="hljs-keyword">update</span>-<span class="hljs-keyword">ca</span>-trust(<span class="hljs-number">8</span>) manual page <span class="hljs-keyword">for</span> additional information.<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs vim">This directory /usr/share/<span class="hljs-keyword">ca</span>-certificates/trust-<span class="hljs-keyword">source</span>/ contains CA certificates
+<span class="hljs-built_in">and</span> trust settings in the PEM <span class="hljs-keyword">file</span> format. The trust settings found here will <span class="hljs-keyword">be</span>
+interpreted with <span class="hljs-keyword">a</span> low priority - lower than the ones found in 
+/etc/<span class="hljs-keyword">ca</span>-certificates/trust-<span class="hljs-keyword">source</span>/ .
+
+=============================================================================
+QUICK HELP: To <span class="hljs-built_in">add</span> <span class="hljs-keyword">a</span> certificate in the simple PEM <span class="hljs-built_in">or</span> DER <span class="hljs-keyword">file</span> formats <span class="hljs-keyword">to</span> the
+            <span class="hljs-keyword">list</span> of CAs trusted <span class="hljs-keyword">on</span> the <span class="hljs-built_in">system</span>:
+
+            Copy it <span class="hljs-keyword">to</span> the
+                    /usr/share/<span class="hljs-keyword">ca</span>-certificates/trust-<span class="hljs-keyword">source</span>/anchors/
+            subdirectory, <span class="hljs-built_in">and</span> run the
+                    <span class="hljs-keyword">update</span>-<span class="hljs-keyword">ca</span>-trust
+            <span class="hljs-keyword">command</span>.
+
+            If your certificate <span class="hljs-keyword">is</span> in the extended BEGIN TRUSTED <span class="hljs-keyword">file</span> format,
+            then place it into the main trust-<span class="hljs-keyword">source</span>/ directory instead.
+=============================================================================
+
+Please refer <span class="hljs-keyword">to</span> the <span class="hljs-keyword">update</span>-<span class="hljs-keyword">ca</span>-trust(<span class="hljs-number">8</span>) manual page <span class="hljs-keyword">for</span> additional information.</code></pre></div>
 
 <p>这份文件告诉我们可以在 <code>/usr/share/ca-certificates/trust-source/anchors/</code> 路径下放置 PEM 证书文件，并使用 <code>update-ca-trust</code> 命令更新系统的信任。</p>
 <p>mitmproxy 软件第一次运行时，将会在当前用户的 <code>$HOME/.mitmproxy/</code> 文件夹下生成证书，我们打开这个文件夹，发现一共有六个文件：</p>
@@ -377,10 +396,10 @@
 <li>mitmproxy-dhparam.pem</li>
 </ul>
 <p>我们这里需要将 <code>mitmproxy-ca-cert.pem</code> 文件复制到 <code>/usr/share/ca-certificates/trust-source/anchors/</code> 路径下</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">cp</span> <span class="hljs-variable">$HOME</span>/.mitmproxy/mitmproxy-ca-cert.pem /usr/share/ca-certificates/trust-source/anchors/<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">cp</span> <span class="hljs-variable">$HOME</span>/.mitmproxy/mitmproxy-ca-cert.pem /usr/share/ca-certificates/trust-source/anchors/</code></pre></div>
 
 <p>随后执行 <code>update-ca-trust</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> update-ca-trust<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> update-ca-trust</code></pre></div>
 
 <p>这样便完成了 ca 证书的安装</p>
 <h2 id="使目标软件使用-8080-端口通信"><a href="#使目标软件使用-8080-端口通信" class="headerlink" title="使目标软件使用 8080 端口通信"></a>使目标软件使用 8080 端口通信</h2><p>其实我试过使用透明代理进行抓包，只不过我的 Archlinux 是作为日常主力机使用的，系统无时无刻不在向外通信，透明代理以后 mitmproxy 的 webui 各种刷屏，便放弃了这个想法，选择指定目标软件使用 8080 端口通信。</p>

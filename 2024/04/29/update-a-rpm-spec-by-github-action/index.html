@@ -277,7 +277,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          567 字
+          565 字
         
       </span>
     
@@ -345,22 +345,47 @@
 <p>于是我们便解决了最核心的问题——处理 spec 文件。接下来只要补充好头尾的步骤即可。</p>
 <hr>
 <p>首先使用 actions/checkout 释出仓库内的文件</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Checkout</span><br>  <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/checkout@v2</span><br>  <span class="hljs-attr">with:</span><br>    <span class="hljs-attr">fetch-depth:</span> <span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs yaml"><span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Checkout</span>
+  <span class="hljs-attr">uses:</span> <span class="hljs-string">actions/checkout@v2</span>
+  <span class="hljs-attr">with:</span>
+    <span class="hljs-attr">fetch-depth:</span> <span class="hljs-number">0</span></code></pre></div>
 
 <p>通过 shell 命令获取仓库内 spec 文件的版本号，存入 $GITHUB_ENV</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Get</span> <span class="hljs-string">Current</span> <span class="hljs-string">Version</span><br>  <span class="hljs-attr">run:</span> <span class="hljs-string">|</span><br><span class="hljs-string">    CURRENT_VERSION=`grep -E &#x27;^Version:&#x27; *.spec | awk &#x27;&#123;print $2&#125;&#x27;`</span><br><span class="hljs-string">    echo &quot;CURRENT_VERSION=$CURRENT_VERSION&quot; &gt;&gt; $GITHUB_ENV</span><br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs yaml"><span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Get</span> <span class="hljs-string">Current</span> <span class="hljs-string">Version</span>
+  <span class="hljs-attr">run:</span> <span class="hljs-string">|</span>
+<span class="hljs-string">    CURRENT_VERSION=`grep -E &#x27;^Version:&#x27; *.spec | awk &#x27;&#123;print $2&#125;&#x27;`</span>
+<span class="hljs-string">    echo &quot;CURRENT_VERSION=$CURRENT_VERSION&quot; &gt;&gt; $GITHUB_ENV</span></code></pre></div>
 
 <p>通过 Github API 获取目标软件的最新版本号，存入 $GITHUB_ENV</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Export</span> <span class="hljs-string">latest</span> <span class="hljs-string">geoip</span> <span class="hljs-string">version</span><br>  <span class="hljs-attr">run:</span> <span class="hljs-string">|</span><br><span class="hljs-string">    NEW_VERSION=`curl -s https://api.github.com/repos/&#123;user_name&#125;/&#123;repo_name&#125;/releases/latest | jq -r &#x27;.tag_name&#x27; | sed &#x27;s/v//g&#x27;`</span><br><span class="hljs-string">    echo &quot;NEW_VERSION=$NEW_VERSION&quot; &gt;&gt; $GITHUB_ENV</span><br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs yaml"><span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Export</span> <span class="hljs-string">latest</span> <span class="hljs-string">geoip</span> <span class="hljs-string">version</span>
+  <span class="hljs-attr">run:</span> <span class="hljs-string">|</span>
+<span class="hljs-string">    NEW_VERSION=`curl -s https://api.github.com/repos/&#123;user_name&#125;/&#123;repo_name&#125;/releases/latest | jq -r &#x27;.tag_name&#x27; | sed &#x27;s/v//g&#x27;`</span>
+<span class="hljs-string">    echo &quot;NEW_VERSION=$NEW_VERSION&quot; &gt;&gt; $GITHUB_ENV</span></code></pre></div>
 
 <p>当仓库内 spec 版本号与软件最新版本号不一致时，运行 rpmdev-bumpspec</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Run</span> <span class="hljs-string">rpmdev-bumpspec</span> <span class="hljs-string">action</span><br>  <span class="hljs-attr">if:</span> <span class="hljs-string">$&#123;&#123;</span> <span class="hljs-string">env.CURRENT_VERSION</span> <span class="hljs-type">!=</span> <span class="hljs-string">env.NEW_VERSION</span> <span class="hljs-string">&#125;&#125;</span><br>  <span class="hljs-attr">uses:</span> <span class="hljs-string">netoarmando/rpmdev-bumpspec-action@v1</span><br>  <span class="hljs-attr">with:</span> <br>    <span class="hljs-attr">specfile:</span> <span class="hljs-string">&#x27;&#123;filename&#125;&#x27;</span><br>    <span class="hljs-attr">new:</span> <span class="hljs-string">$&#123;&#123;</span> <span class="hljs-string">env.NEW_VERSION</span> <span class="hljs-string">&#125;&#125;</span><br>    <span class="hljs-attr">userstring:</span> <span class="hljs-string">&quot;username &lt;username@mail.com&gt;&quot;</span><br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs yaml"><span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Run</span> <span class="hljs-string">rpmdev-bumpspec</span> <span class="hljs-string">action</span>
+  <span class="hljs-attr">if:</span> <span class="hljs-string">$&#123;&#123;</span> <span class="hljs-string">env.CURRENT_VERSION</span> <span class="hljs-type">!=</span> <span class="hljs-string">env.NEW_VERSION</span> <span class="hljs-string">&#125;&#125;</span>
+  <span class="hljs-attr">uses:</span> <span class="hljs-string">netoarmando/rpmdev-bumpspec-action@v1</span>
+  <span class="hljs-attr">with:</span> 
+    <span class="hljs-attr">specfile:</span> <span class="hljs-string">&#x27;&#123;filename&#125;&#x27;</span>
+    <span class="hljs-attr">new:</span> <span class="hljs-string">$&#123;&#123;</span> <span class="hljs-string">env.NEW_VERSION</span> <span class="hljs-string">&#125;&#125;</span>
+    <span class="hljs-attr">userstring:</span> <span class="hljs-string">&quot;username &lt;username@mail.com&gt;&quot;</span></code></pre></div>
 
 <p>当仓库内 spec 版本号与软件最新版本号不一致时，保存更改，推入仓库。</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Commit</span> <span class="hljs-string">changes</span><br>  <span class="hljs-attr">if:</span> <span class="hljs-string">$&#123;&#123;</span> <span class="hljs-string">env.CURRENT_VERSION</span> <span class="hljs-type">!=</span> <span class="hljs-string">env.NEW_VERSION</span> <span class="hljs-string">&#125;&#125;</span><br>  <span class="hljs-attr">run:</span> <span class="hljs-string">|</span><br><span class="hljs-string">    git config --local user.email &quot;zhullyb@outlook.com&quot;</span><br><span class="hljs-string">    git config --local user.name &quot;zhullyb&quot;</span><br><span class="hljs-string">    git add .</span><br><span class="hljs-string">    git commit -m &quot;upgpkg: v2ray-geoip@$&#123;&#123; env.NEW_VERSION &#125;&#125;&quot;</span><br><span class="hljs-string">    git push</span><br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs yaml"><span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">Commit</span> <span class="hljs-string">changes</span>
+  <span class="hljs-attr">if:</span> <span class="hljs-string">$&#123;&#123;</span> <span class="hljs-string">env.CURRENT_VERSION</span> <span class="hljs-type">!=</span> <span class="hljs-string">env.NEW_VERSION</span> <span class="hljs-string">&#125;&#125;</span>
+  <span class="hljs-attr">run:</span> <span class="hljs-string">|</span>
+<span class="hljs-string">    git config --local user.email &quot;zhullyb@outlook.com&quot;</span>
+<span class="hljs-string">    git config --local user.name &quot;zhullyb&quot;</span>
+<span class="hljs-string">    git add .</span>
+<span class="hljs-string">    git commit -m &quot;upgpkg: v2ray-geoip@$&#123;&#123; env.NEW_VERSION &#125;&#125;&quot;</span>
+<span class="hljs-string">    git push</span></code></pre></div>
 
 <p>（可选）当仓库内 spec 版本号与软件最新版本号不一致时，通过 curl 语句触发 copr 的 webhook，让 copr 进行构建。</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">trigger</span> <span class="hljs-string">copr</span> <span class="hljs-string">webhook</span><br>  <span class="hljs-attr">if:</span> <span class="hljs-string">$&#123;&#123;</span> <span class="hljs-string">env.CURRENT_VERSION</span> <span class="hljs-type">!=</span> <span class="hljs-string">env.NEW_VERSION</span> <span class="hljs-string">&#125;&#125;</span><br>  <span class="hljs-attr">run:</span> <span class="hljs-string">|</span><br>    <span class="hljs-string">curl</span> <span class="hljs-string">-X</span> <span class="hljs-string">POST</span> <span class="hljs-string">$&#123;&#123;</span> <span class="hljs-string">secrets.COPR_HOOK_URL</span> <span class="hljs-string">&#125;&#125;v2ray-geoip/</span><br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs yaml"><span class="hljs-bullet">-</span> <span class="hljs-attr">name:</span> <span class="hljs-string">trigger</span> <span class="hljs-string">copr</span> <span class="hljs-string">webhook</span>
+  <span class="hljs-attr">if:</span> <span class="hljs-string">$&#123;&#123;</span> <span class="hljs-string">env.CURRENT_VERSION</span> <span class="hljs-type">!=</span> <span class="hljs-string">env.NEW_VERSION</span> <span class="hljs-string">&#125;&#125;</span>
+  <span class="hljs-attr">run:</span> <span class="hljs-string">|</span>
+    <span class="hljs-string">curl</span> <span class="hljs-string">-X</span> <span class="hljs-string">POST</span> <span class="hljs-string">$&#123;&#123;</span> <span class="hljs-string">secrets.COPR_HOOK_URL</span> <span class="hljs-string">&#125;&#125;v2ray-geoip/</span></code></pre></div>
 
 <p>最终的 yml 文件可以参考<a target="_blank" rel="noopener" href="https://github.com/v2rayA/v2raya-copr/blob/master/.github/workflows/upgpkg-v2ray-geoip.yml">这里</a></p>
 

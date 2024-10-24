@@ -21,12 +21,12 @@
   <meta name="author" content="竹林里有冰">
   <meta name="keywords" content="博客, 技术, Fedora">
   
-    <meta name="description" content="在Firefox更新UI以后，我就一直感觉不太适应。顶栏的一个个标签页占用的体积达到了原来的1.5~2倍。Thanks to black7375&#x2F;Firefox-UI-Fix ，我们得以把以前的顶栏找回来。  加载新的cssclone该github项目并进入对应路径后，执行install.sh 123git clone https:&#x2F;&#x2F;github.com&#x2F;black7375&#x2F;Firefox">
+    <meta name="description" content="在Firefox更新UI以后，我就一直感觉不太适应。顶栏的一个个标签页占用的体积达到了原来的1.5~2倍。Thanks to black7375&#x2F;Firefox-UI-Fix ，我们得以把以前的顶栏找回来。  加载新的cssclone该github项目并进入对应路径后，执行install.sh git clone https:&#x2F;&#x2F;github.com&#x2F;black7375&#x2F;Firefox-UI">
 <meta property="og:type" content="article">
 <meta property="og:title" content="把老版的火狐顶栏UI带回来">
 <meta property="og:url" content="https://zhul.in/2021/10/01/bring-firefox-old-topbar-back/index.html">
 <meta property="og:site_name" content="竹林里有冰的博客">
-<meta property="og:description" content="在Firefox更新UI以后，我就一直感觉不太适应。顶栏的一个个标签页占用的体积达到了原来的1.5~2倍。Thanks to black7375&#x2F;Firefox-UI-Fix ，我们得以把以前的顶栏找回来。  加载新的cssclone该github项目并进入对应路径后，执行install.sh 123git clone https:&#x2F;&#x2F;github.com&#x2F;black7375&#x2F;Firefox">
+<meta property="og:description" content="在Firefox更新UI以后，我就一直感觉不太适应。顶栏的一个个标签页占用的体积达到了原来的1.5~2倍。Thanks to black7375&#x2F;Firefox-UI-Fix ，我们得以把以前的顶栏找回来。  加载新的cssclone该github项目并进入对应路径后，执行install.sh git clone https:&#x2F;&#x2F;github.com&#x2F;black7375&#x2F;Firefox-UI">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://static.031130.xyz/uploads/2024/08/12/62f3cca6bb523.webp">
 <meta property="og:image" content="https://static.031130.xyz/uploads/2024/08/12/62f3ccaa2b91c.webp">
@@ -355,7 +355,9 @@
 <p>在Firefox更新UI以后，我就一直感觉不太适应。顶栏的一个个标签页占用的体积达到了原来的1.5~2倍。Thanks to <a target="_blank" rel="noopener" href="https://github.com/black7375/Firefox-UI-Fix">black7375/Firefox-UI-Fix</a> ，我们得以把以前的顶栏找回来。</p>
 </blockquote>
 <h3 id="加载新的css"><a href="#加载新的css" class="headerlink" title="加载新的css"></a>加载新的css</h3><p>clone该github项目并进入对应路径后，执行<code>install.sh</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> https://github.com/black7375/Firefox-UI-Fix.git<br><span class="hljs-built_in">cd</span> Firefox-UI-Fix.git<br>./install.sh<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash">git <span class="hljs-built_in">clone</span> https://github.com/black7375/Firefox-UI-Fix.git
+<span class="hljs-built_in">cd</span> Firefox-UI-Fix.git
+./install.sh</code></pre></div>
 
 <p>在接下来的对话中，我们选择<code>Photon-Style</code>，这是最接近老版UI的。</p>
 <p>紧接着脚本会要求我们选择我们的Firefox数据文件夹，我们可以打开Firefox，在浏览器地址栏输入<code>about:support</code>查看到我们所使用的数据文件夹路径。</p>

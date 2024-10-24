@@ -351,17 +351,20 @@
 <h2 id="Apache-Server-配置"><a href="#Apache-Server-配置" class="headerlink" title="Apache Server 配置"></a>Apache Server 配置</h2><p>和 php 拓展一样，镜像内也提供了几个命令进行 Apache Server 的配置，分别为 <code>a2disconf</code>、<code>a2dismod</code>、<code>a2dissite</code>、<code>a2enconf</code>、<code>a2enmod</code>、<code>a2ensite</code>、<code>a2ensite</code>。</p>
 <p>OneManager-php 在部署的时候依赖于 Apache Server 的 rewrite 的模块，因此在 Dockerfile 中需要使用 <code>a2enmod rewrite</code> 开启 rewrite 支持。至于别的 Apache Server 配置，都可以通过项目中的 .htaccess 文件进行配置。</p>
 <h2 id="htaccess-文件纠错"><a href="#htaccess-文件纠错" class="headerlink" title=".htaccess 文件纠错"></a><del>.htaccess 文件纠错</del></h2><p><del>在 OneManager-php 仓库中，<code>.htaccess</code> 文件有一些小问题。</del></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs htaccess">RewriteRule ^(.*) index.php?/$1 [L]<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs htaccess">RewriteRule ^(.*) index.php?/$1 [L]</code></pre></div>
 
 <p><del>这行配置原本是将访问的路径追加到 <code>index.php?/</code> 后面的意思，但 一旦路径中出现了 <code>[</code>、<code>]</code> 或者空格等字符时，会触发 Apache 自带的保护，因此我们将这行改成下面这个样子即可。</del></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs htaccess">RewriteRule ^(.*) index.php [QSA,L]<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs htaccess">RewriteRule ^(.*) index.php [QSA,L]</code></pre></div>
 
 <p>原项目合并了<a target="_blank" rel="noopener" href="https://github.com/qkqpttgf/OneManager-php/pull/716">我的 PR</a>，因此这一过程不再需要。</p>
 <h2 id="处理文件权限问题"><a href="#处理文件权限问题" class="headerlink" title="处理文件权限问题"></a>处理文件权限问题</h2><p>OneManager-php 在运行过程中，会有针对配置文件的读写操作，此外还内置了一键更新的功能，因此会对路径内的文件进行读写，我们需要确保 php 在运行过程中有权限对这些文件进行读写。</p>
 <p>可以直接将 <code>/var/www/html</code> 路径的所有权转给 <code>www-data</code> 用户。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">chown</span> -R www-data:www-data /var/www/html<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash"><span class="hljs-built_in">chown</span> -R www-data:www-data /var/www/html</code></pre></div>
 
-<h2 id="最终的-Dockerfile"><a href="#最终的-Dockerfile" class="headerlink" title="最终的 Dockerfile"></a>最终的 Dockerfile</h2><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs dockerfile"><span class="hljs-keyword">FROM</span> php:<span class="hljs-number">8</span>-apache<br><span class="hljs-keyword">RUN</span><span class="language-bash"> a2enmod rewrite</span><br><span class="hljs-keyword">COPY</span><span class="language-bash"> OneManager-php /var/www/html</span><br><span class="hljs-keyword">RUN</span><span class="language-bash"> <span class="hljs-built_in">chown</span> -R www-data:www-data /var/www/html</span><br></code></pre></td></tr></table></figure>
+<h2 id="最终的-Dockerfile"><a href="#最终的-Dockerfile" class="headerlink" title="最终的 Dockerfile"></a>最终的 Dockerfile</h2><div class="code-wrapper"><pre><code class="hljs dockerfile"><span class="hljs-keyword">FROM</span> php:<span class="hljs-number">8</span>-apache
+<span class="hljs-keyword">RUN</span><span class="language-bash"> a2enmod rewrite</span>
+<span class="hljs-keyword">COPY</span><span class="language-bash"> OneManager-php /var/www/html</span>
+<span class="hljs-keyword">RUN</span><span class="language-bash"> <span class="hljs-built_in">chown</span> -R www-data:www-data /var/www/html</span></code></pre></div>
 
 <p>其实一共就 4 行，还是挺简单的。</p>
 

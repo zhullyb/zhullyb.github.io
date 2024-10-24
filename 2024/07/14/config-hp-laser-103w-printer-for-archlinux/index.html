@@ -353,23 +353,24 @@
 <p><img src="https://static.031130.xyz/uploads/2024/08/12/6693aa41c079b.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="路由器的网页管理界面"></p>
 <h2 id="安装-CUPS"><a href="#安装-CUPS" class="headerlink" title="安装 CUPS"></a>安装 CUPS</h2><p>随后按照 ArchWiki 的 <a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/CUPS">CUPS 页面</a>进行相关配置，CUPS 是苹果公司开源的打印系统，是目前 Linux 下最主流的打印方案。</p>
 <p>首先安装 cups ，如果需要「打印为 pdf」的功能，可以选装 cups-pdf。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pacman -S cups<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash">pacman -S cups</code></pre></div>
 
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pacman -S cups-pdf<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash">pacman -S cups-pdf</code></pre></div>
 
 <p>接着需要启动 cups 的服务，如果需要使用 cups 自带的 webui，可以直接启用 cups.service，这样就能在 <a target="_blank" rel="noopener" href="http://localhost:631/">http://localhost:631</a> 看到对应的配置页面。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">systemctl <span class="hljs-built_in">enable</span> cups.service --now<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash">systemctl <span class="hljs-built_in">enable</span> cups.service --now</code></pre></div>
 
 <p>而如果你正在使用一些集成度较高的 DE 如 KDE 或 GNOME，可以安装 DE 对应的打印机管理程序。在 Arch Linux 下，KDE 自带的打印机管理程序包名为 <code>print-manager</code>，此外还需要安装安装 <code>system-config-printer</code> 打印机功能支持软件包。这种方案则不需要启动 cups.service，只需要启动 cups.socket 即可。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">pacman -S print-manager system-config-printer<br>systemctl <span class="hljs-built_in">enable</span> cups.socket<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash">pacman -S print-manager system-config-printer
+systemctl <span class="hljs-built_in">enable</span> cups.socket</code></pre></div>
 
 <h2 id="杂项"><a href="#杂项" class="headerlink" title="杂项"></a>杂项</h2><p>在常规的流程中，通常会安装 <code>ghostscript</code> 来适应 Non-PDF 打印机，这台 HP Laser 103w 也不例外。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">pacman -S ghostscript<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash">pacman -S ghostscript</code></pre></div>
 
 <p>如果是 PostScript 打印机可能还需要安装 <code>gsfonts</code> 包，但我这里不需要。</p>
 <h2 id="安装驱动"><a href="#安装驱动" class="headerlink" title="安装驱动"></a>安装驱动</h2><p>OpenPrinting 维护的 <code>foomatic</code> 为很大一部分打印机提供的驱动文件，Gutenprint 维护的 gutenprint 包也包含了佳能(Canon)、爱普生(Epson)、利盟(Lexmark)、索尼(Sony)、奥林巴斯(Olympus) 以及 PCL 打印机的驱动程序。如果你的打印机型号和我的不同，可以尝试安装这些组织维护的驱动。具体的安装方法同样可以在 ArchWiki 的 <a target="_blank" rel="noopener" href="https://wiki.archlinux.org/title/CUPS">CUPS 页面</a>找到。我上一台打印机 HP LaserJet 1020 所需的驱动是在 <a target="_blank" rel="noopener" href="https://aur.archlinux.org/packages/foo2zjs-nightly">AUR/foo2zjs-nightly</a> 中取得的。</p>
 <p>但 HP Laser 103w 的驱动程序都不在这些软件包中，在 HP 的官网我们可以找到<a target="_blank" rel="noopener" href="https://support.hp.com/cn-zh/drivers/hp-laser-100-printer-series/model/2100769190">这个页面</a>，包含了 HP Laser 103w 的 Linux 驱动<a target="_blank" rel="noopener" href="https://ftp.hp.com/pub/softlib/software13/printers/CLP150/uld-hp_V1.00.39.12_00.15.tar.gz">下载地址</a>（已在 web.archive.org 存档）。通过下载下来的文件名，我们可以看见名字为 uld-hp，理论上可以直接通过压缩包内的安装脚本进行安装，但我通过这个名字顺藤摸瓜，找到了 <a target="_blank" rel="noopener" href="https://aur.archlinux.org/packages/hpuld">AUR/hpuld</a> 可以直接进行安装。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">yay -S hpuld<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash">yay -S hpuld</code></pre></div>
 
 <h2 id="添加打印机"><a href="#添加打印机" class="headerlink" title="添加打印机"></a>添加打印机</h2><p>打开设置中的打印机设置后，选择添加打印机，CUPS 直接帮我们找到了局域网下的打印机，并自动开始搜索驱动程序（虽然没搜到）。</p>
 <p><img src="https://static.031130.xyz/uploads/2024/08/12/6693b6e81f9c4.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="自动搜索"></p>

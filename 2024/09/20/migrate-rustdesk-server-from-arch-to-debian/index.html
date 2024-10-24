@@ -350,9 +350,23 @@
 <p>原本在 Arch Linux 上部署的 rustdesk server 我是按照这篇文章「<a target="_blank" rel="noopener" href="https://www.liyp.cc/archives/1698241638248">(水文)在archlinux上部署rustdesk服务端</a>」部署的。本身没什么技巧，直接从 AUR 安装现成的 rustdesk-server-bin，使用 systemctl 启用 <code>rustdesk-server-hbbr.service</code> 和 <code>rustdesk-server-hbbs.service</code> 两个服务即可。</p>
 <p>Rustdesk 现在为 Debian 提供了官方的中继服务器的 deb 包，而谷歌搜了一圈都是下载 zip 包使用 pm2 管理进程，故写下此文。</p>
 <h2 id="备份原服务器的-rustdesk-密钥"><a href="#备份原服务器的-rustdesk-密钥" class="headerlink" title="备份原服务器的 rustdesk 密钥"></a>备份原服务器的 rustdesk 密钥</h2><p>AUR 上的安装方案将密钥放在 <code>/opt/rustdesk-server/data</code> 直接用 sftp 获取 <code>id_ed25519</code> 和 <code>id_ed25519.pub</code> 两个文件就行。如果是新部署的没有这两个文件也没事，rustdesk 服务在启动时可以自动创建，只不过需要在客户端重新输入公钥。</p>
-<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs armasm"><span class="hljs-symbol">sftp</span>&gt; <span class="hljs-meta">get</span> /<span class="hljs-meta">opt</span>/rustdesk-server/<span class="hljs-meta">data</span>/id_ed25519<br><span class="hljs-symbol">sftp</span>&gt; <span class="hljs-meta">get</span> /<span class="hljs-meta">opt</span>/rustdesk-server/<span class="hljs-meta">data</span>/id_ed25519.pub<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs armasm"><span class="hljs-symbol">sftp</span>&gt; <span class="hljs-meta">get</span> /<span class="hljs-meta">opt</span>/rustdesk-server/<span class="hljs-meta">data</span>/id_ed25519
+<span class="hljs-symbol">sftp</span>&gt; <span class="hljs-meta">get</span> /<span class="hljs-meta">opt</span>/rustdesk-server/<span class="hljs-meta">data</span>/id_ed25519.pub</code></pre></div>
 
-<h2 id="在新服务器上下载-deb-包，进行安装"><a href="#在新服务器上下载-deb-包，进行安装" class="headerlink" title="在新服务器上下载 deb 包，进行安装"></a>在新服务器上下载 deb 包，进行安装</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs bash">apt install -y curl jq<br>version=$(curl -s https://api.github.com/repos/rustdesk/rustdesk-server/releases/latest | jq .tag_name)<br><br>hbbr_deb=rustdesk-server-hbbr_<span class="hljs-variable">$&#123;version:1:-1&#125;</span>_amd64.deb<br>hbbs_deb=rustdesk-server-hbbs_<span class="hljs-variable">$&#123;version:1:-1&#125;</span>_amd64.deb<br>utils_deb=rustdesk-server-utils_<span class="hljs-variable">$&#123;version:1:-1&#125;</span>_amd64.deb<br><br><span class="hljs-keyword">for</span> deb <span class="hljs-keyword">in</span> <span class="hljs-variable">$hbbr_deb</span> <span class="hljs-variable">$hbbs_deb</span> <span class="hljs-variable">$utils_deb</span><br><span class="hljs-keyword">do</span><br>    curl -L https://github.com/rustdesk/rustdesk-server/releases/download/<span class="hljs-variable">$&#123;version:1:-1&#125;</span>/<span class="hljs-variable">$&#123;deb&#125;</span> -o <span class="hljs-variable">$&#123;deb&#125;</span><br><span class="hljs-keyword">done</span><br><br>dpkg -i <span class="hljs-variable">$hbbr_deb</span> <span class="hljs-variable">$hbbs_deb</span> <span class="hljs-variable">$utils_deb</span><br><span class="hljs-built_in">rm</span> <span class="hljs-variable">$hbbr_deb</span> <span class="hljs-variable">$hbbs_deb</span> <span class="hljs-variable">$utils_deb</span><br></code></pre></td></tr></table></figure>
+<h2 id="在新服务器上下载-deb-包，进行安装"><a href="#在新服务器上下载-deb-包，进行安装" class="headerlink" title="在新服务器上下载 deb 包，进行安装"></a>在新服务器上下载 deb 包，进行安装</h2><div class="code-wrapper"><pre><code class="hljs bash">apt install -y curl jq
+version=$(curl -s https://api.github.com/repos/rustdesk/rustdesk-server/releases/latest | jq .tag_name)
+
+hbbr_deb=rustdesk-server-hbbr_<span class="hljs-variable">$&#123;version:1:-1&#125;</span>_amd64.deb
+hbbs_deb=rustdesk-server-hbbs_<span class="hljs-variable">$&#123;version:1:-1&#125;</span>_amd64.deb
+utils_deb=rustdesk-server-utils_<span class="hljs-variable">$&#123;version:1:-1&#125;</span>_amd64.deb
+
+<span class="hljs-keyword">for</span> deb <span class="hljs-keyword">in</span> <span class="hljs-variable">$hbbr_deb</span> <span class="hljs-variable">$hbbs_deb</span> <span class="hljs-variable">$utils_deb</span>
+<span class="hljs-keyword">do</span>
+    curl -L https://github.com/rustdesk/rustdesk-server/releases/download/<span class="hljs-variable">$&#123;version:1:-1&#125;</span>/<span class="hljs-variable">$&#123;deb&#125;</span> -o <span class="hljs-variable">$&#123;deb&#125;</span>
+<span class="hljs-keyword">done</span>
+
+dpkg -i <span class="hljs-variable">$hbbr_deb</span> <span class="hljs-variable">$hbbs_deb</span> <span class="hljs-variable">$utils_deb</span>
+<span class="hljs-built_in">rm</span> <span class="hljs-variable">$hbbr_deb</span> <span class="hljs-variable">$hbbs_deb</span> <span class="hljs-variable">$utils_deb</span></code></pre></div>
 
 <p>简单写了个脚本，仅适用 amd64，也没做异常处理，如果服务器在大陆境内需要自行解决 github 下载时可能出现的网络波动问题。</p>
 <p>dpkg 安装结束后默认会启用两个 systemd 服务并开机自启，所以不需要使用 systemctl 手动启用。</p>
@@ -367,7 +381,7 @@
 <li>UDP(<strong>21116</strong>)</li>
 </ul>
 <h2 id="客户端设置"><a href="#客户端设置" class="headerlink" title="客户端设置"></a>客户端设置</h2><p>id_ed25519.pub 对应客户端中需要输入的 Key，大概长成下面这个样子</p>
-<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs abnf"><span class="hljs-attribute">rdtxujYccRLXwXOu2KR3V9cGgP51lEdSmE0HJHGNkn4</span><span class="hljs-operator">=</span><br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs abnf"><span class="hljs-attribute">rdtxujYccRLXwXOu2KR3V9cGgP51lEdSmE0HJHGNkn4</span><span class="hljs-operator">=</span></code></pre></div>
 
 <p><img src="https://static.031130.xyz/uploads/2024/09/20/cc715265b8b37.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
 <p>ID 服务器直接输入中继服务器的 ip 或者解析到对应 ip 的域名即可，另外两个地址可以不填，RustDesk会自动推导（如果没有特别设定）</p>

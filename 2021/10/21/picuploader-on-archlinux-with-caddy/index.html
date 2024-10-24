@@ -345,46 +345,180 @@
 <p>之前找对大陆网络友好的图床时，找到了cloudinary，但是全英文界面对操作增加了不少难度，其页面也不是很简洁，让我一下打消了使用网页版的念头。通过搜索，找到了 PicUploader 这一方案，使用php编写，支持cloudinary的api。</p>
 <p>作者在其<a target="_blank" rel="noopener" href="https://www.xiebruce.top/17.html">博客</a>中仅提供了nginx的部署方案，我参考其配置文件成功实现了在caddy下的部署，并且花费了数个小时排坑，故写下本文帮助后来者节省时间。</p>
 </blockquote>
-<h2 id="安装caddy和php-fpm以及所需的拓展"><a href="#安装caddy和php-fpm以及所需的拓展" class="headerlink" title="安装caddy和php-fpm以及所需的拓展"></a>安装<code>caddy</code>和<code>php-fpm</code>以及所需的拓展</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> pacman -S caddy php-fpm php-gd php-sqlite --needed<br></code></pre></td></tr></table></figure>
+<h2 id="安装caddy和php-fpm以及所需的拓展"><a href="#安装caddy和php-fpm以及所需的拓展" class="headerlink" title="安装caddy和php-fpm以及所需的拓展"></a>安装<code>caddy</code>和<code>php-fpm</code>以及所需的拓展</h2><div class="code-wrapper"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> pacman -S caddy php-fpm php-gd php-sqlite --needed</code></pre></div>
 
 <h2 id="配置php-fpm"><a href="#配置php-fpm" class="headerlink" title="配置php-fpm"></a>配置<code>php-fpm</code></h2><h3 id="在-etc-php-php-ini启用PicUploader所需拓展"><a href="#在-etc-php-php-ini启用PicUploader所需拓展" class="headerlink" title="在/etc/php/php.ini启用PicUploader所需拓展"></a>在<code>/etc/php/php.ini</code>启用PicUploader所需拓展</h3><p>PicUploaer依赖于<code>fileinfo</code>、<code>gd</code>、<code>curl</code>、<code>exif</code>、<code>pdo_sqlite</code>拓展，可以使用<code>php -m</code>命令来查看目前加载成功了的插件。</p>
-<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><code class="hljs diff">;extension=bcmath<br>;extension=bz2<br>;extension=calendar<br><span class="hljs-deletion">- extension=curl</span><br><span class="hljs-addition">+ extension=curl</span><br>;extension=dba<br>;extension=enchant<br><span class="hljs-deletion">- extension=exif</span><br><span class="hljs-addition">+ extension=exif</span><br>;extension=ffi<br>;extension=ftp<br><span class="hljs-deletion">- extension=gd</span><br><span class="hljs-addition">+ extension=gd</span><br>;extension=gettext<br>;extension=gmp<br>;extension=iconv<br>;extension=imap<br>;extension=intl<br>;extension=ldap<br>;extension=mysqli<br>;extension=odbc<br>;zend_extension=opcache<br>;extension=pdo_dblib<br>;extension=pdo_mysql<br>;extension=pdo_odbc<br>;extension=pdo_pgsql<br><span class="hljs-deletion">- extension=pdo_sqlite</span><br><span class="hljs-addition">+ extension=pdo_sqlite</span><br>;extension=pgsql<br>;extension=pspell<br>;extension=shmop<br>;extension=snmp<br>;extension=soap<br>;extension=sockets<br>;extension=sodium<br>;extension=sqlite3<br>;extension=sysvmsg<br>;extension=sysvsem<br>;extension=sysvshm<br>;extension=tidy<br>;extension=xmlrpc<br>;extension=xsl<br>extension=zip<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs diff">;extension=bcmath
+;extension=bz2
+;extension=calendar
+<span class="hljs-deletion">- extension=curl</span>
+<span class="hljs-addition">+ extension=curl</span>
+;extension=dba
+;extension=enchant
+<span class="hljs-deletion">- extension=exif</span>
+<span class="hljs-addition">+ extension=exif</span>
+;extension=ffi
+;extension=ftp
+<span class="hljs-deletion">- extension=gd</span>
+<span class="hljs-addition">+ extension=gd</span>
+;extension=gettext
+;extension=gmp
+;extension=iconv
+;extension=imap
+;extension=intl
+;extension=ldap
+;extension=mysqli
+;extension=odbc
+;zend_extension=opcache
+;extension=pdo_dblib
+;extension=pdo_mysql
+;extension=pdo_odbc
+;extension=pdo_pgsql
+<span class="hljs-deletion">- extension=pdo_sqlite</span>
+<span class="hljs-addition">+ extension=pdo_sqlite</span>
+;extension=pgsql
+;extension=pspell
+;extension=shmop
+;extension=snmp
+;extension=soap
+;extension=sockets
+;extension=sodium
+;extension=sqlite3
+;extension=sysvmsg
+;extension=sysvsem
+;extension=sysvshm
+;extension=tidy
+;extension=xmlrpc
+;extension=xsl
+extension=zip</code></pre></div>
 
 <h3 id="编辑-etc-php-php-ini以增加单文件上传大小限制"><a href="#编辑-etc-php-php-ini以增加单文件上传大小限制" class="headerlink" title="编辑/etc/php/php.ini以增加单文件上传大小限制"></a>编辑<code>/etc/php/php.ini</code>以增加单文件上传大小限制</h3><p><del>查出这个问题浪费了我整整4小时时间。</del></p>
-<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs diff"><span class="hljs-deletion">- upload_max_filesize = 2M</span><br><span class="hljs-addition">+ upload_max_filesize = 100M</span><br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs diff"><span class="hljs-deletion">- upload_max_filesize = 2M</span>
+<span class="hljs-addition">+ upload_max_filesize = 100M</span></code></pre></div>
 
-<h3 id="编辑-etc-php-php-fpm-d-www-conf使其在运行时使用caddy用户。"><a href="#编辑-etc-php-php-fpm-d-www-conf使其在运行时使用caddy用户。" class="headerlink" title="编辑/etc/php/php-fpm.d/www.conf使其在运行时使用caddy用户。"></a>编辑<code>/etc/php/php-fpm.d/www.conf</code>使其在运行时使用caddy用户。</h3><figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs diff"><span class="hljs-comment">---</span><br>; Unix user/group of processes<br>; Note: The user is mandatory. If the group is not set, the default user&#x27;s group<br>;       will be used.<br><span class="hljs-deletion">- user = http</span><br><span class="hljs-addition">+ user = caddy</span><br><span class="hljs-deletion">- group = http</span><br><span class="hljs-addition">+ group = caddy</span><br>; The address on which to accept FastCGI requests.<br>; Valid syntaxes are:<br>;   &#x27;ip.add.re.ss:port&#x27;    - to listen on a TCP socket to a specific IPv4 address on<br>;                            a specific port;<br>;   &#x27;[ip:6:addr:ess]:port&#x27; - to listen on a TCP socket to a specific IPv6 address on<br><span class="hljs-comment">---</span><br><span class="hljs-comment">---</span><br>; Note: This value is mandatory.<br>listen = /run/php-fpm/php-fpm.sock<br>; and group can be specified either by name or by their numeric IDs.<br>; Default Values: user and group are set as the running user<br>;                 mode is set to 0660<br><span class="hljs-deletion">- listen.owner = http</span><br><span class="hljs-addition">+ listen.owner = caddy</span><br><span class="hljs-deletion">- listen.group = http</span><br><span class="hljs-addition">+ listen.group = caddy</span><br>;listen.mode = 0660<br>; When POSIX Access Control Lists are supported you can set them using<br>; these options, value is a comma separated list of user/group names.<br>; When set, listen.owner and listen.group are ignored<br>;listen.acl_users =<br>;listen.acl_groups =<br><span class="hljs-comment">---</span><br></code></pre></td></tr></table></figure>
+<h3 id="编辑-etc-php-php-fpm-d-www-conf使其在运行时使用caddy用户。"><a href="#编辑-etc-php-php-fpm-d-www-conf使其在运行时使用caddy用户。" class="headerlink" title="编辑/etc/php/php-fpm.d/www.conf使其在运行时使用caddy用户。"></a>编辑<code>/etc/php/php-fpm.d/www.conf</code>使其在运行时使用caddy用户。</h3><div class="code-wrapper"><pre><code class="hljs diff"><span class="hljs-comment">---</span>
+; Unix user/group of processes
+; Note: The user is mandatory. If the group is not set, the default user&#x27;s group
+;       will be used.
+<span class="hljs-deletion">- user = http</span>
+<span class="hljs-addition">+ user = caddy</span>
+<span class="hljs-deletion">- group = http</span>
+<span class="hljs-addition">+ group = caddy</span>
+; The address on which to accept FastCGI requests.
+; Valid syntaxes are:
+;   &#x27;ip.add.re.ss:port&#x27;    - to listen on a TCP socket to a specific IPv4 address on
+;                            a specific port;
+;   &#x27;[ip:6:addr:ess]:port&#x27; - to listen on a TCP socket to a specific IPv6 address on
+<span class="hljs-comment">---</span>
+<span class="hljs-comment">---</span>
+; Note: This value is mandatory.
+listen = /run/php-fpm/php-fpm.sock
+; and group can be specified either by name or by their numeric IDs.
+; Default Values: user and group are set as the running user
+;                 mode is set to 0660
+<span class="hljs-deletion">- listen.owner = http</span>
+<span class="hljs-addition">+ listen.owner = caddy</span>
+<span class="hljs-deletion">- listen.group = http</span>
+<span class="hljs-addition">+ listen.group = caddy</span>
+;listen.mode = 0660
+; When POSIX Access Control Lists are supported you can set them using
+; these options, value is a comma separated list of user/group names.
+; When set, listen.owner and listen.group are ignored
+;listen.acl_users =
+;listen.acl_groups =
+<span class="hljs-comment">---</span></code></pre></div>
 
 <p><strong>2022年1月14日更新</strong>：在 Fedora 尝试部署的时候遇到了新的坑，Fedora 的相应配置文件为 <code>/etc/php-fpm.d/www.conf</code>，相应修改如下</p>
-<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs diff">; Unix user/group of processes<br>; Note: The user is mandatory. If the group is not set, the default user&#x27;s group<br>;       will be used.<br>; RPM: apache user chosen to provide access to the same directories as httpd<br><span class="hljs-deletion">-user = apache</span><br><span class="hljs-addition">+user = caddy</span><br>; RPM: Keep a group allowed to write in log dir.<br><span class="hljs-deletion">-user = apache</span><br><span class="hljs-addition">+group = caddy</span><br><br>; The address on which to accept FastCGI requests.<br>; Valid syntaxes are:<br>;   &#x27;ip.add.re.ss:port&#x27;    - to listen on a TCP socket to a specific IPv4 address on<br>;             a specific port;<br><span class="hljs-comment">---</span><br><span class="hljs-comment">---</span><br>; Set permissions for unix socket, if one is used. In Linux, read/write<br>; permissions must be set in order to allow connections from a web server.<br>; Default Values: user and group are set as the running user<br>;                 mode is set to 0660<br><span class="hljs-deletion">-;listen.owner = nobody</span><br><span class="hljs-addition">+listen.owner = caddy</span><br><span class="hljs-deletion">-;listen.owner = nobody</span><br><span class="hljs-addition">+listen.group = caddy</span><br>;listen.mode = 0660<br><br>; When POSIX Access Control Lists are supported you can set them using<br>; these options, value is a comma separated list of user/group names.<br>; When set, listen.owner and listen.group are ignored<br><span class="hljs-deletion">-listen.acl_users = apache,nginx</span><br><span class="hljs-addition">+;listen.acl_users = apache,nginx</span><br>;listen.acl_groups =<br><br>; List of addresses (IPv4/IPv6) of FastCGI clients which are allowed to connect.<br>; Equivalent to the FCGI_WEB_SERVER_ADDRS environment variable in the original<br>; PHP FCGI (5.2.2+). Makes sense only with a tcp listening socket. Each address<br>; must be separated by a comma. If this value is left blank, connections will be<br>; accepted from any ip address.<br>; Default Value: any<br>listen.allowed_clients = 127.0.0.1<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs diff">; Unix user/group of processes
+; Note: The user is mandatory. If the group is not set, the default user&#x27;s group
+;       will be used.
+; RPM: apache user chosen to provide access to the same directories as httpd
+<span class="hljs-deletion">-user = apache</span>
+<span class="hljs-addition">+user = caddy</span>
+; RPM: Keep a group allowed to write in log dir.
+<span class="hljs-deletion">-user = apache</span>
+<span class="hljs-addition">+group = caddy</span>
+
+; The address on which to accept FastCGI requests.
+; Valid syntaxes are:
+;   &#x27;ip.add.re.ss:port&#x27;    - to listen on a TCP socket to a specific IPv4 address on
+;             a specific port;
+<span class="hljs-comment">---</span>
+<span class="hljs-comment">---</span>
+; Set permissions for unix socket, if one is used. In Linux, read/write
+; permissions must be set in order to allow connections from a web server.
+; Default Values: user and group are set as the running user
+;                 mode is set to 0660
+<span class="hljs-deletion">-;listen.owner = nobody</span>
+<span class="hljs-addition">+listen.owner = caddy</span>
+<span class="hljs-deletion">-;listen.owner = nobody</span>
+<span class="hljs-addition">+listen.group = caddy</span>
+;listen.mode = 0660
+
+; When POSIX Access Control Lists are supported you can set them using
+; these options, value is a comma separated list of user/group names.
+; When set, listen.owner and listen.group are ignored
+<span class="hljs-deletion">-listen.acl_users = apache,nginx</span>
+<span class="hljs-addition">+;listen.acl_users = apache,nginx</span>
+;listen.acl_groups =
+
+; List of addresses (IPv4/IPv6) of FastCGI clients which are allowed to connect.
+; Equivalent to the FCGI_WEB_SERVER_ADDRS environment variable in the original
+; PHP FCGI (5.2.2+). Makes sense only with a tcp listening socket. Each address
+; must be separated by a comma. If this value is left blank, connections will be
+; accepted from any ip address.
+; Default Value: any
+listen.allowed_clients = 127.0.0.1</code></pre></div>
 
 <h2 id="拉取-PicUploader-最新代码"><a href="#拉取-PicUploader-最新代码" class="headerlink" title="拉取 PicUploader 最新代码"></a>拉取 PicUploader 最新代码</h2><p>首先创建一个用于存放代码的目录</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">mkdir</span> -p /var/www/<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">mkdir</span> -p /var/www/</code></pre></div>
 
 <p>clone 最新源码</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> git <span class="hljs-built_in">clone</span> https://github.com/xiebruce/PicUploader.git /var/www/picuploader<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> git <span class="hljs-built_in">clone</span> https://github.com/xiebruce/PicUploader.git /var/www/picuploader</code></pre></div>
 
 <p>将代码所有权转交给caddy用户</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">chown</span> -R caddy:caddy /var/www/picuploader<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">chown</span> -R caddy:caddy /var/www/picuploader</code></pre></div>
 
 <h2 id="编辑Caddyfile"><a href="#编辑Caddyfile" class="headerlink" title="编辑Caddyfile"></a>编辑Caddyfile</h2><p>caddy默认使用<code>/etc/caddy/Caddyfile</code>，因此如果你就部署这一个站点，直接修改这个就好了。</p>
 <p>caddy的语法非常简洁易懂，因此我随手写了几行就能跑起来了。</p>
 <p>下面是我用的Caddyfile，如果你在服务器上部署，请把<code>http://api.picuploader.com</code>更换为你服务器所需要绑定的域名(不带http协议头)，caddy将自动为你申请ssl证书。</p>
-<figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs gradle">http:<span class="hljs-comment">//api.picuploader.com &#123;</span><br>        root * <span class="hljs-regexp">/var/</span>www/picuploader<br><br>        php_fastcgi * unix<span class="hljs-comment">//run/php-fpm/php-fpm.sock &#123;</span><br>                index dashboard.php<br>        &#125;<br><br>        file_server &#123;<br>                index index.php<br>        &#125;<br><br>        handle_errors &#123;<br>        root * <span class="hljs-regexp">/etc/</span>caddy/error<br>                rewrite * /error.html<br>                templates<br>                file_server<br>        &#125;<br>&#125;<br><br># <span class="hljs-keyword">Import</span> additional caddy config files in <span class="hljs-regexp">/etc/</span>caddy<span class="hljs-regexp">/conf.d/</span><br><span class="hljs-keyword">import</span> <span class="hljs-regexp">/etc/</span>caddy<span class="hljs-regexp">/conf.d/</span>*<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs gradle">http:<span class="hljs-comment">//api.picuploader.com &#123;</span>
+        root * <span class="hljs-regexp">/var/</span>www/picuploader
+
+        php_fastcgi * unix<span class="hljs-comment">//run/php-fpm/php-fpm.sock &#123;</span>
+                index dashboard.php
+        &#125;
+
+        file_server &#123;
+                index index.php
+        &#125;
+
+        handle_errors &#123;
+        root * <span class="hljs-regexp">/etc/</span>caddy/error
+                rewrite * /error.html
+                templates
+                file_server
+        &#125;
+&#125;
+
+# <span class="hljs-keyword">Import</span> additional caddy config files in <span class="hljs-regexp">/etc/</span>caddy<span class="hljs-regexp">/conf.d/</span>
+<span class="hljs-keyword">import</span> <span class="hljs-regexp">/etc/</span>caddy<span class="hljs-regexp">/conf.d/</span>*</code></pre></div>
 
 <p>php我选择了监听本地<code>unix//run/php-fpm/php-fpm.sock</code>的方案，这个路径在上文的<code>/etc/php/php-fpm.d/www.conf</code>可以设置，如需查询，直接使用 <code>grep listen\ = /etc/php/php-fpm.d/www.conf</code>应该就能看见。</p>
 <h3 id="设置访问密码（可选）"><a href="#设置访问密码（可选）" class="headerlink" title="设置访问密码（可选）"></a>设置访问密码（可选）</h3><p>caddy2开始不允许在caddyfile中直接指定明文密码，因此我们需要用<code>hash-password</code>获取加密后的密码密文</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">caddy hash-password  --plaintext &lt;YourPassword&gt;<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash">caddy hash-password  --plaintext &lt;YourPassword&gt;</code></pre></div>
 
 <p>再在Caddyfile中，加上</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs xml">basicauth /* &#123;<br>		<span class="hljs-tag">&lt;<span class="hljs-name">username</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">hashed_password</span>&gt;</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs xml">basicauth /* &#123;
+		<span class="hljs-tag">&lt;<span class="hljs-name">username</span>&gt;</span> <span class="hljs-tag">&lt;<span class="hljs-name">hashed_password</span>&gt;</span>
+&#125;</code></pre></div>
 
 <h2 id="修改hosts-设置DNS解析"><a href="#修改hosts-设置DNS解析" class="headerlink" title="修改hosts/设置DNS解析"></a>修改hosts/设置DNS解析</h2><p>由于 api.picuploader.com 这个域名不在我手里，而我只是想在本地使用，并不打算部署到服务器，因此修改hosts将这个域名解析到本地是个不错的选择。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> sh -c <span class="hljs-string">&quot;echo &#x27;127.0.0.1		api.picuploader.com&#x27;  /etc/hosts&quot;</span><br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> sh -c <span class="hljs-string">&quot;echo &#x27;127.0.0.1		api.picuploader.com&#x27;  /etc/hosts&quot;</span></code></pre></div>
 
 <p>而你若是在服务器上部署，应当去设置DNS解析，这个应该不需要我多说。</p>
 <h2 id="开启服务"><a href="#开启服务" class="headerlink" title="开启服务"></a>开启服务</h2><p>在Archlinux下，我习惯直接用systemd运行<code>caddy</code>和<code>php-fpm</code>以开机自启动。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> systemctl <span class="hljs-built_in">enable</span> --now caddy php-fpm<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> systemctl <span class="hljs-built_in">enable</span> --now caddy php-fpm</code></pre></div>
 
 <h2 id="最终测试"><a href="#最终测试" class="headerlink" title="最终测试"></a>最终测试</h2><p>在浏览器内访问 <a target="_blank" rel="noopener" href="http://api.picuploader.com/">api.picuploader.com</a> ，如果能看到页面，就算是成功啦。</p>
 <h2 id="设置上传参数"><a href="#设置上传参数" class="headerlink" title="设置上传参数"></a>设置上传参数</h2><p>见作者博客：<a target="_blank" rel="noopener" href="https://www.xiebruce.top/117.html">PicUploader: 各图床获取上传图片参数的方法</a></p>

@@ -347,7 +347,14 @@
 <p>虽然对于没有能力手动修改/编写PKGBUILD的Arch用户其实是不应该使用AUR中的包的，这些软件的PKGBUILD可以由个人随意发布，并不能保证安全性，但是作为Archlinux的特色，但随着AUR Helper的趋于便利，还是吸引了不少小白使用AUR。本文将主要讲一讲 AUR Helper 帮助我们安装软件时到底做了些什么事情，并提供一些使用AUR Helper构建时常见错误的解决方案。</p>
 </blockquote>
 <h2 id="PartⅠ基本原理"><a href="#PartⅠ基本原理" class="headerlink" title="PartⅠ基本原理"></a>PartⅠ基本原理</h2><h3 id="makepkg是如何工作的？"><a href="#makepkg是如何工作的？" class="headerlink" title="makepkg是如何工作的？"></a><code>makepkg</code>是如何工作的？</h3><p>以钉钉举例，我们可以从AUR上使用 <code>git clone https://aur.archlinux.org/dingtalk-bin.git</code> 获取到由这个包的维护者为我们提前写好的构建脚本。他的目录大概是长成下面这个样子:</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs stylus">dingtalk-bin<br>├── com<span class="hljs-selector-class">.alibabainc</span><span class="hljs-selector-class">.dingtalk</span><span class="hljs-selector-class">.desktop</span><br>├── dingtalk<span class="hljs-selector-class">.sh</span><br>├── <span class="hljs-selector-class">.git</span><br>├── <span class="hljs-selector-class">.gitignore</span><br>├── PKGBUILD<br>├── service-terms-zh<br>└── .SRCINFO<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs stylus">dingtalk-bin
+├── com<span class="hljs-selector-class">.alibabainc</span><span class="hljs-selector-class">.dingtalk</span><span class="hljs-selector-class">.desktop</span>
+├── dingtalk<span class="hljs-selector-class">.sh</span>
+├── <span class="hljs-selector-class">.git</span>
+├── <span class="hljs-selector-class">.gitignore</span>
+├── PKGBUILD
+├── service-terms-zh
+└── .SRCINFO</code></pre></div>
 
 <ul>
 <li>其中，<code>.git</code>是git的工作目录，可以忽视。</li>
@@ -367,13 +374,13 @@
 <h3 id="1-base-devel-没有安装"><a href="#1-base-devel-没有安装" class="headerlink" title="1. base-devel 没有安装"></a>1. base-devel 没有安装</h3><p>正如上面所说的，没有安装<code>base-devel</code>组，赶紧补上! </p>
 <p>由于<code>base-devel</code>并不是一个具体的包，而是由多个包构成的包组，其实并没有很好的方法来检测你是否已经安装。</p>
 <p>所以如果你不确定，你也可以执行下面的命令来确保自己已经安装。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> pacman -S base-devel --noconfirm --needed<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> pacman -S base-devel --noconfirm --needed</code></pre></div>
 
 <hr>
 <p>常见表现: </p>
-<figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs subunit"><span class="hljs-keyword">ERROR: </span>Cannot find the strip binary required for object file stripping.<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs subunit"><span class="hljs-keyword">ERROR: </span>Cannot find the strip binary required for object file stripping.</code></pre></div>
 
-<figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs livecodeserver">PKGBUILD: <span class="hljs-built_in">line</span> XXX XXX: <span class="hljs-keyword">command</span> <span class="hljs-title">not</span> <span class="hljs-title">found</span><br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs livecodeserver">PKGBUILD: <span class="hljs-built_in">line</span> XXX XXX: <span class="hljs-keyword">command</span> <span class="hljs-title">not</span> <span class="hljs-title">found</span></code></pre></div>
 
 <h3 id="2-source源文件下载失败"><a href="#2-source源文件下载失败" class="headerlink" title="2. source源文件下载失败"></a>2. source源文件下载失败</h3><ol>
 <li><h4 id="网络问题"><a href="#网络问题" class="headerlink" title="网络问题"></a>网络问题</h4><p>国内的网络问题不用多说了，大多数情况下都是Github连接不上。</p>
@@ -387,7 +394,7 @@
 <p>当你的yay出现这个询问菜单时，（也就是出现<code>Diffs to show</code>/<code>显示哪些差异？</code>字样时）</p>
 <p><img src="https://static.031130.xyz/uploads/2024/08/12/62f3cca0c7aba.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
 <p>我们再开一个终端，输入</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">sed -i <span class="hljs-string">&quot;s|github.com|hub.fastgit.org|g&quot;</span> <span class="hljs-variable">$HOME</span>/.cache/yay/*/PKGBUILD<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash">sed -i <span class="hljs-string">&quot;s|github.com|hub.fastgit.org|g&quot;</span> <span class="hljs-variable">$HOME</span>/.cache/yay/*/PKGBUILD</code></pre></div>
 
 <p>接着就下一步安装即可。</p>
 </li>
@@ -403,10 +410,10 @@
 <h3 id="4-tuna反代受限"><a href="#4-tuna反代受限" class="headerlink" title="4. tuna反代受限"></a>4. tuna反代受限</h3><p>tuna的服务器只有一个ip，但当使用他提供的AUR的反代服务时，全国的使用者都会被AUR认为是tuna这一个ip，过大的请求数量可能导致tuna的服务器超出AUR每天给每个ip限制的请求次数。</p>
 <hr>
 <p>具体表现: </p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">Rate <span class="hljs-built_in">limit</span> reached<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash">Rate <span class="hljs-built_in">limit</span> reached</code></pre></div>
 
 <p>解决方案，改回AUR的服务器，使用自己的ip进行请求</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">yay --aururl <span class="hljs-string">&quot;https://aur.archlinux.org&quot;</span> --save<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash">yay --aururl <span class="hljs-string">&quot;https://aur.archlinux.org&quot;</span> --save</code></pre></div>
 
 
 

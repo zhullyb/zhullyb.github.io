@@ -344,13 +344,16 @@
 <p><del>主要收集了一些<strong>侵权软件、闭源软件、不清真的软件</strong>，目前主要是作为archlinuxcn源的补充。</del></p>
 <p><del>目前源在OneDrive上，采用<a target="_blank" rel="noopener" href="https://github.com/qkqpttgf/OneManager-php">onemanager</a>解析直链，速度取决于各位的网络供应商。</del></p>
 <h4 id="使用方法："><a href="#使用方法：" class="headerlink" title="使用方法："></a><del>使用方法：</del></h4><p><del>在 <code>/etc/pacman.conf</code> 尾部添加</del></p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-section">[zhullyb]</span><br><span class="hljs-attr">SigLevel</span> = Never<br><span class="hljs-attr">Server</span> = https://mirror.zhullyb.top<br><span class="hljs-attr">Server</span> = https://arch.zhullyb.top<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs ini"><span class="hljs-section">[zhullyb]</span>
+<span class="hljs-attr">SigLevel</span> = Never
+<span class="hljs-attr">Server</span> = https://mirror.zhullyb.top
+<span class="hljs-attr">Server</span> = https://arch.zhullyb.top</code></pre></div>
 
 <blockquote>
 <p><del>注，我这里将SigLevel指定为Never，是因为我认为我一个辣鸡的个人源没有必要验证keyring，况且由于OneDrive的直链解析会带来较高的延迟，再额外下载一个sig文件将会极大地破坏体验。</del></p>
 </blockquote>
 <p><del>如果你坚持要验证，我这里也提供了<code>zhullyb-keyring</code>，请自行下载以后使用<code>pacman -U</code>进行安装。此外，由于<code>pacman</code>会通过拼接db跳转的链接来下载sig签名，会导致onedrive返回的报错信息被pacman误认为sig文件，这里可以使用由<a target="_blank" rel="noopener" href="https://web-worker.cn/">web-worker.cn</a>站长提供的反代，使pacman尝试下载sig文件时接收到404状态码来跳过对db的验证。</del></p>
-<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs arduino"><span class="hljs-built_in">Server</span> = https:<span class="hljs-comment">//pkg.web-worker.cn/zhullyb/</span><br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs arduino"><span class="hljs-built_in">Server</span> = https:<span class="hljs-comment">//pkg.web-worker.cn/zhullyb/</span></code></pre></div>
 
 <h4 id="现有软件列表"><a href="#现有软件列表" class="headerlink" title="现有软件列表"></a><del><strong>现有软件列表</strong></del></h4><table>
 <thead>

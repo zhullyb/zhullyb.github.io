@@ -281,7 +281,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          807 字
+          804 字
         
       </span>
     
@@ -354,7 +354,7 @@
 <p>在Windows中，使用管理员权限打开<code>cmd.exe</code></p>
 <p><img src="https://static.031130.xyz/uploads/2024/08/12/62f3cb081565a.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="在Windows下使用管理员权限打开cmd"></p>
 <p>cd到PsExec解压目录，使用如下命令将我们所需要的蓝牙密钥信息保存到C盘根目录下。</p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd">psexec.exe -s -i regedit /e C:\BTKeys.reg HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\BTHPORT\Parameters\Keys<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs cmd">psexec.exe -s -i regedit /e C:\BTKeys.reg HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\BTHPORT\Parameters\Keys</code></pre></div>
 
 <p><img src="https://static.031130.xyz/uploads/2024/08/12/62f3cb0aae88f.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="使用psexec获取蓝牙信息"></p>
 <p>根目录的BTkeys.reg可以直接用记事本打开，内容大概是下面这个样子</p>
@@ -363,11 +363,46 @@
 <p>为了方便后面的解说，我用各种颜色标注了起来。</p>
 </blockquote>
 <p>在Linux下获取su权限以后，我们需要将Linux下随机分配给鼠标的蓝牙地址改成在Windows上获取的那个地址。上图中「红部分」划出来的就是Windows下获取的地址。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">[zhullyb@Archlinux ~]$ su<br>Password: <br>[root@Archlinux zhullyb]# <span class="hljs-built_in">cd</span> /var/lib/bluetooth/E0\:94\:67\:74\:0D\:5F/<br>[root@Archlinux E0:94:67:74:0D:5F]# <span class="hljs-built_in">ls</span><br>C6:2A:1B:33:2E:71  cache  settings<br>[root@Archlinux E0:94:67:74:0D:5F]# <span class="hljs-built_in">mv</span> C6\:2A\:1B\:33\:2E\:71/ C4\:F6\:B3\:2C\:BD\:7E<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash">[zhullyb@Archlinux ~]$ su
+Password: 
+[root@Archlinux zhullyb]# <span class="hljs-built_in">cd</span> /var/lib/bluetooth/E0\:94\:67\:74\:0D\:5F/
+[root@Archlinux E0:94:67:74:0D:5F]# <span class="hljs-built_in">ls</span>
+C6:2A:1B:33:2E:71  cache  settings
+[root@Archlinux E0:94:67:74:0D:5F]# <span class="hljs-built_in">mv</span> C6\:2A\:1B\:33\:2E\:71/ C4\:F6\:B3\:2C\:BD\:7E</code></pre></div>
 
 <p>再编辑<code>/var/lib/bluetooth/&lt;本机蓝牙地址&gt;/&lt;鼠标蓝牙地址&gt;/info</code></p>
 <p>原文件如下：</p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-section">[General]</span><br><span class="hljs-attr">Name</span>=MiMouse<br><span class="hljs-attr">Appearance</span>=<span class="hljs-number">0</span>x03c2<br><span class="hljs-attr">AddressType</span>=static<br><span class="hljs-attr">SupportedTechnologies</span>=LE<span class="hljs-comment">;</span><br><span class="hljs-attr">Trusted</span>=<span class="hljs-literal">true</span><br><span class="hljs-attr">Blocked</span>=<span class="hljs-literal">false</span><br><span class="hljs-attr">WakeAllowed</span>=<span class="hljs-literal">true</span><br><span class="hljs-attr">Services</span>=<span class="hljs-number">00001530</span>-<span class="hljs-number">1212</span>-efde-<span class="hljs-number">1523</span>-<span class="hljs-number">785</span>feabcd123<span class="hljs-comment">;00001800-0000-1000-8000-00805f9b34fb;00001801-0000-1000-8000-00805f9b34fb;0000180a-0000-1000-8000-00805f9b34fb;0000180f-0000-1000-8000-00805f9b34fb;00001812-0000-1000-8000-00805f9b34fb;</span><br><br><span class="hljs-section">[IdentityResolvingKey]</span><br><span class="hljs-attr">Key</span>=<span class="hljs-number">067764</span>BF59A7531E978AFDC6BB5EC8E1<br><br><span class="hljs-section">[LongTermKey]</span><br><span class="hljs-attr">Key</span>=E3C49B4F3256018192942EB0CDDEE6A3<br><span class="hljs-attr">Authenticated</span>=<span class="hljs-number">0</span><br><span class="hljs-attr">EncSize</span>=<span class="hljs-number">16</span><br><span class="hljs-attr">EDiv</span>=<span class="hljs-number">28209</span><br><span class="hljs-attr">Rand</span>=<span class="hljs-number">15970850852728832717</span><br><br><span class="hljs-section">[DeviceID]</span><br><span class="hljs-attr">Source</span>=<span class="hljs-number">2</span><br><span class="hljs-attr">Vendor</span>=<span class="hljs-number">10007</span><br><span class="hljs-attr">Product</span>=<span class="hljs-number">64</span><br><span class="hljs-attr">Version</span>=<span class="hljs-number">40</span><br><br><span class="hljs-section">[ConnectionParameters]</span><br><span class="hljs-attr">MinInterval</span>=<span class="hljs-number">6</span><br><span class="hljs-attr">MaxInterval</span>=<span class="hljs-number">9</span><br><span class="hljs-attr">Latency</span>=<span class="hljs-number">100</span><br><span class="hljs-attr">Timeout</span>=<span class="hljs-number">600</span><br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs ini"><span class="hljs-section">[General]</span>
+<span class="hljs-attr">Name</span>=MiMouse
+<span class="hljs-attr">Appearance</span>=<span class="hljs-number">0</span>x03c2
+<span class="hljs-attr">AddressType</span>=static
+<span class="hljs-attr">SupportedTechnologies</span>=LE<span class="hljs-comment">;</span>
+<span class="hljs-attr">Trusted</span>=<span class="hljs-literal">true</span>
+<span class="hljs-attr">Blocked</span>=<span class="hljs-literal">false</span>
+<span class="hljs-attr">WakeAllowed</span>=<span class="hljs-literal">true</span>
+<span class="hljs-attr">Services</span>=<span class="hljs-number">00001530</span>-<span class="hljs-number">1212</span>-efde-<span class="hljs-number">1523</span>-<span class="hljs-number">785</span>feabcd123<span class="hljs-comment">;00001800-0000-1000-8000-00805f9b34fb;00001801-0000-1000-8000-00805f9b34fb;0000180a-0000-1000-8000-00805f9b34fb;0000180f-0000-1000-8000-00805f9b34fb;00001812-0000-1000-8000-00805f9b34fb;</span>
+
+<span class="hljs-section">[IdentityResolvingKey]</span>
+<span class="hljs-attr">Key</span>=<span class="hljs-number">067764</span>BF59A7531E978AFDC6BB5EC8E1
+
+<span class="hljs-section">[LongTermKey]</span>
+<span class="hljs-attr">Key</span>=E3C49B4F3256018192942EB0CDDEE6A3
+<span class="hljs-attr">Authenticated</span>=<span class="hljs-number">0</span>
+<span class="hljs-attr">EncSize</span>=<span class="hljs-number">16</span>
+<span class="hljs-attr">EDiv</span>=<span class="hljs-number">28209</span>
+<span class="hljs-attr">Rand</span>=<span class="hljs-number">15970850852728832717</span>
+
+<span class="hljs-section">[DeviceID]</span>
+<span class="hljs-attr">Source</span>=<span class="hljs-number">2</span>
+<span class="hljs-attr">Vendor</span>=<span class="hljs-number">10007</span>
+<span class="hljs-attr">Product</span>=<span class="hljs-number">64</span>
+<span class="hljs-attr">Version</span>=<span class="hljs-number">40</span>
+
+<span class="hljs-section">[ConnectionParameters]</span>
+<span class="hljs-attr">MinInterval</span>=<span class="hljs-number">6</span>
+<span class="hljs-attr">MaxInterval</span>=<span class="hljs-number">9</span>
+<span class="hljs-attr">Latency</span>=<span class="hljs-number">100</span>
+<span class="hljs-attr">Timeout</span>=<span class="hljs-number">600</span></code></pre></div>
 
 <ul>
 <li>「黄色部分」<code>LTK</code> 对应 <code>LongTermKey</code> 下的 <code>Key</code>，把小写转换成大写并删去逗号即可。</li>
@@ -375,7 +410,12 @@
 <li>「蓝色部分」<code>EDIV</code> 对应 <code>EDiv</code>。把 16 进制转换成 10 进制即可，这里就不用倒转了。</li>
 </ul>
 <p>具体的转换方法我不再赘述，我把我的转换过程放在下面，我相信各位读者能够看懂。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">[zhullyb@Archlinux ~]$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&#x27;e3,c0,b2,8e,64,2b,12,16,d8,c2,d7,d4,59,55,92,cd&#x27;</span> | <span class="hljs-built_in">tr</span> a-z A-Z | sed <span class="hljs-string">&#x27;s/[[:punct:]]//g&#x27;</span><br>E3C0B28E642B1216D8C2D7D4595592CD<br>[zhullyb@Archlinux ~]$ <span class="hljs-built_in">echo</span> $((<span class="hljs-number">16#02</span>B4767C8F7F83C2))	<span class="hljs-comment">#这里我是手动倒叙的</span><br>194910961239294914<br>[zhullyb@Archlinux ~]$ <span class="hljs-built_in">echo</span> $((<span class="hljs-number">16#000055a3</span>))<br>21923<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash">[zhullyb@Archlinux ~]$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&#x27;e3,c0,b2,8e,64,2b,12,16,d8,c2,d7,d4,59,55,92,cd&#x27;</span> | <span class="hljs-built_in">tr</span> a-z A-Z | sed <span class="hljs-string">&#x27;s/[[:punct:]]//g&#x27;</span>
+E3C0B28E642B1216D8C2D7D4595592CD
+[zhullyb@Archlinux ~]$ <span class="hljs-built_in">echo</span> $((<span class="hljs-number">16#02</span>B4767C8F7F83C2))	<span class="hljs-comment">#这里我是手动倒叙的</span>
+194910961239294914
+[zhullyb@Archlinux ~]$ <span class="hljs-built_in">echo</span> $((<span class="hljs-number">16#000055a3</span>))
+21923</code></pre></div>
 
 <p>做完这些操作以后，<code>sudo systemctl start bluetooth</code>即可</p>
 

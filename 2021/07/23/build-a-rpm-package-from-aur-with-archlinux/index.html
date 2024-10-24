@@ -358,41 +358,116 @@
 </li>
 </ul>
 <h3 id="准备好wechat-uos"><a href="#准备好wechat-uos" class="headerlink" title="准备好wechat-uos"></a>准备好wechat-uos</h3><p>首先，咱们先在Archlinux上把我们的<code>wechat-uos</code>先打包好，这个老生常谈的问题我不多赘述了。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">yay -S wechat-uos --noconfirm<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash">yay -S wechat-uos --noconfirm</code></pre></div>
 
 <h3 id="查找wechat-uos在Archlinux上所需的依赖"><a href="#查找wechat-uos在Archlinux上所需的依赖" class="headerlink" title="查找wechat-uos在Archlinux上所需的依赖"></a>查找wechat-uos在Archlinux上所需的依赖</h3><p>再去查看<code>wechat-uos</code>所需要的依赖</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs yaml">[<span class="hljs-string">zhullyb@Archlinux</span> <span class="hljs-string">~</span>]<span class="hljs-string">$</span> <span class="hljs-string">yay</span> <span class="hljs-string">-Si</span> <span class="hljs-string">wechat-uos</span><br><span class="hljs-string">::</span> <span class="hljs-string">Querying</span> <span class="hljs-string">AUR...</span><br><span class="hljs-attr">Repository      :</span> <span class="hljs-string">aur</span><br><span class="hljs-attr">Name            :</span> <span class="hljs-string">wechat-uos</span><br><span class="hljs-attr">Keywords        :</span> <span class="hljs-string">electron</span>  <span class="hljs-string">patched</span>  <span class="hljs-string">uos</span>  <span class="hljs-string">wechat</span>  <span class="hljs-string">weixin</span><br><span class="hljs-attr">Version         :</span> <span class="hljs-number">2</span><span class="hljs-string">:2.0.0-1145141919</span><br><span class="hljs-attr">Description     :</span> <span class="hljs-string">UOS专业版微信</span> <span class="hljs-string">(迫真魔改版)</span><br><span class="hljs-attr">URL             :</span> <span class="hljs-string">https://www.chinauos.com/resource/download-professional</span><br><span class="hljs-attr">AUR URL         :</span> <span class="hljs-string">https://aur.archlinux.org/packages/wechat-uos</span><br><span class="hljs-attr">Groups          :</span> <span class="hljs-string">None</span><br><span class="hljs-attr">Licenses        :</span> <span class="hljs-string">MIT</span><br><span class="hljs-attr">Provides        :</span> <span class="hljs-string">None</span><br><span class="hljs-attr">Depends On      :</span> <span class="hljs-string">gtk2</span>  <span class="hljs-string">gtk3</span>  <span class="hljs-string">libxss</span>  <span class="hljs-string">gconf</span>  <span class="hljs-string">nss</span>  <span class="hljs-string">lsb-release</span>  <span class="hljs-string">bubblewrap</span><br><span class="hljs-attr">Make Deps       :</span> <span class="hljs-string">imagemagick</span><br><span class="hljs-attr">Check Deps      :</span> <span class="hljs-string">None</span><br><span class="hljs-attr">Optional Deps   :</span> <span class="hljs-string">None</span><br><span class="hljs-attr">Conflicts With  :</span> <span class="hljs-string">None</span><br><span class="hljs-attr">Maintainer      :</span> <span class="hljs-string">DuckSoft</span><br><span class="hljs-attr">Votes           :</span> <span class="hljs-number">16</span><br><span class="hljs-attr">Popularity      :</span> <span class="hljs-number">0.603501</span><br><span class="hljs-attr">First Submitted :</span> <span class="hljs-string">Wed</span> <span class="hljs-number">30</span> <span class="hljs-string">Dec</span> <span class="hljs-number">2020 12:21:51 </span><span class="hljs-string">PM</span> <span class="hljs-string">CST</span><br><span class="hljs-attr">Last Modified   :</span> <span class="hljs-string">Sat</span> <span class="hljs-number">20</span> <span class="hljs-string">Feb</span> <span class="hljs-number">2021 06:53:24 </span><span class="hljs-string">AM</span> <span class="hljs-string">CST</span><br><span class="hljs-attr">Out-of-date     :</span> <span class="hljs-literal">No</span><br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs yaml">[<span class="hljs-string">zhullyb@Archlinux</span> <span class="hljs-string">~</span>]<span class="hljs-string">$</span> <span class="hljs-string">yay</span> <span class="hljs-string">-Si</span> <span class="hljs-string">wechat-uos</span>
+<span class="hljs-string">::</span> <span class="hljs-string">Querying</span> <span class="hljs-string">AUR...</span>
+<span class="hljs-attr">Repository      :</span> <span class="hljs-string">aur</span>
+<span class="hljs-attr">Name            :</span> <span class="hljs-string">wechat-uos</span>
+<span class="hljs-attr">Keywords        :</span> <span class="hljs-string">electron</span>  <span class="hljs-string">patched</span>  <span class="hljs-string">uos</span>  <span class="hljs-string">wechat</span>  <span class="hljs-string">weixin</span>
+<span class="hljs-attr">Version         :</span> <span class="hljs-number">2</span><span class="hljs-string">:2.0.0-1145141919</span>
+<span class="hljs-attr">Description     :</span> <span class="hljs-string">UOS专业版微信</span> <span class="hljs-string">(迫真魔改版)</span>
+<span class="hljs-attr">URL             :</span> <span class="hljs-string">https://www.chinauos.com/resource/download-professional</span>
+<span class="hljs-attr">AUR URL         :</span> <span class="hljs-string">https://aur.archlinux.org/packages/wechat-uos</span>
+<span class="hljs-attr">Groups          :</span> <span class="hljs-string">None</span>
+<span class="hljs-attr">Licenses        :</span> <span class="hljs-string">MIT</span>
+<span class="hljs-attr">Provides        :</span> <span class="hljs-string">None</span>
+<span class="hljs-attr">Depends On      :</span> <span class="hljs-string">gtk2</span>  <span class="hljs-string">gtk3</span>  <span class="hljs-string">libxss</span>  <span class="hljs-string">gconf</span>  <span class="hljs-string">nss</span>  <span class="hljs-string">lsb-release</span>  <span class="hljs-string">bubblewrap</span>
+<span class="hljs-attr">Make Deps       :</span> <span class="hljs-string">imagemagick</span>
+<span class="hljs-attr">Check Deps      :</span> <span class="hljs-string">None</span>
+<span class="hljs-attr">Optional Deps   :</span> <span class="hljs-string">None</span>
+<span class="hljs-attr">Conflicts With  :</span> <span class="hljs-string">None</span>
+<span class="hljs-attr">Maintainer      :</span> <span class="hljs-string">DuckSoft</span>
+<span class="hljs-attr">Votes           :</span> <span class="hljs-number">16</span>
+<span class="hljs-attr">Popularity      :</span> <span class="hljs-number">0.603501</span>
+<span class="hljs-attr">First Submitted :</span> <span class="hljs-string">Wed</span> <span class="hljs-number">30</span> <span class="hljs-string">Dec</span> <span class="hljs-number">2020 12:21:51 </span><span class="hljs-string">PM</span> <span class="hljs-string">CST</span>
+<span class="hljs-attr">Last Modified   :</span> <span class="hljs-string">Sat</span> <span class="hljs-number">20</span> <span class="hljs-string">Feb</span> <span class="hljs-number">2021 06:53:24 </span><span class="hljs-string">AM</span> <span class="hljs-string">CST</span>
+<span class="hljs-attr">Out-of-date     :</span> <span class="hljs-literal">No</span></code></pre></div>
 
 <h3 id="查找Fedora上的对应依赖包名"><a href="#查找Fedora上的对应依赖包名" class="headerlink" title="查找Fedora上的对应依赖包名"></a>查找Fedora上的对应依赖包名</h3><p>然后我们需要去Fedora上找一找这些依赖在Fedora上的包名都叫什么。</p>
 <p>比如这个<code>bubblewrap</code>，我们需要的是他提供的<code>bwrap</code>，所以我们直接在Fedora上<code>sudo dnf provides bwrap</code></p>
 <p>再比如<code>gconf</code>并没有在<code>/usr/bin</code>路径下直接留下什么非常具有代表性的可执行文件，所以在Fedora里面寻找等效包就稍微复杂一些，但也并非不能找。</p>
 <p>先在Archlinux下使用<code>pacman -Ql gconf</code>，输出结果有点长，我就截一小段上来。</p>
-<figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs crystal">[zhullyb<span class="hljs-variable">@Archlinux</span> ~]<span class="hljs-variable">$ </span>pacman -Qlq gconf<br><span class="hljs-regexp">/etc/</span><br><span class="hljs-regexp">/etc/gconf</span><span class="hljs-regexp">/</span><br><span class="hljs-regexp">/etc</span><span class="hljs-regexp">/gconf/</span><span class="hljs-number">2</span>/<br><span class="hljs-regexp">/etc/gconf</span><span class="hljs-regexp">/2/evoldap</span>.conf<br><span class="hljs-regexp">/etc/gconf</span><span class="hljs-regexp">/2/path</span><br><span class="hljs-regexp">/etc/gconf</span><span class="hljs-regexp">/gconf.xml.defaults/</span><br><span class="hljs-regexp">/etc/gconf</span><span class="hljs-regexp">/gconf.xml.mandatory/</span><br><span class="hljs-regexp">/etc/gconf</span><span class="hljs-regexp">/gconf.xml.system/</span><br><span class="hljs-regexp">/etc/xdg</span><span class="hljs-regexp">/</span><br><span class="hljs-regexp">/etc</span><span class="hljs-regexp">/xdg/autostart</span><span class="hljs-regexp">/</span><br><span class="hljs-regexp">/etc</span><span class="hljs-regexp">/xdg/autostart</span><span class="hljs-regexp">/gsettings-data-convert.desktop</span><br><span class="hljs-regexp">/usr</span><span class="hljs-regexp">/</span><br><span class="hljs-regexp">/usr</span><span class="hljs-regexp">/bin/</span><br><span class="hljs-regexp">/usr/bin</span><span class="hljs-regexp">/gconf-merge-schema</span><br><span class="hljs-regexp">/usr</span><span class="hljs-regexp">/bin/gconf</span>-merge-tree<br><span class="hljs-regexp">/usr/bin</span><span class="hljs-regexp">/gconfpkg</span><br><span class="hljs-regexp">/usr</span><span class="hljs-regexp">/bin/gconftool</span>-<span class="hljs-number">2</span><br>......<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs crystal">[zhullyb<span class="hljs-variable">@Archlinux</span> ~]<span class="hljs-variable">$ </span>pacman -Qlq gconf
+<span class="hljs-regexp">/etc/</span>
+<span class="hljs-regexp">/etc/gconf</span><span class="hljs-regexp">/</span>
+<span class="hljs-regexp">/etc</span><span class="hljs-regexp">/gconf/</span><span class="hljs-number">2</span>/
+<span class="hljs-regexp">/etc/gconf</span><span class="hljs-regexp">/2/evoldap</span>.conf
+<span class="hljs-regexp">/etc/gconf</span><span class="hljs-regexp">/2/path</span>
+<span class="hljs-regexp">/etc/gconf</span><span class="hljs-regexp">/gconf.xml.defaults/</span>
+<span class="hljs-regexp">/etc/gconf</span><span class="hljs-regexp">/gconf.xml.mandatory/</span>
+<span class="hljs-regexp">/etc/gconf</span><span class="hljs-regexp">/gconf.xml.system/</span>
+<span class="hljs-regexp">/etc/xdg</span><span class="hljs-regexp">/</span>
+<span class="hljs-regexp">/etc</span><span class="hljs-regexp">/xdg/autostart</span><span class="hljs-regexp">/</span>
+<span class="hljs-regexp">/etc</span><span class="hljs-regexp">/xdg/autostart</span><span class="hljs-regexp">/gsettings-data-convert.desktop</span>
+<span class="hljs-regexp">/usr</span><span class="hljs-regexp">/</span>
+<span class="hljs-regexp">/usr</span><span class="hljs-regexp">/bin/</span>
+<span class="hljs-regexp">/usr/bin</span><span class="hljs-regexp">/gconf-merge-schema</span>
+<span class="hljs-regexp">/usr</span><span class="hljs-regexp">/bin/gconf</span>-merge-tree
+<span class="hljs-regexp">/usr/bin</span><span class="hljs-regexp">/gconfpkg</span>
+<span class="hljs-regexp">/usr</span><span class="hljs-regexp">/bin/gconftool</span>-<span class="hljs-number">2</span>
+......</code></pre></div>
 
 <p>可以发现，<code>gconf</code>还是有不少文件是非常具有代表性的，比如这里的<code>/usr/bin/gconf-merge-tree</code>，我们在Fedora上使用<code>sudo dnf provides gconf-merge-tree</code>很容易就能找到对应的包是<code>GConf2</code>。</p>
 <p><code>lsb-release</code>这个依赖中，我们只是需要<code>/etc/lsb-release</code>这个文件存在让我们的bwrap可以顺利地伪装成uos的样子。Fedora中虽然有<code>redhat-lsb-core</code>这个包算是<code>lsb-release</code>的等效包，但是并不提供这个文件，因此我们只需要在待会儿打包的时候带一个<code>/etc/lsb-release</code>的空文件即可，不需要将<code>redhat-lsb-core</code>写进依赖。</p>
 <p>最终我们可以确定下来需要的依赖为<code>gtk2,gtk3,libXScrnSaver,nss,bubblewrap,GConf2</code>。</p>
-<h3 id="准备打包"><a href="#准备打包" class="headerlink" title="准备打包"></a>准备打包</h3><h4 id="安装rpm-tools"><a href="#安装rpm-tools" class="headerlink" title="安装rpm-tools"></a>安装<code>rpm-tools</code></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> pacman -S rpm-tools<br></code></pre></td></tr></table></figure>
+<h3 id="准备打包"><a href="#准备打包" class="headerlink" title="准备打包"></a>准备打包</h3><h4 id="安装rpm-tools"><a href="#安装rpm-tools" class="headerlink" title="安装rpm-tools"></a>安装<code>rpm-tools</code></h4><div class="code-wrapper"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> pacman -S rpm-tools</code></pre></div>
 
-<h4 id="生成工作路径"><a href="#生成工作路径" class="headerlink" title="生成工作路径"></a>生成工作路径</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">mkdir</span> -pv <span class="hljs-variable">$HOME</span>/rpmbuild/&#123;BUILD,BUILDROOT,RPMS,SOURCES,SPECS,SRPMS&#125;<br></code></pre></td></tr></table></figure>
+<h4 id="生成工作路径"><a href="#生成工作路径" class="headerlink" title="生成工作路径"></a>生成工作路径</h4><div class="code-wrapper"><pre><code class="hljs bash"><span class="hljs-built_in">mkdir</span> -pv <span class="hljs-variable">$HOME</span>/rpmbuild/&#123;BUILD,BUILDROOT,RPMS,SOURCES,SPECS,SRPMS&#125;</code></pre></div>
 
-<h4 id="编写-spec-文件"><a href="#编写-spec-文件" class="headerlink" title="编写 spec 文件"></a>编写 spec 文件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><code class="hljs bash">Name: wechat-uos<br>Version: 2.0.0<br>Release: 1<br>Summary: A wechat client based on electron.<br>License: None<br>URL: https://www.chinauos.com/resource/download-professional<br>Packager: zhullyb<br><br>Requires: gtk2,gtk3,libXScrnSaver,nss,bubblewrap,GConf2<br><br>AutoReqProv: no<br><br>%description<br><br>%prep<br><br>%pre<br><br>%post<br><br>%preun<br><br>%postun<br><br>%files<br>/etc/lsb-release<br>/opt/wechat-uos/<br>/usr/bin/wechat-uos<br>/usr/lib/license/libuosdevicea.so<br>/usr/share/applications/wechat-uos.desktop<br>/usr/share/icons/hicolor/128x128/apps/wechat.png<br>/usr/share/icons/hicolor/16x16/apps/wechat.png<br>/usr/share/icons/hicolor/256x256/apps/wechat.png<br>/usr/share/icons/hicolor/48x48/apps/wechat.png<br>/usr/share/icons/hicolor/64x64/apps/wechat.png<br></code></pre></td></tr></table></figure>
+<h4 id="编写-spec-文件"><a href="#编写-spec-文件" class="headerlink" title="编写 spec 文件"></a>编写 spec 文件</h4><div class="code-wrapper"><pre><code class="hljs bash">Name: wechat-uos
+Version: 2.0.0
+Release: 1
+Summary: A wechat client based on electron.
+License: None
+URL: https://www.chinauos.com/resource/download-professional
+Packager: zhullyb
+
+Requires: gtk2,gtk3,libXScrnSaver,nss,bubblewrap,GConf2
+
+AutoReqProv: no
+
+%description
+
+%prep
+
+%pre
+
+%post
+
+%preun
+
+%postun
+
+%files
+/etc/lsb-release
+/opt/wechat-uos/
+/usr/bin/wechat-uos
+/usr/lib/license/libuosdevicea.so
+/usr/share/applications/wechat-uos.desktop
+/usr/share/icons/hicolor/128x128/apps/wechat.png
+/usr/share/icons/hicolor/16x16/apps/wechat.png
+/usr/share/icons/hicolor/256x256/apps/wechat.png
+/usr/share/icons/hicolor/48x48/apps/wechat.png
+/usr/share/icons/hicolor/64x64/apps/wechat.png</code></pre></div>
 
 <h4 id="处理source"><a href="#处理source" class="headerlink" title="处理source"></a>处理source</h4><blockquote>
 <p>一般来说，我们需要配置各种奇奇怪怪的编译命令，但是我这里直接选择了打包二进制文件，一来是减少了对于spec的学习成本，二来是因为wechat-uos本来就不开源，也没什么好编译的。</p>
 </blockquote>
 <p>创建我们<code>wechat-uos</code>的二进制文件所需要放入的文件夹。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">mkdir</span> <span class="hljs-variable">$HOME</span>/rpmbuild/BUILDROOT/wechat-uos-2.0.0-1.x86_64<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash"><span class="hljs-built_in">mkdir</span> <span class="hljs-variable">$HOME</span>/rpmbuild/BUILDROOT/wechat-uos-2.0.0-1.x86_64</code></pre></div>
 
 <p>将我们的wechat-uos直接放入对应的文件夹中</p>
 <p><img src="https://static.031130.xyz/uploads/2024/08/12/62f3cadde8d65.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="解压原先打包好的wechat-uos"></p>
 <p>补上我们的<code>/etc/lsb-release</code></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">mkdir</span> <span class="hljs-variable">$HOME</span>/rpmbuild/BUILDROOT/wechat-uos-2.0.0-1.x86_64/etc/<br><span class="hljs-built_in">touch</span> <span class="hljs-variable">$HOME</span>/rpmbuild/BUILDROOT/wechat-uos-2.0.0-1.x86_64/etc/lsb-release<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash"><span class="hljs-built_in">mkdir</span> <span class="hljs-variable">$HOME</span>/rpmbuild/BUILDROOT/wechat-uos-2.0.0-1.x86_64/etc/
+<span class="hljs-built_in">touch</span> <span class="hljs-variable">$HOME</span>/rpmbuild/BUILDROOT/wechat-uos-2.0.0-1.x86_64/etc/lsb-release</code></pre></div>
 
-<h3 id="正式打包"><a href="#正式打包" class="headerlink" title="正式打包"></a>正式打包</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stylus">rpmbuild -bb <span class="hljs-attr">--target</span>=x86_64 SPECS/wechat-uos<span class="hljs-selector-class">.spec</span> <span class="hljs-attr">--nodeps</span><br></code></pre></td></tr></table></figure>
+<h3 id="正式打包"><a href="#正式打包" class="headerlink" title="正式打包"></a>正式打包</h3><div class="code-wrapper"><pre><code class="hljs stylus">rpmbuild -bb <span class="hljs-attr">--target</span>=x86_64 SPECS/wechat-uos<span class="hljs-selector-class">.spec</span> <span class="hljs-attr">--nodeps</span></code></pre></div>
 
 <p><img src="https://static.031130.xyz/uploads/2024/08/12/62f3cae15fdcf.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="打包成功"></p>
-<h3 id="安装测试"><a href="#安装测试" class="headerlink" title="安装测试"></a>安装测试</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> dnf install ./wechat-uos-2.0.0-1.x86_64.rpm<br></code></pre></td></tr></table></figure>
+<h3 id="安装测试"><a href="#安装测试" class="headerlink" title="安装测试"></a>安装测试</h3><div class="code-wrapper"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> dnf install ./wechat-uos-2.0.0-1.x86_64.rpm</code></pre></div>
 
 <p><img src="https://static.031130.xyz/uploads/2024/08/12/62f3cae5aa4b0.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="测试通过"></p>
 <h3 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h3><p>rpm的打包工具是我近期<strong>最</strong>想吐槽的东西了，主要槽点有两个。</p>

@@ -279,7 +279,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          554 字
+          553 字
         
       </span>
     
@@ -355,7 +355,23 @@
 <p>上图中，蓝色部分是 <code>getImageInfo()</code> 的网络请求，红色部分是真正的图片加载请求，可谓是一点用都没有，该加载慢还是加载慢。</p>
 <hr>
 <p>那有没有什么办法能够实现预加载呢？我没找到优雅的方法，选择在应用的首页创建一个 <code>display: none</code> 的 view 将所有的图片先加载一遍。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs vue">&lt;template&gt;<br>    &lt;view style=&quot;display: none;&quot;&gt;<br>        &lt;image<br>            v-for=&quot;image in imageToPreload&quot;<br>            :src=&quot;image&quot;<br>        /&gt;<br>    &lt;/view&gt;<br>&lt;/template&gt;<br>&lt;script setup lang=&quot;ts&quot;&gt;<br>const imageToPreload = [<br>    &quot;https://http.cat/100&quot;,<br>    &quot;https://http.cat/200&quot;,<br>    &quot;https://http.cat/300&quot;,<br>    &quot;https://http.cat/400&quot;,<br>    &quot;https://http.cat/500&quot;<br>]<br>&lt;/script&gt;<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs vue">&lt;template&gt;
+    &lt;view style=&quot;display: none;&quot;&gt;
+        &lt;image
+            v-for=&quot;image in imageToPreload&quot;
+            :src=&quot;image&quot;
+        /&gt;
+    &lt;/view&gt;
+&lt;/template&gt;
+&lt;script setup lang=&quot;ts&quot;&gt;
+const imageToPreload = [
+    &quot;https://http.cat/100&quot;,
+    &quot;https://http.cat/200&quot;,
+    &quot;https://http.cat/300&quot;,
+    &quot;https://http.cat/400&quot;,
+    &quot;https://http.cat/500&quot;
+]
+&lt;/script&gt;</code></pre></div>
 
 <p><img src="https://static.031130.xyz/uploads/2024/08/12/6609db8a213da.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="下载测试"></p>
 <p>可以看到，红色部分的资源在 size 那一栏变成了 <code>(disk cache)</code>，加载时间也明显降低，虽然方法不优雅，但起码实现了图片资源的预加载。</p>

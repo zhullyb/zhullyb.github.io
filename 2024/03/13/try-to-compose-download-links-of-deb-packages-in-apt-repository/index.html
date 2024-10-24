@@ -357,7 +357,7 @@
 <p>根据 <a target="_blank" rel="noopener" href="https://wiki.debian.org/DebianRepository/Format">DebianWiki 中的描述</a></p>
 <blockquote>
 <p>gives an example: </p>
-<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs 1c">deb https<span class="hljs-punctuation">:</span><span class="hljs-comment">//deb.debian.org/debian stable main contrib non-free</span><br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs 1c">deb https<span class="hljs-punctuation">:</span><span class="hljs-comment">//deb.debian.org/debian stable main contrib non-free</span></code></pre></div>
 </blockquote>
 <blockquote>
 <p>An archive can have either source packages or binary packages or both but they have to be specified separately to apt. </p>
@@ -371,7 +371,7 @@
 <p><img src="https://static.031130.xyz/uploads/2024/08/12/65f1b5faccc86.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="deb 包详细信息"></p>
 <p>这里可以看到源中每一个 deb 包的信息。图中红色方框框出的便是其中一个 deb 包在源中的相对路径。</p>
 <p>我们可以使用 grep 命令去检索 weixin 或者 wechat 关键词</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">curl -sL https://pro-store-packages.uniontech.com/appstore/dists/eagle-pro/appstore/binary-amd64/Packages | grep -E <span class="hljs-string">&quot;weixin|wechat&quot;</span><br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash">curl -sL https://pro-store-packages.uniontech.com/appstore/dists/eagle-pro/appstore/binary-amd64/Packages | grep -E <span class="hljs-string">&quot;weixin|wechat&quot;</span></code></pre></div>
 
 <p><img src="https://static.031130.xyz/uploads/2024/08/12/65f1b6a4c3239.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="获取到我们想要的 deb 包的相对路径"></p>
 <p>在这个路径前加上之前 <code>appstore.list</code> 文件中给出的 url 前缀，即可拼凑出 deb 包的完整下载地址: <a target="_blank" rel="noopener" href="https://pro-store-packages.uniontech.com/appstore/pool/appstore/c/com.tencent.wechat/com.tencent.wechat_1.0.0.236_amd64.deb">https://pro-store-packages.uniontech.com/appstore/pool/appstore/c/com.tencent.wechat/com.tencent.wechat_1.0.0.236_amd64.deb</a></p>

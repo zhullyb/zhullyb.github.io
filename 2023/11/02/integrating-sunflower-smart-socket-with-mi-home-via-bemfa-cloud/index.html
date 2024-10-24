@@ -389,7 +389,52 @@
 <p>至此，米家那边的接入已经完成了，虽然没法在米家中找到对应设备的卡片，但是可以在小爱同学的小爱训练计划中找到对应的设备。</p>
 <p>我们还需要让本地的 N1 盒子使用 MQTT 协议订阅巴法云的消息。</p>
 <p>参考代码如下:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment">#!/usr/bin/python3</span><br><br><span class="hljs-keyword">import</span> paho.mqtt.client <span class="hljs-keyword">as</span> mqtt<br><span class="hljs-keyword">import</span> requests<br><br><span class="hljs-comment"># 智能插座相关</span><br>host = <span class="hljs-string">&#x27;&#x27;</span><br>sn = <span class="hljs-string">&#x27;&#x27;</span><br>key = <span class="hljs-string">&#x27;&#x27;</span><br>time = <span class="hljs-string">&#x27;&#x27;</span><br><br><span class="hljs-comment"># 巴法云相关</span><br>client_id = <span class="hljs-string">&#x27;&#x27;</span><br>theme = <span class="hljs-string">&#x27;&#x27;</span><br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">set_adapter_status</span>(<span class="hljs-params">status: <span class="hljs-built_in">bool</span></span>):<br>    url = <span class="hljs-string">&#x27;http://&#x27;</span> + host + <span class="hljs-string">&#x27;/plug&#x27;</span><br>    requests.get(url, params=&#123;<br>        <span class="hljs-string">&quot;status&quot;</span>: <span class="hljs-number">1</span> <span class="hljs-keyword">if</span> status <span class="hljs-keyword">else</span> <span class="hljs-number">0</span>,<br>        <span class="hljs-string">&quot;sn&quot;</span>: sn,<br>        <span class="hljs-string">&quot;key&quot;</span>: key,<br>        <span class="hljs-string">&quot;_api&quot;</span>: <span class="hljs-string">&quot;set_plug_status&quot;</span>,<br>        <span class="hljs-string">&quot;time&quot;</span>: time,<br>        <span class="hljs-string">&quot;index&quot;</span>: <span class="hljs-number">0</span><br>    &#125;)<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">on_connect</span>(<span class="hljs-params">client, userdata, flags, rc</span>):<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Connection returned with result code:&quot;</span> + <span class="hljs-built_in">str</span>(rc))<br>	client.subscribe(theme, qos=<span class="hljs-number">1</span>)<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">on_message</span>(<span class="hljs-params">client, userdata, msg</span>):<br>    <span class="hljs-keyword">if</span> msg.payload.decode(<span class="hljs-string">&quot;utf-8&quot;</span>) == <span class="hljs-string">&#x27;on&#x27;</span>:<br>        set_adapter_status(<span class="hljs-literal">True</span>)<br>    <span class="hljs-keyword">elif</span> msg.payload.decode(<span class="hljs-string">&quot;utf-8&quot;</span>) == <span class="hljs-string">&#x27;off&#x27;</span>:<br>        set_adapter_status(<span class="hljs-literal">False</span>)<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">on_subscribe</span>(<span class="hljs-params">client, userdata, mid, granted_qos</span>):<br>    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Subscribed: &quot;</span> + <span class="hljs-built_in">str</span>(mid) + <span class="hljs-string">&quot; &quot;</span> + <span class="hljs-built_in">str</span>(granted_qos))<br>    <br>client = mqtt.Client(client_id=client_id, clean_session=<span class="hljs-literal">False</span>, protocol=mqtt.MQTTv311)<br>client.on_connect = on_connect<br>client.on_message = on_message<br>client.on_subscribe = on_subscribe<br><br>client.connect(<span class="hljs-string">&quot;bemfa.com&quot;</span>, <span class="hljs-number">9501</span>, <span class="hljs-number">60</span>)<br>client.loop_forever()<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs python"><span class="hljs-comment">#!/usr/bin/python3</span>
+
+<span class="hljs-keyword">import</span> paho.mqtt.client <span class="hljs-keyword">as</span> mqtt
+<span class="hljs-keyword">import</span> requests
+
+<span class="hljs-comment"># 智能插座相关</span>
+host = <span class="hljs-string">&#x27;&#x27;</span>
+sn = <span class="hljs-string">&#x27;&#x27;</span>
+key = <span class="hljs-string">&#x27;&#x27;</span>
+time = <span class="hljs-string">&#x27;&#x27;</span>
+
+<span class="hljs-comment"># 巴法云相关</span>
+client_id = <span class="hljs-string">&#x27;&#x27;</span>
+theme = <span class="hljs-string">&#x27;&#x27;</span>
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">set_adapter_status</span>(<span class="hljs-params">status: <span class="hljs-built_in">bool</span></span>):
+    url = <span class="hljs-string">&#x27;http://&#x27;</span> + host + <span class="hljs-string">&#x27;/plug&#x27;</span>
+    requests.get(url, params=&#123;
+        <span class="hljs-string">&quot;status&quot;</span>: <span class="hljs-number">1</span> <span class="hljs-keyword">if</span> status <span class="hljs-keyword">else</span> <span class="hljs-number">0</span>,
+        <span class="hljs-string">&quot;sn&quot;</span>: sn,
+        <span class="hljs-string">&quot;key&quot;</span>: key,
+        <span class="hljs-string">&quot;_api&quot;</span>: <span class="hljs-string">&quot;set_plug_status&quot;</span>,
+        <span class="hljs-string">&quot;time&quot;</span>: time,
+        <span class="hljs-string">&quot;index&quot;</span>: <span class="hljs-number">0</span>
+    &#125;)
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">on_connect</span>(<span class="hljs-params">client, userdata, flags, rc</span>):
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Connection returned with result code:&quot;</span> + <span class="hljs-built_in">str</span>(rc))
+	client.subscribe(theme, qos=<span class="hljs-number">1</span>)
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">on_message</span>(<span class="hljs-params">client, userdata, msg</span>):
+    <span class="hljs-keyword">if</span> msg.payload.decode(<span class="hljs-string">&quot;utf-8&quot;</span>) == <span class="hljs-string">&#x27;on&#x27;</span>:
+        set_adapter_status(<span class="hljs-literal">True</span>)
+    <span class="hljs-keyword">elif</span> msg.payload.decode(<span class="hljs-string">&quot;utf-8&quot;</span>) == <span class="hljs-string">&#x27;off&#x27;</span>:
+        set_adapter_status(<span class="hljs-literal">False</span>)
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">on_subscribe</span>(<span class="hljs-params">client, userdata, mid, granted_qos</span>):
+    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;Subscribed: &quot;</span> + <span class="hljs-built_in">str</span>(mid) + <span class="hljs-string">&quot; &quot;</span> + <span class="hljs-built_in">str</span>(granted_qos))
+    
+client = mqtt.Client(client_id=client_id, clean_session=<span class="hljs-literal">False</span>, protocol=mqtt.MQTTv311)
+client.on_connect = on_connect
+client.on_message = on_message
+client.on_subscribe = on_subscribe
+
+client.connect(<span class="hljs-string">&quot;bemfa.com&quot;</span>, <span class="hljs-number">9501</span>, <span class="hljs-number">60</span>)
+client.loop_forever()</code></pre></div>
 
 <h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
 <li><p><a target="_blank" rel="noopener" href="https://cloud.bemfa.com/docs/#/">巴法开放平台</a></p>

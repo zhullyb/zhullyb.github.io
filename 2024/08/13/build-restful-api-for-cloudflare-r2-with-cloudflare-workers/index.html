@@ -377,7 +377,72 @@
 <li>Cloudflare Workers 的内存限制为 128MB，在上传下载 &gt; 100MB 的文件时可能会出错。有这种体积上传需求的场景建议使用别的上传方案。</li>
 </ul>
 <h2 id="如何构建？"><a href="#如何构建？" class="headerlink" title="如何构建？"></a>如何构建？</h2><p>直接贴代码</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> <span class="hljs-title function_">hasValidHeader</span> = (<span class="hljs-params">request, env</span>) =&gt; &#123;<br>	<span class="hljs-keyword">return</span> request.<span class="hljs-property">headers</span>.<span class="hljs-title function_">get</span>(<span class="hljs-string">&#x27;X-Custom-Auth-Key&#x27;</span>) === env.<span class="hljs-property">AUTH_KEY_SECRET</span>;<br>&#125;;<br><br><span class="hljs-keyword">function</span> <span class="hljs-title function_">authorizeRequest</span>(<span class="hljs-params">request, env, key</span>) &#123;<br>	<span class="hljs-keyword">switch</span> (request.<span class="hljs-property">method</span>) &#123;<br>		<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;PUT&#x27;</span>:<br>		<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;DELETE&#x27;</span>:<br>			<span class="hljs-keyword">return</span> <span class="hljs-title function_">hasValidHeader</span>(request, env);<br>		<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;GET&#x27;</span>:<br>			<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;<br>		<span class="hljs-attr">default</span>:<br>			<span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;<br>	&#125;<br>&#125;<br><br><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;<br>	<span class="hljs-keyword">async</span> <span class="hljs-title function_">fetch</span>(<span class="hljs-params">request, env</span>) &#123;<br>		<span class="hljs-keyword">const</span> url = <span class="hljs-keyword">new</span> <span class="hljs-title function_">URL</span>(request.<span class="hljs-property">url</span>);<br>		<span class="hljs-keyword">const</span> key = <span class="hljs-built_in">decodeURI</span>(url.<span class="hljs-property">pathname</span>.<span class="hljs-title function_">slice</span>(<span class="hljs-number">1</span>));<br><br>		<span class="hljs-keyword">if</span> (!<span class="hljs-title function_">authorizeRequest</span>(request, env, key)) &#123;<br>			<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Response</span>(<span class="hljs-string">&#x27;Forbidden\n&#x27;</span>, &#123; <span class="hljs-attr">status</span>: <span class="hljs-number">403</span> &#125;);<br>		&#125;<br><br>		<span class="hljs-keyword">switch</span> (request.<span class="hljs-property">method</span>) &#123;<br>			<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;PUT&#x27;</span>:<br>				<span class="hljs-keyword">const</span> objectExists = <span class="hljs-keyword">await</span> env.<span class="hljs-property">MY_BUCKET</span>.<span class="hljs-title function_">get</span>(key);<br><br>				<span class="hljs-keyword">if</span> (objectExists !== <span class="hljs-literal">null</span>) &#123;<br>					<span class="hljs-keyword">if</span> (request.<span class="hljs-property">headers</span>.<span class="hljs-title function_">get</span>(<span class="hljs-string">&#x27;Overwrite&#x27;</span>) !== <span class="hljs-string">&#x27;true&#x27;</span>) &#123;<br>						<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Response</span>(<span class="hljs-string">&#x27;Object Already Exists\n&#x27;</span>, &#123; <span class="hljs-attr">status</span>: <span class="hljs-number">409</span> &#125;);<br>					&#125;<br>				&#125;<br><br>				<span class="hljs-keyword">await</span> env.<span class="hljs-property">MY_BUCKET</span>.<span class="hljs-title function_">put</span>(key, request.<span class="hljs-property">body</span>);<br>				<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Response</span>(<span class="hljs-string">`Put <span class="hljs-subst">$&#123;key&#125;</span> successfully!\n`</span>);<br><br>			<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;GET&#x27;</span>:<br>				<span class="hljs-keyword">const</span> object = <span class="hljs-keyword">await</span> env.<span class="hljs-property">MY_BUCKET</span>.<span class="hljs-title function_">get</span>(key);<br><br>				<span class="hljs-keyword">if</span> (object === <span class="hljs-literal">null</span>) &#123;<br>					<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Response</span>(<span class="hljs-string">&#x27;Object Not Found\n&#x27;</span>, &#123; <span class="hljs-attr">status</span>: <span class="hljs-number">404</span> &#125;);<br>				&#125;<br><br>				<span class="hljs-keyword">const</span> headers = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Headers</span>();<br>				object.<span class="hljs-title function_">writeHttpMetadata</span>(headers);<br>				headers.<span class="hljs-title function_">set</span>(<span class="hljs-string">&#x27;etag&#x27;</span>, object.<span class="hljs-property">httpEtag</span>);<br><br>				<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Response</span>(object.<span class="hljs-property">body</span>, &#123;<br>					headers,<br>				&#125;);<br>			<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;DELETE&#x27;</span>:<br>				<span class="hljs-keyword">await</span> env.<span class="hljs-property">MY_BUCKET</span>.<span class="hljs-title function_">delete</span>(key);<br>				<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Response</span>(<span class="hljs-string">&#x27;Deleted!\n&#x27;</span>);<br><br>			<span class="hljs-attr">default</span>:<br>				<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Response</span>(<span class="hljs-string">&#x27;Method Not Allowed\n&#x27;</span>, &#123;<br>					<span class="hljs-attr">status</span>: <span class="hljs-number">405</span>,<br>					<span class="hljs-attr">headers</span>: &#123;<br>						<span class="hljs-title class_">Allow</span>: <span class="hljs-string">&#x27;PUT, GET, DELETE&#x27;</span>,<br>					&#125;,<br>				&#125;);<br>		&#125;<br>	&#125;,<br>&#125;;<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> <span class="hljs-title function_">hasValidHeader</span> = (<span class="hljs-params">request, env</span>) =&gt; &#123;
+	<span class="hljs-keyword">return</span> request.<span class="hljs-property">headers</span>.<span class="hljs-title function_">get</span>(<span class="hljs-string">&#x27;X-Custom-Auth-Key&#x27;</span>) === env.<span class="hljs-property">AUTH_KEY_SECRET</span>;
+&#125;;
+
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">authorizeRequest</span>(<span class="hljs-params">request, env, key</span>) &#123;
+	<span class="hljs-keyword">switch</span> (request.<span class="hljs-property">method</span>) &#123;
+		<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;PUT&#x27;</span>:
+		<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;DELETE&#x27;</span>:
+			<span class="hljs-keyword">return</span> <span class="hljs-title function_">hasValidHeader</span>(request, env);
+		<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;GET&#x27;</span>:
+			<span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+		<span class="hljs-attr">default</span>:
+			<span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+	&#125;
+&#125;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;
+	<span class="hljs-keyword">async</span> <span class="hljs-title function_">fetch</span>(<span class="hljs-params">request, env</span>) &#123;
+		<span class="hljs-keyword">const</span> url = <span class="hljs-keyword">new</span> <span class="hljs-title function_">URL</span>(request.<span class="hljs-property">url</span>);
+		<span class="hljs-keyword">const</span> key = <span class="hljs-built_in">decodeURI</span>(url.<span class="hljs-property">pathname</span>.<span class="hljs-title function_">slice</span>(<span class="hljs-number">1</span>));
+
+		<span class="hljs-keyword">if</span> (!<span class="hljs-title function_">authorizeRequest</span>(request, env, key)) &#123;
+			<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Response</span>(<span class="hljs-string">&#x27;Forbidden\n&#x27;</span>, &#123; <span class="hljs-attr">status</span>: <span class="hljs-number">403</span> &#125;);
+		&#125;
+
+		<span class="hljs-keyword">switch</span> (request.<span class="hljs-property">method</span>) &#123;
+			<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;PUT&#x27;</span>:
+				<span class="hljs-keyword">const</span> objectExists = <span class="hljs-keyword">await</span> env.<span class="hljs-property">MY_BUCKET</span>.<span class="hljs-title function_">get</span>(key);
+
+				<span class="hljs-keyword">if</span> (objectExists !== <span class="hljs-literal">null</span>) &#123;
+					<span class="hljs-keyword">if</span> (request.<span class="hljs-property">headers</span>.<span class="hljs-title function_">get</span>(<span class="hljs-string">&#x27;Overwrite&#x27;</span>) !== <span class="hljs-string">&#x27;true&#x27;</span>) &#123;
+						<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Response</span>(<span class="hljs-string">&#x27;Object Already Exists\n&#x27;</span>, &#123; <span class="hljs-attr">status</span>: <span class="hljs-number">409</span> &#125;);
+					&#125;
+				&#125;
+
+				<span class="hljs-keyword">await</span> env.<span class="hljs-property">MY_BUCKET</span>.<span class="hljs-title function_">put</span>(key, request.<span class="hljs-property">body</span>);
+				<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Response</span>(<span class="hljs-string">`Put <span class="hljs-subst">$&#123;key&#125;</span> successfully!\n`</span>);
+
+			<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;GET&#x27;</span>:
+				<span class="hljs-keyword">const</span> object = <span class="hljs-keyword">await</span> env.<span class="hljs-property">MY_BUCKET</span>.<span class="hljs-title function_">get</span>(key);
+
+				<span class="hljs-keyword">if</span> (object === <span class="hljs-literal">null</span>) &#123;
+					<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Response</span>(<span class="hljs-string">&#x27;Object Not Found\n&#x27;</span>, &#123; <span class="hljs-attr">status</span>: <span class="hljs-number">404</span> &#125;);
+				&#125;
+
+				<span class="hljs-keyword">const</span> headers = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Headers</span>();
+				object.<span class="hljs-title function_">writeHttpMetadata</span>(headers);
+				headers.<span class="hljs-title function_">set</span>(<span class="hljs-string">&#x27;etag&#x27;</span>, object.<span class="hljs-property">httpEtag</span>);
+
+				<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Response</span>(object.<span class="hljs-property">body</span>, &#123;
+					headers,
+				&#125;);
+			<span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;DELETE&#x27;</span>:
+				<span class="hljs-keyword">await</span> env.<span class="hljs-property">MY_BUCKET</span>.<span class="hljs-title function_">delete</span>(key);
+				<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Response</span>(<span class="hljs-string">&#x27;Deleted!\n&#x27;</span>);
+
+			<span class="hljs-attr">default</span>:
+				<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Response</span>(<span class="hljs-string">&#x27;Method Not Allowed\n&#x27;</span>, &#123;
+					<span class="hljs-attr">status</span>: <span class="hljs-number">405</span>,
+					<span class="hljs-attr">headers</span>: &#123;
+						<span class="hljs-title class_">Allow</span>: <span class="hljs-string">&#x27;PUT, GET, DELETE&#x27;</span>,
+					&#125;,
+				&#125;);
+		&#125;
+	&#125;,
+&#125;;</code></pre></div>
 
 <p>代码的大部分都是基于 Cloudflare Docs 中给出的样例，修改了几个小的优化点</p>
 <ul>
@@ -390,11 +455,36 @@
 <p>另一个是自己的管理密码</p>
 <p><img src="https://static.031130.xyz/uploads/2024/08/14/96da1f62f5fe7.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
 <h2 id="如何使用-Cloudflare-Workers-构建的-Restful-API-进行文件操作？"><a href="#如何使用-Cloudflare-Workers-构建的-Restful-API-进行文件操作？" class="headerlink" title="如何使用 Cloudflare Workers 构建的 Restful API 进行文件操作？"></a>如何使用 Cloudflare Workers 构建的 Restful API 进行文件操作？</h2><h3 id="上传"><a href="#上传" class="headerlink" title="上传"></a>上传</h3><p>以 python 为例，上传一个文件 1MB.bin 到 /example/ 目录下，上传的 url 就是文件最终的存在路径。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> requests<br><br>AUTH_KEY_SECRET=<span class="hljs-string">&#x27;1145141919810&#x27;</span><br><br><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;1MB.bin&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>rb) <span class="hljs-keyword">as</span> f:<br>    file_content = f.read()<br>    <br>requests.put(<br>	<span class="hljs-string">&#x27;https://r2.example.workers.dev/example/1MB.bin&#x27;</span>,<br>    headers=&#123;<br>        <span class="hljs-string">&#x27;X-Custom-Auth-Key&#x27;</span>: AUTH_KEY_SECRET,<br>        <span class="hljs-string">&#x27;Overwrite&#x27;</span>: <span class="hljs-literal">True</span>	<span class="hljs-comment"># 如果不需要强制覆盖可以删除这一行</span><br>    &#125;<br>)<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">import</span> requests
+
+AUTH_KEY_SECRET=<span class="hljs-string">&#x27;1145141919810&#x27;</span>
+
+<span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;1MB.bin&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>rb) <span class="hljs-keyword">as</span> f:
+    file_content = f.read()
+    
+requests.put(
+	<span class="hljs-string">&#x27;https://r2.example.workers.dev/example/1MB.bin&#x27;</span>,
+    headers=&#123;
+        <span class="hljs-string">&#x27;X-Custom-Auth-Key&#x27;</span>: AUTH_KEY_SECRET,
+        <span class="hljs-string">&#x27;Overwrite&#x27;</span>: <span class="hljs-literal">True</span>	<span class="hljs-comment"># 如果不需要强制覆盖可以删除这一行</span>
+    &#125;
+)</code></pre></div>
 
 <h3 id="访问"><a href="#访问" class="headerlink" title="访问"></a>访问</h3><p>通过浏览器直接访问 <code>https://r2.example.workers.dev/example/1MB.bin</code> 应该就能访问到</p>
 <h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><p>仍然以 python 为例，删除刚才的文件</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> requests<br><br>AUTH_KEY_SECRET=<span class="hljs-string">&#x27;1145141919810&#x27;</span><br><br><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;1MB.bin&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>rb) <span class="hljs-keyword">as</span> f:<br>    file_content = f.read()<br>    <br>requests.delete(<br>	<span class="hljs-string">&#x27;https://r2.example.workers.dev/example/1MB.bin&#x27;</span>,<br>    headers=&#123;<br>        <span class="hljs-string">&#x27;X-Custom-Auth-Key&#x27;</span>: AUTH_KEY_SECRET<br>    &#125;<br>)<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">import</span> requests
+
+AUTH_KEY_SECRET=<span class="hljs-string">&#x27;1145141919810&#x27;</span>
+
+<span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;1MB.bin&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>rb) <span class="hljs-keyword">as</span> f:
+    file_content = f.read()
+    
+requests.delete(
+	<span class="hljs-string">&#x27;https://r2.example.workers.dev/example/1MB.bin&#x27;</span>,
+    headers=&#123;
+        <span class="hljs-string">&#x27;X-Custom-Auth-Key&#x27;</span>: AUTH_KEY_SECRET
+    &#125;
+)</code></pre></div>
 
 <h2 id="参见"><a href="#参见" class="headerlink" title="参见"></a>参见</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://blog.yswtrue.com/yong-cloudflare-de-r2-he-worker-lai-zuo-wen-jian-tuo-guan/">用 cloudflare 的 R2 和 worker 来做文件托管</a></li>

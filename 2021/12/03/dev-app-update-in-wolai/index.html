@@ -355,14 +355,16 @@
 <p>根据又一篇简书的文章<sup id="fnref:3" class="footnote-ref"><a href="#fn:3" rel="footnote"><span class="hint--top hint--rounded" aria-label="https://www.jianshu.com/p/17d97e6bf174">[3]</span></a></sup>，我们了解到 npm 中有一个叫 asar 的程序可以帮助我们解压缩 app.asar。我这里直接将内容搬过来</p>
 <blockquote>
 <p>解压</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">asar extract 压缩文件  解压文件夹<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs undefined">asar extract 压缩文件  解压文件夹</code></pre></div>
 
 <p>压缩：如果压缩文件存在，则会被替换</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs undefined">asar pack 文件夹  压缩文件名<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs undefined">asar pack 文件夹  压缩文件名</code></pre></div>
 </blockquote>
 <p>原文是让我们直接使用 npm 下载安装 asar 程序，然而这就会让打包过程变得很复杂，所幸 Archlinux 官方源中已经将这个程序打完了，我们可以直接将 asar 写入 makedepends。</p>
 <p>大概就写成了这个样子。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">asar extract <span class="hljs-variable">$&#123;srcdir&#125;</span>/squashfs-root/resources/app.asar <span class="hljs-variable">$&#123;srcdir&#125;</span>/new_app<br><span class="hljs-built_in">mv</span>  <span class="hljs-variable">$&#123;srcdir&#125;</span>/squashfs-root/resources/app-update.yml <span class="hljs-variable">$&#123;srcdir&#125;</span>/new_app/dev-app-update.yml<br>asar pack <span class="hljs-variable">$&#123;srcdir&#125;</span>/new_app <span class="hljs-variable">$&#123;srcdir&#125;</span>/squashfs-root/resources/app.asar<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash">asar extract <span class="hljs-variable">$&#123;srcdir&#125;</span>/squashfs-root/resources/app.asar <span class="hljs-variable">$&#123;srcdir&#125;</span>/new_app
+<span class="hljs-built_in">mv</span>  <span class="hljs-variable">$&#123;srcdir&#125;</span>/squashfs-root/resources/app-update.yml <span class="hljs-variable">$&#123;srcdir&#125;</span>/new_app/dev-app-update.yml
+asar pack <span class="hljs-variable">$&#123;srcdir&#125;</span>/new_app <span class="hljs-variable">$&#123;srcdir&#125;</span>/squashfs-root/resources/app.asar</code></pre></div>
 
 <p>程序正常启动，没有弹出之前的对话框了。</p>
 <p><img src="https://static.031130.xyz/uploads/2024/08/12/62f3cafb6b04d.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="成功啦"></p>

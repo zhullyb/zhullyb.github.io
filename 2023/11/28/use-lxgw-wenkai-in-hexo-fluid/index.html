@@ -278,7 +278,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          565 字
+          564 字
         
       </span>
     
@@ -346,18 +346,20 @@
 <p>我在谷歌搜索到了这篇文章——<a target="_blank" rel="noopener" href="https://penghh.fun/2023/05/07/2023-5-7-hexo_blog_font/">《Hexo博客Fluid主题，字体全局更改为霞鹜文楷体》</a>。</p>
 <p>文章中直接修改了 <code>themes/fluid/layout/_partial/head.ejs</code> 让文章生成时在 html 的 head 标签中引入 lxgw-wenkai-screen-webfont 的 css 文件，并使用自定义 css 方案。但这种方案我不喜欢，我的 fluid 主题是通过 npm 安装 hexo-theme-fluid 的方式引入的，这意味着我不能直接编辑 <code>themes/fluid</code> 下的文件，包括文章中需要编辑的 <code>head.ejs</code> 和 <code>_config.yml</code> 。</p>
 <p>我翻阅了 <a target="_blank" rel="noopener" href="https://github.com/chawyehsu/lxgw-wenkai-webfont">lxgw-wenkai-webfont</a> 的 README，找到了使用 cdn 引入的方式。我们需要在 html 的 head 标签中加上下面这段:</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css&quot;</span> /&gt;</span><br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;https://cdn.jsdelivr.net/npm/lxgw-wenkai-screen-webfont@1.1.0/style.css&quot;</span> /&gt;</span></code></pre></div>
 
 <p><del>但我注意到我想要的 lxgw-wenkai-screen-webfont 在 <a target="_blank" rel="noopener" href="https://staticfile.org/">staticfile.org</a> 上也有 cdn 提供，且该 cdn 有海外节点，是不错的选择，所以我要通过下面这段引入:</del></p>
 <p>staticfile 已经因为供应链投毒被各 adblock 插件屏蔽，已改用 npmmirror</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;https://registry.npmmirror.com/lxgw-wenkai-screen-web/latest/files/style.min.css&quot;</span> /&gt;</span><br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;https://registry.npmmirror.com/lxgw-wenkai-screen-web/latest/files/style.min.css&quot;</span> /&gt;</span></code></pre></div>
 
 <p>但要如何引入呢？</p>
 <p>在 hexo 的<a target="_blank" rel="noopener" href="https://hexo.io/docs/plugins.html">官方文档</a>中，我找到了一个方案。可以在博客的 workdir 下创建一个 <code>scripts</code> 文件夹，在当中放入需要执行的 js 脚本。</p>
 <p><img src="https://static.031130.xyz/uploads/2024/08/12/6564cea5c71ca.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="hexo 文档"></p>
 <p>在这篇名为<a target="_blank" rel="noopener" href="https://www.zywvvd.com/notes/hexo/theme/fluid/fluid-add-umami/fluid-add-umami/">《Fluid -23- 添加 Umami 统计》</a> 的文章里，我找到了在 hexo 生成静态文件时直接注入的方式。</p>
 <p>在 <code>scripts/font.js</code> 中写入:</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs javascript">hexo.<span class="hljs-property">extend</span>.<span class="hljs-property">injector</span>.<span class="hljs-title function_">register</span>(<span class="hljs-string">&#x27;head_end&#x27;</span>,<br><span class="hljs-string">&#x27;&lt;link rel=&quot;stylesheet&quot; href=&quot;https://registry.npmmirror.com/lxgw-wenkai-screen-web/latest/files/style.min.css&quot; /&gt;&#x27;</span>,<br><span class="hljs-string">&#x27;default&#x27;</span>);<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs javascript">hexo.<span class="hljs-property">extend</span>.<span class="hljs-property">injector</span>.<span class="hljs-title function_">register</span>(<span class="hljs-string">&#x27;head_end&#x27;</span>,
+<span class="hljs-string">&#x27;&lt;link rel=&quot;stylesheet&quot; href=&quot;https://registry.npmmirror.com/lxgw-wenkai-screen-web/latest/files/style.min.css&quot; /&gt;&#x27;</span>,
+<span class="hljs-string">&#x27;default&#x27;</span>);</code></pre></div>
 
 <p>这样一来，字体文件的 css 便被我们成功引入了，我们还需要指定页面使用霞鹜文楷作为默认字体。</p>
 <p>在 fluid 主题的配置文件 <code>_config.fluid.yml</code> 中，有一个名为 <code>font-family</code> 的配置项，直接写上 <code>font-family: &quot;LXGW Wenkai Screen&quot;</code> 便可大功告成。</p>

@@ -280,7 +280,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          665 字
+          664 字
         
       </span>
     
@@ -357,48 +357,90 @@
 </li>
 <li><h4 id="设置git用户名和邮箱"><a href="#设置git用户名和邮箱" class="headerlink" title="设置git用户名和邮箱"></a>设置git用户名和邮箱</h4></li>
 </ol>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">git config <span class="hljs-attr">--global</span> user<span class="hljs-selector-class">.email</span> <span class="hljs-string">&quot;you@example.com&quot;</span><br>git config <span class="hljs-attr">--global</span> user<span class="hljs-selector-class">.name</span> <span class="hljs-string">&quot;Your Name&quot;</span><br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs stylus">git config <span class="hljs-attr">--global</span> user<span class="hljs-selector-class">.email</span> <span class="hljs-string">&quot;you@example.com&quot;</span>
+git config <span class="hljs-attr">--global</span> user<span class="hljs-selector-class">.name</span> <span class="hljs-string">&quot;Your Name&quot;</span></code></pre></div>
 
 <ol start="2">
 <li><h4 id="下载repo（这个大多数发行版自己都有打包，但是都比较滞后，不如直接下载最新版的二进制文件设置好path变量直接用）"><a href="#下载repo（这个大多数发行版自己都有打包，但是都比较滞后，不如直接下载最新版的二进制文件设置好path变量直接用）" class="headerlink" title="下载repo（这个大多数发行版自己都有打包，但是都比较滞后，不如直接下载最新版的二进制文件设置好path变量直接用）"></a>下载repo（这个大多数发行版自己都有打包，但是都比较滞后，不如直接下载最新版的二进制文件设置好path变量直接用）</h4></li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">mkdir</span> -p ~/bin<br>curl https://storage.googleapis.com/git-repo-downloads/repo &gt; ~/bin/repo<br><span class="hljs-built_in">chmod</span> a+x ~/bin/repo<br><br><span class="hljs-built_in">cat</span> &gt;&gt; ~/.bashrc &lt;&lt;<span class="hljs-string">EOF</span><br><span class="hljs-string"></span><br><span class="hljs-string"># set PATH so it includes user&#x27;s private bin if it exists</span><br><span class="hljs-string">if [ -d &quot;\$HOME/bin&quot; ] ; then</span><br><span class="hljs-string">    PATH=&quot;\$HOME/bin:\$PATH&quot;</span><br><span class="hljs-string">fi</span><br><span class="hljs-string">EOF</span><br><br><span class="hljs-built_in">source</span> ~/.bashrc<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash"><span class="hljs-built_in">mkdir</span> -p ~/bin
+curl https://storage.googleapis.com/git-repo-downloads/repo &gt; ~/bin/repo
+<span class="hljs-built_in">chmod</span> a+x ~/bin/repo
+
+<span class="hljs-built_in">cat</span> &gt;&gt; ~/.bashrc &lt;&lt;<span class="hljs-string">EOF</span>
+<span class="hljs-string"></span>
+<span class="hljs-string"># set PATH so it includes user&#x27;s private bin if it exists</span>
+<span class="hljs-string">if [ -d &quot;\$HOME/bin&quot; ] ; then</span>
+<span class="hljs-string">    PATH=&quot;\$HOME/bin:\$PATH&quot;</span>
+<span class="hljs-string">fi</span>
+<span class="hljs-string">EOF</span>
+
+<span class="hljs-built_in">source</span> ~/.bashrc</code></pre></div>
 
 <ol start="3">
 <li><h4 id="新建一个文件夹以同步源码"><a href="#新建一个文件夹以同步源码" class="headerlink" title="新建一个文件夹以同步源码"></a>新建一个文件夹以同步源码</h4></li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">mkdir</span> openharmony<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash"><span class="hljs-built_in">mkdir</span> openharmony</code></pre></div>
 
 <ol start="4">
 <li><h4 id="进入这个文件夹"><a href="#进入这个文件夹" class="headerlink" title="进入这个文件夹"></a>进入这个文件夹</h4></li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> openharmony<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash"><span class="hljs-built_in">cd</span> openharmony</code></pre></div>
 
 <ol start="5">
 <li><h4 id="初始化repo"><a href="#初始化repo" class="headerlink" title="初始化repo"></a>初始化repo</h4></li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">repo init -u https://gitee.com/openharmony/manifest.git --depth=1<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash">repo init -u https://gitee.com/openharmony/manifest.git --depth=1</code></pre></div>
 
 <p>​    注:  <code>--depth=1</code>是为了仅保留一层commit记录，防止过多的历史commit占用空间，如果你想保留历    史commit，那可以把这里的<code>--depth=1</code>去掉。</p>
 <ol start="6">
 <li><h4 id="使用repo正式开始同步源码"><a href="#使用repo正式开始同步源码" class="headerlink" title="使用repo正式开始同步源码"></a>使用repo正式开始同步源码</h4></li>
 </ol>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">repo <span class="hljs-built_in">sync</span><br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash">repo <span class="hljs-built_in">sync</span></code></pre></div>
 
 <p>repo在sync的时候其实可以加很多选项，可以通过<code>repo help</code>自行研究，我自己常用的是<code>repo sync  --force-sync --current-branch --no-tags --no-clone-bundle --optimized-fetch --prune -j$(nproc --all) -f1</code></p>
 <p>看到以下提示代表同步成功</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs vim">repo <span class="hljs-keyword">sync</span> <span class="hljs-built_in">has</span> finished successfully.<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs vim">repo <span class="hljs-keyword">sync</span> <span class="hljs-built_in">has</span> finished successfully.</code></pre></div>
 
 <h3 id="后话"><a href="#后话" class="headerlink" title="后话"></a>后话</h3><p>结果就当源码下载好并开始checkout后，出现了以下错误</p>
-<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">Garbage</span> collecting: <span class="hljs-number">100</span>% (<span class="hljs-number">220</span>/<span class="hljs-number">220</span>), done in <span class="hljs-number">1</span>.<span class="hljs-number">204</span>s<br><span class="hljs-attribute">Updating</span> files: <span class="hljs-number">100</span>% (<span class="hljs-number">35</span>/<span class="hljs-number">35</span>), done.<br><span class="hljs-attribute">Updating</span> files: <span class="hljs-number">100</span>% (<span class="hljs-number">27</span>/<span class="hljs-number">27</span>), done.<br><span class="hljs-attribute">git</span>-lfs filter-process --skip: line <span class="hljs-number">1</span>: git-lfs: command not found<br><span class="hljs-attribute">fatal</span>: the remote end hung up unexpectedly<br><span class="hljs-attribute">error</span>.GitError: Cannot checkout device_hisilicon_modules: Cannot initialize work tree for device_hisilicon_modules<br><span class="hljs-attribute">error</span>: Cannot checkout device_hisilicon_modules<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs apache"><span class="hljs-attribute">Garbage</span> collecting: <span class="hljs-number">100</span>% (<span class="hljs-number">220</span>/<span class="hljs-number">220</span>), done in <span class="hljs-number">1</span>.<span class="hljs-number">204</span>s
+<span class="hljs-attribute">Updating</span> files: <span class="hljs-number">100</span>% (<span class="hljs-number">35</span>/<span class="hljs-number">35</span>), done.
+<span class="hljs-attribute">Updating</span> files: <span class="hljs-number">100</span>% (<span class="hljs-number">27</span>/<span class="hljs-number">27</span>), done.
+<span class="hljs-attribute">git</span>-lfs filter-process --skip: line <span class="hljs-number">1</span>: git-lfs: command not found
+<span class="hljs-attribute">fatal</span>: the remote end hung up unexpectedly
+<span class="hljs-attribute">error</span>.GitError: Cannot checkout device_hisilicon_modules: Cannot initialize work tree for device_hisilicon_modules
+<span class="hljs-attribute">error</span>: Cannot checkout device_hisilicon_modules</code></pre></div>
 
 <p>看着error很容易可以发现是我的系统没有<code>git-lfs</code>的原因，看样子openharmony使用了git-lfs来储存了某个大文件。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> pacman -S git-lfs	<span class="hljs-comment">#别的发行版请自行查找相关安装方法</span><br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> pacman -S git-lfs	<span class="hljs-comment">#别的发行版请自行查找相关安装方法</span></code></pre></div>
 
 <p>于是乎，安装好<code>git-lfs</code>重新sync源码</p>
 <p>oepnharmony目录下，<code>.repo</code>文件夹内是你从git服务器上下载下来的原始数据，repo将在所有数据下载完成以后将他们自动checkout成代码。</p>
 <p>源码结构是下面这个样子</p>
-<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm">.<br>├── applications<br>├── <span class="hljs-keyword">base</span><br><span class="hljs-keyword"></span>├── <span class="hljs-keyword">build</span><br><span class="hljs-keyword"></span>├── <span class="hljs-keyword">build.py </span>-&gt; <span class="hljs-keyword">build/lite/build.py</span><br><span class="hljs-keyword"></span>├── <span class="hljs-keyword">build.sh </span>-&gt; <span class="hljs-keyword">build/build_scripts/build.sh</span><br><span class="hljs-keyword"></span>├── developtools<br>├── device<br>├── docs<br>├── domains<br>├── drivers<br>├── foundation<br>├── .gn -&gt; <span class="hljs-keyword">build/core/gn/dotfile.gn</span><br><span class="hljs-keyword"></span>├── interface<br>├── kernel<br>├── prebuilts<br>├── productdefine<br>├── .repo<br>├── test<br>├── third_party<br>├── utils<br>└── vendor<br><br><span class="hljs-number">18</span> <span class="hljs-keyword">directories, </span><span class="hljs-number">3</span> files<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs mipsasm">.
+├── applications
+├── <span class="hljs-keyword">base</span>
+<span class="hljs-keyword"></span>├── <span class="hljs-keyword">build</span>
+<span class="hljs-keyword"></span>├── <span class="hljs-keyword">build.py </span>-&gt; <span class="hljs-keyword">build/lite/build.py</span>
+<span class="hljs-keyword"></span>├── <span class="hljs-keyword">build.sh </span>-&gt; <span class="hljs-keyword">build/build_scripts/build.sh</span>
+<span class="hljs-keyword"></span>├── developtools
+├── device
+├── docs
+├── domains
+├── drivers
+├── foundation
+├── .gn -&gt; <span class="hljs-keyword">build/core/gn/dotfile.gn</span>
+<span class="hljs-keyword"></span>├── interface
+├── kernel
+├── prebuilts
+├── productdefine
+├── .repo
+├── test
+├── third_party
+├── utils
+└── vendor
+
+<span class="hljs-number">18</span> <span class="hljs-keyword">directories, </span><span class="hljs-number">3</span> files</code></pre></div>
 
 
 

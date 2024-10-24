@@ -345,15 +345,19 @@
 <h2 id="关于-dnf-module"><a href="#关于-dnf-module" class="headerlink" title="关于 dnf module"></a>关于 dnf module</h2><p>关于 dnf 的 module 功能到底是用来做什么的，其实我并不清楚。虽说 Fedora 提供了<a target="_blank" rel="noopener" href="https://docs.fedoraproject.org/en-US/modularity/">文档</a>，但就凭我的读中文文档都吃力的水准，似乎没有办法通过英文文档来理解这个全新的概念，<del>所以我选择直接莽过去</del>。</p>
 <p>就我目前的理解而言，dnf 的 module 似乎并不致力于帮助用户完成系统内某一程序的新老版本共存的难题，而仅仅是给用户提供了停留在老版本软件的权利。module 所负责的，是保证老版本的程序能在你的系统上正常运行起来，而不会因为其他组件的更新而导致老版本的程序无法正常使用。</p>
 <h3 id="基本的使用方法"><a href="#基本的使用方法" class="headerlink" title="基本的使用方法"></a>基本的使用方法</h3><p>通过下列命令可以查看目前所支持的 module</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> dnf module list<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> dnf module list</code></pre></div>
 
 <p>通过下列命令可以选择 module 所要停留的版本( 以 ruby 2.7 为例 )</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> dnf module <span class="hljs-built_in">enable</span> ruby:2.7<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> dnf module <span class="hljs-built_in">enable</span> ruby:2.7</code></pre></div>
 
 <p>通过下列命令可以取消锁定 module 程序所要停留的版本( 以 ruby 为例 )</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> dnf module reset ruby<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> dnf module reset ruby</code></pre></div>
 
-<h2 id="开始配置该-jekyll-主题的运行环境"><a href="#开始配置该-jekyll-主题的运行环境" class="headerlink" title="开始配置该 jekyll 主题的运行环境"></a>开始配置该 jekyll 主题的运行环境</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> dnf module install ruby:2.7<br><span class="hljs-built_in">sudo</span> dnf install ruby-devel<br><br><span class="hljs-built_in">cd</span> /path/to/the/jekyll-blog/<br>bundle install --path vendor/bundle<br></code></pre></td></tr></table></figure>
+<h2 id="开始配置该-jekyll-主题的运行环境"><a href="#开始配置该-jekyll-主题的运行环境" class="headerlink" title="开始配置该 jekyll 主题的运行环境"></a>开始配置该 jekyll 主题的运行环境</h2><div class="code-wrapper"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> dnf module install ruby:2.7
+<span class="hljs-built_in">sudo</span> dnf install ruby-devel
+
+<span class="hljs-built_in">cd</span> /path/to/the/jekyll-blog/
+bundle install --path vendor/bundle</code></pre></div>
 
 <p>完成后，我们即可在 jekyll-blog 目录下 使用 <code>bundle exec jekyll</code> 来正常运行 jekyll 了。试着跑一下 <code>bundle exec jekyll server</code></p>
 <p><img src="https://static.031130.xyz/uploads/2024/08/12/62f3caeec8ef6.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="成功，彻彻底底！"></p>

@@ -350,7 +350,61 @@
 <li>建议增加密码保护，一来使得小鸡流量不被滥用，二来防止防火墙检测到站点内容</li>
 <li>本文使用的 caddy 开启了 <code>replace_response</code> 插件，可以使用 <code>xcaddy</code> 编译或直接前往 <a target="_blank" rel="noopener" href="https://caddyserver.com/download">https://caddyserver.com/download</a> 勾选相应插件后下载。安装时，建议先根据官方文档安装原版 caddy，再用启用了 <code>replace_response</code> 插件的 caddy 二进制文件覆盖掉原版 caddy，这样就不需要去手写 systemd 相关的文件了。</li>
 </ul>
-<h2 id="Caddyfile"><a href="#Caddyfile" class="headerlink" title="Caddyfile"></a>Caddyfile</h2><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><code class="hljs nginx">&#123;<br>        <span class="hljs-attribute">order</span> replace after encode<br>&#125;<br><br>https://zhwiki.example.com &#123;<br><br>        <span class="hljs-attribute">reverse_proxy</span> * https://zh.wikipedia.org &#123;<br>                <span class="hljs-attribute">header_up</span> Host &#123;upstream_hostport&#125;<br>                <span class="hljs-attribute">header_up</span> X-Real-IP &#123;http.request.remote.host&#125;<br>                <span class="hljs-attribute">header_up</span> X-Forwarded-For &#123;http.request.remote.host&#125;<br>                <span class="hljs-attribute">header_up</span> X-Forwarded-Port &#123;http.request.port&#125;<br>                <span class="hljs-attribute">header_up</span> X-Forwarded-Proto &#123;http.request.scheme&#125;<br>                <span class="hljs-attribute">header_up</span> Accept-Encoding identity<br>                header_down location (https://zh.wikipedia.org/)(.*) https://zhwiki.example.com/<span class="hljs-variable">$2</span><br>                header_down location (https://zh.m.wikipedia.org/)(.*) http://m.zhwiki.example.com/<span class="hljs-variable">$2</span><br>        &#125;<br><br>        replace &#123;<br>                &quot;upload.wikimedia.org&quot; &quot;up.zhwiki.example.com&quot;<br>                &quot;zh.wikipedia.org&quot; &quot;zhwiki.example.com&quot;<br>                &quot;zh.m.wikipedia.org&quot; &quot;m.zhwiki.example.com&quot;<br>        &#125;<br>&#125;<br><br>https://m.zhwiki.example.<span class="hljs-section">com</span> &#123;<br><br>        <span class="hljs-attribute">reverse_proxy</span> * https://zh.m.wikipedia.org &#123;<br>                <span class="hljs-attribute">header_up</span> Host &#123;upstream_hostport&#125;<br>                <span class="hljs-attribute">header_up</span> X-Real-IP &#123;http.request.remote.host&#125;<br>                <span class="hljs-attribute">header_up</span> X-Forwarded-For &#123;http.request.remote.host&#125;<br>                <span class="hljs-attribute">header_up</span> X-Forwarded-Port &#123;http.request.port&#125;<br>                <span class="hljs-attribute">header_up</span> X-Forwarded-Proto &#123;http.request.scheme&#125;<br>                <span class="hljs-attribute">header_up</span> Accept-Encoding identity<br>                header_down location (https://zh.wikipedia.org/)(.*) https://zhwiki.example.com/<span class="hljs-variable">$2</span><br>                header_down location (https://zh.m.wikipedia.org/)(.*) http://m.zhwiki.example.com/<span class="hljs-variable">$2</span><br>        &#125;<br><br>        replace &#123;<br>                &quot;upload.wikimedia.org&quot; &quot;up.zhwiki.example.com&quot;<br>                &quot;zh.wikipedia.org&quot; &quot;zhwiki.example.com&quot;<br>                &quot;zh.m.wikipedia.org&quot; &quot;m.zhwiki.example.com&quot;<br>        &#125;<br>&#125;<br><br>https://up.zhwiki.example.<span class="hljs-section">com</span> &#123;<br>        <span class="hljs-attribute">reverse_proxy</span> * https://upload.wikimedia.org &#123;<br>                <span class="hljs-attribute">header_up</span> Host &#123;upstream_hostport&#125;<br>                <span class="hljs-attribute">header_up</span> X-Real-IP &#123;http.request.remote.host&#125;<br>                <span class="hljs-attribute">header_up</span> X-Forwarded-For &#123;http.request.remote.host&#125;<br>                <span class="hljs-attribute">header_up</span> X-Forwarded-Port &#123;http.request.port&#125;<br>                <span class="hljs-attribute">header_up</span> X-Forwarded-Proto &#123;http.request.scheme&#125;<br>                <span class="hljs-attribute">header_up</span> Accept-Encoding identity<br>        &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
+<h2 id="Caddyfile"><a href="#Caddyfile" class="headerlink" title="Caddyfile"></a>Caddyfile</h2><div class="code-wrapper"><pre><code class="hljs nginx">&#123;
+        <span class="hljs-attribute">order</span> replace after encode
+&#125;
+
+https://zhwiki.example.com &#123;
+
+        <span class="hljs-attribute">reverse_proxy</span> * https://zh.wikipedia.org &#123;
+                <span class="hljs-attribute">header_up</span> Host &#123;upstream_hostport&#125;
+                <span class="hljs-attribute">header_up</span> X-Real-IP &#123;http.request.remote.host&#125;
+                <span class="hljs-attribute">header_up</span> X-Forwarded-For &#123;http.request.remote.host&#125;
+                <span class="hljs-attribute">header_up</span> X-Forwarded-Port &#123;http.request.port&#125;
+                <span class="hljs-attribute">header_up</span> X-Forwarded-Proto &#123;http.request.scheme&#125;
+                <span class="hljs-attribute">header_up</span> Accept-Encoding identity
+                header_down location (https://zh.wikipedia.org/)(.*) https://zhwiki.example.com/<span class="hljs-variable">$2</span>
+                header_down location (https://zh.m.wikipedia.org/)(.*) http://m.zhwiki.example.com/<span class="hljs-variable">$2</span>
+        &#125;
+
+        replace &#123;
+                &quot;upload.wikimedia.org&quot; &quot;up.zhwiki.example.com&quot;
+                &quot;zh.wikipedia.org&quot; &quot;zhwiki.example.com&quot;
+                &quot;zh.m.wikipedia.org&quot; &quot;m.zhwiki.example.com&quot;
+        &#125;
+&#125;
+
+https://m.zhwiki.example.<span class="hljs-section">com</span> &#123;
+
+        <span class="hljs-attribute">reverse_proxy</span> * https://zh.m.wikipedia.org &#123;
+                <span class="hljs-attribute">header_up</span> Host &#123;upstream_hostport&#125;
+                <span class="hljs-attribute">header_up</span> X-Real-IP &#123;http.request.remote.host&#125;
+                <span class="hljs-attribute">header_up</span> X-Forwarded-For &#123;http.request.remote.host&#125;
+                <span class="hljs-attribute">header_up</span> X-Forwarded-Port &#123;http.request.port&#125;
+                <span class="hljs-attribute">header_up</span> X-Forwarded-Proto &#123;http.request.scheme&#125;
+                <span class="hljs-attribute">header_up</span> Accept-Encoding identity
+                header_down location (https://zh.wikipedia.org/)(.*) https://zhwiki.example.com/<span class="hljs-variable">$2</span>
+                header_down location (https://zh.m.wikipedia.org/)(.*) http://m.zhwiki.example.com/<span class="hljs-variable">$2</span>
+        &#125;
+
+        replace &#123;
+                &quot;upload.wikimedia.org&quot; &quot;up.zhwiki.example.com&quot;
+                &quot;zh.wikipedia.org&quot; &quot;zhwiki.example.com&quot;
+                &quot;zh.m.wikipedia.org&quot; &quot;m.zhwiki.example.com&quot;
+        &#125;
+&#125;
+
+https://up.zhwiki.example.<span class="hljs-section">com</span> &#123;
+        <span class="hljs-attribute">reverse_proxy</span> * https://upload.wikimedia.org &#123;
+                <span class="hljs-attribute">header_up</span> Host &#123;upstream_hostport&#125;
+                <span class="hljs-attribute">header_up</span> X-Real-IP &#123;http.request.remote.host&#125;
+                <span class="hljs-attribute">header_up</span> X-Forwarded-For &#123;http.request.remote.host&#125;
+                <span class="hljs-attribute">header_up</span> X-Forwarded-Port &#123;http.request.port&#125;
+                <span class="hljs-attribute">header_up</span> X-Forwarded-Proto &#123;http.request.scheme&#125;
+                <span class="hljs-attribute">header_up</span> Accept-Encoding identity
+        &#125;
+&#125;
+</code></pre></div>
 
 <h2 id="简单解释"><a href="#简单解释" class="headerlink" title="简单解释"></a>简单解释</h2><p>第一大段是启用 <code>replace_response</code> 插件的部分，直接照抄即可。</p>
 <p>第二和第三大段的思路是一致的，分别反向代理了 PC 端和移动段的网页。两行 <code> header_down</code> 的写法是受到了知乎上那篇 Github 反代的启发，避免了源站发出 302 重定向时访客被带到源站去。replace 部分不用多说，就是将针对三个源站域名的请求改到反代站域名。</p>

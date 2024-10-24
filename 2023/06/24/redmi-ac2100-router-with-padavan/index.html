@@ -382,17 +382,17 @@
 <p>首先是确认路由器的版本，我从闲鱼上购得的路由器自带的版本是官方稳定版 2.0.23，一开始跟着别人的思路就降级到了 2.0.7，但后来遇见问题在网上查解决方案的时候看到有人说这个漏洞在 2.0.23 依然可用，但我也没有去试。</p>
 <p>在电脑上下载 2.0.7 的<a target="_blank" rel="noopener" href="https://cdn.cnbj1.fds.api.mi-img.com/xiaoqiang/rom/rm2100/miwifi_rm2100_firmware_d6234_2.0.7.bin">升级包</a>，在路由器设置界面的常用设置-&gt;系统状态-&gt;手动升级 选择自己下载的升级包，确认等待重启即可。有些教程说可以选择保留数据，但我也懒得试，就直接清除了所有数据，又不得不再次过一遍上面的配置引导。</p>
 <p>在地址栏，删除 <code>/web/home#router</code> 部分，加入下面这串代码</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">/api/misystem/set_config_iotdev?bssid=Xiaomi&amp;user_id=longdike&amp;ssid=-h%3B%20nvram%20set%20ssh_en%3D1%3B%20nvram%20commit%3B%20sed%20-i%20&#x27;s%2Fchannel%3D.*%2Fchannel%3D%5C%22debug%5C%22%2Fg&#x27;%20%2Fetc%2Finit.d%2Fdropbear%3B%20%2Fetc%2Finit.d%2Fdropbear%20start%3B<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs text">/api/misystem/set_config_iotdev?bssid=Xiaomi&amp;user_id=longdike&amp;ssid=-h%3B%20nvram%20set%20ssh_en%3D1%3B%20nvram%20commit%3B%20sed%20-i%20&#x27;s%2Fchannel%3D.*%2Fchannel%3D%5C%22debug%5C%22%2Fg&#x27;%20%2Fetc%2Finit.d%2Fdropbear%3B%20%2Fetc%2Finit.d%2Fdropbear%20start%3B</code></pre></div>
 
 <p>再次删除后面的代码，加入下面这串代码</p>
-<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">/api/misystem/set_config_iotdev?bssid=Xiaomi&amp;user_id=longdike&amp;ssid=-h%3B%20echo%20-e%20&#x27;admin%5Cnadmin&#x27;%20%7C%20passwd%20root%3B<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs text">/api/misystem/set_config_iotdev?bssid=Xiaomi&amp;user_id=longdike&amp;ssid=-h%3B%20echo%20-e%20&#x27;admin%5Cnadmin&#x27;%20%7C%20passwd%20root%3B</code></pre></div>
 
 <p><img src="https://static.031130.xyz/uploads/2024/08/12/6495ce20b91d1.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="需要被去除的 url 部分"></p>
 <p><img src="https://static.031130.xyz/uploads/2024/08/12/6495ce1de2acd.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="被截剩的 url 部分"></p>
 <p>两次请求的正常反馈应该长成下面这个样子。</p>
 <p><img src="https://static.031130.xyz/uploads/2024/08/12/6495ce8d86b03.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="正常反馈"></p>
 <p>此时应该就可以使用 ssh 访问路由器的 root 账户了，密码已经被改为了 admin</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ba">ssh -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa root@192.168.31.1<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs ba">ssh -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa root@192.168.31.1</code></pre></div>
 
 <p><img src="https://static.031130.xyz/uploads/2024/08/12/6495cf0b224c4.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="登陆成功"></p>
 <h2 id="刷入-breed"><a href="#刷入-breed" class="headerlink" title="刷入 breed"></a>刷入 breed</h2><p>如果用我在安卓刷机的经验来讲 breed 是什么的话，我会把他类比成第三方 Recovery (TWRP)。这是一个能够帮助你去输入系统、备份系统的恢复模式。虽然我们可以直接刷入 padavan，但如果系统没有自带镜像刷写工具或者输入的系统打不开了，那可能就是一台路由器的报废，或许得靠编程器才能救回来。</p>

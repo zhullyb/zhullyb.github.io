@@ -275,7 +275,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          757 字
+          756 字
         
       </span>
     
@@ -341,19 +341,105 @@
                 <h3 id="找到最新的Archlinux镜像源"><a href="#找到最新的Archlinux镜像源" class="headerlink" title="找到最新的Archlinux镜像源"></a>找到最新的Archlinux镜像源</h3><p>我是testing+kde-unstable用户，平均每天更新4次，对于我而言，选择最新的Archlinux镜像是非常重要的。</p>
 <p>Archlinux的主源并不开放给个人用户使用，仅开放给<a target="_blank" rel="noopener" href="https://archlinux.org/mirrors/tier/1/">一级镜像站</a>进行同步，因此我们需要手动寻找国内较新的镜像站。（理论上来说一级镜像站应该比二级镜像站更新，但是有些一级镜像站的同步频率并不高，同步延迟可能会比某些二级镜像站还要高）</p>
 <p>一个archlinux的镜像目录大概是长下面这个样子</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs routeros">archlinux/<br>├──<span class="hljs-built_in"> community</span><br><span class="hljs-built_in"></span>├── community-staging<br>├── community-testing<br>├── core<br>├── extra<br>├── gnome-unstable<br>├── images<br>├── iso<br>├── kde-unstable<br>├── lastsync<br>├── lastupdate<br>├── multilib<br>├── multilib-staging<br>├── multilib-testing<br>├──<span class="hljs-built_in"> pool</span><br><span class="hljs-built_in"></span>├── staging<br>└── testing<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs routeros">archlinux/
+├──<span class="hljs-built_in"> community</span>
+<span class="hljs-built_in"></span>├── community-staging
+├── community-testing
+├── core
+├── extra
+├── gnome-unstable
+├── images
+├── iso
+├── kde-unstable
+├── lastsync
+├── lastupdate
+├── multilib
+├── multilib-staging
+├── multilib-testing
+├──<span class="hljs-built_in"> pool</span>
+<span class="hljs-built_in"></span>├── staging
+└── testing</code></pre></div>
 
 <p>其中的<code>lastsync</code>和<code>lastupdate</code>用unix时间戳记录着上一次同步时间和镜像的上一次变更时间。</p>
 <p>因此，我们只需要对比各个镜像站的<code>lastsync</code>谁比较新就行了，我写了如下的辣鸡脚本</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-meta">#!/bin/bash</span><br><br>tuna=$(curl -s https://mirrors.tuna.tsinghua.edu.cn/archlinux/lastsync)<br>bfsu=$(curl -s https://mirrors.bfsu.edu.cn/archlinux/lastsync)<br>sjtug=$(curl -s https://mirror.sjtu.edu.cn/archlinux/lastsync)<br>aliyun=$(curl -s https://mirrors.aliyun.com/archlinux/lastsync)<br>ustc=$(curl -s https://mirrors.ustc.edu.cn/archlinux/lastsync)<br>zju=$(curl -s https://mirrors.zju.edu.cn/archlinux/lastsync)<br>cqu=$(curl -s https://mirrors.cqu.edu.cn/archlinux/lastsync)<br>lzu=$(curl -s https://mirror.lzu.edu.cn/archlinux/lastsync)<br>neusoft=$(curl -s https://mirrors.neusoft.edu.cn/archlinux/lastsync)<br>dgut=$(curl -s https://mirrors.dgut.edu.cn/archlinux/lastsync)<br>netease=$(curl -s https://mirrors.163.com/archlinux/lastsync)<br>tencent=$(curl -s https://mirrors.tencent.com/archlinux/lastsync)<br>hit=$(curl -s https://mirrors.hit.edu.cn/archlinux/lastsync)<br>huaweicloud=$(curl -s https://mirrors.huaweicloud.com/archlinux/lastsync)<br>sohu=$(curl -s https://mirrors.sohu.com/archlinux/lastsync)<br>opentuna=$(curl -s https://opentuna.cn/archlinux/lastsync)<br>pku=$(curl -s https://mirrors.pku.edu.cn/archlinux/lastsync)<br>nju=$(curl -s https://mirrors.nju.edu.cn/archlinux/lastsync)<br>njupt=$(curl -s https://mirrors.nju.edu.cn/archlinux/lastsync)<br><br><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-string">&quot;</span><br><span class="hljs-string"><span class="hljs-variable">$tuna</span>        #tuna</span><br><span class="hljs-string"><span class="hljs-variable">$bfsu</span>        #bfsu</span><br><span class="hljs-string"><span class="hljs-variable">$sjtug</span>       #sjtug</span><br><span class="hljs-string"><span class="hljs-variable">$aliyun</span>      #aliyun</span><br><span class="hljs-string"><span class="hljs-variable">$ustc</span>        #ustc</span><br><span class="hljs-string"><span class="hljs-variable">$zju</span>         #zju</span><br><span class="hljs-string"><span class="hljs-variable">$cqu</span>         #cqu</span><br><span class="hljs-string"><span class="hljs-variable">$lzu</span>         #lzu</span><br><span class="hljs-string"><span class="hljs-variable">$neusoft</span>     #neusoft</span><br><span class="hljs-string"><span class="hljs-variable">$dgut</span>        #dgut</span><br><span class="hljs-string"><span class="hljs-variable">$netease</span>     #netease</span><br><span class="hljs-string"><span class="hljs-variable">$tencent</span>     #tencent</span><br><span class="hljs-string"><span class="hljs-variable">$hit</span>         #hit</span><br><span class="hljs-string"><span class="hljs-variable">$huaweicloud</span> #huaweicloud</span><br><span class="hljs-string"><span class="hljs-variable">$sohu</span>        #sohu</span><br><span class="hljs-string"><span class="hljs-variable">$opentuna</span>    #opentuna</span><br><span class="hljs-string"><span class="hljs-variable">$pku</span>         #pku</span><br><span class="hljs-string"><span class="hljs-variable">$nju</span>         #nju</span><br><span class="hljs-string"><span class="hljs-variable">$njupt</span>       #njupt</span><br><span class="hljs-string">&quot;</span><span class="hljs-string">&quot;&quot;</span>  | <span class="hljs-built_in">sort</span> -r<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash"><span class="hljs-meta">#!/bin/bash</span>
+
+tuna=$(curl -s https://mirrors.tuna.tsinghua.edu.cn/archlinux/lastsync)
+bfsu=$(curl -s https://mirrors.bfsu.edu.cn/archlinux/lastsync)
+sjtug=$(curl -s https://mirror.sjtu.edu.cn/archlinux/lastsync)
+aliyun=$(curl -s https://mirrors.aliyun.com/archlinux/lastsync)
+ustc=$(curl -s https://mirrors.ustc.edu.cn/archlinux/lastsync)
+zju=$(curl -s https://mirrors.zju.edu.cn/archlinux/lastsync)
+cqu=$(curl -s https://mirrors.cqu.edu.cn/archlinux/lastsync)
+lzu=$(curl -s https://mirror.lzu.edu.cn/archlinux/lastsync)
+neusoft=$(curl -s https://mirrors.neusoft.edu.cn/archlinux/lastsync)
+dgut=$(curl -s https://mirrors.dgut.edu.cn/archlinux/lastsync)
+netease=$(curl -s https://mirrors.163.com/archlinux/lastsync)
+tencent=$(curl -s https://mirrors.tencent.com/archlinux/lastsync)
+hit=$(curl -s https://mirrors.hit.edu.cn/archlinux/lastsync)
+huaweicloud=$(curl -s https://mirrors.huaweicloud.com/archlinux/lastsync)
+sohu=$(curl -s https://mirrors.sohu.com/archlinux/lastsync)
+opentuna=$(curl -s https://opentuna.cn/archlinux/lastsync)
+pku=$(curl -s https://mirrors.pku.edu.cn/archlinux/lastsync)
+nju=$(curl -s https://mirrors.nju.edu.cn/archlinux/lastsync)
+njupt=$(curl -s https://mirrors.nju.edu.cn/archlinux/lastsync)
+
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;&quot;</span><span class="hljs-string">&quot;</span>
+<span class="hljs-string"><span class="hljs-variable">$tuna</span>        #tuna</span>
+<span class="hljs-string"><span class="hljs-variable">$bfsu</span>        #bfsu</span>
+<span class="hljs-string"><span class="hljs-variable">$sjtug</span>       #sjtug</span>
+<span class="hljs-string"><span class="hljs-variable">$aliyun</span>      #aliyun</span>
+<span class="hljs-string"><span class="hljs-variable">$ustc</span>        #ustc</span>
+<span class="hljs-string"><span class="hljs-variable">$zju</span>         #zju</span>
+<span class="hljs-string"><span class="hljs-variable">$cqu</span>         #cqu</span>
+<span class="hljs-string"><span class="hljs-variable">$lzu</span>         #lzu</span>
+<span class="hljs-string"><span class="hljs-variable">$neusoft</span>     #neusoft</span>
+<span class="hljs-string"><span class="hljs-variable">$dgut</span>        #dgut</span>
+<span class="hljs-string"><span class="hljs-variable">$netease</span>     #netease</span>
+<span class="hljs-string"><span class="hljs-variable">$tencent</span>     #tencent</span>
+<span class="hljs-string"><span class="hljs-variable">$hit</span>         #hit</span>
+<span class="hljs-string"><span class="hljs-variable">$huaweicloud</span> #huaweicloud</span>
+<span class="hljs-string"><span class="hljs-variable">$sohu</span>        #sohu</span>
+<span class="hljs-string"><span class="hljs-variable">$opentuna</span>    #opentuna</span>
+<span class="hljs-string"><span class="hljs-variable">$pku</span>         #pku</span>
+<span class="hljs-string"><span class="hljs-variable">$nju</span>         #nju</span>
+<span class="hljs-string"><span class="hljs-variable">$njupt</span>       #njupt</span>
+<span class="hljs-string">&quot;</span><span class="hljs-string">&quot;&quot;</span>  | <span class="hljs-built_in">sort</span> -r</code></pre></div>
 
 <p>其运行结果如下</p>
-<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs basic"><span class="hljs-symbol">1622248120 </span>    #neusoft<br><span class="hljs-symbol">1622247879 </span>       #dgut<br><span class="hljs-symbol">1622247698 </span>        #hit<br><span class="hljs-symbol">1622246042 </span>        #zju<br><span class="hljs-symbol">1622246042 </span>       #tuna<br><span class="hljs-symbol">1622246042 </span>       #bfsu<br><span class="hljs-symbol">1622242426 </span>      #sjtug<br><span class="hljs-symbol">1622242426 </span>      #njupt<br><span class="hljs-symbol">1622242426 </span>        #nju<br><span class="hljs-symbol">1622240702 </span>       #ustc<br><span class="hljs-symbol">1622240522 </span>        #cqu<br><span class="hljs-symbol">1622238783 </span>    #netease<br><span class="hljs-symbol">1622235120 </span>        #lzu<br><span class="hljs-symbol">1622232241 </span>#huaweicloud<br><span class="hljs-symbol">1622230871 </span>    #tencent<br><span class="hljs-symbol">1622217845 </span>     #aliyun<br><span class="hljs-symbol">1622217001 </span>        #pku<br><span class="hljs-symbol">1622203750 </span>       #sohu<br><span class="hljs-symbol">1622166379 </span>   #opentuna<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs basic"><span class="hljs-symbol">1622248120 </span>    #neusoft
+<span class="hljs-symbol">1622247879 </span>       #dgut
+<span class="hljs-symbol">1622247698 </span>        #hit
+<span class="hljs-symbol">1622246042 </span>        #zju
+<span class="hljs-symbol">1622246042 </span>       #tuna
+<span class="hljs-symbol">1622246042 </span>       #bfsu
+<span class="hljs-symbol">1622242426 </span>      #sjtug
+<span class="hljs-symbol">1622242426 </span>      #njupt
+<span class="hljs-symbol">1622242426 </span>        #nju
+<span class="hljs-symbol">1622240702 </span>       #ustc
+<span class="hljs-symbol">1622240522 </span>        #cqu
+<span class="hljs-symbol">1622238783 </span>    #netease
+<span class="hljs-symbol">1622235120 </span>        #lzu
+<span class="hljs-symbol">1622232241 </span>#huaweicloud
+<span class="hljs-symbol">1622230871 </span>    #tencent
+<span class="hljs-symbol">1622217845 </span>     #aliyun
+<span class="hljs-symbol">1622217001 </span>        #pku
+<span class="hljs-symbol">1622203750 </span>       #sohu
+<span class="hljs-symbol">1622166379 </span>   #opentuna</code></pre></div>
 
 <p>通过不同时刻的多次测试可以看出，国内同步频率最高的是东软（neusoft）的镜像。顺手一查，没错，是个一级镜像站。通过unix时间戳得知，东软的archlinux镜像几乎是每分钟同步一次，恐怖如斯。。。</p>
 <h2 id="获得更好的下载速度"><a href="#获得更好的下载速度" class="headerlink" title="获得更好的下载速度"></a>获得更好的下载速度</h2><p>我们已经得知东软是国内同步频率最高的Archlinux镜像站了，但是我用东软镜像站的下载速度并不太好看。此时，我们就要搬出依云大佬的神器——<a target="_blank" rel="noopener" href="https://blog.lilydjwg.me/2020/10/29/pacsync.215578.html">pacsync</a></p>
 <p>在root用户下使用如下命令装载pacysnc后</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">echo</span> <span class="hljs-string">&#x27;#!/bin/bash -e</span><br><span class="hljs-string"></span><br><span class="hljs-string">unshare -m bash &lt;&lt;&#x27;</span>EOF<span class="hljs-string">&#x27;</span><br><span class="hljs-string">mount --make-rprivate /</span><br><span class="hljs-string">for f in /etc/pacman.d/*.sync; do</span><br><span class="hljs-string">  filename=&quot;$&#123;f%.*&#125;&quot;</span><br><span class="hljs-string">  mount --bind &quot;$f&quot; &quot;$filename&quot;</span><br><span class="hljs-string">done</span><br><span class="hljs-string">pacman -Sy</span><br><span class="hljs-string">EOF&#x27;</span> &gt; /usr/bin/pacsync<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash"><span class="hljs-built_in">echo</span> <span class="hljs-string">&#x27;#!/bin/bash -e</span>
+<span class="hljs-string"></span>
+<span class="hljs-string">unshare -m bash &lt;&lt;&#x27;</span>EOF<span class="hljs-string">&#x27;</span>
+<span class="hljs-string">mount --make-rprivate /</span>
+<span class="hljs-string">for f in /etc/pacman.d/*.sync; do</span>
+<span class="hljs-string">  filename=&quot;$&#123;f%.*&#125;&quot;</span>
+<span class="hljs-string">  mount --bind &quot;$f&quot; &quot;$filename&quot;</span>
+<span class="hljs-string">done</span>
+<span class="hljs-string">pacman -Sy</span>
+<span class="hljs-string">EOF&#x27;</span> &gt; /usr/bin/pacsync</code></pre></div>
 
 <p>创建<code>/etc/pacman.d/mirrorlist.sync</code>指定我们用来同步pacman数据库（比如东软）</p>
 <p><code>/etc/pacman.d/mirrorlist</code>中存放其他国内镜像源地址（按照同步速度从上到下）</p>

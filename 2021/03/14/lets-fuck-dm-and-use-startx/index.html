@@ -21,12 +21,12 @@
   <meta name="author" content="竹林里有冰">
   <meta name="keywords" content="博客, 技术, Fedora">
   
-    <meta name="description" content="在正常情况下，我们会给Linux装上一个DisplayManager以方便我们输入账号密码来进入图形化系统，但是我不想要额外装一个DM来启动我的图形化系统（而且之前我一直用的sddm也出过一小阵子的问题） 首先卸载我的sddm 1sudo pacman -Rsnc sddm sddm-kcm  安装startx所在的软件包 1sudo pacman -S xorg-xinit  从&#x2F;etc&#x2F;X11">
+    <meta name="description" content="在正常情况下，我们会给Linux装上一个DisplayManager以方便我们输入账号密码来进入图形化系统，但是我不想要额外装一个DM来启动我的图形化系统（而且之前我一直用的sddm也出过一小阵子的问题） 首先卸载我的sddm sudo pacman -Rsnc sddm sddm-kcm  安装startx所在的软件包 sudo pacman -S xorg-xinit  从&#x2F;etc&#x2F;X11&#x2F;x">
 <meta property="og:type" content="article">
 <meta property="og:title" content="抛弃DisplayManager，拥抱startx">
 <meta property="og:url" content="https://zhul.in/2021/03/14/lets-fuck-dm-and-use-startx/index.html">
 <meta property="og:site_name" content="竹林里有冰的博客">
-<meta property="og:description" content="在正常情况下，我们会给Linux装上一个DisplayManager以方便我们输入账号密码来进入图形化系统，但是我不想要额外装一个DM来启动我的图形化系统（而且之前我一直用的sddm也出过一小阵子的问题） 首先卸载我的sddm 1sudo pacman -Rsnc sddm sddm-kcm  安装startx所在的软件包 1sudo pacman -S xorg-xinit  从&#x2F;etc&#x2F;X11">
+<meta property="og:description" content="在正常情况下，我们会给Linux装上一个DisplayManager以方便我们输入账号密码来进入图形化系统，但是我不想要额外装一个DM来启动我的图形化系统（而且之前我一直用的sddm也出过一小阵子的问题） 首先卸载我的sddm sudo pacman -Rsnc sddm sddm-kcm  安装startx所在的软件包 sudo pacman -S xorg-xinit  从&#x2F;etc&#x2F;X11&#x2F;x">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-03-13T16:00:00.000Z">
 <meta property="article:modified_time" content="2022-08-22T15:42:13.000Z">
@@ -340,23 +340,28 @@
                 
                 <p>在正常情况下，我们会给Linux装上一个DisplayManager以方便我们输入账号密码来进入图形化系统，但是我不想要额外装一个DM来启动我的图形化系统（而且之前我一直用的sddm也出过一小阵子的问题）</p>
 <p>首先卸载我的sddm</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo pacman -Rsnc sddm sddm-kcm<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs shell">sudo pacman -Rsnc sddm sddm-kcm</code></pre></div>
 
 <p>安装startx所在的软件包</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sudo pacman -S xorg-xinit<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs shell">sudo pacman -S xorg-xinit</code></pre></div>
 
 <p>从/etc/X11/xinit/xinitrc拷贝一份.xinitrc</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">cp /etc/X11/xinit/xinitrc ~/.xinitrc<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs shell">cp /etc/X11/xinit/xinitrc ~/.xinitrc</code></pre></div>
 
 <p>注释掉最后5行</p>
-<figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs subunit">#twm &amp;<br>#xclock -geometry 50x50<span class="hljs-string">-1</span><span class="hljs-string">+1</span> &amp;<br>#xterm -geometry 80x50<span class="hljs-string">+494</span><span class="hljs-string">+51</span> &amp;<br>#xterm -geometry 80x20<span class="hljs-string">+494</span><span class="hljs-string">-0</span> &amp;<br>#exec xterm -geometry 80x66<span class="hljs-string">+0</span><span class="hljs-string">+0</span> -name login<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs subunit">#twm &amp;
+#xclock -geometry 50x50<span class="hljs-string">-1</span><span class="hljs-string">+1</span> &amp;
+#xterm -geometry 80x50<span class="hljs-string">+494</span><span class="hljs-string">+51</span> &amp;
+#xterm -geometry 80x20<span class="hljs-string">+494</span><span class="hljs-string">-0</span> &amp;
+#exec xterm -geometry 80x66<span class="hljs-string">+0</span><span class="hljs-string">+0</span> -name login</code></pre></div>
 
 <p>然后需要在结尾处写上我们的配置。我用的桌面是Plasma，查询<a target="_blank" rel="noopener" href="https://wiki.archlinux.org/index.php/KDE#From_the_console">wiki</a></p>
 <blockquote>
 <p>To start Plasma with xinit/startx, append export DESKTOP_SESSION=plasma and exec startplasma-x11 to your .xinitrc file. If you want to start Xorg at login, please see Start X at login.</p>
 </blockquote>
 <p>然后在xinitrx文件末尾处写上我们的配置</p>
-<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-built_in">export</span> <span class="hljs-attribute">DESKTOP_SESSION</span>=plasma<br>startplasma-x11<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs routeros"><span class="hljs-built_in">export</span> <span class="hljs-attribute">DESKTOP_SESSION</span>=plasma
+startplasma-x11</code></pre></div>
 <p>Ps: 在第二行中，wiki中让我们使用exec，代表当xorg桌面会话结束后自动退出当前用户，而我不想退出，所以没加</p>
 <p>至此，我们的startx就已经配置完成了，重启后只需要在tty界面登录用户后输入<code>startx</code>并回车即可进入图形化界面。</p>
 

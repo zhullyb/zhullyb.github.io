@@ -21,12 +21,12 @@
   <meta name="author" content="竹林里有冰">
   <meta name="keywords" content="博客, 技术, Fedora">
   
-    <meta name="description" content="我的博客是挂在GitlabPages上的，在为博客更换主题的时候遇到了一点点小麻烦。 报错如图：  当然，我这边也会附上详细的报错日志，以便后人能够通过关键词搜索到。 12345678910111213Configuration file: &#x2F;builds&#x2F;zhullyb&#x2F;test&#x2F;_config.yml            Source: &#x2F;builds&#x2F;zhullyb&#x2F;test">
+    <meta name="description" content="我的博客是挂在GitlabPages上的，在为博客更换主题的时候遇到了一点点小麻烦。 报错如图：  当然，我这边也会附上详细的报错日志，以便后人能够通过关键词搜索到。 Configuration file: &#x2F;builds&#x2F;zhullyb&#x2F;test&#x2F;_config.yml             Source: &#x2F;builds&#x2F;zhullyb&#x2F;test        Destination: pu">
 <meta property="og:type" content="article">
 <meta property="og:title" content="记一次在Gitlab部署Jekyll博客时遇到的jekyll-github-metadata报错问题">
 <meta property="og:url" content="https://zhul.in/2021/04/16/fuck-jekyll-github-metadata-on-gitlab/index.html">
 <meta property="og:site_name" content="竹林里有冰的博客">
-<meta property="og:description" content="我的博客是挂在GitlabPages上的，在为博客更换主题的时候遇到了一点点小麻烦。 报错如图：  当然，我这边也会附上详细的报错日志，以便后人能够通过关键词搜索到。 12345678910111213Configuration file: &#x2F;builds&#x2F;zhullyb&#x2F;test&#x2F;_config.yml            Source: &#x2F;builds&#x2F;zhullyb&#x2F;test">
+<meta property="og:description" content="我的博客是挂在GitlabPages上的，在为博客更换主题的时候遇到了一点点小麻烦。 报错如图：  当然，我这边也会附上详细的报错日志，以便后人能够通过关键词搜索到。 Configuration file: &#x2F;builds&#x2F;zhullyb&#x2F;test&#x2F;_config.yml             Source: &#x2F;builds&#x2F;zhullyb&#x2F;test        Destination: pu">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://static.031130.xyz/uploads/2024/08/12/62f3caf233039.webp">
 <meta property="og:image" content="https://static.031130.xyz/uploads/2024/08/12/62f3caf51bdb5.webp">
@@ -345,7 +345,19 @@
 <p>报错如图：</p>
 <p><img src="https://static.031130.xyz/uploads/2024/08/12/62f3caf233039.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
 <p>当然，我这边也会附上详细的报错日志，以便后人能够通过关键词搜索到。</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs awk">Configuration file: <span class="hljs-regexp">/builds/</span>zhullyb<span class="hljs-regexp">/test/</span>_config.yml<br>            Source: <span class="hljs-regexp">/builds/</span>zhullyb/test<br>       Destination: public<br> Incremental build: disabled. Enable with --incremental<br>      Generating... <br>       Jekyll Feed: Generating feed <span class="hljs-keyword">for</span> posts<br>   GitHub Metadata: No GitHub API authentication could be found. Some fields may be missing or have incorrect data.<br>   GitHub Metadata: Error processing value <span class="hljs-string">&#x27;url&#x27;</span>:<br>             ERROR: YOUR SITE COULD NOT BE BUILT:<br>                    ------------------------------------<br>                    No repo name found. Specify using PAGES_REPO_NWO environment variables, <span class="hljs-string">&#x27;repository&#x27;</span> <span class="hljs-keyword">in</span> your configuration, or set up an <span class="hljs-string">&#x27;origin&#x27;</span> git remote pointing to your github.com repository.<br>Cleaning up file based variables <span class="hljs-number">00</span>:<span class="hljs-number">01</span><br>ERROR: Job failed: <span class="hljs-keyword">exit</span> code <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs awk">Configuration file: <span class="hljs-regexp">/builds/</span>zhullyb<span class="hljs-regexp">/test/</span>_config.yml
+            Source: <span class="hljs-regexp">/builds/</span>zhullyb/test
+       Destination: public
+ Incremental build: disabled. Enable with --incremental
+      Generating... 
+       Jekyll Feed: Generating feed <span class="hljs-keyword">for</span> posts
+   GitHub Metadata: No GitHub API authentication could be found. Some fields may be missing or have incorrect data.
+   GitHub Metadata: Error processing value <span class="hljs-string">&#x27;url&#x27;</span>:
+             ERROR: YOUR SITE COULD NOT BE BUILT:
+                    ------------------------------------
+                    No repo name found. Specify using PAGES_REPO_NWO environment variables, <span class="hljs-string">&#x27;repository&#x27;</span> <span class="hljs-keyword">in</span> your configuration, or set up an <span class="hljs-string">&#x27;origin&#x27;</span> git remote pointing to your github.com repository.
+Cleaning up file based variables <span class="hljs-number">00</span>:<span class="hljs-number">01</span>
+ERROR: Job failed: <span class="hljs-keyword">exit</span> code <span class="hljs-number">1</span></code></pre></div>
 
 <p>经过了一番瞎折腾以后，我依然没有解决问题，而每次push都要等待gitlab的ci构建两三分钟，实在磨不动的我去看了<a target="_blank" rel="noopener" href="https://github.com/jekyll/github-metadata">jekyll-github-metadata</a>的README，结合上文的报错，我一下子就看懂了。</p>
 <p><code>jekyll-github-metadata</code>可以通过github中的信息自动为jekyll提供<code>site.github</code>、<code>site.title</code>、<code>site.description</code>、<code>site.url</code>和<code>site.baseurl</code>。而由于我们在用的是Gitlab，所以jekyll-github-metadata就无法获取到这些信息，需要我们手动指定。报错中缺少的就是<code>url</code></p>

@@ -356,10 +356,10 @@
 </blockquote>
 <p>而我们要做的，就是开一个tmpfs作为<code>$HOME/.config</code>，让腾讯会议读取不到KDE的主题配置文件。</p>
 <p>使用如下命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">bwrap --dev-bind / / --tmpfs <span class="hljs-variable">$HOME</span>/.config wemeet<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash">bwrap --dev-bind / / --tmpfs <span class="hljs-variable">$HOME</span>/.config wemeet</code></pre></div>
 
 <p>软件启动确认没有问题后，我们可以更改腾讯会议desktop中的启动命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> <span class="hljs-variable">$EDITOR</span> /usr/share/applications/wemeetapp.desktop<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> <span class="hljs-variable">$EDITOR</span> /usr/share/applications/wemeetapp.desktop</code></pre></div>
 
 <p>将<code>Exec=</code>后面的命令改成我们刚刚启动所使用的命令即可。</p>
 <blockquote>

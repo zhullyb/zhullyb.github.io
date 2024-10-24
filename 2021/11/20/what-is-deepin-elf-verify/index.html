@@ -344,7 +344,7 @@
                 
                 <h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>越来越多上架在 Deepin 应用商店中的 deb 包中开始依赖了一个叫做 <code>deepin-elf-verify</code> 的依赖，今天来讲讲这个<del>神奇</del>的 <code>deepin-elf-verify</code> 到底为何物，为什么这么多程序都要依赖于他来工作。</p>
 <h2 id="下载拆包"><a href="#下载拆包" class="headerlink" title="下载拆包"></a>下载拆包</h2><p>打开 <a target="_blank" rel="noopener" href="https://mirrors.bfsu.edu.cn/">Bfsu镜像站</a> ，可以很轻松地找到 <a target="_blank" rel="noopener" href="https://mirrors.bfsu.edu.cn/deepin/dists/apricot/main/binary-amd64/Packages">Packages</a> —— 在 apt 源中记录了各个文件信息（包括他在仓库中的相对位置）的这么一个<em>神奇</em>的文件，就是体积有点大，达到了68MB的样子。我们可以通过以下命令检索今天的主角——<code>deepin-elf-verify</code>。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">curl -s https://mirrors.bfsu.edu.cn/deepin/dists/apricot/main/binary-amd64/Packages | grep deepin-elf-sign | grep pool<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash">curl -s https://mirrors.bfsu.edu.cn/deepin/dists/apricot/main/binary-amd64/Packages | grep deepin-elf-sign | grep pool</code></pre></div>
 
 <p>得到了输出: </p>
 <blockquote>
@@ -352,7 +352,10 @@
 </blockquote>
 <p>我们就可以把完整的下载链接拼出来: <a target="_blank" rel="noopener" href="https://mirrors.bfsu.edu.cn/deepin/pool/main/d/deepin-elf-verify/deepin-elf-verify_0.2.0.6-1_amd64.deb">https://mirrors.bfsu.edu.cn/deepin/pool/main/d/deepin-elf-verify/deepin-elf-verify_0.2.0.6-1_amd64.deb</a></p>
 <p>下载解压，大概是这么一个目录结构: </p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs stylus">deepin-elf-verify_0.<span class="hljs-number">2.0</span>.<span class="hljs-number">6</span>-<span class="hljs-number">1</span>_amd64<br>├── control<span class="hljs-selector-class">.tar</span><span class="hljs-selector-class">.xz</span><br>├── data<span class="hljs-selector-class">.tar</span><span class="hljs-selector-class">.xz</span><br>└── debian-binary<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs stylus">deepin-elf-verify_0.<span class="hljs-number">2.0</span>.<span class="hljs-number">6</span>-<span class="hljs-number">1</span>_amd64
+├── control<span class="hljs-selector-class">.tar</span><span class="hljs-selector-class">.xz</span>
+├── data<span class="hljs-selector-class">.tar</span><span class="hljs-selector-class">.xz</span>
+└── debian-binary</code></pre></div>
 
 <p>是个常规的deb包该有的结构了。</p>
 <ul>
@@ -363,7 +366,7 @@
 <p><img src="https://static.031130.xyz/uploads/2024/08/12/62f3ccc192986.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="空的？"></p>
 <p><strong>搞错了，再来</strong></p>
 <p>打开UOS的<a target="_blank" rel="noopener" href="https://uos.deepin.cn/uos/">源链接</a>，使用<code>curl</code>+<code>grep</code>检索<code>deepin-elf-verify</code>在源中的相对位置</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">curl -sL https://uos.deepin.cn/uos/dists/eagle/main/binary-amd64/Packages | grep deepin-elf-verify | grep pool<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash">curl -sL https://uos.deepin.cn/uos/dists/eagle/main/binary-amd64/Packages | grep deepin-elf-verify | grep pool</code></pre></div>
 
 <p>获得输出: </p>
 <blockquote>

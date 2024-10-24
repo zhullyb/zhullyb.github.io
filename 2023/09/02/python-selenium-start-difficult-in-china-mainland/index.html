@@ -342,7 +342,29 @@
                 
                 <p>之前因为学校社团迎新的需求，就临时写了一个 QQ Bot，最近又给 bot 加上了 <a target="_blank" rel="noopener" href="https://github.com/zhullyb/qq-quote-generator">/q 的功能</a>，原理是通过 python 的 selenium 去启动一个 headless Firefox 去截由 jinja2 模板引擎生成的 html 的图。</p>
 <p>每次这个 bot 重启的时候都因为 selenium 而需要花费好几秒的时间，甚至经常概率性启动失败。我就寻思者应该把这个图片生成的 generator 从 bot 中抽出来，这样就不至于每次重启 bot 都要遭此一劫。但就在我将 generator 打包成 docker 部署上云服务器的时候，发现居然无法启动。于是手动进 docker 的 shell 开 python 的交互式终端，发现在创建 firefox 的 webdriver 对象的时候异常缓慢，等了半分钟以后蹲到一个报错如下:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><code class="hljs pyth">Traceback (most recent call last):<br>  File &quot;/usr/local/lib/python3.11/site-packages/selenium/webdriver/common/driver_finder.py&quot;, line 38, in get_path<br>    path = SeleniumManager().driver_location(options) if path is None else path<br>           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^<br>  File &quot;/usr/local/lib/python3.11/site-packages/selenium/webdriver/common/selenium_manager.py&quot;, line 95, in driver_location<br>    output = self.run(args)<br>             ^^^^^^^^^^^^^^<br>  File &quot;/usr/local/lib/python3.11/site-packages/selenium/webdriver/common/selenium_manager.py&quot;, line 141, in run<br>    raise WebDriverException(f&quot;Unsuccessful command executed: &#123;command&#125;.\n&#123;result&#125;&#123;stderr&#125;&quot;)<br>selenium.common.exceptions.WebDriverException: Message: Unsuccessful command executed: /usr/local/lib/python3.11/site-packages/selenium/webdriver/common/linux/selenium-manager --browser firefox --output json.<br>&#123;&#x27;code&#x27;: 65, &#x27;message&#x27;: &#x27;error sending request for url (https://github.com/mozilla/geckodriver/releases/latest): connection error: unexpected end of file&#x27;, &#x27;driver_path&#x27;: &#x27;&#x27;, &#x27;browser_path&#x27;: &#x27;&#x27;&#125;<br><br><br>The above exception was the direct cause of the following exception:<br><br>Traceback (most recent call last):<br>  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;<br>  File &quot;/usr/local/lib/python3.11/site-packages/selenium/webdriver/firefox/webdriver.py&quot;, line 59, in __init__<br>    self.service.path = DriverFinder.get_path(self.service, options)<br>                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^<br>  File &quot;/usr/local/lib/python3.11/site-packages/selenium/webdriver/common/driver_finder.py&quot;, line 41, in get_path<br>    raise NoSuchDriverException(msg) from err<br>selenium.common.exceptions.NoSuchDriverException: Message: Unable to obtain driver for firefox using Selenium Manager.; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs pyth">Traceback (most recent call last):
+  File &quot;/usr/local/lib/python3.11/site-packages/selenium/webdriver/common/driver_finder.py&quot;, line 38, in get_path
+    path = SeleniumManager().driver_location(options) if path is None else path
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/usr/local/lib/python3.11/site-packages/selenium/webdriver/common/selenium_manager.py&quot;, line 95, in driver_location
+    output = self.run(args)
+             ^^^^^^^^^^^^^^
+  File &quot;/usr/local/lib/python3.11/site-packages/selenium/webdriver/common/selenium_manager.py&quot;, line 141, in run
+    raise WebDriverException(f&quot;Unsuccessful command executed: &#123;command&#125;.\n&#123;result&#125;&#123;stderr&#125;&quot;)
+selenium.common.exceptions.WebDriverException: Message: Unsuccessful command executed: /usr/local/lib/python3.11/site-packages/selenium/webdriver/common/linux/selenium-manager --browser firefox --output json.
+&#123;&#x27;code&#x27;: 65, &#x27;message&#x27;: &#x27;error sending request for url (https://github.com/mozilla/geckodriver/releases/latest): connection error: unexpected end of file&#x27;, &#x27;driver_path&#x27;: &#x27;&#x27;, &#x27;browser_path&#x27;: &#x27;&#x27;&#125;
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+  File &quot;/usr/local/lib/python3.11/site-packages/selenium/webdriver/firefox/webdriver.py&quot;, line 59, in __init__
+    self.service.path = DriverFinder.get_path(self.service, options)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File &quot;/usr/local/lib/python3.11/site-packages/selenium/webdriver/common/driver_finder.py&quot;, line 41, in get_path
+    raise NoSuchDriverException(msg) from err
+selenium.common.exceptions.NoSuchDriverException: Message: Unable to obtain driver for firefox using Selenium Manager.; For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors/driver_location</code></pre></div>
 
 <p>我才发现 selenium 试图访问 <a target="_blank" rel="noopener" href="https://github.com/mozilla/geckodriver/releases/latest">https://github.com/mozilla/geckodriver/releases/latest</a> 且访问失败了。仔细阅读了 selenium 项目的文档发现新版本的 selenium 会尝试自动下载 webdriver:</p>
 <blockquote>
@@ -352,10 +374,25 @@
 <p>服务是要在境内的云服务器上跑的，我也不敢开代理，现在比较靠谱的方案是我去手动指定 Firefox 的 geckodriver，避免 selenium 去帮我自动下载一份。在 <a target="_blank" rel="noopener" href="https://selenium-python.readthedocs.io/api.html#module-selenium.webdriver.firefox.webdriver">python-selenium 的官方文档</a>中是让我们创建 Firefox 的 webdriver 时去传入一个 <code>executable_path=&#39;geckodriver&#39;</code> 的关键词参数，可惜这是过时的用法，应该是维护者还没来得及更新文档。</p>
 <p>随后便在 stackoverflow 上找到了新版 selenium <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/76550506/typeerror-webdriver-init-got-an-unexpected-keyword-argument-executable-p">手动指定 Chrome 的 chromedriver 的方法</a></p>
 <blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python">&gt;<span class="hljs-keyword">from</span> selenium <span class="hljs-keyword">import</span> webdriver<br>&gt;<span class="hljs-keyword">from</span> selenium.webdriver.chrome.service <span class="hljs-keyword">import</span> Service<br><br>&gt;service = Service(executable_path=<span class="hljs-string">&#x27;chromedriver.exe&#x27;</span>) <br>&gt;options = webdriver.ChromeOptions()<br>&gt;driver = webdriver.Chrome(service=service, options=options)<br>&gt;<span class="hljs-comment"># ...</span><br>&gt;driver.quit()<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs python">&gt;<span class="hljs-keyword">from</span> selenium <span class="hljs-keyword">import</span> webdriver
+&gt;<span class="hljs-keyword">from</span> selenium.webdriver.chrome.service <span class="hljs-keyword">import</span> Service
+
+&gt;service = Service(executable_path=<span class="hljs-string">&#x27;chromedriver.exe&#x27;</span>) 
+&gt;options = webdriver.ChromeOptions()
+&gt;driver = webdriver.Chrome(service=service, options=options)
+&gt;<span class="hljs-comment"># ...</span>
+&gt;driver.quit()</code></pre></div>
 </blockquote>
 <p>原文给的是 chrome 的方案，但 Firefox 的方案基本也是一致的，应该也是去创建一个 service 对象，猜一猜就能猜到。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> selenium <span class="hljs-keyword">import</span> webdriver<br><span class="hljs-keyword">from</span> selenium.webdriver.firefox.service <span class="hljs-keyword">import</span> Service<br><span class="hljs-keyword">from</span> selenium.webdriver.firefox.options <span class="hljs-keyword">import</span> Options<br><br>service = Service(executable_path=<span class="hljs-string">&#x27;/root/geckodriver&#x27;</span>) <span class="hljs-comment"># 我这里是 docker 打包，懒得创建一个普通用户了，就直接用了 root 用户的 home 目录</span><br>options = Options(<span class="hljs-string">&quot;--headless&quot;</span>)<br>driver = webdriver.Firefox(service=service, options=options)<br><span class="hljs-comment"># ...</span><br>driver.quit()<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">from</span> selenium <span class="hljs-keyword">import</span> webdriver
+<span class="hljs-keyword">from</span> selenium.webdriver.firefox.service <span class="hljs-keyword">import</span> Service
+<span class="hljs-keyword">from</span> selenium.webdriver.firefox.options <span class="hljs-keyword">import</span> Options
+
+service = Service(executable_path=<span class="hljs-string">&#x27;/root/geckodriver&#x27;</span>) <span class="hljs-comment"># 我这里是 docker 打包，懒得创建一个普通用户了，就直接用了 root 用户的 home 目录</span>
+options = Options(<span class="hljs-string">&quot;--headless&quot;</span>)
+driver = webdriver.Firefox(service=service, options=options)
+<span class="hljs-comment"># ...</span>
+driver.quit()</code></pre></div>
 
 <p>手动指定 geckodriver 后，在我 1 核 1 G 的小主机上创建 webdriver 对象，基本都可以秒完成。</p>
 

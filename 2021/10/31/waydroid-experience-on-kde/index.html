@@ -354,28 +354,28 @@
 <p>注: AUR上的<code>linux-xanmod</code>虽然也有这些模块支持，但是在编译时设置了<code>psi=0</code>以提升性能，而waydroid恰巧需要<code>psi=1</code>的支持，故不可使用。</p>
 </blockquote>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>Archlinux已经有人将其打包上传到了AUR，我们直接安装即可。我使用的 AUR Helper 是 yay，所以直接</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">yay -S waydroid --noconfirm<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash">yay -S waydroid --noconfirm</code></pre></div>
 
 <p>再装个<code>python-pyclip</code>解决剪切板同步的问题</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">yay -S python-pyclip<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash">yay -S python-pyclip</code></pre></div>
 
-<h2 id="下载Waydroid镜像"><a href="#下载Waydroid镜像" class="headerlink" title="下载Waydroid镜像"></a>下载Waydroid镜像</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> waydroid init<br></code></pre></td></tr></table></figure>
+<h2 id="下载Waydroid镜像"><a href="#下载Waydroid镜像" class="headerlink" title="下载Waydroid镜像"></a>下载Waydroid镜像</h2><div class="code-wrapper"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> waydroid init</code></pre></div>
 
 <p>这一步将会自动（从SourceForge）下载纯净的LineageOS镜像压缩包并解压，处于中国大陆网络环境的用户记得（          ）</p>
 <p>如果你需要Gapps，可以指定下载Gapps版本，但是这将需要你获取<code>Android ID</code>并向谷歌提交 Custom Rom 的 Gapps 申请。见<a target="_blank" rel="noopener" href="https://www.google.com/android/uncertified/">这里</a></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> waydroid init -s GAPPS<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> waydroid init -s GAPPS</code></pre></div>
 
 <h2 id="启用服务"><a href="#启用服务" class="headerlink" title="启用服务"></a>启用服务</h2><p>这个没什么好说的，使用systemctl启动服务。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> systemctl start waydroid-container.service<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> systemctl start waydroid-container.service</code></pre></div>
 
-<h2 id="开启waydroid"><a href="#开启waydroid" class="headerlink" title="开启waydroid"></a>开启waydroid</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">waydroid session start<br></code></pre></td></tr></table></figure>
+<h2 id="开启waydroid"><a href="#开启waydroid" class="headerlink" title="开启waydroid"></a>开启waydroid</h2><div class="code-wrapper"><pre><code class="hljs bash">waydroid session start</code></pre></div>
 
 <h2 id="一些简单的使用技巧"><a href="#一些简单的使用技巧" class="headerlink" title="一些简单的使用技巧"></a>一些简单的使用技巧</h2><p>如果你想直接展示整个系统界面，可以使用</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">waydroid show-full-ui<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash">waydroid show-full-ui</code></pre></div>
 
 <p>我们也可以用<code>waydroid app launch $&#123;package_name&#125;</code>的方式来启动单个应用（包名可以使用<code>waydroid app list</code>来获取</p>
 <p>当然，可以直接在Linux环境里 安装 某个apk</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">waydroid app install path/to/apkfile.apk<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash">waydroid app install path/to/apkfile.apk</code></pre></div>
 
 <p>F11有助于解决应用分辨率问题，左Alt有助于解决键盘无法输入的问题。</p>
 <p>Github上有个<a target="_blank" rel="noopener" href="https://github.com/casualsnek/waydroid_script">脚本</a>，可以帮助 安装OpenGapps/Magisk/arm转译库/获取Android ID。</p>

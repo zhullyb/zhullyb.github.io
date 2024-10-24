@@ -349,10 +349,14 @@
 <h2 id="遇事不决先抓包"><a href="#遇事不决先抓包" class="headerlink" title="遇事不决先抓包"></a>遇事不决先抓包</h2><p>为了弄清楚 docker 从 dockerhub 拉取镜像的过程，需要先对网络请求进行抓包。具体的抓包方案我使用的是 mitmproxy，手动信任 ssl 证书的操作在「<a href="/2024/02/29/capture-https-traffic-on-linux-with-mitmproxy/">在 Linux 下使用 mitmproxy 抓取 HTTPS 流量</a>」这篇文章中已经讲过了，只需要配置 dockerd 使用本机的 8080 端口进行代理即可。</p>
 <p>docker pull 时，是调用 dockerd 进行镜像拉取，而 dockerd 在绝大多数发行版上都是由 systemd 进程直接启用了，在 shell 中直接设置环境变量的方式并不能进行代理，而透明代理的方案会引入大量无关请求，增加流量分析的难度。</p>
 <p>比较好的方案是直接在 systemd 服务这一层设置好代理的环境变量，我这里参考的是「<a target="_blank" rel="noopener" href="https://yeasy.gitbook.io/docker_practice/advanced_network/http_https_proxy">配置 HTTP/HTTPS 网络代理 | Docker — 从入门到实践</a>」这篇文章。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ <span class="hljs-built_in">cat</span> /etc/systemd/system/docker.service.d/http-proxy.conf <br><br>[Service]<br>Environment=<span class="hljs-string">&quot;HTTP_PROXY=http://127.0.0.1:8080&quot;</span><br>Environment=<span class="hljs-string">&quot;HTTPS_PROXY=http://127.0.0.1:8080&quot;</span><br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash">$ <span class="hljs-built_in">cat</span> /etc/systemd/system/docker.service.d/http-proxy.conf 
+
+[Service]
+Environment=<span class="hljs-string">&quot;HTTP_PROXY=http://127.0.0.1:8080&quot;</span>
+Environment=<span class="hljs-string">&quot;HTTPS_PROXY=http://127.0.0.1:8080&quot;</span></code></pre></div>
 
 <p>重启完 systemd 服务，万事俱备，我拉取了一个较小的 docker 镜像，顺利得到了预期的结果。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker pull svenstaro/miniserve:latest<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash">docker pull svenstaro/miniserve:latest</code></pre></div>
 
 <p><img src="https://static.031130.xyz/uploads/2024/09/21/acbee0959be78.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="抓包结果"></p>
 <p>docker 先请求了 <code>registry-1.docker.io</code> 得到了 401 的 http 状态码后转去访问了 <code>auth.docker.io</code>，得到了 Authorization 字段以后重新请求 <code>registry-1.docker.io</code>，获取源数据后被 307 转发到了 <code>production.cloudflare.docker.com</code> 上。</p>
@@ -367,19 +371,46 @@
 <p><strong>因此，三个域名都需要反代。</strong></p>
 <h2 id="如何反代"><a href="#如何反代" class="headerlink" title="如何反代"></a>如何反代</h2><p>分三个域名各自代理，在 <code>registry-1.docker.io</code> 那一块进行特殊处理，将响应头中的 WWW-Authenticate 和 location 字段进行关键词替换，将原域名替换为反代域名。</p>
 <p>最后的成果大概就是这个样子:</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs caddyfile">dockerhub.example.com &#123;<br>	reverse_proxy https://registry-1.docker.io &#123;<br>		header_up Host &#123;http.reverse_proxy.upstream.hostport&#125;<br>		header_down WWW-Authenticate &quot;https://auth.docker.io&quot; &quot;https://auth.dockerhub.example.com&quot;<br>		header_down Location &quot;https://production.cloudflare.docker.com&quot; &quot;https://production.dockerhub.example.com&quot;<br>	&#125;<br>&#125;<br><br>auth.dockerhub.example.com &#123;<br>	reverse_proxy https://auth.docker.io &#123;<br>		header_up Host &#123;http.reverse_proxy.upstream.hostport&#125;<br>	&#125;<br>&#125;<br><br>production.dockerhub.example.com &#123;<br>	reverse_proxy https://production.cloudflare.docker.com &#123;<br>		header_up Host &#123;http.reverse_proxy.upstream.hostport&#125;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs caddyfile">dockerhub.example.com &#123;
+	reverse_proxy https://registry-1.docker.io &#123;
+		header_up Host &#123;http.reverse_proxy.upstream.hostport&#125;
+		header_down WWW-Authenticate &quot;https://auth.docker.io&quot; &quot;https://auth.dockerhub.example.com&quot;
+		header_down Location &quot;https://production.cloudflare.docker.com&quot; &quot;https://production.dockerhub.example.com&quot;
+	&#125;
+&#125;
+
+auth.dockerhub.example.com &#123;
+	reverse_proxy https://auth.docker.io &#123;
+		header_up Host &#123;http.reverse_proxy.upstream.hostport&#125;
+	&#125;
+&#125;
+
+production.dockerhub.example.com &#123;
+	reverse_proxy https://production.cloudflare.docker.com &#123;
+		header_up Host &#123;http.reverse_proxy.upstream.hostport&#125;
+	&#125;
+&#125;</code></pre></div>
 
 <p>PS: 推荐后两个域名使用 CNAME 解析到第一个域名，这样后面更改解析的时候更方便一些。</p>
 <h2 id="如何设置-docker-使用反代"><a href="#如何设置-docker-使用反代" class="headerlink" title="如何设置 docker 使用反代"></a>如何设置 docker 使用反代</h2><p>可以直接在 <code>docker pull</code> 和 <code>docker run</code> 的命令前加上域名，比如原本的</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker run hello-world<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash">docker run hello-world</code></pre></div>
 
 <p>改成</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker run dockerhub.example.com/library/hello-world<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash">docker run dockerhub.example.com/library/hello-world</code></pre></div>
 
 <p>（如果原本的镜像由 dockerhub 官方提供，没有用户名，路径需要加上 “library”）</p>
 <hr>
 <p>也可以选择以前的方案，创建或修改 <code>/etc/docker/daemon.json</code>：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">mkdir</span> -p /etc/docker<br><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">tee</span> /etc/docker/daemon.json &lt;&lt;-<span class="hljs-string">&#x27;EOF&#x27;</span><br>&#123;<br>    <span class="hljs-string">&quot;registry-mirrors&quot;</span>: [<br>        <span class="hljs-string">&quot;https://dockerhub.example.com&quot;</span><br>    ]<br>&#125;<br>EOF<br><span class="hljs-built_in">sudo</span> systemctl daemon-reload<br><span class="hljs-built_in">sudo</span> systemctl restart docker<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> <span class="hljs-built_in">mkdir</span> -p /etc/docker
+<span class="hljs-built_in">sudo</span> <span class="hljs-built_in">tee</span> /etc/docker/daemon.json &lt;&lt;-<span class="hljs-string">&#x27;EOF&#x27;</span>
+&#123;
+    <span class="hljs-string">&quot;registry-mirrors&quot;</span>: [
+        <span class="hljs-string">&quot;https://dockerhub.example.com&quot;</span>
+    ]
+&#125;
+EOF
+<span class="hljs-built_in">sudo</span> systemctl daemon-reload
+<span class="hljs-built_in">sudo</span> systemctl restart docker</code></pre></div>
 
 <h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><p>一般来说，能够在中国大陆境内的网络质量下较快地下拉镜像本身就代表反代成功了，但保险起见可以像本文的第一部分一样抓个包，看看是不是都走了自己的域名了。</p>
 <h2 id="参见"><a href="#参见" class="headerlink" title="参见"></a>参见</h2><p><a target="_blank" rel="noopener" href="https://gist.github.com/y0ngb1n/7e8f16af3242c7815e7ca2f0833d3ea6">国内的 Docker Hub 镜像加速器，由国内教育机构与各大云服务商提供的镜像加速服务</a></p>

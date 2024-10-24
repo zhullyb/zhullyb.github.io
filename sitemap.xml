@@ -29,7 +29,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2023/11/12/a-introduce-of-GLWTPL/</loc>
+    <loc>https://zhul.in/2022/08/10/add-sticker-support-for-element/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -38,7 +38,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2022/08/10/add-sticker-support-for-element/</loc>
+    <loc>https://zhul.in/2023/11/12/a-introduce-of-GLWTPL/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -164,7 +164,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/09/11/detailed-explanation-for-aur/</loc>
+    <loc>https://zhul.in/2021/12/03/dev-app-update-in-wolai/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -173,7 +173,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/12/03/dev-app-update-in-wolai/</loc>
+    <loc>https://zhul.in/2021/09/11/detailed-explanation-for-aur/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -326,7 +326,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/04/15/login-chromium-with-the-api-of-chrome/</loc>
+    <loc>https://zhul.in/2024/09/20/migrate-rustdesk-server-from-arch-to-debian/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -335,7 +335,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/09/20/migrate-rustdesk-server-from-arch-to-debian/</loc>
+    <loc>https://zhul.in/2021/04/15/login-chromium-with-the-api-of-chrome/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -407,7 +407,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2023/12/12/php-simple-rest-api/</loc>
+    <loc>https://zhul.in/2024/08/20/picbed-upload-script-and-image-migration/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -416,7 +416,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/08/20/picbed-upload-script-and-image-migration/</loc>
+    <loc>https://zhul.in/2023/12/12/php-simple-rest-api/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -443,15 +443,6 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/05/27/relieve-the-pressure-of-tuna-mirror-site-please/</loc>
-    
-    <lastmod>2024-10-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zhul.in/2023/06/24/redmi-ac2100-router-with-padavan/</loc>
     
     <lastmod>2024-10-21</lastmod>
@@ -461,7 +452,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2022/03/06/run-rpmbuild-with-github-action/</loc>
+    <loc>https://zhul.in/2021/05/27/relieve-the-pressure-of-tuna-mirror-site-please/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -471,6 +462,15 @@
   
   <url>
     <loc>https://zhul.in/2024/08/21/self-host-cdn-expense/</loc>
+    
+    <lastmod>2024-10-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2022/03/06/run-rpmbuild-with-github-action/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -587,7 +587,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/10/12/use-gpt-to-review-waline-comments/</loc>
+    <loc>https://zhul.in/2022/09/29/use-l2tp-protocol-to-connect-internet/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -596,7 +596,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2022/09/29/use-l2tp-protocol-to-connect-internet/</loc>
+    <loc>https://zhul.in/2024/10/12/use-gpt-to-review-waline-comments/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -623,7 +623,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2022/10/04/use-virtscreen-to-turn-pad-into-another-screen/</loc>
+    <loc>https://zhul.in/2021/10/31/waydroid-experience-on-kde/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -632,7 +632,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/10/31/waydroid-experience-on-kde/</loc>
+    <loc>https://zhul.in/2022/10/04/use-virtscreen-to-turn-pad-into-another-screen/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -992,7 +992,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/404.html</loc>
+    <loc>https://zhul.in/archives/index.html</loc>
     
     <lastmod>2021-10-13</lastmod>
     
@@ -1001,7 +1001,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/archives/index.html</loc>
+    <loc>https://zhul.in/404.html</loc>
     
     <lastmod>2021-10-13</lastmod>
     
@@ -1028,20 +1028,6 @@
 
   
   <url>
-    <loc>https://zhul.in/tags/Android/</loc>
-    <lastmod>2024-10-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Rom%E7%BC%96%E8%AF%91/</loc>
-    <lastmod>2024-10-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://zhul.in/tags/Linux/</loc>
     <lastmod>2024-10-24</lastmod>
     <changefreq>weekly</changefreq>
@@ -1057,6 +1043,20 @@
   
   <url>
     <loc>https://zhul.in/tags/deepin/</loc>
+    <lastmod>2024-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/Android/</loc>
+    <lastmod>2024-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/Rom%E7%BC%96%E8%AF%91/</loc>
     <lastmod>2024-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1385,20 +1385,6 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/tags/IoT/</loc>
-    <lastmod>2024-10-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/MiAI/</loc>
-    <lastmod>2024-10-24</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://zhul.in/tags/jinja2/</loc>
     <lastmod>2024-10-24</lastmod>
     <changefreq>weekly</changefreq>
@@ -1407,6 +1393,20 @@
   
   <url>
     <loc>https://zhul.in/tags/CSS/</loc>
+    <lastmod>2024-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/IoT/</loc>
+    <lastmod>2024-10-24</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/MiAI/</loc>
     <lastmod>2024-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

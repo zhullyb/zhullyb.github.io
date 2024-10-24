@@ -352,28 +352,55 @@
 </blockquote>
 <h2 id="后端部分"><a href="#后端部分" class="headerlink" title="后端部分"></a>后端部分</h2><p>早前有<a href="https://zhul.in/2021/10/21/picuploader-on-archlinux-with-caddy/">《PicUploader使用系列（一）——在Archlinux上使用Caddy部署PicUploader》</a>的经验，便觉得使用 Caddy + php-fpm 部署的方式多少有点麻烦了，这次便尝试了使用 Docker 部署、Caddy 反代的方式。</p>
 <p>Dockerfile 如下:</p>
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs dockerfile"><span class="hljs-keyword">FROM</span> php:<span class="hljs-number">8</span>-apache<br><span class="hljs-keyword">RUN</span><span class="language-bash"> docker-php-ext-install mysqli</span><br><span class="hljs-keyword">RUN</span><span class="language-bash"> a2enmod rewrite</span><br><span class="hljs-keyword">COPY</span><span class="language-bash"> . /var/www/html</span><br><span class="hljs-keyword">EXPOSE</span> <span class="hljs-number">80</span><br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs dockerfile"><span class="hljs-keyword">FROM</span> php:<span class="hljs-number">8</span>-apache
+<span class="hljs-keyword">RUN</span><span class="language-bash"> docker-php-ext-install mysqli</span>
+<span class="hljs-keyword">RUN</span><span class="language-bash"> a2enmod rewrite</span>
+<span class="hljs-keyword">COPY</span><span class="language-bash"> . /var/www/html</span>
+<span class="hljs-keyword">EXPOSE</span> <span class="hljs-number">80</span></code></pre></div>
 
 <p>在后端的根目录下有一个 .htaccess 文件，将所有的请求都交给 index.php 来处理，这样就可以根据我的<a href="https://zhul.in/2023/12/12/php-simple-rest-api/">上一篇博客</a>中所提到的方式去构建不使用任何 php 框架实现的简易 router 效果</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs htaccess">RewriteEngine On<br>RewriteRule ^(.*) index.php [QSA,L]<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs htaccess">RewriteEngine On
+RewriteRule ^(.*) index.php [QSA,L]</code></pre></div>
 
 <p>构建 Docker 镜像时使用 <code>docker build . -t mrs-php</code> 命令，运行 docker 容器时使用命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">docker run -d \<br>    -p 7788:80 \<br>    --name mrs-php \<br>    -v /path/to/uploads:/var/www/html/uploads \<br>    --restart unless-stopped \<br>    mrs-php<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash">docker run -d \
+    -p 7788:80 \
+    --name mrs-php \
+    -v /path/to/uploads:/var/www/html/uploads \
+    --restart unless-stopped \
+    mrs-php</code></pre></div>
 
 <p>这样，后端就在 7788 端口上开起来了，后续 Caddy 只要将打到 <code>/api/*</code> 和 <code>/uploads/*</code> 的请求转发到 7788 端口即可，避免了使用 php-fpm 时需要的配置。<code>uploads</code> 目录是用来存放图片的，我将这个路径挂在在宿主机的目录下，方便备份导入等操作。</p>
 <h3 id="mysql-连接时的小插曲"><a href="#mysql-连接时的小插曲" class="headerlink" title="mysql 连接时的小插曲"></a>mysql 连接时的小插曲</h3><p>需要注意的是，在 Docker 容器中运行的 php 如果想要访问宿主机上的 mysql，需要注意修改 mysql 服务器的 ip 地址，并允许 mysql 接收来自非本机的请求。</p>
 <p>在宿主机中运行 <code>ip -br a</code> 命令可以看到 docker 所采用的虚拟网卡的 ip 地址</p>
-<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs elixir">docker0          <span class="hljs-title class_">UP</span>             <span class="hljs-number">172.17</span>.<span class="hljs-number">0.1</span>/<span class="hljs-number">16</span> fe80::<span class="hljs-number">42</span><span class="hljs-symbol">:eff</span><span class="hljs-symbol">:febf</span><span class="hljs-symbol">:b26c/</span><span class="hljs-number">64</span><br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs elixir">docker0          <span class="hljs-title class_">UP</span>             <span class="hljs-number">172.17</span>.<span class="hljs-number">0.1</span>/<span class="hljs-number">16</span> fe80::<span class="hljs-number">42</span><span class="hljs-symbol">:eff</span><span class="hljs-symbol">:febf</span><span class="hljs-symbol">:b26c/</span><span class="hljs-number">64</span></code></pre></div>
 
 <p>我这边得到的 ip 地址是 172.17.0.1，所以在 php 那边访问的数据库 ip 地址就应该是 172.17.0.1，而非 localhost 或者 127.0.0.1</p>
 <p>此外，需要允许宿主机的 mysql 接收来自 Docker 容器的请求</p>
 <p>使用 <code>docker network inspect bridge</code> 命令可以查到 docker 容器的 ip 地址，接着需要去允许来自这个 ip 的请求。建议去网上自行搜索，因为 mysql 语句我自己也不熟悉。我使用的 mysql 版本是 8，语句似乎和以前的版本不兼容？我使用下面三个命令轮着输就好了（有时候报错，有时侯又不报错），有大佬懂的话评论区讲讲。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs mysql">use mysql;<br>GRANT ALL ON *.* TO &#x27;root&#x27;@&#x27;%&#x27;;<br>update user set host=&#x27;%&#x27; where user=&#x27;root&#x27;;<br>GRANT ALL ON *.* TO &#x27;root&#x27;@&#x27;%&#x27;;<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs mysql">use mysql;
+GRANT ALL ON *.* TO &#x27;root&#x27;@&#x27;%&#x27;;
+update user set host=&#x27;%&#x27; where user=&#x27;root&#x27;;
+GRANT ALL ON *.* TO &#x27;root&#x27;@&#x27;%&#x27;;</code></pre></div>
 
 <h2 id="前端部分"><a href="#前端部分" class="headerlink" title="前端部分"></a>前端部分</h2><p>前端部分部署起来没什么难度</p>
 <p>我使用的是 vite 开发的 vuejs 项目，直接使用 <code>pnpm build</code> 构建出静态文件，然后放入了 <code>/var/www/mrs</code> 目录，这部分没什么可说的</p>
 <h2 id="Caddy-配置"><a href="#Caddy-配置" class="headerlink" title="Caddy 配置"></a>Caddy 配置</h2><p>Caddy 配置如下</p>
-<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli">example.com &#123;<br>    handle <span class="hljs-string">/api/</span>* &#123;<br>        reverse_proxy localhost<span class="hljs-function">:7788</span><br>    &#125;<br><br>    handle <span class="hljs-string">/uploads/</span>* &#123;<br>        reverse_proxy localhost<span class="hljs-function">:7788</span><br>    &#125;<br><br>    handle /* &#123;<br>        root * <span class="hljs-string">/var/www/mrs</span><br>        file_server<br>        <span class="hljs-keyword">try</span>_files &#123;path&#125; /<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs jboss-cli">example.com &#123;
+    handle <span class="hljs-string">/api/</span>* &#123;
+        reverse_proxy localhost<span class="hljs-function">:7788</span>
+    &#125;
+
+    handle <span class="hljs-string">/uploads/</span>* &#123;
+        reverse_proxy localhost<span class="hljs-function">:7788</span>
+    &#125;
+
+    handle /* &#123;
+        root * <span class="hljs-string">/var/www/mrs</span>
+        file_server
+        <span class="hljs-keyword">try</span>_files &#123;path&#125; /
+    &#125;
+&#125;</code></pre></div>
 
 <p>将打到 <code>/api/*</code> 和 <code>/uploads/*</code> 都交给 7788 端口的后端进行处理，前端部分要使用 <code>try_files</code> 将请求都指向 <code>/</code> 或 <code>/index.html</code> 交由 vue-router 处理，否则 caddy 就找不到对应的文件了。这里我尝试过使用 route 关键词代替 handle，但 <code>try_files</code> 的功能没有生效，这两者的区别官方文档中有提到，但我没看懂，等我以后看看有没有机会去折腾了。</p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考:"></a>参考:</h2><p><a target="_blank" rel="noopener" href="https://homeboyc.cn/blog/%E4%BD%BF%E7%94%A8caddy%E9%85%8D%E7%BD%AE%E5%90%8C%E4%B8%80%E5%9F%9F%E5%90%8D%E4%B8%8B%E7%9A%84%E5%89%8D%E5%90%8E%E5%88%86%E7%A6%BB/">使用Caddy配置同一域名下的前后分离</a></p>

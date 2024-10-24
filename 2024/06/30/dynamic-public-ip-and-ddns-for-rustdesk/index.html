@@ -355,7 +355,7 @@
 <p>可以直接在局域网内的另一台设备进行测试，直接在 Rustdesk 中输入被控端的局域网 ip 和刚刚设置的端口，看看能不能访问得通，如果不行可能需要排查一下被控端访问墙设置的问题。</p>
 <p><img src="https://static.031130.xyz/uploads/2024/08/12/66814701cf7ce.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
 <h2 id="ddns"><a href="#ddns" class="headerlink" title="ddns"></a>ddns</h2><p>由于我的域名是交给 cloudflare 进行解析的，就找了个<a target="_blank" rel="noopener" href="https://github.com/yulewang/cloudflare-api-v4-ddns/">支持 cloudflare 的 ddns 脚本</a>，大致的部署过程可以参考 <a target="_blank" rel="noopener" href="https://www.rclogs.com/2023/06/%25e8%2587%25aa%25e5%25bb%25ba%25e5%259f%25ba%25e4%25ba%258ecloudflare%25e7%259a%2584ddns">「自建基于Cloudflare的DDNS」</a>，不过我小改了一下脚本中获取公网 ipv4 的方式，直接 ssh 到路由器上获取当前的 ipv4 地址，不依赖外部的服务。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">WAN_IP=`ssh -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa root@192.168.1.1 <span class="hljs-string">&#x27;ip -br a&#x27;</span> | grep pppoe-wan | awk <span class="hljs-string">&#x27;&#123;print $3&#125;&#x27;</span>`<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash">WAN_IP=`ssh -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa root@192.168.1.1 <span class="hljs-string">&#x27;ip -br a&#x27;</span> | grep pppoe-wan | awk <span class="hljs-string">&#x27;&#123;print $3&#125;&#x27;</span>`</code></pre></div>
 
 <p>理论上来说，有不少路由器自身就支持不少域名解析商</p>
 <h2 id="端口转发"><a href="#端口转发" class="headerlink" title="端口转发"></a>端口转发</h2><p>端口转发需要在路由器的后台设置进行，我这里路由器使用的是 openwrt 系统，大部分路由器应该都支持这个操作。</p>

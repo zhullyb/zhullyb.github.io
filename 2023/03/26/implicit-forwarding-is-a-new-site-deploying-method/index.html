@@ -280,7 +280,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          960 字
+          959 字
         
       </span>
     
@@ -351,7 +351,7 @@
 <p><strong>隐性转发</strong>：用的是 iframe 框架技术、非重定向技术，效果为浏览器地址栏输入 <code>http://www.dnspod.cn</code> 回车，打开网站内容是目标地址 <code>http://cloud.tencent.com/</code> 的网站内容，但地址栏显示当前地址 <code>http://www.dnspod.cn</code> 。</p>
 </blockquote>
 <p>也就是说，所谓「隐式 URL」，只不过是域名解析的服务商用他们的服务器去响应了访客的请求，并回应了一段使用了 iframe 的 html 。这段代码打开了一个大小为 100% 的窗口去请求了被“隐式代理”的站点。我这位同学域名是备案在阿里云下的，阿里云所使用的 html 代码如下:</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-meta">&lt;!doctype <span class="hljs-keyword">html</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">frameset</span> <span class="hljs-attr">rows</span>=<span class="hljs-string">&quot;100%&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">frame</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;http://example.com&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">noframes</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;http://example.com&quot;</span>&gt;</span>Click here<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">noframes</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">frameset</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs html"><span class="hljs-meta">&lt;!doctype <span class="hljs-keyword">html</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">frameset</span> <span class="hljs-attr">rows</span>=<span class="hljs-string">&quot;100%&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">frame</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;http://example.com&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">noframes</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;http://example.com&quot;</span>&gt;</span>Click here<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">noframes</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">frameset</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span></code></pre></div>
 
 <p>在下图中，我通过更改 hosts 文件实现将百度的域名在本地被解析到 localhost，并使用 iframe 标签将 b 站嵌入到页面中。当然，这并不能说明什么事情，不过是我个人的恶趣味罢了。</p>
 <p><img src="https://static.031130.xyz/uploads/2024/08/12/641f2272ab7fb.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="example"></p>

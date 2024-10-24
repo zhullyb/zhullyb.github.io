@@ -21,12 +21,12 @@
   <meta name="author" content="竹林里有冰">
   <meta name="keywords" content="博客, 技术, Fedora">
   
-    <meta name="description" content="这学期期末复习的时候，学校里负责上 JavaScript 的老师给我们提出了一个问题。下面这段代码中，a.u2() 在 ES Module 下执行会抛出 TypeError 的异常，在 CommonJS 下运行则会输出 undefined，而 B 这个类的 u2 函数则能够在对象实例化以后正常运行。 1234567891011121314151617181920212223242526272829">
+    <meta name="description" content="这学期期末复习的时候，学校里负责上 JavaScript 的老师给我们提出了一个问题。下面这段代码中，a.u2() 在 ES Module 下执行会抛出 TypeError 的异常，在 CommonJS 下运行则会输出 undefined，而 B 这个类的 u2 函数则能够在对象实例化以后正常运行。 const a &#x3D; &amp;#123;     x: 3,     u1: function () &amp;#">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在 JavaScript 中，箭头函数中的 this 指针到底指向哪里？">
 <meta property="og:url" content="https://zhul.in/2024/01/14/where-does-this-refer-in-arrow-function-in-js/index.html">
 <meta property="og:site_name" content="竹林里有冰的博客">
-<meta property="og:description" content="这学期期末复习的时候，学校里负责上 JavaScript 的老师给我们提出了一个问题。下面这段代码中，a.u2() 在 ES Module 下执行会抛出 TypeError 的异常，在 CommonJS 下运行则会输出 undefined，而 B 这个类的 u2 函数则能够在对象实例化以后正常运行。 1234567891011121314151617181920212223242526272829">
+<meta property="og:description" content="这学期期末复习的时候，学校里负责上 JavaScript 的老师给我们提出了一个问题。下面这段代码中，a.u2() 在 ES Module 下执行会抛出 TypeError 的异常，在 CommonJS 下运行则会输出 undefined，而 B 这个类的 u2 函数则能够在对象实例化以后正常运行。 const a &#x3D; &amp;#123;     x: 3,     u1: function () &amp;#">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://static.031130.xyz/uploads/2024/08/12/65a2e1d093b78.webp">
 <meta property="og:image" content="https://static.031130.xyz/uploads/2024/08/12/65a2e379ba89e.webp">
@@ -342,7 +342,37 @@
               <div class="markdown-body">
                 
                 <p>这学期期末复习的时候，学校里负责上 JavaScript 的老师给我们提出了一个问题。下面这段代码中，<code>a.u2()</code> 在 ES Module 下执行会抛出 TypeError 的异常，在 CommonJS 下运行则会输出 undefined，而 B 这个类的 u2 函数则能够在对象实例化以后正常运行。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> a = &#123;<br>    <span class="hljs-attr">x</span>: <span class="hljs-number">3</span>,<br>    <span class="hljs-attr">u1</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">x</span>)<br>    &#125;,<br>    <span class="hljs-attr">u2</span>: <span class="hljs-function">() =&gt;</span> &#123;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">x</span>)<br>    &#125;<br>&#125;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">b</span> &#123;<br>    x = <span class="hljs-number">3</span><br><br>    u1 = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">x</span>)<br>    &#125;<br><br>    u2 = <span class="hljs-function">() =&gt;</span> &#123;<br>        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">x</span>)<br>    &#125;<br>&#125;<br><br>a.<span class="hljs-title function_">u1</span>()<br><span class="hljs-comment">// 3</span><br>a.<span class="hljs-title function_">u2</span>()<br><span class="hljs-comment">// undefined</span><br><br><span class="hljs-keyword">new</span> <span class="hljs-title function_">b</span>().<span class="hljs-title function_">u1</span>()<br><span class="hljs-comment">// 3</span><br><span class="hljs-keyword">new</span> <span class="hljs-title function_">b</span>().<span class="hljs-title function_">u2</span>()<br><span class="hljs-comment">// 3</span><br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> a = &#123;
+    <span class="hljs-attr">x</span>: <span class="hljs-number">3</span>,
+    <span class="hljs-attr">u1</span>: <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">x</span>)
+    &#125;,
+    <span class="hljs-attr">u2</span>: <span class="hljs-function">() =&gt;</span> &#123;
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">x</span>)
+    &#125;
+&#125;
+
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">b</span> &#123;
+    x = <span class="hljs-number">3</span>
+
+    u1 = <span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) &#123;
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">x</span>)
+    &#125;
+
+    u2 = <span class="hljs-function">() =&gt;</span> &#123;
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-variable language_">this</span>.<span class="hljs-property">x</span>)
+    &#125;
+&#125;
+
+a.<span class="hljs-title function_">u1</span>()
+<span class="hljs-comment">// 3</span>
+a.<span class="hljs-title function_">u2</span>()
+<span class="hljs-comment">// undefined</span>
+
+<span class="hljs-keyword">new</span> <span class="hljs-title function_">b</span>().<span class="hljs-title function_">u1</span>()
+<span class="hljs-comment">// 3</span>
+<span class="hljs-keyword">new</span> <span class="hljs-title function_">b</span>().<span class="hljs-title function_">u2</span>()
+<span class="hljs-comment">// 3</span></code></pre></div>
 
 <p>这个问题涉及到 JavaScript 中箭头函数的作用域以及 this 指向。</p>
 <p><strong>在 JS 中使用 function 关键字定义的普通函数中，this 指针遵循一个规则：谁调用指向谁。</strong>即 <code>obj.func()</code> 这种调用情况下，func 方法内部的this指向obj；如果没有调用者，则严格模式下 this 为 undefined，非严格模式下 this 指向window(浏览器)或者global(node环境)。</p>

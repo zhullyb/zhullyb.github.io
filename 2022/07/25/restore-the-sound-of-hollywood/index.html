@@ -349,13 +349,33 @@
 <p>答案是肯定的。</p>
 <p>得益于 git 的版本控制特色，在 hollywood 的 github 仓库中，我们可以找到原来的 <a target="_blank" rel="noopener" href="https://github.com/dustinkirkland/hollywood/blob/67839229f878a08521885e9fc05dd2d3ba10ddd1/share/hollywood/mi.mp4">mp4 文件</a>。</p>
 <p>下载这个 mp4 文件后，我们将其放入 <code>/usr/share/hollywood/</code> 路径下，重命名为 <code>soundwave.mp4</code>，并确保其被正确设定为 0644 权限。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> install -Dm644 ./mi.mp4 /usr/share/hollywood/soundwave.mp4<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> install -Dm644 ./mi.mp4 /usr/share/hollywood/soundwave.mp4</code></pre></div>
 
 <p>接下来试着跑一跑 <code>hollywood</code>，发现依然没有声音。再次查阅源码，发现缺少了 <code>mplayer</code> 这个依赖。</p>
 <p>使用包管理器安装 <code>mplayer</code> 后，运行 <code>hollywood</code> 就可以听到声音了。</p>
 <p>然而，你觉不觉得这个音乐。。。听上去怪怪的。。。</p>
 <p>没错，作者在去掉音频后，给 <code>soundwave.mp4</code> <a target="_blank" rel="noopener" href="https://github.com/dustinkirkland/hollywood/commit/95f77d570d86cd8b8fe0e0939049609f81d1bae0#diff-3e2bf53af1a38136a109ac4fa1b11189e7b6fcd4385e1c68683093f73c6ac485">设定了加速播放</a>。而我们现在需要这段视频被原速播放。编辑 <code>/usr/lib/hollywood/mplayer</code></p>
-<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs diff">#!/bin/bash<br>#<br># Copyright 2014 Dustin Kirkland &lt;dustin.kirkland@gmail.com&gt;<br>#<br># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);<br># you may not use this file except in compliance with the License.<br># You may obtain a copy of the License at<br>#<br>#    http://www.apache.org/licenses/LICENSE-2.0<br>#<br># Unless required by applicable law or agreed to in writing, software<br># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,<br># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.<br># See the License for the specific language governing permissions and<br># limitations under the License.<br>command -v mplayer &gt;/dev/null 2&gt;&amp;1 || exit 1<br>trap &quot;pkill -f -9 lib/hollywood/ &gt;/dev/null 2&gt;&amp;1; exit&quot; INT<br>PKG=hollywood<br>dir=&quot;$(dirname $0)/../../share/$PKG&quot;<br><span class="hljs-deletion">-DISPLAY= mplayer -vo caca -loop 0 -ss $((RANDOM % 100)) -speed 100 $MPLAYER_OPTS $dir/soundwave.mp4</span><br><span class="hljs-addition">+DISPLAY= mplayer -vo caca -loop 0 $MPLAYER_OPTS $dir/soundwave.mp4</span><br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs diff">#!/bin/bash
+#
+# Copyright 2014 Dustin Kirkland &lt;dustin.kirkland@gmail.com&gt;
+#
+# Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#    http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+command -v mplayer &gt;/dev/null 2&gt;&amp;1 || exit 1
+trap &quot;pkill -f -9 lib/hollywood/ &gt;/dev/null 2&gt;&amp;1; exit&quot; INT
+PKG=hollywood
+dir=&quot;$(dirname $0)/../../share/$PKG&quot;
+<span class="hljs-deletion">-DISPLAY= mplayer -vo caca -loop 0 -ss $((RANDOM % 100)) -speed 100 $MPLAYER_OPTS $dir/soundwave.mp4</span>
+<span class="hljs-addition">+DISPLAY= mplayer -vo caca -loop 0 $MPLAYER_OPTS $dir/soundwave.mp4</span></code></pre></div>
 
 <p>再次运行，确认修改已经成功。</p>
 

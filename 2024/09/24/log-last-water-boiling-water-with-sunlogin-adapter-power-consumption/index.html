@@ -352,12 +352,20 @@
 <p><img src="https://static.031130.xyz/uploads/2024/09/24/bd6b0bdbab1da.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="抓包"></p>
 <p>不过好消息是，<strong>官方服务器的这个接口并没有进行鉴权</strong>，不需要进行额外的操作，一条 curl 命令都能下载下来。</p>
 <p><img src="https://static.031130.xyz/uploads/2024/09/24/bf4ad72e00044.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="curl 命令下载用电量数据"></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">https://sl-api.oray.com/smartplug/powerconsumes/$&#123;SN&#125;<br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs shell">https://sl-api.oray.com/smartplug/powerconsumes/$&#123;SN&#125;</code></pre></div>
 
 <p>SN 码也不需要自己去抓包，直接在官方应用的设备关于页面就能看到。</p>
 <p><img src="https://static.031130.xyz/uploads/2024/09/24/edca671f53571.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="关于页面"></p>
 <p>json 数据的结构很明显，最外层是一个 Array，里面有若干个 object</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">[</span><br>  <span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-attr">&quot;consume&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;starttime&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1727125200</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;endtime&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1727128740</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;index&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><br>  <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>...<br><span class="hljs-punctuation">]</span><br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs json"><span class="hljs-punctuation">[</span>
+  <span class="hljs-punctuation">&#123;</span>
+    <span class="hljs-attr">&quot;consume&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;starttime&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1727125200</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;endtime&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1727128740</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;index&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">0</span>
+  <span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span>
+...
+<span class="hljs-punctuation">]</span></code></pre></div>
 
 <ul>
 <li>consume: 这段时间消耗的用电量，单位 Wh</li>
@@ -366,7 +374,20 @@
 <li>index: 智能插座的第几个孔位（为插排预留的参数，智能插座只有 0 这一个位置）</li>
 </ul>
 <p>所以我们要做的就是每小时下载一次这个 json 文件，需要时从 json 中寻找上一次用电量较高的小时，取那个小时的 starttime 时间戳转换为东八区人类可读的时间即可。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">last_water</span>():<br>    <span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;power.json&#x27;</span>, <span class="hljs-string">&#x27;r&#x27;</span>) <span class="hljs-keyword">as</span> f:<br>        powers = json.load(f)<br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> powers:<br>        <span class="hljs-keyword">if</span> i.get(<span class="hljs-string">&#x27;consume&#x27;</span>) &gt;= <span class="hljs-number">30</span>:<br>            t = i.get(<span class="hljs-string">&#x27;starttime&#x27;</span>)<br>            <span class="hljs-keyword">break</span><br>    last_water_time = datetime.datetime.fromtimestamp(t)<br>    now = datetime.datetime.now()<br>    time_delta = now - last_water_time<br>    sec = time_delta.total_seconds()<br>    hours = sec / <span class="hljs-number">3600</span><br>    lwt_str = last_water_time.strftime(<span class="hljs-string">&#x27;%m月%d日%H点&#x27;</span>)<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">f&quot;上次烧水时间为「<span class="hljs-subst">&#123;lwt_str&#125;</span>」，距离现在「<span class="hljs-subst">&#123;hours:<span class="hljs-number">.2</span>f&#125;</span>」小时&quot;</span><br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">last_water</span>():
+    <span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;power.json&#x27;</span>, <span class="hljs-string">&#x27;r&#x27;</span>) <span class="hljs-keyword">as</span> f:
+        powers = json.load(f)
+    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> powers:
+        <span class="hljs-keyword">if</span> i.get(<span class="hljs-string">&#x27;consume&#x27;</span>) &gt;= <span class="hljs-number">30</span>:
+            t = i.get(<span class="hljs-string">&#x27;starttime&#x27;</span>)
+            <span class="hljs-keyword">break</span>
+    last_water_time = datetime.datetime.fromtimestamp(t)
+    now = datetime.datetime.now()
+    time_delta = now - last_water_time
+    sec = time_delta.total_seconds()
+    hours = sec / <span class="hljs-number">3600</span>
+    lwt_str = last_water_time.strftime(<span class="hljs-string">&#x27;%m月%d日%H点&#x27;</span>)
+    <span class="hljs-keyword">return</span> <span class="hljs-string">f&quot;上次烧水时间为「<span class="hljs-subst">&#123;lwt_str&#125;</span>」，距离现在「<span class="hljs-subst">&#123;hours:<span class="hljs-number">.2</span>f&#125;</span>」小时&quot;</span></code></pre></div>
 
 <p>至于每小时下载的任务，我这里是使用 crontab + curl 命令实现的，用 python 写个死循环跑也可以。</p>
 <p>那么数据都取到了，剩下的就是人机交互的部分，这部分夸张点的可以写 web，写小程序，甚至写个安卓应用挂个桌面插件，想怎么做都可以。我这里就单纯将数据接入 qqbot 扔到了宿舍群，简单写了个关键词触发。</p>

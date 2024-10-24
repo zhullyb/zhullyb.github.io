@@ -279,7 +279,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          730 字
+          729 字
         
       </span>
     
@@ -355,7 +355,32 @@
 <li>PicGo 对于 Linux 的支持比较有限，作者可能不熟悉 Linux，直到半个月前我去交了一个 pr 才支持 wayland 下使用 wl-clipboard 将图片链接复制到粘贴版。</li>
 </ul>
 <p>正好 LskyPro 有详细的文档，应该可以用 curl 手糊一段 Shell 脚本实现直接上传，资源占用小，唯一的弊端是上传完成后的图片不容易管理。脚本如下</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-meta">#!/bin/bash</span><br><br>API_URL=<span class="hljs-string">&quot;https://7bu.top/api/v1&quot;</span><br><br>AUTH_TOKEN=<span class="hljs-string">&quot;&quot;</span><br><br>markdown=<span class="hljs-literal">false</span><br><span class="hljs-keyword">while</span> [[ <span class="hljs-string">&quot;<span class="hljs-variable">$#</span>&quot;</span> -gt 0 ]]; <span class="hljs-keyword">do</span><br>    <span class="hljs-keyword">case</span> <span class="hljs-variable">$1</span> <span class="hljs-keyword">in</span><br>        -m|--markdown) markdown=<span class="hljs-literal">true</span>; <span class="hljs-built_in">shift</span> ;;<br>        *) <span class="hljs-built_in">break</span> ;;<br>    <span class="hljs-keyword">esac</span><br><span class="hljs-keyword">done</span><br><br><span class="hljs-keyword">for</span> images <span class="hljs-keyword">in</span> <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span>; <span class="hljs-keyword">do</span><br>    UPLOAD_RESPONSE=$(curl -s -X POST <span class="hljs-string">&quot;<span class="hljs-variable">$API_URL</span>/upload&quot;</span> \<br>        -H <span class="hljs-string">&#x27;Content-Type: multipart/form-data&#x27;</span> \<br>        -H <span class="hljs-string">&quot;Authorization: Bearer <span class="hljs-variable">$AUTH_TOKEN</span>&quot;</span> \<br>        -F <span class="hljs-string">&quot;file=@<span class="hljs-variable">$images</span>&quot;</span>)<br><br>    <span class="hljs-keyword">if</span> [ <span class="hljs-string">&quot;<span class="hljs-variable">$markdown</span>&quot;</span> = <span class="hljs-literal">true</span> ]; <span class="hljs-keyword">then</span><br>        <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$UPLOAD_RESPONSE</span>&quot;</span> | jq -r .data.links.markdown<br>    <span class="hljs-keyword">else</span><br>        <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$UPLOAD_RESPONSE</span>&quot;</span> | jq -r .data.links.url<br>    <span class="hljs-keyword">fi</span><br><span class="hljs-keyword">done</span><br></code></pre></td></tr></table></figure>
+<div class="code-wrapper"><pre><code class="hljs bash"><span class="hljs-meta">#!/bin/bash</span>
+
+API_URL=<span class="hljs-string">&quot;https://7bu.top/api/v1&quot;</span>
+
+AUTH_TOKEN=<span class="hljs-string">&quot;&quot;</span>
+
+markdown=<span class="hljs-literal">false</span>
+<span class="hljs-keyword">while</span> [[ <span class="hljs-string">&quot;<span class="hljs-variable">$#</span>&quot;</span> -gt 0 ]]; <span class="hljs-keyword">do</span>
+    <span class="hljs-keyword">case</span> <span class="hljs-variable">$1</span> <span class="hljs-keyword">in</span>
+        -m|--markdown) markdown=<span class="hljs-literal">true</span>; <span class="hljs-built_in">shift</span> ;;
+        *) <span class="hljs-built_in">break</span> ;;
+    <span class="hljs-keyword">esac</span>
+<span class="hljs-keyword">done</span>
+
+<span class="hljs-keyword">for</span> images <span class="hljs-keyword">in</span> <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span>; <span class="hljs-keyword">do</span>
+    UPLOAD_RESPONSE=$(curl -s -X POST <span class="hljs-string">&quot;<span class="hljs-variable">$API_URL</span>/upload&quot;</span> \
+        -H <span class="hljs-string">&#x27;Content-Type: multipart/form-data&#x27;</span> \
+        -H <span class="hljs-string">&quot;Authorization: Bearer <span class="hljs-variable">$AUTH_TOKEN</span>&quot;</span> \
+        -F <span class="hljs-string">&quot;file=@<span class="hljs-variable">$images</span>&quot;</span>)
+
+    <span class="hljs-keyword">if</span> [ <span class="hljs-string">&quot;<span class="hljs-variable">$markdown</span>&quot;</span> = <span class="hljs-literal">true</span> ]; <span class="hljs-keyword">then</span>
+        <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$UPLOAD_RESPONSE</span>&quot;</span> | jq -r .data.links.markdown
+    <span class="hljs-keyword">else</span>
+        <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$UPLOAD_RESPONSE</span>&quot;</span> | jq -r .data.links.url
+    <span class="hljs-keyword">fi</span>
+<span class="hljs-keyword">done</span></code></pre></div>
 
 <blockquote>
 <p>2022/04/02更新: 第六行 $@ - “$@”，解决文件名中出现空格时导致的上传失败问题。</p>
