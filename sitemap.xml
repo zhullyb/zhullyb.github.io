@@ -65,7 +65,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/07/23/build-a-rpm-package-from-aur-with-archlinux/</loc>
+    <loc>https://zhul.in/2021/10/01/bring-firefox-old-topbar-back/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -74,7 +74,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/10/01/bring-firefox-old-topbar-back/</loc>
+    <loc>https://zhul.in/2021/07/23/build-a-rpm-package-from-aur-with-archlinux/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -173,7 +173,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/04/23/disable-firefox-nightmode-when-your-system-is-using-that/</loc>
+    <loc>https://zhul.in/2021/12/03/dev-app-update-in-wolai/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -182,7 +182,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/12/03/dev-app-update-in-wolai/</loc>
+    <loc>https://zhul.in/2021/04/23/disable-firefox-nightmode-when-your-system-is-using-that/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -497,7 +497,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2023/08/04/static-webpage-deployment-for-a-beginner/</loc>
+    <loc>https://zhul.in/2021/05/30/share-xiaomi-bluetooth-mouse-on-both-windows-and-linux/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -506,7 +506,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/05/30/share-xiaomi-bluetooth-mouse-on-both-windows-and-linux/</loc>
+    <loc>https://zhul.in/2023/08/04/static-webpage-deployment-for-a-beginner/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -542,7 +542,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/11/26/typora-and-me/</loc>
+    <loc>https://zhul.in/2024/03/13/try-to-compose-download-links-of-deb-packages-in-apt-repository/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -551,7 +551,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/03/13/try-to-compose-download-links-of-deb-packages-in-apt-repository/</loc>
+    <loc>https://zhul.in/2021/11/26/typora-and-me/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -866,7 +866,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2020/07/11/RepoNotes/</loc>
+    <loc>https://zhul.in/2020/10/08/NoHello/</loc>
     
     <lastmod>2022-08-22</lastmod>
     
@@ -875,7 +875,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2020/10/08/NoHello/</loc>
+    <loc>https://zhul.in/2020/07/11/RepoNotes/</loc>
     
     <lastmod>2022-08-22</lastmod>
     
@@ -1175,13 +1175,6 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/tags/RPM-Package/</loc>
-    <lastmod>2024-10-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://zhul.in/tags/Firefox/</loc>
     <lastmod>2024-10-28</lastmod>
     <changefreq>weekly</changefreq>
@@ -1190,6 +1183,13 @@
   
   <url>
     <loc>https://zhul.in/tags/Bwrap/</loc>
+    <lastmod>2024-10-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/RPM-Package/</loc>
     <lastmod>2024-10-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1462,14 +1462,14 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/tags/Casual-Talk/</loc>
+    <loc>https://zhul.in/tags/Apt/</loc>
     <lastmod>2024-10-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://zhul.in/tags/Apt/</loc>
+    <loc>https://zhul.in/tags/Casual-Talk/</loc>
     <lastmod>2024-10-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
