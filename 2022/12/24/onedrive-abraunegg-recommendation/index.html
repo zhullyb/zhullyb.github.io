@@ -1,0 +1,809 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="https://static.031130.xyz/favicon.ico">
+  <link rel="icon" href="https://static.031130.xyz/favicon.ico">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="竹林里有冰">
+  <meta name="keywords" content="博客, 技术, Fedora">
+  
+    <meta name="description" content="这款 Linux 下的 OneDrive 客户端我其实一年前就已经在用了，最近打算给自己的 vps 重装系统并重新部署下 aria 的下载服务，顺便把上传到 OneDrive 的功能增加进去，便又想到了这款运行在命令行中的第三方开源 Linux 客户端，去谷歌上搜索了一番，依然没有什么成规模的中文博客去写它的用法，于是就打算自己来写。那肯定不是因为我博客这个月没有什么题材  安装abrauneg">
+<meta property="og:type" content="article">
+<meta property="og:title" content="onedrive(by abraunegg) —— 一个 Linux 下的开源 OneDrive 客户端(cli)">
+<meta property="og:url" content="https://zhul.in/2022/12/24/onedrive-abraunegg-recommendation/index.html">
+<meta property="og:site_name" content="竹林里有冰的博客">
+<meta property="og:description" content="这款 Linux 下的 OneDrive 客户端我其实一年前就已经在用了，最近打算给自己的 vps 重装系统并重新部署下 aria 的下载服务，顺便把上传到 OneDrive 的功能增加进去，便又想到了这款运行在命令行中的第三方开源 Linux 客户端，去谷歌上搜索了一番，依然没有什么成规模的中文博客去写它的用法，于是就打算自己来写。那肯定不是因为我博客这个月没有什么题材  安装abrauneg">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://static.031130.xyz/uploads/2024/08/12/63a71425507b6.webp">
+<meta property="article:published_time" content="2022-12-24T14:40:13.000Z">
+<meta property="article:modified_time" content="2024-10-21T14:34:43.000Z">
+<meta property="article:author" content="竹林里有冰">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Archlinux">
+<meta property="article:tag" content="OpenSource Project">
+<meta property="article:tag" content="Experience">
+<meta property="article:tag" content="OneDrive">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://static.031130.xyz/uploads/2024/08/12/63a71425507b6.webp">
+  
+  
+  
+  <title>onedrive(by abraunegg) —— 一个 Linux 下的开源 OneDrive 客户端(cli) - 竹林里有冰的博客</title>
+
+  <link  rel="stylesheet" href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/4.6.0/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-y/hint.css/2.6.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"zhul.in","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<!-- hexo injector head_end start --><script async defer data-website-id="5346b89b-f4bf-4593-971d-1f41a1118bc1" src="/custom.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/rss.xml" title="竹林里有冰的博客" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>竹林里有冰的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-books"></i>
+                <span>其他</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/rss.xml" target="_self">
+                    <i class="iconfont icon-rss"></i>
+                    <span>rss订阅</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/collections/" target="_self">
+                    <i class="iconfont icon-bookmark-fill"></i>
+                    <span>收藏</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="https://notes.5435486.xyz/" target="_self">
+                    <i class="iconfont icon-book"></i>
+                    <span>流水账</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="https://zhul.in/donate" target="_self">
+                    <i class="iconfont icon-qrcode"></i>
+                    <span>给我打钱</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/null') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="onedrive(by abraunegg) —— 一个 Linux 下的开源 OneDrive 客户端(cli)"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-12-24 22:40" pubdate>
+          2022年12月24日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          1.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          7 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">onedrive(by abraunegg) —— 一个 Linux 下的开源 OneDrive 客户端(cli)</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    <!-- compatible with older versions-->
+                    本文最后更新于：2024年10月21日 晚上
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <blockquote>
+<p>这款 Linux 下的 OneDrive 客户端我其实一年前就已经在用了，最近打算给自己的 vps 重装系统并重新部署下 aria 的下载服务，顺便把上传到 OneDrive 的功能增加进去，便又想到了这款运行在命令行中的第三方开源 Linux 客户端，去谷歌上搜索了一番，依然没有什么成规模的中文博客去写它的用法，于是就打算自己来写。<del>那肯定不是因为我博客这个月没有什么题材</del></p>
+</blockquote>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>abraunegg 用 D 语言写的 OneDrive 客户端安装起来并不是什么难事，Ubuntu/Debian/Fedora 等常见发行版的仓库中均有它的身影，具体情况在 <a target="_blank" rel="noopener" href="https://github.com/abraunegg/onedrive/blob/master/docs/INSTALL.md">Github 项目页面</a>中都有描述。</p>
+<p>在 Archlinux 下，我可以直接从 AUR/ArchlinuxCN 中安装 <code>onedrive-abraunegg</code> 这个包来安装这个项目。</p>
+<div class="code-wrapper"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> pacman -S onedrive-abraunegg</code></pre></div>
+
+<h2 id="运行前配置"><a href="#运行前配置" class="headerlink" title="运行前配置"></a>运行前配置</h2><blockquote>
+<p>本章内容中的所用到的和没有用到的命令都可以在<a target="_blank" rel="noopener" href="https://github.com/abraunegg/onedrive/blob/master/docs/USAGE.md">该项目的 Github 仓库</a>中找到。</p>
+</blockquote>
+<p>在终端直接运行 <code>onedrive</code> 命令，程序将打印出一行地址。</p>
+<p><img src="https://static.031130.xyz/uploads/2024/08/12/63a71dbfd6ed3.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="登陆地址"></p>
+<p>使用浏览器打开地址，就会跳出微软的登陆页面，正常登陆即可。</p>
+<p>登陆成功后，浏览器将会显示一片白屏，不必慌张，直接将浏览器地址栏中的网址复制后粘贴进终端中即可完成配置，获取到的 <code>refresh_token</code> 将会被保存到 <code>$HOME/.config/onedrive</code> 下。</p>
+<p><img src="https://static.031130.xyz/uploads/2024/08/12/63a71e1f9c916.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="浏览器显示白屏"></p>
+<p><img src="https://static.031130.xyz/uploads/2024/08/12/63a71ec6d5aca.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="授权成功"></p>
+<p>账号授权成功以后我有两个迫切的需求需要在开始同步前解决: </p>
+<ul>
+<li>我不希望把我 OneDrive 里所有的文件下载下来，我在 OneDrive 中存放了至少 1T 的数据，而我的系统盘就只有 512G，这绝对是放不下的，所以我想仅同步部分文件夹。</li>
+<li>我需要修改被同步到的文件夹的路径，我不想把 OneDrive 上的文件下载到我的 <code>/home</code> 下。</li>
+</ul>
+<hr>
+<p>要解决第一个需求，我们可以通过创建 <code>sync_list</code> 的方式指定我们要同步的文件，在 <code>$HOME/.config/onedrive</code> 路径下创建 <code>sync_list</code> ，并填入需要的文件或文件夹名，或在 <code>!</code>或<code>-</code> 后面写上不想同步的文件或文件夹名即可，支持通配符，在<a target="_blank" rel="noopener" href="https://github.com/abraunegg/onedrive/blob/master/docs/USAGE.md#performing-a-selective-sync-via-sync_list-file">原仓库的文档中</a>给出了非常详细的描述。</p>
+<hr>
+<p>我们可以先使用 <code>onedrive --display-config</code> 命令查看我们当前的配置情况。（我这边直接应用 Github 文档中展示的内容）</p>
+<div class="code-wrapper"><pre><code class="hljs routeros">onedrive version                             = vX.Y.Z-A-bcdefghi<span class="hljs-built_in"></span>
+<span class="hljs-built_in">Config </span>path                                  = /home/alex/.config/onedrive<span class="hljs-built_in"></span>
+<span class="hljs-built_in">Config </span>file found <span class="hljs-keyword">in</span><span class="hljs-built_in"> config </span>path             = <span class="hljs-literal">true</span><span class="hljs-built_in"></span>
+<span class="hljs-built_in">Config </span>option <span class="hljs-string">&#x27;sync_dir&#x27;</span>                     = /home/alex/OneDrive<span class="hljs-built_in"></span>
+<span class="hljs-built_in">Config </span>option <span class="hljs-string">&#x27;enable_logging&#x27;</span>               = <span class="hljs-literal">false</span>
+<span class="hljs-built_in">..</span>.
+Selective sync <span class="hljs-string">&#x27;sync_list&#x27;</span> configured        = <span class="hljs-literal">false</span><span class="hljs-built_in"></span>
+<span class="hljs-built_in">Config </span>option <span class="hljs-string">&#x27;sync_business_shared_folders&#x27;</span> = <span class="hljs-literal">false</span>
+Business Shared Folders configured           = <span class="hljs-literal">false</span><span class="hljs-built_in"></span>
+<span class="hljs-built_in">Config </span>option <span class="hljs-string">&#x27;webhook_enabled&#x27;</span>              = <span class="hljs-literal">false</span></code></pre></div>
+
+<p>这很显然，OneDrive 中的文件默认将会被保存到 <code>$HOME/OneDrive</code> 中。为了修改这个位置项，我们直接在 <code>$HOME/.config/onedrive/</code> 路径下创建一个名为 <code>config</code> 的文件，把此处给的 c<a target="_blank" rel="noopener" href="https://github.com/abraunegg/onedrive/blob/master/docs/USAGE.md#the-default-configuration-file-is-listed-below">onfiguration examples</a> 全部复制进去，找到 <code>sync_dir</code> 把前面的注释删掉，改成自己喜欢的路径 <del>（别问我为什么写 /tmp，问就是我内存够大</del></p>
+<p><img src="https://static.031130.xyz/uploads/2024/08/12/63a7282ee55e7.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="修改同步路径！"></p>
+<p>修改好此处的配置文件后，可以再次运行 <code>onedrive --display-config</code> 检查自己的配置文件格式有没有问题、自己更改的配置项有没有生效，这样就解决了我的第二个需求。</p>
+<h2 id="Standalone-Mode-Monitor-Mode"><a href="#Standalone-Mode-Monitor-Mode" class="headerlink" title="Standalone Mode / Monitor Mode?"></a>Standalone Mode / Monitor Mode?</h2><p>这款 OneDrive 客户端支持以两种方式运行，monitor 模式将会监控本地磁盘上的文件状态，因而在同步路径内的文件从一个路径移动到另一个路径时，客户端将不会傻傻地执行「在原路径删除远端文件-重新上传新路径的本地文件」的这一个过程，具体使用 monitor 或 standalone 模式还请自行斟酌，可参考 <a target="_blank" rel="noopener" href="https://github.com/abraunegg/onedrive/blob/master/docs/known-issues.md#moving-files-into-different-folders-should-not-cause-data-to-delete-and-be-re-uploaded">Moving files into different folders should not cause data to delete and be re-uploaded</a> .</p>
+<h2 id="开始同步"><a href="#开始同步" class="headerlink" title="开始同步"></a>开始同步</h2><p>使用该客户端执行同步的命令很简单，即</p>
+<div class="code-wrapper"><pre><code class="hljs bash">onedrive --synchronize</code></pre></div>
+
+<p>但可选的运行参数很多，我只举出最常用的几个例子</p>
+<h3 id="–dry-run"><a href="#–dry-run" class="headerlink" title="–dry-run"></a>–dry-run</h3><p>使用 <code>--dry-run</code> 选项后，OneDrive 将不会执行同步操作，它将在终端输出原本将会被执行的操作以供你排查自己的配置是否正确。</p>
+<h3 id="–local-first"><a href="#–local-first" class="headerlink" title="–local-first"></a>–local-first</h3><p>字面意思，<code>--local-first</code> 即为本地优先，同步时如果遇到文件冲突将会优先参考本地的情况。</p>
+<h3 id="–single-directory"><a href="#–single-directory" class="headerlink" title="–single-directory"></a>–single-directory</h3><p><code>--single-directory</code> 后面需要跟一个子文件夹在 OneDrive 根目录中的相对路径，这将使本次的同步操作仅对单个文件夹生效。</p>
+<h3 id="–download-only"><a href="#–download-only" class="headerlink" title="–download-only"></a>–download-only</h3><p>字面意思，<code>--download-only</code> 即为仅下载模式。</p>
+<h3 id="–upload-only"><a href="#–upload-only" class="headerlink" title="–upload-only"></a>–upload-only</h3><p>字面意思，<code>--upload-only</code>即为仅上传模式，后跟 <code>--no-remote-delete</code>将不会在 OneDrive 网盘中删除本地相较于网盘中缺少的文件，真正做到 upload only.</p>
+<h3 id="–resync"><a href="#–resync" class="headerlink" title="–resync"></a>–resync</h3><p>当下列配置项被更改时，需要执行 <code>--resync</code> 来确保客户端正在按照更新后的配置文件来同步你的数据</p>
+<ul>
+<li>sync_dir</li>
+<li>skip_dir</li>
+<li>skip_file</li>
+<li>drive_id</li>
+<li>Modifying sync_list</li>
+<li>Modifying business_shared_folders</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Linux/" class="print-no-link">#Linux</a>
+      
+        <a href="/tags/Archlinux/" class="print-no-link">#Archlinux</a>
+      
+        <a href="/tags/OpenSource-Project/" class="print-no-link">#OpenSource Project</a>
+      
+        <a href="/tags/Experience/" class="print-no-link">#Experience</a>
+      
+        <a href="/tags/OneDrive/" class="print-no-link">#OneDrive</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>onedrive(by abraunegg) —— 一个 Linux 下的开源 OneDrive 客户端(cli)</div>
+      <div>https://zhul.in/2022/12/24/onedrive-abraunegg-recommendation/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>竹林里有冰</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年12月24日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2024年10月21日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/02/01/deploy-siteproxy-with-caddy-on-vps/" title="在 vps 上配合 caddy 部署 siteproxy">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">在 vps 上配合 caddy 部署 siteproxy</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/11/21/a-few-words-about-the-events-of-november-2022/" title="【翻译】关于2022年11月的事件的一些话[Z-Library]">
+                        <span class="hidden-mobile">【翻译】关于2022年11月的事件的一些话[Z-Library]</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="waline"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#waline', function() {
+      Fluid.utils.createCssLink('https://registry.npmmirror.com/@waline/client/3.3.2/files/dist/waline.css')
+      Fluid.utils.createScript('https://registry.npmmirror.com/@waline/client/3.3.2/files/dist/waline.umd.js', function() {
+        var options = Object.assign(
+          {"serverURL":"https://waline.zhul.in","path":"window.location.pathname","meta":["nick","mail","link"],"requiredMeta":["nick"],"lang":"zh-CN","emoji":["https://registry.npmmirror.com/@waline/emojis/^1/files/weibo"],"dark":"html[data-user-color-scheme=\"dark\"]","wordLimit":0,"pageSize":10,"login":"disable","locale":{"placeholder":"快发个评论让我知道你在看（x"}},
+          {
+            el: '#waline',
+            path: window.location.pathname
+          }
+        )
+        Waline.init(options);
+        Fluid.utils.waitElementVisible('#waline .vcontent', () => {
+          var imgSelector = '#waline .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br /> <a href="https://notbyai.fyi/" target="_blank"><img style="max-height: 50px; margin: 10px" src=https://static.031130.xyz/uploads/2024/08/28/ae6dd98bdf60e.png alt="written by human, not by AI" /></a> <br /> <span>本网站由 <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img style="max-height: 50px;" loading="lazy" src="https://static.031130.xyz/uploads/2024/08/12/ba8d70971c408.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="又拍云 Logo" /></a> 提供 CDN 加速/云存储服务</span> <script> const url = window.location.href if (url.includes("theodorelobas.com") { window.location.href = "https://zhul.in" } </script>
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/4.6.0/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/tocbot/4.12.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/clipboard.js/2.0.6/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

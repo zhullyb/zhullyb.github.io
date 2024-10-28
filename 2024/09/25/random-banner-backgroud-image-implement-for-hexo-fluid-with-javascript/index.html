@@ -1,0 +1,790 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="https://static.031130.xyz/favicon.ico">
+  <link rel="icon" href="https://static.031130.xyz/favicon.ico">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="竹林里有冰">
+  <meta name="keywords" content="博客, 技术, Fedora">
+  
+    <meta name="description" content="为什么要换掉随机图片 API因为 API 太慢了。根据 PageSpeed 的测速，使用 API 的图片加载时间来到了整整 2.5s，这似乎有些不可忍受。  Vercel 冷启动问题当初年少无知，为了实现 banner 随机背景图，选择了使用 vercel 创建随机图片 API。这带来了一些问题，首先 vercel 在站点一段时间没人访问以后会进入一种类似休眠的模式，下一次启动将会经历一个冷启动（">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于 JavaScript 的 Hexo Fluid 主题 banner 随机背景图实现">
+<meta property="og:url" content="https://zhul.in/2024/09/25/random-banner-backgroud-image-implement-for-hexo-fluid-with-javascript/index.html">
+<meta property="og:site_name" content="竹林里有冰的博客">
+<meta property="og:description" content="为什么要换掉随机图片 API因为 API 太慢了。根据 PageSpeed 的测速，使用 API 的图片加载时间来到了整整 2.5s，这似乎有些不可忍受。  Vercel 冷启动问题当初年少无知，为了实现 banner 随机背景图，选择了使用 vercel 创建随机图片 API。这带来了一些问题，首先 vercel 在站点一段时间没人访问以后会进入一种类似休眠的模式，下一次启动将会经历一个冷启动（">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://static.031130.xyz/uploads/2024/09/25/3ef1a17bca955.webp">
+<meta property="og:image" content="https://static.031130.xyz/uploads/2024/09/24/f8cb9fd7a963e.webp">
+<meta property="og:image" content="https://static.031130.xyz/uploads/2024/09/25/70bd0b27f5aad.webp">
+<meta property="article:published_time" content="2024-09-24T16:00:42.000Z">
+<meta property="article:modified_time" content="2024-10-21T14:34:43.000Z">
+<meta property="article:author" content="竹林里有冰">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="Hexo">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://static.031130.xyz/uploads/2024/09/25/3ef1a17bca955.webp">
+  
+  
+  
+  <title>基于 JavaScript 的 Hexo Fluid 主题 banner 随机背景图实现 - 竹林里有冰的博客</title>
+
+  <link  rel="stylesheet" href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/4.6.0/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-y/hint.css/2.6.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"zhul.in","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<!-- hexo injector head_end start --><script async defer data-website-id="5346b89b-f4bf-4593-971d-1f41a1118bc1" src="/custom.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/rss.xml" title="竹林里有冰的博客" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>竹林里有冰的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-books"></i>
+                <span>其他</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/rss.xml" target="_self">
+                    <i class="iconfont icon-rss"></i>
+                    <span>rss订阅</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/collections/" target="_self">
+                    <i class="iconfont icon-bookmark-fill"></i>
+                    <span>收藏</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="https://notes.5435486.xyz/" target="_self">
+                    <i class="iconfont icon-book"></i>
+                    <span>流水账</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="https://zhul.in/donate" target="_self">
+                    <i class="iconfont icon-qrcode"></i>
+                    <span>给我打钱</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/null') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="基于 JavaScript 的 Hexo Fluid 主题 banner 随机背景图实现"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-09-25 00:00" pubdate>
+          2024年9月25日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          871 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          5 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">基于 JavaScript 的 Hexo Fluid 主题 banner 随机背景图实现</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    <!-- compatible with older versions-->
+                    本文最后更新于：2024年10月21日 晚上
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="为什么要换掉随机图片-API"><a href="#为什么要换掉随机图片-API" class="headerlink" title="为什么要换掉随机图片 API"></a>为什么要换掉随机图片 API</h2><p>因为 API 太慢了。根据 <a target="_blank" rel="noopener" href="https://pagespeed.web.dev/">PageSpeed</a> 的测速，使用 API 的图片加载时间来到了整整 2.5s，这似乎有些不可忍受。</p>
+<p><img src="https://static.031130.xyz/uploads/2024/09/25/3ef1a17bca955.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="PageSpeed 测速"></p>
+<h3 id="Vercel-冷启动问题"><a href="#Vercel-冷启动问题" class="headerlink" title="Vercel 冷启动问题"></a>Vercel 冷启动问题</h3><p>当初年少无知，为了实现 banner 随机背景图，选择了<a href="/2021/05/21/create-a-random-picture-api-with-vercel/">使用 vercel 创建随机图片 API</a>。这带来了一些问题，首先 vercel 在站点一段时间没人访问以后会进入一种类似休眠的模式，下一次启动将会经历一个冷启动（cold start）的过程。我认为这对于一个图片背景的随机 API 而言是不可忍受的。</p>
+<p><img src="https://static.031130.xyz/uploads/2024/09/24/f8cb9fd7a963e.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="冷启动"></p>
+<p>观察图上就可以发现，第一次访问时花费了 1.9 秒，第二次只需要 0.5 秒，这是因为第一次是冷启动，需要花费更多时间。</p>
+<h3 id="多一次网络请求"><a href="#多一次网络请求" class="headerlink" title="多一次网络请求"></a>多一次网络请求</h3><p>抛开冷启动不谈，引入 API 就会导致一次额外的网络请求。访客的浏览器将会先请求随机图片 API，然后根据 API 返回的 302 相应去请求真正的图片，而且这一过程是没法并行的，只能串行执行，这会浪费更多的等待时间。</p>
+<h3 id="Vercel-在大陆境内的访问质量"><a href="#Vercel-在大陆境内的访问质量" class="headerlink" title="Vercel 在大陆境内的访问质量"></a>Vercel 在大陆境内的访问质量</h3><p>Vercel 在大陆境内的访问质量其实并不算好，即使是使用了所谓的优选节点，也不一定能保证整个大陆境内大部分访客都有不错的访问质量，因此使用 Vercel 搭建 API 的行为并不是最优解。</p>
+<h2 id="转向-JavaScript-实现"><a href="#转向-JavaScript-实现" class="headerlink" title="转向 JavaScript 实现"></a>转向 JavaScript 实现</h2><p>这个方案本身没多少复杂的，只不过是三年前的我对前端一无所知不敢操刀罢了。</p>
+<h3 id="删除原有的背景图"><a href="#删除原有的背景图" class="headerlink" title="删除原有的背景图"></a>删除原有的背景图</h3><p>在 <code>_config.fluid.yml</code> 中，将所有的 <code>banner_img:</code> 字段全部置空，防止其加载默认的 <code>/img/default.png</code> 而白白浪费用户的流量。这个字段一共在配置文件中出现了九次。</p>
+<p><img src="https://static.031130.xyz/uploads/2024/09/25/70bd0b27f5aad.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="字段置空"></p>
+<h3 id="添加-js"><a href="#添加-js" class="headerlink" title="添加 js"></a>添加 js</h3><p>我们的目标是修改 id 为 banner 的 div 块的 backgroud 的 css 属性，Hexo Fluid 默认的生成内容是这样的</p>
+<div class="code-wrapper"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;banner&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;banner&quot;</span> <span class="hljs-attr">parallax</span>=<span class="hljs-string">true</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;background: url(&#x27;/img/default.png&#x27;) no-repeat center center; background-size: cover;&quot;</span>&gt;</span></code></pre></div>
+
+<p>我们可以通过 id 来定位这个元素，修改其 style.background 属性。</p>
+<p>可以在任何地方引入下面的 js 代码，在这篇名为<a target="_blank" rel="noopener" href="https://www.zywvvd.com/notes/hexo/theme/fluid/fluid-add-umami/fluid-add-umami/">《Fluid -23- 添加 Umami 统计》</a> 的文章里的方案是可供参考的。</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> imgs = [
+    <span class="hljs-string">&quot;https://example.com/1.jpg&quot;</span>,
+    <span class="hljs-string">&quot;https://example.com/2.jpg&quot;</span>,
+    <span class="hljs-string">&quot;https://example.com/3.jpg&quot;</span>,
+    <span class="hljs-string">&quot;https://example.com/4.jpg&quot;</span>,
+    <span class="hljs-string">&quot;https://example.com/5.jpg&quot;</span>,
+    <span class="hljs-string">&quot;https://example.com/6.jpg&quot;</span>,
+    <span class="hljs-string">&quot;https://example.com/7.jpg&quot;</span>,
+    <span class="hljs-string">&quot;https://example.com/8.jpg&quot;</span>,
+    <span class="hljs-string">&quot;https://example.com/9.jpg&quot;</span>,
+    <span class="hljs-string">&quot;https://example.com/10.jpg&quot;</span>,
+    <span class="hljs-string">&quot;https://example.com/11.jpg&quot;</span>,
+    <span class="hljs-string">&quot;https://example.com/12.jpg&quot;</span>,
+    <span class="hljs-string">&quot;https://example.com/13.jpg&quot;</span>,
+    <span class="hljs-string">&quot;https://example.com/14.jpg&quot;</span>,
+    <span class="hljs-string">&quot;https://example.com/15.jpg&quot;</span>,
+    <span class="hljs-string">&quot;https://example.com/16.jpg&quot;</span>,
+    <span class="hljs-string">&quot;https://example.com/17.jpg&quot;</span>,
+    <span class="hljs-string">&quot;https://example.com/18.jpg&quot;</span>,
+    <span class="hljs-string">&quot;https://example.com/19.jpg&quot;</span>,
+    <span class="hljs-string">&quot;https://example.com/20.jpg&quot;</span>,
+]
+
+<span class="hljs-keyword">const</span> luck_img = imgs[<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">floor</span>(<span class="hljs-title class_">Math</span>.<span class="hljs-title function_">random</span>() * imgs.<span class="hljs-property">length</span>)]
+<span class="hljs-keyword">const</span> banner = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;banner&#x27;</span>)
+banner.<span class="hljs-property">style</span>.<span class="hljs-property">background</span> = <span class="hljs-string">`url(<span class="hljs-subst">$&#123;luck_img&#125;</span>) center center / cover no-repeat`</span></code></pre></div>
+
+<h2 id="成果"><a href="#成果" class="headerlink" title="成果"></a>成果</h2><p>博客能够在不引入外部 api 的情况下通过 js 自主实现随机的 banner 背景图，<del>但 pagespeed 的测速结果并没有明显好转</del>，因为 pagespeed 模拟了低速 4G 的访问速度，无论如何都无法提升大文件的加载速度。不过避免了多一次网络请求后，打开页面时的加载速度确实有提升。</p>
+<h2 id="参见"><a href="#参见" class="headerlink" title="参见"></a>参见</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://vercel.com/guides/how-can-i-improve-serverless-function-lambda-cold-start-performance-on-vercel">How can I improve function cold start performance on Vercel?</a></li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/JavaScript/" class="print-no-link">#JavaScript</a>
+      
+        <a href="/tags/Hexo/" class="print-no-link">#Hexo</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>基于 JavaScript 的 Hexo Fluid 主题 banner 随机背景图实现</div>
+      <div>https://zhul.in/2024/09/25/random-banner-backgroud-image-implement-for-hexo-fluid-with-javascript/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>竹林里有冰</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年9月25日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2024年10月21日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2024/10/12/use-gpt-to-review-waline-comments/" title="使用 GPT 对 waline 的评论进行审查">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">使用 GPT 对 waline 的评论进行审查</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/09/24/log-last-water-boiling-water-with-sunlogin-adapter-power-consumption/" title="使用向日葵智能插座 C2 用电记录推算宿舍上次烧水时间">
+                        <span class="hidden-mobile">使用向日葵智能插座 C2 用电记录推算宿舍上次烧水时间</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="waline"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#waline', function() {
+      Fluid.utils.createCssLink('https://registry.npmmirror.com/@waline/client/3.3.2/files/dist/waline.css')
+      Fluid.utils.createScript('https://registry.npmmirror.com/@waline/client/3.3.2/files/dist/waline.umd.js', function() {
+        var options = Object.assign(
+          {"serverURL":"https://waline.zhul.in","path":"window.location.pathname","meta":["nick","mail","link"],"requiredMeta":["nick"],"lang":"zh-CN","emoji":["https://registry.npmmirror.com/@waline/emojis/^1/files/weibo"],"dark":"html[data-user-color-scheme=\"dark\"]","wordLimit":0,"pageSize":10,"login":"disable","locale":{"placeholder":"快发个评论让我知道你在看（x"}},
+          {
+            el: '#waline',
+            path: window.location.pathname
+          }
+        )
+        Waline.init(options);
+        Fluid.utils.waitElementVisible('#waline .vcontent', () => {
+          var imgSelector = '#waline .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br /> <a href="https://notbyai.fyi/" target="_blank"><img style="max-height: 50px; margin: 10px" src=https://static.031130.xyz/uploads/2024/08/28/ae6dd98bdf60e.png alt="written by human, not by AI" /></a> <br /> <span>本网站由 <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img style="max-height: 50px;" loading="lazy" src="https://static.031130.xyz/uploads/2024/08/12/ba8d70971c408.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="又拍云 Logo" /></a> 提供 CDN 加速/云存储服务</span> <script> const url = window.location.href if (url.includes("theodorelobas.com") { window.location.href = "https://zhul.in" } </script>
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/4.6.0/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/tocbot/4.12.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/clipboard.js/2.0.6/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

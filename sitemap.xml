@@ -65,7 +65,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/10/01/bring-firefox-old-topbar-back/</loc>
+    <loc>https://zhul.in/2021/07/23/build-a-rpm-package-from-aur-with-archlinux/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -74,7 +74,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/07/23/build-a-rpm-package-from-aur-with-archlinux/</loc>
+    <loc>https://zhul.in/2021/10/01/bring-firefox-old-topbar-back/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -146,7 +146,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2023/02/01/deploy-siteproxy-with-caddy-on-vps/</loc>
+    <loc>https://zhul.in/2021/09/21/csdn-copied-my-article/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -155,7 +155,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/09/21/csdn-copied-my-article/</loc>
+    <loc>https://zhul.in/2023/02/01/deploy-siteproxy-with-caddy-on-vps/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -173,7 +173,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/12/03/dev-app-update-in-wolai/</loc>
+    <loc>https://zhul.in/2021/04/23/disable-firefox-nightmode-when-your-system-is-using-that/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -182,7 +182,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/04/23/disable-firefox-nightmode-when-your-system-is-using-that/</loc>
+    <loc>https://zhul.in/2021/12/03/dev-app-update-in-wolai/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -497,7 +497,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/05/30/share-xiaomi-bluetooth-mouse-on-both-windows-and-linux/</loc>
+    <loc>https://zhul.in/2023/08/04/static-webpage-deployment-for-a-beginner/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -506,7 +506,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2023/08/04/static-webpage-deployment-for-a-beginner/</loc>
+    <loc>https://zhul.in/2021/05/30/share-xiaomi-bluetooth-mouse-on-both-windows-and-linux/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -524,15 +524,6 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/07/15/try-ssh-connection-in-fedora-copr/</loc>
-    
-    <lastmod>2024-10-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zhul.in/2023/05/12/troubles-when-applying-azure-education/</loc>
     
     <lastmod>2024-10-21</lastmod>
@@ -542,7 +533,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/03/13/try-to-compose-download-links-of-deb-packages-in-apt-repository/</loc>
+    <loc>https://zhul.in/2024/07/15/try-ssh-connection-in-fedora-copr/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -552,6 +543,15 @@
   
   <url>
     <loc>https://zhul.in/2021/11/26/typora-and-me/</loc>
+    
+    <lastmod>2024-10-21</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2024/03/13/try-to-compose-download-links-of-deb-packages-in-apt-repository/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -1175,6 +1175,13 @@
   </url>
   
   <url>
+    <loc>https://zhul.in/tags/RPM-Package/</loc>
+    <lastmod>2024-10-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://zhul.in/tags/Firefox/</loc>
     <lastmod>2024-10-28</lastmod>
     <changefreq>weekly</changefreq>
@@ -1183,13 +1190,6 @@
   
   <url>
     <loc>https://zhul.in/tags/Bwrap/</loc>
-    <lastmod>2024-10-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/RPM-Package/</loc>
     <lastmod>2024-10-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1287,6 +1287,13 @@
   </url>
   
   <url>
+    <loc>https://zhul.in/tags/Blog/</loc>
+    <lastmod>2024-10-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://zhul.in/tags/OpenSource-Project/</loc>
     <lastmod>2024-10-28</lastmod>
     <changefreq>weekly</changefreq>
@@ -1308,13 +1315,6 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/tags/Blog/</loc>
-    <lastmod>2024-10-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://zhul.in/tags/electron/</loc>
     <lastmod>2024-10-28</lastmod>
     <changefreq>weekly</changefreq>
@@ -1329,14 +1329,14 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/tags/Experience/</loc>
+    <loc>https://zhul.in/tags/crontab/</loc>
     <lastmod>2024-10-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://zhul.in/tags/crontab/</loc>
+    <loc>https://zhul.in/tags/Experience/</loc>
     <lastmod>2024-10-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1462,14 +1462,14 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/tags/Apt/</loc>
+    <loc>https://zhul.in/tags/Casual-Talk/</loc>
     <lastmod>2024-10-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://zhul.in/tags/Casual-Talk/</loc>
+    <loc>https://zhul.in/tags/Apt/</loc>
     <lastmod>2024-10-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

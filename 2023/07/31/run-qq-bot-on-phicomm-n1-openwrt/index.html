@@ -1,0 +1,840 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="https://static.031130.xyz/favicon.ico">
+  <link rel="icon" href="https://static.031130.xyz/favicon.ico">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="竹林里有冰">
+  <meta name="keywords" content="博客, 技术, Fedora">
+  
+    <meta name="description" content="由于学校社团的招新需要，我写了一个依赖于 go-cqhttp 运行的 QQ Bot，并没有实现什么花里胡哨的功能，只是实现了关键词回复和新人入群时的欢迎语。因为没考虑后续维护的问题，代码也写得比较草，但毕竟是能跑。这么一个小型的程序并不会占用的多少的服务器资源，单独为这么一个 Bot 去开一台国内的 vps 似乎是有些大材小用了，刚好我手上有一台运行在 OpenWRT 上的 Phicomm N1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在运行OpenWRT的N1盒子上部署 QQBot">
+<meta property="og:url" content="https://zhul.in/2023/07/31/run-qq-bot-on-phicomm-n1-openwrt/index.html">
+<meta property="og:site_name" content="竹林里有冰的博客">
+<meta property="og:description" content="由于学校社团的招新需要，我写了一个依赖于 go-cqhttp 运行的 QQ Bot，并没有实现什么花里胡哨的功能，只是实现了关键词回复和新人入群时的欢迎语。因为没考虑后续维护的问题，代码也写得比较草，但毕竟是能跑。这么一个小型的程序并不会占用的多少的服务器资源，单独为这么一个 Bot 去开一台国内的 vps 似乎是有些大材小用了，刚好我手上有一台运行在 OpenWRT 上的 Phicomm N1">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-07-30T20:11:31.000Z">
+<meta property="article:modified_time" content="2023-10-28T17:48:04.000Z">
+<meta property="article:author" content="竹林里有冰">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Bot">
+<meta property="article:tag" content="Network">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>在运行OpenWRT的N1盒子上部署 QQBot - 竹林里有冰的博客</title>
+
+  <link  rel="stylesheet" href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/4.6.0/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-y/hint.css/2.6.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"zhul.in","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<!-- hexo injector head_end start --><script async defer data-website-id="5346b89b-f4bf-4593-971d-1f41a1118bc1" src="/custom.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/rss.xml" title="竹林里有冰的博客" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>竹林里有冰的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-books"></i>
+                <span>其他</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/rss.xml" target="_self">
+                    <i class="iconfont icon-rss"></i>
+                    <span>rss订阅</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/collections/" target="_self">
+                    <i class="iconfont icon-bookmark-fill"></i>
+                    <span>收藏</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="https://notes.5435486.xyz/" target="_self">
+                    <i class="iconfont icon-book"></i>
+                    <span>流水账</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="https://zhul.in/donate" target="_self">
+                    <i class="iconfont icon-qrcode"></i>
+                    <span>给我打钱</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/null') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="在运行OpenWRT的N1盒子上部署 QQBot"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-07-31 04:11" pubdate>
+          2023年7月31日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          1.3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          7 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">在运行OpenWRT的N1盒子上部署 QQBot</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    <!-- compatible with older versions-->
+                    本文最后更新于：2023年10月29日 凌晨
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <p>由于学校社团的招新需要，我写了一个依赖于 go-cqhttp 运行的 QQ Bot，并没有实现什么花里胡哨的功能，只是实现了关键词回复和新人入群时的欢迎语。因为没考虑后续维护的问题，代码也写得比较草，但毕竟是能跑。这么一个小型的程序并不会占用的多少的服务器资源，单独为这么一个 Bot 去开一台国内的 vps 似乎是有些大材小用了，刚好我手上有一台运行在 OpenWRT 上的 Phicomm N1 盒子，反正也是 Linux 系统，便打算拿来挂 QQ Bot。</p>
+<h2 id="安装-JDK"><a href="#安装-JDK" class="headerlink" title="安装 JDK"></a>安装 JDK</h2><p>由于腾讯近几个月对于 Bot 风控非常严格，所以不得不采用 SignServer 项目 <a target="_blank" rel="noopener" href="https://github.com/fuqiuluo/unidbg-fetch-qsign">fuqiuluo/unidbg-fetch-qsign</a> 来确保 Bot 账号不会被风控一次保证 Bot 运行的稳定性。而这个项目又是使用 Java 开发的，因此需要先安装 JDK/JRE。但 OpenWRT 的开发者可能并没有考虑到在路由器设备上运行 Java 程序的需求，因此 OpenWRT 的源里面是没有预先打包 JDK 的，因此我们需要额外安装。我直接 google 搜索了 <code>install java on openwrt</code> 的关键词，在 Github 找到了这个脚本: <a target="_blank" rel="noopener" href="https://gist.github.com/simonswine/64773a80e748f36615e3251234f29d1d%E3%80%82%E4%BD%86%E5%BE%88%E9%81%97%E6%86%BE%EF%BC%8C%E4%BB%A3%E7%A0%81%E8%B7%91%E4%B8%8D%E8%B5%B7%E6%9D%A5%EF%BC%8C%E4%B8%8B%E8%BD%BD%E6%97%B6%E6%8F%90%E7%A4%BA">https://gist.github.com/simonswine/64773a80e748f36615e3251234f29d1d。但很遗憾，代码跑不起来，下载时提示</a> 404。于是我打开脚本细细一看，脚本中 jdk 的版本号和设备的架构均需要改动。具体改动如下:</p>
+<div class="code-wrapper"><pre><code class="hljs diff"><span class="hljs-deletion">- REVISION=8.212.04-r0</span>
+<span class="hljs-addition">+ REVISION=8.302.08-r1</span>
+# 版本号请自行去仓库内翻最新的
+......
+<span class="hljs-deletion">- URL=http://dl-cdn.alpinelinux.org/alpine/v3.10/community/armv7/</span>
+<span class="hljs-addition">+ URL=http://dl-cdn.alpinelinux.org/alpine/v3.14/community/aarch64/</span>
+......
+<span class="hljs-deletion">- # verify packages</span>
+<span class="hljs-deletion">- sha256sum -c &lt;&lt;EOF</span>
+<span class="hljs-deletion">- e2fce9ee7348e9322c542206c3c3949e40690716d65e9f0e44dbbfca95d59d8c  openjdk8-8.212.04-r0.apk</span>
+<span class="hljs-deletion">- 26ad786ff1ebeeb7cd24abee10bc56211a026a2d871cf161bb309563e1fcbabc  openjdk8-jre-8.212.04-r0.apk</span>
+<span class="hljs-deletion">- 947d5f72ed2dc367c97d1429158913c9366f9c6ae01b7311dd8546b10ded8743  openjdk8-jre-base-- 8.212.04-r0.apk</span>
+<span class="hljs-deletion">- c6a65402bf0a7051c60b45e1c6a8f4277a68a8b7e807078f20db17e0233dea8e  openjdk8-jre-lib-8.212.04-r0.apk</span>
+<span class="hljs-deletion">- EOF</span>
+# 我这里直接将 sha256 校验给删除了，有兴趣可以自己去更新这几个文件的文件名和其对应的哈希值</code></pre></div>
+
+<p>随后 <code>chmod +x</code> 授予脚本可执行权限后直接执行，我们就将 alpine linux 上的 openjdk 成功解包并安装到了我们的 OpenWRT 中，我们只需要配置好环境变量即可完成安装。但我又比较懒，我看见 SignServer 的启动脚本里是可以通过读取 <code>$JAVA_HOME</code> 来获取 Java 二进制可执行文件的代码逻辑，于是我便在每次启动 SignServer 脚本前提前执行 <code>export JAVA_HOME=/opt/java-1.8-openjdk</code> 即可。</p>
+<h2 id="安装-screen"><a href="#安装-screen" class="headerlink" title="安装 screen"></a>安装 screen</h2><p>相比起前面 JDK 的安装，这一步 screen 的安装反而没有那么麻烦，<a target="_blank" rel="noopener" href="https://openwrt.org/packages/pkgdata/screen">在最新版本的 OpenWRT 源中，screen 已经被包括进去了</a>，我们直接把 OpenWRT 换好源，从源里就可以安装。</p>
+<div class="code-wrapper"><pre><code class="hljs bash">opkg update
+opkg install screen</code></pre></div>
+
+<h2 id="下载-fixed-版本的-go-cqhttp"><a href="#下载-fixed-版本的-go-cqhttp" class="headerlink" title="下载 fixed 版本的 go-cqhttp"></a>下载 fixed 版本的 go-cqhttp</h2><p>由于 SignServer 更新，在其请求中多添加了 key 的参数要求，导致原版 go-cqhttp 的最新 release 中释出的二进制文件无法适配最新版的 SignServer，我暂时选用了一个<a target="_blank" rel="noopener" href="https://github.com/tomato-aoarasi/go-cqhttp-1.1.0-sign-fixed/">修复了这个问题的 fork</a> 去运行 Bot。下载到 OpenWRT 后记得也要授予可执行文件。</p>
+<h2 id="安装-Python-脚本中所需要使用到的库"><a href="#安装-Python-脚本中所需要使用到的库" class="headerlink" title="安装 Python 脚本中所需要使用到的库"></a>安装 Python 脚本中所需要使用到的库</h2><p>OpenWRT 自带了 python 和 pip，这让我很欣慰。直接使用 pip 安装 flask 和 xlrd 等库即可，完全没有难度。</p>
+<h2 id="运行-SignServer"><a href="#运行-SignServer" class="headerlink" title="运行 SignServer"></a>运行 SignServer</h2><p>这一步很简单，将原项目的 Release 下载下来解压后上传到 OpenWRT 的某个路径后，开个 screen 窗口，设置好 JAVA_HOME 变量后再去调用 SignServer 中自带的 shell 脚本即可</p>
+<h2 id="运行-go-cqhttp"><a href="#运行-go-cqhttp" class="headerlink" title="运行 go-cqhttp"></a>运行 go-cqhttp</h2><p>这一步也很简单，得益于 go 静态链接的特性，我们不需要为 go-cqhttp 安装任何额外的依赖就可以执行 Release 中的二进制文件，直接将我们在 PC 上登录好的 session、配置好的 device.json、config.yml 等文件上传到 N1 ，开个 screen 窗口运行即可。</p>
+<h2 id="运行主程序"><a href="#运行主程序" class="headerlink" title="运行主程序"></a>运行主程序</h2><p>这个没什么好讲的，同样是开个 screen 窗口运行 <code>python main.py</code> 的事情</p>
+<p>python 代码如下:</p>
+<div class="code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">from</span> flask <span class="hljs-keyword">import</span> Flask,request
+<span class="hljs-keyword">import</span> requests
+<span class="hljs-keyword">import</span> xlrd
+
+<span class="hljs-comment"># 读取 xls 中的关键词以及回应语句，将其加载到 dict 数据结构中</span>
+_data2 = xlrd.open_workbook(<span class="hljs-string">&#x27;/root/8yue222.xls&#x27;</span>)
+main_table2 = _data2.sheets()[<span class="hljs-number">0</span>]
+key_lst2 = main_table2.col_values(<span class="hljs-number">0</span>)[<span class="hljs-number">1</span>:]
+value_lst2 = main_table2.col_values(<span class="hljs-number">1</span>)[<span class="hljs-number">1</span>:]
+final_dict = <span class="hljs-built_in">dict</span>(<span class="hljs-built_in">zip</span>(key_lst2,value_lst2))
+<span class="hljs-comment"># 读取第二份 xls，并对相同的关键词做覆盖</span>
+_data = xlrd.open_workbook(<span class="hljs-string">&#x27;/root/daihao.xls&#x27;</span>)
+main_table = _data.sheets()[<span class="hljs-number">0</span>]
+key_lst = main_table.col_values(<span class="hljs-number">4</span>)[<span class="hljs-number">1</span>:]
+key_lst = [<span class="hljs-built_in">str</span>(<span class="hljs-built_in">int</span>(item)) <span class="hljs-keyword">if</span> <span class="hljs-built_in">type</span>(item) == <span class="hljs-built_in">float</span> <span class="hljs-keyword">else</span> item <span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> key_lst <span class="hljs-keyword">if</span> item != <span class="hljs-string">&#x27;&#x27;</span>]
+key_lst.remove(<span class="hljs-string">&#x27;Gary&#x27;</span>)
+value_lst = main_table.col_values(<span class="hljs-number">5</span>)[<span class="hljs-number">1</span>:]
+value_lst = [<span class="hljs-built_in">str</span>(<span class="hljs-built_in">int</span>(item)) <span class="hljs-keyword">if</span> <span class="hljs-built_in">type</span>(item) == <span class="hljs-built_in">float</span> <span class="hljs-keyword">else</span> item <span class="hljs-keyword">for</span> item <span class="hljs-keyword">in</span> value_lst <span class="hljs-keyword">if</span> item != <span class="hljs-string">&#x27;&#x27;</span>]
+final_dict.update(<span class="hljs-built_in">dict</span>(<span class="hljs-built_in">zip</span>(key_lst,value_lst)))
+
+app = Flask(__name__)
+<span class="hljs-keyword">class</span> <span class="hljs-title class_">API</span>:
+<span class="hljs-meta">        @staticmethod</span>
+        <span class="hljs-keyword">def</span> <span class="hljs-title function_">send</span>(<span class="hljs-params">message</span>):
+                url = <span class="hljs-string">&quot;http://127.0.0.1:5700/send_msg&quot;</span>
+                data = request.get_json()
+                params = &#123;
+                        <span class="hljs-string">&quot;group_id&quot;</span>:data[<span class="hljs-string">&#x27;group_id&#x27;</span>],
+                        <span class="hljs-string">&quot;message&quot;</span>:message
+                &#125;
+                requests.get(url,params=params)
+
+<span class="hljs-meta">@app.route(<span class="hljs-params"><span class="hljs-string">&#x27;/&#x27;</span>, methods=[<span class="hljs-string">&quot;POST&quot;</span>]</span>)</span>
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">post_data</span>():
+    data = request.get_json()
+    <span class="hljs-built_in">print</span>(data)
+    <span class="hljs-keyword">if</span> data[<span class="hljs-string">&#x27;post_type&#x27;</span>] == <span class="hljs-string">&#x27;message&#x27;</span>:
+        message = data[<span class="hljs-string">&#x27;message&#x27;</span>]
+        messagex()
+    <span class="hljs-keyword">elif</span> data[<span class="hljs-string">&#x27;post_type&#x27;</span>] == <span class="hljs-string">&#x27;notice&#x27;</span> <span class="hljs-keyword">and</span> data[<span class="hljs-string">&#x27;notice_type&#x27;</span>] == <span class="hljs-string">&#x27;group_increase&#x27;</span>:
+        welcome()
+    <span class="hljs-keyword">else</span>:
+        <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;忽略消息&quot;</span>)
+
+    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;OK&quot;</span>
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">messagex</span>():
+        data = request.get_json()
+        message = data[<span class="hljs-string">&#x27;message&#x27;</span>].replace(<span class="hljs-string">&#x27;％&#x27;</span>,<span class="hljs-string">&#x27;%&#x27;</span>)
+        <span class="hljs-keyword">for</span> key <span class="hljs-keyword">in</span> final_dict.keys():
+                <span class="hljs-keyword">if</span> key == message:
+                        API.send(final_dict[key])
+                        <span class="hljs-keyword">break</span>
+
+<span class="hljs-keyword">def</span> <span class="hljs-title function_">welcome</span>():
+        data = request.get_json()
+        group_id = data[<span class="hljs-string">&#x27;group_id&#x27;</span>]
+        user_id = data[<span class="hljs-string">&#x27;user_id&#x27;</span>]
+        API.send(<span class="hljs-string">&quot;[CQ:at,qq=&#123;&#125;] 欢迎来到浙江工业大学，精弘网络欢迎各位的到来！如果想进一步了解我们，请戳精弘首页：www.jh.zjut.edu.cn\n输入 菜单 获取精小弘机器人的菜单 哦！\n请及时修改群名片\n格式如下：姓名+专业/大类&quot;</span>.<span class="hljs-built_in">format</span>(user_id))
+
+<span class="hljs-keyword">if</span> __name__ == <span class="hljs-string">&#x27;__main__&#x27;</span>:
+    app.run(host=<span class="hljs-string">&#x27;0.0.0.0&#x27;</span>, port=<span class="hljs-number">5701</span>)</code></pre></div>
+
+<blockquote>
+<p> 参考资料: </p>
+<p><a target="_blank" rel="noopener" href="https://gist.github.com/simonswine/64773a80e748f36615e3251234f29d1d">https://gist.github.com/simonswine/64773a80e748f36615e3251234f29d1d</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_64126275/article/details/128586651">https://blog.csdn.net/qq_64126275/article/details/128586651</a></p>
+</blockquote>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Linux/" class="print-no-link">#Linux</a>
+      
+        <a href="/tags/Bot/" class="print-no-link">#Bot</a>
+      
+        <a href="/tags/Network/" class="print-no-link">#Network</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>在运行OpenWRT的N1盒子上部署 QQBot</div>
+      <div>https://zhul.in/2023/07/31/run-qq-bot-on-phicomm-n1-openwrt/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>竹林里有冰</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年7月31日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2023年10月29日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/08/04/static-webpage-deployment-for-a-beginner/" title="从零开始的静态网页部署（到个人云服务器）">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">从零开始的静态网页部署（到个人云服务器）</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/06/24/connect-china-mobile-with-router-in-zjut-dormitory/" title="在浙工大宿舍使用路由器连接移动网络(校园网)">
+                        <span class="hidden-mobile">在浙工大宿舍使用路由器连接移动网络(校园网)</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="waline"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#waline', function() {
+      Fluid.utils.createCssLink('https://registry.npmmirror.com/@waline/client/3.3.2/files/dist/waline.css')
+      Fluid.utils.createScript('https://registry.npmmirror.com/@waline/client/3.3.2/files/dist/waline.umd.js', function() {
+        var options = Object.assign(
+          {"serverURL":"https://waline.zhul.in","path":"window.location.pathname","meta":["nick","mail","link"],"requiredMeta":["nick"],"lang":"zh-CN","emoji":["https://registry.npmmirror.com/@waline/emojis/^1/files/weibo"],"dark":"html[data-user-color-scheme=\"dark\"]","wordLimit":0,"pageSize":10,"login":"disable","locale":{"placeholder":"快发个评论让我知道你在看（x"}},
+          {
+            el: '#waline',
+            path: window.location.pathname
+          }
+        )
+        Waline.init(options);
+        Fluid.utils.waitElementVisible('#waline .vcontent', () => {
+          var imgSelector = '#waline .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br /> <a href="https://notbyai.fyi/" target="_blank"><img style="max-height: 50px; margin: 10px" src=https://static.031130.xyz/uploads/2024/08/28/ae6dd98bdf60e.png alt="written by human, not by AI" /></a> <br /> <span>本网站由 <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img style="max-height: 50px;" loading="lazy" src="https://static.031130.xyz/uploads/2024/08/12/ba8d70971c408.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="又拍云 Logo" /></a> 提供 CDN 加速/云存储服务</span> <script> const url = window.location.href if (url.includes("theodorelobas.com") { window.location.href = "https://zhul.in" } </script>
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/4.6.0/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/tocbot/4.12.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/clipboard.js/2.0.6/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

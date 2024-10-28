@@ -1,0 +1,764 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="https://static.031130.xyz/favicon.ico">
+  <link rel="icon" href="https://static.031130.xyz/favicon.ico">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="竹林里有冰">
+  <meta name="keywords" content="博客, 技术, Fedora">
+  
+    <meta name="description" content="本文中，笔者通过 github api 获取最新的 commit_id ，以一种曲线救国的方式成功为 rpm 打下了一个 -git 包。 On Archlinux用过 AUR 的 Arch 用户应该知道，makepkg 支持 “-git” 包。当我们执行 makepkg 时，PKGBUILD 中的 pkgver 函数会自动被运行，并将输出的结果作为本次打包的版本号。这是一个非常棒的设计，我们不需">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何打出一个「-git」的rpm包">
+<meta property="og:url" content="https://zhul.in/2022/02/07/how-to-package-a-git-rpm-package/index.html">
+<meta property="og:site_name" content="竹林里有冰的博客">
+<meta property="og:description" content="本文中，笔者通过 github api 获取最新的 commit_id ，以一种曲线救国的方式成功为 rpm 打下了一个 -git 包。 On Archlinux用过 AUR 的 Arch 用户应该知道，makepkg 支持 “-git” 包。当我们执行 makepkg 时，PKGBUILD 中的 pkgver 函数会自动被运行，并将输出的结果作为本次打包的版本号。这是一个非常棒的设计，我们不需">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-02-07T02:23:29.000Z">
+<meta property="article:modified_time" content="2022-08-22T15:42:13.000Z">
+<meta property="article:author" content="竹林里有冰">
+<meta property="article:tag" content="Fedora">
+<meta property="article:tag" content="RPM Package">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>如何打出一个「-git」的rpm包 - 竹林里有冰的博客</title>
+
+  <link  rel="stylesheet" href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/4.6.0/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-y/hint.css/2.6.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"zhul.in","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<!-- hexo injector head_end start --><script async defer data-website-id="5346b89b-f4bf-4593-971d-1f41a1118bc1" src="/custom.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/rss.xml" title="竹林里有冰的博客" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>竹林里有冰的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-books"></i>
+                <span>其他</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/rss.xml" target="_self">
+                    <i class="iconfont icon-rss"></i>
+                    <span>rss订阅</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/collections/" target="_self">
+                    <i class="iconfont icon-bookmark-fill"></i>
+                    <span>收藏</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="https://notes.5435486.xyz/" target="_self">
+                    <i class="iconfont icon-book"></i>
+                    <span>流水账</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="https://zhul.in/donate" target="_self">
+                    <i class="iconfont icon-qrcode"></i>
+                    <span>给我打钱</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/null') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="如何打出一个「-git」的rpm包"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2022-02-07 10:23" pubdate>
+          2022年2月7日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          1.1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          6 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">如何打出一个「-git」的rpm包</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    <!-- compatible with older versions-->
+                    本文最后更新于：2022年8月22日 晚上
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <p> 本文中，笔者通过 github api 获取最新的 commit_id ，以一种曲线救国的方式成功为 rpm 打下了一个 <code>-git</code> 包。</p>
+<h2 id="On-Archlinux"><a href="#On-Archlinux" class="headerlink" title="On Archlinux"></a>On Archlinux</h2><p>用过 AUR 的 Arch 用户应该知道，makepkg 支持 “-git” 包。当我们执行 makepkg 时，PKGBUILD 中的 <code>pkgver</code> 函数会自动被运行，并将输出的结果作为本次打包的版本号。这是一个非常棒的设计，我们不需要去手动更新 PKGBUILD，就可以直接从 git 服务区拉取最新的 master 分支编译打包，对于跟进开发进度而言非常方便。</p>
+<p>一般来说，一个 <code>-git</code> 包的版本号会分成 2~4 个部分，最为核心的是 <code>count</code> 和 <code>commit_id</code>：<code>count</code>用于记录这是第几次提交，通过提交的次数作为版本号的靠前部分可以帮助包管理器比较版本号的新旧，比如第21次提交的代码一定比第18次的更加新，而21也正好比18大，包管理器也就凭借着这个数字来保证其可以在用户在更新的时候为用户选择一个更新版本的包；而 <code>commit_id</code>则可以帮助人类更快定位这个包是在哪一次代码提交以后编译的，以帮助 开发者/用户 定位问题。</p>
+<h2 id="On-Fedora"><a href="#On-Fedora" class="headerlink" title="On Fedora"></a>On Fedora</h2><p>然而，这个思路在 rpm 上似乎无法实现。rpmbuild 执行的时候会事先根据版本号在 BUILDROOT 路径下创造一个 <code>%&#123;name&#125;-%&#123;version&#125;-%&#123;release&#125;-%&#123;arch&#125;</code>的目录，如此一来，就必须先确定版本号，无法像 PKGBUILD 那样使用一个 pkgver 的函数去自动更新版本号。此外，rpm 似乎专注于软件包的 Reproducibility，也就是希望拿到了指导 rpmbuild 打包的 specfile 以后打出一个相同包的能力，因此，使用同一份 specfile 在不同时间打出一个不同包的这种行为似乎并不符合 Fedora/Redhat 的哲学，所以我们怕是等不到 rpm 支持这个功能的那一天了。</p>
+<h2 id="Turn-of-events"><a href="#Turn-of-events" class="headerlink" title="Turn of events"></a>Turn of events</h2><p>当然，这也并非不可能完成的任务，在 <a target="_blank" rel="noopener" href="https://yanqiyu.info/">西木野羰基</a> 的指引下，我在 Fedora Docs 找到了<a target="_blank" rel="noopener" href="https://docs.fedoraproject.org/en-US/packaging-guidelines/SourceURL/#_branch_example">对于某个 Branch 的打包样版</a>。其实也就是直接从 github 下载 master 分支的 master.tar.gz 压缩包来获取最新的源码，这样就确保了每一次 rpmbuild 的时候都能获取最新的源码。接下来需要处理的就是版本号的问题。</p>
+<h2 id="Sad-Story"><a href="#Sad-Story" class="headerlink" title="Sad Story"></a>Sad Story</h2><p>很可惜，master.tar.gz 压缩包中并不包括 <code>.git</code> 文件，我们无法通过 <code>git rev-list --count HEAD</code> 来获取 <code>count</code> 计数，此外，最新的 <code>commit_id</code> 我们也不得而知。即使我们知道这些参数，也无法在 rpmbuild 执行之前自动把这些参数填进 specfile 中。</p>
+<h2 id="Improvement"><a href="#Improvement" class="headerlink" title="Improvement"></a>Improvement</h2><p>好在天无绝人之路，在 Liu Sen 的 <a target="_blank" rel="noopener" href="https://forum.suse.org.cn/t/topic/13626">RPM 中宏的简单介绍</a> 一文中发现宏其实也可以类似 bash 中的 <code>$()</code> 一样定义成系统运行某些命令后的结果，通过仿写 copr 上 <em>atim/fractal</em> 的 <a target="_blank" rel="noopener" href="https://download.copr.fedorainfracloud.org/results/atim/fractal/fedora-35-x86_64/03000082-fractal-master/fractal-master.spec">specfile</a> 定义了下面两个宏。</p>
+<div class="code-wrapper"><pre><code class="hljs mel">%global timenow %(echo $(<span class="hljs-keyword">date</span> +%Y%m%d.%H%M))
+%global commit_short_id %(api_result=$(curl -s https:<span class="hljs-comment">//api.github.com/repos/&lt;username&gt;/&lt;reponame&gt;/branches/master | head -n 4 | tail -n 1); echo $&#123;api_result:12:7&#125;)</span></code></pre></div>
+
+<p>版本号就可以直接写成 <code>%&#123;timenow&#125;.%&#123;commit_id_short&#125;</code></p>
+<ul>
+<li><p><code>%&#123;timenow&#125;</code> 是直接通过运行系统的 date 命令获得一个精确到分钟的时间来当作 <code>count</code> 给 dnf 判断版本号大小使用</p>
+</li>
+<li><p><code>%&#123;commit_id_short&#125;</code> 从 api.github.com 获取到该仓库最新的 commit 号，配合粗制滥造的 shell 命令做切片，提取前7 位，帮助用户和开发者快速定位源码版本使用。当然，也可以选择直接使用 <code>jq</code> 作为 json 的解释器，不过 copr 大概率没有预装，生成 srpm 的时候估计就会报错。</p>
+</li>
+</ul>
+<h2 id="Review"><a href="#Review" class="headerlink" title="Review"></a>Review</h2><p>至此，我们成功解决了在 rpm 上打 <code>-git</code> 包的问题，不过仍然有以下缺点</p>
+<ul>
+<li>仅支持 github 上的项目，对于其他的 git 托管服务商还需要去查阅他们的 api 文档</li>
+<li>粗制滥造的 shell 命令可能不足以应对以后的 github api 变更</li>
+<li>使用了精确到分钟的时间作为计数器，导致版本号过长</li>
+<li>使用 copr 打包的时候，有概率出现 srpm 与 rpm 之间版本号出现分钟级的差异</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Fedora/" class="print-no-link">#Fedora</a>
+      
+        <a href="/tags/RPM-Package/" class="print-no-link">#RPM Package</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>如何打出一个「-git」的rpm包</div>
+      <div>https://zhul.in/2022/02/07/how-to-package-a-git-rpm-package/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>竹林里有冰</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2022年2月7日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2022年8月22日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/03/06/run-rpmbuild-with-github-action/" title="使用 Github Action 跑 rpmbuild">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">使用 Github Action 跑 rpmbuild</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/01/19/the-common-software-hidden-in-mirrors/" title="雪藏在开源镜像站点中的那些常用却不为人知的软件">
+                        <span class="hidden-mobile">雪藏在开源镜像站点中的那些常用却不为人知的软件</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="waline"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#waline', function() {
+      Fluid.utils.createCssLink('https://registry.npmmirror.com/@waline/client/3.3.2/files/dist/waline.css')
+      Fluid.utils.createScript('https://registry.npmmirror.com/@waline/client/3.3.2/files/dist/waline.umd.js', function() {
+        var options = Object.assign(
+          {"serverURL":"https://waline.zhul.in","path":"window.location.pathname","meta":["nick","mail","link"],"requiredMeta":["nick"],"lang":"zh-CN","emoji":["https://registry.npmmirror.com/@waline/emojis/^1/files/weibo"],"dark":"html[data-user-color-scheme=\"dark\"]","wordLimit":0,"pageSize":10,"login":"disable","locale":{"placeholder":"快发个评论让我知道你在看（x"}},
+          {
+            el: '#waline',
+            path: window.location.pathname
+          }
+        )
+        Waline.init(options);
+        Fluid.utils.waitElementVisible('#waline .vcontent', () => {
+          var imgSelector = '#waline .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br /> <a href="https://notbyai.fyi/" target="_blank"><img style="max-height: 50px; margin: 10px" src=https://static.031130.xyz/uploads/2024/08/28/ae6dd98bdf60e.png alt="written by human, not by AI" /></a> <br /> <span>本网站由 <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img style="max-height: 50px;" loading="lazy" src="https://static.031130.xyz/uploads/2024/08/12/ba8d70971c408.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="又拍云 Logo" /></a> 提供 CDN 加速/云存储服务</span> <script> const url = window.location.href if (url.includes("theodorelobas.com") { window.location.href = "https://zhul.in" } </script>
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/4.6.0/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/tocbot/4.12.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/clipboard.js/2.0.6/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
