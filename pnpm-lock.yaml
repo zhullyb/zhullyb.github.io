@@ -47,9 +47,6 @@ importers:
       hexo-server:
         specifier: ^2.0.0
         version: 2.0.0
-      hexo-theme-fluid:
-        specifier: ^1.9.8
-        version: 1.9.8(nunjucks@3.2.4(chokidar@3.6.0))
 
 packages:
 
@@ -494,12 +491,6 @@ packages:
   hexo-server@2.0.0:
     resolution: {integrity: sha512-GnxCU0hjepjmqMENcKOKxpzOajb9YrjQczWsZPXU25l5Ze+M9KJLSVljIRFR+ikDRIPDtXaUY2WgYrWPbNEGfg==}
     engines: {node: '>=10.13.0'}
-
-  hexo-theme-fluid@1.9.8:
-    resolution: {integrity: sha512-+HUx8xrBA2WWgJYMhlCy5L69LLgAL8PjsLIyIbh81Ftc0J71V69K04Zqv270VjRSs38rx9djeQPrgidtMdnh3g==}
-    engines: {node: '>=8.10.0'}
-    peerDependencies:
-      nunjucks: ^3.0.0
 
   hexo-util@0.6.3:
     resolution: {integrity: sha512-zPxaqCWZz3/25SAB4FlrRtWktJ+Pr+vBiv/nyHpXKgXPt1m70liViKlRwWLqDmRjJ72x6/k4qCEeXHajvcGHUw==}
@@ -1505,10 +1496,6 @@ snapshots:
       serve-static: 1.15.0
     transitivePeerDependencies:
       - supports-color
-
-  hexo-theme-fluid@1.9.8(nunjucks@3.2.4(chokidar@3.6.0)):
-    dependencies:
-      nunjucks: 3.2.4(chokidar@3.6.0)
 
   hexo-util@0.6.3:
     dependencies:
