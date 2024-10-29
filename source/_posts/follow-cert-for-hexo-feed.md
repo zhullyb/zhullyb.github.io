@@ -101,3 +101,7 @@ feed:
 
 （说起来，这两个小改动一改，其实完全可以上传 npmjs.com 作为一个新的插件，不过我有点懒了）
 
+***
+
+文末附一个 follow 邀请码: <span class="heimu">6O0oBazB9s</span>
+
