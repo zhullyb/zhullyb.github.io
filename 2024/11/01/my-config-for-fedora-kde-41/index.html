@@ -21,15 +21,15 @@
   <meta name="author" content="竹林里有冰">
   <meta name="keywords" content="博客, 技术, Fedora">
   
-    <meta name="description" content="前两天给自己的 N100 小主机重装成了最近发布的 Fedora 41 ( KDE )，也是花了不少时间把整个系统调成自己熟悉的样子，因此开一篇博客记录一下。以下仅为我个人的 HomeServer 小主机使用，不适用于  换官方源我这里比较适合用上交的源，直接参考他们的文档。 sudo sed -e &amp;#x27;s&#x2F;^metalink&#x3D;&#x2F;#metalink&#x3D;&#x2F;g&amp;#x27; -e &amp;#x27;s">
+    <meta name="description" content="前两天给自己的 N100 小主机重装成了最近发布的 Fedora 41 ( KDE )，也是花了不少时间把整个系统调成自己熟悉的样子，因此开一篇博客记录一下。以下仅为我个人的 HomeServer 小主机使用，不具有普适性。  换官方源我这里比较适合用上交的源，直接参考他们的文档。 sudo sed -e &amp;#x27;s&#x2F;^metalink&#x3D;&#x2F;#metalink&#x3D;&#x2F;g&amp;#x27; -e &amp;#x2">
 <meta property="og:type" content="article">
 <meta property="og:title" content="给家里云装上 Fedora 41 KDE 后，我是如何配置的">
 <meta property="og:url" content="https://zhul.in/2024/11/01/my-config-for-fedora-kde-41/index.html">
 <meta property="og:site_name" content="竹林里有冰的博客">
-<meta property="og:description" content="前两天给自己的 N100 小主机重装成了最近发布的 Fedora 41 ( KDE )，也是花了不少时间把整个系统调成自己熟悉的样子，因此开一篇博客记录一下。以下仅为我个人的 HomeServer 小主机使用，不适用于  换官方源我这里比较适合用上交的源，直接参考他们的文档。 sudo sed -e &amp;#x27;s&#x2F;^metalink&#x3D;&#x2F;#metalink&#x3D;&#x2F;g&amp;#x27; -e &amp;#x27;s">
+<meta property="og:description" content="前两天给自己的 N100 小主机重装成了最近发布的 Fedora 41 ( KDE )，也是花了不少时间把整个系统调成自己熟悉的样子，因此开一篇博客记录一下。以下仅为我个人的 HomeServer 小主机使用，不具有普适性。  换官方源我这里比较适合用上交的源，直接参考他们的文档。 sudo sed -e &amp;#x27;s&#x2F;^metalink&#x3D;&#x2F;#metalink&#x3D;&#x2F;g&amp;#x27; -e &amp;#x2">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-11-01T15:35:08.000Z">
-<meta property="article:modified_time" content="2024-11-02T11:45:38.000Z">
+<meta property="article:modified_time" content="2024-11-02T11:52:18.000Z">
 <meta property="article:author" content="竹林里有冰">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="笔记">
@@ -284,7 +284,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          612 字
+          614 字
         
       </span>
     
@@ -348,7 +348,7 @@
               <div class="markdown-body">
                 
                 <blockquote>
-<p>前两天给自己的 N100 小主机重装成了最近发布的 Fedora 41 ( KDE )，也是花了不少时间把整个系统调成自己熟悉的样子，因此开一篇博客记录一下。以下仅为我个人的 HomeServer 小主机使用，不适用于</p>
+<p>前两天给自己的 N100 小主机重装成了最近发布的 Fedora 41 ( KDE )，也是花了不少时间把整个系统调成自己熟悉的样子，因此开一篇博客记录一下。以下仅为我个人的 HomeServer 小主机使用，不具有普适性。</p>
 </blockquote>
 <h2 id="换官方源"><a href="#换官方源" class="headerlink" title="换官方源"></a>换官方源</h2><p>我这里比较适合用上交的源，直接参考<a target="_blank" rel="noopener" href="https://mirrors.sjtug.sjtu.edu.cn/docs/fedora/linux">他们的文档</a>。</p>
 <div class="code-wrapper"><pre><code class="hljs bash"><span class="hljs-built_in">sudo</span> sed -e <span class="hljs-string">&#x27;s/^metalink=/#metalink=/g&#x27;</span> -e <span class="hljs-string">&#x27;s|^#baseurl=http://download.example/pub/|baseurl=https://mirror.sjtu.edu.cn/|g&#x27;</span> -i.bak /etc/yum.repos.d/&#123;fedora.repo,fedora-updates.repo&#125;</code></pre></div>
