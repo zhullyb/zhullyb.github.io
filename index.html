@@ -376,6 +376,56 @@
   <div class="row mx-auto index-card">
     
     
+    <article class="col-12 col-md-12 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2024/11/01/my-config-for-fedora-kde-41/" target="_self">
+          给家里云装上 Fedora 41 KDE 后，我是如何配置的
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt index-excerpt__noimg" href="/2024/11/01/my-config-for-fedora-kde-41/" target="_self">
+        <div>
+          前两天给自己的 N100 小主机重装成了最近发布的 Fedora 41 ( KDE )，也是花了不少时间把整个系统调成自己熟悉的样子，因此开一篇博客记录一下。以下仅为我个人的 HomeServer 小主机使用，不适用于  换官方源我这里比较适合用上交的源，直接参考他们的文档。 sudo sed -e &#x27;s/^metalink=/#metalink=/g&#x27; -e &#x27;s
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-11-01 23:35" pubdate>
+              2024-11-01
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Linux/">#Linux</a>
+            
+              <a href="/tags/%E7%AC%94%E8%AE%B0/">#笔记</a>
+            
+              <a href="/tags/Fedora/">#Fedora</a>
+            
+              <a href="/tags/HomeServer/">#HomeServer</a>
+            
+              <a href="/tags/Rustdesk/">#Rustdesk</a>
+            
+              <a href="/tags/KDE/">#KDE</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
       <div class="col-12 col-md-4 m-auto index-img">
         <a href="/2024/10/23/follow-cert-for-hexo-feed/" target="_self">
           <img src="https://static.031130.xyz/uploads/2024/10/24/a93fd67a5419d.png" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="为 Hexo 添加 follow 认证">
@@ -424,7 +474,13 @@
   <div class="row mx-auto index-card">
     
     
-    <article class="col-12 col-md-12 mx-auto index-info">
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2024/10/12/use-gpt-to-review-waline-comments/" target="_self">
+          <img src="https://static.031130.xyz/uploads/2024/11/01/d1b5a5c058a43.png" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="使用 GPT 对 waline 的评论进行审查">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
       <h2 class="index-header">
         
         <a href="/2024/10/12/use-gpt-to-review-waline-comments/" target="_self">
@@ -433,9 +489,9 @@
       </h2>
 
       
-      <a class="index-excerpt index-excerpt__noimg" href="/2024/10/12/use-gpt-to-review-waline-comments/" target="_self">
+      <a class="index-excerpt " href="/2024/10/12/use-gpt-to-review-waline-comments/" target="_self">
         <div>
-          前一阵子收到了这么一条来自 waline 的评论提醒。  New comment on 竹林里有冰的博客【网站名称】：竹林里有冰的博客【评论者昵称】：专业数据库【评论者邮箱】：&#x72;&#x61;&#107;&#x68;&#105;&#x72;&#97;&#110;&#105;&#x6a;&#104;&#x68;&#x67;&#x40;&#x67;&#x6d;&#97;&#x69;&#108;
+          前一阵子收到了这么一条来自 waline 的评论提醒。  New comment on 竹林里有冰的博客【网站名称】：竹林里有冰的博客【评论者昵称】：专业数据库【评论者邮箱】：&#114;&#97;&#107;&#104;&#x69;&#x72;&#x61;&#x6e;&#x69;&#106;&#x68;&#104;&#103;&#x40;&#x67;&#x6d;&#x61;&#105;&#x6c
         </div>
       </a>
 
@@ -536,6 +592,8 @@
         
           <div class="post-meta">
             <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Bot/">#Bot</a>
             
               <a href="/tags/Python/">#Python</a>
             
@@ -684,54 +742,6 @@
               <a href="/tags/CDN/">#CDN</a>
             
               <a href="/tags/%E5%9B%BE%E5%BA%8A/">#图床</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/2024/08/20/picbed-upload-script-and-image-migration/" target="_self">
-          自建图床小记四——上传脚本编写与图片迁移
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/2024/08/20/picbed-upload-script-and-image-migration/" target="_self">
-        <div>
-          前面三篇小记分别讲述了图床的整体架构、用 Workers 构建 Restful API 和 自动更新部署 SSL 证书，这一篇c处理由此带来的图片上传问题，主要是要为 Typora 编写自动上传脚本，并为博客原有的图片进行迁移。 自动上传脚本主要还是给 Typora 用，实现这种效果  #!/bin/bash  HOST=&quot;upload.example.com&quot; CDN_HOS
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2024-08-20 23:12" pubdate>
-              2024-08-20
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Linux/">#Linux</a>
-            
-              <a href="/tags/Network/">#Network</a>
-            
-              <a href="/tags/%E5%9B%BE%E5%BA%8A/">#图床</a>
-            
-              <a href="/tags/Shell-Script/">#Shell Script</a>
-            
-              <a href="/tags/Python/">#Python</a>
             
           </div>
         
