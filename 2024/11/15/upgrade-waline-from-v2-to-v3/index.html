@@ -1,0 +1,809 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="https://static.031130.xyz/favicon.ico">
+  <link rel="icon" href="https://static.031130.xyz/favicon.ico">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="竹林里有冰">
+  <meta name="keywords" content="博客, 技术, Fedora">
+  
+    <meta name="description" content="waline 更新到 V3 版本已经是九个月前的事情了，眼瞅着 hexo fluid 主题并没有带我更新的意思，我就打算自己更新到最新版，结果遇到了两个坑，写文供大家参考。  在 Hexo 目录下的 _config.fluid.yml 文件中找到 waline 的 cdn，将版本号指向最新版。 -  waline: https:&#x2F;&#x2F;registry.npmmirror.com&#x2F;@waline&#x2F;c">
+<meta property="og:type" content="article">
+<meta property="og:title" content="将博客从 waline v2 更新到 waline v3">
+<meta property="og:url" content="https://zhul.in/2024/11/15/upgrade-waline-from-v2-to-v3/index.html">
+<meta property="og:site_name" content="竹林里有冰的博客">
+<meta property="og:description" content="waline 更新到 V3 版本已经是九个月前的事情了，眼瞅着 hexo fluid 主题并没有带我更新的意思，我就打算自己更新到最新版，结果遇到了两个坑，写文供大家参考。  在 Hexo 目录下的 _config.fluid.yml 文件中找到 waline 的 cdn，将版本号指向最新版。 -  waline: https:&#x2F;&#x2F;registry.npmmirror.com&#x2F;@waline&#x2F;c">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://static.031130.xyz/uploads/2024/11/16/663e910db29b7.webp">
+<meta property="og:image" content="https://static.031130.xyz/uploads/2024/11/16/f6fbaa99a784e.webp">
+<meta property="og:image" content="https://static.031130.xyz/uploads/2024/11/16/c4487502542e5.webp">
+<meta property="og:image" content="https://static.031130.xyz/uploads/2024/11/16/d2cd564739120.webp">
+<meta property="og:image" content="https://static.031130.xyz/uploads/2024/11/16/d248ae2eac74c.webp">
+<meta property="og:image" content="https://static.031130.xyz/uploads/2024/11/16/c3875dcde1d97.webp">
+<meta property="article:published_time" content="2024-11-15T15:49:43.000Z">
+<meta property="article:modified_time" content="2024-11-15T18:02:30.000Z">
+<meta property="article:author" content="竹林里有冰">
+<meta property="article:tag" content="Python">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="waline">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://static.031130.xyz/uploads/2024/11/16/663e910db29b7.webp">
+  
+  
+  
+  <title>将博客从 waline v2 更新到 waline v3 - 竹林里有冰的博客</title>
+
+  <link  rel="stylesheet" href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/4.6.0/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-y/hint.css/2.6.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/heimu.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"zhul.in","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<!-- hexo injector head_end start --><script async defer data-website-id="5346b89b-f4bf-4593-971d-1f41a1118bc1" src="/custom.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/rss.xml" title="竹林里有冰的博客" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>竹林里有冰的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-books"></i>
+                <span>其他</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/rss.xml" target="_self">
+                    <i class="iconfont icon-rss"></i>
+                    <span>rss订阅</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/collections/" target="_self">
+                    <i class="iconfont icon-bookmark-fill"></i>
+                    <span>收藏</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="https://notes.5435486.xyz/" target="_self">
+                    <i class="iconfont icon-book"></i>
+                    <span>流水账</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="https://zhul.in/donate" target="_self">
+                    <i class="iconfont icon-qrcode"></i>
+                    <span>给我打钱</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/null') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="将博客从 waline v2 更新到 waline v3"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-11-15 23:49" pubdate>
+          2024年11月15日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          1.1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          6 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">将博客从 waline v2 更新到 waline v3</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    <!-- compatible with older versions-->
+                    本文最后更新于：2024年11月16日 凌晨
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <blockquote>
+<p>waline 更新到 V3 版本已经是九个月前的事情了，眼瞅着 hexo fluid 主题并没有带我更新的意思，我就打算自己更新到最新版，结果遇到了两个坑，写文供大家参考。</p>
+</blockquote>
+<p>在 Hexo 目录下的 <code>_config.fluid.yml</code> 文件中找到 waline 的 cdn，将版本号指向最新版。</p>
+<div class="code-wrapper"><pre><code class="hljs diff"><span class="hljs-deletion">-  waline: https://registry.npmmirror.com/@waline/client/2.15.8/files/dist/</span>
+<span class="hljs-addition">+  waline: https://registry.npmmirror.com/@waline/client/^3/files/dist/</span></code></pre></div>
+
+<h2 id="插曲一——waline-不加载"><a href="#插曲一——waline-不加载" class="headerlink" title="插曲一——waline 不加载"></a>插曲一——waline 不加载</h2><p>再次部署博客，我遇到了第一个坑：waline 没有在页面上正常加载。</p>
+<p>打开控制台一看，报错给得很明白：<code>Waline is not defined</code></p>
+<p><img src="https://static.031130.xyz/uploads/2024/11/16/663e910db29b7.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
+<p>根据 <a target="_blank" rel="noopener" href="https://github.com/walinejs/waline/issues/2483">issue#2483</a>，</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://unpkg.com/@waline/client@3.1.3/dist/waline.umd.js">https://unpkg.com/@waline/client@3.1.3/dist/waline.umd.js</a> 用这个地址</p>
+<p>本质是 …… 没有使用 ES Module 的加载方式 <code>&lt;script type=&quot;module&quot;&gt;</code>，所以需要使用 UMD 的模块</p>
+</blockquote>
+<p>那么按照正常的脑回路，我们应该修改主题中的引入 waline 部分的 js 文件，把针对 waline.js 的引用改成 waline.umd.js，具体的修改处<a target="_blank" rel="noopener" href="https://github.com/fluid-dev/hexo-theme-fluid/blob/94049b2e6da5ae865f5cf7088f0c53917a6dc8bc/layout/_partials/comments/waline.ejs#L5-L6">在这里</a></p>
+<p>但是，我是使用 npm 安装的主题，方便在主题更新时直接同步上游的更改，如果使用这种修改源文件引用的方式将会导致我不得不放弃原有的主题安装方式，改用下载主题源码的方式。</p>
+<p>那么有没有办法，既能够成功加载带 umd 的 js，又不用改动主题源码呢？还真有，我自己部署 cdn 就好了。从 npmjs 下载带 umd 的 waline.umd.js，重命名成 waline.js，和 waline.css 一起放在同一路径下，在把自己的 cdn 链接前缀填入 <code>_config.fluid.yml</code> 中，就可以实现移花接木——表面上访问的是 waline.js，实际上内容是 waline.umd.js 。</p>
+<h2 id="插曲二——重复显示的"><a href="#插曲二——重复显示的" class="headerlink" title="插曲二——重复显示的 @"></a>插曲二——重复显示的 @</h2><p>更新到 v3 版本以后，我发现所有的评论都出现了重复两遍的 @</p>
+<p><img src="https://static.031130.xyz/uploads/2024/11/16/f6fbaa99a784e.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
+<p>我去群里提问，管理员 <a target="_blank" rel="noopener" href="https://imnerd.org/">li zheming</a> 给出了这样的答复:</p>
+<blockquote>
+<p>这个是 feature 了，早版本 @ 是渲染在评论内容里的，这块后来重构了下，@ 是 Waline 自己渲染了。不过历史数据我们并没有处理，所以会出现这种情况。如果比较介意的话可以手动去数据库里删除下。</p>
+</blockquote>
+<p>那么很显然，我很介意这点，我需要删除数据库中的 @ 信息。</p>
+<p>打开 waline 的后台管理站点，我发现我有整整 30 页的评论——很显然我是 waline 的牢用户了，我不太可能一个一个手动去掉评论中的 @</p>
+<p><img src="https://static.031130.xyz/uploads/2024/11/16/c4487502542e5.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
+<p>我的 waline 数据库是 leancloud，对方的 webui 没办法帮助我批量去除 html 或者 markdown 形式的内容（就算对方支持 sql 语句，处理这个问题都够呛），我需要一个脚本来直接处理数据库中的信息。</p>
+<p>首先，我们需要导出数据库数据，自然是登陆 leancloud，然后找到 数据存储 - 导入导出 - 数据导出，选择 Comment 单个 Class，单击导出按钮。</p>
+<p><img src="https://static.031130.xyz/uploads/2024/11/16/d2cd564739120.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
+<p>err，我寻思凌晨 1 点应该是 16 点前吧，怎么导出不了，而我昨晚 23 点反而可以导出，leancloud 到底是哪门子时区。所以我直接拿了 23 点时导出的数据进行处理。</p>
+<p>leancloud 导出的数据是 jsonl 格式的，我们对需要去除的 @ 信息进行归纳总结，发现一共有两种 @ 的渲染方式</p>
+<ul>
+<li><code>&lt;a class=&quot;at&quot; href=&quot;#id&quot;&gt;@username&lt;/a&gt;</code>  的 html 风格（有时 class 和 href 顺序还会反过来）</li>
+<li><code>[@username](#id)</code> 的 markdown 风格</li>
+</ul>
+<p>而 html 风格还有两种结尾方式，</p>
+<p>一种是如 <code>&lt;a class=&quot;at&quot; href=&quot;#id&quot;&gt;@username&lt;/a&gt; , </code> 这样以 空格 + 半角逗号 + 空格 结尾的形式，</p>
+<p>令一种是如 <code>&lt;a class=&quot;at&quot; href=&quot;#id&quot;&gt;@username&lt;/a&gt;: </code> 这样以 半角冒号 + 空格结尾的形式。</p>
+<p>markdown 风格的结尾方式我就只看到一种，如 <code>[@username](#id): </code>这样以 半角冒号 + 空格结尾的形式。</p>
+<p>因此，我们需要对三种形式分别编写正则表达式进行匹配并删除，参考代码如下</p>
+<div class="code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">import</span> re
+
+<span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;Comment.0.jsonl&#x27;</span>, <span class="hljs-string">&#x27;r&#x27;</span>) <span class="hljs-keyword">as</span> f:
+    s = f.read()
+
+patterns = [
+    <span class="hljs-string">r&#x27;&lt;a class=\\&quot;at\\&quot; href=\\&quot;#(?:.*?)\\&quot;&gt;@(?:.*?)&lt;/a&gt;: &#x27;</span>,
+    <span class="hljs-string">r&#x27;&lt;a class=\\&quot;at\\&quot; href=\\&quot;#(?:.*?)\\&quot;&gt;@(?:.*?)&lt;/a&gt; , &#x27;</span>,
+    <span class="hljs-string">r&#x27;\[@(?:.*?)\]\(#(?:.*?)\):&#x27;</span>
+]
+
+<span class="hljs-keyword">for</span> pattern <span class="hljs-keyword">in</span> patterns:
+    s = re.sub(pattern, <span class="hljs-string">&quot;&quot;</span>, s)
+
+<span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;Comment.1.jsonl&#x27;</span>, <span class="hljs-string">&#x27;w&#x27;</span>) <span class="hljs-keyword">as</span> f:
+    f.write(s)</code></pre></div>
+
+<p>随后删除 Comment 表中所有数据，把生成的 <code>Comment.1.jsonl</code> 导入 leancloud，就算是大功告成了。</p>
+<p><img src="https://static.031130.xyz/uploads/2024/11/16/d248ae2eac74c.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
+<p><img src="https://static.031130.xyz/uploads/2024/11/16/c3875dcde1d97.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Python/" class="print-no-link">#Python</a>
+      
+        <a href="/tags/Hexo/" class="print-no-link">#Hexo</a>
+      
+        <a href="/tags/waline/" class="print-no-link">#waline</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>将博客从 waline v2 更新到 waline v3</div>
+      <div>https://zhul.in/2024/11/15/upgrade-waline-from-v2-to-v3/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>竹林里有冰</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年11月15日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2024年11月16日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/11/01/my-config-for-fedora-kde-41/" title="给家里云装上 Fedora 41 KDE 后，我是如何配置的">
+                        <span class="hidden-mobile">给家里云装上 Fedora 41 KDE 后，我是如何配置的</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="waline"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#waline', function() {
+      Fluid.utils.createCssLink('https://static.031130.xyz/res/waline.css')
+      Fluid.utils.createScript('https://static.031130.xyz/res/waline.js', function() {
+        var options = Object.assign(
+          {"serverURL":"https://waline.zhul.in","path":"window.location.pathname","meta":["nick","mail","link"],"requiredMeta":["nick"],"lang":"zh-CN","emoji":["https://registry.npmmirror.com/@waline/emojis/^1/files/weibo"],"dark":"html[data-user-color-scheme=\"dark\"]","wordLimit":0,"pageSize":10,"login":"disable","locale":{"placeholder":"快发个评论让我知道你在看（x"}},
+          {
+            el: '#waline',
+            path: window.location.pathname
+          }
+        )
+        Waline.init(options);
+        Fluid.utils.waitElementVisible('#waline .vcontent', () => {
+          var imgSelector = '#waline .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br /> <a href="https://notbyai.fyi/" target="_blank"><img style="max-height: 50px; margin: 10px" src=https://static.031130.xyz/uploads/2024/08/28/ae6dd98bdf60e.png alt="written by human, not by AI" /></a> <br /> <span>本网站由 <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img style="max-height: 50px;" loading="lazy" src="https://static.031130.xyz/uploads/2024/08/12/ba8d70971c408.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="又拍云 Logo" /></a> 提供 CDN 加速/云存储服务</span> <script> const url = window.location.href if (url.includes("theodorelobas.com") { window.location.href = "https://zhul.in" } </script>
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.6.0/jquery.min.js" ></script>
+<script  src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/4.6.0/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/typed.js/2.0.11/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/tocbot/4.12.2/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/clipboard.js/2.0.6/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
