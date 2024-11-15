@@ -2,7 +2,6 @@
 title: 为 Element 添加自己喜欢的贴纸
 date: 2022-08-10 19:51:19
 sticky:
-execrpt:
 tags:
 ---
 

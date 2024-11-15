@@ -2,7 +2,6 @@
 title: crontab 中简单的@语法糖
 date: 2024-02-08 17:21:31
 sticky:
-execrpt:
 tags:
 - Linux
 - crontab

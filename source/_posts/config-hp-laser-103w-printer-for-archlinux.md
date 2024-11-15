@@ -2,7 +2,6 @@
 title: 在 Arch Linux 下配置使用 HP Laser 103w 打印机无线打印
 date: 2024-07-14 18:30:33
 sticky:
-execrpt:
 tags:
 - Archlinux
 - Hardware

@@ -2,7 +2,6 @@
 title: 【翻译】GLWTPL——祝你好运开源许可证
 date: 2023-11-12 01:09:09
 sticky:
-execrpt:
 tags:
 - Fun
 - 翻译

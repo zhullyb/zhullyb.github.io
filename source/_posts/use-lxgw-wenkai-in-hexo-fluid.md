@@ -2,7 +2,6 @@
 title: 在 Hexo Fluid 主题中使用霞鹜文楷
 date: 2023-11-28 00:16:23
 sticky:
-execrpt:
 tags:
 - Hexo
 ---

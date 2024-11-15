@@ -2,7 +2,6 @@
 title: 自建图床小记一——图床架构与 DNS 解析
 date: 2024-08-12 17:07:11
 sticky:
-execrpt:
 tags:
 - CDN
 - 图床

@@ -2,7 +2,6 @@
 title: 给家里云装上 Fedora 41 KDE 后，我是如何配置的
 date: 2024-11-01 23:35:08
 sticky:
-execrpt:
 tags:
 - Linux
 - Fedora

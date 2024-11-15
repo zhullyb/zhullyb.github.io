@@ -2,7 +2,6 @@
 title: 使用 Root 后的安卓手机获取向日葵智能插座 C2 的开关 api
 date: 2023-11-01 23:46:28
 sticky:
-execrpt:
 tags:
 - Android
 - Network

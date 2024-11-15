@@ -2,7 +2,6 @@
 title: 使用 VirtScreen 将 Pad 作为副屏
 date: 2022-10-04 00:19:20
 sticky:
-execrpt:
 tags:
 - Linux
 - Hardware

@@ -2,7 +2,6 @@
 title: 备份 umami 数据库，并使用 TG Bot 保存 dump 文件
 date: 2024-02-01 00:00:01
 sticky:
-execrpt:
 tags:
 - umami
 - Shell Script

@@ -2,7 +2,6 @@
 title: 以 Archlinux 中 makepkg 的方式打开 rpmbuild
 date: 2024-05-03 22:48:39
 sticky:
-execrpt:
 tags:
 - Archlinux
 - Fedora

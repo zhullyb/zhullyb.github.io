@@ -2,7 +2,6 @@
 title: 执行 repo sync 后将 git-lfs 中的资源文件 checkout
 date: 2023-05-03 01:15:35
 sticky:
-execrpt:
 tags:
 - 笔记
 ---

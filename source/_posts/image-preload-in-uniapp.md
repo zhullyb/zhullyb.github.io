@@ -2,7 +2,6 @@
 title: uniapp 中的图片预加载
 date: 2024-04-01 05:31:25
 sticky:
-execrpt:
 tags:
 - uniapp
 - Vue.js

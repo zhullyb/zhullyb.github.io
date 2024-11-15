@@ -2,7 +2,6 @@
 title: 使用动态公网 ip + ddns 实现 rustdesk 的 ip 直连
 date: 2024-06-30 18:15:00
 sticky:
-execrpt:
 tags:
 - Linux
 - OpenSource Project

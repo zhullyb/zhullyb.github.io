@@ -2,7 +2,6 @@
 title: 在 JavaScript 中，箭头函数中的 this 指针到底指向哪里？
 date: 2024-01-14 02:50:03
 sticky:
-execrpt:
 tags:
 - JavaScript
 ---

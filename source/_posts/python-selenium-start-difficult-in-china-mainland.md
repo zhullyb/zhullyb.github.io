@@ -2,7 +2,6 @@
 title: 手动指定 python-selenium 的 driver path 以解决在中国大陆网络环境下启动卡住的问题
 date: 2023-09-02 01:59:18
 sticky:
-execrpt:
 tags:
 - Python
 - selenium

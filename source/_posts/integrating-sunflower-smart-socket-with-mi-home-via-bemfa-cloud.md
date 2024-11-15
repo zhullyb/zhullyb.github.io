@@ -2,7 +2,6 @@
 title: 通过巴法云将向日葵智能插座接入米家，实现小爱同学远程控制
 date: 2023-11-02 10:17:02
 sticky:
-execrpt:
 tags:
 - IoT
 - MiAI

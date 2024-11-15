@@ -2,7 +2,6 @@
 title: 使用向日葵智能插座 C2 用电记录推算宿舍上次烧水时间
 date: 2024-09-24 05:17:47
 sticky:
-execrpt:
 tags:
 - IoT
 - Python

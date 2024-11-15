@@ -2,7 +2,6 @@
 title: vuejs、php、caddy 与 docker —— web 期末大作业上云部署
 date: 2023-12-27 22:09:00
 sticky:
-execrpt:
 tags:
 - PHP
 - Caddy

@@ -2,7 +2,6 @@
 title: 自建图床小记四——上传脚本编写与图片迁移
 date: 2024-08-20 23:12:30
 sticky:
-execrpt:
 tags:
 - Python
 - 图床

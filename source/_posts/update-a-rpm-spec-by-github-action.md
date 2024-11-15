@@ -2,7 +2,6 @@
 title: 使用 Github Action 更新用于 rpm 打包的 spec 文件
 date: 2024-04-29 19:19:54
 sticky:
-execrpt:
 tags:
 - Fedora
 - RPM Package

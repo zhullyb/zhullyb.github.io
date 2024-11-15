@@ -2,7 +2,6 @@
 title: 在运行OpenWRT的N1盒子上部署 QQBot
 date: 2023-07-31 04:11:31
 sticky:
-execrpt:
 tags:
 - Linux
 - Network

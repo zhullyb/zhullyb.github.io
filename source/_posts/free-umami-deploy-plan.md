@@ -2,7 +2,6 @@
 title: 【已过期】使用 vercel+supabase 免费部署 umami
 date: 2022-11-08 13:37:53
 sticky:
-execrpt:
 tags:
 - Network
 - umami

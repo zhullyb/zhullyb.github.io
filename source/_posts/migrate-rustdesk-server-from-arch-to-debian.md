@@ -2,7 +2,6 @@
 title: 将 Rustdesk 中继服务从 Arch Linux 迁移至 Debian
 date: 2024-09-20 03:20:38
 sticky:
-execrpt:
 tags:
 - Rustdesk
 - Archlinux

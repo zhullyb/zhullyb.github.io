@@ -2,7 +2,6 @@
 title: 为红米 Redmi AC2100 路由器刷入 Padavan
 date: 2023-06-24 00:22:53
 sticky:
-execrpt:
 tags:
 - Router
 - Network

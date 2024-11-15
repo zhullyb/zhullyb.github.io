@@ -2,7 +2,6 @@
 title: 在浙工大宿舍使用路由器连接移动网络(校园网)
 date: 2023-06-24 14:30:24
 sticky:
-execrpt:
 tags:
 - Network
 - Router

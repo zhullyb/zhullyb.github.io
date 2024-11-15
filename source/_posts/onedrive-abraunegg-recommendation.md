@@ -2,7 +2,6 @@
 title: onedrive(by abraunegg) —— 一个 Linux 下的开源 OneDrive 客户端(cli)
 date: 2022-12-24 22:40:13
 sticky:
-execrpt:
 index_img: https://static.031130.xyz/uploads/2024/08/12/63a71425507b6.webp
 tags:
 - Linux

@@ -2,7 +2,6 @@
 title: 从零开始的静态网页部署（到个人云服务器）
 date: 2023-08-04 01:19:22
 sticky:
-execrpt:
 tags:
 - Linux
 - Network

@@ -2,7 +2,6 @@
 title: 尝试体验 Fedora COPR 中的 allow SSH 功能
 date: 2024-07-15 11:14:12
 sticky:
-execrpt:
 tags:
 - Fedora
 - Experience

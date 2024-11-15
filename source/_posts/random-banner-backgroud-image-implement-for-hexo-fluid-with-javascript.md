@@ -2,7 +2,6 @@
 title: 基于 JavaScript 的 Hexo Fluid 主题 banner 随机背景图实现
 date: 2024-09-25 00:00:42
 sticky:
-execrpt:
 tags:
 - JavaScript
 - Hexo

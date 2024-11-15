@@ -2,7 +2,6 @@
 title: 为 Hexo 添加 follow 认证
 date: 2024-10-23 23:11:32
 sticky:
-execrpt:
 index_img: https://static.031130.xyz/uploads/2024/10/24/a93fd67a5419d.png
 tags:
 - Hexo

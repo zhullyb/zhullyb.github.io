@@ -2,7 +2,6 @@
 title: 小记 - 尝试拼凑出 apt 仓库中的 deb 包下载地址
 date: 2024-03-13 21:55:04
 sticky:
-execrpt:
 tags:
 - Linux
 - Apt

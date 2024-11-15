@@ -2,7 +2,6 @@
 title: 我的博客被完整地反向代理，并自动翻译成了繁体中文
 date: 2024-07-18 11:22:37
 sticky: 99
-execrpt:
 index_img: https://static.031130.xyz/uploads/2024/08/12/66ab4ffa4eda3.webp
 tags:
 - Blog

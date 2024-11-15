@@ -2,7 +2,6 @@
 title: 在 Archlinux 下使用 l2tp 协议连接校园网
 date: 2022-09-29 14:30:46
 sticky:
-execrpt:
 tags:
 - Archlinux
 - Network

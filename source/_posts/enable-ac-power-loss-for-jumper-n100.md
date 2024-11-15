@@ -2,7 +2,6 @@
 title: 为中柏 N100 小主机开启来电自启
 date: 2024-07-22 23:31:51
 sticky:
-execrpt:
 tags:
 - Hardware
 - HomeServer

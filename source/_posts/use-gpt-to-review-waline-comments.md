@@ -2,7 +2,6 @@
 title: 使用 GPT 对 waline 的评论进行审查
 date: 2024-10-12 16:11:06
 sticky:
-execrpt:
 index_img: https://static.031130.xyz/uploads/2024/11/01/d1b5a5c058a43.png
 tags:
 - waline

@@ -2,7 +2,6 @@
 title: 我的博客部署方案
 date: 2022-11-04 16:41:28
 sticky:
-execrpt:
 tags:
 - Network
 - Github Action

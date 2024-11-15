@@ -2,7 +2,6 @@
 title: 创建 b23.tv 追踪参数移除 bot
 date: 2023-10-29 00:35:48
 sticky:
-execrpt:
 tags:
 - Python
 - Bot
