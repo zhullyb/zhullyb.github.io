@@ -38,7 +38,7 @@
 <meta property="og:image" content="https://static.031130.xyz/uploads/2024/11/18/e697bcf2a7a1f.webp">
 <meta property="og:image" content="https://static.031130.xyz/uploads/2024/11/18/eb563904a64a1.webp">
 <meta property="article:published_time" content="2024-11-18T13:13:56.000Z">
-<meta property="article:modified_time" content="2024-11-18T15:16:08.000Z">
+<meta property="article:modified_time" content="2024-11-18T15:16:35.000Z">
 <meta property="article:author" content="竹林里有冰">
 <meta property="article:tag" content="Fun">
 <meta property="article:tag" content="JavaScript">
@@ -375,7 +375,7 @@
 <p>随后打开自己学校的教务网站，F12 打开开发者工具，可以看到多了一栏叫「AISchedule」的选项</p>
 <p><img src="https://static.031130.xyz/uploads/2024/11/18/800054d7f4ff8.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
 <p>随后正常登陆自己的小米账号，放一旁备用。</p>
-<h3 id="抓流量包"><a href="#抓流量包" class="headerlink" title="抓流量包"></a>抓流量包</h3><p>随后，登陆自己的教务网站，打开课表页面，查看 F12 开发者工具的网络一览，刷新页面加载自己的课表，查看开发者页面中显示的数据流，找到含有课表信息的那一个。</p>
+<h3 id="抓数据包"><a href="#抓数据包" class="headerlink" title="抓数据包"></a>抓数据包</h3><p>随后，登陆自己的教务网站，打开课表页面，查看 F12 开发者工具的网络一览，刷新页面加载自己的课表，查看开发者页面中显示的数据流，找到含有课表信息的那一个。</p>
 <p>这个流程我个人用惯了 Firefox 浏览器，因此数据分析这一块的截图都是 Firefox 的截图。</p>
 <p><img src="https://static.031130.xyz/uploads/2024/11/18/7ea6e1e0bbfcf.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
 <p>在我的例子中，第一个请求的响应是一个 html 页面，勾勒出了这个页面的大致轮廓，不过没有样式。这是一个好的迹象，说明这大概率是一个前后端分离的站点，授课数据很可能是通过 json 的数据单独传递给前端的，我们就不需要从 html 中解析我们的课表。</p>
