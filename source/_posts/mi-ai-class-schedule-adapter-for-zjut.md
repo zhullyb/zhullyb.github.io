@@ -5,6 +5,7 @@ sticky:
 tags:
 - JavaScript
 - MiAI
+- Fun
 ---
 
 
