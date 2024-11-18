@@ -281,7 +281,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/08/12/new-picbed-based-on-cloudflare-and-upyun/</loc>
+    <loc>https://zhul.in/2024/11/01/my-config-for-fedora-kde-41/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -290,7 +290,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/11/01/my-config-for-fedora-kde-41/</loc>
+    <loc>https://zhul.in/2024/08/12/new-picbed-based-on-cloudflare-and-upyun/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -353,7 +353,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2023/06/24/redmi-ac2100-router-with-padavan/</loc>
+    <loc>https://zhul.in/2024/09/25/random-banner-backgroud-image-implement-for-hexo-fluid-with-javascript/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -362,7 +362,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/09/25/random-banner-backgroud-image-implement-for-hexo-fluid-with-javascript/</loc>
+    <loc>https://zhul.in/2023/06/24/redmi-ac2100-router-with-padavan/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -416,7 +416,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/03/13/try-to-compose-download-links-of-deb-packages-in-apt-repository/</loc>
+    <loc>https://zhul.in/2024/07/15/try-ssh-connection-in-fedora-copr/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -425,7 +425,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/07/15/try-ssh-connection-in-fedora-copr/</loc>
+    <loc>https://zhul.in/2024/03/13/try-to-compose-download-links-of-deb-packages-in-apt-repository/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -443,15 +443,6 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/11/15/upgrade-waline-from-v2-to-v3/</loc>
-    
-    <lastmod>2024-11-15</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zhul.in/2024/04/29/update-a-rpm-spec-by-github-action/</loc>
     
     <lastmod>2024-11-15</lastmod>
@@ -461,7 +452,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2022/09/29/use-l2tp-protocol-to-connect-internet/</loc>
+    <loc>https://zhul.in/2024/11/15/upgrade-waline-from-v2-to-v3/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -471,6 +462,15 @@
   
   <url>
     <loc>https://zhul.in/2024/10/12/use-gpt-to-review-waline-comments/</loc>
+    
+    <lastmod>2024-11-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2022/09/29/use-l2tp-protocol-to-connect-internet/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -857,7 +857,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/04/13/where-will-appimage-put-its-file/</loc>
+    <loc>https://zhul.in/2021/05/23/why-i-use-archlinux/</loc>
     
     <lastmod>2022-08-22</lastmod>
     
@@ -866,7 +866,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/05/23/why-i-use-archlinux/</loc>
+    <loc>https://zhul.in/2021/04/13/where-will-appimage-put-its-file/</loc>
     
     <lastmod>2022-08-22</lastmod>
     
@@ -1104,6 +1104,13 @@
   </url>
   
   <url>
+    <loc>https://zhul.in/tags/Z-Library/</loc>
+    <lastmod>2024-11-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://zhul.in/tags/Fedora/</loc>
     <lastmod>2024-11-18</lastmod>
     <changefreq>weekly</changefreq>
@@ -1119,13 +1126,6 @@
   
   <url>
     <loc>https://zhul.in/tags/openssl/</loc>
-    <lastmod>2024-11-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Z-Library/</loc>
     <lastmod>2024-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1216,6 +1216,13 @@
   </url>
   
   <url>
+    <loc>https://zhul.in/tags/RPM-Package/</loc>
+    <lastmod>2024-11-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://zhul.in/tags/Cloudflare/</loc>
     <lastmod>2024-11-18</lastmod>
     <changefreq>weekly</changefreq>
@@ -1231,13 +1238,6 @@
   
   <url>
     <loc>https://zhul.in/tags/Python/</loc>
-    <lastmod>2024-11-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/RPM-Package/</loc>
     <lastmod>2024-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
