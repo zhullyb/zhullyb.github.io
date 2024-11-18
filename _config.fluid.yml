@@ -1006,12 +1006,6 @@ links:
       avatar: "https://static.031130.xyz/uploads/2024/08/12/259396342424f.webp"
     }
     - {
-      title: "風雪城",
-      intro: "浩繁星空下的一场稚嫩的梦",
-      link: "https://blog.chyk.ink/",
-      avatar: "https://static.031130.xyz/uploads/2024/11/18/9b6f5d7231d91.webp"
-    }
-    - {
       title: "派大星的石头屋",
       intro: "一头蠢猪罢了",
       link: "https://blog.cnpatrickstar.com/",
@@ -1094,6 +1088,12 @@ links:
       intro: "一只爱编程的小马",
       link: "https://blog.aiyin.club/",
       avatar: "https://static.031130.xyz/uploads/2024/09/24/9d106a106aef1.webp"
+    }
+    - {
+      title: "風雪城",
+      intro: "浩繁星空下的一场稚嫩的梦",
+      link: "https://blog.chyk.ink/",
+      avatar: "https://static.031130.xyz/uploads/2024/11/18/9b6f5d7231d91.webp"
     }
 
   # 当成员头像加载失败时，替换为指定图片
