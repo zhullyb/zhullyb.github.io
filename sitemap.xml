@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zhul.in/2024/11/18/mi-ai-class-schedule-adapter-for-zjut/</loc>
+    
+    <lastmod>2024-11-18</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zhul.in/2022/11/21/a-few-words-about-the-events-of-november-2022/</loc>
     
     <lastmod>2024-11-15</lastmod>
@@ -83,7 +92,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2023/06/24/connect-china-mobile-with-router-in-zjut-dormitory/</loc>
+    <loc>https://zhul.in/2024/07/14/config-hp-laser-103w-printer-for-archlinux/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -92,7 +101,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/07/14/config-hp-laser-103w-printer-for-archlinux/</loc>
+    <loc>https://zhul.in/2023/06/24/connect-china-mobile-with-router-in-zjut-dormitory/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -128,7 +137,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/07/22/enable-ac-power-loss-for-jumper-n100/</loc>
+    <loc>https://zhul.in/2024/06/30/dynamic-public-ip-and-ddns-for-rustdesk/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -137,7 +146,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/06/30/dynamic-public-ip-and-ddns-for-rustdesk/</loc>
+    <loc>https://zhul.in/2024/07/22/enable-ac-power-loss-for-jumper-n100/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -272,7 +281,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/11/01/my-config-for-fedora-kde-41/</loc>
+    <loc>https://zhul.in/2024/08/12/new-picbed-based-on-cloudflare-and-upyun/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -281,7 +290,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/08/12/new-picbed-based-on-cloudflare-and-upyun/</loc>
+    <loc>https://zhul.in/2024/11/01/my-config-for-fedora-kde-41/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -344,7 +353,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/09/25/random-banner-backgroud-image-implement-for-hexo-fluid-with-javascript/</loc>
+    <loc>https://zhul.in/2023/06/24/redmi-ac2100-router-with-padavan/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -353,7 +362,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2023/06/24/redmi-ac2100-router-with-padavan/</loc>
+    <loc>https://zhul.in/2024/09/25/random-banner-backgroud-image-implement-for-hexo-fluid-with-javascript/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -407,7 +416,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/07/15/try-ssh-connection-in-fedora-copr/</loc>
+    <loc>https://zhul.in/2024/03/13/try-to-compose-download-links-of-deb-packages-in-apt-repository/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -416,7 +425,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/03/13/try-to-compose-download-links-of-deb-packages-in-apt-repository/</loc>
+    <loc>https://zhul.in/2024/07/15/try-ssh-connection-in-fedora-copr/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -434,15 +443,6 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/04/29/update-a-rpm-spec-by-github-action/</loc>
-    
-    <lastmod>2024-11-15</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zhul.in/2024/11/15/upgrade-waline-from-v2-to-v3/</loc>
     
     <lastmod>2024-11-15</lastmod>
@@ -452,7 +452,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/10/12/use-gpt-to-review-waline-comments/</loc>
+    <loc>https://zhul.in/2024/04/29/update-a-rpm-spec-by-github-action/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -462,6 +462,15 @@
   
   <url>
     <loc>https://zhul.in/2022/09/29/use-l2tp-protocol-to-connect-internet/</loc>
+    
+    <lastmod>2024-11-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2024/10/12/use-gpt-to-review-waline-comments/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -587,7 +596,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2022/07/03/fcitx5-blinking-on-tg-under-wayland-kde/</loc>
+    <loc>https://zhul.in/2022/04/14/fastocr-experience/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -596,7 +605,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2022/04/14/fastocr-experience/</loc>
+    <loc>https://zhul.in/2022/07/03/fcitx5-blinking-on-tg-under-wayland-kde/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -1207,13 +1216,6 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/tags/RPM-Package/</loc>
-    <lastmod>2024-11-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://zhul.in/tags/Cloudflare/</loc>
     <lastmod>2024-11-18</lastmod>
     <changefreq>weekly</changefreq>
@@ -1235,6 +1237,13 @@
   </url>
   
   <url>
+    <loc>https://zhul.in/tags/RPM-Package/</loc>
+    <lastmod>2024-11-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://zhul.in/tags/mitmproxy/</loc>
     <lastmod>2024-11-18</lastmod>
     <changefreq>weekly</changefreq>
@@ -1243,13 +1252,6 @@
   
   <url>
     <loc>https://zhul.in/tags/%E9%95%9C%E5%83%8F%E7%AB%99/</loc>
-    <lastmod>2024-11-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Router/</loc>
     <lastmod>2024-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1271,6 +1273,13 @@
   
   <url>
     <loc>https://zhul.in/tags/HomeServer/</loc>
+    <lastmod>2024-11-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/Router/</loc>
     <lastmod>2024-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1354,14 +1363,14 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/tags/KDE/</loc>
+    <loc>https://zhul.in/tags/Experience/</loc>
     <lastmod>2024-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://zhul.in/tags/Experience/</loc>
+    <loc>https://zhul.in/tags/KDE/</loc>
     <lastmod>2024-11-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
