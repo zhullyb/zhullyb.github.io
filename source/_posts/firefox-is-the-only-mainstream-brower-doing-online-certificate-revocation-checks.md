@@ -29,7 +29,7 @@ tags:
 
 <div><img src="https://static.031130.xyz/uploads/2024/11/19/b097e954f766f.webp" style="zoom:33%;" /><span style="width: 20%;"></span><img src="https://static.031130.xyz/uploads/2024/11/19/a5f58dbb50cfe.webp" style="zoom:33%;" /></div>
 
-而在 Google Chrome / Microsoft Edge 上，OCSP 是不被支持的，chromium 团队在 2014 年就禁用了 OCSP 校验，且目前没有设置项允许用户手动开启，目前它只支持[本地的 CRLSets 规则集](https://www.chromium.org/Home/chromium-security/crlsets/)。在 Safari 上，OCSP 功能被默认禁用，可以由用户手动开启。
+而在 Google Chrome / Microsoft Edge 上，OCSP 是不被支持的，chromium 团队在 2014 年就禁用了 OCSP 校验，且目前没有设置项允许用户手动开启，目前它只支持[本地的 CRLSets 规则集](https://www.chromium.org/Home/chromium-security/crlsets/)。Safari 经我本人测试默认只对 EV 证书进行有效性检验。
 
 ## SSL 证书被吊销是怎么回事？
 
@@ -140,6 +140,8 @@ Let's Encrypt 在 2024 年 7 月[发布博客](https://letsencrypt.org/2024/07/2
 - [In which browsers is OCSP (Online Certificates Status Protocol) supported in?](https://knowledge.digicert.com/nl/nl/quovadis/ssl-certificates/ssl-general-topics/in-which-browsers-is-ocsp-online-certificates-status-protocol-supported-in)
 - [Introducing CRLite: All of the Web PKI’s revocations, compressed - Mozilla Security Blog](https://blog.mozilla.org/security/2020/01/09/crlite-part-1-all-web-pki-revocations-compressed/)
 - [CRLite: Speeding Up Secure Browsing - Mozilla Security Blog](https://blog.mozilla.org/security/2020/01/21/crlite-part-3-speeding-up-secure-browsing/)
+- [High-reliability OCSP stapling and why it matters - The Cloudflare Blog](https://blog.cloudflare.com/high-reliability-ocsp-stapling/)
+- [Online Certificate Status Protocol - Wikipedia](https://en.wikipedia.org/wiki/Online_Certificate_Status_Protocol)
 - [1429800 - (crlite) [meta] Implement a CRLite based revocation mechanism](https://bugzilla.mozilla.org/show_bug.cgi?id=1429800)
 - [1761109 - Make check-revocations mode the default CRLite mode](https://bugzilla.mozilla.org/show_bug.cgi?id=1761109)
 - [Firefox - The only browser doing certificate revocation checks right : r/browsers](https://www.reddit.com/r/browsers/comments/1bb81y8/firefox_the_only_browser_doing_certificate/)
