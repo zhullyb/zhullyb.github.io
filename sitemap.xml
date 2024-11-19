@@ -227,7 +227,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/04/01/image-preload-in-uniapp/</loc>
+    <loc>https://zhul.in/2023/03/26/implicit-forwarding-is-a-new-site-deploying-method/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -236,7 +236,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2023/03/26/implicit-forwarding-is-a-new-site-deploying-method/</loc>
+    <loc>https://zhul.in/2024/04/01/image-preload-in-uniapp/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -335,7 +335,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2023/12/27/php-and-vuejs-project-deploy-on-caddy/</loc>
+    <loc>https://zhul.in/2023/12/12/php-simple-rest-api/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -344,7 +344,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2023/12/12/php-simple-rest-api/</loc>
+    <loc>https://zhul.in/2023/12/27/php-and-vuejs-project-deploy-on-caddy/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -434,7 +434,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/07/15/try-ssh-connection-in-fedora-copr/</loc>
+    <loc>https://zhul.in/2024/03/13/try-to-compose-download-links-of-deb-packages-in-apt-repository/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -443,7 +443,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/03/13/try-to-compose-download-links-of-deb-packages-in-apt-repository/</loc>
+    <loc>https://zhul.in/2024/07/15/try-ssh-connection-in-fedora-copr/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -587,7 +587,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2022/01/12/dnf-module-in-setting-up-the-jekyll/</loc>
+    <loc>https://zhul.in/2021/06/06/download-openharmony-source-code/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -596,7 +596,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/06/06/download-openharmony-source-code/</loc>
+    <loc>https://zhul.in/2022/01/12/dnf-module-in-setting-up-the-jekyll/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -1064,6 +1064,20 @@
 
   
   <url>
+    <loc>https://zhul.in/tags/Android/</loc>
+    <lastmod>2024-11-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/Rom%E7%BC%96%E8%AF%91/</loc>
+    <lastmod>2024-11-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://zhul.in/tags/Linux/</loc>
     <lastmod>2024-11-19</lastmod>
     <changefreq>weekly</changefreq>
@@ -1079,20 +1093,6 @@
   
   <url>
     <loc>https://zhul.in/tags/deepin/</loc>
-    <lastmod>2024-11-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Android/</loc>
-    <lastmod>2024-11-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Rom%E7%BC%96%E8%AF%91/</loc>
     <lastmod>2024-11-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
