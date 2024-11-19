@@ -37,7 +37,7 @@
 <meta property="og:image" content="https://static.031130.xyz/uploads/2024/11/19/71f252c97e96e.webp">
 <meta property="og:image" content="https://static.031130.xyz/uploads/2024/11/19/bfba9ba3515ca.webp">
 <meta property="article:published_time" content="2024-11-19T09:58:14.000Z">
-<meta property="article:modified_time" content="2024-11-19T14:41:18.000Z">
+<meta property="article:modified_time" content="2024-11-19T15:45:36.000Z">
 <meta property="article:author" content="竹林里有冰">
 <meta property="article:tag" content="OpenSSL">
 <meta property="article:tag" content="SSL">
@@ -365,7 +365,7 @@
 <p>在 Firefox for Android 上，我无法打开第一个链接，但可以打开第二个，这是因为 Mozilla 给 Android 用户设置的策略为「只对 EV 证书进行 ocsp 校验，跳过 DV 证书和 OV 证书」，<em>似乎在竞争更加激烈的移动端，Firefox 为了加载速度做出了安全性上的妥协。</em></p>
 <div><img src="https://static.031130.xyz/uploads/2024/11/19/b097e954f766f.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload style="zoom:33%;" /><span style="width: 20%;"></span><img src="https://static.031130.xyz/uploads/2024/11/19/a5f58dbb50cfe.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload style="zoom:33%;" /></div>
 
-<p>而在 Google Chrome / Microsoft Edge 上，OCSP 是不被支持的，chromium 团队在 2014 年就禁用了 OCSP 校验，且目前没有设置项允许用户手动开启，目前它只支持<a target="_blank" rel="noopener" href="https://www.chromium.org/Home/chromium-security/crlsets/">本地的 CRLSets 规则集</a>。在 Safari 上，OCSP 功能被默认禁用，可以由用户手动开启。</p>
+<p>而在 Google Chrome / Microsoft Edge 上，OCSP 是不被支持的，chromium 团队在 2014 年就禁用了 OCSP 校验，且目前没有设置项允许用户手动开启，目前它只支持<a target="_blank" rel="noopener" href="https://www.chromium.org/Home/chromium-security/crlsets/">本地的 CRLSets 规则集</a>。Safari 经我本人测试默认只对 EV 证书进行有效性检验。</p>
 <h2 id="SSL-证书被吊销是怎么回事？"><a href="#SSL-证书被吊销是怎么回事？" class="headerlink" title="SSL 证书被吊销是怎么回事？"></a>SSL 证书被吊销是怎么回事？</h2><p>在某些情况下（比如用户告知 CA 颁发给自己的证书私钥不慎被泄漏了，或者 <a target="_blank" rel="noopener" href="https://www.trustasia.com/view-security-lets-encrypt/">CA 的颁发程序出现漏洞被人滥用，需要吊销在此期间发出去的所有证书</a>），CA 需要吊销一些证书，并通过自己的渠道将被吊销的证书尽快告知所有用户——需要被吊销的证书和正常的证书在外观上没有任何区别，用户的浏览器必须依赖 CA 的外部消息通知才能知道哪些证书是被吊销的。</p>
 <h2 id="Firefox-是如何接收来自-CA-的吊销信息的？"><a href="#Firefox-是如何接收来自-CA-的吊销信息的？" class="headerlink" title="Firefox 是如何接收来自 CA 的吊销信息的？"></a>Firefox 是如何接收来自 CA 的吊销信息的？</h2><p>Firefox 通过提供了两种方案，以便用户从 CA 处得知目标站点的证书是否被吊销。</p>
 <h3 id="OCSP"><a href="#OCSP" class="headerlink" title="OCSP"></a>OCSP</h3><p>正如我前文所说的，Firefox 的 PC 端在与目标站点建立 https 连接之前，会先通过 http 协议向 CA 的 OCSP 服务器打一个 POST 请求来确认证书是否被吊销。</p>
@@ -436,6 +436,8 @@
 <li><a target="_blank" rel="noopener" href="https://knowledge.digicert.com/nl/nl/quovadis/ssl-certificates/ssl-general-topics/in-which-browsers-is-ocsp-online-certificates-status-protocol-supported-in">In which browsers is OCSP (Online Certificates Status Protocol) supported in?</a></li>
 <li><a target="_blank" rel="noopener" href="https://blog.mozilla.org/security/2020/01/09/crlite-part-1-all-web-pki-revocations-compressed/">Introducing CRLite: All of the Web PKI’s revocations, compressed - Mozilla Security Blog</a></li>
 <li><a target="_blank" rel="noopener" href="https://blog.mozilla.org/security/2020/01/21/crlite-part-3-speeding-up-secure-browsing/">CRLite: Speeding Up Secure Browsing - Mozilla Security Blog</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.cloudflare.com/high-reliability-ocsp-stapling/">High-reliability OCSP stapling and why it matters - The Cloudflare Blog</a></li>
+<li><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Online_Certificate_Status_Protocol">Online Certificate Status Protocol - Wikipedia</a></li>
 <li><a target="_blank" rel="noopener" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1429800">1429800 - (crlite) [meta] Implement a CRLite based revocation mechanism</a></li>
 <li><a target="_blank" rel="noopener" href="https://bugzilla.mozilla.org/show_bug.cgi?id=1761109">1761109 - Make check-revocations mode the default CRLite mode</a></li>
 <li><a target="_blank" rel="noopener" href="https://www.reddit.com/r/browsers/comments/1bb81y8/firefox_the_only_browser_doing_certificate/">Firefox - The only browser doing certificate revocation checks right : r/browsers</a></li>

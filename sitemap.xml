@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zhul.in/2024/11/19/firefox-is-the-only-mainstream-brower-doing-online-certificate-revocation-checks/</loc>
+    
+    <lastmod>2024-11-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zhul.in/2022/08/04/a-fucking-store-about-openssl3-and-nodejs16/</loc>
     
     <lastmod>2024-11-19</lastmod>
@@ -12,15 +21,6 @@
   
   <url>
     <loc>https://zhul.in/2024/08/14/auto-renew-ssl-certificate-and-deploy-to-upyun-with-github-action/</loc>
-    
-    <lastmod>2024-11-19</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2024/11/19/firefox-is-the-only-mainstream-brower-doing-online-certificate-revocation-checks/</loc>
     
     <lastmod>2024-11-19</lastmod>
     
@@ -182,7 +182,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2022/11/08/free-umami-deploy-plan/</loc>
+    <loc>https://zhul.in/2024/10/23/follow-cert-for-hexo-feed/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -191,7 +191,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/10/23/follow-cert-for-hexo-feed/</loc>
+    <loc>https://zhul.in/2022/11/08/free-umami-deploy-plan/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -902,7 +902,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2020/07/11/RepoNotes/</loc>
+    <loc>https://zhul.in/2020/10/08/NoHello/</loc>
     
     <lastmod>2022-08-22</lastmod>
     
@@ -911,7 +911,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2020/10/08/NoHello/</loc>
+    <loc>https://zhul.in/2020/07/11/RepoNotes/</loc>
     
     <lastmod>2022-08-22</lastmod>
     
@@ -1064,20 +1064,6 @@
 
   
   <url>
-    <loc>https://zhul.in/tags/Android/</loc>
-    <lastmod>2024-11-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Rom%E7%BC%96%E8%AF%91/</loc>
-    <lastmod>2024-11-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://zhul.in/tags/Linux/</loc>
     <lastmod>2024-11-19</lastmod>
     <changefreq>weekly</changefreq>
@@ -1093,6 +1079,20 @@
   
   <url>
     <loc>https://zhul.in/tags/deepin/</loc>
+    <lastmod>2024-11-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/Android/</loc>
+    <lastmod>2024-11-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/Rom%E7%BC%96%E8%AF%91/</loc>
     <lastmod>2024-11-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
