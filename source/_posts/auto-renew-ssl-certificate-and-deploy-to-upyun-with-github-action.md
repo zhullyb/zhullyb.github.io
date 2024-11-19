@@ -8,7 +8,7 @@ tags:
 - Github Action
 - Network
 - Linux
-- SSL certificates
+- SSL
 - 图床
 ---
 

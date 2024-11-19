@@ -5,7 +5,7 @@ sticky:
 tags:
 - Fedora
 - nodejs
-- openssl
+- OpenSSL
 ---
 
 ![长毛象的截图.png](https://static.031130.xyz/uploads/2024/08/12/62eba4eabc963.webp)
