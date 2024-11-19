@@ -29,7 +29,13 @@ tags:
 
 <div><img src="https://static.031130.xyz/uploads/2024/11/19/b097e954f766f.webp" style="zoom:33%;" /><span style="width: 20%;"></span><img src="https://static.031130.xyz/uploads/2024/11/19/a5f58dbb50cfe.webp" style="zoom:33%;" /></div>
 
-而在 Google Chrome / Microsoft Edge 上，OCSP 是不被支持的，chromium 团队在 2014 年就禁用了 OCSP 校验，且目前没有设置项允许用户手动开启，目前它只支持[本地的 CRLSets 规则集](https://www.chromium.org/Home/chromium-security/crlsets/)。Safari 经我本人测试默认只对 EV 证书进行有效性检验。
+而在 Google Chrome / Microsoft Edge 上，OCSP 是不被支持的，chromium 团队在 2014 年就禁用了 OCSP 校验，且目前没有设置项允许用户手动开启，目前它只支持[本地的 CRLSets 规则集](https://www.chromium.org/Home/chromium-security/crlsets/)。
+
+![](https://static.031130.xyz/uploads/2024/11/19/bd84e9aff71d0.webp)
+
+Safari 经我本人测试默认只对 EV 证书进行有效性检验。
+
+![](https://static.031130.xyz/uploads/2024/11/19/50352339f7473.webp)
 
 ## SSL 证书被吊销是怎么回事？
 
