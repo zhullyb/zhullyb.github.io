@@ -1011,12 +1011,12 @@ links:
       link: "https://blog.cnpatrickstar.com/",
       avatar: "https://static.031130.xyz/uploads/2024/08/12/6329b2a587c1f.webp"
     }
-    - {
-      title: "Finley's Blog",
-      intro: "一个不想平庸的平庸之人. 来自浙江工业大学的计算机科学学生, 正在努力成为一名全栈开发者.",
-      link: "https://www.f1nley.xyz/",
-      avatar: "https://static.031130.xyz/uploads/2024/09/23/5c47b2d971736.webp"
-    }
+    # - {
+    #   title: "Finley's Blog",
+    #   intro: "一个不想平庸的平庸之人. 来自浙江工业大学的计算机科学学生, 正在努力成为一名全栈开发者.",
+    #   link: "https://www.f1nley.xyz/",
+    #   avatar: "https://static.031130.xyz/uploads/2024/09/23/5c47b2d971736.webp"
+    # }
     - {
       title: "j10c's Blog",
       link: "https://site.j10ccc.xyz"
