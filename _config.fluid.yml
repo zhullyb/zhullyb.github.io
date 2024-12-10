@@ -343,7 +343,7 @@ navbar:
       icon: 'iconfont icon-books',
       link: '#',
       submenu: [
-        { key: 'rss订阅', link: '/rss.xml', icon: "iconfont icon-rss" },
+        { key: 'RSS', link: '/rss.xml', icon: "iconfont icon-rss" },
         { key: '收藏', link: '/collections/', icon: "iconfont icon-bookmark-fill" },
         { key: '流水账', link: 'https://notes.5435486.xyz/', icon: "iconfont icon-book" },
         { key: '给我打钱', link: 'https://zhul.in/donate', icon: "iconfont icon-qrcode" }
