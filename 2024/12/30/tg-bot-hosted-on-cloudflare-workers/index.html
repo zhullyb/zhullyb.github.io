@@ -21,29 +21,26 @@
   <meta name="author" content="竹林里有冰">
   <meta name="keywords" content="博客, 技术, Fedora">
   
-    <meta name="description" content="进入大学已经快一年了，但我的 Azure 教育订阅申请一直没有成功，每年有 100 刀的额度，再这样下去就要亏掉近 700 元了，于是便打算趁期中考试刚结束的闲暇时间把 Azure 的教育订阅给过了。 我拥有 *.edu.cn 的邮箱，并且通过了 Github Student Pack 的认证，但每次在 https:&#x2F;&#x2F;signup.azure.com&#x2F;studentverification?of">
+    <meta name="description" content="起因早在去年 10 月，我就写过一篇《创建 b23.tv 追踪参数移除 bot》。记录了部署 b23.tv 的追踪参数移除 Bot 的部署方案。其中提到的 TG Bot 随着服务器到期不再续费也一同落灰了——公益服务总是这样，开始时满腔热血，随着时间散去没有多少人能坚持投入成本，徒留下一地鸡毛。 大概半个月前，我在群里看见 Asuka Minato 开发的群消息总结 Bot，整体部署在 Cloud">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Azure 教育订阅申请时遇到的麻烦">
-<meta property="og:url" content="https://zhul.in/2023/05/12/troubles-when-applying-azure-education/index.html">
+<meta property="og:title" content="构建部署在 Cloudflare Workers 上的 TG Bot">
+<meta property="og:url" content="https://zhul.in/2024/12/30/tg-bot-hosted-on-cloudflare-workers/index.html">
 <meta property="og:site_name" content="竹林里有冰的博客">
-<meta property="og:description" content="进入大学已经快一年了，但我的 Azure 教育订阅申请一直没有成功，每年有 100 刀的额度，再这样下去就要亏掉近 700 元了，于是便打算趁期中考试刚结束的闲暇时间把 Azure 的教育订阅给过了。 我拥有 *.edu.cn 的邮箱，并且通过了 Github Student Pack 的认证，但每次在 https:&#x2F;&#x2F;signup.azure.com&#x2F;studentverification?of">
+<meta property="og:description" content="起因早在去年 10 月，我就写过一篇《创建 b23.tv 追踪参数移除 bot》。记录了部署 b23.tv 的追踪参数移除 Bot 的部署方案。其中提到的 TG Bot 随着服务器到期不再续费也一同落灰了——公益服务总是这样，开始时满腔热血，随着时间散去没有多少人能坚持投入成本，徒留下一地鸡毛。 大概半个月前，我在群里看见 Asuka Minato 开发的群消息总结 Bot，整体部署在 Cloud">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://static.031130.xyz/uploads/2024/08/12/645e646bc5b58.webp">
-<meta property="og:image" content="https://static.031130.xyz/uploads/2024/08/12/645e5fdfb25a3.webp">
-<meta property="og:image" content="https://static.031130.xyz/uploads/2024/08/12/645e60ad79001.webp">
-<meta property="og:image" content="https://static.031130.xyz/uploads/2024/08/12/645e62bae0c0a.webp">
-<meta property="og:image" content="https://static.031130.xyz/uploads/2024/08/12/645e639e2c9d1.webp">
-<meta property="og:image" content="https://static.031130.xyz/uploads/2024/08/12/645e63e39523f.webp">
-<meta property="article:published_time" content="2023-05-12T15:38:29.000Z">
-<meta property="article:modified_time" content="2024-11-15T18:02:30.000Z">
+<meta property="og:image" content="https://static.031130.xyz/uploads/2024/12/30/5fd442bb18064.webp">
+<meta property="og:image" content="https://static.031130.xyz/uploads/2024/12/30/3b0b929960840.webp">
+<meta property="article:published_time" content="2024-12-30T11:45:43.000Z">
+<meta property="article:modified_time" content="2024-12-30T13:42:55.000Z">
 <meta property="article:author" content="竹林里有冰">
-<meta property="article:tag" content="Azure">
+<meta property="article:tag" content="Bot">
+<meta property="article:tag" content="Cloudflare">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://static.031130.xyz/uploads/2024/08/12/645e646bc5b58.webp">
+<meta name="twitter:image" content="https://static.031130.xyz/uploads/2024/12/30/5fd442bb18064.webp">
   
   
   
-  <title>Azure 教育订阅申请时遇到的麻烦 - 竹林里有冰的博客</title>
+  <title>构建部署在 Cloudflare Workers 上的 TG Bot - 竹林里有冰的博客</title>
 
   <link  rel="stylesheet" href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/4.6.0/css/bootstrap.min.css" />
 
@@ -262,7 +259,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Azure 教育订阅申请时遇到的麻烦"></span>
+            <span id="subtitle" data-typed-text="构建部署在 Cloudflare Workers 上的 TG Bot"></span>
           
         </div>
 
@@ -273,8 +270,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-05-12 23:38" pubdate>
-          2023年5月12日 晚上
+        <time datetime="2024-12-30 19:45" pubdate>
+          2024年12月30日 晚上
         </time>
       </span>
     
@@ -286,7 +283,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          712 字
+          968 字
         
       </span>
     
@@ -298,7 +295,7 @@
         
         
           <!-- compatible with older versions-->
-          4 分钟
+          5 分钟
         
       </span>
     
@@ -335,13 +332,13 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Azure 教育订阅申请时遇到的麻烦</h1>
+            <h1 id="seo-header">构建部署在 Cloudflare Workers 上的 TG Bot</h1>
             
               <p id="updated-time" class="note note-info" style="">
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2024年11月16日 凌晨
+                    本文最后更新于：2024年12月30日 晚上
                   
                 
               </p>
@@ -349,21 +346,113 @@
             
               <div class="markdown-body">
                 
-                <p>进入大学已经快一年了，但我的 Azure 教育订阅申请一直没有成功，每年有 100 刀的额度，<del>再这样下去就要亏掉近 700 元了</del>，于是便打算趁期中考试刚结束的闲暇时间把 Azure 的教育订阅给过了。</p>
-<p>我拥有 *.edu.cn 的邮箱，并且通过了 Github Student Pack 的认证，但每次在 <a target="_blank" rel="noopener" href="https://signup.azure.com/studentverification?offerType=1">https://signup.azure.com/studentverification?offerType=1</a> 页面尝试申请 Azure 订阅时，总是会得到一句冷冷的「你没有资格使用 Azure 免费帐户」。于是，我找到了 Azure 订阅支持客服帮忙，链接是这个: <a target="_blank" rel="noopener" href="https://azureforeducation.microsoft.com/en-us/institutions/Contact">https://azureforeducation.microsoft.com/en-us/institutions/Contact</a>，简要填写了我的基本信息后就开始等待邮件回复了。</p>
-<p><img src="https://static.031130.xyz/uploads/2024/08/12/645e646bc5b58.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="提交工单"></p>
-<p>我是周四上午申请的，不到一个小时就等来了微软的工单生成通知</p>
-<p><img src="https://static.031130.xyz/uploads/2024/08/12/645e5fdfb25a3.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="微软的工单通知"></p>
-<p>但光有这工单也没有用，我只能继续等人工客服的介入。</p>
-<p>在周五的早上十点，我收到了来自人工客服的邮件，并且在几分钟后收到了来自人工客服的电话（电话是 021 开头的，是归属地为上海的座机打来的，但客服操着严重的港台口音，可能是港台那边的客服通过上海的座机中转打给我的？）: </p>
-<p><img src="https://static.031130.xyz/uploads/2024/08/12/645e60ad79001.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="人工客服的邮件"></p>
-<p>但很显然，这封邮件并没有提供任何行之有效的方案，我只能按照邮件中的指示将我的截图发了过去。不过客服不知道出于什么原因一定要求全屏截图（如果电话说的是全面屏，那也是指 PC 端的全屏截图），可能是他们有什么工作制度吧。回复邮件的时候一定要选择<strong>回复全部</strong>，好像是他们只使用 <a href="mailto:&#x73;&#117;&#112;&#112;&#x6f;&#114;&#116;&#64;&#109;&#97;&#105;&#108;&#x2e;&#115;&#x75;&#112;&#112;&#x6f;&#114;&#116;&#46;&#109;&#105;&#x63;&#x72;&#x6f;&#115;&#x6f;&#102;&#x74;&#46;&#x63;&#111;&#109;">&#x73;&#117;&#112;&#112;&#x6f;&#114;&#116;&#64;&#109;&#97;&#105;&#108;&#x2e;&#115;&#x75;&#112;&#112;&#x6f;&#114;&#116;&#46;&#109;&#105;&#x63;&#x72;&#x6f;&#115;&#x6f;&#102;&#x74;&#46;&#x63;&#111;&#109;</a> 这一个邮箱与我们通信，微软的服务器收到内容后会将我们发送的内容再抄送给给我们分配的客服手上，如果不选择「回复全部」的话，客服可能就看不到之前的通信记录了。</p>
-<p>于是就在当天下午的2点收到了人工客服的第二封邮件，说是已经帮我提交到了后台处理。</p>
-<p><img src="https://static.031130.xyz/uploads/2024/08/12/645e62bae0c0a.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="来自人工客服的第二封邮件"></p>
-<p>20 分钟后，我收到了这封应该是系统自动发送的邮件，说明我的账号因异常而触发了审查所以过不了 Azure 的教育订阅，需要我提交能够佐证我的学生身份的东西上去，当晚7点我便按照要求回信。</p>
-<p><img src="https://static.031130.xyz/uploads/2024/08/12/645e639e2c9d1.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="1683907484369.png"></p>
-<p>当晚8点半，我便收到了来自系统的消息，得知异常已经解除，再次申请 Azure 学生认证就成功了。</p>
-<p><img src="https://static.031130.xyz/uploads/2024/08/12/645e63e39523f.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="异常解除"></p>
+                <h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>早在去年 10 月，我就写过一篇<a href="/2023/10/29/create-b23tv-remover-bot/">《创建 b23.tv 追踪参数移除 bot》</a>。记录了部署 b23.tv 的追踪参数移除 Bot 的部署方案。其中提到的 TG Bot 随着服务器到期不再续费也一同落灰了——<strong>公益服务总是这样，开始时满腔热血，随着时间散去没有多少人能坚持投入成本，徒留下一地鸡毛。</strong></p>
+<p>大概半个月前，我在群里看见 <a target="_blank" rel="noopener" href="https://asukaminato.eu.org/">Asuka Minato</a> 开发的群消息总结 Bot，整体部署在 Cloudflare Workers 上，在保证零运营成本的情况下有着相当非常不错的在线率保证，因此便考虑将这个 Bot 迁移到 Cloudflare Workers 上。<strong>选用免费的 serverless 能够有效延长服务的可持续性，它不需要额外投入时间精力和财力进行维护，通常可以活很久。</strong></p>
+<p>之所以可以把 TG Bot 部署到 Cloudflare Workers 上，主要是得益于 TG 平台支持 webhook 的方式让 Bot 程序提供服务。我们所需要提供的是一个公网能访问的 http 地址，在成功注册 webhook 服务后，TG 的官方服务器会将所有 Bot 所在群或者和所有对个人的对话以 http 请求的方式打到这个 url 上，而 Cloudflare Workers 平台就能提供一个 workers.dev 结尾的公网 url 作为 webhook 提供给 TG 服务器。</p>
+<h2 id="怎么做？"><a href="#怎么做？" class="headerlink" title="怎么做？"></a>怎么做？</h2><p><a target="_blank" rel="noopener" href="https://github.com/cvzi/telegram-bot-cloudflare">在这个 Github 仓库中</a>，给出了不少例子，用以讲述如何利用 Cloudflare Workers 构建 TG Bot。</p>
+<p>在 <a target="_blank" rel="noopener" href="https://github.com/cvzi/telegram-bot-cloudflare/blob/main/bot.js">bot.js</a> 这个文件中编写了一个最简单的 TG Bot，其功能是: 将受到的所有消息在头部添加「Echo:」字符串，并发送回刚才的对话。</p>
+<p>例: 用户发送 「Hello」，bot 回复 「Echo: Hello」</p>
+<hr>
+<h2 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h2><p>代码整体分为四个部分</p>
+<h3 id="顶部变量"><a href="#顶部变量" class="headerlink" title="顶部变量"></a>顶部变量</h3><p>文件顶部定义了 Bot 的 token、webhook 的 url 路径以及一个简易的 webhook 密码。</p>
+<p>TOKEN 是从 botfather 那里获得的 bot token，SECRET 是自己设置的 webhook 密码，TG 的 webhook 服务器会通过把这个字段添加到名为 <code>X-Telegram-Bot-Api-Secret-Token</code> 的请求头中来证明自己的官方身份。</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> <span class="hljs-variable constant_">TOKEN</span> = <span class="hljs-variable constant_">ENV_BOT_TOKEN</span> <span class="hljs-comment">// Get it from @BotFather https://core.telegram.org/bots#6-botfather</span>
+<span class="hljs-keyword">const</span> <span class="hljs-variable constant_">WEBHOOK</span> = <span class="hljs-string">&#x27;/endpoint&#x27;</span>
+<span class="hljs-keyword">const</span> <span class="hljs-variable constant_">SECRET</span> = <span class="hljs-variable constant_">ENV_BOT_SECRET</span> <span class="hljs-comment">// A-Z, a-z, 0-9, _ and -</span></code></pre></div>
+
+<h3 id="简易路由"><a href="#简易路由" class="headerlink" title="简易路由"></a>简易路由</h3><p>紧接着定义了一个简易的路由</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;fetch&#x27;</span>, <span class="hljs-function"><span class="hljs-params">event</span> =&gt;</span> &#123;
+  <span class="hljs-keyword">const</span> url = <span class="hljs-keyword">new</span> <span class="hljs-title function_">URL</span>(event.<span class="hljs-property">request</span>.<span class="hljs-property">url</span>)
+  <span class="hljs-keyword">if</span> (url.<span class="hljs-property">pathname</span> === <span class="hljs-variable constant_">WEBHOOK</span>) &#123;
+    event.<span class="hljs-title function_">respondWith</span>(<span class="hljs-title function_">handleWebhook</span>(event))
+  &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (url.<span class="hljs-property">pathname</span> === <span class="hljs-string">&#x27;/registerWebhook&#x27;</span>) &#123;
+    event.<span class="hljs-title function_">respondWith</span>(<span class="hljs-title function_">registerWebhook</span>(event, url, <span class="hljs-variable constant_">WEBHOOK</span>, <span class="hljs-variable constant_">SECRET</span>))
+  &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (url.<span class="hljs-property">pathname</span> === <span class="hljs-string">&#x27;/unRegisterWebhook&#x27;</span>) &#123;
+    event.<span class="hljs-title function_">respondWith</span>(<span class="hljs-title function_">unRegisterWebhook</span>(event))
+  &#125; <span class="hljs-keyword">else</span> &#123;
+    event.<span class="hljs-title function_">respondWith</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">Response</span>(<span class="hljs-string">&#x27;No handler for this request&#x27;</span>))
+  &#125;
+&#125;)</code></pre></div>
+
+<h3 id="核心功能"><a href="#核心功能" class="headerlink" title="核心功能"></a>核心功能</h3><p>随后的三个函数，会先进行 SECRET 的校验，并将 message 类型消息从 TG 的所有消息类型中分离开单独处理</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * Handle requests to WEBHOOK</span>
+<span class="hljs-comment"> * https://core.telegram.org/bots/api#update</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">handleWebhook</span> (<span class="hljs-params">event</span>) &#123;
+  <span class="hljs-comment">// Check secret</span>
+  <span class="hljs-keyword">if</span> (event.<span class="hljs-property">request</span>.<span class="hljs-property">headers</span>.<span class="hljs-title function_">get</span>(<span class="hljs-string">&#x27;X-Telegram-Bot-Api-Secret-Token&#x27;</span>) !== <span class="hljs-variable constant_">SECRET</span>) &#123;
+    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Response</span>(<span class="hljs-string">&#x27;Unauthorized&#x27;</span>, &#123; <span class="hljs-attr">status</span>: <span class="hljs-number">403</span> &#125;)
+  &#125;
+
+  <span class="hljs-comment">// Read request body synchronously</span>
+  <span class="hljs-keyword">const</span> update = <span class="hljs-keyword">await</span> event.<span class="hljs-property">request</span>.<span class="hljs-title function_">json</span>()
+  <span class="hljs-comment">// Deal with response asynchronously</span>
+  event.<span class="hljs-title function_">waitUntil</span>(<span class="hljs-title function_">onUpdate</span>(update))
+
+  <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Response</span>(<span class="hljs-string">&#x27;Ok&#x27;</span>)
+&#125;
+
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * Handle incoming Update</span>
+<span class="hljs-comment"> * https://core.telegram.org/bots/api#update</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">onUpdate</span> (<span class="hljs-params">update</span>) &#123;
+  <span class="hljs-keyword">if</span> (<span class="hljs-string">&#x27;message&#x27;</span> <span class="hljs-keyword">in</span> update) &#123;
+    <span class="hljs-keyword">await</span> <span class="hljs-title function_">onMessage</span>(update.<span class="hljs-property">message</span>)
+  &#125;
+&#125;
+
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * Handle incoming Message</span>
+<span class="hljs-comment"> * https://core.telegram.org/bots/api#message</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">onMessage</span> (<span class="hljs-params">message</span>) &#123;
+  <span class="hljs-keyword">return</span> <span class="hljs-title function_">sendPlainText</span>(message.<span class="hljs-property">chat</span>.<span class="hljs-property">id</span>, <span class="hljs-string">&#x27;Echo:\n&#x27;</span> + message.<span class="hljs-property">text</span>)
+&#125;
+
+<span class="hljs-comment">/**</span>
+<span class="hljs-comment"> * Send plain text message</span>
+<span class="hljs-comment"> * https://core.telegram.org/bots/api#sendmessage</span>
+<span class="hljs-comment"> */</span>
+<span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">sendPlainText</span> (<span class="hljs-params">chatId, text</span>) &#123;
+  <span class="hljs-keyword">return</span> (<span class="hljs-keyword">await</span> <span class="hljs-title function_">fetch</span>(<span class="hljs-title function_">apiUrl</span>(<span class="hljs-string">&#x27;sendMessage&#x27;</span>, &#123;
+    <span class="hljs-attr">chat_id</span>: chatId,
+    text
+  &#125;))).<span class="hljs-title function_">json</span>()</code></pre></div>
+
+<p>我们需要更改的就是这个 onMessage 函数，用户输入的文本信息通过 message.text 获取，我们可以很轻易的把 b23 remover 的逻辑用 js 实现</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">onMessage</span>(<span class="hljs-params">message</span>) &#123;
+    <span class="hljs-keyword">if</span> (!message.<span class="hljs-property">text</span>) &#123;
+        <span class="hljs-keyword">return</span>;
+    &#125;
+    <span class="hljs-keyword">const</span> b23Reg = <span class="hljs-regexp">/b23\.tv\/[a-zA-Z0-9]+/g</span>;
+    <span class="hljs-keyword">if</span> (!b23Reg.<span class="hljs-title function_">test</span>(message.<span class="hljs-property">text</span>)) &#123;
+        <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&#x27;No match found&#x27;</span>);
+    &#125;
+    <span class="hljs-keyword">const</span> b23Links = message.<span class="hljs-property">text</span>.<span class="hljs-title function_">match</span>(b23Reg);
+    <span class="hljs-keyword">const</span> cleanLinks = [];
+    <span class="hljs-keyword">await</span> <span class="hljs-title class_">Promise</span>.<span class="hljs-title function_">all</span>(
+        b23Links.<span class="hljs-title function_">map</span>(<span class="hljs-function"><span class="hljs-params">link</span> =&gt;</span> <span class="hljs-title function_">b23Remover</span>(<span class="hljs-string">&#x27;https://&#x27;</span> + link))
+    ).<span class="hljs-title function_">then</span>(<span class="hljs-function"><span class="hljs-params">result</span> =&gt;</span> &#123;
+        cleanLinks.<span class="hljs-title function_">push</span>(...result);
+    &#125;);
+
+    <span class="hljs-keyword">const</span> text2Send = <span class="hljs-string">&quot;Track ID removed:\n&quot;</span> + cleanLinks.<span class="hljs-title function_">join</span>(<span class="hljs-string">&quot;\n&quot;</span>);
+    <span class="hljs-keyword">return</span> <span class="hljs-title function_">sendPlainText</span>(message.<span class="hljs-property">chat</span>.<span class="hljs-property">id</span>, text2Send);
+&#125;
+
+<span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">b23Remover</span> (<span class="hljs-params">url</span>) &#123;
+    <span class="hljs-keyword">const</span> r = <span class="hljs-keyword">await</span> <span class="hljs-title function_">fetch</span>(url)
+    <span class="hljs-keyword">const</span> v = r.<span class="hljs-property">url</span>
+    <span class="hljs-keyword">const</span> u = <span class="hljs-keyword">new</span> <span class="hljs-title function_">URL</span>(v)
+    <span class="hljs-keyword">return</span> u.<span class="hljs-property">origin</span> + u.<span class="hljs-property">pathname</span>
+&#125;</code></pre></div>
+
+<h3 id="webhook-注册相关"><a href="#webhook-注册相关" class="headerlink" title="webhook 注册相关"></a>webhook 注册相关</h3><p>后面的 registerWebhook、unRegisterWebhook、apiUrl 在没有特定需求的情况下不需要变动。</p>
+<p>在 Cloudflare 部署后，就可以访问 aaa.bbb.workers.dev/registerWebhook 这个 url 注册 TG 的 webhook 服务。收到 Ok 就代表注册好了。</p>
+<p><img src="https://static.031130.xyz/uploads/2024/12/30/5fd442bb18064.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
+<h2 id="成果展示"><a href="#成果展示" class="headerlink" title="成果展示"></a>成果展示</h2><p><img src="https://static.031130.xyz/uploads/2024/12/30/3b0b929960840.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
 
                 
               </div>
@@ -376,7 +465,9 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Azure/" class="print-no-link">#Azure</a>
+        <a href="/tags/Bot/" class="print-no-link">#Bot</a>
+      
+        <a href="/tags/Cloudflare/" class="print-no-link">#Cloudflare</a>
       
     </div>
   
@@ -388,8 +479,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Azure 教育订阅申请时遇到的麻烦</div>
-      <div>https://zhul.in/2023/05/12/troubles-when-applying-azure-education/</div>
+      <div>构建部署在 Cloudflare Workers 上的 TG Bot</div>
+      <div>https://zhul.in/2024/12/30/tg-bot-hosted-on-cloudflare-workers/</div>
     </div>
     <div class="license-meta">
       
@@ -401,13 +492,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年5月12日</div>
+          <div>2024年12月30日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2024年11月16日</div>
+          <div>2024年12月30日</div>
         </div>
       
       
@@ -450,18 +541,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/06/24/redmi-ac2100-router-with-padavan/" title="为红米 Redmi AC2100 路由器刷入 Padavan">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">为红米 Redmi AC2100 路由器刷入 Padavan</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/05/03/checkout-lfs-file-after-repo-sync/" title="执行 repo sync 后将 git-lfs 中的资源文件 checkout">
-                        <span class="hidden-mobile">执行 repo sync 后将 git-lfs 中的资源文件 checkout</span>
+                      <a href="/2024/11/19/firefox-is-the-only-mainstream-brower-doing-online-certificate-revocation-checks/" title="2024年，Firefox 是唯一还在坚持执行在线的 SSL 证书吊销状态检查的主流浏览器">
+                        <span class="hidden-mobile">2024年，Firefox 是唯一还在坚持执行在线的 SSL 证书吊销状态检查的主流浏览器</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
