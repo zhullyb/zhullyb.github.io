@@ -970,6 +970,12 @@ links:
   # Member item of page
   items:
     - {
+      title: "精弘 RSS 看板",
+      intro: "浙江工业大学精弘网络技术团队",
+      link: "https://zjutjh.github.io",
+      avatar: "https://static.031130.xyz/uploads/2024/12/31/71b730c8be4a8.webp"
+    }
+    - {
       title: "iNetech Blog",
       intro: "凡心所向，素履所往",
       link: "https://blog.inetech.fun",
