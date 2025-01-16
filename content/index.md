@@ -1,9 +1,22 @@
-# Nuxt Content
+# Welcome to Nuxt Content starter
 
-This page corresponds to the `/` route of your website. You can delete it or create another file in the `content/` directory.
+## Manage your contents
 
-Try to navigate to [/about](/about). These 2 pages are rendered by the `pages/[...slug].vue` component.
+Create new pages or modify the existing ones in `content/` directory.
 
----
+## Query & Render pages
 
-Look at the [Content documentation](https://content.nuxtjs.org/) to learn more.
+You can find an example of querying contents and rendering them in `app/pages/[...slug].vue`
+
+## Fancy to use a Vue component?
+
+::counter
+::
+
+:div{style="margin: 2rem 0"}
+
+::div{style="background: orange; font-size: 1.5rem; padding: 10px 20px;"}
+Checkout [official docs][docs] to read more about Nuxt Content
+::
+
+[docs]: https://content.nuxt.com
