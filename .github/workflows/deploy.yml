@@ -56,7 +56,7 @@ jobs:
           mkdir -p ~/.ssh/
           echo "$HEXO_DEPLOY_KEY" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -p 8022 aliyunhk.cname.5435486.xyz >> ~/.ssh/known_hosts
+          ssh-keyscan -p 8022 dmitus.cname.5435486.xyz >> ~/.ssh/known_hosts
 
       - name: Deploy to VPS
         run: pnpm run deploy

@@ -6,7 +6,7 @@
 title: 竹林里有冰的博客
 subtitle: zhullyb's blog
 description: "竹林里有冰的博客"
-keywords: 博客, 技术, Fedora
+keywords: 博客, 技术, Linux
 author: 竹林里有冰
 language: zh-CN
 timezone: 'Asia/Shanghai'
@@ -107,7 +107,7 @@ theme: fluid
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: rsync
-  host: aliyunhk.cname.5435486.xyz  # 这里填写你VPS的IP地址，比如：138.23.23.23
+  host: dmitus.cname.5435486.xyz  # 这里填写你VPS的IP地址，比如：138.23.23.23
   user: root # 这里填写你登陆VPS所用的用户名，比如：root
   root: /var/www/zhul.in # 这里填写你在nginx中配置的文件路径
   port: 8022 # SSH默认端口号，不需要修改
