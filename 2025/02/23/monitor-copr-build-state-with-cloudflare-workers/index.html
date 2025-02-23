@@ -21,28 +21,27 @@
   <meta name="author" content="竹林里有冰">
   <meta name="keywords" content="博客, 技术, Linux">
   
-    <meta name="description" content="2024.08.20更新我将境外的 Github Pages 解析停了，所有流量全部指向我的 HK 的 vps。 访问对方站点 &#x2F;?about&#x2F; 时，在我服务器 &#x2F;about&#x2F; 收到了一个奇怪的请求，访问对方别的路径时也会在我服务器的对应路径收到请求，UA 伪装成了 Google 家的爬虫:  （关于为什么有 Mozilla 字段，可以参见 《是的，所有现代浏览器都假装自己是火狐》） 这个 ip">
+    <meta name="description" content="确信，是 cloudflare workers 用上瘾了  在「使用 Github Action 更新用于 rpm 打包的 spec 文件」一文中，我利用 Github Action 实现了自动化的 spec 版本号更新，配合 Fedora Copr 的 webhook 就可以实现 Copr 软件包更新的自动化构建。看似很完美，但缺少了一个构建状态的监控机制，这导致出现构建错误的时候我不能及时得">
 <meta property="og:type" content="article">
-<meta property="og:title" content="我的博客被完整地反向代理，并自动翻译成了繁体中文">
-<meta property="og:url" content="https://zhul.in/2024/07/18/my-blog-is-completely-proxied-and-translated-into-traditional-chinese/index.html">
+<meta property="og:title" content="使用 Cloudflare Workers 监控 Fedora Copr 构建状态">
+<meta property="og:url" content="https://zhul.in/2025/02/23/monitor-copr-build-state-with-cloudflare-workers/index.html">
 <meta property="og:site_name" content="竹林里有冰的博客">
-<meta property="og:description" content="2024.08.20更新我将境外的 Github Pages 解析停了，所有流量全部指向我的 HK 的 vps。 访问对方站点 &#x2F;?about&#x2F; 时，在我服务器 &#x2F;about&#x2F; 收到了一个奇怪的请求，访问对方别的路径时也会在我服务器的对应路径收到请求，UA 伪装成了 Google 家的爬虫:  （关于为什么有 Mozilla 字段，可以参见 《是的，所有现代浏览器都假装自己是火狐》） 这个 ip">
+<meta property="og:description" content="确信，是 cloudflare workers 用上瘾了  在「使用 Github Action 更新用于 rpm 打包的 spec 文件」一文中，我利用 Github Action 实现了自动化的 spec 版本号更新，配合 Fedora Copr 的 webhook 就可以实现 Copr 软件包更新的自动化构建。看似很完美，但缺少了一个构建状态的监控机制，这导致出现构建错误的时候我不能及时得">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://static.031130.xyz/uploads/2024/08/12/66ab4ffa4eda3.webp">
-<meta property="article:published_time" content="2024-07-18T03:22:37.000Z">
-<meta property="article:modified_time" content="2024-11-15T18:02:30.000Z">
+<meta property="og:image" content="https://static.031130.xyz/uploads/2025/02/23/637811d2d85f6.webp">
+<meta property="og:image" content="https://static.031130.xyz/uploads/2025/02/23/c38edfd637934.webp">
+<meta property="article:published_time" content="2025-02-23T04:12:53.000Z">
+<meta property="article:modified_time" content="2025-02-23T13:15:57.000Z">
 <meta property="article:author" content="竹林里有冰">
-<meta property="article:tag" content="Network">
-<meta property="article:tag" content="umami">
+<meta property="article:tag" content="Fedora">
 <meta property="article:tag" content="Cloudflare">
-<meta property="article:tag" content="Blog">
-<meta property="article:tag" content="waline">
+<meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://static.031130.xyz/uploads/2024/08/12/66ab4ffa4eda3.webp">
+<meta name="twitter:image" content="https://static.031130.xyz/uploads/2025/02/23/637811d2d85f6.webp">
   
   
   
-  <title>我的博客被完整地反向代理，并自动翻译成了繁体中文 - 竹林里有冰的博客</title>
+  <title>使用 Cloudflare Workers 监控 Fedora Copr 构建状态 - 竹林里有冰的博客</title>
 
   <link  rel="stylesheet" href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/4.6.0/css/bootstrap.min.css" />
 
@@ -261,7 +260,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="我的博客被完整地反向代理，并自动翻译成了繁体中文"></span>
+            <span id="subtitle" data-typed-text="使用 Cloudflare Workers 监控 Fedora Copr 构建状态"></span>
           
         </div>
 
@@ -272,8 +271,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-07-18 11:22" pubdate>
-          2024年7月18日 上午
+        <time datetime="2025-02-23 12:12" pubdate>
+          2025年2月23日 中午
         </time>
       </span>
     
@@ -285,7 +284,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          1.7k 字
+          671 字
         
       </span>
     
@@ -297,7 +296,7 @@
         
         
           <!-- compatible with older versions-->
-          9 分钟
+          4 分钟
         
       </span>
     
@@ -334,13 +333,13 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">我的博客被完整地反向代理，并自动翻译成了繁体中文</h1>
+            <h1 id="seo-header">使用 Cloudflare Workers 监控 Fedora Copr 构建状态</h1>
             
               <p id="updated-time" class="note note-info" style="">
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2024年11月16日 凌晨
+                    本文最后更新于：2025年2月23日 晚上
                   
                 
               </p>
@@ -348,108 +347,79 @@
             
               <div class="markdown-body">
                 
-                <h2 id="2024-08-20更新"><a href="#2024-08-20更新" class="headerlink" title="2024.08.20更新"></a>2024.08.20更新</h2><p>我将境外的 Github Pages 解析停了，所有流量全部指向我的 HK 的 vps。</p>
-<p>访问对方站点 /?about/ 时，在我服务器 /about/ 收到了一个奇怪的请求，访问对方别的路径时也会在我服务器的对应路径收到请求，UA 伪装成了 Google 家的爬虫:</p>
-<p><img src="https://static.031130.xyz/uploads/2024/08/20/82e8dc389f081.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="caddy 日志"></p>
-<p>（关于为什么有 Mozilla 字段，可以参见 <a target="_blank" rel="noopener" href="https://imbearchild.cyou/archives/2024/04/yes-browser-are-faking-to-be-firefox/">《是的，所有现代浏览器都假装自己是火狐》</a>）</p>
-<p>这个 ip 的归属地是新加坡 Cogent，合理怀疑是对方的源站 IP（也有可能只是对方用于请求的爬虫 ip）。直接通过 ip 访问对方站点，发现是 lnmp 的安装成功提示:</p>
-<p><img src="https://static.031130.xyz/uploads/2024/08/20/4d181fd0bcc11.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="ip 访问"></p>
-<p>我注意到对方站点在 html 结尾处加了如下字段</p>
-<p><img src="https://static.031130.xyz/uploads/2024/08/20/057a829ec9e4a.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="这里是直接请求的 archive 存档，所以有 archive 前缀"></p>
-<div class="code-wrapper"><pre><code class="hljs html"><span class="hljs-comment">&lt;!-- freevslinks --&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">style</span>=<span class="hljs-string">&quot;display:none&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;http://www.xxfseo.com/?time=1721267439&quot;</span>&gt;</span>xxfseo.com<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><span class="hljs-comment">&lt;!-- /freevslinks --&gt;</span></code></pre></div>
+                <blockquote>
+<p><del>确信，是 cloudflare workers 用上瘾了</del></p>
+</blockquote>
+<p>在<a href="/2024/04/29/update-a-rpm-spec-by-github-action/">「使用 Github Action 更新用于 rpm 打包的 spec 文件」</a>一文中，我利用 Github Action 实现了自动化的 spec 版本号更新，配合 Fedora Copr 的 webhook 就可以实现 Copr 软件包更新的自动化构建。看似很完美，但缺少了一个构建状态的监控机制，这导致出现构建错误的时候我不能及时得到通知（无论构建错误是 spec 本身的问题或者是构建时的网络环境问题）。</p>
+<p><a target="_blank" rel="noopener" href="https://yanqiyu.info/">西木野羰基</a> 提出 <a target="_blank" rel="noopener" href="https://notifications.fedoraproject.org/">notifications.fedoraproject.org</a> 可以配置通知，Filters 的 Applications 选项中有 copr，但很可惜，实测没有效果。这里的通知配置的似乎只是邮件的过滤规则——如果 copr 本来就没打算构建失败的时候给你发邮件，那即使建立了过滤规则，依然是不可能收到邮件的。</p>
+<p>不过好在 Fedora Copr 本身有非常完备的 <a target="_blank" rel="noopener" href="https://copr.fedorainfracloud.org/api_3/docs">api 文档</a>，<code>/monitor</code> 这个 API 能用来获取软件包最新的构建情况。</p>
+<p><img src="https://static.031130.xyz/uploads/2025/02/23/637811d2d85f6.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
+<p>因此，我们就可以通过 Cloudflare 的 cronjob 定时请求这个接口，查询是否有软件包构建失败。</p>
+<p>先来编写打请求的部分</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">fetchCopr</span>(<span class="hljs-params"></span>) &#123;
+    <span class="hljs-keyword">const</span> ownername = <span class="hljs-string">&quot;zhullyb&quot;</span>;
+    <span class="hljs-keyword">const</span> projectname = <span class="hljs-string">&quot;v2rayA&quot;</span>;
 
-<p><img src="https://static.031130.xyz/uploads/2024/08/20/b0449632623b2.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="官网"></p>
-<p>似乎是专业产生互联网垃圾的组织。</p>
-<p>我目前已经屏蔽了来自 <code>154.39.149.128</code> 这个 ip 的访问请求，对方的站点暂时性崩盘，以后可能会换用别的 ip 来爬也说不准，先到此为止吧。</p>
-<hr>
-<h2 id="现象"><a href="#现象" class="headerlink" title="现象"></a>现象</h2><p>今早打开我的流量统计网站，发现我的博客有一个神奇的 referer</p>
-<p><img src="https://static.031130.xyz/uploads/2024/08/12/66989d79e740c.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
-<p>顶着我博客用的 favicon，但竟然不是我的域名。点进去一看，发现我的博客被翻译成了繁体中文，而且语句读上去也不是很通畅。<a target="_blank" rel="noopener" href="https://web.archive.org/web/20240718015038/https://theodorelobas.com/">Archived here.</a><img src="https://static.031130.xyz/uploads/2024/08/12/66ab4ffa4eda3.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
-<p>再打开关于页一看，把我的博客域名给干掉了，只留下一个反代域名。<a target="_blank" rel="noopener" href="http://web.archive.org/web/20240718034705/https://theodorelobas.com/?about/">Archived here.</a></p>
-<p><img src="https://static.031130.xyz/uploads/2024/08/12/66989f7f73b90.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
-<p>随机打开一个幸运页面，使用 F12 控制台查看流量情况，发现 umami 统计和 waline 评论都用的我个人部署的</p>
-<p><img src="https://static.031130.xyz/uploads/2024/08/12/6698a0bf39f8d.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
-<p>查询 ip 归属地，是老朋友 Cloudflare 泛播</p>
-<p><img src="https://static.031130.xyz/uploads/2024/08/12/6698a101845a2.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
-<p><img src="https://static.031130.xyz/uploads/2024/08/12/6698a2dd3d78a.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="url 上不明所以的问号"></p>
-<p>结合 url 上不明所以的问号，推测应该是 cloudflare workers 反向代理 + 调用翻译 api + 关键词替换。我小小更新了某个页面，发现对方站点也立马更新了，基本可以确定是反向代理。</p>
-<p>whois 查询没有获得任何有用信息，一眼望去全是隐私保护。</p>
-<p><img src="https://static.031130.xyz/uploads/2024/08/12/6698a2deaa9d0.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="whois 信息"></p>
-<hr>
-<p>事先声明，我的博客采用<code>CC BY-NC-SA 4.0</code>，我个人是非常欢迎任何人注明出处的情况下搬运甚至翻译我的文章的，甚至允许搬运到 csdn——只要你不开收费访问。但这种反代行为我是非常抵触的。</p>
-<ol>
-<li>文章被翻译成了繁体中文，但没有注明是翻译稿，直接把我本人的网名用繁体写了上去，这并不符合 <code>CC BY-NC-SA 4.0</code> 的要求。<img src="https://static.031130.xyz/uploads/2024/08/12/669929695144b.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="如果修改了原文需要做出说明"></li>
-<li>翻译质量很差，就连机翻都不应有这种奇怪的同义词替换，问了问熟悉繁中的朋友说是港台也没有这种用法，像是故意洗稿。<img src="https://static.031130.xyz/uploads/2024/08/12/6699bdbab5f0a.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></li>
-<li>反向代理了我的整个网站，但把我关于页上的博客链接给去掉了，我不认为这是善意的反代行为。<a target="_blank" rel="noopener" href="http://web.archive.org/web/20240718034705/https://theodorelobas.com/?about/">Archived here.</a></li>
-<li>仍然在使用我的 waline 评论和 umami 统计。</li>
-<li>没有给我任何事先的邮件说明或者评论留言，whois 开隐私保护的情况下，我找不到任何方法去联系这位域名的持有者。</li>
-</ol>
-<h2 id="怎么办？"><a href="#怎么办？" class="headerlink" title="怎么办？"></a>怎么办？</h2><h3 id="植入-js-进行跳转"><a href="#植入-js-进行跳转" class="headerlink" title="植入 js 进行跳转"></a>植入 js 进行跳转</h3><p>因为对方同步的及时性很强，高度怀疑是 cloudflare workers 反向代理，且评论和流量统计都直接原模原样用的是我的 js，我就注入一个 js 检测 host，如果不是我的域名或者本地调试时使用的 <code>127.0.0.1</code> or <code>localhost</code>，则清空页面内容，给出文字提示，五秒后跳转到我的博客。代码如下:</p>
-<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> host = <span class="hljs-variable language_">window</span>.<span class="hljs-property">location</span>.<span class="hljs-property">host</span>
-<span class="hljs-keyword">if</span> (host !== <span class="hljs-string">&#x27;zhul.in&#x27;</span> &amp;&amp; ! host.<span class="hljs-title function_">startsWith</span>(<span class="hljs-string">&#x27;localhost&#x27;</span>) &amp;&amp; ! host.<span class="hljs-title function_">startsWith</span>(<span class="hljs-string">&#x27;127.0.0.1&#x27;</span>)) &#123;
-    <span class="hljs-variable language_">document</span>.<span class="hljs-property">body</span>.<span class="hljs-property">innerHTML</span> = [
-        <span class="hljs-string">&#x27;&lt;div style=&quot;margin: auto;&quot;&gt;&#x27;</span>,
-        <span class="hljs-string">&#x27;&lt;h1&gt;当前页面并非本文作者的主页，将在五秒后跳转。&lt;/h1&gt;&#x27;</span>,
-        <span class="hljs-string">&#x27;&lt;br /&gt;&#x27;</span>,
-        <span class="hljs-string">&#x27;&lt;h1&gt;请此站点持有者联系我: zhullyb@outlook.com&lt;/h1&gt;&#x27;</span>,
-        <span class="hljs-string">&#x27;&lt;/div&gt;&#x27;</span>,
-    ].<span class="hljs-title function_">join</span>(<span class="hljs-string">&#x27;&#x27;</span>)
-    <span class="hljs-variable language_">document</span>.<span class="hljs-property">body</span>.<span class="hljs-property">style</span> = [
-        <span class="hljs-string">&#x27;background-color: white;&#x27;</span>,
-        <span class="hljs-string">&#x27;color: black;&#x27;</span>,
-        <span class="hljs-string">&#x27;text-align: center;&#x27;</span>,
-        <span class="hljs-string">&#x27;font-size: 50px;&#x27;</span>,
-        <span class="hljs-string">&#x27;width: 100vw;&#x27;</span>,
-        <span class="hljs-string">&#x27;height: 100vh;&#x27;</span>,
-        <span class="hljs-string">&#x27;display: flex;&#x27;</span>,
-    ].<span class="hljs-title function_">join</span>(<span class="hljs-string">&#x27;&#x27;</span>)
-    <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;
-        <span class="hljs-variable language_">window</span>.<span class="hljs-property">location</span>.<span class="hljs-property">href</span> = <span class="hljs-string">&#x27;https://zhul.in&#x27;</span>
-    &#125;, <span class="hljs-number">5000</span>)
+    <span class="hljs-keyword">const</span> url = <span class="hljs-keyword">new</span> <span class="hljs-title function_">URL</span>(<span class="hljs-string">&quot;https://copr.fedorainfracloud.org/api_3/monitor&quot;</span>)
+    url.<span class="hljs-property">searchParams</span>.<span class="hljs-title function_">set</span>(<span class="hljs-string">&quot;ownername&quot;</span>, ownername)
+    url.<span class="hljs-property">searchParams</span>.<span class="hljs-title function_">set</span>(<span class="hljs-string">&quot;projectname&quot;</span>, projectname)
+    <span class="hljs-keyword">const</span> response = <span class="hljs-keyword">await</span> <span class="hljs-title function_">fetch</span>(url)
+    <span class="hljs-keyword">const</span> data = <span class="hljs-keyword">await</span> response.<span class="hljs-title function_">json</span>()
+    <span class="hljs-keyword">if</span> (data.<span class="hljs-property">output</span> !== <span class="hljs-string">&quot;ok&quot;</span>) &#123;
+        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">&quot;Failed to fetch COPR data&quot;</span>)
+    &#125;
+    <span class="hljs-keyword">return</span> data
 &#125;</code></pre></div>
 
-<h3 id="给-waline-和-umami-设置限制"><a href="#给-waline-和-umami-设置限制" class="headerlink" title="给 waline 和 umami 设置限制"></a>给 waline 和 umami 设置限制</h3><p>我博客使用的 waline 和 umami 均是我自己在 vercel 上架设的，我自然可以根据访客的 referer 来判断请求的来源。不过看了下，vercel.json 文件并不能直接实现这个需求，可能需要我们自己来编写一些简易的中间件。</p>
-<h4 id="Waline"><a href="#Waline" class="headerlink" title="Waline"></a>Waline</h4><p>waline 文档中有明确提到，waline 基于 Koa 框架开发，可以<a target="_blank" rel="noopener" href="https://waline.js.org/reference/server/plugin.html#%E5%9F%BA%E4%BA%8E%E4%B8%AD%E9%97%B4%E4%BB%B6%E5%88%B6%E4%BD%9C">自行编写中间件</a>。</p>
-<div class="code-wrapper"><pre><code class="hljs js"><span class="hljs-comment">// example/index.cjs</span>
-<span class="hljs-keyword">const</span> <span class="hljs-title class_">Application</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;@waline/vercel&#x27;</span>);
-
-<span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = <span class="hljs-title class_">Application</span>(&#123;
-    <span class="hljs-attr">plugins</span>: [
-        &#123;
-            <span class="hljs-attr">middlewares</span>: [
-                <span class="hljs-title function_">async</span> (ctx, next) =&gt; &#123;
-                    <span class="hljs-keyword">const</span> referer = ctx.<span class="hljs-property">request</span>.<span class="hljs-property">headers</span>[<span class="hljs-string">&#x27;referer&#x27;</span>];
-                    <span class="hljs-keyword">if</span> (referer) &#123;
-                        <span class="hljs-keyword">if</span> (
-                            !referer.<span class="hljs-title function_">include</span>(<span class="hljs-string">&#x27;localhost&#x27;</span>) &amp;&amp;
-                            !referer.<span class="hljs-title function_">include</span>(<span class="hljs-string">&#x27;127.0.0.1&#x27;</span>) &amp;&amp;
-                            !referer.<span class="hljs-title function_">include</span>(<span class="hljs-string">&#x27;zhul.in&#x27;</span>)
-                        ) &#123;
-                            ctx.<span class="hljs-property">status</span> = <span class="hljs-number">403</span>
-                            ctx.<span class="hljs-property">body</span> = <span class="hljs-string">&#x27;Forbidden&#x27;</span>
-                            <span class="hljs-keyword">return</span>
-                        &#125;
-                    &#125;
-                    <span class="hljs-keyword">await</span> <span class="hljs-title function_">next</span>();
-                &#125;,
-            ]
+<p>随后编写通知部分，我这里采用的是飞书的 webhook 机器人</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">async</span> <span class="hljs-keyword">function</span> <span class="hljs-title function_">notify</span>(<span class="hljs-params">text</span>) &#123;
+    <span class="hljs-keyword">const</span> webhook = <span class="hljs-string">&quot;https://open.feishu.cn/open-apis/bot/v2/hook/ffffffff-ffff-ffff-ffff-ffffffffffff&quot;</span>
+    <span class="hljs-keyword">const</span> body = &#123;
+        <span class="hljs-attr">msg_type</span>: <span class="hljs-string">&quot;text&quot;</span>,
+        <span class="hljs-attr">content</span>: &#123;
+            <span class="hljs-attr">text</span>: text
         &#125;
-    ],
-    <span class="hljs-keyword">async</span> <span class="hljs-title function_">postSave</span>(<span class="hljs-params">comment</span>) &#123;
-        <span class="hljs-comment">// do what ever you want after comment saved</span>
-    &#125;,
-&#125;);</code></pre></div>
+    &#125;
+    <span class="hljs-keyword">const</span> response = <span class="hljs-keyword">await</span> <span class="hljs-title function_">fetch</span>(webhook, &#123;
+        <span class="hljs-attr">method</span>: <span class="hljs-string">&quot;POST&quot;</span>,
+        <span class="hljs-attr">headers</span>: &#123;
+            <span class="hljs-string">&quot;Content-Type&quot;</span>: <span class="hljs-string">&quot;application/json&quot;</span>
+        &#125;,
+        <span class="hljs-attr">body</span>: <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">stringify</span>(body)
+    &#125;)
+    <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(response)
+&#125;</code></pre></div>
 
-<p>成效立竿见影</p>
-<p><img src="https://static.031130.xyz/uploads/2024/08/12/6698d6570a780.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="效果图"></p>
-<h4 id="umami"><a href="#umami" class="headerlink" title="umami"></a>umami</h4><p>对 umami 的第一次请求是 script.js，这个请求是因为 html 头部添加了 umami 的 script 链接，这一次请求是不带有 referer 的，因此，对方站点使用我的 umami 统计并不会给我的博客访问统计造成错乱——umami 能够自行分辨对方的站点是否是当初添加网站时填写的站点。但我不能忍的地方在与 umami 的数据库会记录对方站点的流量情况，这占用了我的数据库空间。</p>
-<p><img src="https://static.031130.xyz/uploads/2024/08/12/6698d9c326739.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="数据库导出文件"></p>
-<p>umami 使用 nextjs 开发，似乎并没有给我留可供自定义的接口，贸然修改源码则可能会在下次 merge 官方代码时遇到麻烦。为了给自己省点事，我选择不再让博客加载 <code>https://umami.zhul.in/script.js</code> ，而是将其中的内容复制保存下来，添加基于 host 的判断条件来决定是否向自建的 umami 服务发起请求。</p>
-<h3 id="尝试向-cloudflare-举报滥用行为"><a href="#尝试向-cloudflare-举报滥用行为" class="headerlink" title="尝试向 cloudflare 举报滥用行为"></a>尝试向 cloudflare 举报滥用行为</h3><p>cloudflare 是允许提交滥用举报的，这个域名正在使用 cloudflare 提供服务，因此我可以尝试举报，链接在这里: <a target="_blank" rel="noopener" href="https://www.cloudflare.com/zh-cn/trust-hub/reporting-abuse/">https://www.cloudflare.com/zh-cn/trust-hub/reporting-abuse/</a></p>
-<p><img src="https://static.031130.xyz/uploads/2024/08/12/669926eddb16e.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
-<p>类别就可以选 DCMA，因为对方没有遵守 <code>CC BY-NC-SA 4.0</code> 协议给我的文章做出合理的署名，且我的博客关于页面不属于 <code>CC BY-NC-SA 4.0</code> 的范畴，对方是没有理由去对这一页做出二次分发的行为的。</p>
-<p>不过我暂时还没这么做，我期待着我前面的几个方案能够奏效，我仍寄希望于对方会及时和我沟通，我也不太想为此去填一张额外的烦人的表单。</p>
-<h2 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h2><p><img src="https://static.031130.xyz/uploads/2024/08/12/66992ad0d2890.gif" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
+<p>最后就是 cronjob 的调用部分和构建状态解析部分</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> &#123;
+    <span class="hljs-keyword">async</span> <span class="hljs-title function_">fetch</span>(<span class="hljs-params">request, env, ctx</span>) &#123;
+      <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Response</span>(<span class="hljs-string">&#x27;Hello World!&#x27;</span>);
+    &#125;,
+
+    <span class="hljs-keyword">async</span> <span class="hljs-title function_">scheduled</span>(<span class="hljs-params">event, env, ctx</span>) &#123;
+        <span class="hljs-keyword">const</span> data = <span class="hljs-keyword">await</span> <span class="hljs-title function_">fetchCopr</span>()
+        <span class="hljs-keyword">const</span> errorPackages = <span class="hljs-keyword">new</span> <span class="hljs-title class_">Array</span>()
+
+        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> pkg <span class="hljs-keyword">of</span> data.<span class="hljs-property">packages</span>) &#123;
+            <span class="hljs-keyword">for</span> (<span class="hljs-keyword">const</span> chroot <span class="hljs-keyword">of</span> <span class="hljs-title class_">Object</span>.<span class="hljs-title function_">values</span>(pkg.<span class="hljs-property">chroots</span>)) &#123;
+                <span class="hljs-keyword">if</span> (chroot.<span class="hljs-property">state</span> == <span class="hljs-string">&quot;failed&quot;</span>) &#123;
+                    errorPackages.<span class="hljs-title function_">push</span>(pkg.<span class="hljs-property">name</span>)
+                    <span class="hljs-keyword">break</span>
+                &#125;
+            &#125;
+        &#125;
+
+        <span class="hljs-keyword">if</span> (errorPackages.<span class="hljs-property">length</span> &gt; <span class="hljs-number">0</span>) &#123;
+            <span class="hljs-keyword">await</span> <span class="hljs-title function_">notify</span>(<span class="hljs-string">`COPR 以下包发生构建失败:\n<span class="hljs-subst">$&#123;errorPackages.join(<span class="hljs-string">&quot;\n&quot;</span>)&#125;</span>`</span>)
+        &#125; <span class="hljs-keyword">else</span> &#123;
+            <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(<span class="hljs-string">&quot;COPR 所有包构建成功&quot;</span>)
+        &#125;
+    &#125;
+&#125;;</code></pre></div>
+
+<p>随后在 Cloudflare Workers 的 Settings 部分设置好 Cron 表达式即可，我这里选择在每小时的 55 分进行一次检测，这样下来一天只会消耗 24 次 workers 次数，简直毫无压力。</p>
+<p><img src="https://static.031130.xyz/uploads/2025/02/23/c38edfd637934.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
+<p><strong>缺点:</strong> 我懒得使用数据库持久化软件包构建的成功状态，这会导致出现一个包构建失败后，每隔 1 小时都会有一条提醒，<del>什么夺命连环 call</del>。我目前不想修复这个问题，要不然还是降低 cron 的触发频率好了。</p>
 
                 
               </div>
@@ -462,15 +432,11 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Network/" class="print-no-link">#Network</a>
-      
-        <a href="/tags/umami/" class="print-no-link">#umami</a>
+        <a href="/tags/Fedora/" class="print-no-link">#Fedora</a>
       
         <a href="/tags/Cloudflare/" class="print-no-link">#Cloudflare</a>
       
-        <a href="/tags/Blog/" class="print-no-link">#Blog</a>
-      
-        <a href="/tags/waline/" class="print-no-link">#waline</a>
+        <a href="/tags/JavaScript/" class="print-no-link">#JavaScript</a>
       
     </div>
   
@@ -482,8 +448,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>我的博客被完整地反向代理，并自动翻译成了繁体中文</div>
-      <div>https://zhul.in/2024/07/18/my-blog-is-completely-proxied-and-translated-into-traditional-chinese/</div>
+      <div>使用 Cloudflare Workers 监控 Fedora Copr 构建状态</div>
+      <div>https://zhul.in/2025/02/23/monitor-copr-build-state-with-cloudflare-workers/</div>
     </div>
     <div class="license-meta">
       
@@ -495,13 +461,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年7月18日</div>
+          <div>2025年2月23日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2024年11月16日</div>
+          <div>2025年2月23日</div>
         </div>
       
       
@@ -544,18 +510,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/07/22/enable-ac-power-loss-for-jumper-n100/" title="为中柏 N100 小主机开启来电自启">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">为中柏 N100 小主机开启来电自启</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/07/15/try-ssh-connection-in-fedora-copr/" title="尝试体验 Fedora COPR 中的 allow SSH 功能">
-                        <span class="hidden-mobile">尝试体验 Fedora COPR 中的 allow SSH 功能</span>
+                      <a href="/2025/01/18/service-status-monitor-based-on-cloudflare-workers/" title="基于 Cloudflare Workers 实现的在线服务状态检测告警系统">
+                        <span class="hidden-mobile">基于 Cloudflare Workers 实现的在线服务状态检测告警系统</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
