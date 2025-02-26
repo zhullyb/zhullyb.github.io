@@ -1,7 +1,7 @@
 ---
 title: yay进阶
 date: 2021-04-04
-sticky: 100
+sticky:
 tags:
 - Archlinux
 ---
