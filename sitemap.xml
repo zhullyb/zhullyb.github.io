@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zhul.in/2025/02/28/cudy-tr3000-daed-install-record/</loc>
+    
+    <lastmod>2025-02-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zhul.in/2024/11/18/mi-ai-class-schedule-adapter-for-zjut/</loc>
     
     <lastmod>2025-02-28</lastmod>
@@ -344,7 +353,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/08/12/new-picbed-based-on-cloudflare-and-upyun/</loc>
+    <loc>https://zhul.in/2024/11/01/my-config-for-fedora-kde-41/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -353,7 +362,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/11/01/my-config-for-fedora-kde-41/</loc>
+    <loc>https://zhul.in/2024/08/12/new-picbed-based-on-cloudflare-and-upyun/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -380,7 +389,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2023/12/27/php-and-vuejs-project-deploy-on-caddy/</loc>
+    <loc>https://zhul.in/2023/12/12/php-simple-rest-api/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -389,7 +398,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2023/12/12/php-simple-rest-api/</loc>
+    <loc>https://zhul.in/2023/12/27/php-and-vuejs-project-deploy-on-caddy/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -470,7 +479,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2023/05/12/troubles-when-applying-azure-education/</loc>
+    <loc>https://zhul.in/2024/07/15/try-ssh-connection-in-fedora-copr/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -479,7 +488,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/07/15/try-ssh-connection-in-fedora-copr/</loc>
+    <loc>https://zhul.in/2023/05/12/troubles-when-applying-azure-education/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -524,6 +533,15 @@
   </url>
   
   <url>
+    <loc>https://zhul.in/2024/10/12/use-gpt-to-review-waline-comments/</loc>
+    
+    <lastmod>2024-11-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zhul.in/2022/09/29/use-l2tp-protocol-to-connect-internet/</loc>
     
     <lastmod>2024-11-15</lastmod>
@@ -534,15 +552,6 @@
   
   <url>
     <loc>https://zhul.in/2023/11/28/use-lxgw-wenkai-in-hexo-fluid/</loc>
-    
-    <lastmod>2024-11-15</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2024/10/12/use-gpt-to-review-waline-comments/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -1138,6 +1147,13 @@
   </url>
   
   <url>
+    <loc>https://zhul.in/tags/Fun/</loc>
+    <lastmod>2025-02-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://zhul.in/tags/Fedora/</loc>
     <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
@@ -1153,13 +1169,6 @@
   
   <url>
     <loc>https://zhul.in/tags/OpenSSL/</loc>
-    <lastmod>2025-02-28</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Fun/</loc>
     <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1349,6 +1358,20 @@
   
   <url>
     <loc>https://zhul.in/tags/OpenSource-Project/</loc>
+    <lastmod>2025-02-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/OpenWRT/</loc>
+    <lastmod>2025-02-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/ImmortalWRT/</loc>
     <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
