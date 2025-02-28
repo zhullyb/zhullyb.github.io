@@ -180,17 +180,11 @@ const term = await AISchedulePrompt({
   }
 })
 
-switch (term) {
-  case 1:
-    term = '3'
-    break
-  case 2:
-    term = '12'
-    break
-  case 3:
-    term = '16'
-    break
-}
+const xqm = {
+  '1': '3',
+  '2': '12',
+  '3': '16',
+}[term]
 ```
 
 随后将学年和学期信息拼入 fetch 函数，打出请求，并将返回的 json 数据转为 string 作为函数的返回值
@@ -203,7 +197,7 @@ const res = await fetch("http://www.gdjw.zjut.edu.cn/jwglxt/kbcx/xskbcx_cxXsgrkb
     "x-requested-with": "XMLHttpRequest"
   },
   "referrerPolicy": "strict-origin-when-cross-origin",
-  "body": `xnm=${year}&xqm=${term}&kzlx=ck&xsdm=`,
+  "body": `xnm=${year}&xqm=${xqm}&kzlx=ck&xsdm=`,
   "method": "POST",
   "mode": "cors",
   "credentials": "include"
