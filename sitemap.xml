@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zhul.in/2024/11/18/mi-ai-class-schedule-adapter-for-zjut/</loc>
+    
+    <lastmod>2025-02-28</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zhul.in/2021/04/04/yay-more/</loc>
     
     <lastmod>2025-02-26</lastmod>
@@ -12,15 +21,6 @@
   
   <url>
     <loc>https://zhul.in/2025/02/23/monitor-copr-build-state-with-cloudflare-workers/</loc>
-    
-    <lastmod>2025-02-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2024/11/18/mi-ai-class-schedule-adapter-for-zjut/</loc>
     
     <lastmod>2025-02-26</lastmod>
     
@@ -137,7 +137,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2023/05/03/checkout-lfs-file-after-repo-sync/</loc>
+    <loc>https://zhul.in/2024/02/29/capture-https-traffic-on-linux-with-mitmproxy/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -146,7 +146,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/02/29/capture-https-traffic-on-linux-with-mitmproxy/</loc>
+    <loc>https://zhul.in/2023/05/03/checkout-lfs-file-after-repo-sync/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -263,7 +263,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/04/01/image-preload-in-uniapp/</loc>
+    <loc>https://zhul.in/2024/09/21/how-to-reverse-proxy-dockerhub-with-caddy/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -272,7 +272,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/09/21/how-to-reverse-proxy-dockerhub-with-caddy/</loc>
+    <loc>https://zhul.in/2024/04/01/image-preload-in-uniapp/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -290,7 +290,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2023/09/03/jinja2-nl-to-br/</loc>
+    <loc>https://zhul.in/2023/11/02/integrating-sunflower-smart-socket-with-mi-home-via-bemfa-cloud/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -299,7 +299,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2023/11/02/integrating-sunflower-smart-socket-with-mi-home-via-bemfa-cloud/</loc>
+    <loc>https://zhul.in/2023/09/03/jinja2-nl-to-br/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -362,7 +362,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/05/03/open-rpmbuild-in-the-way-of-archlinux-makepkg/</loc>
+    <loc>https://zhul.in/2022/12/24/onedrive-abraunegg-recommendation/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -371,7 +371,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2022/12/24/onedrive-abraunegg-recommendation/</loc>
+    <loc>https://zhul.in/2024/05/03/open-rpmbuild-in-the-way-of-archlinux-makepkg/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -389,7 +389,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/08/20/picbed-upload-script-and-image-migration/</loc>
+    <loc>https://zhul.in/2023/12/12/php-simple-rest-api/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -398,7 +398,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2023/12/12/php-simple-rest-api/</loc>
+    <loc>https://zhul.in/2024/08/20/picbed-upload-script-and-image-migration/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -461,7 +461,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2023/05/12/troubles-when-applying-azure-education/</loc>
+    <loc>https://zhul.in/2023/08/04/static-webpage-deployment-for-a-beginner/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -470,7 +470,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2023/08/04/static-webpage-deployment-for-a-beginner/</loc>
+    <loc>https://zhul.in/2023/05/12/troubles-when-applying-azure-education/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -524,15 +524,6 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/10/12/use-gpt-to-review-waline-comments/</loc>
-    
-    <lastmod>2024-11-15</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zhul.in/2022/09/29/use-l2tp-protocol-to-connect-internet/</loc>
     
     <lastmod>2024-11-15</lastmod>
@@ -543,6 +534,15 @@
   
   <url>
     <loc>https://zhul.in/2023/11/28/use-lxgw-wenkai-in-hexo-fluid/</loc>
+    
+    <lastmod>2024-11-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2024/10/12/use-gpt-to-review-waline-comments/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -1075,7 +1075,7 @@
 
   <url>
     <loc>https://zhul.in/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -1083,469 +1083,469 @@
   
   <url>
     <loc>https://zhul.in/tags/Android/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/Rom%E7%BC%96%E8%AF%91/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/Linux/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/%E5%A4%A7%E4%BD%AC%E5%AF%B9%E8%AF%9D%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/deepin/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/%E7%BF%BB%E8%AF%91/</loc>
-    <lastmod>2025-02-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Fedora/</loc>
-    <lastmod>2025-02-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/nodejs/</loc>
-    <lastmod>2025-02-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/OpenSSL/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/Z-Library/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/Fedora/</loc>
+    <lastmod>2025-02-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/nodejs/</loc>
+    <lastmod>2025-02-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/OpenSSL/</loc>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/Fun/</loc>
-    <lastmod>2025-02-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/umami/</loc>
-    <lastmod>2025-02-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Shell-Script/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/Bot/</loc>
-    <lastmod>2025-02-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Firefox/</loc>
-    <lastmod>2025-02-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Bwrap/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/CDN/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/Github-Action/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/Network/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/SSL/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/%E5%9B%BE%E5%BA%8A/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/umami/</loc>
+    <lastmod>2025-02-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/Shell-Script/</loc>
+    <lastmod>2025-02-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/Firefox/</loc>
+    <lastmod>2025-02-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/Bwrap/</loc>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/Archlinux/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/RPM-Package/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/Cloudflare/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/JavaScript/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/Python/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/mitmproxy/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/%E9%95%9C%E5%83%8F%E7%AB%99/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/Hardware/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/Printer/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/HomeServer/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/Router/</loc>
-    <lastmod>2025-02-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/vercel/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/Vue-js/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/PHP/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/vercel/</loc>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/Privacy/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/Blog/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/OpenSource-Project/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/siteproxy/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/Caddy/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/electron/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/Rustdesk/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/crontab/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/Experience/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/KDE/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/Hexo/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/Follow/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/OneDrive/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/Docker/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/uniapp/</loc>
-    <lastmod>2025-02-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/jinja2/</loc>
-    <lastmod>2025-02-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/CSS/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/IoT/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/MiAI/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/jinja2/</loc>
+    <lastmod>2025-02-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/CSS/</loc>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/Debian/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/waline/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/PicUploader/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/selenium/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/Windows/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/Virtual-Machine/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/Azure/</loc>
-    <lastmod>2025-02-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Casual-Talk/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/Apt/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/Casual-Talk/</loc>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/Lsky-Pro/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/GPT/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://zhul.in/tags/Waydroid/</loc>
-    <lastmod>2025-02-26</lastmod>
+    <lastmod>2025-02-28</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>

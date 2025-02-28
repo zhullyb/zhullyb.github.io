@@ -38,7 +38,7 @@
 <meta property="og:image" content="https://static.031130.xyz/uploads/2024/11/18/e697bcf2a7a1f.webp">
 <meta property="og:image" content="https://static.031130.xyz/uploads/2024/11/18/eb563904a64a1.webp">
 <meta property="article:published_time" content="2024-11-18T13:13:56.000Z">
-<meta property="article:modified_time" content="2025-02-26T05:28:58.000Z">
+<meta property="article:modified_time" content="2025-02-28T08:48:44.000Z">
 <meta property="article:author" content="竹林里有冰">
 <meta property="article:tag" content="Fun">
 <meta property="article:tag" content="JavaScript">
@@ -346,7 +346,7 @@
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2025年2月26日 下午
+                    本文最后更新于：2025年2月28日 下午
                   
                 
               </p>
@@ -465,17 +465,11 @@
   &#125;
 &#125;)
 
-<span class="hljs-keyword">switch</span> (term) &#123;
-  <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
-    term = <span class="hljs-string">&#x27;3&#x27;</span>
-    <span class="hljs-keyword">break</span>
-  <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:
-    term = <span class="hljs-string">&#x27;12&#x27;</span>
-    <span class="hljs-keyword">break</span>
-  <span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:
-    term = <span class="hljs-string">&#x27;16&#x27;</span>
-    <span class="hljs-keyword">break</span>
-&#125;</code></pre></div>
+<span class="hljs-keyword">const</span> xqm = &#123;
+  <span class="hljs-string">&#x27;1&#x27;</span>: <span class="hljs-string">&#x27;3&#x27;</span>,
+  <span class="hljs-string">&#x27;2&#x27;</span>: <span class="hljs-string">&#x27;12&#x27;</span>,
+  <span class="hljs-string">&#x27;3&#x27;</span>: <span class="hljs-string">&#x27;16&#x27;</span>,
+&#125;[term]</code></pre></div>
 
 <p>随后将学年和学期信息拼入 fetch 函数，打出请求，并将返回的 json 数据转为 string 作为函数的返回值</p>
 <div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> res = <span class="hljs-keyword">await</span> <span class="hljs-title function_">fetch</span>(<span class="hljs-string">&quot;http://www.gdjw.zjut.edu.cn/jwglxt/kbcx/xskbcx_cxXsgrkb.html?gnmkdm=N2151&quot;</span>, &#123;
@@ -485,7 +479,7 @@
     <span class="hljs-string">&quot;x-requested-with&quot;</span>: <span class="hljs-string">&quot;XMLHttpRequest&quot;</span>
   &#125;,
   <span class="hljs-string">&quot;referrerPolicy&quot;</span>: <span class="hljs-string">&quot;strict-origin-when-cross-origin&quot;</span>,
-  <span class="hljs-string">&quot;body&quot;</span>: <span class="hljs-string">`xnm=<span class="hljs-subst">$&#123;year&#125;</span>&amp;xqm=<span class="hljs-subst">$&#123;term&#125;</span>&amp;kzlx=ck&amp;xsdm=`</span>,
+  <span class="hljs-string">&quot;body&quot;</span>: <span class="hljs-string">`xnm=<span class="hljs-subst">$&#123;year&#125;</span>&amp;xqm=<span class="hljs-subst">$&#123;xqm&#125;</span>&amp;kzlx=ck&amp;xsdm=`</span>,
   <span class="hljs-string">&quot;method&quot;</span>: <span class="hljs-string">&quot;POST&quot;</span>,
   <span class="hljs-string">&quot;mode&quot;</span>: <span class="hljs-string">&quot;cors&quot;</span>,
   <span class="hljs-string">&quot;credentials&quot;</span>: <span class="hljs-string">&quot;include&quot;</span>
@@ -653,7 +647,7 @@ input_text = <span class="hljs-string">`</span>
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2025年2月26日</div>
+          <div>2025年2月28日</div>
         </div>
       
       
