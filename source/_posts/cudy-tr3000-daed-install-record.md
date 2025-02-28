@@ -2,6 +2,7 @@
 title: Cudy TR3000 吃鹅(daed)记
 date: 2025-02-28 21:18:34
 sticky:
+index_img: https://static.031130.xyz/uploads/2025/02/28/c5d32f489f521.webp
 tags:
 - OpenSource Project
 - Hardware
