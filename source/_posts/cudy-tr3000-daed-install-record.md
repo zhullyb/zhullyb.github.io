@@ -114,11 +114,13 @@ mtd write /tmp/upload/dhcp-mt7981_cudy_tr3000-fip-fixed-parts-multi-layout.bin F
 
 ![](https://static.031130.xyz/uploads/2025/02/28/551f1f2eb9ab4.webp)
 
-daed 正常运行，能正常跑满我家的 300Mbps 宽带下行，速度峰值时 CPU 占用图如下。
+daed 正常运行，能正常跑满我家的 300Mbps 宽带下行（单线程实测 250Mbps），速度峰值时 CPU 占用图如下。
 
 ![](https://static.031130.xyz/uploads/2025/02/28/651bed7ad4aba.webp)
 
-<img src="https://static.031130.xyz/uploads/2025/02/28/8cddfb60b0981.webp" style="zoom:50%;" />
+![多线程测速](https://static.031130.xyz/uploads/2025/03/01/9fcee79afa63b.png)
+
+![单线程测速](https://static.031130.xyz/uploads/2025/03/01/6716d723a2b0d.png)
 
 ## 文章中提到的文件
 
