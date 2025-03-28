@@ -97,7 +97,7 @@ mtd write /tmp/upload/dhcp-mt7981_cudy_tr3000-fip-fixed-parts-multi-layout.bin F
 我编译的是 112m 的布局，因此需要选择 `mod-112m` 这个 mtd 布局后上传固件刷入。
 
 ```
-791a8d4cf5d6b7f17591a89e14e246bb  112m-immortalwrt-cudy_tr3000-ebpf_by_zhullyb_20250228-squashfs-sysupgrade.bin
+8c9a44f29c8c5a0617e61d49bf8ad45d  112m-immortalwrt-cudy_tr3000-ebpf_by_zhullyb_20250325-squashfs-sysupgrade.bin
 ```
 
 ![](https://static.031130.xyz/uploads/2025/02/28/41c250db91756.webp)
