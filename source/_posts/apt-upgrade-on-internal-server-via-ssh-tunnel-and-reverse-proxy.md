@@ -1,5 +1,5 @@
 ---
-title: ssh 拯救世界——通过 ssh 隧道内网服务器执行 APT 更新
+title: ssh 拯救世界——通过 ssh 隧道在内网服务器执行 APT 更新
 date: 2025-03-30 21:45:24
 sticky:
 tags:
