@@ -6,7 +6,7 @@
   <link href="https://zhul.in/rss.xml" rel="self"/>
   
   <link href="https://zhul.in/"/>
-  <updated>2025-03-28T17:44:06.000Z</updated>
+  <updated>2025-03-30T15:25:42.000Z</updated>
   <id>https://zhul.in/</id>
   
   <author>
@@ -15,6 +15,41 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ssh 拯救世界——通过 ssh 隧道内网服务器执行 APT 更新</title>
+    <link href="https://zhul.in/2025/03/30/apt-upgrade-on-internal-server-via-ssh-tunnel-and-reverse-proxy/"/>
+    <id>https://zhul.in/2025/03/30/apt-upgrade-on-internal-server-via-ssh-tunnel-and-reverse-proxy/</id>
+    <published>2025-03-30T13:45:24.000Z</published>
+    <updated>2025-03-30T15:25:42.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>事情的起因是因为精弘的<a href="https://blog.cnpatrickstar.com/">前技术总监</a>抱怨学校的内网服务器无法连接外网，从而导致 apt 安装与更新异常困难，需要手动从源中下载软件包、软件包的依赖及其依赖的依赖。。。然后将这些包通过 sftp/rsync 一类的手段传到服务器上手动安装。</p><p><img src="https://static.031130.xyz/uploads/2025/03/30/0447b7d64886a.webp"></p><p>于是本文应运而生，我们可以在本机使用 Caddy （Nginx 当然也行）反代一个 APT 源镜像站，通过 ssh 隧道建立端口转发，这样就可以在内网服务器上访问到本地的 Caddy 服务器，进而访问到外网的镜像站。</p><h2 id="前提条件"><a href="#前提条件" class="headerlink" title="前提条件"></a>前提条件</h2><ul><li>主控机（你自己的电脑）能够通过 ssh 直接连接电脑（可以是使用一些网络工具），而不是先通过 ssh 登陆到一台中转机，再从中转机登陆到目标服务器。后面这种情况当然也可以使用类似的手段实现我们的目标，但会更复杂一些。</li><li>主控机（你自己的电脑）在连接内网服务器的同时，能够连接公网镜像站（<del>不行的话要不然你提前本地同步一份镜像做离线镜像站</del>）。</li></ul><h2 id="反代镜像站"><a href="#反代镜像站" class="headerlink" title="反代镜像站"></a>反代镜像站</h2><p>我这里选择了 Caddy 而非 Nginx，一方面是 Caddy 的配置文件写起来简单，另一方面 Caddy 是 Golang 编写，一个二进制走天下，Windows 也能直接<a href="https://caddyserver.com/download">下载</a>运行。</p><p>我们以最常见的清华 tuna 镜像站为例，一个简单的 caddy 配置文件是这样的</p><div class="code-wrapper"><pre><code class="hljs nginx">:8080 &#123;    <span class="hljs-attribute">reverse_proxy</span> https://mirrors.tuna.tsinghua.edu.cn &#123;        <span class="hljs-attribute">header_up</span> Host &#123;http.reverse_proxy.upstream.hostport&#125;    &#125;&#125;</code></pre></div><p>将上面这段代码保存为 Caddyfile 文件名，随后使用 caddy 命令在保存路径运行</p><div class="code-wrapper"><pre><code class="hljs bash">caddy run --config ./Caddyfile</code></pre></div><p><img src="https://static.031130.xyz/uploads/2025/03/30/8ef15a08e4852.webp"></p><p>如果没有报错，那你应该能在本地的 8080 端口看到清华的镜像站</p><p><img src="https://static.031130.xyz/uploads/2025/03/30/a9083c95c07a2.webp"></p><blockquote><p>你可能注意到，反代后的页面和清华的镜像站有些许差异，没有清华的 logo，这大概是因为页面的 js 对 host 进行了判断，如果不是清华或者北外的页面，就不会添加学校的名称，但这不影响我们从这些镜像站获取更新。</p></blockquote><h2 id="建立-ssh-隧道"><a href="#建立-ssh-隧道" class="headerlink" title="建立 ssh 隧道"></a>建立 ssh 隧道</h2><p>建立隧道时，需要使用如下的命令</p><div class="code-wrapper"><pre><code class="hljs bash">ssh -R 8085:localhost:8080 root@remote.example.com</code></pre></div><p>-R 表示建立反向隧道，其他的参数选项可以参考这一篇博客「<a href="https://www.entropy-tree.top/2024/04/18/ssh-tunneling-techniques/">SSH 隧道技术</a>」，也是精弘的学长写的。</p><p>此时，我们建立了一个内网服务器 8085 端口到本机 8080 端口的 ssh 端口转发。（使用 8085 端口是我为了区分其和 8080 端口，实际上可以使用任何空余端口）</p><p>我们可以在服务器上使用 curl 来测试一下是否能够正常访问，我这里简单访问了下 Debian 源根目录下的一个 README 文件。</p><div class="code-wrapper"><pre><code class="hljs bash">curl http://localhost:8085/debian/README</code></pre></div><p><img src="https://static.031130.xyz/uploads/2025/03/30/597c4af0d398d.webp"></p><h2 id="换源"><a href="#换源" class="headerlink" title="换源"></a>换源</h2><p>所以现在我们在内网服务器的 8085 端口上有一个清华开源镜像站的反代，我们可以通过 8085 端口访问镜像站中的所有内容。</p><p>先遵循<a href="https://mirrors.tuna.tsinghua.edu.cn/help/debian/">清华开源镜像站的指示</a>，进行换源，<strong>记得一定要勾选「强制安全更新使用镜像」</strong>。</p><p><img src="https://static.031130.xyz/uploads/2025/03/30/46e3c7030ded4.webp"></p><p>随后，我们将源中的所有 <a href="https://mirrors.tuna.tsinghua.edu.cn/">https://mirrors.tuna.tsinghua.edu.cn</a> 替换成 <a href="http://localhost:8085/">http://localhost:8085</a></p><div class="code-wrapper"><pre><code class="hljs bash">sed -i <span class="hljs-string">&#x27;s|https\?://mirrors\.tuna\.tsinghua\.edu\.cn|http://localhost:8085|g&#x27;</span> `grep -rlE <span class="hljs-string">&#x27;http(s)?://mirrors\.tuna\.tsinghua\.edu\.cn&#x27;</span> /etc/apt/`</code></pre></div><p><img src="https://static.031130.xyz/uploads/2025/03/30/a8f0c70d48f5b.webp" alt="执行 apt update"></p><p><img src="https://static.031130.xyz/uploads/2025/03/30/07919bf939e92.webp" alt="使用 apt 安装 unzip"></p><p>可以看到，我们通过 ssh 隧道实现了在内网服务器执行 APT 更新及安装软件。</p><blockquote><p>温馨提示，ssh 隧道在本世纪 10 年代初经常被用来进行搭建一些跨境访问，但因为其独特的流量特征很快淡出了历史舞台，因此不要使用 ssh 进行大量的跨境网络传输，容易被封禁。</p></blockquote><p>当然，实现这一目标的方法是很多的，其他一些例如 frp 的工具同样能做到这种效果，只不过 ssh 隧道这种方案随开随用，随关随停，不需要更多的配置，因此我主要推荐。</p>]]></content>
+    
+    
+      
+      
+        
+        
+    <summary type="html"></summary>
+        
+      
+    
+    
+    
+    
+    <category term="Linux" scheme="https://zhul.in/tags/Linux/"/>
+    
+    <category term="Apt" scheme="https://zhul.in/tags/Apt/"/>
+    
+    <category term="Network" scheme="https://zhul.in/tags/Network/"/>
+    
+    <category term="OpenSSH" scheme="https://zhul.in/tags/OpenSSH/"/>
+    
+    <category term="Caddy" scheme="https://zhul.in/tags/Caddy/"/>
+    
+    <category term="Debian" scheme="https://zhul.in/tags/Debian/"/>
+    
+  </entry>
   
   <entry>
     <title>Cudy TR3000 吃鹅(daed)记</title>
@@ -294,7 +329,7 @@
     <published>2024-10-12T08:11:06.000Z</published>
     <updated>2024-11-15T18:02:30.000Z</updated>
     
-    <content type="html"><![CDATA[<p>前一阵子收到了这么一条来自 waline 的评论提醒。</p><blockquote><p>New comment on 竹林里有冰的博客<br>【网站名称】：竹林里有冰的博客<br>【评论者昵称】：专业数据库<br>【评论者邮箱】：<a href="mailto:&#114;&#x61;&#x6b;&#104;&#x69;&#114;&#97;&#x6e;&#105;&#106;&#x68;&#x68;&#x67;&#x40;&#x67;&#109;&#97;&#105;&#x6c;&#46;&#99;&#x6f;&#109;">&#114;&#x61;&#x6b;&#104;&#x69;&#114;&#97;&#x6e;&#105;&#106;&#x68;&#x68;&#x67;&#x40;&#x67;&#109;&#97;&#105;&#x6c;&#46;&#99;&#x6f;&#109;</a><br>【内容】：总之，优化专业数据库对于保持数据准确性、提高系统性能和推动业务成功至关重要。通过遵循本文中概述的策略，您可以提高数据库操作的效率并释放新的增长机会。<br>【地址】：<a href="https://zhul.in/2021/04/04/yay-more/#66f7a8889ab78865d5f5ae19">https://zhul.in/2021/04/04/yay-more/#66f7a8889ab78865d5f5ae19</a></p></blockquote><p>评论的内容不仅透露着一股 AI 味，还和文章内容可谓是一点关系都没有，点开评论者的网站一看，一股塑料机翻味，怕是又是个来蹭 SEO 的广告哥。</p><p><img src="https://static.031130.xyz/uploads/2024/10/07/4673580090861.webp" alt="广告哥留下的网站"></p><p>根据 <a href="https://waline.js.org/advanced/faq.html#%E5%8F%91%E5%B8%83%E8%AF%84%E8%AE%BA%E5%BE%88%E6%85%A2%E6%80%8E%E4%B9%88%E5%8A%9E">waline 的官方文档</a>所言，waline 是使用了 Akismet 提供的垃圾内容检测服务的。可惜它似乎对 AI 生成的垃圾没有分辨能力。因此我计划使用 GPT 代替 Akismet 对 waline 的新评论进行审核。</p><p>walinejs/plugin 提供了一个 <a href="https://github.com/walinejs/plugins/blob/master/packages/tencent-tms/index.js">tencent-cms</a> 的插件，功能是使用腾讯云的内容审查接口审查评论内容，这和我们需要的功能很像，主体部分和调用方法可以直接借鉴。</p><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-comment">// index.js</span><span class="hljs-keyword">const</span> tencentcloud = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;tencentcloud-sdk-nodejs-tms&quot;</span>);<span class="hljs-keyword">const</span> <span class="hljs-title class_">TmsClient</span> = tencentcloud.<span class="hljs-property">tms</span>.<span class="hljs-property">v20201229</span>.<span class="hljs-property">Client</span>;<span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params">&#123;secretId, secretKey, region&#125;</span>) &#123;  <span class="hljs-keyword">if</span> (!secretId || !secretKey || !region) &#123;    <span class="hljs-keyword">return</span> &#123;&#125;;  &#125;  <span class="hljs-keyword">const</span> clientConfig = &#123;    <span class="hljs-attr">credential</span>: &#123;      secretId,      secretKey,    &#125;,    region,    <span class="hljs-attr">profile</span>: &#123;      <span class="hljs-attr">httpProfile</span>: &#123;        <span class="hljs-attr">endpoint</span>: <span class="hljs-string">&quot;tms.tencentcloudapi.com&quot;</span>,      &#125;,    &#125;,  &#125;;    <span class="hljs-keyword">return</span> &#123;    <span class="hljs-attr">hooks</span>: &#123;      <span class="hljs-keyword">async</span> <span class="hljs-title function_">preSave</span>(<span class="hljs-params">data</span>) &#123;        <span class="hljs-keyword">const</span> &#123; userInfo &#125; = <span class="hljs-variable language_">this</span>.<span class="hljs-property">ctx</span>.<span class="hljs-property">state</span>;        <span class="hljs-keyword">const</span> isAdmin = userInfo.<span class="hljs-property">type</span> === <span class="hljs-string">&#x27;administrator&#x27;</span>;        <span class="hljs-comment">// ignore admin comment</span>        <span class="hljs-keyword">if</span> (isAdmin) &#123;          <span class="hljs-keyword">return</span>;        &#125;        <span class="hljs-keyword">const</span> client = <span class="hljs-keyword">new</span> <span class="hljs-title class_">TmsClient</span>(clientConfig);        <span class="hljs-keyword">try</span> &#123;          <span class="hljs-keyword">const</span> resp = <span class="hljs-keyword">await</span> client.<span class="hljs-title class_">TextModeration</span>(&#123; <span class="hljs-title class_">Content</span>: data.<span class="hljs-property">comment</span> &#125;);          <span class="hljs-keyword">if</span> (!resp.<span class="hljs-property">Suggestion</span>) &#123;            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">&#x27;Suggestion is empty. Tencent Cloud TMS info:&#x27;</span>, resp);          &#125;          <span class="hljs-keyword">switch</span>(resp.<span class="hljs-property">Suggestion</span>) &#123;            <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;Pass&#x27;</span>:              data.<span class="hljs-property">status</span> = <span class="hljs-string">&#x27;approved&#x27;</span>;              <span class="hljs-keyword">break</span>;            <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;Block&#x27;</span>:              data.<span class="hljs-property">status</span> = <span class="hljs-string">&#x27;spam&#x27;</span>;              <span class="hljs-keyword">break</span>;              <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;Review&#x27;</span>:              <span class="hljs-attr">default</span>:                data.<span class="hljs-property">status</span> = <span class="hljs-string">&#x27;waiting&#x27;</span>;                <span class="hljs-keyword">break</span>;          &#125;        &#125; <span class="hljs-keyword">catch</span>(e) &#123;          <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(e);          data.<span class="hljs-property">status</span> = <span class="hljs-string">&#x27;waiting&#x27;</span>;        &#125;      &#125;,    &#125;,  &#125;;&#125;</code></pre></div><p>可以看到，我们需要在这个被 module.exports 导出的函数中，return 一个对象，如果使用 hooks 编写的话可以调用<a href="https://waline.js.org/reference/server/config.html#%E8%AF%84%E8%AE%BA-hooks">一些生命周期 hook</a>: 在 preSave 阶段，我们可以通过标注 data.status 参数来反馈评论类型。approved 为接受，spam 为垃圾邮件，waiting 为等待人工审核；除此之外，还可以<a href="https://waline.js.org/reference/server/plugin.html#%E5%9F%BA%E4%BA%8E%E4%B8%AD%E9%97%B4%E4%BB%B6%E5%88%B6%E4%BD%9C">基于 Koa 中间件制作插件</a>，文档中有具体的描述。</p><p>index.js 顶部是需要引入的依赖。当然，如果需要引入外部的第三方包的话，需要在 packages.json 中加入需要的依赖（使用包管理器的命令进行安装）。</p><p>有了这些基础知识，就能手搓一个基于 GPT 的评论审查插件。</p><p>OpenAI 提供的是标准的 Restful API，本身的鉴权逻辑也不复杂，其实没必要调用 SDK，直接使用 fetch 调用就行。</p><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> <span class="hljs-title function_">doReview</span> = <span class="hljs-keyword">async</span> (<span class="hljs-params">comment</span>) =&gt; &#123;  <span class="hljs-keyword">const</span> response = <span class="hljs-keyword">await</span> <span class="hljs-title function_">fetch</span>(openaiBaseUrl + <span class="hljs-string">&#x27;/v1/chat/completions&#x27;</span>, &#123;    <span class="hljs-attr">method</span>: <span class="hljs-string">&#x27;POST&#x27;</span>,    <span class="hljs-attr">headers</span>: &#123;      <span class="hljs-string">&#x27;Content-Type&#x27;</span>: <span class="hljs-string">&#x27;application/json&#x27;</span>,      <span class="hljs-string">&#x27;Authorization&#x27;</span>: <span class="hljs-string">`Bearer <span class="hljs-subst">$&#123;openaiApiKey&#125;</span>`</span>,    &#125;,    <span class="hljs-attr">body</span>: <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">stringify</span>(&#123;      <span class="hljs-attr">model</span>: openaiModel,      <span class="hljs-attr">messages</span>: [        &#123;          <span class="hljs-attr">role</span>: <span class="hljs-string">&#x27;system&#x27;</span>,          <span class="hljs-attr">content</span>: prompt        &#125;,        &#123;          <span class="hljs-attr">role</span>: <span class="hljs-string">&#x27;user&#x27;</span>,          <span class="hljs-attr">content</span>: comment,        &#125;,      ],    &#125;),  &#125;);  <span class="hljs-keyword">const</span> data = <span class="hljs-keyword">await</span> response.<span class="hljs-title function_">json</span>();  <span class="hljs-keyword">if</span> (data &amp;&amp; data.<span class="hljs-property">choices</span> &amp;&amp; data.<span class="hljs-property">choices</span>.<span class="hljs-property">length</span> &gt; <span class="hljs-number">0</span>) &#123;    <span class="hljs-keyword">return</span> data.<span class="hljs-property">choices</span>[<span class="hljs-number">0</span>].<span class="hljs-property">message</span>.<span class="hljs-property">content</span>;  &#125; <span class="hljs-keyword">else</span> &#123;    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;waiting&#x27;</span>;  &#125;&#125;</code></pre></div><p>再配合相应的封装，一款基于 GPT 的 waline 评论审核插件就完成了</p><ul><li><a href="https://github.com/zhullyb/waline-plugin-llm-reviewer">zhullyb/waline-plugin-llm-reviewer</a></li></ul><p><strong>如何安装</strong></p><div class="code-wrapper"><pre><code class="hljs bash">npm install waline-plugin-llm-reviewer</code></pre></div><p><strong>如何使用</strong></p><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-comment">// index.js</span><span class="hljs-keyword">const</span> <span class="hljs-title class_">Waline</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;@waline/vercel&#x27;</span>);<span class="hljs-keyword">const</span> <span class="hljs-title class_">GPTReviewer</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;waline-plugin-llm-reviewer&#x27;</span>);<span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = <span class="hljs-title class_">Waline</span>(&#123;  <span class="hljs-attr">plugins</span>: [    <span class="hljs-title class_">GptReviewer</span>(&#123;        <span class="hljs-attr">openaiBaseUrl</span>: process.<span class="hljs-property">env</span>.<span class="hljs-property">OPENAI_BASE_URL</span>,        <span class="hljs-attr">openaiModel</span>: process.<span class="hljs-property">env</span>.<span class="hljs-property">OPENAI_MODEL</span>,        <span class="hljs-attr">openaiApiKey</span>: process.<span class="hljs-property">env</span>.<span class="hljs-property">OPENAI_API_KEY</span>,        <span class="hljs-attr">openaiPrompt</span>: process.<span class="hljs-property">env</span>.<span class="hljs-property">OPENAI_PROMPT</span>,    &#125;)  ]&#125;);</code></pre></div><p><strong>环境变量</strong></p><ul><li><code>ASISMET_KEY</code>: Waline 使用的反垃圾评论服务，<strong>建议设置为 <code>false</code> 以禁用</strong>。</li><li><code>OPENAI_BASE_URL</code>: API 基础 URL。例如 <code>https://api.openai.com</code></li><li><code>OPENAI_MODEL</code>: 模型名称。例如 <code>gpt-4o-mini</code></li><li><code>OPENAI_API_KEY</code>: API 密钥。例如 <code>ak-xxxxxx</code></li><li><code>OPENAI_PROMPT</code>(可选): 模型的提示。例如 <code>这是一个评论审查: </code></li></ul><p>在 waline 中设置好对应的环境变量，使用 npm 安装好对应的包，就算大功告成了。</p><p><img src="https://static.031130.xyz/uploads/2024/10/12/45f06a78286de.webp"></p>]]></content>
+    <content type="html"><![CDATA[<p>前一阵子收到了这么一条来自 waline 的评论提醒。</p><blockquote><p>New comment on 竹林里有冰的博客<br>【网站名称】：竹林里有冰的博客<br>【评论者昵称】：专业数据库<br>【评论者邮箱】：<a href="mailto:&#114;&#x61;&#x6b;&#x68;&#x69;&#114;&#97;&#110;&#x69;&#106;&#x68;&#x68;&#x67;&#64;&#103;&#109;&#x61;&#105;&#108;&#x2e;&#99;&#111;&#109;">&#114;&#x61;&#x6b;&#x68;&#x69;&#114;&#97;&#110;&#x69;&#106;&#x68;&#x68;&#x67;&#64;&#103;&#109;&#x61;&#105;&#108;&#x2e;&#99;&#111;&#109;</a><br>【内容】：总之，优化专业数据库对于保持数据准确性、提高系统性能和推动业务成功至关重要。通过遵循本文中概述的策略，您可以提高数据库操作的效率并释放新的增长机会。<br>【地址】：<a href="https://zhul.in/2021/04/04/yay-more/#66f7a8889ab78865d5f5ae19">https://zhul.in/2021/04/04/yay-more/#66f7a8889ab78865d5f5ae19</a></p></blockquote><p>评论的内容不仅透露着一股 AI 味，还和文章内容可谓是一点关系都没有，点开评论者的网站一看，一股塑料机翻味，怕是又是个来蹭 SEO 的广告哥。</p><p><img src="https://static.031130.xyz/uploads/2024/10/07/4673580090861.webp" alt="广告哥留下的网站"></p><p>根据 <a href="https://waline.js.org/advanced/faq.html#%E5%8F%91%E5%B8%83%E8%AF%84%E8%AE%BA%E5%BE%88%E6%85%A2%E6%80%8E%E4%B9%88%E5%8A%9E">waline 的官方文档</a>所言，waline 是使用了 Akismet 提供的垃圾内容检测服务的。可惜它似乎对 AI 生成的垃圾没有分辨能力。因此我计划使用 GPT 代替 Akismet 对 waline 的新评论进行审核。</p><p>walinejs/plugin 提供了一个 <a href="https://github.com/walinejs/plugins/blob/master/packages/tencent-tms/index.js">tencent-cms</a> 的插件，功能是使用腾讯云的内容审查接口审查评论内容，这和我们需要的功能很像，主体部分和调用方法可以直接借鉴。</p><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-comment">// index.js</span><span class="hljs-keyword">const</span> tencentcloud = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;tencentcloud-sdk-nodejs-tms&quot;</span>);<span class="hljs-keyword">const</span> <span class="hljs-title class_">TmsClient</span> = tencentcloud.<span class="hljs-property">tms</span>.<span class="hljs-property">v20201229</span>.<span class="hljs-property">Client</span>;<span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params">&#123;secretId, secretKey, region&#125;</span>) &#123;  <span class="hljs-keyword">if</span> (!secretId || !secretKey || !region) &#123;    <span class="hljs-keyword">return</span> &#123;&#125;;  &#125;  <span class="hljs-keyword">const</span> clientConfig = &#123;    <span class="hljs-attr">credential</span>: &#123;      secretId,      secretKey,    &#125;,    region,    <span class="hljs-attr">profile</span>: &#123;      <span class="hljs-attr">httpProfile</span>: &#123;        <span class="hljs-attr">endpoint</span>: <span class="hljs-string">&quot;tms.tencentcloudapi.com&quot;</span>,      &#125;,    &#125;,  &#125;;    <span class="hljs-keyword">return</span> &#123;    <span class="hljs-attr">hooks</span>: &#123;      <span class="hljs-keyword">async</span> <span class="hljs-title function_">preSave</span>(<span class="hljs-params">data</span>) &#123;        <span class="hljs-keyword">const</span> &#123; userInfo &#125; = <span class="hljs-variable language_">this</span>.<span class="hljs-property">ctx</span>.<span class="hljs-property">state</span>;        <span class="hljs-keyword">const</span> isAdmin = userInfo.<span class="hljs-property">type</span> === <span class="hljs-string">&#x27;administrator&#x27;</span>;        <span class="hljs-comment">// ignore admin comment</span>        <span class="hljs-keyword">if</span> (isAdmin) &#123;          <span class="hljs-keyword">return</span>;        &#125;        <span class="hljs-keyword">const</span> client = <span class="hljs-keyword">new</span> <span class="hljs-title class_">TmsClient</span>(clientConfig);        <span class="hljs-keyword">try</span> &#123;          <span class="hljs-keyword">const</span> resp = <span class="hljs-keyword">await</span> client.<span class="hljs-title class_">TextModeration</span>(&#123; <span class="hljs-title class_">Content</span>: data.<span class="hljs-property">comment</span> &#125;);          <span class="hljs-keyword">if</span> (!resp.<span class="hljs-property">Suggestion</span>) &#123;            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">&#x27;Suggestion is empty. Tencent Cloud TMS info:&#x27;</span>, resp);          &#125;          <span class="hljs-keyword">switch</span>(resp.<span class="hljs-property">Suggestion</span>) &#123;            <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;Pass&#x27;</span>:              data.<span class="hljs-property">status</span> = <span class="hljs-string">&#x27;approved&#x27;</span>;              <span class="hljs-keyword">break</span>;            <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;Block&#x27;</span>:              data.<span class="hljs-property">status</span> = <span class="hljs-string">&#x27;spam&#x27;</span>;              <span class="hljs-keyword">break</span>;              <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;Review&#x27;</span>:              <span class="hljs-attr">default</span>:                data.<span class="hljs-property">status</span> = <span class="hljs-string">&#x27;waiting&#x27;</span>;                <span class="hljs-keyword">break</span>;          &#125;        &#125; <span class="hljs-keyword">catch</span>(e) &#123;          <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(e);          data.<span class="hljs-property">status</span> = <span class="hljs-string">&#x27;waiting&#x27;</span>;        &#125;      &#125;,    &#125;,  &#125;;&#125;</code></pre></div><p>可以看到，我们需要在这个被 module.exports 导出的函数中，return 一个对象，如果使用 hooks 编写的话可以调用<a href="https://waline.js.org/reference/server/config.html#%E8%AF%84%E8%AE%BA-hooks">一些生命周期 hook</a>: 在 preSave 阶段，我们可以通过标注 data.status 参数来反馈评论类型。approved 为接受，spam 为垃圾邮件，waiting 为等待人工审核；除此之外，还可以<a href="https://waline.js.org/reference/server/plugin.html#%E5%9F%BA%E4%BA%8E%E4%B8%AD%E9%97%B4%E4%BB%B6%E5%88%B6%E4%BD%9C">基于 Koa 中间件制作插件</a>，文档中有具体的描述。</p><p>index.js 顶部是需要引入的依赖。当然，如果需要引入外部的第三方包的话，需要在 packages.json 中加入需要的依赖（使用包管理器的命令进行安装）。</p><p>有了这些基础知识，就能手搓一个基于 GPT 的评论审查插件。</p><p>OpenAI 提供的是标准的 Restful API，本身的鉴权逻辑也不复杂，其实没必要调用 SDK，直接使用 fetch 调用就行。</p><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> <span class="hljs-title function_">doReview</span> = <span class="hljs-keyword">async</span> (<span class="hljs-params">comment</span>) =&gt; &#123;  <span class="hljs-keyword">const</span> response = <span class="hljs-keyword">await</span> <span class="hljs-title function_">fetch</span>(openaiBaseUrl + <span class="hljs-string">&#x27;/v1/chat/completions&#x27;</span>, &#123;    <span class="hljs-attr">method</span>: <span class="hljs-string">&#x27;POST&#x27;</span>,    <span class="hljs-attr">headers</span>: &#123;      <span class="hljs-string">&#x27;Content-Type&#x27;</span>: <span class="hljs-string">&#x27;application/json&#x27;</span>,      <span class="hljs-string">&#x27;Authorization&#x27;</span>: <span class="hljs-string">`Bearer <span class="hljs-subst">$&#123;openaiApiKey&#125;</span>`</span>,    &#125;,    <span class="hljs-attr">body</span>: <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">stringify</span>(&#123;      <span class="hljs-attr">model</span>: openaiModel,      <span class="hljs-attr">messages</span>: [        &#123;          <span class="hljs-attr">role</span>: <span class="hljs-string">&#x27;system&#x27;</span>,          <span class="hljs-attr">content</span>: prompt        &#125;,        &#123;          <span class="hljs-attr">role</span>: <span class="hljs-string">&#x27;user&#x27;</span>,          <span class="hljs-attr">content</span>: comment,        &#125;,      ],    &#125;),  &#125;);  <span class="hljs-keyword">const</span> data = <span class="hljs-keyword">await</span> response.<span class="hljs-title function_">json</span>();  <span class="hljs-keyword">if</span> (data &amp;&amp; data.<span class="hljs-property">choices</span> &amp;&amp; data.<span class="hljs-property">choices</span>.<span class="hljs-property">length</span> &gt; <span class="hljs-number">0</span>) &#123;    <span class="hljs-keyword">return</span> data.<span class="hljs-property">choices</span>[<span class="hljs-number">0</span>].<span class="hljs-property">message</span>.<span class="hljs-property">content</span>;  &#125; <span class="hljs-keyword">else</span> &#123;    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;waiting&#x27;</span>;  &#125;&#125;</code></pre></div><p>再配合相应的封装，一款基于 GPT 的 waline 评论审核插件就完成了</p><ul><li><a href="https://github.com/zhullyb/waline-plugin-llm-reviewer">zhullyb/waline-plugin-llm-reviewer</a></li></ul><p><strong>如何安装</strong></p><div class="code-wrapper"><pre><code class="hljs bash">npm install waline-plugin-llm-reviewer</code></pre></div><p><strong>如何使用</strong></p><div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-comment">// index.js</span><span class="hljs-keyword">const</span> <span class="hljs-title class_">Waline</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;@waline/vercel&#x27;</span>);<span class="hljs-keyword">const</span> <span class="hljs-title class_">GPTReviewer</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;waline-plugin-llm-reviewer&#x27;</span>);<span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = <span class="hljs-title class_">Waline</span>(&#123;  <span class="hljs-attr">plugins</span>: [    <span class="hljs-title class_">GptReviewer</span>(&#123;        <span class="hljs-attr">openaiBaseUrl</span>: process.<span class="hljs-property">env</span>.<span class="hljs-property">OPENAI_BASE_URL</span>,        <span class="hljs-attr">openaiModel</span>: process.<span class="hljs-property">env</span>.<span class="hljs-property">OPENAI_MODEL</span>,        <span class="hljs-attr">openaiApiKey</span>: process.<span class="hljs-property">env</span>.<span class="hljs-property">OPENAI_API_KEY</span>,        <span class="hljs-attr">openaiPrompt</span>: process.<span class="hljs-property">env</span>.<span class="hljs-property">OPENAI_PROMPT</span>,    &#125;)  ]&#125;);</code></pre></div><p><strong>环境变量</strong></p><ul><li><code>ASISMET_KEY</code>: Waline 使用的反垃圾评论服务，<strong>建议设置为 <code>false</code> 以禁用</strong>。</li><li><code>OPENAI_BASE_URL</code>: API 基础 URL。例如 <code>https://api.openai.com</code></li><li><code>OPENAI_MODEL</code>: 模型名称。例如 <code>gpt-4o-mini</code></li><li><code>OPENAI_API_KEY</code>: API 密钥。例如 <code>ak-xxxxxx</code></li><li><code>OPENAI_PROMPT</code>(可选): 模型的提示。例如 <code>这是一个评论审查: </code></li></ul><p>在 waline 中设置好对应的环境变量，使用 npm 安装好对应的包，就算大功告成了。</p><p><img src="https://static.031130.xyz/uploads/2024/10/12/45f06a78286de.webp"></p>]]></content>
     
     
       
@@ -397,9 +432,9 @@
     
     <category term="Network" scheme="https://zhul.in/tags/Network/"/>
     
-    <category term="mitmproxy" scheme="https://zhul.in/tags/mitmproxy/"/>
-    
     <category term="Caddy" scheme="https://zhul.in/tags/Caddy/"/>
+    
+    <category term="mitmproxy" scheme="https://zhul.in/tags/mitmproxy/"/>
     
     <category term="Docker" scheme="https://zhul.in/tags/Docker/"/>
     
@@ -428,11 +463,11 @@
     
     <category term="Linux" scheme="https://zhul.in/tags/Linux/"/>
     
+    <category term="Debian" scheme="https://zhul.in/tags/Debian/"/>
+    
     <category term="Archlinux" scheme="https://zhul.in/tags/Archlinux/"/>
     
     <category term="Rustdesk" scheme="https://zhul.in/tags/Rustdesk/"/>
-    
-    <category term="Debian" scheme="https://zhul.in/tags/Debian/"/>
     
   </entry>
   
@@ -519,13 +554,13 @@
     
     <category term="Linux" scheme="https://zhul.in/tags/Linux/"/>
     
+    <category term="Network" scheme="https://zhul.in/tags/Network/"/>
+    
     <category term="Bot" scheme="https://zhul.in/tags/Bot/"/>
     
     <category term="CDN" scheme="https://zhul.in/tags/CDN/"/>
     
     <category term="Github Action" scheme="https://zhul.in/tags/Github-Action/"/>
-    
-    <category term="Network" scheme="https://zhul.in/tags/Network/"/>
     
     <category term="SSL" scheme="https://zhul.in/tags/SSL/"/>
     
@@ -585,9 +620,9 @@
     
     
     
-    <category term="CDN" scheme="https://zhul.in/tags/CDN/"/>
-    
     <category term="Network" scheme="https://zhul.in/tags/Network/"/>
+    
+    <category term="CDN" scheme="https://zhul.in/tags/CDN/"/>
     
     <category term="图床" scheme="https://zhul.in/tags/%E5%9B%BE%E5%BA%8A/"/>
     
@@ -1158,11 +1193,11 @@
     
     <category term="Network" scheme="https://zhul.in/tags/Network/"/>
     
+    <category term="Caddy" scheme="https://zhul.in/tags/Caddy/"/>
+    
     <category term="Vue.js" scheme="https://zhul.in/tags/Vue-js/"/>
     
     <category term="PHP" scheme="https://zhul.in/tags/PHP/"/>
-    
-    <category term="Caddy" scheme="https://zhul.in/tags/Caddy/"/>
     
     <category term="Docker" scheme="https://zhul.in/tags/Docker/"/>
     
@@ -1431,9 +1466,9 @@
     
     <category term="Network" scheme="https://zhul.in/tags/Network/"/>
     
-    <category term="Vue.js" scheme="https://zhul.in/tags/Vue-js/"/>
-    
     <category term="Caddy" scheme="https://zhul.in/tags/Caddy/"/>
+    
+    <category term="Vue.js" scheme="https://zhul.in/tags/Vue-js/"/>
     
   </entry>
   
@@ -1460,9 +1495,9 @@
     
     <category term="Linux" scheme="https://zhul.in/tags/Linux/"/>
     
-    <category term="Bot" scheme="https://zhul.in/tags/Bot/"/>
-    
     <category term="Network" scheme="https://zhul.in/tags/Network/"/>
+    
+    <category term="Bot" scheme="https://zhul.in/tags/Bot/"/>
     
   </entry>
   
@@ -1527,7 +1562,7 @@
     <published>2023-05-12T15:38:29.000Z</published>
     <updated>2024-11-15T18:02:30.000Z</updated>
     
-    <content type="html"><![CDATA[<p>进入大学已经快一年了，但我的 Azure 教育订阅申请一直没有成功，每年有 100 刀的额度，<del>再这样下去就要亏掉近 700 元了</del>，于是便打算趁期中考试刚结束的闲暇时间把 Azure 的教育订阅给过了。</p><p>我拥有 *.edu.cn 的邮箱，并且通过了 Github Student Pack 的认证，但每次在 <a href="https://signup.azure.com/studentverification?offerType=1">https://signup.azure.com/studentverification?offerType=1</a> 页面尝试申请 Azure 订阅时，总是会得到一句冷冷的「你没有资格使用 Azure 免费帐户」。于是，我找到了 Azure 订阅支持客服帮忙，链接是这个: <a href="https://azureforeducation.microsoft.com/en-us/institutions/Contact">https://azureforeducation.microsoft.com/en-us/institutions/Contact</a>，简要填写了我的基本信息后就开始等待邮件回复了。</p><p><img src="https://static.031130.xyz/uploads/2024/08/12/645e646bc5b58.webp" alt="提交工单"></p><p>我是周四上午申请的，不到一个小时就等来了微软的工单生成通知</p><p><img src="https://static.031130.xyz/uploads/2024/08/12/645e5fdfb25a3.webp" alt="微软的工单通知"></p><p>但光有这工单也没有用，我只能继续等人工客服的介入。</p><p>在周五的早上十点，我收到了来自人工客服的邮件，并且在几分钟后收到了来自人工客服的电话（电话是 021 开头的，是归属地为上海的座机打来的，但客服操着严重的港台口音，可能是港台那边的客服通过上海的座机中转打给我的？）: </p><p><img src="https://static.031130.xyz/uploads/2024/08/12/645e60ad79001.webp" alt="人工客服的邮件"></p><p>但很显然，这封邮件并没有提供任何行之有效的方案，我只能按照邮件中的指示将我的截图发了过去。不过客服不知道出于什么原因一定要求全屏截图（如果电话说的是全面屏，那也是指 PC 端的全屏截图），可能是他们有什么工作制度吧。回复邮件的时候一定要选择<strong>回复全部</strong>，好像是他们只使用 <a href="mailto:&#115;&#x75;&#112;&#112;&#x6f;&#114;&#x74;&#64;&#109;&#97;&#x69;&#108;&#46;&#x73;&#117;&#x70;&#x70;&#111;&#x72;&#x74;&#46;&#109;&#x69;&#x63;&#114;&#x6f;&#115;&#x6f;&#x66;&#116;&#x2e;&#99;&#x6f;&#109;">&#115;&#x75;&#112;&#112;&#x6f;&#114;&#x74;&#64;&#109;&#97;&#x69;&#108;&#46;&#x73;&#117;&#x70;&#x70;&#111;&#x72;&#x74;&#46;&#109;&#x69;&#x63;&#114;&#x6f;&#115;&#x6f;&#x66;&#116;&#x2e;&#99;&#x6f;&#109;</a> 这一个邮箱与我们通信，微软的服务器收到内容后会将我们发送的内容再抄送给给我们分配的客服手上，如果不选择「回复全部」的话，客服可能就看不到之前的通信记录了。</p><p>于是就在当天下午的2点收到了人工客服的第二封邮件，说是已经帮我提交到了后台处理。</p><p><img src="https://static.031130.xyz/uploads/2024/08/12/645e62bae0c0a.webp" alt="来自人工客服的第二封邮件"></p><p>20 分钟后，我收到了这封应该是系统自动发送的邮件，说明我的账号因异常而触发了审查所以过不了 Azure 的教育订阅，需要我提交能够佐证我的学生身份的东西上去，当晚7点我便按照要求回信。</p><p><img src="https://static.031130.xyz/uploads/2024/08/12/645e639e2c9d1.webp" alt="1683907484369.png"></p><p>当晚8点半，我便收到了来自系统的消息，得知异常已经解除，再次申请 Azure 学生认证就成功了。</p><p><img src="https://static.031130.xyz/uploads/2024/08/12/645e63e39523f.webp" alt="异常解除"></p>]]></content>
+    <content type="html"><![CDATA[<p>进入大学已经快一年了，但我的 Azure 教育订阅申请一直没有成功，每年有 100 刀的额度，<del>再这样下去就要亏掉近 700 元了</del>，于是便打算趁期中考试刚结束的闲暇时间把 Azure 的教育订阅给过了。</p><p>我拥有 *.edu.cn 的邮箱，并且通过了 Github Student Pack 的认证，但每次在 <a href="https://signup.azure.com/studentverification?offerType=1">https://signup.azure.com/studentverification?offerType=1</a> 页面尝试申请 Azure 订阅时，总是会得到一句冷冷的「你没有资格使用 Azure 免费帐户」。于是，我找到了 Azure 订阅支持客服帮忙，链接是这个: <a href="https://azureforeducation.microsoft.com/en-us/institutions/Contact">https://azureforeducation.microsoft.com/en-us/institutions/Contact</a>，简要填写了我的基本信息后就开始等待邮件回复了。</p><p><img src="https://static.031130.xyz/uploads/2024/08/12/645e646bc5b58.webp" alt="提交工单"></p><p>我是周四上午申请的，不到一个小时就等来了微软的工单生成通知</p><p><img src="https://static.031130.xyz/uploads/2024/08/12/645e5fdfb25a3.webp" alt="微软的工单通知"></p><p>但光有这工单也没有用，我只能继续等人工客服的介入。</p><p>在周五的早上十点，我收到了来自人工客服的邮件，并且在几分钟后收到了来自人工客服的电话（电话是 021 开头的，是归属地为上海的座机打来的，但客服操着严重的港台口音，可能是港台那边的客服通过上海的座机中转打给我的？）: </p><p><img src="https://static.031130.xyz/uploads/2024/08/12/645e60ad79001.webp" alt="人工客服的邮件"></p><p>但很显然，这封邮件并没有提供任何行之有效的方案，我只能按照邮件中的指示将我的截图发了过去。不过客服不知道出于什么原因一定要求全屏截图（如果电话说的是全面屏，那也是指 PC 端的全屏截图），可能是他们有什么工作制度吧。回复邮件的时候一定要选择<strong>回复全部</strong>，好像是他们只使用 <a href="mailto:&#115;&#117;&#112;&#112;&#111;&#x72;&#x74;&#x40;&#x6d;&#x61;&#x69;&#108;&#46;&#x73;&#117;&#112;&#112;&#x6f;&#114;&#116;&#x2e;&#109;&#105;&#x63;&#114;&#x6f;&#x73;&#x6f;&#102;&#x74;&#x2e;&#99;&#111;&#x6d;">&#115;&#117;&#112;&#112;&#111;&#x72;&#x74;&#x40;&#x6d;&#x61;&#x69;&#108;&#46;&#x73;&#117;&#112;&#112;&#x6f;&#114;&#116;&#x2e;&#109;&#105;&#x63;&#114;&#x6f;&#x73;&#x6f;&#102;&#x74;&#x2e;&#99;&#111;&#x6d;</a> 这一个邮箱与我们通信，微软的服务器收到内容后会将我们发送的内容再抄送给给我们分配的客服手上，如果不选择「回复全部」的话，客服可能就看不到之前的通信记录了。</p><p>于是就在当天下午的2点收到了人工客服的第二封邮件，说是已经帮我提交到了后台处理。</p><p><img src="https://static.031130.xyz/uploads/2024/08/12/645e62bae0c0a.webp" alt="来自人工客服的第二封邮件"></p><p>20 分钟后，我收到了这封应该是系统自动发送的邮件，说明我的账号因异常而触发了审查所以过不了 Azure 的教育订阅，需要我提交能够佐证我的学生身份的东西上去，当晚7点我便按照要求回信。</p><p><img src="https://static.031130.xyz/uploads/2024/08/12/645e639e2c9d1.webp" alt="1683907484369.png"></p><p>当晚8点半，我便收到了来自系统的消息，得知异常已经解除，再次申请 Azure 学生认证就成功了。</p><p><img src="https://static.031130.xyz/uploads/2024/08/12/645e63e39523f.webp" alt="异常解除"></p>]]></content>
     
     
       
@@ -1618,13 +1653,13 @@
     
     <category term="nodejs" scheme="https://zhul.in/tags/nodejs/"/>
     
+    <category term="Caddy" scheme="https://zhul.in/tags/Caddy/"/>
+    
     <category term="Archlinux" scheme="https://zhul.in/tags/Archlinux/"/>
     
     <category term="OpenSource Project" scheme="https://zhul.in/tags/OpenSource-Project/"/>
     
     <category term="siteproxy" scheme="https://zhul.in/tags/siteproxy/"/>
-    
-    <category term="Caddy" scheme="https://zhul.in/tags/Caddy/"/>
     
   </entry>
   
@@ -1740,9 +1775,9 @@
     
     
     
-    <category term="Github Action" scheme="https://zhul.in/tags/Github-Action/"/>
-    
     <category term="Network" scheme="https://zhul.in/tags/Network/"/>
+    
+    <category term="Github Action" scheme="https://zhul.in/tags/Github-Action/"/>
     
     <category term="Blog" scheme="https://zhul.in/tags/Blog/"/>
     
@@ -2386,11 +2421,11 @@
     
     
     
+    <category term="Caddy" scheme="https://zhul.in/tags/Caddy/"/>
+    
     <category term="Archlinux" scheme="https://zhul.in/tags/Archlinux/"/>
     
     <category term="PHP" scheme="https://zhul.in/tags/PHP/"/>
-    
-    <category term="Caddy" scheme="https://zhul.in/tags/Caddy/"/>
     
     <category term="PicUploader" scheme="https://zhul.in/tags/PicUploader/"/>
     
