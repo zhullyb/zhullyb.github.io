@@ -23,7 +23,7 @@
   
     <meta name="description" content="事情的起因是因为精弘的前技术总监抱怨学校的内网服务器无法连接外网，从而导致 apt 安装与更新异常困难，需要手动从源中下载软件包、软件包的依赖及其依赖的依赖。。。然后将这些包通过 sftp&#x2F;rsync 一类的手段传到服务器上手动安装。  于是本文应运而生，我们可以在本机使用 Caddy （Nginx 当然也行）反代一个 APT 源镜像站，通过 ssh 隧道建立端口转发，这样就可以在内网服务器上访问">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ssh 拯救世界——通过 ssh 隧道内网服务器执行 APT 更新">
+<meta property="og:title" content="ssh 拯救世界——通过 ssh 隧道在内网服务器执行 APT 更新">
 <meta property="og:url" content="https://zhul.in/2025/03/30/apt-upgrade-on-internal-server-via-ssh-tunnel-and-reverse-proxy/index.html">
 <meta property="og:site_name" content="竹林里有冰的博客">
 <meta property="og:description" content="事情的起因是因为精弘的前技术总监抱怨学校的内网服务器无法连接外网，从而导致 apt 安装与更新异常困难，需要手动从源中下载软件包、软件包的依赖及其依赖的依赖。。。然后将这些包通过 sftp&#x2F;rsync 一类的手段传到服务器上手动安装。  于是本文应运而生，我们可以在本机使用 Caddy （Nginx 当然也行）反代一个 APT 源镜像站，通过 ssh 隧道建立端口转发，这样就可以在内网服务器上访问">
@@ -36,7 +36,7 @@
 <meta property="og:image" content="https://static.031130.xyz/uploads/2025/03/30/a8f0c70d48f5b.webp">
 <meta property="og:image" content="https://static.031130.xyz/uploads/2025/03/30/07919bf939e92.webp">
 <meta property="article:published_time" content="2025-03-30T13:45:24.000Z">
-<meta property="article:modified_time" content="2025-03-30T15:25:42.000Z">
+<meta property="article:modified_time" content="2025-03-30T15:26:46.000Z">
 <meta property="article:author" content="竹林里有冰">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="Apt">
@@ -49,7 +49,7 @@
   
   
   
-  <title>ssh 拯救世界——通过 ssh 隧道内网服务器执行 APT 更新 - 竹林里有冰的博客</title>
+  <title>ssh 拯救世界——通过 ssh 隧道在内网服务器执行 APT 更新 - 竹林里有冰的博客</title>
 
   <link  rel="stylesheet" href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/4.6.0/css/bootstrap.min.css" />
 
@@ -268,7 +268,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="ssh 拯救世界——通过 ssh 隧道内网服务器执行 APT 更新"></span>
+            <span id="subtitle" data-typed-text="ssh 拯救世界——通过 ssh 隧道在内网服务器执行 APT 更新"></span>
           
         </div>
 
@@ -341,7 +341,7 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">ssh 拯救世界——通过 ssh 隧道内网服务器执行 APT 更新</h1>
+            <h1 id="seo-header">ssh 拯救世界——通过 ssh 隧道在内网服务器执行 APT 更新</h1>
             
               <p id="updated-time" class="note note-info" style="">
                 
@@ -435,7 +435,7 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>ssh 拯救世界——通过 ssh 隧道内网服务器执行 APT 更新</div>
+      <div>ssh 拯救世界——通过 ssh 隧道在内网服务器执行 APT 更新</div>
       <div>https://zhul.in/2025/03/30/apt-upgrade-on-internal-server-via-ssh-tunnel-and-reverse-proxy/</div>
     </div>
     <div class="license-meta">
