@@ -430,7 +430,7 @@ footer:
     <iframe frameborder=0
       src="https://support.nodeget.com/page/promotion?id=竹林里有冰"
       style="border-radius:8px; border: none; height: 246px;
-      transform: scale(1.0); transform-origin: top left;">
+      transform: scale(0.8);">
     </iframe>
     <br />
     <span>本网站由 <a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img style="max-height: 50px;" loading="lazy" src="https://static.031130.xyz/uploads/2024/08/12/ba8d70971c408.webp" alt="又拍云 Logo" /></a> 提供 CDN 加速/云存储服务</span>
