@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://static.031130.xyz/uploads/2025/04/19/3437b1c022853.webp">
 <meta property="og:image" content="https://static.031130.xyz/uploads/2025/04/19/7f5310ca03c80.webp">
 <meta property="article:published_time" content="2025-04-21T11:48:05.000Z">
-<meta property="article:modified_time" content="2025-04-21T18:21:17.000Z">
+<meta property="article:modified_time" content="2025-04-21T18:24:39.000Z">
 <meta property="article:author" content="竹林里有冰">
 <meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary_large_image">
@@ -294,7 +294,7 @@
         
         
           <!-- compatible with older versions-->
-          17 分钟
+          18 分钟
         
       </span>
     
@@ -405,8 +405,6 @@ textArea.<span class="hljs-title function_">select</span>();
 <h3 id="其他不完美的方案"><a href="#其他不完美的方案" class="headerlink" title="其他不完美的方案"></a>其他不完美的方案</h3><h4 id="window-clipboardData-setData"><a href="#window-clipboardData-setData" class="headerlink" title="window.clipboardData.setData"></a>window.clipboardData.setData</h4><p>该 API 主要在 2000 年 —2010 年前后被使用，仅适用于 IE 浏览器。Firefox 在这段时间里还不支持纯 js 实现的复制文本至浏览器的操作；Chrome 第一个版本在 2008 年才发布，尚未成为主流。</p>
 <div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-variable language_">window</span>.<span class="hljs-property">clipboardData</span>.<span class="hljs-title function_">setData</span>(<span class="hljs-string">&quot;Text&quot;</span>, text2copy);</code></pre></div>
 
-
-
 <h4 id="摆烂（prompt）"><a href="#摆烂（prompt）" class="headerlink" title="摆烂（prompt）"></a>摆烂（prompt）</h4><p>调 prompt 弹窗让用户自己复制。</p>
 <div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-title function_">prompt</span>(<span class="hljs-string">&#x27;Press Ctrl + C, then Enter to copy to clipboard&#x27;</span>,<span class="hljs-string">&#x27;copy me&#x27;</span>)</code></pre></div>
 
@@ -434,7 +432,7 @@ textArea.<span class="hljs-title function_">select</span>();
 <span class="hljs-title function_">copy</span>(<span class="hljs-string">&#x27;Text&#x27;</span>);</code></pre></div>
 
 <p>相比起 clipboard.js 的使用思路是更加直观了，可惜生不逢时，不如 clipboard.js 出名（也可能有取名的原因在里面）。</p>
-<h3 id="VueUse-useClipboard"><a href="#VueUse-useClipboard" class="headerlink" title="VueUse - useClipboard"></a><a target="_blank" rel="noopener" href="https://vueuse.org/core/useClipboard/">VueUse - useClipboard</a></h3><p>VueUse 实现的这个 useClipboard 是令我最为满意的一个。useClipboard 充分考虑了浏览器的兼容性，在检测到满足 navigator.clipboard 的使用条件时优先使用 <code>navigator.clipboard.writeText()</code> ，在不支持 navigator.clipboard 或者 <code>navigator.clipboard.writeText()</code> 复制失败时转去使用 execCommand 实现的 legacyCopy，并且借助 Vue3 中的 Composables 实现了一个 1.5 秒后自动恢复初始状态的 copied 变量，算是很有心了。</p>
+<h3 id="VueUse-useClipboard"><a href="#VueUse-useClipboard" class="headerlink" title="VueUse - useClipboard"></a><a target="_blank" rel="noopener" href="https://vueuse.org/core/useClipboard/">VueUse - useClipboard</a></h3><p>VueUse 实现的这个 useClipboard 是令我最为满意的一个。useClipboard 充分考虑了浏览器的兼容性，在检测到满足 navigator.clipboard 的使用条件时<strong>优先使用 <code>navigator.clipboard.writeText()</code></strong> ，在不支持 navigator.clipboard 或者 <code>navigator.clipboard.writeText()</code> <strong>复制失败时转去使用 execCommand 实现的 legacyCopy</strong>，并且借助 Vue3 中的 Composables 实现了一个 1.5 秒后自动恢复初始状态的 copied 变量，算是很有心了。</p>
 <div class="code-wrapper"><pre><code class="hljs vue">const &#123; text, copy, copied, isSupported &#125; = useClipboard(&#123; source &#125;)
 &lt;/script&gt;
 
@@ -472,7 +470,7 @@ textArea.<span class="hljs-title function_">select</span>();
 <h4 id="Ant-Design-Typography"><a href="#Ant-Design-Typography" class="headerlink" title="Ant Design - Typography"></a><a target="_blank" rel="noopener" href="https://ant.design/components/typography-cn#typography-demo-copyable">Ant Design - Typography</a></h4><p>ahooks 是<a target="_blank" rel="noopener" href="https://site.j10ccc.xyz/">小麦茶</a>第一个报出来的 react hooks 库，由 Ant Design 原班人马维护。不过其在仓库中并没有对剪贴板的封装，因此在小麦茶的建议下我跑去翻了 Ant Design 中的 Typography 对复制能力的实现。和上面的 react-use 一样，都是直接用 <a target="_blank" rel="noopener" href="https://github.com/sudodoki/copy-to-clipboard">copy-to-clipboard</a>，属于 execCommand 方案。</p>
 <h4 id="usehooks-useCopyToClipboard"><a href="#usehooks-useCopyToClipboard" class="headerlink" title="usehooks - useCopyToClipboard"></a><a target="_blank" rel="noopener" href="https://usehooks.com/usecopytoclipboard">usehooks - useCopyToClipboard</a></h4><p>这个库是我问 llm 知道的，现在有 10.5k star。非常逆天的一点在于它的所有逻辑代码都是在 index.js 这样一个单文件里实现的，属实是看不懂了。会先采用 <code>navigator.clipboard.writeText()</code> 尝试写入，失败后再换用 execCommand 的方案。hooks 的用法和上面的 react-use 大差不差。</p>
 <h4 id="usehooks-ts-useCopyToClipboard"><a href="#usehooks-ts-useCopyToClipboard" class="headerlink" title="usehooks-ts - useCopyToClipboard"></a><a target="_blank" rel="noopener" href="https://usehooks-ts.com/react-hook/use-copy-to-clipboard">usehooks-ts - useCopyToClipboard</a></h4><p>不知道是不是为了解决上面那玩意儿不支持 ts 才开的库。只使用 <code>navigator.clipboard.writeText()</code> 尝试写入剪切板，失败后直接 <code>console.warn</code> 报错，没有 fallback 方案。</p>
-<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>从结果上来看，VueUse 的封装无疑是最令我满意的。优先尝试性能最好的 Clipboard API，再尝试 execCommand 作为回落，还有 prompt 手段作为最后的 fallback。</p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>从结果上来看，VueUse 的封装无疑是最令我满意的。优先尝试性能最好的 Clipboard API，再尝试 execCommand 作为回落，同时辅以多个响应式变量帮助开发，但又不擅作主张地使用 prompt 作为保底，最大程度地把操作空间留给开发者。</p>
 <p>站在 2025 年的节点回望，前端剪切板操作技术的演进轨迹清晰可见：从早期依赖 Flash 的脆弱方案，到 execCommand 的曲线救国，最终迈向标准化 Clipboard API 的优雅实现。这段历程不仅是技术迭代的缩影，更折射出前端开发中独特的「妥协艺术」。</p>
 <p>在未来的很长一段时间里，或许我们还是会在「优雅实现」与「向下兼容」之间寻找平衡点、在浏览器沙箱里戴着镣铐跳芭蕾，但那些为兼容性而生的临时方案，终将成为见证前端进化史的珍贵注脚。</p>
 <h2 id="参见"><a href="#参见" class="headerlink" title="参见"></a>参见</h2><ul>

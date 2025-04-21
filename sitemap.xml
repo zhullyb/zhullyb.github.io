@@ -650,7 +650,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2022/01/12/dnf-module-in-setting-up-the-jekyll/</loc>
+    <loc>https://zhul.in/2021/04/23/disable-firefox-nightmode-when-your-system-is-using-that/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -659,7 +659,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/04/23/disable-firefox-nightmode-when-your-system-is-using-that/</loc>
+    <loc>https://zhul.in/2022/01/12/dnf-module-in-setting-up-the-jekyll/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -677,7 +677,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2022/04/14/fastocr-experience/</loc>
+    <loc>https://zhul.in/2022/07/03/fcitx5-blinking-on-tg-under-wayland-kde/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -686,7 +686,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2022/07/03/fcitx5-blinking-on-tg-under-wayland-kde/</loc>
+    <loc>https://zhul.in/2022/04/14/fastocr-experience/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -1368,6 +1368,13 @@
   </url>
   
   <url>
+    <loc>https://zhul.in/tags/vercel/</loc>
+    <lastmod>2025-04-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://zhul.in/tags/Vue-js/</loc>
     <lastmod>2025-04-21</lastmod>
     <changefreq>weekly</changefreq>
@@ -1382,7 +1389,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/tags/vercel/</loc>
+    <loc>https://zhul.in/tags/Blog/</loc>
     <lastmod>2025-04-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1390,13 +1397,6 @@
   
   <url>
     <loc>https://zhul.in/tags/Privacy/</loc>
-    <lastmod>2025-04-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Blog/</loc>
     <lastmod>2025-04-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1452,14 +1452,14 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/tags/Experience/</loc>
+    <loc>https://zhul.in/tags/KDE/</loc>
     <lastmod>2025-04-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://zhul.in/tags/KDE/</loc>
+    <loc>https://zhul.in/tags/Experience/</loc>
     <lastmod>2025-04-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
