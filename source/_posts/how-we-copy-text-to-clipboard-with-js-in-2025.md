@@ -99,8 +99,6 @@ ZeroClipboard 通过创建一个透明的 Flash Movie 覆盖在触发按钮上�
 window.clipboardData.setData("Text", text2copy);
 ```
 
-
-
 #### 摆烂（prompt）
 
 调 prompt 弹窗让用户自己复制。
@@ -155,7 +153,7 @@ copy('Text');
 
 ### [VueUse - useClipboard](https://vueuse.org/core/useClipboard/)
 
-VueUse 实现的这个 useClipboard 是令我最为满意的一个。useClipboard 充分考虑了浏览器的兼容性，在检测到满足 navigator.clipboard 的使用条件时优先使用 `navigator.clipboard.writeText()` ，在不支持 navigator.clipboard 或者 `navigator.clipboard.writeText()` 复制失败时转去使用 execCommand 实现的 legacyCopy，并且借助 Vue3 中的 Composables 实现了一个 1.5 秒后自动恢复初始状态的 copied 变量，算是很有心了。
+VueUse 实现的这个 useClipboard 是令我最为满意的一个。useClipboard 充分考虑了浏览器的兼容性，在检测到满足 navigator.clipboard 的使用条件时**优先使用 `navigator.clipboard.writeText()`** ，在不支持 navigator.clipboard 或者 `navigator.clipboard.writeText()` **复制失败时转去使用 execCommand 实现的 legacyCopy**，并且借助 Vue3 中的 Composables 实现了一个 1.5 秒后自动恢复初始状态的 copied 变量，算是很有心了。
 
 ```vue
 const { text, copy, copied, isSupported } = useClipboard({ source })
@@ -215,7 +213,7 @@ ahooks 是[小麦茶](https://site.j10ccc.xyz/)第一个报出来的 react hooks
 
 ## 结语
 
-从结果上来看，VueUse 的封装无疑是最令我满意的。优先尝试性能最好的 Clipboard API，再尝试 execCommand 作为回落，还有 prompt 手段作为最后的 fallback。
+从结果上来看，VueUse 的封装无疑是最令我满意的。优先尝试性能最好的 Clipboard API，再尝试 execCommand 作为回落，同时辅以多个响应式变量帮助开发，但又不擅作主张地使用 prompt 作为保底，最大程度地把操作空间留给开发者。
 
 站在 2025 年的节点回望，前端剪切板操作技术的演进轨迹清晰可见：从早期依赖 Flash 的脆弱方案，到 execCommand 的曲线救国，最终迈向标准化 Clipboard API 的优雅实现。这段历程不仅是技术迭代的缩影，更折射出前端开发中独特的「妥协艺术」。
 
