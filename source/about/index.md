@@ -6,7 +6,7 @@ date: 2021-05-01 23:53:19
 
 ## About Me
 
-咱是一只大三的大本钟，日常全靠摆，就读于杭州化工学校。
+咱是一只大三的大本钟，日常全靠摆，就读于~~杭州化工学校~~。
 
 要吃不起饭了，来个实习救救我吧（
 
@@ -25,8 +25,6 @@ date: 2021-05-01 23:53:19
 ## My Websites
 
 博客(本站): [https://zhul.in](https://zhul.in)
-
-反代服务: [https://r.zhullyb.top](https://r.zhullyb.top)
 
 ## Contact Me
 
