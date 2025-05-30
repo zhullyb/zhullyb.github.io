@@ -21,29 +21,31 @@
   <meta name="author" content="竹林里有冰">
   <meta name="keywords" content="博客, 技术, Linux">
   
-    <meta name="description" content="进入大学已经快一年了，但我的 Azure 教育订阅申请一直没有成功，每年有 100 刀的额度，再这样下去就要亏掉近 700 元了，于是便打算趁期中考试刚结束的闲暇时间把 Azure 的教育订阅给过了。 我拥有 *.edu.cn 的邮箱，并且通过了 Github Student Pack 的认证，但每次在 https:&#x2F;&#x2F;signup.azure.com&#x2F;studentverification?of">
+    <meta name="description" content="这是精弘内部的图床开发时遇到的事情，大一的小朋友反馈说 el-image 和 el-table 打架了。这里专门提供一个 demo 来直观展示情况，下面是截图。  看到后面的表格透出 el-image 的预览层，我的第一反应是叫小朋友去检查 z-index 是否正确，el-image 的 mask 遮罩的 z-index 是否大于表格。  经过我本地调试，发现 z-index 的设置确实没问题，但">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Azure 教育订阅申请时遇到的麻烦">
-<meta property="og:url" content="https://zhul.in/2023/05/12/troubles-when-applying-azure-education/index.html">
+<meta property="og:title" content="el-image 和 el-table 怎么就打架了？Stacking Context 是什么？">
+<meta property="og:url" content="https://zhul.in/2025/05/31/el-image-and-el-table-why-the-fight-and-what-is-a-stacking-context/index.html">
 <meta property="og:site_name" content="竹林里有冰的博客">
-<meta property="og:description" content="进入大学已经快一年了，但我的 Azure 教育订阅申请一直没有成功，每年有 100 刀的额度，再这样下去就要亏掉近 700 元了，于是便打算趁期中考试刚结束的闲暇时间把 Azure 的教育订阅给过了。 我拥有 *.edu.cn 的邮箱，并且通过了 Github Student Pack 的认证，但每次在 https:&#x2F;&#x2F;signup.azure.com&#x2F;studentverification?of">
+<meta property="og:description" content="这是精弘内部的图床开发时遇到的事情，大一的小朋友反馈说 el-image 和 el-table 打架了。这里专门提供一个 demo 来直观展示情况，下面是截图。  看到后面的表格透出 el-image 的预览层，我的第一反应是叫小朋友去检查 z-index 是否正确，el-image 的 mask 遮罩的 z-index 是否大于表格。  经过我本地调试，发现 z-index 的设置确实没问题，但">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://static.031130.xyz/uploads/2024/08/12/645e646bc5b58.webp">
-<meta property="og:image" content="https://static.031130.xyz/uploads/2024/08/12/645e5fdfb25a3.webp">
-<meta property="og:image" content="https://static.031130.xyz/uploads/2024/08/12/645e60ad79001.webp">
-<meta property="og:image" content="https://static.031130.xyz/uploads/2024/08/12/645e62bae0c0a.webp">
-<meta property="og:image" content="https://static.031130.xyz/uploads/2024/08/12/645e639e2c9d1.webp">
-<meta property="og:image" content="https://static.031130.xyz/uploads/2024/08/12/645e63e39523f.webp">
-<meta property="article:published_time" content="2023-05-12T15:38:29.000Z">
-<meta property="article:modified_time" content="2024-11-15T18:02:30.000Z">
+<meta property="og:image" content="https://static.031130.xyz/uploads/2025/05/31/c6674f6f13955.webp">
+<meta property="og:image" content="https://static.031130.xyz/uploads/2025/05/31/1c20b4ea0b37e.webp">
+<meta property="og:image" content="https://static.031130.xyz/uploads/2025/05/31/99845899e3524.webp">
+<meta property="og:image" content="https://static.031130.xyz/uploads/2025/05/31/9df43b865b3c6.webp">
+<meta property="og:image" content="https://static.031130.xyz/uploads/2025/05/31/f18a2b54afd63.webp">
+<meta property="article:published_time" content="2025-05-30T16:29:40.000Z">
+<meta property="article:modified_time" content="2025-05-30T18:02:33.000Z">
 <meta property="article:author" content="竹林里有冰">
-<meta property="article:tag" content="Azure">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="Vue.js">
+<meta property="article:tag" content="CSS">
+<meta property="article:tag" content="HTML">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://static.031130.xyz/uploads/2024/08/12/645e646bc5b58.webp">
+<meta name="twitter:image" content="https://static.031130.xyz/uploads/2025/05/31/c6674f6f13955.webp">
   
   
   
-  <title>Azure 教育订阅申请时遇到的麻烦 - 竹林里有冰的博客</title>
+  <title>el-image 和 el-table 怎么就打架了？Stacking Context 是什么？ - 竹林里有冰的博客</title>
 
   <link  rel="stylesheet" href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/4.6.0/css/bootstrap.min.css" />
 
@@ -254,7 +256,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Azure 教育订阅申请时遇到的麻烦"></span>
+            <span id="subtitle" data-typed-text="el-image 和 el-table 怎么就打架了？Stacking Context 是什么？"></span>
           
         </div>
 
@@ -265,8 +267,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2023-05-12 23:38" pubdate>
-          2023年5月12日 晚上
+        <time datetime="2025-05-31 00:29" pubdate>
+          2025年5月31日 凌晨
         </time>
       </span>
     
@@ -278,7 +280,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          712 字
+          1.2k 字
         
       </span>
     
@@ -290,7 +292,7 @@
         
         
           <!-- compatible with older versions-->
-          4 分钟
+          6 分钟
         
       </span>
     
@@ -327,13 +329,13 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Azure 教育订阅申请时遇到的麻烦</h1>
+            <h1 id="seo-header">el-image 和 el-table 怎么就打架了？Stacking Context 是什么？</h1>
             
               <p id="updated-time" class="note note-info" style="">
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2024年11月16日 凌晨
+                    本文最后更新于：2025年5月31日 凌晨
                   
                 
               </p>
@@ -341,21 +343,51 @@
             
               <div class="markdown-body">
                 
-                <p>进入大学已经快一年了，但我的 Azure 教育订阅申请一直没有成功，每年有 100 刀的额度，<del>再这样下去就要亏掉近 700 元了</del>，于是便打算趁期中考试刚结束的闲暇时间把 Azure 的教育订阅给过了。</p>
-<p>我拥有 *.edu.cn 的邮箱，并且通过了 Github Student Pack 的认证，但每次在 <a target="_blank" rel="noopener" href="https://signup.azure.com/studentverification?offerType=1">https://signup.azure.com/studentverification?offerType=1</a> 页面尝试申请 Azure 订阅时，总是会得到一句冷冷的「你没有资格使用 Azure 免费帐户」。于是，我找到了 Azure 订阅支持客服帮忙，链接是这个: <a target="_blank" rel="noopener" href="https://azureforeducation.microsoft.com/en-us/institutions/Contact">https://azureforeducation.microsoft.com/en-us/institutions/Contact</a>，简要填写了我的基本信息后就开始等待邮件回复了。</p>
-<p><img src="https://static.031130.xyz/uploads/2024/08/12/645e646bc5b58.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="提交工单"></p>
-<p>我是周四上午申请的，不到一个小时就等来了微软的工单生成通知</p>
-<p><img src="https://static.031130.xyz/uploads/2024/08/12/645e5fdfb25a3.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="微软的工单通知"></p>
-<p>但光有这工单也没有用，我只能继续等人工客服的介入。</p>
-<p>在周五的早上十点，我收到了来自人工客服的邮件，并且在几分钟后收到了来自人工客服的电话（电话是 021 开头的，是归属地为上海的座机打来的，但客服操着严重的港台口音，可能是港台那边的客服通过上海的座机中转打给我的？）: </p>
-<p><img src="https://static.031130.xyz/uploads/2024/08/12/645e60ad79001.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="人工客服的邮件"></p>
-<p>但很显然，这封邮件并没有提供任何行之有效的方案，我只能按照邮件中的指示将我的截图发了过去。不过客服不知道出于什么原因一定要求全屏截图（如果电话说的是全面屏，那也是指 PC 端的全屏截图），可能是他们有什么工作制度吧。回复邮件的时候一定要选择<strong>回复全部</strong>，好像是他们只使用 <a href="mailto:&#x73;&#x75;&#112;&#112;&#x6f;&#x72;&#116;&#x40;&#109;&#97;&#105;&#x6c;&#46;&#115;&#x75;&#112;&#x70;&#x6f;&#114;&#x74;&#46;&#x6d;&#105;&#99;&#114;&#111;&#x73;&#x6f;&#102;&#116;&#46;&#99;&#111;&#109;">&#x73;&#x75;&#112;&#112;&#x6f;&#x72;&#116;&#x40;&#109;&#97;&#105;&#x6c;&#46;&#115;&#x75;&#112;&#x70;&#x6f;&#114;&#x74;&#46;&#x6d;&#105;&#99;&#114;&#111;&#x73;&#x6f;&#102;&#116;&#46;&#99;&#111;&#109;</a> 这一个邮箱与我们通信，微软的服务器收到内容后会将我们发送的内容再抄送给给我们分配的客服手上，如果不选择「回复全部」的话，客服可能就看不到之前的通信记录了。</p>
-<p>于是就在当天下午的2点收到了人工客服的第二封邮件，说是已经帮我提交到了后台处理。</p>
-<p><img src="https://static.031130.xyz/uploads/2024/08/12/645e62bae0c0a.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="来自人工客服的第二封邮件"></p>
-<p>20 分钟后，我收到了这封应该是系统自动发送的邮件，说明我的账号因异常而触发了审查所以过不了 Azure 的教育订阅，需要我提交能够佐证我的学生身份的东西上去，当晚7点我便按照要求回信。</p>
-<p><img src="https://static.031130.xyz/uploads/2024/08/12/645e639e2c9d1.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="1683907484369.png"></p>
-<p>当晚8点半，我便收到了来自系统的消息，得知异常已经解除，再次申请 Azure 学生认证就成功了。</p>
-<p><img src="https://static.031130.xyz/uploads/2024/08/12/645e63e39523f.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="异常解除"></p>
+                <p>这是精弘内部的图床开发时遇到的事情，大一的小朋友反馈说 el-image 和 el-table 打架了。这里专门提供一个 <a target="_blank" rel="noopener" href="https://static.031130.xyz/demo/el-image-el-table-conflict.html">demo</a> 来直观展示情况，下面是截图。</p>
+<p><img src="https://static.031130.xyz/uploads/2025/05/31/c6674f6f13955.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
+<p>看到后面的表格透出 el-image 的预览层，我的第一反应是叫小朋友去检查 z-index 是否正确，el-image 的 mask 遮罩的 z-index 是否大于表格。</p>
+<p><img src="https://static.031130.xyz/uploads/2025/05/31/1c20b4ea0b37e.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
+<p>经过我本地调试，发现 z-index 的设置确实没问题，但后面的元素为什么会透出来？谷歌搜索一番，找到了这篇文章</p>
+<p><img src="https://static.031130.xyz/uploads/2025/05/31/99845899e3524.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
+<blockquote>
+<p>给 el-table 加一行如下代码即可</p>
+<div class="code-wrapper"><pre><code class="hljs css"><span class="hljs-selector-class">.el-table__cell</span> &#123;
+    <span class="hljs-attribute">position</span>: static <span class="hljs-meta">!important</span>;
+&#125;</code></pre></div>
+</blockquote>
+<p>经本地调试确认，这一方案确实能解决问题，但为什么呢？这就涉及到 Stacking Context （层叠上下文）了。</p>
+<h2 id="Stacking-Context（层叠上下文）究竟是什么？"><a href="#Stacking-Context（层叠上下文）究竟是什么？" class="headerlink" title="Stacking Context（层叠上下文）究竟是什么？"></a>Stacking Context（层叠上下文）究竟是什么？</h2><p>简单来说，Stacking Context 可以被类比成画布。在同一块画布上，z-index 值越高的元素就处于越上方，会覆盖掉 z-index 较低的元素，这也是为什么我最开始让检查 z-index 的设置是否有问题。但问题出在 Stacking Context 也是有上下顺序之分的。</p>
+<p>现在假设我们有 A、B 两块画布，在 A 上有一个设置了 z-index 为 1145141919810 的元素。那这个元素具备非常高的优先级，理应出现在浏览器窗口的最上方。但如果 B 画布的优先级高于 A 画布，那么 B 元素上的所有元素都会优先显示（当了躺赢狗）。那么画布靠什么来决定优先级呢？</p>
+<ul>
+<li><strong>处于同级的 Stacking Context 之间靠 z-index 值来区分优先级</strong></li>
+<li><strong>对于 z-index 值相同的 Stacking Context，在 html 文档中位置靠后的元素拥有更高的优先级</strong></li>
+</ul>
+<p>第二条规则也能解释为什么在上面的 demo 中，只有在表格中位置排在图片元素后面的元素出现了透出来的情况。</p>
+<h2 id="所以为什么-el-image-和-el-table-打架了？"><a href="#所以为什么-el-image-和-el-table-打架了？" class="headerlink" title="所以为什么 el-image 和 el-table 打架了？"></a>所以为什么 el-image 和 el-table 打架了？</h2><p>这次的冲突主要是下面两个因素引起的</p>
+<ol>
+<li><p>el-table 给每个 cell 都设置了 <code>position: relative</code> 的 css 属性，而 position 被设为 relative 时，当前元素就会生成一个 Stacking Context。</p>
+<p><img src="https://static.031130.xyz/uploads/2025/05/31/9df43b865b3c6.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="image-20250531013029154"></p>
+<p>所以我们这么一个有十个格子的表格，其实就生成了十个画布。而这其中每个画布 z-index 都为 1。根据刚才的规则，在图片格子后面的那些格子对应的 html 代码片段在整体的 html 文档中更靠后，所以他们的优先级都高于图片格子。</p>
+</li>
+<li><p>el-image 的预览功能所展开的遮罩层处于 el-image 标签内部</p>
+<p><img src="https://static.031130.xyz/uploads/2025/05/31/f18a2b54afd63.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
+<p>上图中橙色部分是 el-image 在预览时提供的遮罩，可以看到 element-plus 组件的 image 预览的默认行为是将预览时所需要的遮罩层直接放在 &lt;el-image&gt; &lt;/el-image&gt; 标签内部，这导致 el-image 的遮罩层被困在一个低优先级的 Stacking Context 中，后面的格子里的内容就是能凭借高优先级透过来。</p>
+</li>
+</ol>
+<h2 id="所以解决方案是什么？"><a href="#所以解决方案是什么？" class="headerlink" title="所以解决方案是什么？"></a>所以解决方案是什么？</h2><h3 id="更改-position-值在这里确实是可行的"><a href="#更改-position-值在这里确实是可行的" class="headerlink" title="更改 position 值在这里确实是可行的"></a>更改 position 值在这里确实是可行的</h3><p>上面我谷歌搜到的将 el-table 中 cell 的 position 值强制设为 static 确实是有效的，因为 static 不会创建新的 Stacking Context，这样就不会有现在的问题。</p>
+<h3 id="将需要出现在最顶层的代码放置在优先级最大的位置是更常见的方案"><a href="#将需要出现在最顶层的代码放置在优先级最大的位置是更常见的方案" class="headerlink" title="将需要出现在最顶层的代码放置在优先级最大的位置是更常见的方案"></a>将需要出现在最顶层的代码放置在优先级最大的位置是更常见的方案</h3><p>但别的组件库在处理这个需求时，一般会将预览时提供的遮罩的 html 代码片段直接插入到 body 标签内部的最尾部，并设置一个相对比较大的 z-index 值，以确保这个遮罩层能够获得最高的优先级，以此能出现在屏幕的最上方。（像一些 dialog 对话框、popover 悬浮框也都是这个原理）。</p>
+<p>事实上，element-plus 组件库也提供了这个功能</p>
+<blockquote>
+<p><strong>preview-teleported:</strong> image-viewer 是否插入至 body 元素上。嵌套的父元素属性会发生修改时应该将此属性设置为 <code>true</code></p>
+</blockquote>
+<p>所以在使用 el-image 时传入一个 <code>:preview-teleported=&quot;true&quot;</code> 是一个更普适的方案，因为我们并不能确保 el-image 的父元素除了 el-table 的 cell 以外还有什么其他的父元素会创建新的 Stacking Context。</p>
+<h2 id="参见"><a href="#参见" class="headerlink" title="参见"></a>参见</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_positioned_layout/Stacking_context">层叠上下文 - CSS：层叠样式表 | MDN</a></li>
+<li><a target="_blank" rel="noopener" href="https://juejin.cn/post/6844903667175260174">彻底搞懂CSS层叠上下文、层叠等级、层叠顺序、z-index最近，在项目中遇到一个关于CSS中元素z-index属性的问 - 掘金</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.zhangxinxu.com/wordpress/2016/01/understand-css-stacking-context-order-z-index/">深入理解CSS中的层叠上下文和层叠顺序 «  张鑫旭-鑫空间-鑫生活</a></li>
+<li><a target="_blank" rel="noopener" href="https://element-plus.org/zh-CN/component/image.html">Image 图片 | Element Plus</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_61402485/article/details/131202117">element ui e-image 和e-table一起使用显示问题_el-table el-image-CSDN博客</a></li>
+</ul>
 
                 
               </div>
@@ -368,7 +400,13 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Azure/" class="print-no-link">#Azure</a>
+        <a href="/tags/JavaScript/" class="print-no-link">#JavaScript</a>
+      
+        <a href="/tags/Vue-js/" class="print-no-link">#Vue.js</a>
+      
+        <a href="/tags/CSS/" class="print-no-link">#CSS</a>
+      
+        <a href="/tags/HTML/" class="print-no-link">#HTML</a>
       
     </div>
   
@@ -380,8 +418,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Azure 教育订阅申请时遇到的麻烦</div>
-      <div>https://zhul.in/2023/05/12/troubles-when-applying-azure-education/</div>
+      <div>el-image 和 el-table 怎么就打架了？Stacking Context 是什么？</div>
+      <div>https://zhul.in/2025/05/31/el-image-and-el-table-why-the-fight-and-what-is-a-stacking-context/</div>
     </div>
     <div class="license-meta">
       
@@ -393,13 +431,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2023年5月12日</div>
+          <div>2025年5月31日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2024年11月16日</div>
+          <div>2025年5月31日</div>
         </div>
       
       
@@ -442,18 +480,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2023/06/24/redmi-ac2100-router-with-padavan/" title="为红米 Redmi AC2100 路由器刷入 Padavan">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">为红米 Redmi AC2100 路由器刷入 Padavan</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2023/05/03/checkout-lfs-file-after-repo-sync/" title="执行 repo sync 后将 git-lfs 中的资源文件 checkout">
-                        <span class="hidden-mobile">执行 repo sync 后将 git-lfs 中的资源文件 checkout</span>
+                      <a href="/2025/04/21/how-we-copy-text-to-clipboard-with-js-in-2025/" title="2025年，前端如何使用 JS 将文本复制到剪切板？">
+                        <span class="hidden-mobile">2025年，前端如何使用 JS 将文本复制到剪切板？</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
