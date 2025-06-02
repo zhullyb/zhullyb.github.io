@@ -7,6 +7,7 @@ tags:
 - PHP
 - Network
 - 笔记
+- Web
 ---
 
 在[上一篇博客](/2023/12/27/php-and-vuejs-project-deploy-on-caddy/)中，我讲到了 web 期末大作业的上云部署。整个项目是使用 Vue.js 作为前端，php 作为后端，mysql 作为数据库实现的。

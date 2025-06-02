@@ -7,6 +7,7 @@ tags:
 - JavaScript
 - CSS
 - HTML
+- Web
 ---
 
 这是精弘内部的图床开发时遇到的事情，大一的小朋友反馈说 el-image 和 el-table 打架了。这里专门提供一个 [demo](https://static.031130.xyz/demo/el-image-el-table-conflict.html) 来直观展示情况，下面是截图。
