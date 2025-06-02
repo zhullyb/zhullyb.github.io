@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zhul.in/2025/06/02/choosing-the-right-video-compression-format-for-web-in-2025/</loc>
+    
+    <lastmod>2025-06-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zhul.in/2024/01/10/cors-when-using-splited-frontend-and-backend/</loc>
     
     <lastmod>2025-06-02</lastmod>
@@ -39,15 +48,6 @@
   
   <url>
     <loc>https://zhul.in/2023/08/04/static-webpage-deployment-for-a-beginner/</loc>
-    
-    <lastmod>2025-06-02</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2025/06/02/choosing-the-right-video-compression-format-for-web-in-2025/</loc>
     
     <lastmod>2025-06-02</lastmod>
     
@@ -839,7 +839,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/11/20/what-is-deepin-elf-verify/</loc>
+    <loc>https://zhul.in/2021/10/31/waydroid-experience-on-kde/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -848,7 +848,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/10/31/waydroid-experience-on-kde/</loc>
+    <loc>https://zhul.in/2021/11/20/what-is-deepin-elf-verify/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -938,7 +938,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/04/13/where-will-appimage-put-its-file/</loc>
+    <loc>https://zhul.in/2021/05/23/why-i-use-archlinux/</loc>
     
     <lastmod>2022-08-22</lastmod>
     
@@ -947,7 +947,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/05/23/why-i-use-archlinux/</loc>
+    <loc>https://zhul.in/2021/04/13/where-will-appimage-put-its-file/</loc>
     
     <lastmod>2022-08-22</lastmod>
     
@@ -1183,13 +1183,6 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/tags/Fun/</loc>
-    <lastmod>2025-06-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://zhul.in/tags/Fedora/</loc>
     <lastmod>2025-06-02</lastmod>
     <changefreq>weekly</changefreq>
@@ -1205,6 +1198,13 @@
   
   <url>
     <loc>https://zhul.in/tags/OpenSSL/</loc>
+    <lastmod>2025-06-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/Fun/</loc>
     <lastmod>2025-06-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1358,6 +1358,20 @@
   </url>
   
   <url>
+    <loc>https://zhul.in/tags/HTML/</loc>
+    <lastmod>2025-06-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/Web/</loc>
+    <lastmod>2025-06-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://zhul.in/tags/Hardware/</loc>
     <lastmod>2025-06-02</lastmod>
     <changefreq>weekly</changefreq>
@@ -1394,13 +1408,6 @@
   
   <url>
     <loc>https://zhul.in/tags/PHP/</loc>
-    <lastmod>2025-06-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Web/</loc>
     <lastmod>2025-06-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1471,13 +1478,6 @@
   
   <url>
     <loc>https://zhul.in/tags/CSS/</loc>
-    <lastmod>2025-06-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/HTML/</loc>
     <lastmod>2025-06-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
