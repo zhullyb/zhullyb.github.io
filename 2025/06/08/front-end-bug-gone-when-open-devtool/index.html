@@ -21,25 +21,28 @@
   <meta name="author" content="竹林里有冰">
   <meta name="keywords" content="博客, 技术, Linux">
   
-    <meta name="description" content="前一阵子收到了这么一条来自 waline 的评论提醒。  New comment on 竹林里有冰的博客【网站名称】：竹林里有冰的博客【评论者昵称】：专业数据库【评论者邮箱】：&amp;#x72;&amp;#97;&amp;#107;&amp;#x68;&amp;#105;&amp;#114;&amp;#x61;&amp;#110;&amp;#x69;&amp;#x6a;&amp;#104;&amp;#x68;&amp;#x67;&amp;#64;&amp;#103;&amp;#x6d;&amp;#x61;&amp;#105;&amp;#x6c;">
+    <meta name="description" content="前端「量子态」现象的首次观测这事说来也邪乎，半个月前吃着火锅唱着歌，在工位上嘎嘎写码，发现一个诡异的 bug。作为如假包换的人类程序员，写出 bug 是再正常不过的事情了，但这 bug 邪门就邪门在我一打开 F12 的 DevTools 观察相关的 dom 结构，这 bug 就自动消失了；再把 DevTools 一关，Ctrl + F5 一刷新页面，Bug 又出现了。 下面是使用 iframe 引">
 <meta property="og:type" content="article">
-<meta property="og:title" content="使用 GPT 对 waline 的评论进行审查">
-<meta property="og:url" content="https://zhul.in/2024/10/12/use-gpt-to-review-waline-comments/index.html">
+<meta property="og:title" content="前端中的量子力学——一打开 F12 就消失的 Bug">
+<meta property="og:url" content="https://zhul.in/2025/06/08/front-end-bug-gone-when-open-devtool/index.html">
 <meta property="og:site_name" content="竹林里有冰的博客">
-<meta property="og:description" content="前一阵子收到了这么一条来自 waline 的评论提醒。  New comment on 竹林里有冰的博客【网站名称】：竹林里有冰的博客【评论者昵称】：专业数据库【评论者邮箱】：&amp;#x72;&amp;#97;&amp;#107;&amp;#x68;&amp;#105;&amp;#114;&amp;#x61;&amp;#110;&amp;#x69;&amp;#x6a;&amp;#104;&amp;#x68;&amp;#x67;&amp;#64;&amp;#103;&amp;#x6d;&amp;#x61;&amp;#105;&amp;#x6c;">
+<meta property="og:description" content="前端「量子态」现象的首次观测这事说来也邪乎，半个月前吃着火锅唱着歌，在工位上嘎嘎写码，发现一个诡异的 bug。作为如假包换的人类程序员，写出 bug 是再正常不过的事情了，但这 bug 邪门就邪门在我一打开 F12 的 DevTools 观察相关的 dom 结构，这 bug 就自动消失了；再把 DevTools 一关，Ctrl + F5 一刷新页面，Bug 又出现了。 下面是使用 iframe 引">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://static.031130.xyz/uploads/2024/11/01/d1b5a5c058a43.png">
-<meta property="article:published_time" content="2024-10-12T08:11:06.000Z">
-<meta property="article:modified_time" content="2024-11-15T18:02:30.000Z">
+<meta property="og:image" content="https://static.031130.xyz/uploads/2025/06/08/475a61b332454.webp">
+<meta property="article:published_time" content="2025-06-07T17:22:13.000Z">
+<meta property="article:modified_time" content="2025-06-07T19:14:52.000Z">
 <meta property="article:author" content="竹林里有冰">
-<meta property="article:tag" content="waline">
-<meta property="article:tag" content="GPT">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="HTML">
+<meta property="article:tag" content="Web">
+<meta property="article:tag" content="CSS">
+<meta property="article:tag" content="Debug">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://static.031130.xyz/uploads/2024/11/01/d1b5a5c058a43.png">
+<meta name="twitter:image" content="https://static.031130.xyz/uploads/2025/06/08/475a61b332454.webp">
   
   
   
-  <title>使用 GPT 对 waline 的评论进行审查 - 竹林里有冰的博客</title>
+  <title>前端中的量子力学——一打开 F12 就消失的 Bug - 竹林里有冰的博客</title>
 
   <link  rel="stylesheet" href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/4.6.0/css/bootstrap.min.css" />
 
@@ -250,7 +253,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="使用 GPT 对 waline 的评论进行审查"></span>
+            <span id="subtitle" data-typed-text="前端中的量子力学——一打开 F12 就消失的 Bug"></span>
           
         </div>
 
@@ -261,8 +264,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-10-12 16:11" pubdate>
-          2024年10月12日 下午
+        <time datetime="2025-06-08 01:22" pubdate>
+          2025年6月8日 凌晨
         </time>
       </span>
     
@@ -274,7 +277,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          990 字
+          1.2k 字
         
       </span>
     
@@ -286,7 +289,7 @@
         
         
           <!-- compatible with older versions-->
-          5 分钟
+          6 分钟
         
       </span>
     
@@ -323,13 +326,13 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">使用 GPT 对 waline 的评论进行审查</h1>
+            <h1 id="seo-header">前端中的量子力学——一打开 F12 就消失的 Bug</h1>
             
               <p id="updated-time" class="note note-info" style="">
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2024年11月16日 凌晨
+                    本文最后更新于：2025年6月8日 凌晨
                   
                 
               </p>
@@ -337,142 +340,83 @@
             
               <div class="markdown-body">
                 
-                <p>前一阵子收到了这么一条来自 waline 的评论提醒。</p>
+                <h2 id="前端「量子态」现象的首次观测"><a href="#前端「量子态」现象的首次观测" class="headerlink" title="前端「量子态」现象的首次观测"></a>前端「量子态」现象的首次观测</h2><p>这事说来也邪乎，半个月前吃着火锅唱着歌，在工位上嘎嘎写码，发现一个诡异的 bug。作为如假包换的人类程序员，写出 bug 是再正常不过的事情了，但这 bug 邪门就邪门在我一打开 F12 的 DevTools 观察相关的 dom 结构，这 bug 就自动消失了；再把 DevTools 一关，Ctrl + F5 一刷新页面，Bug 又出现了。</p>
+<p>下面是使用 iframe 引入的 <a target="_blank" rel="noopener" href="https://static.031130.xyz/demo/scroll-jump-bug.html">demo</a></p>
+<iframe src="https://static.031130.xyz/demo/scroll-jump-bug.html" width="100%" height="500" allowfullscreen></iframe>
+
+<p>这 Bug 给我整得脑瓜子嗡嗡的，我又不是物理学家，写个前端怎么量子力学的观察者效应都给我整出来了（？</p>
 <blockquote>
-<p>New comment on 竹林里有冰的博客<br>【网站名称】：竹林里有冰的博客<br>【评论者昵称】：专业数据库<br>【评论者邮箱】：<a href="mailto:&#x72;&#97;&#107;&#x68;&#105;&#114;&#x61;&#110;&#x69;&#x6a;&#104;&#x68;&#x67;&#64;&#103;&#x6d;&#x61;&#105;&#x6c;&#46;&#99;&#111;&#x6d;">&#x72;&#97;&#107;&#x68;&#105;&#114;&#x61;&#110;&#x69;&#x6a;&#104;&#x68;&#x67;&#64;&#103;&#x6d;&#x61;&#105;&#x6c;&#46;&#99;&#111;&#x6d;</a><br>【内容】：总之，优化专业数据库对于保持数据准确性、提高系统性能和推动业务成功至关重要。通过遵循本文中概述的策略，您可以提高数据库操作的效率并释放新的增长机会。<br>【地址】：<a href="https://zhul.in/2021/04/04/yay-more/#66f7a8889ab78865d5f5ae19">https://zhul.in/2021/04/04/yay-more/#66f7a8889ab78865d5f5ae19</a></p>
+<p><strong>观测者效应</strong>（Observer effect），是指“观测”这种行为对被观测对象造成一定影响的效应。</p>
+<p>在量子力学实验中，如果要测算一个电子所处的速度，就要用两个光子隔一段时间去撞击这个电子，但第一个光子就已经把这个电子撞飞了，便改变了电子的原有速度，我们便无法测出真正准确的速度（不确定原理）。时间流逝的快慢也会受到观测者的影响，用很高的频率去观测粒子的衰变，反而使得粒子长时间不衰变。</p>
+<p>——wikipedia</p>
 </blockquote>
-<p>评论的内容不仅透露着一股 AI 味，还和文章内容可谓是一点关系都没有，点开评论者的网站一看，一股塑料机翻味，怕是又是个来蹭 SEO 的广告哥。</p>
-<p><img src="https://static.031130.xyz/uploads/2024/10/07/4673580090861.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="广告哥留下的网站"></p>
-<p>根据 <a target="_blank" rel="noopener" href="https://waline.js.org/advanced/faq.html#%E5%8F%91%E5%B8%83%E8%AF%84%E8%AE%BA%E5%BE%88%E6%85%A2%E6%80%8E%E4%B9%88%E5%8A%9E">waline 的官方文档</a>所言，waline 是使用了 Akismet 提供的垃圾内容检测服务的。可惜它似乎对 AI 生成的垃圾没有分辨能力。因此我计划使用 GPT 代替 Akismet 对 waline 的新评论进行审核。</p>
-<p>walinejs/plugin 提供了一个 <a target="_blank" rel="noopener" href="https://github.com/walinejs/plugins/blob/master/packages/tencent-tms/index.js">tencent-cms</a> 的插件，功能是使用腾讯云的内容审查接口审查评论内容，这和我们需要的功能很像，主体部分和调用方法可以直接借鉴。</p>
-<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-comment">// index.js</span>
+<h2 id="量子迷雾❌浏览器机制✅"><a href="#量子迷雾❌浏览器机制✅" class="headerlink" title="量子迷雾❌浏览器机制✅"></a>量子迷雾❌浏览器机制✅</h2><p>这里先稍微解释一下 demo 中的代码片段:</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">if</span> (scrollIndex &gt;= groupLength) &#123;
+  <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;
+    wrapper.<span class="hljs-property">style</span>.<span class="hljs-property">transition</span> = <span class="hljs-string">&quot;none&quot;</span>;
+    scrollIndex = <span class="hljs-number">0</span>;
+    wrapper.<span class="hljs-property">style</span>.<span class="hljs-property">transform</span> = <span class="hljs-string">`translateY(-<span class="hljs-subst">$&#123;crollIndex * itemHeight&#125;</span>px)`</span>;
 
-<span class="hljs-keyword">const</span> tencentcloud = <span class="hljs-built_in">require</span>(<span class="hljs-string">&quot;tencentcloud-sdk-nodejs-tms&quot;</span>);
-<span class="hljs-keyword">const</span> <span class="hljs-title class_">TmsClient</span> = tencentcloud.<span class="hljs-property">tms</span>.<span class="hljs-property">v20201229</span>.<span class="hljs-property">Client</span>;
-
-
-<span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = <span class="hljs-keyword">function</span>(<span class="hljs-params">&#123;secretId, secretKey, region&#125;</span>) &#123;
-  <span class="hljs-keyword">if</span> (!secretId || !secretKey || !region) &#123;
-    <span class="hljs-keyword">return</span> &#123;&#125;;
-  &#125;
-
-  <span class="hljs-keyword">const</span> clientConfig = &#123;
-    <span class="hljs-attr">credential</span>: &#123;
-      secretId,
-      secretKey,
-    &#125;,
-    region,
-    <span class="hljs-attr">profile</span>: &#123;
-      <span class="hljs-attr">httpProfile</span>: &#123;
-        <span class="hljs-attr">endpoint</span>: <span class="hljs-string">&quot;tms.tencentcloudapi.com&quot;</span>,
-      &#125;,
-    &#125;,
-  &#125;;
-  
-  <span class="hljs-keyword">return</span> &#123;
-    <span class="hljs-attr">hooks</span>: &#123;
-      <span class="hljs-keyword">async</span> <span class="hljs-title function_">preSave</span>(<span class="hljs-params">data</span>) &#123;
-        <span class="hljs-keyword">const</span> &#123; userInfo &#125; = <span class="hljs-variable language_">this</span>.<span class="hljs-property">ctx</span>.<span class="hljs-property">state</span>;
-        <span class="hljs-keyword">const</span> isAdmin = userInfo.<span class="hljs-property">type</span> === <span class="hljs-string">&#x27;administrator&#x27;</span>;
-        <span class="hljs-comment">// ignore admin comment</span>
-        <span class="hljs-keyword">if</span> (isAdmin) &#123;
-          <span class="hljs-keyword">return</span>;
-        &#125;
-
-        <span class="hljs-keyword">const</span> client = <span class="hljs-keyword">new</span> <span class="hljs-title class_">TmsClient</span>(clientConfig);
-        <span class="hljs-keyword">try</span> &#123;
-          <span class="hljs-keyword">const</span> resp = <span class="hljs-keyword">await</span> client.<span class="hljs-title class_">TextModeration</span>(&#123; <span class="hljs-title class_">Content</span>: data.<span class="hljs-property">comment</span> &#125;);
-          <span class="hljs-keyword">if</span> (!resp.<span class="hljs-property">Suggestion</span>) &#123;
-            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">Error</span>(<span class="hljs-string">&#x27;Suggestion is empty. Tencent Cloud TMS info:&#x27;</span>, resp);
-          &#125;
-
-          <span class="hljs-keyword">switch</span>(resp.<span class="hljs-property">Suggestion</span>) &#123;
-            <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;Pass&#x27;</span>:
-              data.<span class="hljs-property">status</span> = <span class="hljs-string">&#x27;approved&#x27;</span>;
-              <span class="hljs-keyword">break</span>;
-            <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;Block&#x27;</span>:
-              data.<span class="hljs-property">status</span> = <span class="hljs-string">&#x27;spam&#x27;</span>;
-              <span class="hljs-keyword">break</span>;
-              <span class="hljs-keyword">case</span> <span class="hljs-string">&#x27;Review&#x27;</span>:
-              <span class="hljs-attr">default</span>:
-                data.<span class="hljs-property">status</span> = <span class="hljs-string">&#x27;waiting&#x27;</span>;
-                <span class="hljs-keyword">break</span>;
-          &#125;
-        &#125; <span class="hljs-keyword">catch</span>(e) &#123;
-          <span class="hljs-variable language_">console</span>.<span class="hljs-title function_">log</span>(e);
-          data.<span class="hljs-property">status</span> = <span class="hljs-string">&#x27;waiting&#x27;</span>;
-        &#125;
-      &#125;,
-    &#125;,
-  &#125;;
+    <span class="hljs-title function_">requestAnimationFrame</span>(<span class="hljs-function">() =&gt;</span> &#123;
+      wrapper.<span class="hljs-property">style</span>.<span class="hljs-property">transition</span> = <span class="hljs-string">&quot;transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1)&quot;</span>;
+    &#125;);
+  &#125;, <span class="hljs-number">500</span>);
 &#125;</code></pre></div>
 
-<p>可以看到，我们需要在这个被 module.exports 导出的函数中，return 一个对象，如果使用 hooks 编写的话可以调用<a target="_blank" rel="noopener" href="https://waline.js.org/reference/server/config.html#%E8%AF%84%E8%AE%BA-hooks">一些生命周期 hook</a>: 在 preSave 阶段，我们可以通过标注 data.status 参数来反馈评论类型。approved 为接受，spam 为垃圾邮件，waiting 为等待人工审核；除此之外，还可以<a target="_blank" rel="noopener" href="https://waline.js.org/reference/server/plugin.html#%E5%9F%BA%E4%BA%8E%E4%B8%AD%E9%97%B4%E4%BB%B6%E5%88%B6%E4%BD%9C">基于 Koa 中间件制作插件</a>，文档中有具体的描述。</p>
-<p>index.js 顶部是需要引入的依赖。当然，如果需要引入外部的第三方包的话，需要在 packages.json 中加入需要的依赖（使用包管理器的命令进行安装）。</p>
-<p>有了这些基础知识，就能手搓一个基于 GPT 的评论审查插件。</p>
-<p>OpenAI 提供的是标准的 Restful API，本身的鉴权逻辑也不复杂，其实没必要调用 SDK，直接使用 fetch 调用就行。</p>
-<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> <span class="hljs-title function_">doReview</span> = <span class="hljs-keyword">async</span> (<span class="hljs-params">comment</span>) =&gt; &#123;
-  <span class="hljs-keyword">const</span> response = <span class="hljs-keyword">await</span> <span class="hljs-title function_">fetch</span>(openaiBaseUrl + <span class="hljs-string">&#x27;/v1/chat/completions&#x27;</span>, &#123;
-    <span class="hljs-attr">method</span>: <span class="hljs-string">&#x27;POST&#x27;</span>,
-    <span class="hljs-attr">headers</span>: &#123;
-      <span class="hljs-string">&#x27;Content-Type&#x27;</span>: <span class="hljs-string">&#x27;application/json&#x27;</span>,
-      <span class="hljs-string">&#x27;Authorization&#x27;</span>: <span class="hljs-string">`Bearer <span class="hljs-subst">$&#123;openaiApiKey&#125;</span>`</span>,
-    &#125;,
-    <span class="hljs-attr">body</span>: <span class="hljs-title class_">JSON</span>.<span class="hljs-title function_">stringify</span>(&#123;
-      <span class="hljs-attr">model</span>: openaiModel,
-      <span class="hljs-attr">messages</span>: [
-        &#123;
-          <span class="hljs-attr">role</span>: <span class="hljs-string">&#x27;system&#x27;</span>,
-          <span class="hljs-attr">content</span>: prompt
-        &#125;,
-        &#123;
-          <span class="hljs-attr">role</span>: <span class="hljs-string">&#x27;user&#x27;</span>,
-          <span class="hljs-attr">content</span>: comment,
-        &#125;,
-      ],
-    &#125;),
-  &#125;);
-  <span class="hljs-keyword">const</span> data = <span class="hljs-keyword">await</span> response.<span class="hljs-title function_">json</span>();
-  <span class="hljs-keyword">if</span> (data &amp;&amp; data.<span class="hljs-property">choices</span> &amp;&amp; data.<span class="hljs-property">choices</span>.<span class="hljs-property">length</span> &gt; <span class="hljs-number">0</span>) &#123;
-    <span class="hljs-keyword">return</span> data.<span class="hljs-property">choices</span>[<span class="hljs-number">0</span>].<span class="hljs-property">message</span>.<span class="hljs-property">content</span>;
-  &#125; <span class="hljs-keyword">else</span> &#123;
-    <span class="hljs-keyword">return</span> <span class="hljs-string">&#x27;waiting&#x27;</span>;
-  &#125;
+<p>我这边拿到的需求是需要写一个无限滚动的轮播标题列表，每次展示三个，2 秒后标题列表整体上移，原本的第一个标题就移出可视范围了，下面会新补充一个新的标题列表。（可能解释的不清楚，但各位应该都看过上面的 demo 了）</p>
+<p>当列表滚动到最底部的时候，我先取消 transition 过渡动画效果，趁机将整体列表平移到上一次可视范围内出现相同的三个标题的位置，再把 transition 过渡动画的效果加回来，这样就能在视觉上造成无限滚动的效果。</p>
+<p>但问题就出在明明把 transition 属性取消了，但这一次平移仍然触发了过渡动画效果。</p>
+<p>说实话，这是我短暂的码农生涯当中最绝望的一次，一方面是遇到的 bug 过于逆天以至于说出去都可能没人信，一方面是遇上这种问题是完全不能指望搜索引擎能给出什么解决方案的——毕竟我自己都不知道该怎么组织关键词进行搜索。</p>
+<p><img src="https://static.031130.xyz/uploads/2025/06/08/475a61b332454.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="这是小麦茶，带我入坑前端的学长"></p>
+<p>于是抱着试一试的心态，把相关代码喂给 ChatGPT-4o 看看能不能问出个所以然来。</p>
+<blockquote>
+<p>你描述的现象——“<strong>滚动第九次时列表出现突兀的自下而上跳动</strong>，而<strong>打开 F12 时不会出现问题</strong>”——<strong>几乎可以确定是由于浏览器在某些渲染状态下跳过了某些帧（帧率波动）或者定时器精度的问题导致动画突变</strong>。</p>
+<p>这种问题多半发生在“使用 <code>setInterval</code> 控制动画”和“切换样式（transition）时机不当”所引起的 <strong>过渡跳帧问题</strong>，而打开 DevTools 会 <strong>强制刷新帧或提高定时器精度</strong>，从而<strong>掩盖了这个问题</strong>。</p>
+</blockquote>
+<h2 id="太好了，是-requestAnimationFrame，我们有救了"><a href="#太好了，是-requestAnimationFrame，我们有救了" class="headerlink" title="太好了，是 requestAnimationFrame，我们有救了"></a>太好了，是 requestAnimationFrame，我们有救了</h2><blockquote>
+<p><strong><code>window.requestAnimationFrame()</code></strong> 方法会告诉浏览器你希望执行一个动画。它要求浏览器在下一次重绘之前，调用用户提供的回调函数。</p>
+<p>——MDN</p>
+</blockquote>
+<p>这是 GPT 给出的方案，非常有效</p>
+<div class="code-wrapper"><pre><code class="hljs diff">if (scrollIndex &gt;= groupLength) &#123;
+  setTimeout(() =&gt; &#123;
+    wrapper.style.transition = &quot;none&quot;;
+    scrollIndex = 0;
+    wrapper.style.transform = `translateY(-$&#123;crollIndex * itemHeight&#125;px)`;
+
+    requestAnimationFrame(() =&gt; &#123;
+<span class="hljs-addition">+      requestAnimationFrame(() =&gt; &#123;</span>
+         wrapper.style.transition = &quot;transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1)&quot;;
+<span class="hljs-addition">+      &#125;);</span>
+    &#125;);
+  &#125;, 500);
 &#125;</code></pre></div>
 
-<p>再配合相应的封装，一款基于 GPT 的 waline 评论审核插件就完成了</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://github.com/zhullyb/waline-plugin-llm-reviewer">zhullyb/waline-plugin-llm-reviewer</a></li>
+<p>如果觉得嵌套两层 requestAnimationFrame 比较难理解，那下面的代码是等效的</p>
+<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-keyword">if</span> (scrollIndex &gt;= groupLength) &#123;
+  <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;
+    scrollIndex = <span class="hljs-number">0</span>;
+
+    <span class="hljs-title function_">requestAnimationFrame</span>(<span class="hljs-function">() =&gt;</span> &#123;
+      <span class="hljs-comment">// 第一帧</span>
+      wrapper.<span class="hljs-property">style</span>.<span class="hljs-property">transition</span> = <span class="hljs-string">&quot;none&quot;</span>;
+      wrapper.<span class="hljs-property">style</span>.<span class="hljs-property">transform</span> = <span class="hljs-string">`translateY(-<span class="hljs-subst">$&#123;crollIndex * itemHeight&#125;</span>px)`</span>;
+      <span class="hljs-comment">// 第二帧</span>
+      <span class="hljs-title function_">requestAnimationFrame</span>(<span class="hljs-function">() =&gt;</span> &#123;
+        wrapper.<span class="hljs-property">style</span>.<span class="hljs-property">transition</span> = <span class="hljs-string">&quot;transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1)&quot;</span>;
+      &#125;);
+    &#125;);
+  &#125;, <span class="hljs-number">500</span>);
+&#125;</code></pre></div>
+
+<p>总之，我们需要杜绝浏览器将设置 transform 偏移值（瞬移列表位置）与恢复 transition 动画两件事合并到同一帧里去，而两层嵌套的 requestAnimationFrame 方法能很好的解决这个问题</p>
+<iframe src="https://static.031130.xyz/demo/scroll-jump-bug-fixed.html" width="100%" height="500" allowfullscreen></iframe>
+
+<h2 id="参见"><a href="#参见" class="headerlink" title="参见"></a>参见</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E8%A7%82%E6%B5%8B%E8%80%85%E6%95%88%E5%BA%94">观测者效应 - 维基百科，自由的百科全书</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/requestAnimationFrame">Window：requestAnimationFrame() 方法 - Web API | MDN</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.ruanyifeng.com/blog/2015/09/web-page-performance-in-depth.html">网页性能管理详解 - 阮一峰的网络日志</a></li>
 </ul>
-<p><strong>如何安装</strong></p>
-<div class="code-wrapper"><pre><code class="hljs bash">npm install waline-plugin-llm-reviewer</code></pre></div>
-
-<p><strong>如何使用</strong></p>
-<div class="code-wrapper"><pre><code class="hljs javascript"><span class="hljs-comment">// index.js</span>
-<span class="hljs-keyword">const</span> <span class="hljs-title class_">Waline</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;@waline/vercel&#x27;</span>);
-<span class="hljs-keyword">const</span> <span class="hljs-title class_">GPTReviewer</span> = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;waline-plugin-llm-reviewer&#x27;</span>);
-
-<span class="hljs-variable language_">module</span>.<span class="hljs-property">exports</span> = <span class="hljs-title class_">Waline</span>(&#123;
-  <span class="hljs-attr">plugins</span>: [
-    <span class="hljs-title class_">GptReviewer</span>(&#123;
-        <span class="hljs-attr">openaiBaseUrl</span>: process.<span class="hljs-property">env</span>.<span class="hljs-property">OPENAI_BASE_URL</span>,
-        <span class="hljs-attr">openaiModel</span>: process.<span class="hljs-property">env</span>.<span class="hljs-property">OPENAI_MODEL</span>,
-        <span class="hljs-attr">openaiApiKey</span>: process.<span class="hljs-property">env</span>.<span class="hljs-property">OPENAI_API_KEY</span>,
-        <span class="hljs-attr">openaiPrompt</span>: process.<span class="hljs-property">env</span>.<span class="hljs-property">OPENAI_PROMPT</span>,
-    &#125;)
-  ]
-&#125;);</code></pre></div>
-
-<p><strong>环境变量</strong></p>
-<ul>
-<li><code>ASISMET_KEY</code>: Waline 使用的反垃圾评论服务，<strong>建议设置为 <code>false</code> 以禁用</strong>。</li>
-<li><code>OPENAI_BASE_URL</code>: API 基础 URL。例如 <code>https://api.openai.com</code></li>
-<li><code>OPENAI_MODEL</code>: 模型名称。例如 <code>gpt-4o-mini</code></li>
-<li><code>OPENAI_API_KEY</code>: API 密钥。例如 <code>ak-xxxxxx</code></li>
-<li><code>OPENAI_PROMPT</code>(可选): 模型的提示。例如 <code>这是一个评论审查: </code></li>
-</ul>
-<p>在 waline 中设置好对应的环境变量，使用 npm 安装好对应的包，就算大功告成了。</p>
-<p><img src="https://static.031130.xyz/uploads/2024/10/12/45f06a78286de.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
 
                 
               </div>
@@ -485,9 +429,15 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/waline/" class="print-no-link">#waline</a>
+        <a href="/tags/JavaScript/" class="print-no-link">#JavaScript</a>
       
-        <a href="/tags/GPT/" class="print-no-link">#GPT</a>
+        <a href="/tags/HTML/" class="print-no-link">#HTML</a>
+      
+        <a href="/tags/Web/" class="print-no-link">#Web</a>
+      
+        <a href="/tags/CSS/" class="print-no-link">#CSS</a>
+      
+        <a href="/tags/Debug/" class="print-no-link">#Debug</a>
       
     </div>
   
@@ -499,8 +449,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>使用 GPT 对 waline 的评论进行审查</div>
-      <div>https://zhul.in/2024/10/12/use-gpt-to-review-waline-comments/</div>
+      <div>前端中的量子力学——一打开 F12 就消失的 Bug</div>
+      <div>https://zhul.in/2025/06/08/front-end-bug-gone-when-open-devtool/</div>
     </div>
     <div class="license-meta">
       
@@ -512,13 +462,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年10月12日</div>
+          <div>2025年6月8日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2024年11月16日</div>
+          <div>2025年6月8日</div>
         </div>
       
       
@@ -561,18 +511,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/10/23/follow-cert-for-hexo-feed/" title="为 Hexo 添加 follow 认证">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">为 Hexo 添加 follow 认证</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/09/25/random-banner-backgroud-image-implement-for-hexo-fluid-with-javascript/" title="基于 JavaScript 的 Hexo Fluid 主题 banner 随机背景图实现">
-                        <span class="hidden-mobile">基于 JavaScript 的 Hexo Fluid 主题 banner 随机背景图实现</span>
+                      <a href="/2025/06/02/choosing-the-right-video-compression-format-for-web-in-2025/" title="2025 年，如何为 web 页面上展示的视频选择合适的压缩算法？">
+                        <span class="hidden-mobile">2025 年，如何为 web 页面上展示的视频选择合适的压缩算法？</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

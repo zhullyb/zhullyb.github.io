@@ -21,12 +21,12 @@
   <meta name="author" content="竹林里有冰">
   <meta name="keywords" content="博客, 技术, Linux">
   
-    <meta name="description" content="这是精弘内部的图床开发时遇到的事情，大一的小朋友反馈说 el-image 和 el-table 打架了。这里专门提供一个 demo 来直观展示情况，下面是截图。  看到后面的表格透出 el-image 的预览层，我的第一反应是叫小朋友去检查 z-index 是否正确，el-image 的 mask 遮罩的 z-index 是否大于表格。  经过我本地调试，发现 z-index 的设置确实没问题，但">
+    <meta name="description" content="这是精弘内部的图床开发时遇到的事情，大一的小朋友反馈说 el-image 和 el-table 打架了。  demo 的 iframe 引入   看到后面的表格透出 el-image 的预览层，我的第一反应是叫小朋友去检查 z-index 是否正确，el-image 的 mask 遮罩的 z-index 是否大于表格。  经过我本地调试，发现 z-index 的设置确实没问题，但后面的元素为什么会">
 <meta property="og:type" content="article">
 <meta property="og:title" content="el-image 和 el-table 怎么就打架了？Stacking Context 是什么？">
 <meta property="og:url" content="https://zhul.in/2025/05/31/el-image-and-el-table-why-the-fight-and-what-is-a-stacking-context/index.html">
 <meta property="og:site_name" content="竹林里有冰的博客">
-<meta property="og:description" content="这是精弘内部的图床开发时遇到的事情，大一的小朋友反馈说 el-image 和 el-table 打架了。这里专门提供一个 demo 来直观展示情况，下面是截图。  看到后面的表格透出 el-image 的预览层，我的第一反应是叫小朋友去检查 z-index 是否正确，el-image 的 mask 遮罩的 z-index 是否大于表格。  经过我本地调试，发现 z-index 的设置确实没问题，但">
+<meta property="og:description" content="这是精弘内部的图床开发时遇到的事情，大一的小朋友反馈说 el-image 和 el-table 打架了。  demo 的 iframe 引入   看到后面的表格透出 el-image 的预览层，我的第一反应是叫小朋友去检查 z-index 是否正确，el-image 的 mask 遮罩的 z-index 是否大于表格。  经过我本地调试，发现 z-index 的设置确实没问题，但后面的元素为什么会">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://static.031130.xyz/uploads/2025/05/31/c6674f6f13955.webp">
 <meta property="og:image" content="https://static.031130.xyz/uploads/2025/05/31/1c20b4ea0b37e.webp">
@@ -34,7 +34,7 @@
 <meta property="og:image" content="https://static.031130.xyz/uploads/2025/05/31/9df43b865b3c6.webp">
 <meta property="og:image" content="https://static.031130.xyz/uploads/2025/05/31/f18a2b54afd63.webp">
 <meta property="article:published_time" content="2025-05-30T16:29:40.000Z">
-<meta property="article:modified_time" content="2025-06-02T16:34:34.000Z">
+<meta property="article:modified_time" content="2025-06-07T19:14:52.000Z">
 <meta property="article:author" content="竹林里有冰">
 <meta property="article:tag" content="JavaScript">
 <meta property="article:tag" content="HTML">
@@ -336,7 +336,7 @@
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2025年6月3日 凌晨
+                    本文最后更新于：2025年6月8日 凌晨
                   
                 
               </p>
@@ -344,8 +344,11 @@
             
               <div class="markdown-body">
                 
-                <p>这是精弘内部的图床开发时遇到的事情，大一的小朋友反馈说 el-image 和 el-table 打架了。这里专门提供一个 <a target="_blank" rel="noopener" href="https://static.031130.xyz/demo/el-image-el-table-conflict.html">demo</a> 来直观展示情况，下面是截图。</p>
-<p><img src="https://static.031130.xyz/uploads/2025/05/31/c6674f6f13955.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
+                <p>这是精弘内部的图床开发时遇到的事情，大一的小朋友反馈说 el-image 和 el-table 打架了。</p>
+<p><img src="https://static.031130.xyz/uploads/2025/05/31/c6674f6f13955.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="截图"></p>
+<p><a target="_blank" rel="noopener" href="https://static.031130.xyz/demo/el-image-el-table-conflict.html">demo</a> 的 iframe 引入</p>
+<iframe src="https://static.031130.xyz/demo/el-image-el-table-conflict.html" width="100%" height="500" allowfullscreen></iframe>
+
 <p>看到后面的表格透出 el-image 的预览层，我的第一反应是叫小朋友去检查 z-index 是否正确，el-image 的 mask 遮罩的 z-index 是否大于表格。</p>
 <p><img src="https://static.031130.xyz/uploads/2025/05/31/1c20b4ea0b37e.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
 <p>经过我本地调试，发现 z-index 的设置确实没问题，但后面的元素为什么会透出来？谷歌搜索一番，找到了这篇文章</p>
@@ -440,7 +443,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2025年6月3日</div>
+          <div>2025年6月8日</div>
         </div>
       
       
