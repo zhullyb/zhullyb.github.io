@@ -2,6 +2,7 @@
 title: 前端中的量子力学——一打开 F12 就消失的 Bug
 date: 2025-06-08 01:22:13
 sticky:
+index_img: https://static.031130.xyz/uploads/2025/06/08/2798756067653.webp
 tags:
 - Web
 - HTML
