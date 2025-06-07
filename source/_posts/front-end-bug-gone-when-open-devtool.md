@@ -18,6 +18,8 @@ tags:
 
 <iframe src="https://static.031130.xyz/demo/scroll-jump-bug.html" width="100%" height="500" allowfullscreen></iframe>
 
+![“观测”指南](https://static.031130.xyz/uploads/2025/06/08/65620d31fce6f.webp)
+
 这 Bug 给我整得脑瓜子嗡嗡的，我又不是物理学家，写个前端怎么量子力学的观察者效应都给我整出来了（？
 
 > **观测者效应**（Observer effect），是指“观测”这种行为对被观测对象造成一定影响的效应。
