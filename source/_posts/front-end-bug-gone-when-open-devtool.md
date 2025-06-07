@@ -110,6 +110,16 @@ if (scrollIndex >= groupLength) {
 
 <iframe src="https://static.031130.xyz/demo/scroll-jump-bug-fixed.html" width="100%" height="500" allowfullscreen></iframe>
 
+## 驯服量子态：前端开发者的新技能
+
+就这样，通过使用两层`requestAnimationFrame`，我们成功驯服了这个"量子态"的bug。现在无论是否打开F12，它都会乖乖地按照我们的预期滚动，不再玩消失的把戏。
+
+看来，在前端的世界里，我们不仅要懂JavaScript，~~还得懂点量子力学~~。下次再遇到这种"一观测就消失"的bug，不妨试试这个"量子纠缠解决方案"——双重`requestAnimationFrame`，没准就能让bug从"量子态"坍缩成"稳定态"呢！
+
+当然，如果你有更神奇的bug经历，欢迎在评论区分享——毕竟，在前端的宇宙里，我们永远不知道下一个bug会以怎样的形态出现。也许，这就是编程的乐趣（？）所在吧！
+
+> 本文由 ChatGPT 与 DeepSeek 协助撰写，但 bug 是真人真事（泪）。
+
 ## 参见
 
 - [观测者效应 - 维基百科，自由的百科全书](https://zh.wikipedia.org/wiki/%E8%A7%82%E6%B5%8B%E8%80%85%E6%95%88%E5%BA%94)
