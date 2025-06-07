@@ -10,9 +10,13 @@ tags:
 - Web
 ---
 
-这是精弘内部的图床开发时遇到的事情，大一的小朋友反馈说 el-image 和 el-table 打架了。这里专门提供一个 [demo](https://static.031130.xyz/demo/el-image-el-table-conflict.html) 来直观展示情况，下面是截图。
+这是精弘内部的图床开发时遇到的事情，大一的小朋友反馈说 el-image 和 el-table 打架了。
 
-![](https://static.031130.xyz/uploads/2025/05/31/c6674f6f13955.webp)
+![截图](https://static.031130.xyz/uploads/2025/05/31/c6674f6f13955.webp)
+
+[demo](https://static.031130.xyz/demo/el-image-el-table-conflict.html) 的 iframe 引入
+
+<iframe src="https://static.031130.xyz/demo/el-image-el-table-conflict.html" width="100%" height="500" allowfullscreen></iframe>
 
 看到后面的表格透出 el-image 的预览层，我的第一反应是叫小朋友去检查 z-index 是否正确，el-image 的 mask 遮罩的 z-index 是否大于表格。
 
