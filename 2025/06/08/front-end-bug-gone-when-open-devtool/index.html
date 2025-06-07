@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://static.031130.xyz/uploads/2025/06/08/65620d31fce6f.webp">
 <meta property="og:image" content="https://static.031130.xyz/uploads/2025/06/08/475a61b332454.webp">
 <meta property="article:published_time" content="2025-06-07T17:22:13.000Z">
-<meta property="article:modified_time" content="2025-06-07T19:22:29.000Z">
+<meta property="article:modified_time" content="2025-06-07T19:32:22.000Z">
 <meta property="article:author" content="竹林里有冰">
 <meta property="article:tag" content="JavaScript">
 <meta property="article:tag" content="HTML">
@@ -278,7 +278,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          1.2k 字
+          1.4k 字
         
       </span>
     
@@ -290,7 +290,7 @@
         
         
           <!-- compatible with older versions-->
-          6 分钟
+          8 分钟
         
       </span>
     
@@ -414,6 +414,12 @@
 <p>总之，我们需要杜绝浏览器将设置 transform 偏移值（瞬移列表位置）与恢复 transition 动画两件事合并到同一帧里去，而两层嵌套的 requestAnimationFrame 方法能很好的解决这个问题</p>
 <iframe src="https://static.031130.xyz/demo/scroll-jump-bug-fixed.html" width="100%" height="500" allowfullscreen></iframe>
 
+<h2 id="驯服量子态：前端开发者的新技能"><a href="#驯服量子态：前端开发者的新技能" class="headerlink" title="驯服量子态：前端开发者的新技能"></a>驯服量子态：前端开发者的新技能</h2><p>就这样，通过使用两层<code>requestAnimationFrame</code>，我们成功驯服了这个”量子态”的bug。现在无论是否打开F12，它都会乖乖地按照我们的预期滚动，不再玩消失的把戏。</p>
+<p>看来，在前端的世界里，我们不仅要懂JavaScript，<del>还得懂点量子力学</del>。下次再遇到这种”一观测就消失”的bug，不妨试试这个”量子纠缠解决方案”——双重<code>requestAnimationFrame</code>，没准就能让bug从”量子态”坍缩成”稳定态”呢！</p>
+<p>当然，如果你有更神奇的bug经历，欢迎在评论区分享——毕竟，在前端的宇宙里，我们永远不知道下一个bug会以怎样的形态出现。也许，这就是编程的乐趣（？）所在吧！</p>
+<blockquote>
+<p>本文由 ChatGPT 与 DeepSeek 协助撰写，但 bug 是真人真事（泪）。</p>
+</blockquote>
 <h2 id="参见"><a href="#参见" class="headerlink" title="参见"></a>参见</h2><ul>
 <li><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E8%A7%82%E6%B5%8B%E8%80%85%E6%95%88%E5%BA%94">观测者效应 - 维基百科，自由的百科全书</a></li>
 <li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/requestAnimationFrame">Window：requestAnimationFrame() 方法 - Web API | MDN</a></li>

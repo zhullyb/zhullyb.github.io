@@ -299,7 +299,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/02/08/extra-usage-for-crontab/</loc>
+    <loc>https://zhul.in/2024/07/22/enable-ac-power-loss-for-jumper-n100/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -308,7 +308,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/07/22/enable-ac-power-loss-for-jumper-n100/</loc>
+    <loc>https://zhul.in/2024/02/08/extra-usage-for-crontab/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -371,7 +371,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2023/09/03/jinja2-nl-to-br/</loc>
+    <loc>https://zhul.in/2023/11/02/integrating-sunflower-smart-socket-with-mi-home-via-bemfa-cloud/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -380,7 +380,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2023/11/02/integrating-sunflower-smart-socket-with-mi-home-via-bemfa-cloud/</loc>
+    <loc>https://zhul.in/2023/09/03/jinja2-nl-to-br/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -416,7 +416,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/11/01/my-config-for-fedora-kde-41/</loc>
+    <loc>https://zhul.in/2022/11/04/my-blog-plan/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -425,7 +425,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2022/11/04/my-blog-plan/</loc>
+    <loc>https://zhul.in/2024/11/01/my-config-for-fedora-kde-41/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -461,7 +461,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2023/12/12/php-simple-rest-api/</loc>
+    <loc>https://zhul.in/2024/08/20/picbed-upload-script-and-image-migration/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -470,7 +470,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/08/20/picbed-upload-script-and-image-migration/</loc>
+    <loc>https://zhul.in/2023/12/12/php-simple-rest-api/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -587,7 +587,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2022/09/29/use-l2tp-protocol-to-connect-internet/</loc>
+    <loc>https://zhul.in/2024/10/12/use-gpt-to-review-waline-comments/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -596,7 +596,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/10/12/use-gpt-to-review-waline-comments/</loc>
+    <loc>https://zhul.in/2022/09/29/use-l2tp-protocol-to-connect-internet/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -677,7 +677,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/04/23/disable-firefox-nightmode-when-your-system-is-using-that/</loc>
+    <loc>https://zhul.in/2022/01/12/dnf-module-in-setting-up-the-jekyll/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -686,7 +686,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2022/01/12/dnf-module-in-setting-up-the-jekyll/</loc>
+    <loc>https://zhul.in/2021/04/23/disable-firefox-nightmode-when-your-system-is-using-that/</loc>
     
     <lastmod>2024-10-21</lastmod>
     
@@ -1136,6 +1136,20 @@
 
   
   <url>
+    <loc>https://zhul.in/tags/Android/</loc>
+    <lastmod>2025-06-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/Rom%E7%BC%96%E8%AF%91/</loc>
+    <lastmod>2025-06-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://zhul.in/tags/Linux/</loc>
     <lastmod>2025-06-07</lastmod>
     <changefreq>weekly</changefreq>
@@ -1151,20 +1165,6 @@
   
   <url>
     <loc>https://zhul.in/tags/deepin/</loc>
-    <lastmod>2025-06-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Android/</loc>
-    <lastmod>2025-06-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Rom%E7%BC%96%E8%AF%91/</loc>
     <lastmod>2025-06-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1192,13 +1192,6 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/tags/Fun/</loc>
-    <lastmod>2025-06-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://zhul.in/tags/Fedora/</loc>
     <lastmod>2025-06-07</lastmod>
     <changefreq>weekly</changefreq>
@@ -1214,6 +1207,13 @@
   
   <url>
     <loc>https://zhul.in/tags/OpenSSL/</loc>
+    <lastmod>2025-06-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/Fun/</loc>
     <lastmod>2025-06-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1437,6 +1437,13 @@
   </url>
   
   <url>
+    <loc>https://zhul.in/tags/Blog/</loc>
+    <lastmod>2025-06-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://zhul.in/tags/OpenSource-Project/</loc>
     <lastmod>2025-06-07</lastmod>
     <changefreq>weekly</changefreq>
@@ -1452,13 +1459,6 @@
   
   <url>
     <loc>https://zhul.in/tags/ImmortalWRT/</loc>
-    <lastmod>2025-06-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Blog/</loc>
     <lastmod>2025-06-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1556,13 +1556,6 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/tags/jinja2/</loc>
-    <lastmod>2025-06-07</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://zhul.in/tags/IoT/</loc>
     <lastmod>2025-06-07</lastmod>
     <changefreq>weekly</changefreq>
@@ -1571,6 +1564,13 @@
   
   <url>
     <loc>https://zhul.in/tags/MiAI/</loc>
+    <lastmod>2025-06-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/jinja2/</loc>
     <lastmod>2025-06-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
