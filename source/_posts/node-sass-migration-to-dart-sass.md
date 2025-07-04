@@ -217,7 +217,7 @@ import path from 'path'
 - [sass - npm](https://www.npmjs.com/package/sass?activeTab=versions)
 - [node-sass - npm](https://www.npmjs.com/package/node-sass)
 - [About semantic versioning | npm Docs](https://docs.npmjs.com/about-semantic-versioning)
-- [Make /deep/ behave like the descendant combinator " " in CSS live profile (in css file or inside of <style>) - Chrome Platform Status](https://chromestatus.com/feature/4964279606312960)
+- [Make /deep/ behave like the descendant combinator " " in CSS live profile (in css file or inside of \<style>) - Chrome Platform Status](https://chromestatus.com/feature/4964279606312960)
 - [sass-loader/CHANGELOG.md at v8.0.0 · webpack-contrib/sass-loader](https://github.com/webpack-contrib/sass-loader/blob/v8.0.0/CHANGELOG.md)
 - [Release v16.1.2 · vuejs/vue-loader](https://github.com/vuejs/vue-loader/releases/tag/v16.1.2)
 - [refactor: use @vue/component-compiler-utils · vuejs/vue-loader@e32cd0e](https://github.com/vuejs/vue-loader/commit/e32cd0e4372fcc6f13b6c307402713807516d71c#diff-7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519)
