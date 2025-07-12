@@ -39,7 +39,7 @@ tags:
 
 ### 什么是 AST？
 
-**AST (Abstract Syntax Tree)**，即抽象语法树，是源代码或标记语言的结构化表示。它将一长串的文本，解析成一个层级分明的树状对象。对于 Markdown 来说，一个一级标题会变成一个 `type: 'heading', depth: 1` 的节点，一个段落会变成一个 `type: 'paragraph'` 的节点，而段落里的文字，则是 `paragraph` 节点的 `children`。
+**AST (Abstract Syntax Tree)** ，即抽象语法树，是源代码或标记语言的结构化表示。它将一长串的文本，解析成一个层级分明的树状对象。对于 Markdown 来说，一个一级标题会变成一个 `type: 'heading', depth: 1` 的节点，一个段落会变成一个 `type: 'paragraph'` 的节点，而段落里的文字，则是 `paragraph` 节点的 `children`。
 
 一旦我们将 Markdown 转换成 AST，就相当于拥有了整个文档的“结构图纸”。我们不再是面对一堆模糊的 HTML 字符串，而是面对一个清晰、可编程的 JavaScript 对象。
 
