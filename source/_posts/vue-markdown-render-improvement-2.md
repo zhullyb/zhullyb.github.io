@@ -214,7 +214,7 @@ const markdownContent = ref('# Hello Vue\n\nThis is rendered via AST!')
    - **元素替换**：可将原生元素（如 `<h2>`）无缝替换为自定义 Vue 组件（如 `<FancyHeading>`），仅在 `renderAst` 函数中调整对应 `case` 逻辑即可。
    - **逻辑注入**：可便捷地为外部链接 `<a>` 添加 `target="_blank"` 与 `rel="noopener noreferrer"` 属性，或为图片 `<img>` 包裹懒加载组件，此类操作在 AST 层面易于实现。
    - **生态集成**：充分利用 `unified` 丰富的插件生态（如 `remark-gfm` 支持 GFM 语法，`remark-prism` 实现代码高亮），仅需在处理器链中引入相应插件（`.use(pluginName)`）。
-3. **关注点分离**：解析逻辑（`remark`）、渲染逻辑（`renderNode`）和业务逻辑（Vue 组件）被清晰地分离开来，代码结构更清晰，维护性更强。
+3. **关注点分离**：解析逻辑（`remark`）、渲染逻辑（`renderAst`）和业务逻辑（Vue 组件）被清晰地分离开来，代码结构更清晰，维护性更强。
 4. **类型安全与可预测性**：相较于操作字符串或原始 HTML，基于结构化 AST 的渲染逻辑更易于进行类型校验与逻辑推理。
 
 ## 结论：从功能实现到架构优化的演进
