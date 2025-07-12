@@ -21,29 +21,28 @@
   <meta name="author" content="竹林里有冰">
   <meta name="keywords" content="博客, 技术, Linux">
   
-    <meta name="description" content="缘起前不久在京东自营看到我馋了很久的 Cudy TR3000 有 ￥153 的折扣价，虽然比起 ￥130 的史低价（甚至 ￥110 的凑单史低价）还有些距离，但已经到我的可接受范围内了，于是果断下单剁手了这台我心心念念的 Cudy TR3000 迷你路由器，以此来缓解我的开学前综合症（一种精神性疾病）  这台路由器使用 Type-C 供电，拥有一个 2.5Gbps 的 WAN 口和一个 1Gbps">
+    <meta name="description" content="需求背景在最近接手的 AI 需求中，需要实现一个类似 ChatGPT 的对话交互界面。其核心流程是：后端通过 SSE（Server-Sent  Events）协议，持续地将 AI 生成的 Markdown 格式文本片段推送到前端。前端负责动态接收并拼接这些 Markdown  片段，最终将拼接完成的 Markdown 文本实时渲染并显示在用户界面上。 Markdown 渲染并不是什么罕见的需求，尤">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Cudy TR3000 吃鹅(daed)记">
-<meta property="og:url" content="https://zhul.in/2025/02/28/cudy-tr3000-daed-install-record/index.html">
+<meta property="og:title" content="Vue Markdown 渲染优化实战（上）：从暴力刷新、分块更新到 Morphdom 的华丽变身">
+<meta property="og:url" content="https://zhul.in/2025/07/12/vue-markdown-render-improvement-1/index.html">
 <meta property="og:site_name" content="竹林里有冰的博客">
-<meta property="og:description" content="缘起前不久在京东自营看到我馋了很久的 Cudy TR3000 有 ￥153 的折扣价，虽然比起 ￥130 的史低价（甚至 ￥110 的凑单史低价）还有些距离，但已经到我的可接受范围内了，于是果断下单剁手了这台我心心念念的 Cudy TR3000 迷你路由器，以此来缓解我的开学前综合症（一种精神性疾病）  这台路由器使用 Type-C 供电，拥有一个 2.5Gbps 的 WAN 口和一个 1Gbps">
+<meta property="og:description" content="需求背景在最近接手的 AI 需求中，需要实现一个类似 ChatGPT 的对话交互界面。其核心流程是：后端通过 SSE（Server-Sent  Events）协议，持续地将 AI 生成的 Markdown 格式文本片段推送到前端。前端负责动态接收并拼接这些 Markdown  片段，最终将拼接完成的 Markdown 文本实时渲染并显示在用户界面上。 Markdown 渲染并不是什么罕见的需求，尤">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://static.031130.xyz/uploads/2025/02/28/cbf464c37ea4f.webp">
-<meta property="article:published_time" content="2025-02-28T13:18:34.000Z">
-<meta property="article:modified_time" content="2025-03-28T17:44:06.000Z">
+<meta property="og:image" content="https://static.031130.xyz/uploads/2025/07/12/d5721c40fb076.webp">
+<meta property="article:published_time" content="2025-07-12T12:48:56.000Z">
+<meta property="article:modified_time" content="2025-07-12T15:10:23.000Z">
 <meta property="article:author" content="竹林里有冰">
-<meta property="article:tag" content="Network">
-<meta property="article:tag" content="Hardware">
-<meta property="article:tag" content="Router">
-<meta property="article:tag" content="OpenSource Project">
-<meta property="article:tag" content="OpenWRT">
-<meta property="article:tag" content="ImmortalWRT">
+<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="HTML">
+<meta property="article:tag" content="Web">
+<meta property="article:tag" content="Vue.js">
+<meta property="article:tag" content="Markdown">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://static.031130.xyz/uploads/2025/02/28/cbf464c37ea4f.webp">
+<meta name="twitter:image" content="https://static.031130.xyz/uploads/2025/07/12/d5721c40fb076.webp">
   
   
   
-  <title>Cudy TR3000 吃鹅(daed)记 - 竹林里有冰的博客</title>
+  <title>Vue Markdown 渲染优化实战（上）：从暴力刷新、分块更新到 Morphdom 的华丽变身 - 竹林里有冰的博客</title>
 
   <link  rel="stylesheet" href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/4.6.0/css/bootstrap.min.css" />
 
@@ -254,7 +253,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Cudy TR3000 吃鹅(daed)记"></span>
+            <span id="subtitle" data-typed-text="Vue Markdown 渲染优化实战（上）：从暴力刷新、分块更新到 Morphdom 的华丽变身"></span>
           
         </div>
 
@@ -265,8 +264,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-02-28 21:18" pubdate>
-          2025年2月28日 晚上
+        <time datetime="2025-07-12 20:48" pubdate>
+          2025年7月12日 晚上
         </time>
       </span>
     
@@ -278,7 +277,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          1.2k 字
+          1.7k 字
         
       </span>
     
@@ -290,7 +289,7 @@
         
         
           <!-- compatible with older versions-->
-          7 分钟
+          9 分钟
         
       </span>
     
@@ -327,13 +326,13 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Cudy TR3000 吃鹅(daed)记</h1>
+            <h1 id="seo-header">Vue Markdown 渲染优化实战（上）：从暴力刷新、分块更新到 Morphdom 的华丽变身</h1>
             
               <p id="updated-time" class="note note-info" style="">
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2025年3月29日 凌晨
+                    本文最后更新于：2025年7月12日 晚上
                   
                 
               </p>
@@ -341,64 +340,141 @@
             
               <div class="markdown-body">
                 
-                <h2 id="缘起"><a href="#缘起" class="headerlink" title="缘起"></a>缘起</h2><p>前不久在京东自营看到我馋了很久的 Cudy TR3000 有 ￥153 的折扣价，虽然比起 ￥130 的史低价（甚至 ￥110 的凑单史低价）还有些距离，但已经到我的可接受范围内了，于是果断下单剁手了这台我心心念念的 Cudy TR3000 迷你路由器，以此来缓解我的<span class="heimu">开学前综合症</span>（一种精神性疾病）</p>
-<p><img src="https://static.031130.xyz/uploads/2025/02/23/8b0a4d5812179.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
-<p>这台路由器使用 Type-C 供电，拥有一个 2.5Gbps 的 WAN 口和一个 1Gbps 的 LAN 口，在此基础上还有一个 USB 口可用于打印机共享、挂载外接存储、安卓手机 USB 共享网络等多种用途。更让我心动的地方在于其小巧的体型，非常适合出差、旅行、短期租房等场景。考虑到接下来一段实习可能会有租房需求，于是便趁此机会果断下单了。</p>
-<p><img src="https://static.031130.xyz/uploads/2025/02/23/ef2b394e6fc0d.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="与一台小米8的宽高对比"></p>
-<p>官方系统是基于 openwrt 定制的，功能比较单一，因此考虑刷入 openwrt 原版系统增加可玩性。在恩山无限论坛上发现已经有人编译了<a target="_blank" rel="noopener" href="https://www.right.com.cn/forum/forum.php?mod=viewthread&tid=8418091">基于 Linux 6.6 版本的 OpenWRT 系统</a>，这已经满足了 dae 的 Bind to LAN 功能的内核版本要求（ &gt;= 5.17 ），且 512MB 的内存大小刚好达到了推荐的最小内存大小，于是这 dae 肯定是要试着吃一吃的。如果成功了，这就是我手上第一台吃上大鹅的硬路由。</p>
-<hr>
-<h2 id="开始刷机"><a href="#开始刷机" class="headerlink" title="开始刷机"></a>开始刷机</h2><p>路由器官方系统的后台管理地址是 192.168.10.1，初次进入会要求你设置密码，然后就是一路随便点，完成初始化，随后就进入到主页。我手上这台的 FW 版本号是 <code>2.3.2-20241226</code>，不清楚后续的版本能不能仍然使用这套方案。</p>
-<p><img src="https://static.031130.xyz/uploads/2025/02/28/1c066cb1dab3f.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
-<h3 id="过渡固件"><a href="#过渡固件" class="headerlink" title="过渡固件"></a>过渡固件</h3><p>首先我们需要先刷入所谓的「过渡固件」。刷入过渡固件的意义在于，这个过渡固件能被官方系统的升级程序所承认，这样就允许我们进行后续的操作。</p>
-<p>过渡固件的文件名和 md5 值如下: </p>
-<div class="code-wrapper"><pre><code class="hljs mipsasm"><span class="hljs-keyword">b8333d8eebd067fcb43bec855ac22364 </span> cudy_tr3000-<span class="hljs-built_in">v1</span>-sysupgrade.<span class="hljs-keyword">bin</span></code></pre></div>
+                <h2 id="需求背景"><a href="#需求背景" class="headerlink" title="需求背景"></a>需求背景</h2><p>在最近接手的 AI 需求中，需要实现一个类似 ChatGPT 的对话交互界面。其核心流程是：后端通过 SSE（Server-Sent  Events）协议，持续地将 AI 生成的 Markdown 格式文本片段推送到前端。前端负责动态接收并拼接这些 Markdown  片段，最终将拼接完成的 Markdown 文本实时渲染并显示在用户界面上。</p>
+<p>Markdown 渲染并不是什么罕见的需求，尤其是在 LLM 相关落地产品满天飞的当下。不同于 React 生态拥有一个 14k+ star 的著名第三方库——<a target="_blank" rel="noopener" href="https://github.com/remarkjs/react-markdown">react-markdown</a>，Vue 这边似乎暂时还没有一个仍在活跃维护的、star 数量不低（起码得 2k+ 吧？）的 markdown 渲染库。<a target="_blank" rel="noopener" href="https://github.com/cloudacy/vue-markdown-render#readme">cloudacy/vue-markdown-render</a> 最后一次发版在一年前，但截止本文写作时间只有 103 个 star；<a target="_blank" rel="noopener" href="https://github.com/miaolz123/vue-markdown">miaolz123/vue-markdown</a> 有 2k star，但最后一次 commit 已经是 7 年前了；<a target="_blank" rel="noopener" href="https://github.com/zhaoxuhui1122/vue-markdown">zhaoxuhui1122/vue-markdown</a> 更是 archived 状态。</p>
+<h2 id="第一版方案：简单粗暴的-v-html"><a href="#第一版方案：简单粗暴的-v-html" class="headerlink" title="第一版方案：简单粗暴的 v-html"></a>第一版方案：简单粗暴的 v-html</h2><p>简单调研了一圈，发现 Vue 生态里确实缺少一个能打的 Markdown 渲染库。既然没有现成的轮子，那咱就自己造一个！</p>
+<p>根据大部分文章以及 LLM 的推荐，我们首先采用 markdown-it 这个第三方库将 markdown 转换为 html 字符串，再通过 v-html 传入。</p>
+<p><strong>PS:</strong> 我们这里假设 Markdown 内容是可信的（比如由我们自己的 AI 生成）。如果内容来自用户输入，一定要使用 <code>DOMPurify</code> 这类库来防止 XSS 攻击，避免给网站“开天窗哦！</p>
+<p>示例代码如下：</p>
+<div class="code-wrapper"><pre><code class="hljs vue">&lt;template&gt;
+  &lt;div v-html=&quot;renderedHtml&quot;&gt;&lt;/div&gt;
+&lt;/template&gt;
 
-<p>随后我们可以在路由器的管理页面的基本设置中找到固件升级的地方，在本地更新一栏中选择过渡固件上传更新即可。</p>
-<p><img src="https://static.031130.xyz/uploads/2025/02/28/3582e569954a6.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
-<h3 id="刷入解锁-FIP-分区写入权限的固件"><a href="#刷入解锁-FIP-分区写入权限的固件" class="headerlink" title="刷入解锁 FIP 分区写入权限的固件"></a>刷入解锁 FIP 分区写入权限的固件</h3><p>刷入过渡固件后稍等大约一分钟，路由器的 DHCP 重新工作，我们就可以通过 192.168.1.1 进入过渡固件的管理页面。</p>
-<p><img src="https://static.031130.xyz/uploads/2025/02/28/6fe8107a87e87.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
-<p>初次登陆时没有密码，随便输就能登陆成功。考虑到后续可能会有恢复出厂的需求，建议在这一步对 FIP 分区进行备份。</p>
-<p><img src="https://static.031130.xyz/uploads/2025/02/28/79caf5f643689.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
-<p>这次我们需要刷入下面这个 LEDE 固件来解锁 FIP 分区的写入权限，文件名和 md5 仍然放在下面</p>
-<div class="code-wrapper"><pre><code class="hljs armasm"><span class="hljs-number">4</span>af5129368cbf0d556061f682b1614f2  openwrt-mediatek-filogic-cudy_tr3000-<span class="hljs-built_in">v1</span>-squashfs-sysupgrade.bin</code></pre></div>
+&lt;script setup&gt;
+import &#123; computed, onMounted, ref &#125; from &#x27;vue&#x27;;
+import MarkdownIt from &#x27;markdown-it&#x27;;
 
-<p>在下方选择刷入固件，上传我们本次需要刷入的固件，刷入。</p>
-<p><img src="https://static.031130.xyz/uploads/2025/02/28/79d300bb33d21.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
-<p><img src="https://static.031130.xyz/uploads/2025/02/28/bc29dc9cad24a.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
-<h3 id="刷入-uboot"><a href="#刷入-uboot" class="headerlink" title="刷入 uboot"></a>刷入 uboot</h3><p>再等待一分钟左右，电脑重新连接上路由器后，我们可以进入到这个解锁了 FIP 分区写入权限的固件，默认密码是 <code>password</code></p>
-<p><img src="https://static.031130.xyz/uploads/2025/02/28/f98051faba608.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
-<p>在侧栏选择文件传输，将本次要刷入的 uboot 上传，文件名和 md5 还是放在下面。<strong>注意 zip 包要解压</strong></p>
-<div class="code-wrapper"><pre><code class="hljs capnproto">e5ff31bac07108b6ac6cd63189b4d113  dhcp-mt7981_cudy_tr3000-fip-<span class="hljs-keyword">fixed</span>-parts-multi-layout.bin</code></pre></div>
+const markdownContent = ref(&#x27;&#x27;);
+const md = new MarkdownIt();
 
-<p><img src="https://static.031130.xyz/uploads/2025/02/28/547c5d324f0a0.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
-<p>随后侧栏进入 TTYD 终端，输入默认的用户名密码 root / password，执行命令刷入 uboot</p>
-<div class="code-wrapper"><pre><code class="hljs bash">mtd write /tmp/upload/dhcp-mt7981_cudy_tr3000-fip-fixed-parts-multi-layout.bin FIP</code></pre></div>
+const renderedHtml = computed(() =&gt; md.render(markdownContent.value))
 
-<p><img src="https://static.031130.xyz/uploads/2025/02/28/46b4fc5be8c82.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
-<h3 id="刷入自编译的-immortalwrt"><a href="#刷入自编译的-immortalwrt" class="headerlink" title="刷入自编译的 immortalwrt"></a>刷入自编译的 immortalwrt</h3><p>刷入 uboot 以后，给路由器断电，确保网线分别连接电脑和路由器 LAN 口后，按住 reset 键再插入电源键，直至白灯闪烁四次后转为红灯后松开 reset 键，即可进入 uboot。</p>
-<p>我编译的是 112m 的布局，因此需要选择 <code>mod-112m</code> 这个 mtd 布局后上传固件刷入。</p>
-<div class="code-wrapper"><pre><code class="hljs llvm"><span class="hljs-number">8</span><span class="hljs-keyword">c</span><span class="hljs-number">9</span>a<span class="hljs-number">44</span>f<span class="hljs-number">29</span><span class="hljs-keyword">c</span><span class="hljs-number">8</span><span class="hljs-keyword">c</span><span class="hljs-number">5</span>a<span class="hljs-number">0617e61</span>d<span class="hljs-number">49</span>bf<span class="hljs-number">8</span>ad<span class="hljs-number">45</span>d  <span class="hljs-number">112</span>m-immortalwrt-cudy_tr<span class="hljs-number">3000</span>-ebpf_by_zhullyb_<span class="hljs-number">20250325</span>-squashfs-sysupgrade.bin</code></pre></div>
+onMounted(() =&gt; &#123;
+  // markdownContent.value = await fetch() ...
+&#125;)
+&lt;/script&gt;</code></pre></div>
 
-<p><img src="https://static.031130.xyz/uploads/2025/02/28/41c250db91756.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
-<p>再次等待电脑重新连接路由器，这是最终吃上 daed 的系统了，依然是没有默认密码，随便输入即可进入。在连接上网络后，在系统 - 软件包页面，更新软件包列表。</p>
-<p><img src="https://static.031130.xyz/uploads/2025/02/28/e56084ff09a5d.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
-<p>随后就可以安装 dae / daed 相关软件了，可视需求选择 <code>luci-i18n-dae-zh-cn</code> 或者 <code>luci-i18n-daed-zh-cn</code>，其他包会作为依赖一同被安装。我这里安装的是 daed。</p>
-<p><img src="https://static.031130.xyz/uploads/2025/02/28/dc4fa4a688cf5.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
-<p>安装后刷新界面，我们就可以在顶栏的服务板块看到 daed。</p>
-<p><img src="https://static.031130.xyz/uploads/2025/02/28/551f1f2eb9ab4.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
-<p>daed 正常运行，能正常跑满我家的 300Mbps 宽带下行（单线程实测 250Mbps），速度峰值时 CPU 占用图如下。</p>
-<p><img src="https://static.031130.xyz/uploads/2025/02/28/651bed7ad4aba.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
-<p><img src="https://static.031130.xyz/uploads/2025/03/01/9fcee79afa63b.png" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="多线程测速"></p>
-<p><img src="https://static.031130.xyz/uploads/2025/03/01/6716d723a2b0d.png" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="单线程测速"></p>
-<h2 id="文章中提到的文件"><a href="#文章中提到的文件" class="headerlink" title="文章中提到的文件"></a>文章中提到的文件</h2><p><a target="_blank" rel="noopener" href="https://www.123684.com/s/gfprVv-wEQ8d">https://www.123684.com/s/gfprVv-wEQ8d</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.123912.com/s/gfprVv-wEQ8d">https://www.123912.com/s/gfprVv-wEQ8d</a></p>
-<h2 id="参见"><a href="#参见" class="headerlink" title="参见"></a>参见</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://www.right.com.cn/forum/forum.php?mod=viewthread&tid=8410353">Cudy TR3000 刷机教程指北</a></li>
-<li><a target="_blank" rel="noopener" href="https://abxy.fun/post/immortalwrt-dae/">使用 ImmortalWrt+Dae 为 Windows 配置透明代理</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.right.com.cn/forum/forum.php?mod=viewthread&tid=8415351">cudy tr3000 v1中文三分区DHCP uboot第二版</a></li>
-<li><a target="_blank" rel="noopener" href="https://blog.imouto.in/#/posts/10">使用 hanwckf/bl-mt798x 引导主线 OpenWrt 固件</a></li>
-<li><a href="QiuSimons/luci-app-daed">QiuSimons/luci-app-daed</a></li>
+<h2 id="进化版：给-Markdown-分块更新"><a href="#进化版：给-Markdown-分块更新" class="headerlink" title="进化版：给 Markdown 分块更新"></a>进化版：给 Markdown 分块更新</h2><p>上述方案虽然能实现基础渲染，但在实时更新场景下存在明显缺陷：<strong>每次接收到新的 Markdown 片段，整个文档都会触发全量重渲染</strong>。即使只有最后一行是新增内容，整个文档的 DOM 也会被完全替换。这导致两个核心问题：</p>
+<ol>
+<li><strong>性能顶不住：</strong>Markdown 内容增长时，<code>markdown-it</code> 解析和 DOM 重建的开销呈线性上升。</li>
+<li><strong>交互状态丢失：</strong>全量刷新会把用户当前的操作状态冲掉。最明显的就是，如果你选中了某段文字，一刷新，选中状态就没了！</li>
+</ol>
+<p>为了解决这两个问题，<a target="_blank" rel="noopener" href="https://juejin.cn/post/7480900772386734143">我们在网上找到了分块渲染的方案</a> —— 把 Markdown 按两个连续的换行符 (<code>\n\n</code>) 切成一块一块的。这样每次更新，只重新渲染最后一块新的，前面的老块直接复用缓存。好处很明显：</p>
+<ul>
+<li>用户如果选中了前面块里的文字，下次更新时选中状态不会丢（因为前面的块没动）。</li>
+<li>需要重新渲染的 DOM 变少了，性能自然就上来了。</li>
 </ul>
+<p>代码调整后像这样：</p>
+<div class="code-wrapper"><pre><code class="hljs vue">&lt;template&gt;
+  &lt;div&gt;
+    &lt;div
+      v-for=&quot;(block, idx) in renderedBlocks&quot;
+      :key=&quot;idx&quot;
+      v-html=&quot;block&quot;
+      class=&quot;markdown-block&quot;
+    &gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script setup&gt;
+import &#123; ref, computed, watch &#125; from &#x27;vue&#x27;
+import MarkdownIt from &#x27;markdown-it&#x27;
+
+const markdownContent = ref(&#x27;&#x27;)
+const md = new MarkdownIt()
+
+const renderedBlocks = ref([])
+const blockCache = ref([])
+
+watch(
+  markdownContent,
+  (newContent, oldContent) =&gt; &#123;
+    const blocks = newContent.split(/\n&#123;2,&#125;/)
+    // 只重新渲染最后一个块，其余用缓存
+    // 处理块减少、块增多的场景
+    blockCache.value.length = blocks.length
+    for (let i = 0; i &lt; blocks.length; i++) &#123;
+      // 只渲染最后一个，或新块
+      if (i === blocks.length - 1 || !blockCache.value[i]) &#123;
+        blockCache.value[i] = md.render(blocks[i] || &#x27;&#x27;)
+      &#125;
+      // 其余块直接复用
+    &#125;
+    renderedBlocks.value = blockCache.value.slice()
+  &#125;,
+  &#123; immediate: true &#125;
+)
+
+onMounted(() =&gt; &#123;
+  // markdownContent.value = await fetch() ...
+&#125;)
+&lt;/script&gt;</code></pre></div>
+
+<h2 id="终极武器：用-morphdom-实现精准更新"><a href="#终极武器：用-morphdom-实现精准更新" class="headerlink" title="终极武器：用 morphdom 实现精准更新"></a>终极武器：用 morphdom 实现精准更新</h2><p>分块渲染虽然解决了大部分问题，但遇到 Markdown 列表就有点力不从心了。因为 Markdown 语法里，列表项之间通常只有一个换行符，整个列表会被当成一个大块。想象一下一个几百项的列表，哪怕只更新最后一项，整个列表块也要全部重来，前面的问题又回来了。</p>
+<h3 id="morphdom-是何方神圣？"><a href="#morphdom-是何方神圣？" class="headerlink" title="morphdom 是何方神圣？"></a>morphdom 是何方神圣？</h3><p><code>morphdom</code> 是一个仅 5KB（gzip 后）的 JavaScript 库，核心功能是：<strong>接收两个 DOM 节点（或 HTML 字符串），计算出最小化的 DOM 操作，将第一个节点 “变形” 为第二个节点，而非直接替换</strong>。</p>
+<p>其工作原理类似虚拟 DOM 的 Diff 算法，但<strong>直接操作真实 DOM</strong>：</p>
+<ol>
+<li>对比新旧 DOM 的标签名、属性、文本内容等；</li>
+<li>仅对差异部分执行增 / 删 / 改操作（如修改文本、更新属性、移动节点位置）；</li>
+<li>未变化的 DOM 节点会被完整保留，包括其事件监听、滚动位置、选中状态等。</li>
+</ol>
+<p>Markdown 把列表当整体，但生成的 HTML 里，每个列表项 (<code>&lt;li&gt;</code>) 都是独立的！<code>morphdom</code> 在更新后面的列表项时，能保证前面的列表项纹丝不动，状态自然就保住了。</p>
+<p>这不就是我们梦寐以求的效果吗？在 Markdown 实时更新的同时，最大程度留住用户的操作状态，还能省掉一堆不必要的 DOM 操作！</p>
+<h3 id="示例代码"><a href="#示例代码" class="headerlink" title="示例代码"></a>示例代码</h3><div class="code-wrapper"><pre><code class="hljs vue">&lt;template&gt;
+  &lt;div ref=&quot;markdownContainer&quot; class=&quot;markdown-container&quot;&gt;
+    &lt;div id=&quot;md-root&quot;&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script setup&gt;
+import &#123; nextTick, ref, watch &#125; from &#x27;vue&#x27;;
+import MarkdownIt from &#x27;markdown-it&#x27;;
+import morphdom from &#x27;morphdom&#x27;;
+
+const markdownContent = ref(&#x27;&#x27;);
+const markdownContainer = ref(null);
+const md = new MarkdownIt();
+    
+const render = () =&gt; &#123;
+  if (!markdownContainer.value.querySelector(&#x27;#md-root&#x27;)) return;
+  
+  const newHtml = `&lt;div id=&quot;md-root&quot;&gt;` + md.render(markdownContent.value) + `&lt;/div&gt;`
+
+  morphdom(markdownContainer.value, newHtml, &#123;
+    childrenOnly: true
+  &#125;);
+&#125;
+
+watch(markdownContent, () =&gt; &#123;
+    render()
+&#125;);
+    
+onMounted(async () =&gt; &#123;
+  // 等待 Dom 被挂载上
+  await nextTick()
+  render()
+&#125;)
+&lt;/script&gt;
+</code></pre></div>
+
+<h3 id="眼见为实：Demo-对比"><a href="#眼见为实：Demo-对比" class="headerlink" title="眼见为实：Demo 对比"></a>眼见为实：Demo 对比</h3><p>下面这个 iframe 里放了个对比 Demo，展示了不同方案的效果差异。</p>
+<p><strong>小技巧：</strong> 如果你用的是 Chrome、Edge 这类 Chromium 内核的浏览器，打开开发者工具 (DevTools)，找到“渲染”(Rendering) 标签页，勾选 **“突出显示重绘区域”(Paint flashing)**。这样你就能直观看到每次更新时，哪些部分被重新绘制了——重绘区域越少，性能越好！</p>
+<p><img src="https://static.031130.xyz/uploads/2025/07/12/d5721c40fb076.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
+<iframe src="https://static.031130.xyz/demo/morphdom-vs-markdown-chunk.html" width="100%" height="500" allowfullscreen></iframe>
+
+<h2 id="阶段性成果"><a href="#阶段性成果" class="headerlink" title="阶段性成果"></a>阶段性成果</h2><p>从最开始的“暴力全量刷新”，到“聪明点的分块更新”，再到如今“精准手术刀般的 <code>morphdom</code> 更新”，我们一步步把那些不必要的渲染开销给砍掉了，最终搞出了一个既快又能留住用户状态的 Markdown 实时渲染方案。</p>
+<p>不过，用 <code>morphdom</code> 这个第三方库来直接操作 Vue 组件里的 DOM，总觉得有点…不够“Vue”？它虽然解决了核心的性能和状态问题，但在 Vue 的世界里这么玩，多少有点旁门左道的意思。</p>
+<p><strong>下篇预告：</strong> 在下一篇文章里，咱们就来聊聊，在 Vue 的世界里，有没有更优雅、更“原生”的方案来搞定 Markdown 的精准更新？敬请期待！</p>
 
                 
               </div>
@@ -411,17 +487,15 @@
     <div class="post-meta">
       <i class="iconfont icon-tags"></i>
       
-        <a href="/tags/Network/" class="print-no-link">#Network</a>
+        <a href="/tags/JavaScript/" class="print-no-link">#JavaScript</a>
       
-        <a href="/tags/Hardware/" class="print-no-link">#Hardware</a>
+        <a href="/tags/HTML/" class="print-no-link">#HTML</a>
       
-        <a href="/tags/Router/" class="print-no-link">#Router</a>
+        <a href="/tags/Web/" class="print-no-link">#Web</a>
       
-        <a href="/tags/OpenSource-Project/" class="print-no-link">#OpenSource Project</a>
+        <a href="/tags/Vue-js/" class="print-no-link">#Vue.js</a>
       
-        <a href="/tags/OpenWRT/" class="print-no-link">#OpenWRT</a>
-      
-        <a href="/tags/ImmortalWRT/" class="print-no-link">#ImmortalWRT</a>
+        <a href="/tags/Markdown/" class="print-no-link">#Markdown</a>
       
     </div>
   
@@ -433,8 +507,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Cudy TR3000 吃鹅(daed)记</div>
-      <div>https://zhul.in/2025/02/28/cudy-tr3000-daed-install-record/</div>
+      <div>Vue Markdown 渲染优化实战（上）：从暴力刷新、分块更新到 Morphdom 的华丽变身</div>
+      <div>https://zhul.in/2025/07/12/vue-markdown-render-improvement-1/</div>
     </div>
     <div class="license-meta">
       
@@ -446,13 +520,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年2月28日</div>
+          <div>2025年7月12日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2025年3月29日</div>
+          <div>2025年7月12日</div>
         </div>
       
       
@@ -495,18 +569,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2025/03/30/apt-upgrade-on-internal-server-via-ssh-tunnel-and-reverse-proxy/" title="ssh 拯救世界——通过 ssh 隧道在内网服务器执行 APT 更新">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">ssh 拯救世界——通过 ssh 隧道在内网服务器执行 APT 更新</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/02/23/monitor-copr-build-state-with-cloudflare-workers/" title="使用 Cloudflare Workers 监控 Fedora Copr 构建状态">
-                        <span class="hidden-mobile">使用 Cloudflare Workers 监控 Fedora Copr 构建状态</span>
+                      <a href="/2025/07/05/node-sass-migration-to-dart-sass/" title="node-sass 迁移至 dart-sass 踩坑实录">
+                        <span class="hidden-mobile">node-sass 迁移至 dart-sass 踩坑实录</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
