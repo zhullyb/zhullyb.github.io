@@ -29,7 +29,7 @@
 <meta property="og:description" content="上回回顾：当 morphdom 遇上 Vue在上一篇文章中，我们经历了一场 Markdown 渲染的性能优化之旅。从最原始的 v-html 全量刷新，到按块更新，最终我们请出了 morphdom 这个“终极武器”。它通过直接比对和操作真实 DOM，以最小的代价更新视图，完美解决了实时渲染中的性能瓶颈和交互状态丢失问题。 然而，一个根本性问题始终存在：在 Vue 的地盘里，绕过 Vue 的虚拟 DO">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-07-12T16:01:35.000Z">
-<meta property="article:modified_time" content="2025-07-12T17:00:44.000Z">
+<meta property="article:modified_time" content="2025-07-12T17:06:57.000Z">
 <meta property="article:author" content="竹林里有冰">
 <meta property="article:tag" content="JavaScript">
 <meta property="article:tag" content="Web">
@@ -499,7 +499,7 @@ const markdownContent = ref(&#x27;# Hello Vue\n\nThis is rendered via AST!&#x27;
 <li><strong>生态集成</strong>：充分利用 <code>unified</code> 丰富的插件生态（如 <code>remark-gfm</code> 支持 GFM 语法，<code>remark-prism</code> 实现代码高亮），仅需在处理器链中引入相应插件（<code>.use(pluginName)</code>）。</li>
 </ul>
 </li>
-<li><strong>关注点分离</strong>：解析逻辑（<code>remark</code>）、渲染逻辑（<code>renderNode</code>）和业务逻辑（Vue 组件）被清晰地分离开来，代码结构更清晰，维护性更强。</li>
+<li><strong>关注点分离</strong>：解析逻辑（<code>remark</code>）、渲染逻辑（<code>renderAst</code>）和业务逻辑（Vue 组件）被清晰地分离开来，代码结构更清晰，维护性更强。</li>
 <li><strong>类型安全与可预测性</strong>：相较于操作字符串或原始 HTML，基于结构化 AST 的渲染逻辑更易于进行类型校验与逻辑推理。</li>
 </ol>
 <h2 id="结论：从功能实现到架构优化的演进"><a href="#结论：从功能实现到架构优化的演进" class="headerlink" title="结论：从功能实现到架构优化的演进"></a>结论：从功能实现到架构优化的演进</h2><p>回顾优化历程：</p>
