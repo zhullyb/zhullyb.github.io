@@ -29,7 +29,7 @@
 <meta property="og:description" content="上回回顾：当 morphdom 遇上 Vue在上一篇文章中，我们经历了一场 Markdown 渲染的性能优化之旅。从最原始的 v-html 全量刷新，到按块更新，最终我们请出了 morphdom 这个“终极武器”。它通过直接比对和操作真实 DOM，以最小的代价更新视图，完美解决了实时渲染中的性能瓶颈和交互状态丢失问题。 然而，一个根本性问题始终存在：在 Vue 的地盘里，绕过 Vue 的虚拟 DO">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-07-12T16:01:35.000Z">
-<meta property="article:modified_time" content="2025-07-12T17:08:30.000Z">
+<meta property="article:modified_time" content="2025-07-12T17:12:08.000Z">
 <meta property="article:author" content="竹林里有冰">
 <meta property="article:tag" content="JavaScript">
 <meta property="article:tag" content="Web">
@@ -504,9 +504,9 @@ const markdownContent = ref(&#x27;# Hello Vue\n\nThis is rendered via AST!&#x27;
 </ol>
 <h2 id="结论：从功能实现到架构优化的演进"><a href="#结论：从功能实现到架构优化的演进" class="headerlink" title="结论：从功能实现到架构优化的演进"></a>结论：从功能实现到架构优化的演进</h2><p>回顾优化历程：</p>
 <ul>
-<li>**<code>v-html</code>**：实现简单，但存在性能与安全性隐患。</li>
+<li><strong>v-html</strong>：实现简单，但存在性能与安全性隐患。</li>
 <li><strong>分块更新</strong>：缓解了部分性能问题，但方案存在局限性。</li>
-<li>**<code>morphdom</code>**：有效提升了性能与用户体验，但与 Vue 核心机制存在隔阂。</li>
+<li><strong>morphdom</strong>：有效提升了性能与用户体验，但与 Vue 核心机制存在隔阂。</li>
 <li><strong>AST + 函数式渲染</strong>：回归 Vue 原生范式，提供了性能、灵活性、可维护性俱佳的终极解决方案。</li>
 </ul>
 <p>通过采用 AST，我们不仅解决了具体的技术挑战，更重要的是实现了思维范式的转变——从面向结果（HTML 字符串）的编程，转向面向过程与结构（AST）的编程。这使我们能够深入内容本质，从而实现对渲染流程的精确控制。</p>
