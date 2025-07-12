@@ -154,9 +154,9 @@ function renderAst(node) {
 }
 ```
 
-## 第三步：创建函数式 Vue 组件
+## 第三步：封装 Vue 组件
 
-整合上述逻辑，我们构建一个 Vue 组件。鉴于直接生成 VNode 的特性，采用函数式组件或显式 `render` 函数最为适宜。
+整合上述逻辑，我们可以构建一个 Vue 组件。鉴于直接生成 VNode 的特性，采用函数式组件或显式 `render` 函数最为适宜。
 
 ```vue
 <template>
