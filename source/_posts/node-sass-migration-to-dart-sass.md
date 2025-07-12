@@ -58,7 +58,7 @@ webpack 的版本目前处于非必要不更新的定时炸弹状态，基于现
 
 ### dart-sass
 
-sass-loader@^7 所支持的最高 sass-loader 我并没有查到，Github Copilot 信誓旦旦地告诉我
+sass-loader@^7 所支持的最高 sass 我并没有查到，Github Copilot 信誓旦旦地告诉我
 
 > **官方文档引用：**
 >
