@@ -170,7 +170,7 @@ onMounted(async () => {
 
 下面这个 iframe 里放了个对比 Demo，展示了不同方案的效果差异。
 
-**小技巧：** 如果你用的是 Chrome、Edge 这类 Chromium 内核的浏览器，打开开发者工具 (DevTools)，找到“渲染”(Rendering) 标签页，勾选 **“突出显示重绘区域”(Paint flashing)**。这样你就能直观看到每次更新时，哪些部分被重新绘制了——重绘区域越少，性能越好！
+**小技巧：** 如果你用的是 Chrome、Edge 这类 Chromium 内核的浏览器，打开开发者工具 (DevTools)，找到“渲染”(Rendering) 标签页，勾选「突出显示重绘区域(Paint flashing)」。这样你就能直观看到每次更新时，哪些部分被重新绘制了——重绘区域越少，性能越好！
 
 ![](https://static.031130.xyz/uploads/2025/07/12/d5721c40fb076.webp)
 
