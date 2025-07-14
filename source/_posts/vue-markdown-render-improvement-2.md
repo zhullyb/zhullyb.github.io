@@ -48,7 +48,7 @@ tags:
 为了实现 `Markdown -> AST` 的转换，我们引入 `unified` 生态。
 
 - **[unified](https://github.com/unifiedjs/unified)**: 一个强大的内容处理引擎。你可以把它想象成一条流水线，原始文本是原料，通过添加不同的“插件”来对它进行解析、转换和序列化。
-- **[remark-parse](https://github.com/remarkjs/remark)**: 一个 `unified` 插件，专门负责将 Markdown 文本解析成 AST（具体来说是 `mdast` 格式）。
+- **[remark-parse](https://github.com/remarkjs/remark)**: 一个 `unified` 插件，专门负责将 Markdown 文本解析成 AST（具体来说是 [mdast](https://github.com/syntax-tree/mdast) 格式）。
 
 ## 第一步：将 Markdown 解析为 AST
 
