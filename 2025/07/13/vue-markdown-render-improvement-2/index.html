@@ -29,7 +29,7 @@
 <meta property="og:description" content="上回回顾：当 morphdom 遇上 Vue在上一篇文章中，我们经历了一场 Markdown 渲染的性能优化之旅。从最原始的 v-html 全量刷新，到按块更新，最终我们请出了 morphdom 这个“终极武器”。它通过直接比对和操作真实 DOM，以最小的代价更新视图，完美解决了实时渲染中的性能瓶颈和交互状态丢失问题。 然而，一个根本性问题始终存在：在 Vue 的地盘里，绕过 Vue 的虚拟 DO">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-07-12T16:01:35.000Z">
-<meta property="article:modified_time" content="2025-07-12T17:20:18.000Z">
+<meta property="article:modified_time" content="2025-07-14T07:40:56.000Z">
 <meta property="article:author" content="竹林里有冰">
 <meta property="article:tag" content="JavaScript">
 <meta property="article:tag" content="Web">
@@ -331,7 +331,7 @@
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2025年7月13日 凌晨
+                    本文最后更新于：2025年7月14日 下午
                   
                 
               </p>
@@ -359,7 +359,7 @@
 <h3 id="我们的新工具：unified-与-remark"><a href="#我们的新工具：unified-与-remark" class="headerlink" title="我们的新工具：unified 与 remark"></a>我们的新工具：unified 与 remark</h3><p>为了实现 <code>Markdown -&gt; AST</code> 的转换，我们引入 <code>unified</code> 生态。</p>
 <ul>
 <li><strong><a target="_blank" rel="noopener" href="https://github.com/unifiedjs/unified">unified</a></strong>: 一个强大的内容处理引擎。你可以把它想象成一条流水线，原始文本是原料，通过添加不同的“插件”来对它进行解析、转换和序列化。</li>
-<li><strong><a target="_blank" rel="noopener" href="https://github.com/remarkjs/remark">remark-parse</a></strong>: 一个 <code>unified</code> 插件，专门负责将 Markdown 文本解析成 AST（具体来说是 <code>mdast</code> 格式）。</li>
+<li><strong><a target="_blank" rel="noopener" href="https://github.com/remarkjs/remark">remark-parse</a></strong>: 一个 <code>unified</code> 插件，专门负责将 Markdown 文本解析成 AST（具体来说是 <a target="_blank" rel="noopener" href="https://github.com/syntax-tree/mdast">mdast</a> 格式）。</li>
 </ul>
 <h2 id="第一步：将-Markdown-解析为-AST"><a href="#第一步：将-Markdown-解析为-AST" class="headerlink" title="第一步：将 Markdown 解析为 AST"></a>第一步：将 Markdown 解析为 AST</h2><p>首先，我们需要安装相关依赖：</p>
 <div class="code-wrapper"><pre><code class="hljs bash">npm install unified remark-parse</code></pre></div>
@@ -564,7 +564,7 @@ const markdownContent = ref(&#x27;# Hello Vue\n\nThis is rendered via AST!&#x27;
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2025年7月13日</div>
+          <div>2025年7月14日</div>
         </div>
       
       
