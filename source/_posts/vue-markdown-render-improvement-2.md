@@ -111,7 +111,7 @@ console.log(JSON.stringify(ast, null, 2))
 
 ## 第二步：从 AST 到 Vue VNodes
 
-拿到了 AST，下一步就是将这个“结构图纸”真正地“施工”成用户可见的界面。在 Vue 的世界里，描述 UI 的蓝图就是**虚拟节点 (VNode)**，而 `h()` 函数（即 hyperscript）就是创建 VNode 的画笔。
+拿到了 AST，下一步就是将这个“结构图纸”真正地“施工”成用户可见的界面。在 Vue 的世界里，描述 UI 的蓝图就是虚拟节点 (VNode)，而 `h()` 函数（即 hyperscript）就是创建 VNode 的画笔。
 
 我们的任务是编写一个渲染函数，它能够递归地遍历 AST，并为每一种节点类型（`heading`, `paragraph`, `text` 等）生成对应的 VNode。
 
