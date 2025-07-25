@@ -42,15 +42,15 @@
   
   <title>node-sass 迁移至 dart-sass 踩坑实录 - 竹林里有冰的博客</title>
 
-  <link  rel="stylesheet" href="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/4.6.0/css/bootstrap.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
 
 
-  <link  rel="stylesheet" href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
 
-  <link  rel="stylesheet" href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-y/hint.css/2.6.0/hint.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
 
-  <link  rel="stylesheet" href="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/fancybox/3.5.7/jquery.fancybox.min.css" />
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
 
 
 
@@ -367,7 +367,7 @@
   <span class="hljs-punctuation">&#125;</span>
 <span class="hljs-punctuation">&#125;</span></code></pre></div>
 
-<p>这证明起码在 <a href="mailto:&#x73;&#97;&#115;&#115;&#45;&#x6c;&#x6f;&#x61;&#100;&#101;&#114;&#x40;&#x37;&#x2e;&#x32;&#46;&#x30;">&#x73;&#97;&#115;&#115;&#45;&#x6c;&#x6f;&#x61;&#100;&#101;&#114;&#x40;&#x37;&#x2e;&#x32;&#46;&#x30;</a> 这一版本就已经支持 dart-sass 了，因此 webpack 版本可以停留在 ^3，而 sass-loader 暂时停留在 7.0.3 版本，如果后续有问题可以更新到 ^7 版本中最新的 7.3.1 版本。</p>
+<p>这证明起码在 <a href="mailto:&#115;&#97;&#x73;&#x73;&#x2d;&#x6c;&#x6f;&#97;&#x64;&#x65;&#114;&#x40;&#x37;&#46;&#50;&#x2e;&#x30;">&#115;&#97;&#x73;&#x73;&#x2d;&#x6c;&#x6f;&#97;&#x64;&#x65;&#114;&#x40;&#x37;&#46;&#50;&#x2e;&#x30;</a> 这一版本就已经支持 dart-sass 了，因此 webpack 版本可以停留在 ^3，而 sass-loader 暂时停留在 7.0.3 版本，如果后续有问题可以更新到 ^7 版本中最新的 7.3.1 版本。</p>
 <h3 id="dart-sass"><a href="#dart-sass" class="headerlink" title="dart-sass"></a>dart-sass</h3><p>sass-loader@^7 所支持的最高 sass 我并没有查到，Github Copilot 信誓旦旦地告诉我</p>
 <blockquote>
 <p><strong>官方文档引用：</strong></p>
@@ -749,8 +749,8 @@ import path from &#x27;path&#x27;
 
   <!-- Scripts -->
   
-  <script  src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/nprogress/0.2.0/nprogress.min.css" />
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
 
   <script>
     NProgress.configure({"showSpinner":false,"trickleSpeed":100})
@@ -761,13 +761,13 @@ import path from &#x27;path&#x27;
   </script>
 
 
-<script  src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/jquery/3.6.0/jquery.min.js" ></script>
-<script  src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/bootstrap/4.6.0/js/bootstrap.min.js" ></script>
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
 <script  src="/js/events.js" ></script>
 <script  src="/js/plugins.js" ></script>
 
 
-  <script  src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/typed.js/2.0.11/typed.min.js" ></script>
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
   <script>
     (function (window, document) {
       var typing = Fluid.plugins.typing;
@@ -794,7 +794,7 @@ import path from &#x27;path&#x27;
 
   
 <script>
-  Fluid.utils.createScript('https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/tocbot/4.12.2/tocbot.min.js', function() {
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
     var toc = jQuery('#toc');
     if (toc.length === 0 || !window.tocbot) { return; }
     var boardCtn = jQuery('#board-ctn');
@@ -832,14 +832,14 @@ import path from &#x27;path&#x27;
 </script>
 
 
-  <script src=https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/clipboard.js/2.0.6/clipboard.min.js></script>
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
 
   <script>Fluid.plugins.codeWidget();</script>
 
 
   
 <script>
-  Fluid.utils.createScript('https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/anchor-js/4.3.1/anchor.min.js', function() {
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
     window.anchors.options = {
       placement: CONFIG.anchorjs.placement,
       visible  : CONFIG.anchorjs.visible
@@ -877,7 +877,7 @@ import path from &#x27;path&#x27;
 
   
 <script>
-  Fluid.utils.createScript('https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
     Fluid.plugins.fancyBox();
   });
 </script>
