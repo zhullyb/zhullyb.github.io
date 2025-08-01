@@ -317,6 +317,15 @@
   </url>
   
   <url>
+    <loc>https://zhul.in/2024/06/30/dynamic-public-ip-and-ddns-for-rustdesk/</loc>
+    
+    <lastmod>2024-11-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zhul.in/2024/07/22/enable-ac-power-loss-for-jumper-n100/</loc>
     
     <lastmod>2024-11-15</lastmod>
@@ -327,15 +336,6 @@
   
   <url>
     <loc>https://zhul.in/2024/02/08/extra-usage-for-crontab/</loc>
-    
-    <lastmod>2024-11-15</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2024/06/30/dynamic-public-ip-and-ddns-for-rustdesk/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -407,7 +407,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/09/24/log-last-water-boiling-water-with-sunlogin-adapter-power-consumption/</loc>
+    <loc>https://zhul.in/2023/09/03/jinja2-nl-to-br/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -416,7 +416,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2023/09/03/jinja2-nl-to-br/</loc>
+    <loc>https://zhul.in/2024/09/24/log-last-water-boiling-water-with-sunlogin-adapter-power-consumption/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -1478,6 +1478,13 @@
   </url>
   
   <url>
+    <loc>https://zhul.in/tags/siteproxy/</loc>
+    <lastmod>2025-08-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://zhul.in/tags/OpenWRT/</loc>
     <lastmod>2025-08-01</lastmod>
     <changefreq>weekly</changefreq>
@@ -1492,14 +1499,14 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/tags/siteproxy/</loc>
+    <loc>https://zhul.in/tags/electron/</loc>
     <lastmod>2025-08-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://zhul.in/tags/electron/</loc>
+    <loc>https://zhul.in/tags/Rustdesk/</loc>
     <lastmod>2025-08-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1514,13 +1521,6 @@
   
   <url>
     <loc>https://zhul.in/tags/crontab/</loc>
-    <lastmod>2025-08-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Rustdesk/</loc>
     <lastmod>2025-08-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
