@@ -1,5 +1,5 @@
 ---
-title: Vue Markdown 渲染优化实战（下）：告别 DOM 操作，拥抱 AST 与函数式渲染
+title: Vue Markdown 渲染优化实战(下): 告别 DOM 操作，拥抱 AST 与函数式渲染
 date: 2025-07-13 00:01:35
 sticky:
 tags:
