@@ -1,5 +1,5 @@
 ---
-title: Vue Markdown 渲染优化实战（上）：从暴力刷新、分块更新到 Morphdom 的华丽变身
+title: Vue Markdown 渲染优化实战(上)：从暴力刷新、分块更新到 Morphdom 的华丽变身
 date: 2025-07-12 20:48:56
 sticky:
 tags:
