@@ -134,4 +134,4 @@ https://www.123912.com/s/gfprVv-wEQ8d
 - [使用 ImmortalWrt+Dae 为 Windows 配置透明代理](https://abxy.fun/post/immortalwrt-dae/)
 - [cudy tr3000 v1中文三分区DHCP uboot第二版](https://www.right.com.cn/forum/forum.php?mod=viewthread&tid=8415351)
 - [使用 hanwckf/bl-mt798x 引导主线 OpenWrt 固件](https://blog.imouto.in/#/posts/10)
-- [QiuSimons/luci-app-daed](QiuSimons/luci-app-daed)
+- [QiuSimons/luci-app-daed](https://github.com/QiuSimons/luci-app-daed)
