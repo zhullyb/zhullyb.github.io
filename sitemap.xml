@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://zhul.in/2025/02/28/cudy-tr3000-daed-install-record/</loc>
+    
+    <lastmod>2025-08-31</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zhul.in/2021/02/07/extract-payload-dot-bin-on-archlinux/</loc>
     
     <lastmod>2025-08-31</lastmod>
@@ -149,15 +158,6 @@
     <loc>https://zhul.in/2025/03/30/apt-upgrade-on-internal-server-via-ssh-tunnel-and-reverse-proxy/</loc>
     
     <lastmod>2025-03-30</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2025/02/28/cudy-tr3000-daed-install-record/</loc>
-    
-    <lastmod>2025-03-28</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -452,7 +452,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/07/18/my-blog-is-completely-proxied-and-translated-into-traditional-chinese/</loc>
+    <loc>https://zhul.in/2022/11/04/my-blog-plan/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -461,7 +461,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2022/11/04/my-blog-plan/</loc>
+    <loc>https://zhul.in/2024/07/18/my-blog-is-completely-proxied-and-translated-into-traditional-chinese/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -578,7 +578,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2023/05/12/troubles-when-applying-azure-education/</loc>
+    <loc>https://zhul.in/2024/07/15/try-ssh-connection-in-fedora-copr/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -587,7 +587,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/07/15/try-ssh-connection-in-fedora-copr/</loc>
+    <loc>https://zhul.in/2023/05/12/troubles-when-applying-azure-education/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -605,7 +605,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2023/11/01/unveiling-sunflower-smart-adapter-api-intercepting-utilizing-api-android-packet-sniffing/</loc>
+    <loc>https://zhul.in/2024/04/29/update-a-rpm-spec-by-github-action/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -614,7 +614,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/04/29/update-a-rpm-spec-by-github-action/</loc>
+    <loc>https://zhul.in/2023/11/01/unveiling-sunflower-smart-adapter-api-intercepting-utilizing-api-android-packet-sniffing/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -1326,20 +1326,6 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/tags/umami/</loc>
-    <lastmod>2025-08-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Shell-Script/</loc>
-    <lastmod>2025-08-31</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://zhul.in/tags/Firefox/</loc>
     <lastmod>2025-08-31</lastmod>
     <changefreq>weekly</changefreq>
@@ -1348,6 +1334,20 @@
   
   <url>
     <loc>https://zhul.in/tags/Bwrap/</loc>
+    <lastmod>2025-08-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/umami/</loc>
+    <lastmod>2025-08-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/Shell-Script/</loc>
     <lastmod>2025-08-31</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
