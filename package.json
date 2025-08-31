@@ -12,5 +12,8 @@
     "@nuxt/content": "^3.6.3",
     "better-sqlite3": "^12.2.0",
     "nuxt": "^4.0.3"
+  },
+  "devDependencies": {
+    "sass": "^1.91.0"
   }
 }
