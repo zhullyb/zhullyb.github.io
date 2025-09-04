@@ -36,7 +36,7 @@
 <meta property="og:image" content="https://static.031130.xyz/uploads/2025/09/05/6dad15beff900.webp">
 <meta property="og:image" content="https://static.031130.xyz/uploads/2025/09/05/1c93947170a85.webp">
 <meta property="article:published_time" content="2025-09-04T21:54:17.000Z">
-<meta property="article:modified_time" content="2025-09-04T23:30:51.000Z">
+<meta property="article:modified_time" content="2025-09-04T23:36:07.000Z">
 <meta property="article:author" content="竹林里有冰">
 <meta property="article:tag" content="Github Action">
 <meta property="article:tag" content="Experience">
@@ -374,13 +374,13 @@
 
 <h2 id="实测"><a href="#实测" class="headerlink" title="实测"></a>实测</h2><p>当我满心欢喜地将 CI 流程从 Github 官方的 runner 切换到自托管的 runner 后，问题很快就浮现了，而这也正是我“爱不起来”的主要原因。问题集中体现在我习以为常的 <code>setup-python</code> 这一由 Github 官方维护的 Github Action Flow 中，提示 3.12 版本没找到。</p>
 <p><img src="https://static.031130.xyz/uploads/2025/09/05/1c93947170a85.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
-<p>在 Github 官方提供的虚拟环境中，这些 Action 会为我们准备好指定版本的开发环境。例如，<code>uses: actions/setup-python</code> 加上 <code>with: python-version: &#39;3.12&#39;</code> 就会自动在环境中安装并配置好 Python 3.12.x。我对此已经习以为常，认为这是一个“开箱即用”的功能。<strong>但在 Self-hosted Runner 上，情况略有些不同。</strong>setup-python 在<a target="_blank" rel="noopener" href="https://github.com/actions/setup-python/blob/main/docs/advanced-usage.md#using-setup-python-with-a-self-hosted-runner">文档</a>中指出</p>
+<p>在 Github 官方提供的虚拟环境中，这些 Action 会为我们准备好指定版本的开发环境。例如，<code>uses: actions/setup-python</code> 加上 <code>with: python-version: &#39;3.12&#39;</code> 就会自动在环境中安装并配置好 Python 3.12.x。我对此已经习以为常，认为这是一个“开箱即用”的功能。但在 Self-hosted Runner 上，情况略有些不同。setup-python 在<a target="_blank" rel="noopener" href="https://github.com/actions/setup-python/blob/main/docs/advanced-usage.md#using-setup-python-with-a-self-hosted-runner">文档</a>中指出</p>
 <blockquote>
 <p>Python distributions are only available for the same <a target="_blank" rel="noopener" href="https://github.com/actions/runner-images#available-images">environments</a> that GitHub Actions hosted environments are available for. If you are using an unsupported version of Ubuntu such as <code>19.04</code> or another Linux distribution such as Fedora, <code>setup-python</code> may not work.</p>
 </blockquote>
-<p>setup-python 这个 Action 只支持 Github Action 所采用的同款操作系统，而我 VPS 的 Debian 不受支持，因此有这个误报，同时也给我的 Debian 判了死刑。</p>
-<h2 id="症结所在：对-Self-hosted-Runner-的误解"><a href="#症结所在：对-Self-hosted-Runner-的误解" class="headerlink" title="症结所在：对 Self-hosted Runner 的误解"></a>症结所在：对 Self-hosted Runner 的误解</h2><p>我潜意识里认为，Self-hosted Runner 仅仅是将计算成本从 Github 服务器转移到了本地，而 <code>actions/setup-python</code> 这种官方标准动作，理应会像 Github-hosted Runner 中那样，优雅地为我下载、安装、并配置好我需要的一切。然而，Self-hosted  Runner 的本质只是从 Github 接收任务，并在当前的操作系统环境中执行指令，并不保证和 Github 官方提供的 Runner 的运行环境一致。</p>
-<p>Self-hosted Runner 不是一个开箱即用的“服务”，而是一个需要你亲自管理的“基础设施”。你需要负责服务器的安装、配置、安全更新、依赖管理、磁盘清理等一系列运维工作。它更适合那些对 CI/CD 有更高阶需求的团队或个人：比如 CI/CD 消费大户、需要特定硬件（如 ARM、GPU）进行构建的团队、或者 CI 流程深度依赖内部网络资源的企业。对于像我这样只是愿意拿出更多的本地计算资源来获取更多 Action 运行时长的普通开发者而言，它带来的运维心智负担，似乎是有一点重了。</p>
+<p>setup-python 这个 Action <strong>只支持 Github Action 所采用的同款操作系统</strong>，而我 VPS 的 Debian 不受支持，因此有这个误报，同时也给我的 Debian 判了死刑。</p>
+<h2 id="症结所在：对-Self-hosted-Runner-的误解"><a href="#症结所在：对-Self-hosted-Runner-的误解" class="headerlink" title="症结所在：对 Self-hosted Runner 的误解"></a>症结所在：对 Self-hosted Runner 的误解</h2><p>我潜意识里认为，Self-hosted Runner 仅仅是将计算成本从 Github 服务器转移到了本地，而 <code>actions/setup-python</code> 这种官方标准动作，理应会像 Github-hosted Runner 中那样，优雅地为我下载、安装、并配置好我需要的一切。然而，<strong>Self-hosted  Runner 的本质只是从 Github 接收任务，并在当前的操作系统环境中执行指令</strong>，并不保证和 Github 官方提供的 Runner 的运行环境一致。</p>
+<p>Self-hosted Runner 不是一个开箱即用的“服务”，而是<strong>一个需要你亲自管理的“基础设施”</strong>。你需要负责服务器的安装、配置、安全更新、依赖管理、磁盘清理等一系列运维工作。它更适合那些对 CI/CD 有更高阶需求的团队或个人：比如 CI/CD 消费大户、需要特定硬件（如 ARM、GPU）进行构建的团队、或者 CI 流程深度依赖内部网络资源的企业。对于像我这样只是愿意拿出更多的本地计算资源来获取更多 Action 运行时长的普通开发者而言，它带来的运维心智负担，似乎是有一点重了。</p>
 
                 
               </div>
