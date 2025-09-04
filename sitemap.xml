@@ -425,7 +425,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2023/09/03/jinja2-nl-to-br/</loc>
+    <loc>https://zhul.in/2023/11/02/integrating-sunflower-smart-socket-with-mi-home-via-bemfa-cloud/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -434,7 +434,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2023/11/02/integrating-sunflower-smart-socket-with-mi-home-via-bemfa-cloud/</loc>
+    <loc>https://zhul.in/2023/09/03/jinja2-nl-to-br/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -461,6 +461,15 @@
   </url>
   
   <url>
+    <loc>https://zhul.in/2024/07/18/my-blog-is-completely-proxied-and-translated-into-traditional-chinese/</loc>
+    
+    <lastmod>2024-11-15</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zhul.in/2022/11/04/my-blog-plan/</loc>
     
     <lastmod>2024-11-15</lastmod>
@@ -471,15 +480,6 @@
   
   <url>
     <loc>https://zhul.in/2024/11/01/my-config-for-fedora-kde-41/</loc>
-    
-    <lastmod>2024-11-15</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2024/07/18/my-blog-is-completely-proxied-and-translated-into-traditional-chinese/</loc>
     
     <lastmod>2024-11-15</lastmod>
     
@@ -1037,7 +1037,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2020/10/08/NoHello/</loc>
+    <loc>https://zhul.in/2020/07/11/RepoNotes/</loc>
     
     <lastmod>2022-08-22</lastmod>
     
@@ -1046,7 +1046,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2020/07/11/RepoNotes/</loc>
+    <loc>https://zhul.in/2020/10/08/NoHello/</loc>
     
     <lastmod>2022-08-22</lastmod>
     
@@ -1202,13 +1202,6 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/tags/%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2025-09-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://zhul.in/tags/%E5%A4%A7%E4%BD%AC%E5%AF%B9%E8%AF%9D%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2025-09-04</lastmod>
     <changefreq>weekly</changefreq>
@@ -1217,6 +1210,13 @@
   
   <url>
     <loc>https://zhul.in/tags/deepin/</loc>
+    <lastmod>2025-09-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/%E7%AC%94%E8%AE%B0/</loc>
     <lastmod>2025-09-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1629,13 +1629,6 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/tags/jinja2/</loc>
-    <lastmod>2025-09-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://zhul.in/tags/IoT/</loc>
     <lastmod>2025-09-04</lastmod>
     <changefreq>weekly</changefreq>
@@ -1644,6 +1637,13 @@
   
   <url>
     <loc>https://zhul.in/tags/MiAI/</loc>
+    <lastmod>2025-09-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/jinja2/</loc>
     <lastmod>2025-09-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1727,13 +1727,6 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/tags/Waydroid/</loc>
-    <lastmod>2025-09-04</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://zhul.in/tags/AST/</loc>
     <lastmod>2025-09-04</lastmod>
     <changefreq>weekly</changefreq>
@@ -1742,6 +1735,13 @@
   
   <url>
     <loc>https://zhul.in/tags/unified/</loc>
+    <lastmod>2025-09-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/Waydroid/</loc>
     <lastmod>2025-09-04</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
