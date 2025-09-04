@@ -60,14 +60,14 @@ jobs:
 
 ![](https://static.031130.xyz/uploads/2025/09/05/1c93947170a85.webp)
 
-在 Github 官方提供的虚拟环境中，这些 Action 会为我们准备好指定版本的开发环境。例如，`uses: actions/setup-python` 加上 `with: python-version: '3.12'` 就会自动在环境中安装并配置好 Python 3.12.x。我对此已经习以为常，认为这是一个“开箱即用”的功能。**但在 Self-hosted Runner 上，情况略有些不同。**setup-python 在[文档](https://github.com/actions/setup-python/blob/main/docs/advanced-usage.md#using-setup-python-with-a-self-hosted-runner)中指出
+在 Github 官方提供的虚拟环境中，这些 Action 会为我们准备好指定版本的开发环境。例如，`uses: actions/setup-python` 加上 `with: python-version: '3.12'` 就会自动在环境中安装并配置好 Python 3.12.x。我对此已经习以为常，认为这是一个“开箱即用”的功能。但在 Self-hosted Runner 上，情况略有些不同。setup-python 在[文档](https://github.com/actions/setup-python/blob/main/docs/advanced-usage.md#using-setup-python-with-a-self-hosted-runner)中指出
 
 > Python distributions are only available for the same [environments](https://github.com/actions/runner-images#available-images) that GitHub Actions hosted environments are available for. If you are using an unsupported version of Ubuntu such as `19.04` or another Linux distribution such as Fedora, `setup-python` may not work.
 
-setup-python 这个 Action 只支持 Github Action 所采用的同款操作系统，而我 VPS 的 Debian 不受支持，因此有这个误报，同时也给我的 Debian 判了死刑。
+setup-python 这个 Action **只支持 Github Action 所采用的同款操作系统**，而我 VPS 的 Debian 不受支持，因此有这个误报，同时也给我的 Debian 判了死刑。
 
 ## 症结所在：对 Self-hosted Runner 的误解
 
-我潜意识里认为，Self-hosted Runner 仅仅是将计算成本从 Github 服务器转移到了本地，而 `actions/setup-python` 这种官方标准动作，理应会像 Github-hosted Runner 中那样，优雅地为我下载、安装、并配置好我需要的一切。然而，Self-hosted  Runner 的本质只是从 Github 接收任务，并在当前的操作系统环境中执行指令，并不保证和 Github 官方提供的 Runner 的运行环境一致。
+我潜意识里认为，Self-hosted Runner 仅仅是将计算成本从 Github 服务器转移到了本地，而 `actions/setup-python` 这种官方标准动作，理应会像 Github-hosted Runner 中那样，优雅地为我下载、安装、并配置好我需要的一切。然而，**Self-hosted  Runner 的本质只是从 Github 接收任务，并在当前的操作系统环境中执行指令**，并不保证和 Github 官方提供的 Runner 的运行环境一致。
 
-Self-hosted Runner 不是一个开箱即用的“服务”，而是一个需要你亲自管理的“基础设施”。你需要负责服务器的安装、配置、安全更新、依赖管理、磁盘清理等一系列运维工作。它更适合那些对 CI/CD 有更高阶需求的团队或个人：比如 CI/CD 消费大户、需要特定硬件（如 ARM、GPU）进行构建的团队、或者 CI 流程深度依赖内部网络资源的企业。对于像我这样只是愿意拿出更多的本地计算资源来获取更多 Action 运行时长的普通开发者而言，它带来的运维心智负担，似乎是有一点重了。
+Self-hosted Runner 不是一个开箱即用的“服务”，而是**一个需要你亲自管理的“基础设施”**。你需要负责服务器的安装、配置、安全更新、依赖管理、磁盘清理等一系列运维工作。它更适合那些对 CI/CD 有更高阶需求的团队或个人：比如 CI/CD 消费大户、需要特定硬件（如 ARM、GPU）进行构建的团队、或者 CI 流程深度依赖内部网络资源的企业。对于像我这样只是愿意拿出更多的本地计算资源来获取更多 Action 运行时长的普通开发者而言，它带来的运维心智负担，似乎是有一点重了。
