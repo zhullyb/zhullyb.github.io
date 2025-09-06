@@ -13,10 +13,10 @@ export default defineAppConfig({
                 text: '归档',
                 link: '/archives/'
             },
-            // {
-            //     text: '标签',
-            //     link: '/tags/'
-            // },
+            {
+                text: '标签',
+                link: '/tags/'
+            },
             {
                 text: '关于',
                 link: '/about/'
