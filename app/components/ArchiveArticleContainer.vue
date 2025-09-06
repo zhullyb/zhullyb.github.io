@@ -18,19 +18,19 @@ const page = route.params.page ? parseInt(route.params.page as string) || 1 : 1
 
 const pageSize = 10
 
-const posts = await useAsyncData(`index-page-${page}`, () =>
+const posts = (await useAsyncData(`index-page-${page}`, () =>
     queryCollection('posts')
         .order('date', 'DESC')
         .skip((page - 1) * pageSize)
         .limit(pageSize)
         .select('title', 'date', 'path', 'tags')
         .all()
-).data as Ref<Post[]>
+)).data as Ref<Post[]>
 
-const total = await useAsyncData('posts-nums-total', () =>
+const total = (await useAsyncData('posts-nums-total', () =>
     queryCollection('posts')
         .count()
-).data as Ref<number>
+)).data as Ref<number>
 
 const pageCount = Math.max(1, Math.ceil((total.value ?? 0) / pageSize))
 
