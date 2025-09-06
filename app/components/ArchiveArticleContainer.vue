@@ -3,7 +3,7 @@
         <div v-for="post in posts" :key="post.path" class="post-item">
             <p class="date">{{ post.date?.split(" ")[0] }}</p>
             <p>
-                <NuxtLink :to="getPostUrl(post)">{{ post.title }}</NuxtLink>
+                <NuxtLink :to="getUrlByPost(post)">{{ post.title }}</NuxtLink>
             </p>
         </div>
         <Pagination :currentPage="page" :totalPages="pageCount" :urlPrefix="`/archives`" />
@@ -11,34 +11,28 @@
 </template>
 
 <script setup lang="ts">
+import type { Post } from '~/types/post'
+
 const route = useRoute()
 const page = route.params.page ? parseInt(route.params.page as string) || 1 : 1
 
 const pageSize = 10
 
-const { data: posts } = await useAsyncData(`index-page-${page}`, () =>
+const posts = await useAsyncData(`index-page-${page}`, () =>
     queryCollection('posts')
         .order('date', 'DESC')
         .skip((page - 1) * pageSize)
         .limit(pageSize)
         .select('title', 'date', 'path', 'tags')
         .all()
-)
+).data as Ref<Post[]>
 
-const { data: total } = await useAsyncData('posts-nums-total', () =>
+const total = await useAsyncData('posts-nums-total', () =>
     queryCollection('posts')
         .count()
-)
+).data as Ref<number>
 
 const pageCount = Math.max(1, Math.ceil((total.value ?? 0) / pageSize))
-
-const getPostUrl = (post: any) => {
-    const newDate = new Date(post.date)
-    const year = newDate.getFullYear()
-    const month = String(newDate.getMonth() + 1).padStart(2, '0')
-    const day = String(newDate.getDate()).padStart(2, '0')
-    return `/${year}/${month}/${day}/${post.path.split('/').pop()}`
-}
 
 if (posts.value && posts.value.length === 0 && page > 1) {
     throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })

@@ -2,10 +2,10 @@
     <DefaultLayout :title="post?.title">
         <ContentRenderer v-if="post" :value="post" class="markdown-body" />
         <div v-if="prevPost || nextPost" class="post-nav">
-            <div class="post-nav-item prev" v-if="prevPost" @click="navigateTo(getPostUrl(prevPost))">
+            <div class="post-nav-item prev" v-if="prevPost" @click="navigateTo(getUrlByPost(prevPost))">
                 上一篇：{{ prevPost.title }}
             </div>
-            <div class="post-nav-item next" v-if="nextPost" @click="navigateTo(getPostUrl(nextPost))">
+            <div class="post-nav-item next" v-if="nextPost" @click="navigateTo(getUrlByPost(nextPost))">
                 下一篇：{{ nextPost.title }}
             </div>
         </div>
@@ -13,6 +13,7 @@
 </template>
 
 <script setup lang="ts">
+import type { Post } from '~/types/post'
 const route = useRoute();
 const { year, month, day, slug } = route.params;
 
@@ -26,25 +27,18 @@ if (!post.value) {
     throw createError({ statusCode: 404, statusMessage: 'Post not found', fatal: true });
 }
 
-const { data: surroundingPosts } = await useAsyncData(`surround-${year}-${month}-${day}-${slug}`, () => 
+const surroundingPosts = await useAsyncData(`surround-${year}-${month}-${day}-${slug}`, () => 
     queryCollectionItemSurroundings('posts', post.value!.path, {
         before: 1,
         after: 1,
-        fields: ['title', 'path']
+        fields: ['title', 'path', 'date']
     }).order('date', 'DESC')
-);
+).data as unknown as Ref<Post[]>;
+
+console.log(surroundingPosts.value);
 
 const prevPost = computed(() => surroundingPosts.value?.[0] || null);
 const nextPost = computed(() => surroundingPosts.value?.[1] || null);
-
-
-const getPostUrl = (post: any) => {
-    const newDate = new Date(post.date)
-    const year = newDate.getFullYear()
-    const month = String(newDate.getMonth() + 1).padStart(2, '0')
-    const day = String(newDate.getDate()).padStart(2, '0')
-    return `/${year}/${month}/${day}/${post.path.split('/').pop()}`
-}
 </script>
 
 <style lang="scss" scoped>
