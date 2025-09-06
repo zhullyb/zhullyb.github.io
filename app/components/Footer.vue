@@ -9,7 +9,7 @@
 <script setup lang="ts">
 const props = defineProps<{ bannerImg: string }>()
 const footerStyle = {
-	background: `url(${props.bannerImg}) center center / cover no-repeat`,
+	background: `url(${props.bannerImg}) center bottom / cover no-repeat`,
 	minHeight: '120px',
 	color: 'white',
 }
