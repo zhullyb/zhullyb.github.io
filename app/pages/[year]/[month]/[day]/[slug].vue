@@ -35,8 +35,6 @@ const surroundingPosts = await useAsyncData(`surround-${year}-${month}-${day}-${
     }).order('date', 'DESC')
 ).data as unknown as Ref<Post[]>;
 
-console.log(surroundingPosts.value);
-
 const prevPost = computed(() => surroundingPosts.value?.[0] || null);
 const nextPost = computed(() => surroundingPosts.value?.[1] || null);
 </script>
