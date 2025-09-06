@@ -1,7 +1,8 @@
 <template>
 	<footer :style="footerStyle">
-		<!-- 可在此处添加 footer 内容 -->
         <div class="footer-mask"></div>
+		<!-- 可在此处添加 footer 内容 -->
+        <div class="footer-content">©2020 - 2025 By zhullyb</div>
 	</footer>
 </template>
 
@@ -21,6 +22,11 @@ footer {
 	align-items: center;
 	justify-content: center;
     position: relative;
+    color: white;
+}
+
+.footer-content {
+    z-index: 1;
 }
 
 .footer-mask {
