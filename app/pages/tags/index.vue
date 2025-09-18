@@ -6,7 +6,7 @@
             v-for="tag in tagCloudData"
             class="tag"
             :key="tag.name"
-            :to="`/tags/${urlConvert(tag.name)}`"
+            :to="`/tags/${encodeURIComponent(tag.name)}`"
             :style="tag.style"
           >
             {{ tag.name }}
@@ -75,10 +75,6 @@ const tagCloudData = computed(() => {
     tags.sort((a, b) => a.name.localeCompare(b.name, 'en-US'))
     return tags
 })
-
-const urlConvert = (url: string) => {
-    return url.replace(" ", "-").replace('.', '-').replace('/', '-')
-}
 </script>
 
 <style lang="scss" scoped>

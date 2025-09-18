@@ -23,12 +23,7 @@ const allPosts = (await useAsyncData(`tag-${route.params.tag}`, () =>
 
 const Posts = computed(() => {
     return allPosts.value.filter(
-        post => typeof post.tags?.map === 'function' ? post.tags?.map(
-            tag => tag
-                .replace(" ", "-")
-                .replace('.', '-')
-                .replace('/', '-')
-        ).includes(route.params.tag as string) : false
+        post => typeof post.tags?.map === 'function' ? post.tags?.includes(decodeURIComponent(route.params.tag as string)) : false
     )
 })
 
