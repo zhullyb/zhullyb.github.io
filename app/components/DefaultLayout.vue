@@ -25,5 +25,6 @@ const bannerImg = appConfig.imgs[randomIndex] as string
 main {
   width: 50%;
   margin: 40px auto;
+  min-height: calc(40vh - 120px);
 }
 </style>

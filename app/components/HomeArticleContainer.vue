@@ -95,6 +95,12 @@ if (posts.value && posts.value.length === 0 && page > 1) {
 .description {
     color: #333;
     text-decoration: none;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
 
     &:hover {
         color: #007bff;
