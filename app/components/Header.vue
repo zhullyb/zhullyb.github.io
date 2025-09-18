@@ -32,7 +32,7 @@ import { NuxtLink } from '#components'
 const appConfig = useAppConfig()
 const route = useRoute()
 const slogan = computed(() => {
-    if (route.path === '/') {
+    if (route.path === '/' || route.path.startsWith('/page/')) {
         return appConfig.slogan
     }
     return null
