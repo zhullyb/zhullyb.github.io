@@ -23,7 +23,7 @@ const bannerImg = appConfig.imgs[randomIndex] as string
 
 <style lang="scss" scoped>
 main {
-  width: 60%;
+  width: 50%;
   margin: 40px auto;
 }
 </style>

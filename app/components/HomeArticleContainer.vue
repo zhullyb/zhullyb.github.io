@@ -1,11 +1,14 @@
 <template>
     <div>
         <div v-for="post in posts" :key="post.path" class="post-item">
-            <h2>
+            <h2 class="title">
                 <NuxtLink :to="getUrlByPost(post)">{{ post.title }}</NuxtLink>
             </h2>
-            <p class="date">{{ post.date }}</p>
-            <p class="description">{{ post.description }}</p>
+            <NuxtLink class="description" :to="getUrlByPost(post)">{{ post.description }}</NuxtLink>
+            <div class="post-meta">
+                <span class="date">{{ post.date?.split(" ")[0] }}</span>
+                <NuxtLink class="tags" v-for="tag in post.tags" :key="tag" :to="`/tags/${tag}`">{{ '#' + tag }}</NuxtLink>
+            </div>
         </div>
         <Pagination :currentPage="page" :totalPages="pageCount" />
     </div>
@@ -45,12 +48,56 @@ if (posts.value && posts.value.length === 0 && page > 1) {
     margin-bottom: 20px;
 }
 
-.date {
-    color: #666;
-    font-size: 0.9em;
+.title {
+    margin-bottom: 5px;
+    font-size: 1.5em;
+    font-weight: bold;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
+
+    a {
+        color: #333;
+        text-decoration: none;
+
+        &:hover {
+            color: #007bff;
+        }
+    }
 }
 
+.post-meta {
+    * + * {
+        margin-left: 5px;
+    }
+
+    .date {
+        color: #666;
+        font-size: 0.9em;
+    }
+
+    .tags {
+        color: #666;
+        text-decoration: none;
+        
+        &:hover {
+            color: #007bff;
+        }
+    }
+}
+
+
 .description {
-    margin-top: 10px;
+    color: #333;
+    text-decoration: none;
+
+    &:hover {
+        color: #007bff;
+    }
 }
 </style>
