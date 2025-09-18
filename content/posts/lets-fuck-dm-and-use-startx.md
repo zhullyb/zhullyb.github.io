@@ -1,6 +1,7 @@
 ---
 title:      抛弃DisplayManager，拥抱startx
 date:       2021-03-14
+description: 本文介绍了如何在 Arch Linux 系统中放弃使用 DisplayManager（如 SDDM），转而通过 `startx` 命令手动启动图形界面。内容涵盖卸载 SDDM、安装 `xorg-xinit`、配置 `~/.xinitrc` 文件，并针对 KDE Plasma 桌面环境进行个性化设置。适合希望简化系统启动流程、追求更高控制权的 Linux 用户阅读。通过本指南，你可以摆脱对 DisplayManager 的依赖，直接通过终端登录并启动图形会话。
 tags:       Linux
 ---
 

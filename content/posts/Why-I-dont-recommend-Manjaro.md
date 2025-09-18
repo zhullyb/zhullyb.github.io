@@ -1,6 +1,7 @@
 ---
 title:      为什么我不推荐Manjaro
 date:       2021-01-01
+description: 这篇文章深入分析了为什么许多Archlinux用户不推荐Manjaro作为日常使用的Linux发行版。作者指出，虽然Manjaro安装简单、拥有AUR和ArchlinuxCN等丰富的软件资源，但其软件更新滞后、与Archlinux的兼容性问题以及缺乏系统回滚机制，都可能导致用户体验不佳。文章还特别强调，Manjaro对系统进行的修改使得ArchWiki的解决方案不能完全适用，同时使用AUR和ArchlinuxCN时容易因依赖版本问题出现故障。如果你是Linux新手或追求稳定性的用户，这篇文章会帮助你更理性地选择适合自己的发行版。
 tags:       Linux
 ---
 

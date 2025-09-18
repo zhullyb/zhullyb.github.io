@@ -1,6 +1,7 @@
 ---
 title: Vue Markdown 渲染优化实战(下)：告别 DOM 操作，拥抱 AST 与函数式渲染
 date: 2025-07-13 00:01:35
+description: 在这篇 Vue Markdown 渲染优化实战的下篇中，我们将深入探讨如何通过 AST（抽象语法树）与函数式渲染技术实现性能的质的飞跃。文章详细解析了如何利用 unified 和 remark-parse 将 Markdown 文本转换为结构化的 AST，并编写渲染函数将其转化为 Vue 虚拟节点（VNode），从而完全融入 Vue 的响应式系统。相比之前依赖 morphdom 操作真实 DOM 的方案，新方法不仅性能更优、与 Vue 生态无缝集成，还提供了前所未有的灵活性和扩展性，支持自定义组件替换、逻辑注入以及丰富的插件生态。这是一次从前端工程化角度彻底解决 Markdown 渲染问题的深度实践。
 sticky:
 tags:
 - Vue.js

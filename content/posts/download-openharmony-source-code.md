@@ -1,6 +1,7 @@
 ---
 title: 下载一份openharmony的源码
 top: false
+description: 想要下载 OpenHarmony 的源码却不知道从何入手？本文详细介绍了从环境准备到源码同步的完整流程，包括 Git 和 repo 工具的配置、源码目录结构解析，以及常见错误的解决方法。文章还通过实际磁盘占用数据，将 OpenHarmony 与 AOSP 的源码体积进行对比，引发对系统完整性的思考。适合对开源系统感兴趣、希望深入探索 OpenHarmony 的开发者阅读。
 date: 2021-06-06 16:47:34
 tags: 
 ---

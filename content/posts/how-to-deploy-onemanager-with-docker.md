@@ -1,6 +1,7 @@
 ---
 title: 如何使用 docker 部署 onemanager
 date: 2024-02-11 16:30:29
+description: 本文详细介绍了如何使用 Docker 部署 OneManager-php，一个支持 OneDrive 文件管理的开源项目。文章从选择适合的 Docker 镜像开始，分析了不同 PHP 镜像的优缺点，并推荐使用带有 Apache 服务器的版本以简化配置流程。作者还讲解了如何启用 Apache 的 rewrite 模块、处理文件权限问题，并提供了精简高效的 Dockerfile 示例。无论你是希望快速搭建个人网盘，还是对 Docker 部署 PHP 项目感兴趣，这篇指南都能为你提供清晰、实用的步骤和解决方案。
 sticky:
 tags:
 - PHP

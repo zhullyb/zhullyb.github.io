@@ -1,6 +1,7 @@
 ---
 title: 为 Hexo 添加 follow 认证
 date: 2024-10-23 23:11:32
+description: 本文详细介绍了如何为使用 Hexo 框架搭建的博客添加 Follow 认证，特别是通过“RSS 标签”方案实现认证，避免在文章内容或 RSS 描述中插入影响美观的验证代码。文章逐步指导用户修改 Hexo 的 RSS 生成模板，插入自定义的 `<follow_challenge>` 标签，并支持通过配置文件灵活设置 feedId 和 userId。适合 Hexo 用户、RSS 订阅爱好者及关注博客认证与 SEO 优化的读者阅读。文末还附有 Follow 邀请码。
 sticky:
 index_img: https://static.031130.xyz/uploads/2024/10/24/a93fd67a5419d.png
 tags:

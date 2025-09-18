@@ -1,6 +1,7 @@
 ---
 title:      使用Motrix接管Firefox的下载
 date:       2021-04-11
+description: 本文介绍如何配置 Firefox 浏览器，使其能够使用 Motrix 接管默认下载任务。如果你习惯使用 Motrix 作为下载工具，但 Firefox 本身没有提供官方扩展支持，这篇文章提供了一个实用的替代方案。通过使用 Aria2 Integration 插件，并配合 Motrix 的 RPC 配置，你可以实现浏览器与下载器的无缝衔接。文章以图文方式详细展示了配置步骤，包括插件设置和 Motrix 的 JSON-RPC 配置，适合希望提升下载体验的 Firefox 用户参考。
 tags:       笔记
 ---
 

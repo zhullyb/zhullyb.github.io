@@ -1,6 +1,7 @@
 ---
 title: deepin-elf-verify究竟是何物？
 date: 2021-11-20
+description: 本文将深入探讨deepin-elf-verify这一在Deepin和UOS系统中频繁出现的依赖包。通过实际下载和拆解deb包，分析其内部结构及功能差异，揭示其在UOS系统中用于验证程序签名以增强安全性的作用，而在Deepin系统中仅作为空包存在的设计。文章还讨论了该依赖对Deepin应用商店软件兼容性的影响，以及在其他Debian系发行版中可能引发的安装问题，帮助读者全面理解deepin-elf-verify的实际用途与背后的设计意图。
 sticky:
 tags:
 - deepin

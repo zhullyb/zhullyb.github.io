@@ -1,6 +1,7 @@
 ---
 title: 自建图床小记二——使用 Workers 为 R2 构建 Restful API
 date: 2024-08-13 22:58:26
+description: 本文详细介绍了如何使用 Cloudflare Workers 为 Cloudflare R2 存储桶构建一套简单易用的 Restful API，实现文件上传、访问和删除功能。文章首先分析了访问 R2 的两种常见方式，并指出在 DNS 分流架构下，使用自定义域直接访问的限制和不足，从而引出使用 Workers 构建 API 的解决方案。作者提供了完整的 JavaScript 代码实现，并针对中文路径、文件覆盖等问题进行了优化。此外，还以 Python 为例，展示了如何通过 API 实现文件操作，适合开发者快速集成到自己的项目或自动化脚本中。适合对自建图床、Cloudflare 技术栈及 REST API 开发感兴趣的读者阅读。
 sticky:
 tags:
 - 图床

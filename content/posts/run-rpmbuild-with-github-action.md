@@ -1,6 +1,7 @@
 ---
 title: 使用 Github Action 跑 rpmbuild
 date: 2022-03-06 16:02:54
+description: 本文介绍了如何利用 Github Action 自动构建 RPM 包并规避闭源软件再分发的法律风险。作者对比了现有方案的问题，如对旧版 CentOS 的依赖、缺乏自动依赖安装和源码下载支持，最终选择并改造了 naveenrajm7/rpmbuild 项目。改造后的 Action 使用 Fedora 35 作为构建环境，支持自动安装构建依赖、自动下载远程源码、兼容本地源码文件，并移除了对 SRPM 的冗余支持。文末提供了改造后的项目地址和使用示例，适合需要在干净环境中自动化构建 RPM 的开发者参考。
 sticky:
 tags:
 - Fedora

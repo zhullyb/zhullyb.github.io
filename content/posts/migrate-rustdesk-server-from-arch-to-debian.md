@@ -1,6 +1,7 @@
 ---
 title: 将 Rustdesk 中继服务从 Arch Linux 迁移至 Debian
 date: 2024-09-20 03:20:38
+description: 本文详细记录了将 RustDesk 中继服务从 Arch Linux 迁移至 Debian 的完整过程。内容包括迁移背景、密钥备份方法、Debian 服务器上的软件安装步骤、密钥替换路径、防火墙端口配置及客户端连接设置。适合正在使用或计划自建 RustDesk 服务的用户参考，尤其适合希望从 Arch Linux 转向更稳定发行版的运维人员和开发者。文章还提供了实际操作的脚本和截图，帮助读者顺利完成迁移并确保服务无缝衔接。
 sticky:
 tags:
 - Rustdesk

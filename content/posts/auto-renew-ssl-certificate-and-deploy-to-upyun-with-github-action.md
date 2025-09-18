@@ -1,6 +1,7 @@
 ---
 title: 自建图床小记三—— SSL 证书的自动更新与部署
 date: 2024-08-14 10:35:18
+description: 本文详细介绍了如何通过Github Action自动更新和部署SSL证书，解决三个月有效期证书频繁续期的痛点。文章分析了当前免费SSL证书的市场现状，并针对自建图床架构中境内外CDN（Cloudflare与又拍云）证书管理的不同需求，提出了一套完整的自动化方案。内容包括使用acme.sh通过DNS验证方式申请证书、配置Github Action工作流、处理Cloudflare API权限及部署证书到又拍云CDN的具体步骤。适合有一定Linux和CDN使用经验的开发者参考，实现SSL证书的全自动管理，节省维护时间并提升站点安全性。
 sticky:
 tags:
 - Bot

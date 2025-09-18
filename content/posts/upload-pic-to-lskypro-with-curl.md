@@ -1,6 +1,7 @@
 ---
 title: 抛弃PicGo，直接使用curl将图片上传到LskyPro
 date: 2022-03-31 19:19:14
+description: 你是否厌倦了PicGo的资源占用和上传不稳定？本文介绍如何抛弃PicGo，直接使用curl命令行工具将图片上传到LskyPro图床。通过简单的Shell脚本，你可以实现高效、低资源占用的图片上传方案，完美适配Typora编辑器自动上传功能。文章详细解析了脚本的编写思路、参数配置以及如何与Typora集成，还解决了文件名空格等常见问题。无论你是Linux用户还是追求极致效率的开发者，这个轻量级上传方案都能提升你的写作体验。
 sticky:
 tags:
 -	Shell Script

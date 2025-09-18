@@ -1,6 +1,7 @@
 ---
 title: 来，从AUR给Fedora偷个包
 date: 2021-07-23 01:50:09
+description: 你是否曾想过将 Arch Linux 的 AUR 软件包移植到 Fedora 上？本文详细记录了如何将 wechat-uos 从 Arch 用户仓库（AUR）转换为 Fedora 可用的 RPM 包。作者通过实际操作，逐步展示了依赖关系处理、spec 文件编写、二进制文件打包及最终测试安装的全过程。文章不仅提供实用技巧，还深入探讨了 RPM 打包工具的一些设计问题及其与 Arch Linux 打包机制的对比。无论你是 Fedora 用户想尝试更多软件，还是对 Linux 打包机制感兴趣，这篇教程都能为你提供有价值的参考和启发。
 tags: 
 - Linux
 - Archlinux

@@ -1,6 +1,7 @@
 ---
 title: Cutefish的前世今生
 date: 2021-12-12 00:10:34
+description: 在这篇文章中，我们将深入探讨CutefishOS的起源、发展及其与相关项目的区别。CutefishOS是一款由国内开发者主导的桌面操作系统，最初以CyberOS为名基于Arch Linux构建，后更名为CutefishOS并转向基于Debian的发行版。文章澄清了常见的误解，例如CutefishOS并非基于Arch或Ubuntu，也不是JingOS的变体，而是一个独立的项目，专注于使用Qt框架开发全新的用户界面。此外，本文还详细介绍了CutefishOS的历史演变、第三方社区支持（如Manjaro和Ubuntu的移植版本）以及官方版本的发布过程。如果你对开源桌面环境或CutefishOS的发展感兴趣，这篇文章将为你提供全面的背景和实用信息。
 sticky:
 tags:
 - OpenSource Project

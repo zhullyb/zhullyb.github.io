@@ -1,6 +1,7 @@
 ---
 title: Waydroid on KDE 初体验
 date: 2021-10-31 15:57:57
+description: 在这篇文章中，我将分享在 Archlinux 系统上使用 KDE 桌面环境初体验 Waydroid 的完整过程。Waydroid 是一个基于 LXC 容器技术的安卓模拟方案，默认搭载 LineageOS-17.1（Android 10），相比 Anbox 更新且功能更完整。我会详细介绍安装步骤、内核要求、镜像初始化、常用命令以及实际使用技巧，同时也坦诚讨论目前遇到的一些问题，如显卡兼容性、中文输入支持、ARM 转译等。文内还包含多张实际运行截图，适合对 Linux 环境下运行安卓应用感兴趣的读者参考。
 sticky:
 index_img: https://static.031130.xyz/uploads/2024/08/12/62f3ca1a5eb50.webp
 tags:

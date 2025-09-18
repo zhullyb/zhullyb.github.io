@@ -1,6 +1,7 @@
 ---
 title: 如何解决adb未授权的问题
 date: 2021-01-25
+description: 在调试安卓设备时，adb未授权问题是开发者和刷机爱好者常遇到的困扰，尤其是在设备未开机或卡启动界面时。本文针对编译eng或userdebug版本Rom后adb无法正常授权的情况，提供详细解决方案。通过进入Recovery模式，手动导入adb公钥文件，即可解决权限问题，使adb log抓取和调试工作顺利进行。适用于Android及Linux平台用户，尤其适合进行Rom编译和深度定制的开发者参考。
 tags: 
       - Android
       - Linux

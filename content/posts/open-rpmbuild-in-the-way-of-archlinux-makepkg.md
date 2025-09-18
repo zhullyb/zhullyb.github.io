@@ -1,6 +1,7 @@
 ---
 title: 以 Archlinux 中 makepkg 的方式打开 rpmbuild
 date: 2024-05-03 22:48:39
+description: 本文将介绍如何将 Fedora 中的 rpmbuild 构建流程调整为类似 Archlinux 中 makepkg 的目录结构和工作方式。通过修改 rpmbuild 的宏定义，实现每个软件包独享构建目录，避免传统 rpmbuild 集中式目录带来的混乱。文章详细讲解了如何重新定义 %_topdir、%_builddir 等关键路径，并提供了自动安装构建依赖、自动下载源文件以及构建命令的具体操作方法。无论你是习惯 Archlinux 打包方式的用户，还是希望在 Fedora 下获得更清晰构建流程的开发者，这篇文章都能帮助你更高效地管理 RPM 软件包构建过程。
 sticky:
 tags:
 - Archlinux

@@ -1,6 +1,7 @@
 ---
 title: 使用 Cloudflare Workers 监控 Fedora Copr 构建状态
 date: 2025-02-23 12:12:53
+description: 本文介绍了如何利用 Cloudflare Workers 定时监控 Fedora Copr 项目的构建状态，并在构建失败时通过飞书机器人发送通知。文章详细解析了 Copr API 的调用方式、构建状态判断逻辑以及 Cloudflare Workers 的 cron 定时任务配置方法，帮助开发者及时获取构建失败信息，提升持续集成流程的可靠性。适合对自动化运维、CI/CD 和 Cloudflare Workers 感兴趣的开发者和系统管理员阅读。
 sticky:
 tags:
 - JavaScript

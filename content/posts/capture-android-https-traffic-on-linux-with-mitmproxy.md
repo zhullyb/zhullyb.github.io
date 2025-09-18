@@ -1,6 +1,7 @@
 ---
 title: 在 Linux 下使用 mitmproxy 抓取安卓手机上的 HTTPS 流量
 date: 2024-07-31 16:02:28
+description: 本文将详细介绍如何在 Linux 系统下使用 mitmproxy 抓取安卓手机上的 HTTPS 流量。文章首先分析了不同安卓版本（特别是 Android 7 以上）在抓包时的限制和应对方法，包括系统证书安装、SSL Pinning 绕过等关键问题。随后逐步讲解实际操作，包括生成和安装 SSL 证书、配置代理服务器，以及使用 Nekobox 实现分应用代理，确保目标流量准确捕获。适合对网络调试、安全分析或移动应用逆向感兴趣的开发者和安全研究人员阅读。
 sticky:
 tags:
 - mitmproxy

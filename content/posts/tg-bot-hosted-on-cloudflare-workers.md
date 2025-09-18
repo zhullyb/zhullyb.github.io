@@ -1,6 +1,7 @@
 ---
 title: 构建部署在 Cloudflare Workers 上的 TG Bot
 date: 2024-12-30 19:45:43
+description: 本文将详细介绍如何将 Telegram Bot 部署到 Cloudflare Workers 平台，实现零运营成本、高可用性的机器人服务。文章以移除 b23.tv 链接追踪参数的 Bot 为例，逐步解析代码结构，包括 Token 配置、Webhook 路由处理、消息响应逻辑以及安全校验机制。通过实际代码示例，展示如何利用 JavaScript 实现链接清洗功能，并最终完成 Webhook 注册与消息交互。适合对 Serverless 开发和 Telegram Bot 开发感兴趣的读者参考实践，轻松构建可持续运行的免费机器人服务。
 sticky:
 tags:
 - Bot

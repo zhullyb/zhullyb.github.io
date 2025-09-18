@@ -1,6 +1,7 @@
 ---
 title: 使用 Github Action 更新用于 rpm 打包的 spec 文件
 date: 2024-04-29 19:19:54
+description: 本文介绍了如何使用 Github Action 自动更新 RPM 打包所需的 spec 文件，特别适用于上游项目频繁发布新版本的情况。通过结合 netoarmando/rpmdev-bumpspec-action，实现在 Fedora 容器中自动调用 rpmdev-bumpspec 工具，更新版本号和变更日志。文章详细展示了从检出代码、获取版本信息、条件触发更新，到自动提交更改和触发 Copr 构建的完整流程，适合 Fedora/RPM 打包维护者和 CI/CD 自动化实践者参考。
 sticky:
 tags:
 - Fedora

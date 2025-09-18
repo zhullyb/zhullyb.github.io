@@ -1,6 +1,7 @@
 ---
 title: 使用 Caddy 反向代理 dockerhub 需要几步？
 date: 2024-09-21 01:29:17
+description: 本文详细介绍了如何利用 Caddy 服务器搭建 Docker Hub 反向代理服务，以解决中国大陆用户访问 Docker Hub 镜像缓慢或无法访问的问题。文章首先通过 mitmproxy 抓包分析 Docker 拉取镜像的完整流程，识别出关键请求域名，并解释为什么需要同时代理 registry-1.docker.io、auth.docker.io 和 production.cloudflare.docker.com 三个域名。随后，逐步讲解 Caddy 配置方法，包括响应头重写、域名替换等关键技术细节，并提供两种使用方式：命令行指定镜像地址或修改 Docker 守护进程配置。最后，文章还提供了验证方法和相关参考资料，适合有一定 Linux 和 Docker 使用经验的用户阅读实践。
 sticky:
 index_img: https://static.031130.xyz/uploads/2024/09/21/46f7b160e6e56.webp
 tags:

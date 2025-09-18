@@ -1,6 +1,7 @@
 ---
 title: 备份 umami 数据库，并使用 TG Bot 保存 dump 文件
 date: 2024-02-01 00:00:01
+description: 本文将详细介绍如何为部署在 Supabase 上的 Umami 数据库编写自动备份脚本，并通过 Telegram Bot 实现定时发送数据库 dump 文件。内容包括从 Supabase 获取数据库连接信息、编写 Shell 脚本实现备份与上传、解决 PostgreSQL 版本不匹配问题，以及配置 crontab 定时任务。适合希望自动化数据备份、使用轻量级方案存储数据库文件的用户参考，尤其适合使用 Umami 和 Supabase 的站长。
 sticky:
 tags:
 - umami

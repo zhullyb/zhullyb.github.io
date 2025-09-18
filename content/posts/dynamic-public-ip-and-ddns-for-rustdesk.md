@@ -1,6 +1,7 @@
 ---
 title: 使用动态公网 ip + ddns 实现 rustdesk 的 ip 直连
 date: 2024-06-30 18:15:00
+description: 本文详细介绍了如何利用动态公网 IP 和 DDNS（动态域名解析）技术，实现 RustDesk 远程桌面软件的 IP 直连访问。通过配置端口转发、设置 Cloudflare DDNS 脚本，并在 RustDesk 中启用直接访问选项，用户可以在不依赖官方服务器的情况下，实现稳定、低延迟的远程控制。文章逐步讲解了从允许 IP 直连、部署 DDNS 服务到路由器端口转发的全过程，适合有一定 Linux 和网络基础的用户参考，尤其适合家庭服务器或迷你主机用户优化远程访问体验。
 sticky:
 tags:
 - Linux

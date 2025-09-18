@@ -1,6 +1,7 @@
 ---
 title: 在运行OpenWRT的N1盒子上部署 QQBot
 date: 2023-07-31 04:11:31
+description: 本文详细介绍了如何在运行OpenWRT的斐讯N1盒子上部署QQ机器人（QQBot），适用于学校社团招新等场景。文章逐步指导读者安装必要的JDK环境以支持SignServer风控解决方案，配置screen会话管理工具，下载并运行修复版的go-cqhttp客户端，并通过Python编写简单的Flask应用实现关键词自动回复和新人入群欢迎功能。整个过程充分利用N1盒子的低功耗特性，避免使用高成本VPS，适合想在轻量级设备上运行QQ机器人的Linux和网络爱好者参考。
 sticky:
 tags:
 - Linux

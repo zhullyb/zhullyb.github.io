@@ -1,6 +1,7 @@
 ---
 title: node-sass 迁移至 dart-sass 踩坑实录
 date: 2025-07-05 17:57:02
+description: 本文详细记录了将前端项目从已停止维护的 node-sass 迁移到官方推荐的 dart-sass 的完整过程。内容涵盖迁移背景、依赖版本分析、具体操作步骤以及实际遇到的坑与解决方案。重点包括如何在保持 webpack 3 和 Vue 2 的前提下升级 sass-loader 和 node.js 版本，处理 /deep/ 选择器兼容性问题，修复 sass 语法错误，并解决 vue-loader 版本升级带来的配置调整。适合仍在维护传统前端项目、希望平稳过渡到 dart-sass 的开发者参考，提供可复用的实践经验和排查思路。
 sticky:
 tags:
 - Web

@@ -1,6 +1,7 @@
 ---
 title: wolai再打包遇到的问题--electron应用的dev判断机制
 date: 2021-12-03 22:53:25
+description: 本文详细介绍了在Arch Linux上重新打包wolai（一款基于Electron的笔记应用）时遇到的一个典型问题：当使用系统自带的Electron替换内置版本后，应用启动时出现“无法找到dev-app-update.yml”的警告弹窗。文章深入分析了问题根源——electron-updater模块在开发模式下错误读取更新配置文件，并提供了具体解决方案：通过解压app.asar文件，手动创建并添加dev-app-update.yml文件，再重新打包。整个过程涵盖了问题排查、技术原理分析以及实际操作步骤，适合对Electron应用打包、AUR维护或Linux软件打包感兴趣的开发者阅读。
 sticky:
 tags:
 - Archlinux

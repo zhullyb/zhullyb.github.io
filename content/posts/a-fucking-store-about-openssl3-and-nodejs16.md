@@ -1,6 +1,7 @@
 ---
 title: nodejs16：是我配不上 openssl 3 咯？
 date: 2022-08-04 17:31:49
+description: 本文记录了作者在升级 Fedora 36 后遇到的 Node.js 16 与 OpenSSL 3 不兼容的问题。由于 OpenSSL 1 的生命周期早于 Node.js 16 结束，导致许多依赖旧版本 OpenSSL 的 Node.js 项目无法正常运行。作者原本期待 Node.js 官方能够为 16 版本提供向后兼容支持，但官方却选择提前结束 Node.js 16 的生命周期。幸运的是，通过使用 nvm 安装自包含 OpenSSL 的 Node.js 版本，作者成功解决了这一问题。文章还提到，Node.js 社区已在 v16.17 版本中提交了对 `--openssl-legacy-provider` 参数的支持，未来有望彻底解决此类兼容性问题。如果你也在使用 Fedora 或其它已升级至 OpenSSL 3 的系统，这篇文章将为你提供实用的解决方案和背景分析。
 sticky:
 tags:
 - Fedora

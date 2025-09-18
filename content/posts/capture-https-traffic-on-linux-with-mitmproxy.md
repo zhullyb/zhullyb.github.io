@@ -1,6 +1,7 @@
 ---
 title: 在 Linux 下使用 mitmproxy 抓取 HTTPS 流量
 date: 2024-02-29 22:03:58
+description: 本文详细介绍了在 Linux 系统（特别是 Arch Linux）中使用 mitmproxy 抓取和解密 HTTPS 流量的完整流程。内容包括 mitmproxy 的安装方法、CA 证书的配置与信任设置，以及如何通过工具如 gg 或 proxychains-ng 引导目标应用流量经过代理。文章还提供了实际操作截图和常见问题解决方案，适合有网络调试、安全分析或软件逆向需求的开发者和爱好者阅读。通过本指南，你将掌握在 Linux 环境中高效捕获和分析加密网络通信的方法。
 sticky:
 tags:
 - Linux
