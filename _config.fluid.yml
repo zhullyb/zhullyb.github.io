@@ -1107,6 +1107,12 @@ links:
       link: "https://blog.zhilu.cyou/",
       avatar: "https://www.zhilu.cyou/api/avatar.png"
     }
+    - {
+      title: "SugarMGP",
+      intro: "白糖的记事本",
+      link: "https://blog.sugarmgp.cn/",
+      avatar: "https://blog.sugarmgp.cn/img/icon.png"
+    }
 
   # 当成员头像加载失败时，替换为指定图片
   # When the member avatar fails to load, replace the specified image
