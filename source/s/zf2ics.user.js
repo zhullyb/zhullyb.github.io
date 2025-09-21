@@ -1,7 +1,7 @@
 // ==UserScript==
-// @name         正方教务导出 ICS
+// @name         浙工大正方教务导出 ICS
 // @namespace    https://github.com/zhullyb/zf2ics
-// @version      0.1
+// @version      0.1.1
 // @description  通过 Tampermonkey 借用浏览器现有登录状态，向正方教务系统后端发起请求，获取课表信息并导出 ICS 格式文件，方便导入日历应用中查看课程安排。
 // @author       zhullyb
 // @match        *://www.gdjw.zjut.edu.cn/jwglxt/kbcx/*
@@ -18,7 +18,7 @@ const sectionsInfo = [
     { section: 3, startTime: '09:55', endTime: '10:40' },
     { section: 4, startTime: '10:50', endTime: '11:35' },
     { section: 5, startTime: '11:45', endTime: '12:30' },
-    { section: 6, startTime: '13:40', endTime: '14:15' },
+    { section: 6, startTime: '13:30', endTime: '14:15' },
     { section: 7, startTime: '14:25', endTime: '15:10' },
     { section: 8, startTime: '15:25', endTime: '16:10' },
     { section: 9, startTime: '16:20', endTime: '17:05' },
