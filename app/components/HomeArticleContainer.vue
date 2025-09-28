@@ -45,7 +45,7 @@ if (posts.value && posts.value.length === 0 && page > 1) {
 
 <style lang="less" scoped>
 .post-item {
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 .title {
@@ -72,6 +72,13 @@ if (posts.value && posts.value.length === 0 && page > 1) {
 }
 
 .post-meta {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-word;
+
     * + * {
         margin-left: 5px;
     }

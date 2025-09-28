@@ -27,8 +27,17 @@ useHead({
 
 <style lang="less" scoped>
 main {
-  width: 50%;
-  margin: 40px auto;
   min-height: calc(40vh - 120px);
+  margin: 64px auto 40px;
+
+  width: 50%;
+  .desktop-down({
+    width: 75%;
+  });
+  
+  .tablet-down({
+    width: unset;
+    margin: 30px;
+  });
 }
 </style>
