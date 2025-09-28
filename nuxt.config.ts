@@ -10,6 +10,10 @@ export default defineNuxtConfig({
         {
           rel: 'stylesheet',
           href: '/github-markdown.css'
+        },
+        {
+          rel: 'preconnect',
+          href: '//static.031130.xyz'
         }
       ],
       meta: [
