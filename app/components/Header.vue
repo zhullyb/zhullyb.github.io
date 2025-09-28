@@ -103,7 +103,7 @@ header {
     justify-content: center;
     padding-top: 20px;
     padding-bottom: 16px;
-    height: fit-content;
+    height: @header-height + 4px;
     position: fixed;
     top: 0;
     transition: all 0.3s ease;
@@ -114,6 +114,7 @@ header {
     &.scrolled {
         background-color: rgba(60, 70, 88, 0.7);
         backdrop-filter: blur(3px);
+        height: @header-height;
         padding-top: 16px;
         padding-bottom: 16px;
     }
@@ -121,6 +122,7 @@ header {
     &.show-mobile-menu {
         background-color: rgba(60, 70, 88, 0.7);
         backdrop-filter: blur(3px);
+        height: fit-content;
     }
 }
 
@@ -239,7 +241,7 @@ header {
     }
 
     color: white;
-    padding-top: 56px;
+    padding-top: @header-height;
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
     margin: auto auto auto 0;
 
