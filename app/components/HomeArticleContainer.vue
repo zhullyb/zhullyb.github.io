@@ -7,7 +7,7 @@
             <NuxtLink class="description" :to="getUrlByPost(post)">{{ post.description }}</NuxtLink>
             <div class="post-meta">
                 <span class="date">{{ post.date?.split(" ")[0] }}</span>
-                <NuxtLink class="tags" v-for="tag in post.tags" :key="tag" :to="`/tags/${encodeURIComponent(tag)}`">{{ '#' + tag }}</NuxtLink>
+                <NuxtLink class="tags" v-for="tag in toNormalTags(post.tags)" :key="tag" :to="`/tags/${encodeURIComponent(tag)}`">{{ '#' + tag }}</NuxtLink>
             </div>
         </div>
         <Pagination :currentPage="page" :totalPages="pageCount" />

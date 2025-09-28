@@ -27,6 +27,10 @@ const Posts = computed(() => {
     )
 })
 
+if (Posts.value.length === 0) {
+    throw createError({ statusCode: 404, statusMessage: 'Tag not found', fatal: true })
+}
+
 </script>
 
 <style lang="less" scoped>
