@@ -11,6 +11,12 @@ export default defineNuxtConfig({
           rel: 'stylesheet',
           href: '/github-markdown.css'
         }
+      ],
+      meta: [
+        {
+          name: 'description',
+          content: blogConfig.description
+        }
       ]
     }
   },
