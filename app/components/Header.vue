@@ -2,7 +2,7 @@
     <header :class="{ 'scrolled': isScrolled, 'show-mobile-menu': showMobileMenu }">
         <div class="header-container">
             <div class="header">
-                <NuxtLink to="/" class="header-title">{{ appConfig.title }}</NuxtLink>
+                <a href="/" class="header-title">{{ appConfig.title }}</a>
                 <nav>
                     <div class="pc-nav">
                         <NuxtLink v-for="item in appConfig.nav.items" :key="item.link" :to="item.link">{{ item.text }}</NuxtLink>
@@ -109,7 +109,7 @@ header {
     transition: all 0.3s ease;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     z-index: 1;
-
+    user-select: none;
 
     &.scrolled {
         background-color: rgba(60, 70, 88, 0.7);
