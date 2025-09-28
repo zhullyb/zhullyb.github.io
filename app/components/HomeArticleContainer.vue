@@ -50,7 +50,7 @@ if (posts.value && posts.value.length === 0 && page > 1) {
 
 .title {
     margin-bottom: 5px;
-    font-size: 1.5em;
+    font-size: 20px;
     font-weight: bold;
     border-bottom: 1px solid #eee;
     padding-bottom: 5px;
@@ -60,6 +60,12 @@ if (posts.value && posts.value.length === 0 && page > 1) {
     overflow: hidden;
     text-overflow: ellipsis;
     word-break: break-word;
+
+    .tablet-down({
+        -webkit-line-clamp: 2;
+        border-bottom: none;
+        padding-bottom: 2px;
+    });
 
     a {
         color: #333;
