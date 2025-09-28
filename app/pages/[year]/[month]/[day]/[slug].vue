@@ -47,16 +47,6 @@ useHead({
 </script>
 
 <style lang="less" scoped>
-:deep(.markdown-body) {
-    h2 > a,
-    h3 > a,
-    h4 > a,
-    h5 > a,
-    h6 > a {
-        color: unset;
-    }
-}
-
 .post-nav {
     margin-top: 2em;
     display: flex;
