@@ -79,7 +79,6 @@ const tagCloudData = computed(() => {
 
 <style lang="less" scoped>
 .tagcloud {
-    max-width: 50vw;
     margin: 0 auto;
     line-height: 50px;
 }
