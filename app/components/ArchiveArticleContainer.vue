@@ -39,7 +39,7 @@ if (posts.value && posts.value.length === 0 && page > 1) {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .post-item {
     margin-bottom: 20px;
 }

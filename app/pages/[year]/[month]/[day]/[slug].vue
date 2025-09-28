@@ -54,7 +54,7 @@ useHead({
 })
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .post-nav {
     margin-top: 2em;
     display: flex;
@@ -66,7 +66,7 @@ useHead({
     transition: background-color 0.3s, color 0.3s;
 
     &:hover {
-        color: #30a9de;
+        color: @active-blue;
     }
 
     &.prev {

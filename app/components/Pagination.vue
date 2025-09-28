@@ -88,7 +88,7 @@ function goToPage(page: number) {
 </script>
 
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .pagination {
   display: flex;
   justify-content: center;
@@ -111,7 +111,7 @@ function goToPage(page: number) {
   &:not(.current) {
     &:hover {
       background: #f8f9fa;
-      color: #30a9de;
+      color: @active-blue;
     }
   }
 }

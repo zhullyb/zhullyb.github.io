@@ -1,0 +1,13 @@
+@active-blue: #007bff;
+
+.tablet-down(@rules) {
+    @media (max-width: 768px) {
+        @rules();
+    }
+}
+
+.desktop-down(@rules) {
+    @media (max-width: 1024px) {
+        @rules();
+    }
+}

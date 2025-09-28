@@ -43,7 +43,7 @@ if (posts.value && posts.value.length === 0 && page > 1) {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .post-item {
     margin-bottom: 20px;
 }
@@ -66,7 +66,7 @@ if (posts.value && posts.value.length === 0 && page > 1) {
         text-decoration: none;
 
         &:hover {
-            color: #007bff;
+            color: @active-blue;
         }
     }
 }
@@ -86,7 +86,7 @@ if (posts.value && posts.value.length === 0 && page > 1) {
         text-decoration: none;
         
         &:hover {
-            color: #007bff;
+            color: @active-blue;
         }
     }
 }
@@ -103,7 +103,7 @@ if (posts.value && posts.value.length === 0 && page > 1) {
     word-break: break-word;
 
     &:hover {
-        color: #007bff;
+        color: @active-blue;
     }
 }
 </style>

@@ -29,7 +29,7 @@ const Posts = computed(() => {
 
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .post-item {
     margin-bottom: 20px;
 }

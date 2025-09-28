@@ -22,4 +22,16 @@ export default defineNuxtConfig({
     compatibilityVersion: 4,
   },
   compatibilityDate: '2024-04-03',
+  css: [
+    '@/assets/styles/main.less'
+  ],
+  vite: {
+    css: {
+      preprocessorOptions: {
+        less: {
+          additionalData: `@import "@/assets/styles/mixins.less";`
+        }
+      }
+    }
+  }
 })

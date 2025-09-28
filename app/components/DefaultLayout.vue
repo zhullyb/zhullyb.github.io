@@ -25,7 +25,7 @@ useHead({
 })
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 main {
   width: 50%;
   margin: 40px auto;

@@ -77,7 +77,7 @@ const tagCloudData = computed(() => {
 })
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .tagcloud {
     max-width: 50vw;
     margin: 0 auto;
@@ -91,7 +91,7 @@ const tagCloudData = computed(() => {
     transition: color 0.1s, transform 0.1s;
 
     &:hover {
-        color: #30a9de !important;
+        color: @active-blue !important;
         transform: scale(1.1);
     }
 }
