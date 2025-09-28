@@ -1,17 +1,22 @@
 <template>
-    <header :class="{ 'scrolled': isScrolled }">
+    <header :class="{ 'scrolled': isScrolled, 'show-mobile-menu': showMobileMenu }">
         <div class="header-container">
-            <div class="header-pc">
+            <div class="header">
                 <NuxtLink to="/" class="header-title">{{ appConfig.title }}</NuxtLink>
-                <div>
-                    <NuxtLink v-for="item in appConfig.nav.items" :key="item.link" :to="item.link">{{ item.text }}</NuxtLink>
-                </div>
+                <nav>
+                    <div class="pc-nav">
+                        <NuxtLink v-for="item in appConfig.nav.items" :key="item.link" :to="item.link">{{ item.text }}</NuxtLink>
+                    </div>
+                    <div class="mobile-nav" @click="toggleMobileMenu">
+                        <div class="container">
+                            <div class="mobile-nav-item" v-for="_ in 3"></div>
+                        </div>
+                    </div>
+                </nav>
             </div>
-            <div class="header-mobile">
-                <div>
-                    <span>菜单</span>
-                </div>
-            </div>
+        </div>
+        <div v-if="showMobileMenu" class="mobile-menu-dropdown">
+            <NuxtLink v-for="item in appConfig.nav.items" :key="item.link" :to="item.link" @click="closeMobileMenu">{{ item.text }}</NuxtLink>
         </div>
     </header>
     <div class="banner" :style="bannerStyle">
@@ -68,10 +73,24 @@ const handleScroll = () => {
 onMounted(() => {
     handleScroll()
     window.addEventListener('scroll', handleScroll)
+    document.addEventListener('click', closeMobileMenu)
 })
 onUnmounted(() => {
     window.removeEventListener('scroll', handleScroll)
+    document.removeEventListener('click', closeMobileMenu)
 })
+
+// 移动端菜单控制
+const showMobileMenu = ref(false)
+
+function toggleMobileMenu(e: MouseEvent) {
+    e.stopPropagation()
+    showMobileMenu.value = !showMobileMenu.value
+}
+
+function closeMobileMenu() {
+    showMobileMenu.value = false
+}
 </script>
 
 <style lang="less" scoped>
@@ -79,6 +98,8 @@ onUnmounted(() => {
 header {
     width: 100%;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
     padding-top: 20px;
     padding-bottom: 16px;
@@ -92,24 +113,88 @@ header {
 
     &.scrolled {
         background-color: rgba(60, 70, 88, 0.7);
+        backdrop-filter: blur(3px);
         padding-top: 16px;
         padding-bottom: 16px;
+    }
+
+    &.show-mobile-menu {
+        background-color: rgba(60, 70, 88, 0.7);
+        backdrop-filter: blur(3px);
     }
 }
 
 .header-container {
     color: white;
+    min-width: 70%;
+
+    .tablet-down({
+        min-width: 100%;
+    });
 
     .header-title {
         font-weight: bold;
         text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
     }
+
+    .pc-nav{
+        .tablet-down({
+            display: none;
+        });
+    }
+
+    .mobile-nav{
+        display: none;
+        margin-right: 16px;
+        .tablet-down({
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        });
+
+        .container {
+            width: 25px;
+            height: 20px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &-item {
+            width: 100%;
+            height: 2px;
+            background: white;
+            border-radius: 2px;
+            flex-shrink: 0;
+            margin: 2.5px 0;
+        }
+    }
+
 }
 
-.header-pc {
+.header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.mobile-menu-dropdown {
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 8px 0;
+    a {
+        color: white;
+        padding: 12px 24px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: 500;
+    }
 }
 
 .banner {
@@ -133,6 +218,11 @@ header {
     align-items: center;
     height: 100%;
     color: white;
+    width: 50%;
+
+    .tablet-down({
+        width: 80%;
+    });
 }
 
 .title {
@@ -151,6 +241,12 @@ header {
     color: white;
     padding-top: 56px;
     text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+    margin: auto auto auto 0;
+
+    .tablet-down({
+        text-align: center;
+        margin: auto;
+    });
 }
 
 a {
@@ -158,37 +254,5 @@ a {
     text-decoration: none;
     margin-left: 16px;
     margin-right: 16px;
-}
-
-@media (min-width: 768px) {
-    .header-container {
-        min-width: 70%;
-    }
-
-    .header-mobile {
-        display: none;
-    }
-
-    .title-container {
-        width: 50vw;
-    }
-
-    .title {
-        margin: auto auto auto 0;
-    }
-}
-
-@media (max-width: 768px) {
-    .header-container {
-        width: 90%;
-    }
-
-    .header-pc {
-        display: none;
-    }
-
-    .title {
-        text-align: center;
-    }
 }
 </style>
