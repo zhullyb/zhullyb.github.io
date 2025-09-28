@@ -11,14 +11,17 @@
 
 
 <script setup lang="ts">
+const route = useRoute()
 const props = defineProps({
   title: {
     default: ''
   }
 })
 const appConfig = useAppConfig()
-const randomIndex = Math.floor(Math.random() * appConfig.imgs.length)
-const bannerImg = appConfig.imgs[randomIndex] as string
+const { data: randomIndex } = useAsyncData('randomIndex' + route.path, async () => {
+  return Math.floor(Math.random() * appConfig.imgs.length)
+})
+const bannerImg = computed(() => appConfig.imgs[randomIndex.value ?? 0] as string)
 
 useHead({
   title: props.title || appConfig.title
