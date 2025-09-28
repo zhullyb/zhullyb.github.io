@@ -41,7 +41,15 @@ const nextPost = computed(() => surroundingPosts.value?.[1] || null);
 useHead({
     meta: [
         { name: 'description', content: post.value?.description || '' },
-        { name: 'keywords', content: post.value?.tags?.join(',') || '' }
+        { name: 'keywords', content: (()=>{
+            if (Array.isArray(post.value?.tags)){
+                return post.value?.tags.join(',') || ''
+            }
+            if (typeof post.value?.tags === 'string'){
+                return post.value?.tags || ''
+            }
+            return ''
+        })() }
     ]
 })
 </script>
