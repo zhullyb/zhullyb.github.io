@@ -37,6 +37,13 @@ const surroundingPosts = (await useAsyncData(`surround-${year}-${month}-${day}-$
 
 const prevPost = computed(() => surroundingPosts.value?.[0] || null);
 const nextPost = computed(() => surroundingPosts.value?.[1] || null);
+
+useHead({
+    meta: [
+        { name: 'description', content: post.value?.description || '' },
+        { name: 'keywords', content: post.value?.tags?.join(',') || '' }
+    ]
+})
 </script>
 
 <style lang="scss" scoped>

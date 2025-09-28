@@ -19,6 +19,10 @@ const props = defineProps({
 const appConfig = useAppConfig()
 const randomIndex = Math.floor(Math.random() * appConfig.imgs.length)
 const bannerImg = appConfig.imgs[randomIndex] as string
+
+useHead({
+  title: props.title || appConfig.title
+})
 </script>
 
 <style lang="scss" scoped>

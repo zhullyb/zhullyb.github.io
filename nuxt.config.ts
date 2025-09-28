@@ -1,7 +1,11 @@
+import blogConfig from "./blog.config"
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   app: {
     head: {
+      title: blogConfig.title,
+      htmlAttrs: { lang: 'zh-CN' },
       link: [
         {
           rel: 'stylesheet',
