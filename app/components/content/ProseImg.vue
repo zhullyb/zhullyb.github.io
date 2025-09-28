@@ -1,6 +1,6 @@
 
 <template>
-	<div class="prose-img-wrapper">
+	<span class="prose-img-wrapper">
 		<img
 			:src="src"
 			:alt="alt"
@@ -29,7 +29,7 @@
 					<div v-if="scale !== 1" class="prose-img-preview-scale-indicator">{{ (scale * 100).toFixed(0) }}%</div>
 				</div>
 			</teleport>
-	</div>
+        </span>
 </template>
 
 <script setup lang="ts">
