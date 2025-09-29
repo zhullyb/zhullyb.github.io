@@ -24,7 +24,15 @@ const { data: randomIndex } = useAsyncData('randomIndex' + route.path, async () 
 const bannerImg = computed(() => appConfig.imgs[randomIndex.value ?? 0] as string)
 
 useHead({
-  title: props.title || appConfig.title
+  title: props.title || appConfig.title,
+  link: [
+    {
+      rel: 'preload',
+      as: 'image',
+      href: bannerImg.value,
+      fetchpriority: 'high'
+    }
+  ]
 })
 </script>
 
