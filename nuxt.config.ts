@@ -25,8 +25,23 @@ export default defineNuxtConfig({
     }
   },
   modules: [
+    '@nuxtjs/seo',
     '@nuxt/content',
   ],
+  linkChecker: {
+    skipInspections: [
+      'no-non-ascii-chars',
+      'no-uppercase-chars',
+      'trailing-slash',
+      'absolute-site-urls'
+    ]
+  },
+  site: {
+    url: blogConfig.url,
+    name: blogConfig.title,
+    description: blogConfig.description,
+    defaultLocale: 'zh-CN',
+  },
   devtools: { enabled: true },
   future: {
     compatibilityVersion: 4,
