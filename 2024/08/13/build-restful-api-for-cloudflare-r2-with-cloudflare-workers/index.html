@@ -28,23 +28,23 @@
 <meta property="og:site_name" content="竹林里有冰的博客">
 <meta property="og:description" content="访问 R2 的两种方式一般来说，想要访问 Cloudflare R2 中的文件，会有两种方式。 一种是在 R2 的设置界面设置自定义域 另一种是通过 Cloudflare Workers 进行访问  那么应该选择哪种？选择 Cloudflare Workers！ 为什么是 Cloudflare Workers？要回答这个问题比较困难，但可以回答另一个问题——「为什么不设置自定义域实现直接访问？」">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://static.031130.xyz/uploads/2024/08/13/61fe9ede194af.webp">
-<meta property="og:image" content="https://static.031130.xyz/uploads/2024/08/13/846164273571d.webp">
-<meta property="og:image" content="https://static.031130.xyz/uploads/2024/08/13/03d8243b67593.webp">
-<meta property="og:image" content="https://static.031130.xyz/uploads/2024/08/13/b4d1b5b3edfae.webp">
+<meta property="og:image" content="https://r2-reverse.5435486.xyz/uploads/2024/08/13/61fe9ede194af.webp">
+<meta property="og:image" content="https://r2-reverse.5435486.xyz/uploads/2024/08/13/846164273571d.webp">
+<meta property="og:image" content="https://r2-reverse.5435486.xyz/uploads/2024/08/13/03d8243b67593.webp">
+<meta property="og:image" content="https://r2-reverse.5435486.xyz/uploads/2024/08/13/b4d1b5b3edfae.webp">
 <meta property="og:image" content="https://docs.aws.amazon.com/zh_cn/IAM/latest/UserGuide/images/sigV4-using-auth-header.png">
-<meta property="og:image" content="https://static.031130.xyz/uploads/2024/08/13/45e58b47f3aeb.webp">
-<meta property="og:image" content="https://static.031130.xyz/uploads/2024/08/13/45e58b47f3aeb.webp">
-<meta property="og:image" content="https://static.031130.xyz/uploads/2024/08/14/96da1f62f5fe7.webp">
+<meta property="og:image" content="https://r2-reverse.5435486.xyz/uploads/2024/08/13/45e58b47f3aeb.webp">
+<meta property="og:image" content="https://r2-reverse.5435486.xyz/uploads/2024/08/13/45e58b47f3aeb.webp">
+<meta property="og:image" content="https://r2-reverse.5435486.xyz/uploads/2024/08/14/96da1f62f5fe7.webp">
 <meta property="article:published_time" content="2024-08-13T14:58:26.000Z">
-<meta property="article:modified_time" content="2024-11-15T18:02:30.000Z">
+<meta property="article:modified_time" content="2025-10-03T14:49:57.000Z">
 <meta property="article:author" content="竹林里有冰">
 <meta property="article:tag" content="图床">
 <meta property="article:tag" content="Cloudflare">
 <meta property="article:tag" content="JavaScript">
 <meta property="article:tag" content="Python">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://static.031130.xyz/uploads/2024/08/13/61fe9ede194af.webp">
+<meta name="twitter:image" content="https://r2-reverse.5435486.xyz/uploads/2024/08/13/61fe9ede194af.webp">
   
   
   
@@ -90,7 +90,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"zhul.in","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"zhul.in","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f800fc26770.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -104,7 +104,7 @@
 
   
 <!-- hexo injector head_end start -->
-  <link rel="preconnect" href="//static.031130.xyz">
+  <link rel="preconnect" href="//r2-reverse.5435486.xyz">
 <script async defer data-website-id="5346b89b-f4bf-4593-971d-1f41a1118bc1" src="/custom.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/rss.xml" title="竹林里有冰的博客" type="application/atom+xml">
 </head>
 
@@ -340,7 +340,7 @@
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2024年11月16日 凌晨
+                    本文最后更新于：2025年10月3日 晚上
                   
                 
               </p>
@@ -349,24 +349,24 @@
               <div class="markdown-body">
                 
                 <h2 id="访问-R2-的两种方式"><a href="#访问-R2-的两种方式" class="headerlink" title="访问 R2 的两种方式"></a>访问 R2 的两种方式</h2><p>一般来说，想要访问 Cloudflare R2 中的文件，会有两种方式。</p>
-<h3 id="一种是在-R2-的设置界面设置自定义域"><a href="#一种是在-R2-的设置界面设置自定义域" class="headerlink" title="一种是在 R2 的设置界面设置自定义域"></a>一种是在 R2 的设置界面设置自定义域</h3><p><img src="https://static.031130.xyz/uploads/2024/08/13/61fe9ede194af.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="设置自定义域"></p>
-<h3 id="另一种是通过-Cloudflare-Workers-进行访问"><a href="#另一种是通过-Cloudflare-Workers-进行访问" class="headerlink" title="另一种是通过 Cloudflare Workers 进行访问"></a>另一种是通过 Cloudflare Workers 进行访问</h3><p><img src="https://static.031130.xyz/uploads/2024/08/13/846164273571d.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="通过 Cloudflare Workers"></p>
+<h3 id="一种是在-R2-的设置界面设置自定义域"><a href="#一种是在-R2-的设置界面设置自定义域" class="headerlink" title="一种是在 R2 的设置界面设置自定义域"></a>一种是在 R2 的设置界面设置自定义域</h3><p><img src="https://r2-reverse.5435486.xyz/uploads/2024/08/13/61fe9ede194af.webp" srcset="https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="设置自定义域"></p>
+<h3 id="另一种是通过-Cloudflare-Workers-进行访问"><a href="#另一种是通过-Cloudflare-Workers-进行访问" class="headerlink" title="另一种是通过 Cloudflare Workers 进行访问"></a>另一种是通过 Cloudflare Workers 进行访问</h3><p><img src="https://r2-reverse.5435486.xyz/uploads/2024/08/13/846164273571d.webp" srcset="https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="通过 Cloudflare Workers"></p>
 <hr>
 <p><strong>那么应该选择哪种？选择 Cloudflare Workers！</strong></p>
 <h2 id="为什么是-Cloudflare-Workers？"><a href="#为什么是-Cloudflare-Workers？" class="headerlink" title="为什么是 Cloudflare Workers？"></a>为什么是 Cloudflare Workers？</h2><p>要回答这个问题比较困难，但可以回答另一个问题——「为什么不设置自定义域实现直接访问？」</p>
 <h3 id="自定义域的访问存在限制"><a href="#自定义域的访问存在限制" class="headerlink" title="自定义域的访问存在限制"></a>自定义域的访问存在限制</h3><p>设置自定义域的访问方式存在较多的限制，让我们先来复习一下<a href="/2024/08/12/new-picbed-based-on-cloudflare-and-upyun/">上一篇博客中</a>提到的 DNS 解析方案 1</p>
-<p><img src="https://static.031130.xyz/uploads/2024/08/13/03d8243b67593.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="DNS 解析方案 1"></p>
+<p><img src="https://r2-reverse.5435486.xyz/uploads/2024/08/13/03d8243b67593.webp" srcset="https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="DNS 解析方案 1"></p>
 <p>在这里，我们需要将图床访问域名通过 NS 接入 DnsPod 实现境内外的分流，但 R2 所允许设置的自定义域必须是通过 NS 接入 Cloudflare 的，这存在冲突。那如果我们先将自定义域设置为通过 NS 接入 Cloudflare 的工具人域名，再将图床访问域名通过 CNAME 解析到工具人域名会不会有问题呢？恭喜你获得 403 Forbidden。</p>
 <p>如果通过<a href="/2024/08/12/new-picbed-based-on-cloudflare-and-upyun/">上一篇文章</a>中的 DNS 解析方案 2 来进行 DNS 解析，能不能成功设置为 Cloudflare R2 的自定义域呢？也不行，Cloudflare R2 的自定义域会占用域名的解析，这意味着你无法将图床访问域名解析到用于分流的工具人域名。</p>
 <hr>
 <p><strong>结论：截至本文写作时间，设置自定义域的方案不适用于 DNS 分流的图床架构。</strong></p>
 <h3 id="如何上传文件到-Cloudflare-R2？"><a href="#如何上传文件到-Cloudflare-R2？" class="headerlink" title="如何上传文件到 Cloudflare R2？"></a>如何上传文件到 Cloudflare R2？</h3><h4 id="网页端直接上传"><a href="#网页端直接上传" class="headerlink" title="网页端直接上传"></a>网页端直接上传</h4><p>最简单的上传方式是直接在 Cloudflare 进行网页上传，但这种方案不适合自动化脚本，也没法接入 Typora</p>
-<p><img src="https://static.031130.xyz/uploads/2024/08/13/b4d1b5b3edfae.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="直接在网页端进行上传"></p>
+<p><img src="https://r2-reverse.5435486.xyz/uploads/2024/08/13/b4d1b5b3edfae.webp" srcset="https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="直接在网页端进行上传"></p>
 <h4 id="使用-Amazon-S3-的兼容-API"><a href="#使用-Amazon-S3-的兼容-API" class="headerlink" title="使用 Amazon S3 的兼容 API"></a>使用 Amazon S3 的兼容 API</h4><h5 id="手动调用-S3-API"><a href="#手动调用-S3-API" class="headerlink" title="手动调用 S3 API"></a>手动调用 S3 API</h5><p>Cloudflare R2 被设计为兼容 Amazon S3 的存储方案，自然兼容 Amazon S3 的上传 API，在 <a target="_blank" rel="noopener" href="https://developers.cloudflare.com/r2/api/s3/api/">Cloudflare Docs 中有关于 S3 API 的实现情况</a>记载，大部分接口功能都是实现了的。但。。。但 S3 使用的是 <a target="_blank" rel="noopener" href="https://docs.aws.amazon.com/zh_cn/IAM/latest/UserGuide/create-signed-request.html">AWS Signature</a> 作为鉴权，你不会希望在每个自动化程序中都自己实现一次的。。。</p>
-<p><img src="https://docs.aws.amazon.com/zh_cn/IAM/latest/UserGuide/images/sigV4-using-auth-header.png" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="https://docs.aws.amazon.com/zh_cn/IAM/latest/UserGuide/images/sigV4-using-auth-header.png"></p>
+<p><img src="https://docs.aws.amazon.com/zh_cn/IAM/latest/UserGuide/images/sigV4-using-auth-header.png" srcset="https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="https://docs.aws.amazon.com/zh_cn/IAM/latest/UserGuide/images/sigV4-using-auth-header.png"></p>
 <h5 id="使用-aws-cli-等-SDK"><a href="#使用-aws-cli-等-SDK" class="headerlink" title="使用 aws-cli 等 SDK"></a>使用 aws-cli 等 SDK</h5><p>使用 aws-cli 可以自动实现计算 AWS Signature，这是一种可行的方案，但我可能会在别的服务中使用到我的图床，不是所有的服务所处的环境都能够执行 shell 命令，也不是所有的编程语言都有现成的 SDK 可用。</p>
 <h4 id="使用-Cloudflare-Workers-构建-Restful-API"><a href="#使用-Cloudflare-Workers-构建-Restful-API" class="headerlink" title="使用 Cloudflare Workers 构建 Restful API"></a>使用 Cloudflare Workers 构建 Restful API</h4><p><a target="_blank" rel="noopener" href="https://developers.cloudflare.com/r2/api/workers/workers-api-usage/#5-access-your-r2-bucket-from-your-worker">在 Cloudflare Docs 中明确提出可以使用 Cloudflare Workers 访问 Cloudflare R2 Bucket，</a>通过 Workers 设置界面的按钮，可以非常方便的将 R2 Bucket 作为一个 R2Object 绑定到 JavaScript 的一个变量中，<a target="_blank" rel="noopener" href="https://developers.cloudflare.com/r2/api/workers/workers-api-reference/">这里有相关的开发文档</a>。</p>
-<p><img src="https://static.031130.xyz/uploads/2024/08/13/45e58b47f3aeb.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="绑定为变量"></p>
+<p><img src="https://r2-reverse.5435486.xyz/uploads/2024/08/13/45e58b47f3aeb.webp" srcset="https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="绑定为变量"></p>
 <hr>
 <p><strong>结论: 从易用性上来看，使用 Cloudflare Workers 构建 Restful API 这种上传文件的方案是最为合适的。</strong></p>
 <h2 id="使用-Cloudflare-Workers-构建-Restful-API-的方案有没有什么缺点？"><a href="#使用-Cloudflare-Workers-构建-Restful-API-的方案有没有什么缺点？" class="headerlink" title="使用 Cloudflare Workers 构建 Restful API 的方案有没有什么缺点？"></a>使用 Cloudflare Workers 构建 Restful API 的方案有没有什么缺点？</h2><p>有。</p>
@@ -449,9 +449,9 @@
 <li>解出请求路径时，使用 decodeURI( ) 方法先进行解码，解决文件路径中含有中文时会导致请求失败的问题。</li>
 </ul>
 <p>填入代码后，还需要绑定两个变量，一个是 R2 Bucket</p>
-<p><img src="https://static.031130.xyz/uploads/2024/08/13/45e58b47f3aeb.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
+<p><img src="https://r2-reverse.5435486.xyz/uploads/2024/08/13/45e58b47f3aeb.webp" srcset="https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
 <p>另一个是自己的管理密码</p>
-<p><img src="https://static.031130.xyz/uploads/2024/08/14/96da1f62f5fe7.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
+<p><img src="https://r2-reverse.5435486.xyz/uploads/2024/08/14/96da1f62f5fe7.webp" srcset="https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
 <h2 id="如何使用-Cloudflare-Workers-构建的-Restful-API-进行文件操作？"><a href="#如何使用-Cloudflare-Workers-构建的-Restful-API-进行文件操作？" class="headerlink" title="如何使用 Cloudflare Workers 构建的 Restful API 进行文件操作？"></a>如何使用 Cloudflare Workers 构建的 Restful API 进行文件操作？</h2><h3 id="上传"><a href="#上传" class="headerlink" title="上传"></a>上传</h3><p>以 python 为例，上传一个文件 1MB.bin 到 /example/ 目录下，上传的 url 就是文件最终的存在路径。</p>
 <div class="code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">import</span> requests
 
@@ -539,7 +539,7 @@ requests.delete(
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2024年11月16日</div>
+          <div>2025年10月3日</div>
         </div>
       
       
@@ -611,8 +611,8 @@ requests.delete(
   <div id="waline"></div>
   <script type="text/javascript">
     Fluid.utils.loadComments('#waline', function() {
-      Fluid.utils.createCssLink('https://static.031130.xyz/res/waline.css')
-      Fluid.utils.createScript('https://static.031130.xyz/res/waline.js', function() {
+      Fluid.utils.createCssLink('https://r2-reverse.5435486.xyz/res/waline.css')
+      Fluid.utils.createScript('https://r2-reverse.5435486.xyz/res/waline.js', function() {
         var options = Object.assign(
           {"serverURL":"https://waline.zhul.in","path":"window.location.pathname","meta":["nick","mail","link"],"requiredMeta":["nick"],"lang":"zh-CN","emoji":["https://registry.npmmirror.com/@waline/emojis/^1/files/weibo"],"dark":"html[data-user-color-scheme=\"dark\"]","wordLimit":0,"pageSize":10,"login":"disable","locale":{"placeholder":"快发个评论让我知道你在看（x"}},
           {
@@ -728,7 +728,7 @@ requests.delete(
     <div class="footer-inner">
   
     <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br /> <a href="https://notbyai.fyi/" target="_blank"><img style="max-height: 50px; margin: 10px" src=https://static.031130.xyz/uploads/2024/08/28/ae6dd98bdf60e.png alt="written by human, not by AI" /></a> <br /> <iframe frameborder=0 src="https://support.nodeget.com/page/promotion?id=61" style="border-radius:8px; border: none; height: 246px; transform: scale(0.8);"> </iframe> <br /> <span>本网站由 <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img style="max-height: 50px;" loading="lazy" src="https://static.031130.xyz/uploads/2024/08/12/ba8d70971c408.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="又拍云 Logo" /></a> 提供 CDN 加速/云存储服务</span> 
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br /> <a href="https://notbyai.fyi/" target="_blank"><img style="max-height: 50px; margin: 10px" src=https://r2-reverse.5435486.xyz/uploads/2024/08/28/ae6dd98bdf60e.png alt="written by human, not by AI" /></a> <br /> <iframe frameborder=0 src="https://support.nodeget.com/page/promotion?id=61" style="border-radius:8px; border: none; height: 246px; transform: scale(0.8);"> </iframe> <br /> <span>本网站由 <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img style="max-height: 50px;" loading="lazy" src="https://r2-reverse.5435486.xyz/uploads/2024/08/12/ba8d70971c408.webp" srcset="https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="又拍云 Logo" /></a> 提供 CDN 加速/云存储服务</span> 
     </div>
   
   
@@ -894,36 +894,36 @@ requests.delete(
 <!-- hexo injector body_end start -->
 <script>
     const imgs = [
-        "https://static.031130.xyz/uploads/2024/08/12/62f373292129a.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f3732b562d8.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f3732d6ebe2.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f3732f6b225.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f37332b1c8b.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f37338661d8.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f3733c35741.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f3733deca7f.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f373406909e.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f373423b6c0.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f37343c5254.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f37345532e7.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f373479efcf.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f3734a2de90.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f3734bea5a7.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f3734dc3404.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f3734fe20d3.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f37351bae52.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f373539bd9f.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f37354f1ec7.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f373569f4ef.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f3735851795.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f37359a2c36.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/5fd959de5f180.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/1ef8787039f53.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/fb261297a3570.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f374ea7b242.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f374ec8c14d.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/6609df9b83ecd.webp",
-        "https://static.031130.xyz/uploads/2025/05/04/e1aa9e18bebb1.webp"
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f373292129a.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3732b562d8.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3732d6ebe2.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3732f6b225.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f37332b1c8b.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f37338661d8.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3733c35741.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3733deca7f.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f373406909e.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f373423b6c0.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f37343c5254.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f37345532e7.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f373479efcf.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3734a2de90.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3734bea5a7.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3734dc3404.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3734fe20d3.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f37351bae52.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f373539bd9f.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f37354f1ec7.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f373569f4ef.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3735851795.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f37359a2c36.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/5fd959de5f180.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/1ef8787039f53.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/fb261297a3570.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f374ea7b242.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f374ec8c14d.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/6609df9b83ecd.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2025/05/04/e1aa9e18bebb1.webp"
     ]
 
     const luck_img = imgs[Math.floor(Math.random() * imgs.length)]

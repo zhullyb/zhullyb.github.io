@@ -28,9 +28,9 @@
 <meta property="og:site_name" content="竹林里有冰的博客">
 <meta property="og:description" content="几个月前，由于众所周知的原因，中国大陆境内失去了所有公共的 dockerhub 镜像（或者说是反代）。网上随即涌现了一批自建 dockerhub 反代的，有用 Cloudflare Workers 的，也有用 nginx 的，甚至还有自建 registry 的。我使用 caddy 的原因很简单，一是配置简单，而是通过一台国内访问质量良好的境外服务器进行反向代理的访问质量会比 Cloudflare">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://static.031130.xyz/uploads/2024/09/21/46f7b160e6e56.webp">
+<meta property="og:image" content="https://r2-reverse.5435486.xyz/uploads/2024/09/21/46f7b160e6e56.webp">
 <meta property="article:published_time" content="2024-09-20T17:29:17.000Z">
-<meta property="article:modified_time" content="2024-11-15T18:02:30.000Z">
+<meta property="article:modified_time" content="2025-10-03T14:49:57.000Z">
 <meta property="article:author" content="竹林里有冰">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="Network">
@@ -38,7 +38,7 @@
 <meta property="article:tag" content="mitmproxy">
 <meta property="article:tag" content="Docker">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://static.031130.xyz/uploads/2024/09/21/46f7b160e6e56.webp">
+<meta name="twitter:image" content="https://r2-reverse.5435486.xyz/uploads/2024/09/21/46f7b160e6e56.webp">
   
   
   
@@ -84,7 +84,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"zhul.in","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"zhul.in","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f800fc26770.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -98,7 +98,7 @@
 
   
 <!-- hexo injector head_end start -->
-  <link rel="preconnect" href="//static.031130.xyz">
+  <link rel="preconnect" href="//r2-reverse.5435486.xyz">
 <script async defer data-website-id="5346b89b-f4bf-4593-971d-1f41a1118bc1" src="/custom.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/rss.xml" title="竹林里有冰的博客" type="application/atom+xml">
 </head>
 
@@ -334,7 +334,7 @@
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2024年11月16日 凌晨
+                    本文最后更新于：2025年10月3日 晚上
                   
                 
               </p>
@@ -356,15 +356,15 @@ Environment=<span class="hljs-string">&quot;HTTPS_PROXY=http://127.0.0.1:8080&qu
 <p>重启完 systemd 服务，万事俱备，我拉取了一个较小的 docker 镜像，顺利得到了预期的结果。</p>
 <div class="code-wrapper"><pre><code class="hljs bash">docker pull svenstaro/miniserve:latest</code></pre></div>
 
-<p><img src="https://static.031130.xyz/uploads/2024/09/21/acbee0959be78.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="抓包结果"></p>
+<p><img src="https://r2-reverse.5435486.xyz/uploads/2024/09/21/acbee0959be78.webp" srcset="https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="抓包结果"></p>
 <p>docker 先请求了 <code>registry-1.docker.io</code> 得到了 401 的 http 状态码后转去访问了 <code>auth.docker.io</code>，得到了 Authorization 字段以后重新请求 <code>registry-1.docker.io</code>，获取源数据后被 307 转发到了 <code>production.cloudflare.docker.com</code> 上。</p>
 <p>其中，第一个 401 响应的响应头中，用 WWW-Authenticate 字段标注了 auth 鉴权的域</p>
-<p><img src="https://static.031130.xyz/uploads/2024/09/21/e905c55e76a25.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="WWW-Authenticate"></p>
+<p><img src="https://r2-reverse.5435486.xyz/uploads/2024/09/21/e905c55e76a25.webp" srcset="https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="WWW-Authenticate"></p>
 <p>而 307 响应的响应头中，使用 Location 字段标注了被转发到的 url</p>
-<p><img src="https://static.031130.xyz/uploads/2024/09/21/6a2e0bf6a8284.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="Location"></p>
+<p><img src="https://r2-reverse.5435486.xyz/uploads/2024/09/21/6a2e0bf6a8284.webp" srcset="https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="Location"></p>
 <h2 id="三个域名都需要反向代理嘛？"><a href="#三个域名都需要反向代理嘛？" class="headerlink" title="三个域名都需要反向代理嘛？"></a>三个域名都需要反向代理嘛？</h2><p>首先，作为我们提供反代服务的入口，<code>registry-1.docker.io</code> 一定是需要代理的，否则就无法提供反代后的服务。</p>
 <p><code>auth.docker.io</code> 只出现了一次，需要反代嘛？根据它在境内的访问质量，恐怕是需要反代的。</p>
-<p><img src="https://static.031130.xyz/uploads/2024/09/21/4a70c8cac6a4c.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="auth.docker.io"></p>
+<p><img src="https://r2-reverse.5435486.xyz/uploads/2024/09/21/4a70c8cac6a4c.webp" srcset="https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="auth.docker.io"></p>
 <p>最后就是 <code>production.cloudflare.docker.com</code> ，这也是我们最终下载镜像文件的地方，99% 以上的流量都是打到这里去的，而 cloudflare 在境内的访问质量是知名的减速器，完全不可以信赖。</p>
 <p><strong>因此，三个域名都需要反代。</strong></p>
 <h2 id="如何反代"><a href="#如何反代" class="headerlink" title="如何反代"></a>如何反代</h2><p>分三个域名各自代理，在 <code>registry-1.docker.io</code> 那一块进行特殊处理，将响应头中的 WWW-Authenticate 和 location 字段进行关键词替换，将原域名替换为反代域名。</p>
@@ -464,7 +464,7 @@ EOF
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2024年11月16日</div>
+          <div>2025年10月3日</div>
         </div>
       
       
@@ -536,8 +536,8 @@ EOF
   <div id="waline"></div>
   <script type="text/javascript">
     Fluid.utils.loadComments('#waline', function() {
-      Fluid.utils.createCssLink('https://static.031130.xyz/res/waline.css')
-      Fluid.utils.createScript('https://static.031130.xyz/res/waline.js', function() {
+      Fluid.utils.createCssLink('https://r2-reverse.5435486.xyz/res/waline.css')
+      Fluid.utils.createScript('https://r2-reverse.5435486.xyz/res/waline.js', function() {
         var options = Object.assign(
           {"serverURL":"https://waline.zhul.in","path":"window.location.pathname","meta":["nick","mail","link"],"requiredMeta":["nick"],"lang":"zh-CN","emoji":["https://registry.npmmirror.com/@waline/emojis/^1/files/weibo"],"dark":"html[data-user-color-scheme=\"dark\"]","wordLimit":0,"pageSize":10,"login":"disable","locale":{"placeholder":"快发个评论让我知道你在看（x"}},
           {
@@ -653,7 +653,7 @@ EOF
     <div class="footer-inner">
   
     <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br /> <a href="https://notbyai.fyi/" target="_blank"><img style="max-height: 50px; margin: 10px" src=https://static.031130.xyz/uploads/2024/08/28/ae6dd98bdf60e.png alt="written by human, not by AI" /></a> <br /> <iframe frameborder=0 src="https://support.nodeget.com/page/promotion?id=61" style="border-radius:8px; border: none; height: 246px; transform: scale(0.8);"> </iframe> <br /> <span>本网站由 <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img style="max-height: 50px;" loading="lazy" src="https://static.031130.xyz/uploads/2024/08/12/ba8d70971c408.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="又拍云 Logo" /></a> 提供 CDN 加速/云存储服务</span> 
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br /> <a href="https://notbyai.fyi/" target="_blank"><img style="max-height: 50px; margin: 10px" src=https://r2-reverse.5435486.xyz/uploads/2024/08/28/ae6dd98bdf60e.png alt="written by human, not by AI" /></a> <br /> <iframe frameborder=0 src="https://support.nodeget.com/page/promotion?id=61" style="border-radius:8px; border: none; height: 246px; transform: scale(0.8);"> </iframe> <br /> <span>本网站由 <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img style="max-height: 50px;" loading="lazy" src="https://r2-reverse.5435486.xyz/uploads/2024/08/12/ba8d70971c408.webp" srcset="https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="又拍云 Logo" /></a> 提供 CDN 加速/云存储服务</span> 
     </div>
   
   
@@ -819,36 +819,36 @@ EOF
 <!-- hexo injector body_end start -->
 <script>
     const imgs = [
-        "https://static.031130.xyz/uploads/2024/08/12/62f373292129a.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f3732b562d8.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f3732d6ebe2.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f3732f6b225.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f37332b1c8b.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f37338661d8.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f3733c35741.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f3733deca7f.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f373406909e.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f373423b6c0.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f37343c5254.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f37345532e7.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f373479efcf.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f3734a2de90.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f3734bea5a7.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f3734dc3404.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f3734fe20d3.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f37351bae52.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f373539bd9f.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f37354f1ec7.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f373569f4ef.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f3735851795.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f37359a2c36.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/5fd959de5f180.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/1ef8787039f53.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/fb261297a3570.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f374ea7b242.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f374ec8c14d.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/6609df9b83ecd.webp",
-        "https://static.031130.xyz/uploads/2025/05/04/e1aa9e18bebb1.webp"
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f373292129a.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3732b562d8.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3732d6ebe2.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3732f6b225.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f37332b1c8b.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f37338661d8.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3733c35741.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3733deca7f.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f373406909e.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f373423b6c0.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f37343c5254.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f37345532e7.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f373479efcf.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3734a2de90.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3734bea5a7.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3734dc3404.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3734fe20d3.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f37351bae52.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f373539bd9f.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f37354f1ec7.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f373569f4ef.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3735851795.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f37359a2c36.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/5fd959de5f180.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/1ef8787039f53.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/fb261297a3570.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f374ea7b242.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f374ec8c14d.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/6609df9b83ecd.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2025/05/04/e1aa9e18bebb1.webp"
     ]
 
     const luck_img = imgs[Math.floor(Math.random() * imgs.length)]

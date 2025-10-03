@@ -28,20 +28,20 @@
 <meta property="og:site_name" content="竹林里有冰的博客">
 <meta property="og:description" content="起因受一些客观因素的影响，微精弘前一阵子针对学校教务系统的数据爬取服务状态出现了非常不稳定的状态，而后端在设计初并没有考虑到异常告警机制，恰逢现任员工都身陷期末周的痛苦之中，我这种计院 Lite 专业的精弘老人就打算实现一个针对「微精弘主后端 &lt;-&gt;  funnel 爬虫服务 &lt;-&gt; 教务系统」这一条链路的告警机制。旨在短期内（即期末周结束之前）填补微精弘的后端服务告警机制">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://static.031130.xyz/uploads/2025/01/19/74362573e371d.webp">
-<meta property="og:image" content="https://static.031130.xyz/uploads/2025/01/19/f817539504140.webp">
-<meta property="og:image" content="https://static.031130.xyz/uploads/2025/01/20/bf105c9fc18a3.webp">
-<meta property="og:image" content="https://static.031130.xyz/uploads/2025/01/20/fb463f45038ac.webp">
-<meta property="og:image" content="https://static.031130.xyz/uploads/2025/01/19/83f69aff3a7b4.webp">
+<meta property="og:image" content="https://r2-reverse.5435486.xyz/uploads/2025/01/19/74362573e371d.webp">
+<meta property="og:image" content="https://r2-reverse.5435486.xyz/uploads/2025/01/19/f817539504140.webp">
+<meta property="og:image" content="https://r2-reverse.5435486.xyz/uploads/2025/01/20/bf105c9fc18a3.webp">
+<meta property="og:image" content="https://r2-reverse.5435486.xyz/uploads/2025/01/20/fb463f45038ac.webp">
+<meta property="og:image" content="https://r2-reverse.5435486.xyz/uploads/2025/01/19/83f69aff3a7b4.webp">
 <meta property="article:published_time" content="2025-01-17T18:00:08.000Z">
-<meta property="article:modified_time" content="2025-01-19T18:20:48.000Z">
+<meta property="article:modified_time" content="2025-10-03T14:49:57.000Z">
 <meta property="article:author" content="竹林里有冰">
 <meta property="article:tag" content="Network">
 <meta property="article:tag" content="Cloudflare">
 <meta property="article:tag" content="JavaScript">
 <meta property="article:tag" content="crontab">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://static.031130.xyz/uploads/2025/01/19/74362573e371d.webp">
+<meta name="twitter:image" content="https://r2-reverse.5435486.xyz/uploads/2025/01/19/74362573e371d.webp">
   
   
   
@@ -87,7 +87,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"zhul.in","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"zhul.in","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f800fc26770.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -101,7 +101,7 @@
 
   
 <!-- hexo injector head_end start -->
-  <link rel="preconnect" href="//static.031130.xyz">
+  <link rel="preconnect" href="//r2-reverse.5435486.xyz">
 <script async defer data-website-id="5346b89b-f4bf-4593-971d-1f41a1118bc1" src="/custom.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/rss.xml" title="竹林里有冰的博客" type="application/atom+xml">
 </head>
 
@@ -337,7 +337,7 @@
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2025年1月20日 凌晨
+                    本文最后更新于：2025年10月3日 晚上
                   
                 
               </p>
@@ -346,7 +346,7 @@
               <div class="markdown-body">
                 
                 <h2 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h2><p>受一些客观因素的影响，微精弘前一阵子针对学校教务系统的数据爬取服务状态出现了非常不稳定的状态，而后端在设计初并没有考虑到异常告警机制，恰逢现任员工都身陷期末周的痛苦之中，我这种计院 Lite 专业的精弘老人就打算实现一个针对「<strong>微精弘主后端 &lt;-&gt;  funnel 爬虫服务 &lt;-&gt; 教务系统</strong>」这一条链路的告警机制。旨在短期内（即期末周结束之前）填补微精弘的后端服务告警机制的空白，让运维人员能够及时收到并处理排查后端网络链路的异常情况，尽最大努力保证服务在线率，保障工大本科生在期末周内使用体验。</p>
-<h2 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h2><p><img src="https://static.031130.xyz/uploads/2025/01/19/74362573e371d.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="微精弘的技术架构图"></p>
+<h2 id="需求分析"><a href="#需求分析" class="headerlink" title="需求分析"></a>需求分析</h2><p><img src="https://r2-reverse.5435486.xyz/uploads/2025/01/19/74362573e371d.webp" srcset="https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="微精弘的技术架构图"></p>
 <blockquote>
 <p>如果你不知道微精弘的具体架构实现，这里有一篇由前技术总监提笔并由现任技术总监完善的架构杂谈「<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/8d6JAPsLa4TzLr50uDG8uw">微精弘 | 架构杂谈</a>」，原文最初发表于前者的<a target="_blank" rel="noopener" href="https://blog.cnpatrickstar.com/posts/wejh-architecture/">博客</a>。</p>
 </blockquote>
@@ -360,7 +360,7 @@
 <h2 id="技术选型"><a href="#技术选型" class="headerlink" title="技术选型"></a>技术选型</h2><p>结合我已有的经验，我选用了 <strong>Cloudflare Worker</strong> 来完成这个任务。Cloudflare Workers 本身是支持 <strong>cron job</strong> 的，能够以分钟级为单位的间隔对服务进行主动探测。Cloudflare 每天都有 10w 次免费的 Workers 调用额度，本身的服务在线率也过硬，唯一的缺点可能就是海外节点访问国内服务器的延迟过高了。不过考虑到我们探测的是在线情况而非延迟情况，倒也不是不能接受。</p>
 <p>由于服务特性的关系，我们容许一定的访问失败概率。比如五次访问中如果有两三次失败，我们也认为线路是通的，<del>可能只是教务系统的土豆快熟了</del>。因此并不是每一次失败的探测都需要进行告警。另外，我们还需要记录当前的服务状态，一旦服务被认定为下线状态，后续探测失败我们就不再进行告警，直到我们重新判定服务状态为上线（即每段连续的下线时间都只触发一次告警）。Cloudflare Worker 是一种 serverless 服务，且每次执行探测任务的可能都不是同一个 Cloudflare 的边缘节点，因此我们没法使用变量在内存中记录目前的服务状态，需要引入外部数据库来完成短期内的数据存储。</p>
 <p>在数据库上，我们必须选择 Cloudflare 自家的在线数据库服务，通过 Cloudflare 自己内部的网络传输数据库查询结果才能得到尽可能低的延迟。在一番考量过后，KV 数据库和 SQL 数据库中，我果断选择了 <strong>Cloudflare D1</strong> 这个 SQL 数据库（本质是 SQLite），D1 数据库以更长的查询时间换取数据的实时性。Cloudflare 为免费用户提供了每天 500w 行读取和 10w 行写入的免费额度，只要好好加以利用，就不太可能超出限额。后续我还考虑通过这些数据库的数据使用 Cloudflare Worker 构建 uptime status 的后端 API，实现一个类似 status.openai.com 的在线服务状态可视化界面。</p>
-<p><img src="https://static.031130.xyz/uploads/2025/01/19/f817539504140.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="OpenAI 的 uptime status"></p>
+<p><img src="https://r2-reverse.5435486.xyz/uploads/2025/01/19/f817539504140.webp" srcset="https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="OpenAI 的 uptime status"></p>
 <h2 id="登陆-wrangler"><a href="#登陆-wrangler" class="headerlink" title="登陆 wrangler"></a>登陆 wrangler</h2><div class="code-wrapper"><pre><code class="hljs bash">wrangler login</code></pre></div>
 
 <h2 id="项目初始化"><a href="#项目初始化" class="headerlink" title="项目初始化"></a>项目初始化</h2><p>由于之前有过一些编写 Cloudflare Workers 的经验，我深知在 Cloudflare 网页的 code server 编辑器上编辑单文件的 worker.js 的不便，选择使用 Cloudflare 官方推出的工具 <a target="_blank" rel="noopener" href="https://developers.cloudflare.com/workers/wrangler/">wrangler</a> 进行项目的初始化。</p>
@@ -371,7 +371,7 @@
 <p>Q: Which template would you like to use?<br>A: Hello World Worker </p>
 <p>Q: Which language do you want to use?<br>A: TypeScript</p>
 </blockquote>
-<p><img src="https://static.031130.xyz/uploads/2025/01/20/bf105c9fc18a3.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="得到的项目结构"></p>
+<p><img src="https://r2-reverse.5435486.xyz/uploads/2025/01/20/bf105c9fc18a3.webp" srcset="https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="得到的项目结构"></p>
 <p>我们只需要在 <code>index.ts</code> 中编写我们的主要逻辑即可。</p>
 <h2 id="数据库初始化"><a href="#数据库初始化" class="headerlink" title="数据库初始化"></a>数据库初始化</h2><div class="code-wrapper"><pre><code class="hljs bash">wrangler d1 create wjh-monitor-db</code></pre></div>
 
@@ -426,9 +426,9 @@
 <div class="code-wrapper"><pre><code class="hljs bash">wrangler deploy</code></pre></div>
 
 <h2 id="小插曲"><a href="#小插曲" class="headerlink" title="小插曲"></a>小插曲</h2><p>由于我对后端经验的缺乏，我在编写 sql 语句时没有意识到建立索引的重要性。我在查询时使用了 <code>ORDER BY &lt;未建立索引字段&gt; LIMIT 5</code> 的方式来查询最近五次的记录，这导致数据库不得不在我每次查询时都完整遍历一遍整张表。随着 cronjob 每分钟运行时插入一条新数据，记录的行数随时间增加，每次查询的成本也逐渐增加，最终造成了单日访问八百多万行的记录，超出了 Cloudflare 的免费额度，一度造成了项目被迫下线的风险。</p>
-<p><img src="https://static.031130.xyz/uploads/2025/01/20/fb463f45038ac.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
+<p><img src="https://r2-reverse.5435486.xyz/uploads/2025/01/20/fb463f45038ac.webp" srcset="https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
 <p>所幸 Cloudflare 没有给我停机，而我也及时定位到了问题并补建了索引，使每日的读取量回到了正常的状态。</p>
-<p><img src="https://static.031130.xyz/uploads/2025/01/19/83f69aff3a7b4.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="蓝色线条为读取，黄色线条为写入"></p>
+<p><img src="https://r2-reverse.5435486.xyz/uploads/2025/01/19/83f69aff3a7b4.webp" srcset="https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="蓝色线条为读取，黄色线条为写入"></p>
 <h2 id="参见"><a href="#参见" class="headerlink" title="参见"></a>参见</h2><p><a target="_blank" rel="noopener" href="https://developers.cloudflare.com/d1/">Cloudflare D1 · Cloudflare D1 docs</a></p>
 <p><a target="_blank" rel="noopener" href="https://developers.cloudflare.com/workers/configuration/cron-triggers/">Cron Triggers · Cloudflare Workers docs</a></p>
 <p><a target="_blank" rel="noopener" href="https://blog.sww.moe/post/cloudflare-d1/">Cloudflare D1 使用记录</a></p>
@@ -481,7 +481,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2025年1月20日</div>
+          <div>2025年10月3日</div>
         </div>
       
       
@@ -553,8 +553,8 @@
   <div id="waline"></div>
   <script type="text/javascript">
     Fluid.utils.loadComments('#waline', function() {
-      Fluid.utils.createCssLink('https://static.031130.xyz/res/waline.css')
-      Fluid.utils.createScript('https://static.031130.xyz/res/waline.js', function() {
+      Fluid.utils.createCssLink('https://r2-reverse.5435486.xyz/res/waline.css')
+      Fluid.utils.createScript('https://r2-reverse.5435486.xyz/res/waline.js', function() {
         var options = Object.assign(
           {"serverURL":"https://waline.zhul.in","path":"window.location.pathname","meta":["nick","mail","link"],"requiredMeta":["nick"],"lang":"zh-CN","emoji":["https://registry.npmmirror.com/@waline/emojis/^1/files/weibo"],"dark":"html[data-user-color-scheme=\"dark\"]","wordLimit":0,"pageSize":10,"login":"disable","locale":{"placeholder":"快发个评论让我知道你在看（x"}},
           {
@@ -670,7 +670,7 @@
     <div class="footer-inner">
   
     <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br /> <a href="https://notbyai.fyi/" target="_blank"><img style="max-height: 50px; margin: 10px" src=https://static.031130.xyz/uploads/2024/08/28/ae6dd98bdf60e.png alt="written by human, not by AI" /></a> <br /> <iframe frameborder=0 src="https://support.nodeget.com/page/promotion?id=61" style="border-radius:8px; border: none; height: 246px; transform: scale(0.8);"> </iframe> <br /> <span>本网站由 <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img style="max-height: 50px;" loading="lazy" src="https://static.031130.xyz/uploads/2024/08/12/ba8d70971c408.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="又拍云 Logo" /></a> 提供 CDN 加速/云存储服务</span> 
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br /> <a href="https://notbyai.fyi/" target="_blank"><img style="max-height: 50px; margin: 10px" src=https://r2-reverse.5435486.xyz/uploads/2024/08/28/ae6dd98bdf60e.png alt="written by human, not by AI" /></a> <br /> <iframe frameborder=0 src="https://support.nodeget.com/page/promotion?id=61" style="border-radius:8px; border: none; height: 246px; transform: scale(0.8);"> </iframe> <br /> <span>本网站由 <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img style="max-height: 50px;" loading="lazy" src="https://r2-reverse.5435486.xyz/uploads/2024/08/12/ba8d70971c408.webp" srcset="https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="又拍云 Logo" /></a> 提供 CDN 加速/云存储服务</span> 
     </div>
   
   
@@ -836,36 +836,36 @@
 <!-- hexo injector body_end start -->
 <script>
     const imgs = [
-        "https://static.031130.xyz/uploads/2024/08/12/62f373292129a.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f3732b562d8.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f3732d6ebe2.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f3732f6b225.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f37332b1c8b.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f37338661d8.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f3733c35741.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f3733deca7f.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f373406909e.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f373423b6c0.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f37343c5254.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f37345532e7.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f373479efcf.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f3734a2de90.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f3734bea5a7.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f3734dc3404.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f3734fe20d3.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f37351bae52.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f373539bd9f.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f37354f1ec7.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f373569f4ef.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f3735851795.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f37359a2c36.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/5fd959de5f180.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/1ef8787039f53.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/fb261297a3570.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f374ea7b242.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f374ec8c14d.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/6609df9b83ecd.webp",
-        "https://static.031130.xyz/uploads/2025/05/04/e1aa9e18bebb1.webp"
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f373292129a.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3732b562d8.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3732d6ebe2.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3732f6b225.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f37332b1c8b.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f37338661d8.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3733c35741.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3733deca7f.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f373406909e.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f373423b6c0.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f37343c5254.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f37345532e7.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f373479efcf.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3734a2de90.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3734bea5a7.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3734dc3404.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3734fe20d3.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f37351bae52.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f373539bd9f.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f37354f1ec7.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f373569f4ef.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3735851795.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f37359a2c36.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/5fd959de5f180.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/1ef8787039f53.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/fb261297a3570.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f374ea7b242.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f374ec8c14d.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/6609df9b83ecd.webp",
+        "https://r2-reverse.5435486.xyz/uploads/2025/05/04/e1aa9e18bebb1.webp"
     ]
 
     const luck_img = imgs[Math.floor(Math.random() * imgs.length)]
