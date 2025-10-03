@@ -28,16 +28,16 @@
 <meta property="og:site_name" content="竹林里有冰的博客">
 <meta property="og:description" content="虽然对于没有能力手动修改&#x2F;编写PKGBUILD的Arch用户其实是不应该使用AUR中的包的，这些软件的PKGBUILD可以由个人随意发布，并不能保证安全性，但是作为Archlinux的特色，但随着AUR Helper的趋于便利，还是吸引了不少小白使用AUR。本文将主要讲一讲 AUR Helper 帮助我们安装软件时到底做了些什么事情，并提供一些使用AUR Helper构建时常见错误的解决方案。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3cdb03ec8c.webp">
-<meta property="og:image" content="https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3cc9c9dda8.webp">
-<meta property="og:image" content="https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3cca0c7aba.webp">
+<meta property="og:image" content="https://static.031130.xyz/uploads/2024/08/12/62f3cdb03ec8c.webp">
+<meta property="og:image" content="https://static.031130.xyz/uploads/2024/08/12/62f3cc9c9dda8.webp">
+<meta property="og:image" content="https://static.031130.xyz/uploads/2024/08/12/62f3cca0c7aba.webp">
 <meta property="article:published_time" content="2021-09-11T11:22:29.000Z">
-<meta property="article:modified_time" content="2025-10-03T14:49:57.000Z">
+<meta property="article:modified_time" content="2025-10-03T19:33:08.000Z">
 <meta property="article:author" content="竹林里有冰">
 <meta property="article:tag" content="Linux">
 <meta property="article:tag" content="Archlinux">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3cdb03ec8c.webp">
+<meta name="twitter:image" content="https://static.031130.xyz/uploads/2024/08/12/62f3cdb03ec8c.webp">
   
   
   
@@ -83,7 +83,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"zhul.in","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f800fc26770.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"zhul.in","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -97,7 +97,7 @@
 
   
 <!-- hexo injector head_end start -->
-  <link rel="preconnect" href="//r2-reverse.5435486.xyz">
+  <link rel="preconnect" href="//static.031130.xyz">
 <script async defer data-website-id="5346b89b-f4bf-4593-971d-1f41a1118bc1" src="/custom.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/rss.xml" title="竹林里有冰的博客" type="application/atom+xml">
 </head>
 
@@ -333,7 +333,7 @@
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2025年10月3日 晚上
+                    本文最后更新于：2025年10月4日 凌晨
                   
                 
               </p>
@@ -367,7 +367,7 @@
 <p>校验通过后，makepkg会依次执行<code>prepare()&#123;&#125;</code>、<code>build()&#123;&#125;</code>、<code>package()&#123;&#125;</code>函数中的命令陆续完成<em>准备、编译</em>过程，并将最终要打进包里的文件放置到<code>pkg</code>文件夹下。</p>
 <p>最后，makepkg将会将<code>pkg</code>文件夹的内容压缩成包。</p>
 <h3 id="AUR-Helper-干了些什么"><a href="#AUR-Helper-干了些什么" class="headerlink" title="AUR Helper 干了些什么"></a>AUR Helper 干了些什么</h3><p>我们还是以钉钉为例，看看我们执行<code>yay dingtalk-bin</code>时到底发生了什么。</p>
-<p><img src="https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3cdb03ec8c.webp" srcset="https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="当你使用yay安装软件到底发生了什么"></p>
+<p><img src="https://static.031130.xyz/uploads/2024/08/12/62f3cdb03ec8c.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="当你使用yay安装软件到底发生了什么"></p>
 <h2 id="PartⅡ常见错误解决方案"><a href="#PartⅡ常见错误解决方案" class="headerlink" title="PartⅡ常见错误解决方案"></a>PartⅡ常见错误解决方案</h2><p>如果有其他情况觉得可以完善的，欢迎在评论区留言。</p>
 <h3 id="1-base-devel-没有安装"><a href="#1-base-devel-没有安装" class="headerlink" title="1. base-devel 没有安装"></a>1. base-devel 没有安装</h3><p>正如上面所说的，没有安装<code>base-devel</code>组，赶紧补上! </p>
 <p>由于<code>base-devel</code>并不是一个具体的包，而是由多个包构成的包组，其实并没有很好的方法来检测你是否已经安装。</p>
@@ -382,7 +382,7 @@
 
 <h3 id="2-source源文件下载失败"><a href="#2-source源文件下载失败" class="headerlink" title="2. source源文件下载失败"></a>2. source源文件下载失败</h3><ol>
 <li><h4 id="网络问题"><a href="#网络问题" class="headerlink" title="网络问题"></a>网络问题</h4><p>国内的网络问题不用多说了，大多数情况下都是Github连接不上。</p>
-<p><img src="https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3cc9c9dda8.webp" srcset="https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="yay下载失败"></p>
+<p><img src="https://static.031130.xyz/uploads/2024/08/12/62f3cc9c9dda8.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="yay下载失败"></p>
 <p>最简单的解决方案就是把source里下载失败的东西通过特殊手段（比如你浏览器设置下代理，或者找找fastgit这种反代）下载下来以后直接扔到PKGBUILD所在的路径，然后手动执行<code>makepkg -si</code>。</p>
 <blockquote>
 <p>-s代表自动下载makedepend，-i表示构建成功以后自动安装</p>
@@ -390,7 +390,7 @@
 </blockquote>
 <p><strong>我在这里再讲一种使用 <a target="_blank" rel="noopener" href="http://fastgit.org/"><em>fastgit</em></a> 作为反代加速github下载的方法。</strong><del>如果觉得fastgit帮助到了你，你可以考虑<a target="_blank" rel="noopener" href="http://fastgit.org/donate.html">给fastgit项目打钱</a>。</del></p>
 <p>当你的yay出现这个询问菜单时，（也就是出现<code>Diffs to show</code>/<code>显示哪些差异？</code>字样时）</p>
-<p><img src="https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3cca0c7aba.webp" srcset="https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
+<p><img src="https://static.031130.xyz/uploads/2024/08/12/62f3cca0c7aba.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload></p>
 <p>我们再开一个终端，输入</p>
 <div class="code-wrapper"><pre><code class="hljs bash">sed -i <span class="hljs-string">&quot;s|github.com|hub.fastgit.org|g&quot;</span> <span class="hljs-variable">$HOME</span>/.cache/yay/*/PKGBUILD</code></pre></div>
 
@@ -461,7 +461,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2025年10月3日</div>
+          <div>2025年10月4日</div>
         </div>
       
       
@@ -533,8 +533,8 @@
   <div id="waline"></div>
   <script type="text/javascript">
     Fluid.utils.loadComments('#waline', function() {
-      Fluid.utils.createCssLink('https://r2-reverse.5435486.xyz/res/waline.css')
-      Fluid.utils.createScript('https://r2-reverse.5435486.xyz/res/waline.js', function() {
+      Fluid.utils.createCssLink('https://static.031130.xyz/res/waline.css')
+      Fluid.utils.createScript('https://static.031130.xyz/res/waline.js', function() {
         var options = Object.assign(
           {"serverURL":"https://waline.zhul.in","path":"window.location.pathname","meta":["nick","mail","link"],"requiredMeta":["nick"],"lang":"zh-CN","emoji":["https://registry.npmmirror.com/@waline/emojis/^1/files/weibo"],"dark":"html[data-user-color-scheme=\"dark\"]","wordLimit":0,"pageSize":10,"login":"disable","locale":{"placeholder":"快发个评论让我知道你在看（x"}},
           {
@@ -650,7 +650,7 @@
     <div class="footer-inner">
   
     <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br /> <a href="https://notbyai.fyi/" target="_blank"><img style="max-height: 50px; margin: 10px" src=https://r2-reverse.5435486.xyz/uploads/2024/08/28/ae6dd98bdf60e.png alt="written by human, not by AI" /></a> <br /> <iframe frameborder=0 src="https://support.nodeget.com/page/promotion?id=61" style="border-radius:8px; border: none; height: 246px; transform: scale(0.8);"> </iframe> <br /> <span>本网站由 <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img style="max-height: 50px;" loading="lazy" src="https://r2-reverse.5435486.xyz/uploads/2024/08/12/ba8d70971c408.webp" srcset="https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="又拍云 Logo" /></a> 提供 CDN 加速/云存储服务</span> 
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br /> <a href="https://notbyai.fyi/" target="_blank"><img style="max-height: 50px; margin: 10px" src=https://static.031130.xyz/uploads/2024/08/28/ae6dd98bdf60e.png alt="written by human, not by AI" /></a> <br /> <iframe frameborder=0 src="https://support.nodeget.com/page/promotion?id=61" style="border-radius:8px; border: none; height: 246px; transform: scale(0.8);"> </iframe> <br /> <span>本网站由 <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img style="max-height: 50px;" loading="lazy" src="https://static.031130.xyz/uploads/2024/08/12/ba8d70971c408.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="又拍云 Logo" /></a> 提供 CDN 加速/云存储服务</span> 
     </div>
   
   
@@ -816,36 +816,36 @@
 <!-- hexo injector body_end start -->
 <script>
     const imgs = [
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f373292129a.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3732b562d8.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3732d6ebe2.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3732f6b225.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f37332b1c8b.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f37338661d8.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3733c35741.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3733deca7f.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f373406909e.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f373423b6c0.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f37343c5254.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f37345532e7.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f373479efcf.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3734a2de90.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3734bea5a7.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3734dc3404.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3734fe20d3.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f37351bae52.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f373539bd9f.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f37354f1ec7.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f373569f4ef.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3735851795.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f37359a2c36.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/5fd959de5f180.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/1ef8787039f53.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/fb261297a3570.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f374ea7b242.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f374ec8c14d.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/6609df9b83ecd.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2025/05/04/e1aa9e18bebb1.webp"
+        "https://static.031130.xyz/uploads/2024/08/12/62f373292129a.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f3732b562d8.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f3732d6ebe2.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f3732f6b225.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f37332b1c8b.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f37338661d8.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f3733c35741.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f3733deca7f.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f373406909e.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f373423b6c0.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f37343c5254.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f37345532e7.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f373479efcf.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f3734a2de90.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f3734bea5a7.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f3734dc3404.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f3734fe20d3.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f37351bae52.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f373539bd9f.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f37354f1ec7.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f373569f4ef.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f3735851795.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f37359a2c36.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/5fd959de5f180.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/1ef8787039f53.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/fb261297a3570.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f374ea7b242.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f374ec8c14d.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/6609df9b83ecd.webp",
+        "https://static.031130.xyz/uploads/2025/05/04/e1aa9e18bebb1.webp"
     ]
 
     const luck_img = imgs[Math.floor(Math.random() * imgs.length)]

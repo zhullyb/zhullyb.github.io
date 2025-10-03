@@ -28,14 +28,14 @@
 <meta property="og:site_name" content="竹林里有冰的博客">
 <meta property="og:description" content="这学期期末复习的时候，学校里负责上 JavaScript 的老师给我们提出了一个问题。下面这段代码中，a.u2() 在 ES Module 下执行会抛出 TypeError 的异常，在 CommonJS 下运行则会输出 undefined，而 B 这个类的 u2 函数则能够在对象实例化以后正常运行。 const a &#x3D; &amp;#123;     x: 3,     u1: function () &amp;#">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://r2-reverse.5435486.xyz/uploads/2024/08/12/65a2e1d093b78.webp">
-<meta property="og:image" content="https://r2-reverse.5435486.xyz/uploads/2024/08/12/65a2e379ba89e.webp">
+<meta property="og:image" content="https://static.031130.xyz/uploads/2024/08/12/65a2e1d093b78.webp">
+<meta property="og:image" content="https://static.031130.xyz/uploads/2024/08/12/65a2e379ba89e.webp">
 <meta property="article:published_time" content="2024-01-13T18:50:03.000Z">
-<meta property="article:modified_time" content="2025-10-03T14:49:57.000Z">
+<meta property="article:modified_time" content="2025-10-03T19:33:08.000Z">
 <meta property="article:author" content="竹林里有冰">
 <meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://r2-reverse.5435486.xyz/uploads/2024/08/12/65a2e1d093b78.webp">
+<meta name="twitter:image" content="https://static.031130.xyz/uploads/2024/08/12/65a2e1d093b78.webp">
   
   
   
@@ -81,7 +81,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"zhul.in","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f800fc26770.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"zhul.in","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -95,7 +95,7 @@
 
   
 <!-- hexo injector head_end start -->
-  <link rel="preconnect" href="//r2-reverse.5435486.xyz">
+  <link rel="preconnect" href="//static.031130.xyz">
 <script async defer data-website-id="5346b89b-f4bf-4593-971d-1f41a1118bc1" src="/custom.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/rss.xml" title="竹林里有冰的博客" type="application/atom+xml">
 </head>
 
@@ -331,7 +331,7 @@
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2025年10月3日 晚上
+                    本文最后更新于：2025年10月4日 凌晨
                   
                 
               </p>
@@ -379,10 +379,10 @@ a.<span class="hljs-title function_">u2</span>()
 <p>而 B 类在对象初始化阶段拥有一个新的作用域，因此箭头函数的 this 能够正确指向 B 被实例化出来的对象，因此也就能够正确读取到 this.x 的值。</p>
 <p>理论上来说，我们可以给全局对象也赋一个不一样的 x 值，这样 a.u2() 就能够读取到全局对象中的 x 值，验证我们的结论。</p>
 <p>在浏览器中，可以在代码的头部加一行 <code>var x = 10</code> 或者 <code>window.x = 10</code>，可以看到a.u2() 顺利的输出了 10，验证了我的结论。</p>
-<p><img src="https://r2-reverse.5435486.xyz/uploads/2024/08/12/65a2e1d093b78.webp" srcset="https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="浏览器控制台调试"></p>
+<p><img src="https://static.031130.xyz/uploads/2024/08/12/65a2e1d093b78.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="浏览器控制台调试"></p>
 <p>但在 Node.js 中，直接使用 <code>var x = 10</code> 或者 <code>global.x = 10</code> 并不能达到我们想要的效果。因为Node.js 中的每个 CommonJS 模块都有其自己的模块作用域，即模块的顶层作用域不是全局作用域。在模块内部，<code>this</code> 关键字不是指向 <code>global</code> 对象，而是指向模块的导出对象。这是为了确保模块内部的作用域隔离和模块的封装性。</p>
 <p>那么我们可以通过为模块的导出对象添加一个 x 属性来验证我们的结论，我们可以使用 <code>exports.x = 10</code> 来为模块的顶层作用域添加一个值为 10 的 x 属性。</p>
-<p><img src="https://r2-reverse.5435486.xyz/uploads/2024/08/12/65a2e379ba89e.webp" srcset="https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="nodejs 环境运行"></p>
+<p><img src="https://static.031130.xyz/uploads/2024/08/12/65a2e379ba89e.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="nodejs 环境运行"></p>
 <h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Functions/Arrow_functions">箭头函数表达式 - JavaScript | MDN</a></p>
 <p><a target="_blank" rel="noopener" href="https://segmentfault.com/q/1010000022948115">ES6箭头函数作用域的问题</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.zhihu.com/tardis/zm/art/57204184">ES6箭头函数的this指向详解</a></p>
@@ -429,7 +429,7 @@ a.<span class="hljs-title function_">u2</span>()
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2025年10月3日</div>
+          <div>2025年10月4日</div>
         </div>
       
       
@@ -501,8 +501,8 @@ a.<span class="hljs-title function_">u2</span>()
   <div id="waline"></div>
   <script type="text/javascript">
     Fluid.utils.loadComments('#waline', function() {
-      Fluid.utils.createCssLink('https://r2-reverse.5435486.xyz/res/waline.css')
-      Fluid.utils.createScript('https://r2-reverse.5435486.xyz/res/waline.js', function() {
+      Fluid.utils.createCssLink('https://static.031130.xyz/res/waline.css')
+      Fluid.utils.createScript('https://static.031130.xyz/res/waline.js', function() {
         var options = Object.assign(
           {"serverURL":"https://waline.zhul.in","path":"window.location.pathname","meta":["nick","mail","link"],"requiredMeta":["nick"],"lang":"zh-CN","emoji":["https://registry.npmmirror.com/@waline/emojis/^1/files/weibo"],"dark":"html[data-user-color-scheme=\"dark\"]","wordLimit":0,"pageSize":10,"login":"disable","locale":{"placeholder":"快发个评论让我知道你在看（x"}},
           {
@@ -618,7 +618,7 @@ a.<span class="hljs-title function_">u2</span>()
     <div class="footer-inner">
   
     <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br /> <a href="https://notbyai.fyi/" target="_blank"><img style="max-height: 50px; margin: 10px" src=https://r2-reverse.5435486.xyz/uploads/2024/08/28/ae6dd98bdf60e.png alt="written by human, not by AI" /></a> <br /> <iframe frameborder=0 src="https://support.nodeget.com/page/promotion?id=61" style="border-radius:8px; border: none; height: 246px; transform: scale(0.8);"> </iframe> <br /> <span>本网站由 <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img style="max-height: 50px;" loading="lazy" src="https://r2-reverse.5435486.xyz/uploads/2024/08/12/ba8d70971c408.webp" srcset="https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="又拍云 Logo" /></a> 提供 CDN 加速/云存储服务</span> 
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br /> <a href="https://notbyai.fyi/" target="_blank"><img style="max-height: 50px; margin: 10px" src=https://static.031130.xyz/uploads/2024/08/28/ae6dd98bdf60e.png alt="written by human, not by AI" /></a> <br /> <iframe frameborder=0 src="https://support.nodeget.com/page/promotion?id=61" style="border-radius:8px; border: none; height: 246px; transform: scale(0.8);"> </iframe> <br /> <span>本网站由 <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img style="max-height: 50px;" loading="lazy" src="https://static.031130.xyz/uploads/2024/08/12/ba8d70971c408.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="又拍云 Logo" /></a> 提供 CDN 加速/云存储服务</span> 
     </div>
   
   
@@ -784,36 +784,36 @@ a.<span class="hljs-title function_">u2</span>()
 <!-- hexo injector body_end start -->
 <script>
     const imgs = [
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f373292129a.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3732b562d8.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3732d6ebe2.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3732f6b225.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f37332b1c8b.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f37338661d8.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3733c35741.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3733deca7f.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f373406909e.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f373423b6c0.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f37343c5254.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f37345532e7.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f373479efcf.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3734a2de90.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3734bea5a7.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3734dc3404.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3734fe20d3.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f37351bae52.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f373539bd9f.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f37354f1ec7.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f373569f4ef.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3735851795.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f37359a2c36.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/5fd959de5f180.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/1ef8787039f53.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/fb261297a3570.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f374ea7b242.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f374ec8c14d.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/6609df9b83ecd.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2025/05/04/e1aa9e18bebb1.webp"
+        "https://static.031130.xyz/uploads/2024/08/12/62f373292129a.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f3732b562d8.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f3732d6ebe2.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f3732f6b225.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f37332b1c8b.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f37338661d8.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f3733c35741.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f3733deca7f.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f373406909e.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f373423b6c0.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f37343c5254.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f37345532e7.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f373479efcf.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f3734a2de90.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f3734bea5a7.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f3734dc3404.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f3734fe20d3.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f37351bae52.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f373539bd9f.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f37354f1ec7.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f373569f4ef.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f3735851795.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f37359a2c36.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/5fd959de5f180.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/1ef8787039f53.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/fb261297a3570.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f374ea7b242.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f374ec8c14d.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/6609df9b83ecd.webp",
+        "https://static.031130.xyz/uploads/2025/05/04/e1aa9e18bebb1.webp"
     ]
 
     const luck_img = imgs[Math.floor(Math.random() * imgs.length)]

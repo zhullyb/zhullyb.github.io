@@ -28,16 +28,16 @@
 <meta property="og:site_name" content="竹林里有冰的博客">
 <meta property="og:description" content="前一阵子看到点墨的博客「定时备份mysql&#x2F;mariadb数据库并上传至tgbot」，我意识到个人站点的数据库 dump 使用 TG Bot 存放是一个非常合适的做法。个人站点的数据库体积本身就不大，TG Bot 又有官方提供的 api，非常适合自动化任务。我就寻思着给我的 umami 数据库也写个定时任务备份一下，也不至于之前做一次迁移数据全部爆炸的悲剧重演。 我的 umami 是「使用 ver">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://r2-reverse.5435486.xyz/uploads/2024/08/12/65ba6aae157e6.webp">
-<meta property="og:image" content="https://r2-reverse.5435486.xyz/uploads/2024/08/12/65c79455b2e40.webp">
+<meta property="og:image" content="https://static.031130.xyz/uploads/2024/08/12/65ba6aae157e6.webp">
+<meta property="og:image" content="https://static.031130.xyz/uploads/2024/08/12/65c79455b2e40.webp">
 <meta property="article:published_time" content="2024-01-31T16:00:01.000Z">
-<meta property="article:modified_time" content="2025-10-03T14:49:57.000Z">
+<meta property="article:modified_time" content="2025-10-03T19:33:08.000Z">
 <meta property="article:author" content="竹林里有冰">
 <meta property="article:tag" content="Bot">
 <meta property="article:tag" content="umami">
 <meta property="article:tag" content="Shell Script">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://r2-reverse.5435486.xyz/uploads/2024/08/12/65ba6aae157e6.webp">
+<meta name="twitter:image" content="https://static.031130.xyz/uploads/2024/08/12/65ba6aae157e6.webp">
   
   
   
@@ -83,7 +83,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"zhul.in","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f800fc26770.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"zhul.in","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -97,7 +97,7 @@
 
   
 <!-- hexo injector head_end start -->
-  <link rel="preconnect" href="//r2-reverse.5435486.xyz">
+  <link rel="preconnect" href="//static.031130.xyz">
 <script async defer data-website-id="5346b89b-f4bf-4593-971d-1f41a1118bc1" src="/custom.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/rss.xml" title="竹林里有冰的博客" type="application/atom+xml">
 </head>
 
@@ -333,7 +333,7 @@
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2025年10月3日 晚上
+                    本文最后更新于：2025年10月4日 凌晨
                   
                 
               </p>
@@ -343,7 +343,7 @@
                 
                 <p>前一阵子看到点墨的博客<a target="_blank" rel="noopener" href="https://blog.m-l.cc/2023/11/09/ding-shi-bei-fen-mysql-mariadb-shu-ju-ku-bing-shang-chuan-zhi-tgbot/">「定时备份mysql/mariadb数据库并上传至tgbot」</a>，我意识到个人站点的数据库 dump 使用 TG Bot 存放是一个非常合适的做法。个人站点的数据库体积本身就不大，TG Bot 又有官方提供的 api，非常适合自动化任务。我就寻思着给我的 umami 数据库也写个定时任务备份一下，也不至于之前做一次迁移数据全部爆炸的悲剧重演。</p>
 <p>我的 umami 是<a href="/2022/11/08/free-umami-deploy-plan/">「使用 vercel+supabase 免费部署 umami」</a>部署出来的，数据库在 supabase 上，因此我们先打开 supabase 的 dashboard，获取到数据库的 url。</p>
-<p><img src="https://r2-reverse.5435486.xyz/uploads/2024/08/12/65ba6aae157e6.webp" srcset="https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="supabase 操作面板"></p>
+<p><img src="https://static.031130.xyz/uploads/2024/08/12/65ba6aae157e6.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="supabase 操作面板"></p>
 <p>密码我自然是不记得了，不过好在 Firefox 的密码管理器帮我记住了，直接去设置里就能找到。即使密码忘了也不要紧，往下翻有重置密码的按钮。</p>
 <p>随后就要开始编写我们的教本了，这是我的</p>
 <div class="code-wrapper"><pre><code class="hljs bash"><span class="hljs-meta">#!/bin/bash</span>
@@ -375,7 +375,7 @@ apt install postgresql-client</code></pre></div>
 <p>确保脚本正常工作后，使用 <code>crontab -e</code> 设置自动任务</p>
 <div class="code-wrapper"><pre><code class="hljs bash">0 2 * * * /root/umami_db_dumper.sh</code></pre></div>
 
-<p><img src="https://r2-reverse.5435486.xyz/uploads/2024/08/12/65c79455b2e40.webp" srcset="https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="数据库备份"></p>
+<p><img src="https://static.031130.xyz/uploads/2024/08/12/65c79455b2e40.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="数据库备份"></p>
 
                 
               </div>
@@ -423,7 +423,7 @@ apt install postgresql-client</code></pre></div>
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2025年10月3日</div>
+          <div>2025年10月4日</div>
         </div>
       
       
@@ -495,8 +495,8 @@ apt install postgresql-client</code></pre></div>
   <div id="waline"></div>
   <script type="text/javascript">
     Fluid.utils.loadComments('#waline', function() {
-      Fluid.utils.createCssLink('https://r2-reverse.5435486.xyz/res/waline.css')
-      Fluid.utils.createScript('https://r2-reverse.5435486.xyz/res/waline.js', function() {
+      Fluid.utils.createCssLink('https://static.031130.xyz/res/waline.css')
+      Fluid.utils.createScript('https://static.031130.xyz/res/waline.js', function() {
         var options = Object.assign(
           {"serverURL":"https://waline.zhul.in","path":"window.location.pathname","meta":["nick","mail","link"],"requiredMeta":["nick"],"lang":"zh-CN","emoji":["https://registry.npmmirror.com/@waline/emojis/^1/files/weibo"],"dark":"html[data-user-color-scheme=\"dark\"]","wordLimit":0,"pageSize":10,"login":"disable","locale":{"placeholder":"快发个评论让我知道你在看（x"}},
           {
@@ -612,7 +612,7 @@ apt install postgresql-client</code></pre></div>
     <div class="footer-inner">
   
     <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br /> <a href="https://notbyai.fyi/" target="_blank"><img style="max-height: 50px; margin: 10px" src=https://r2-reverse.5435486.xyz/uploads/2024/08/28/ae6dd98bdf60e.png alt="written by human, not by AI" /></a> <br /> <iframe frameborder=0 src="https://support.nodeget.com/page/promotion?id=61" style="border-radius:8px; border: none; height: 246px; transform: scale(0.8);"> </iframe> <br /> <span>本网站由 <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img style="max-height: 50px;" loading="lazy" src="https://r2-reverse.5435486.xyz/uploads/2024/08/12/ba8d70971c408.webp" srcset="https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="又拍云 Logo" /></a> 提供 CDN 加速/云存储服务</span> 
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br /> <a href="https://notbyai.fyi/" target="_blank"><img style="max-height: 50px; margin: 10px" src=https://static.031130.xyz/uploads/2024/08/28/ae6dd98bdf60e.png alt="written by human, not by AI" /></a> <br /> <iframe frameborder=0 src="https://support.nodeget.com/page/promotion?id=61" style="border-radius:8px; border: none; height: 246px; transform: scale(0.8);"> </iframe> <br /> <span>本网站由 <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img style="max-height: 50px;" loading="lazy" src="https://static.031130.xyz/uploads/2024/08/12/ba8d70971c408.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="又拍云 Logo" /></a> 提供 CDN 加速/云存储服务</span> 
     </div>
   
   
@@ -778,36 +778,36 @@ apt install postgresql-client</code></pre></div>
 <!-- hexo injector body_end start -->
 <script>
     const imgs = [
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f373292129a.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3732b562d8.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3732d6ebe2.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3732f6b225.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f37332b1c8b.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f37338661d8.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3733c35741.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3733deca7f.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f373406909e.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f373423b6c0.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f37343c5254.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f37345532e7.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f373479efcf.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3734a2de90.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3734bea5a7.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3734dc3404.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3734fe20d3.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f37351bae52.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f373539bd9f.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f37354f1ec7.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f373569f4ef.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3735851795.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f37359a2c36.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/5fd959de5f180.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/1ef8787039f53.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/fb261297a3570.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f374ea7b242.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f374ec8c14d.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/6609df9b83ecd.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2025/05/04/e1aa9e18bebb1.webp"
+        "https://static.031130.xyz/uploads/2024/08/12/62f373292129a.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f3732b562d8.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f3732d6ebe2.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f3732f6b225.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f37332b1c8b.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f37338661d8.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f3733c35741.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f3733deca7f.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f373406909e.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f373423b6c0.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f37343c5254.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f37345532e7.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f373479efcf.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f3734a2de90.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f3734bea5a7.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f3734dc3404.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f3734fe20d3.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f37351bae52.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f373539bd9f.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f37354f1ec7.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f373569f4ef.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f3735851795.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f37359a2c36.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/5fd959de5f180.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/1ef8787039f53.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/fb261297a3570.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f374ea7b242.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f374ec8c14d.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/6609df9b83ecd.webp",
+        "https://static.031130.xyz/uploads/2025/05/04/e1aa9e18bebb1.webp"
     ]
 
     const luck_img = imgs[Math.floor(Math.random() * imgs.length)]

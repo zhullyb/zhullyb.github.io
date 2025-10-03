@@ -28,16 +28,16 @@
 <meta property="og:site_name" content="竹林里有冰的博客">
 <meta property="og:description" content="不知道为什么，总是有人告诉我鸿蒙已经开源了，不信可以自己去看源码balabala，其实鸿蒙的手机端目前为止依然没有开源，或者说没有完整完整开源。本文我将介绍如何拉取一份openharmony开源的源码。  首先需要准备以下东西  一台装有类unix环境的电脑（wsl大概也行） 6G磁盘剩余空间 互联网（如果使用手机流量的话大概是1.5G）   安装git没什么好说的，不再赘述。  设置git用户">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3cb1057a22.webp">
-<meta property="og:image" content="https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3cb13027fb.webp">
-<meta property="og:image" content="https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3cb15ccbf1.webp">
-<meta property="og:image" content="https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3cb182333b.webp">
+<meta property="og:image" content="https://static.031130.xyz/uploads/2024/08/12/62f3cb1057a22.webp">
+<meta property="og:image" content="https://static.031130.xyz/uploads/2024/08/12/62f3cb13027fb.webp">
+<meta property="og:image" content="https://static.031130.xyz/uploads/2024/08/12/62f3cb15ccbf1.webp">
+<meta property="og:image" content="https://static.031130.xyz/uploads/2024/08/12/62f3cb182333b.webp">
 <meta property="article:published_time" content="2021-06-06T08:47:34.000Z">
-<meta property="article:modified_time" content="2025-10-03T14:49:57.000Z">
+<meta property="article:modified_time" content="2025-10-03T19:33:08.000Z">
 <meta property="article:author" content="竹林里有冰">
 <meta property="article:tag" content="博客, 技术, Linux">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3cb1057a22.webp">
+<meta name="twitter:image" content="https://static.031130.xyz/uploads/2024/08/12/62f3cb1057a22.webp">
   
   
   
@@ -83,7 +83,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"zhul.in","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f800fc26770.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"zhul.in","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -97,7 +97,7 @@
 
   
 <!-- hexo injector head_end start -->
-  <link rel="preconnect" href="//r2-reverse.5435486.xyz">
+  <link rel="preconnect" href="//static.031130.xyz">
 <script async defer data-website-id="5346b89b-f4bf-4593-971d-1f41a1118bc1" src="/custom.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/rss.xml" title="竹林里有冰的博客" type="application/atom+xml">
 </head>
 
@@ -333,7 +333,7 @@
                 
                   
                     <!-- compatible with older versions-->
-                    本文最后更新于：2025年10月3日 晚上
+                    本文最后更新于：2025年10月4日 凌晨
                   
                 
               </p>
@@ -442,11 +442,11 @@ curl https://storage.googleapis.com/git-repo-downloads/repo &gt; ~/bin/repo
 
 
 
-<p><img src="https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3cb1057a22.webp" srcset="https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="这里是OpenHarmony包含.repo原始数据的全部大小"></p>
-<p><img src="https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3cb13027fb.webp" srcset="https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="这里是OpenHarmony的.repo原始数据的大小"></p>
+<p><img src="https://static.031130.xyz/uploads/2024/08/12/62f3cb1057a22.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="这里是OpenHarmony包含.repo原始数据的全部大小"></p>
+<p><img src="https://static.031130.xyz/uploads/2024/08/12/62f3cb13027fb.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="这里是OpenHarmony的.repo原始数据的大小"></p>
 <p><strong>我提供个参考数据，AOSP源码不含.repo原始数据的大小是40G，就openharmony这个代码量，恐怕很难让我相信这是一个兼容安卓应用的系统的完整代码。</strong></p>
-<p><img src="https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3cb15ccbf1.webp" srcset="https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="这里是AOSP的.repo原始数据大小"></p>
-<p><img src="https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3cb182333b.webp" srcset="https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="这里是AOSP包含.repo原始数据的大小"></p>
+<p><img src="https://static.031130.xyz/uploads/2024/08/12/62f3cb15ccbf1.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="这里是AOSP的.repo原始数据大小"></p>
+<p><img src="https://static.031130.xyz/uploads/2024/08/12/62f3cb182333b.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="这里是AOSP包含.repo原始数据的大小"></p>
 
                 
               </div>
@@ -483,7 +483,7 @@ curl https://storage.googleapis.com/git-repo-downloads/repo &gt; ~/bin/repo
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2025年10月3日</div>
+          <div>2025年10月4日</div>
         </div>
       
       
@@ -555,8 +555,8 @@ curl https://storage.googleapis.com/git-repo-downloads/repo &gt; ~/bin/repo
   <div id="waline"></div>
   <script type="text/javascript">
     Fluid.utils.loadComments('#waline', function() {
-      Fluid.utils.createCssLink('https://r2-reverse.5435486.xyz/res/waline.css')
-      Fluid.utils.createScript('https://r2-reverse.5435486.xyz/res/waline.js', function() {
+      Fluid.utils.createCssLink('https://static.031130.xyz/res/waline.css')
+      Fluid.utils.createScript('https://static.031130.xyz/res/waline.js', function() {
         var options = Object.assign(
           {"serverURL":"https://waline.zhul.in","path":"window.location.pathname","meta":["nick","mail","link"],"requiredMeta":["nick"],"lang":"zh-CN","emoji":["https://registry.npmmirror.com/@waline/emojis/^1/files/weibo"],"dark":"html[data-user-color-scheme=\"dark\"]","wordLimit":0,"pageSize":10,"login":"disable","locale":{"placeholder":"快发个评论让我知道你在看（x"}},
           {
@@ -672,7 +672,7 @@ curl https://storage.googleapis.com/git-repo-downloads/repo &gt; ~/bin/repo
     <div class="footer-inner">
   
     <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br /> <a href="https://notbyai.fyi/" target="_blank"><img style="max-height: 50px; margin: 10px" src=https://r2-reverse.5435486.xyz/uploads/2024/08/28/ae6dd98bdf60e.png alt="written by human, not by AI" /></a> <br /> <iframe frameborder=0 src="https://support.nodeget.com/page/promotion?id=61" style="border-radius:8px; border: none; height: 246px; transform: scale(0.8);"> </iframe> <br /> <span>本网站由 <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img style="max-height: 50px;" loading="lazy" src="https://r2-reverse.5435486.xyz/uploads/2024/08/12/ba8d70971c408.webp" srcset="https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="又拍云 Logo" /></a> 提供 CDN 加速/云存储服务</span> 
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br /> <a href="https://notbyai.fyi/" target="_blank"><img style="max-height: 50px; margin: 10px" src=https://static.031130.xyz/uploads/2024/08/28/ae6dd98bdf60e.png alt="written by human, not by AI" /></a> <br /> <iframe frameborder=0 src="https://support.nodeget.com/page/promotion?id=61" style="border-radius:8px; border: none; height: 246px; transform: scale(0.8);"> </iframe> <br /> <span>本网站由 <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img style="max-height: 50px;" loading="lazy" src="https://static.031130.xyz/uploads/2024/08/12/ba8d70971c408.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="又拍云 Logo" /></a> 提供 CDN 加速/云存储服务</span> 
     </div>
   
   
@@ -838,36 +838,36 @@ curl https://storage.googleapis.com/git-repo-downloads/repo &gt; ~/bin/repo
 <!-- hexo injector body_end start -->
 <script>
     const imgs = [
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f373292129a.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3732b562d8.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3732d6ebe2.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3732f6b225.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f37332b1c8b.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f37338661d8.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3733c35741.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3733deca7f.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f373406909e.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f373423b6c0.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f37343c5254.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f37345532e7.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f373479efcf.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3734a2de90.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3734bea5a7.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3734dc3404.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3734fe20d3.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f37351bae52.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f373539bd9f.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f37354f1ec7.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f373569f4ef.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3735851795.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f37359a2c36.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/5fd959de5f180.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/1ef8787039f53.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/fb261297a3570.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f374ea7b242.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f374ec8c14d.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2024/08/12/6609df9b83ecd.webp",
-        "https://r2-reverse.5435486.xyz/uploads/2025/05/04/e1aa9e18bebb1.webp"
+        "https://static.031130.xyz/uploads/2024/08/12/62f373292129a.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f3732b562d8.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f3732d6ebe2.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f3732f6b225.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f37332b1c8b.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f37338661d8.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f3733c35741.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f3733deca7f.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f373406909e.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f373423b6c0.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f37343c5254.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f37345532e7.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f373479efcf.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f3734a2de90.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f3734bea5a7.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f3734dc3404.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f3734fe20d3.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f37351bae52.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f373539bd9f.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f37354f1ec7.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f373569f4ef.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f3735851795.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f37359a2c36.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/5fd959de5f180.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/1ef8787039f53.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/fb261297a3570.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f374ea7b242.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f374ec8c14d.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/6609df9b83ecd.webp",
+        "https://static.031130.xyz/uploads/2025/05/04/e1aa9e18bebb1.webp"
     ]
 
     const luck_img = imgs[Math.floor(Math.random() * imgs.length)]

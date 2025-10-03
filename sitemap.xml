@@ -227,7 +227,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/06/30/dynamic-public-ip-and-ddns-for-rustdesk/</loc>
+    <loc>https://zhul.in/2021/06/06/download-openharmony-source-code/</loc>
     
     <lastmod>2025-10-03</lastmod>
     
@@ -236,7 +236,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/06/06/download-openharmony-source-code/</loc>
+    <loc>https://zhul.in/2024/06/30/dynamic-public-ip-and-ddns-for-rustdesk/</loc>
     
     <lastmod>2025-10-03</lastmod>
     
@@ -362,6 +362,15 @@
   </url>
   
   <url>
+    <loc>https://zhul.in/2025/04/21/how-we-copy-text-to-clipboard-with-js-in-2025/</loc>
+    
+    <lastmod>2025-10-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://zhul.in/2024/04/01/image-preload-in-uniapp/</loc>
     
     <lastmod>2025-10-03</lastmod>
@@ -372,15 +381,6 @@
   
   <url>
     <loc>https://zhul.in/2023/03/26/implicit-forwarding-is-a-new-site-deploying-method/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2025/04/21/how-we-copy-text-to-clipboard-with-js-in-2025/</loc>
     
     <lastmod>2025-10-03</lastmod>
     
@@ -470,7 +470,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/10/02/nutstore-guide-on-archlinux-kde/</loc>
+    <loc>https://zhul.in/2022/12/24/onedrive-abraunegg-recommendation/</loc>
     
     <lastmod>2025-10-03</lastmod>
     
@@ -479,7 +479,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2022/12/24/onedrive-abraunegg-recommendation/</loc>
+    <loc>https://zhul.in/2021/10/02/nutstore-guide-on-archlinux-kde/</loc>
     
     <lastmod>2025-10-03</lastmod>
     
@@ -614,7 +614,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/12/30/tg-bot-hosted-on-cloudflare-workers/</loc>
+    <loc>https://zhul.in/2023/08/04/static-webpage-deployment-for-a-beginner/</loc>
     
     <lastmod>2025-10-03</lastmod>
     
@@ -623,7 +623,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2023/08/04/static-webpage-deployment-for-a-beginner/</loc>
+    <loc>https://zhul.in/2024/12/30/tg-bot-hosted-on-cloudflare-workers/</loc>
     
     <lastmod>2025-10-03</lastmod>
     
@@ -686,7 +686,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2022/03/31/upload-pic-to-lskypro-with-curl/</loc>
+    <loc>https://zhul.in/2024/11/15/upgrade-waline-from-v2-to-v3/</loc>
     
     <lastmod>2025-10-03</lastmod>
     
@@ -695,7 +695,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/11/15/upgrade-waline-from-v2-to-v3/</loc>
+    <loc>https://zhul.in/2022/03/31/upload-pic-to-lskypro-with-curl/</loc>
     
     <lastmod>2025-10-03</lastmod>
     
