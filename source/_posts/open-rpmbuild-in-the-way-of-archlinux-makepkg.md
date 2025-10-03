@@ -90,7 +90,7 @@ sudo dnf history undo 0
 
 不过如果在 builddep 过程中，dnf 从 updates 源里更新了一些软件，那么它在 undo 时可能就没法获取更新前的软件版本。会有 `Cannot find rpm nevra`  的提示
 
-![](https://r2-reverse.5435486.xyz/uploads/2024/08/12/6635018238ffa.webp)
+![](https://static.031130.xyz/uploads/2024/08/12/6635018238ffa.webp)
 
 可以使用 `--skip-broken` 命令跳过那些没法找到老版本的软件，继续卸载其余的软件。
 

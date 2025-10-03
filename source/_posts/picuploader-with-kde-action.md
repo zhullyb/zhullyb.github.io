@@ -101,7 +101,7 @@ sudo chmod 777 -R /var/www/image/logs/
 
 ## 最终结果
 
-<center><img src="https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f36f57f34aa.gif" width = "" height = ""></center>
+<center><img src="https://static.031130.xyz/uploads/2024/08/12/62f36f57f34aa.gif" width = "" height = ""></center>
 
 ## 参考链接
 

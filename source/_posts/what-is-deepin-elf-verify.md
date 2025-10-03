@@ -41,7 +41,7 @@ deepin-elf-verify_0.2.0.6-1_amd64
 
 终于到了激动人心的时刻了，打开 data.tar.xz ！
 
-![空的？](https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3ccc192986.webp)
+![空的？](https://static.031130.xyz/uploads/2024/08/12/62f3ccc192986.webp)
 
 **搞错了，再来**
 
@@ -60,7 +60,7 @@ curl -sL https://uos.deepin.cn/uos/dists/eagle/main/binary-amd64/Packages | grep
 
 下载后打开 `data.tar.xz`
 
-![看来还是有东西的](https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3ccc53d544.webp)
+![看来还是有东西的](https://static.031130.xyz/uploads/2024/08/12/62f3ccc53d544.webp)
 
 ## 说说结论吧
 

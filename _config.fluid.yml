@@ -288,7 +288,7 @@ lazyload:
 
   # 加载时的占位图片
   # The placeholder image when loading
-  loading_img: https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f800fc26770.gif
+  loading_img: https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif
 
   # 开启后懒加载仅在文章页生效，如果自定义页面需要使用，可以在 Front-matter 里指定 `lazyload: true`
   # If true, only enable lazyload on the post page. For custom pages, you can set 'lazyload: true' in front-matter
@@ -424,7 +424,7 @@ footer:
     <i class="iconfont icon-love"></i>
     <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a>
     <br />
-    <a href="https://notbyai.fyi/" target="_blank"><img style="max-height: 50px; margin: 10px" src=https://r2-reverse.5435486.xyz/uploads/2024/08/28/ae6dd98bdf60e.png alt="written by human, not by AI" /></a>
+    <a href="https://notbyai.fyi/" target="_blank"><img style="max-height: 50px; margin: 10px" src=https://static.031130.xyz/uploads/2024/08/28/ae6dd98bdf60e.png alt="written by human, not by AI" /></a>
     <br />
     <iframe frameborder=0
       src="https://support.nodeget.com/page/promotion?id=61"
@@ -432,7 +432,7 @@ footer:
       transform: scale(0.8);">
     </iframe>
     <br />
-    <span>本网站由 <a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img style="max-height: 50px;" loading="lazy" src="https://r2-reverse.5435486.xyz/uploads/2024/08/12/ba8d70971c408.webp" alt="又拍云 Logo" /></a> 提供 CDN 加速/云存储服务</span>
+    <span>本网站由 <a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img style="max-height: 50px;" loading="lazy" src="https://static.031130.xyz/uploads/2024/08/12/ba8d70971c408.webp" alt="又拍云 Logo" /></a> 提供 CDN 加速/云存储服务</span>
     '
 
   # 展示网站的 PV、UV 统计数
@@ -917,7 +917,7 @@ about:
   banner_img_height: 60
   banner_mask_alpha: 0.3
   subtitle:
-  avatar: https://r2-reverse.5435486.xyz/avatar.webp
+  avatar: https://static.031130.xyz/avatar.webp
   name: "竹林里有冰"
   intro: "朱云绘彩风燎焰，丹音颂礼冰缠烟"
   # 更多图标可从 https://hexo.fluid-dev.com/docs/icon/ 查找，`class` 代表图标的 css class，添加 `qrcode` 后，图标不再是链接而是悬浮二维码
@@ -973,55 +973,55 @@ links:
       title: "精弘 RSS 看板",
       intro: "浙江工业大学精弘网络技术团队",
       link: "https://zjutjh.github.io",
-      avatar: "https://r2-reverse.5435486.xyz/uploads/2024/12/31/71b730c8be4a8.webp"
+      avatar: "https://static.031130.xyz/uploads/2024/12/31/71b730c8be4a8.webp"
     }
     - {
       title: "iNetech Blog",
       intro: "凡心所向，素履所往",
       link: "https://blog.udp0.com",
-      avatar: "https://r2-reverse.5435486.xyz/uploads/2024/08/12/6653ed001e208.webp"
+      avatar: "https://static.031130.xyz/uploads/2024/08/12/6653ed001e208.webp"
     }
     - {
       title: "Karuboniru's Blog",
       intro: "就是个学物理的，懂个屁的计算机",
       link: "https://yanqiyu.info",
-      avatar: "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f7d8f114851.webp"
+      avatar: "https://static.031130.xyz/uploads/2024/08/12/62f7d8f114851.webp"
     }
     - {
       title: "星外之神的博客",
       intro: "天下难事，必作于易；天下大事，必作于细。",
       link: "https://wszqkzqk.github.io",
-      avatar: "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f7d98e0fd18.webp"
+      avatar: "https://static.031130.xyz/uploads/2024/08/12/62f7d98e0fd18.webp"
     }
     - {
       title: "Endle's Blog",
       intro: "Fedora/Firefox/Wine User.",
       link: "https://endle.github.io/",
-      avatar: "https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f7db1280c26.webp"
+      avatar: "https://static.031130.xyz/uploads/2024/08/12/62f7db1280c26.webp"
     }
     - {
       title: "ImBearChild",
       intro: "又一个WordPress站点，我的自留地",
       link: "https://imbearchild.cyou/",
-      avatar: "https://r2-reverse.5435486.xyz/uploads/2024/08/12/74139df97bae3.webp"
+      avatar: "https://static.031130.xyz/uploads/2024/08/12/74139df97bae3.webp"
     }
     - {
       title: "白杨的文档站",
       intro: "鸽子/咸鱼/openSUSE 新闻译者",
       link: "https://whiteboard-ui8.pages.dev/",
-      avatar: "https://r2-reverse.5435486.xyz/uploads/2024/08/12/259396342424f.webp"
+      avatar: "https://static.031130.xyz/uploads/2024/08/12/259396342424f.webp"
     }
     - {
       title: "派大星的石头屋",
       intro: "一头蠢猪罢了",
       link: "https://blog.cnpatrickstar.com/",
-      avatar: "https://r2-reverse.5435486.xyz/uploads/2024/08/12/6329b2a587c1f.webp"
+      avatar: "https://static.031130.xyz/uploads/2024/08/12/6329b2a587c1f.webp"
     }
     - {
       title: "Finley's Blog",
       intro: "一个不想平庸的平庸之人. 来自浙江工业大学的计算机科学学生, 正在努力成为一名全栈开发者.",
       link: "https://www.f1nley.xyz/",
-      avatar: "https://r2-reverse.5435486.xyz/uploads/2024/09/23/5c47b2d971736.webp"
+      avatar: "https://static.031130.xyz/uploads/2024/09/23/5c47b2d971736.webp"
     }
     - {
       title: "j10c's Blog",
@@ -1037,7 +1037,7 @@ links:
       title: "Node Sans",
       intro: "不知道 Node 和 Sans 有什么关系",
       link: "https://blog.node189.top",
-      avatar: "https://r2-reverse.5435486.xyz/uploads/2024/08/12/65c37927314ac.webp"
+      avatar: "https://static.031130.xyz/uploads/2024/08/12/65c37927314ac.webp"
     }
     - {
       title: "树下集熵",
@@ -1052,19 +1052,19 @@ links:
       title: "惜寞 - 无人小间",
       intro: "也许大概应该可能 maybe/possible 会发（水）点文章",
       link: "https://lonesome.cn/",
-      avatar: "https://r2-reverse.5435486.xyz/uploads/2024/08/12/653dce34279de.webp"
+      avatar: "https://static.031130.xyz/uploads/2024/08/12/653dce34279de.webp"
     }
     - {
       title: "青鸟の博客",
       intro: "一只不会飞的小笨鸟",
       link: "https://blog.bluebird.icu/",
-      avatar: "https://r2-reverse.5435486.xyz/uploads/2024/08/12/665c87250daa1.webp"
+      avatar: "https://static.031130.xyz/uploads/2024/08/12/665c87250daa1.webp"
     }
     - {
       title: "浅浅子的博客",
       intro: "内心丰盈者独行也如众",
       link: "https://blog.qianqianzyk.top/",
-      avatar: "https://r2-reverse.5435486.xyz/uploads/2024/08/12/659f548c17c9b.webp"
+      avatar: "https://static.031130.xyz/uploads/2024/08/12/659f548c17c9b.webp"
     }
     - {
       title: "Skykey's Home",
@@ -1075,13 +1075,13 @@ links:
       title: "点墨的私人部落阁",
       intro: "寄情山水的arch玩客",
       link: "https://blog.m-l.cc/",
-      avatar: "https://r2-reverse.5435486.xyz/uploads/2024/08/12/65ce4796c447d.webp"
+      avatar: "https://static.031130.xyz/uploads/2024/08/12/65ce4796c447d.webp"
     }
     - {
       title: "T-ON-Y的小窝",
       intro: "wwwww",
       link: "https://tonywu.top/",
-      avatar: "https://r2-reverse.5435486.xyz/uploads/2024/08/12/665c86dd86375.webp"
+      avatar: "https://static.031130.xyz/uploads/2024/08/12/665c86dd86375.webp"
     }
     - {
       title: "望舒的尘歌壶",
@@ -1093,13 +1093,13 @@ links:
       title: "消失在彩霞里的博客",
       intro: "一只爱编程的小马",
       link: "https://blog.aiyin.club/",
-      avatar: "https://r2-reverse.5435486.xyz/uploads/2024/09/24/9d106a106aef1.webp"
+      avatar: "https://static.031130.xyz/uploads/2024/09/24/9d106a106aef1.webp"
     }
     - {
       title: "風雪城",
       intro: "浩繁星空下的一场稚嫩的梦",
       link: "https://blog.chyk.ink/",
-      avatar: "https://r2-reverse.5435486.xyz/uploads/2024/11/18/9b6f5d7231d91.webp"
+      avatar: "https://static.031130.xyz/uploads/2024/11/18/9b6f5d7231d91.webp"
     }
     - {
       title: "纸鹿本鹿",
@@ -1180,7 +1180,7 @@ static_prefix:
 
   valine: https://lib.baomitu.com/valine/1.5.1/
 
-  waline: https://r2-reverse.5435486.xyz/res/
+  waline: https://static.031130.xyz/res/
 
   gitalk: https://lib.baomitu.com/gitalk/1.8.0/
 

@@ -23,7 +23,7 @@ tags:
 
 很遗憾，经过实测，提前使用 `getImageInfo()` 方法并不能实现图片的预加载。`getImageInfo()` 获取时的 Type 是 xhr，而后续图片加载时的 Type 为 webp，图片会被重复下载，并没有实现预加载的作用。
 
-![下载测试](https://r2-reverse.5435486.xyz/uploads/2024/08/12/6609d97bc4f7f.webp)
+![下载测试](https://static.031130.xyz/uploads/2024/08/12/6609d97bc4f7f.webp)
 
 上图中，蓝色部分是 `getImageInfo()` 的网络请求，红色部分是真正的图片加载请求，可谓是一点用都没有，该加载慢还是加载慢。
 
@@ -51,6 +51,6 @@ const imageToPreload = [
 </script>
 ```
 
-![下载测试](https://r2-reverse.5435486.xyz/uploads/2024/08/12/6609db8a213da.webp)
+![下载测试](https://static.031130.xyz/uploads/2024/08/12/6609db8a213da.webp)
 
 可以看到，红色部分的资源在 size 那一栏变成了 `(disk cache)`，加载时间也明显降低，虽然方法不优雅，但起码实现了图片资源的预加载。

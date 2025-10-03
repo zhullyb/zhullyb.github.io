@@ -46,11 +46,11 @@ tags:
 
 然后使用 Chrome 的「加载已解压的扩展程序」安装整个被解压的目录。Chrome 安装后提示 Manifest version 2 将会在 2024 年被弃用，不知道小米能不能在 Chrome 弃用前支持 Manifest version 3，趁着能用我先不管它。
 
-![](https://r2-reverse.5435486.xyz/uploads/2024/11/18/f2a063c982a42.webp)
+![](https://static.031130.xyz/uploads/2024/11/18/f2a063c982a42.webp)
 
 随后打开自己学校的教务网站，F12 打开开发者工具，可以看到多了一栏叫「AISchedule」的选项
 
-![](https://r2-reverse.5435486.xyz/uploads/2024/11/18/800054d7f4ff8.webp)
+![](https://static.031130.xyz/uploads/2024/11/18/800054d7f4ff8.webp)
 
 随后正常登陆自己的小米账号，放一旁备用。
 
@@ -60,13 +60,13 @@ tags:
 
 这个流程我个人用惯了 Firefox 浏览器，因此数据分析这一块的截图都是 Firefox 的截图。
 
-![](https://r2-reverse.5435486.xyz/uploads/2024/11/18/7ea6e1e0bbfcf.webp)
+![](https://static.031130.xyz/uploads/2024/11/18/7ea6e1e0bbfcf.webp)
 
 在我的例子中，第一个请求的响应是一个 html 页面，勾勒出了这个页面的大致轮廓，不过没有样式。这是一个好的迹象，说明这大概率是一个前后端分离的站点，授课数据很可能是通过 json 的数据单独传递给前端的，我们就不需要从 html 中解析我们的课表。
 
 如果能确定是前后端分离的站点，我们可以尝试勾选这里的「XHR」选项，XHR 的全名是 XMLHttpRequest，是一种前端向后端发起请求的方式，前后端的数据一般都会在这里展示。
 
-![](https://r2-reverse.5435486.xyz/uploads/2024/11/18/36880519d2109.webp)
+![](https://static.031130.xyz/uploads/2024/11/18/36880519d2109.webp)
 
 我在第三个请求中发现了我的课表信息，在已经登陆的情况下，小米的课程表允许我通过 fetch 函数打一个相同的请求给后端，获取这个响应结果作为 `Provider` 部分的输出字符串。
 
@@ -74,7 +74,7 @@ tags:
 
 这个请求的 fetch 函数如何构建？可以直接右键这个请求，在菜单中选择「复制为 Fetch 语句」
 
-![](https://r2-reverse.5435486.xyz/uploads/2024/11/18/ff498f0a0957e.webp)
+![](https://static.031130.xyz/uploads/2024/11/18/ff498f0a0957e.webp)
 
 复制下来的语句长下面这个样子
 
@@ -134,7 +134,7 @@ await fetch("http://www.gdjw.zjut.edu.cn/jwglxt/kbcx/xskbcx_cxXsgrkb.html?gnmkdm
 
 打开 VSCode，命令行运行 `pnpm i` 安装其运行时的依赖，顺便截图给你们看一眼目录结构。
 
-![](https://r2-reverse.5435486.xyz/uploads/2024/11/18/d8316deee7e50.webp)
+![](https://static.031130.xyz/uploads/2024/11/18/d8316deee7e50.webp)
 
 ### 编写 provider
 
@@ -344,15 +344,15 @@ async function scheduleTimer({
 
 在浏览器插件中，先创建一个新项目
 
-![](https://r2-reverse.5435486.xyz/uploads/2024/11/18/d1ebba67ddc83.webp)
+![](https://static.031130.xyz/uploads/2024/11/18/d1ebba67ddc83.webp)
 
 保存后再次打开，选择「编写代码」按钮
 
-![](https://r2-reverse.5435486.xyz/uploads/2024/11/18/e697bcf2a7a1f.webp)
+![](https://static.031130.xyz/uploads/2024/11/18/e697bcf2a7a1f.webp)
 
 检查自己的代码是不是被实时同步到了浏览器插件中，然后可以点击右上角的「本地测试」按钮
 
-![](https://r2-reverse.5435486.xyz/uploads/2024/11/18/eb563904a64a1.webp)
+![](https://static.031130.xyz/uploads/2024/11/18/eb563904a64a1.webp)
 
 如果本机测试出现了问题，可以使用 console.log 语句进行 debug ，问题可能会出现在 F12 开发者工具的控制台，也可能会出现在 vscode 的终端中。确认本机测试无问题后，点击右上角蓝色的「上传」按钮，就可以在上传到云端，在登陆了自己小米账号的手机中找到自己适配的教务导入测试项目，顺利完成导入后给自己的满意度打满分，就可以在浏览器插件中点击上传审核，审核通过后你的适配工作就会公开啦。
 

@@ -23,7 +23,7 @@ tags:
 
 打开控制台一看，报错给得很明白：`Waline is not defined`
 
-![](https://r2-reverse.5435486.xyz/uploads/2024/11/16/663e910db29b7.webp)
+![](https://static.031130.xyz/uploads/2024/11/16/663e910db29b7.webp)
 
 根据 [issue#2483](https://github.com/walinejs/waline/issues/2483)，
 
@@ -41,7 +41,7 @@ tags:
 
 更新到 v3 版本以后，我发现所有的评论都出现了重复两遍的 @
 
-![](https://r2-reverse.5435486.xyz/uploads/2024/11/16/f6fbaa99a784e.webp)
+![](https://static.031130.xyz/uploads/2024/11/16/f6fbaa99a784e.webp)
 
 我去群里提问，管理员 [li zheming](https://imnerd.org/) 给出了这样的答复:
 
@@ -51,13 +51,13 @@ tags:
 
 打开 waline 的后台管理站点，我发现我有整整 30 页的评论——很显然我是 waline 的牢用户了，我不太可能一个一个手动去掉评论中的 @
 
-![](https://r2-reverse.5435486.xyz/uploads/2024/11/16/c4487502542e5.webp)
+![](https://static.031130.xyz/uploads/2024/11/16/c4487502542e5.webp)
 
 我的 waline 数据库是 leancloud，对方的 webui 没办法帮助我批量去除 html 或者 markdown 形式的内容（就算对方支持 sql 语句，处理这个问题都够呛），我需要一个脚本来直接处理数据库中的信息。
 
 首先，我们需要导出数据库数据，自然是登陆 leancloud，然后找到 数据存储 - 导入导出 - 数据导出，选择 Comment 单个 Class，单击导出按钮。
 
-![](https://r2-reverse.5435486.xyz/uploads/2024/11/16/d2cd564739120.webp)
+![](https://static.031130.xyz/uploads/2024/11/16/d2cd564739120.webp)
 
 err，我寻思凌晨 1 点应该是 16 点前吧，怎么导出不了，而我昨晚 23 点反而可以导出，leancloud 到底是哪门子时区。所以我直接拿了 23 点时导出的数据进行处理。
 
@@ -97,6 +97,6 @@ with open('Comment.1.jsonl', 'w') as f:
 
 随后删除 Comment 表中所有数据，把生成的 `Comment.1.jsonl` 导入 leancloud，就算是大功告成了。
 
-![](https://r2-reverse.5435486.xyz/uploads/2024/11/16/d248ae2eac74c.webp)
+![](https://static.031130.xyz/uploads/2024/11/16/d248ae2eac74c.webp)
 
-![](https://r2-reverse.5435486.xyz/uploads/2024/11/16/c3875dcde1d97.webp)
+![](https://static.031130.xyz/uploads/2024/11/16/c3875dcde1d97.webp)

@@ -2,7 +2,7 @@
 title: 使用 Python 生成甘特图(Gantt Chart)
 date: 2024-04-24 12:02:58
 sticky:
-index_img: https://r2-reverse.5435486.xyz/uploads/2024/08/12/662890f78f1da.webp
+index_img: https://static.031130.xyz/uploads/2024/08/12/662890f78f1da.webp
 tags:
 - Python
 ---
@@ -11,13 +11,13 @@ tags:
 
 在谷歌搜寻了一番，我发现现在的甘特图生成网站都太现代化了，根本不是操作系统课上教的样子了。
 
-![现代化的甘特图](https://r2-reverse.5435486.xyz/uploads/2024/08/12/662888bd5a0af.webp)
+![现代化的甘特图](https://static.031130.xyz/uploads/2024/08/12/662888bd5a0af.webp)
 
 所幸我找到了 [gao-keyong/matplotlib-gantt](https://github.com/gao-keyong/matplotlib-gantt/)，虽然只有两个 star（没事，加上我就 3 stars 了），但确实能用，README 中的样例也是我期望的样子。
 
 项目中自带了一个 jupyter 的示例，算得上是非常简单易上手的了，依赖方面只要装好 matplotlib 就可以使用，不存在依赖地狱。尽管是三年前的项目，在我本机的 Python 3.11 上仍然能够正常运行。
 
-![](https://r2-reverse.5435486.xyz/uploads/2024/08/12/66288ba6414d4.webp)
+![](https://static.031130.xyz/uploads/2024/08/12/66288ba6414d4.webp)
 
 
 
@@ -44,7 +44,7 @@ gantt(category_names, results, arrival_t).show()
 
 ```
 
-![](https://r2-reverse.5435486.xyz/uploads/2024/08/12/662890f78f1da.webp)
+![](https://static.031130.xyz/uploads/2024/08/12/662890f78f1da.webp)
 
 ***
 
@@ -62,4 +62,4 @@ gantt(category_names, results, arrival_t).show()
 
 ```
 
-![](https://r2-reverse.5435486.xyz/uploads/2024/08/12/662891bfa52fc.webp)
+![](https://static.031130.xyz/uploads/2024/08/12/662891bfa52fc.webp)

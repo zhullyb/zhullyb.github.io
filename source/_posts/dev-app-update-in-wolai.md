@@ -9,7 +9,7 @@ tags:
 
 之前对于electron懵懵懂懂的时候就把 [wolai](https://www.wolai.com/) 给打包上了 AUR ，那会儿年少无知，也不懂得把内置的 electron 拆开来换成系统内置的以节省空间。前一阵子给CN源打完 Motrix 以后突然想起来自己在 AUR 上还有维护一个叫 wolai 的electron 应用，于是打算把软件内置的 electron 拆出来。尝试使用 `electron /path/to/app.asar` 命令启动的时候发现了以下的问题。
 
-![报错了](https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3caf822bec.webp)
+![报错了](https://static.031130.xyz/uploads/2024/08/12/62f3caf822bec.webp)
 
 虽然这个报错无关紧要，直接右上角叉掉也不影响软件正常使用，但是就这样推上 AUR 似乎有些不太妥当。于是使用搜索引擎查找答案。
 
@@ -49,7 +49,7 @@ asar pack ${srcdir}/new_app ${srcdir}/squashfs-root/resources/app.asar
 
 程序正常启动，没有弹出之前的对话框了。
 
-![成功啦](https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3cafb6b04d.webp)
+![成功啦](https://static.031130.xyz/uploads/2024/08/12/62f3cafb6b04d.webp)
 
 参考: 
 

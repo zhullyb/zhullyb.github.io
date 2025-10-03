@@ -23,25 +23,25 @@ tags:
 
 Self-hosted Runner 的配置本身是相当直接和清晰的，照着官方提供的方案基本没什么问题。
 
-![](https://r2-reverse.5435486.xyz/uploads/2025/09/05/7c0475cdb1aa9.webp)
+![](https://static.031130.xyz/uploads/2025/09/05/7c0475cdb1aa9.webp)
 
 三个主流平台都有，如果好好加以利用，应该可以涵盖包括 iPhone 应用打包等一系列的需求。
 
-![](https://r2-reverse.5435486.xyz/uploads/2025/09/05/96ff7cb263da1.webp)
+![](https://static.031130.xyz/uploads/2025/09/05/96ff7cb263da1.webp)
 
 在观察一下我这边拿到手的 2.328.0 版本的 runner 安装文件压缩包的体积在 220MB 左右，内置了 node20 和 node24 各两个版本的运行环境。
 
-![](https://r2-reverse.5435486.xyz/uploads/2025/09/05/f775e3bcd2cdc.webp)
+![](https://static.031130.xyz/uploads/2025/09/05/f775e3bcd2cdc.webp)
 
-![](https://r2-reverse.5435486.xyz/uploads/2025/09/05/d0d4fe4611a40.webp)
+![](https://static.031130.xyz/uploads/2025/09/05/d0d4fe4611a40.webp)
 
 在执行完 config.sh 后，当前目录下就会多出一个 svc.sh，可以帮助利用这东西来调用 systemd 实现进程守护之类的需求。
 
-![](https://r2-reverse.5435486.xyz/uploads/2025/09/05/43c6b19038def.webp)
+![](https://static.031130.xyz/uploads/2025/09/05/43c6b19038def.webp)
 
 再次刷新网页，就可以看到 Self-hosted Runner 处于已经上线的状态了
 
-![](https://r2-reverse.5435486.xyz/uploads/2025/09/05/6dad15beff900.webp)
+![](https://static.031130.xyz/uploads/2025/09/05/6dad15beff900.webp)
 
 ## 指定 Action 采用自己的 Runner
 
@@ -58,7 +58,7 @@ jobs:
 
 当我满心欢喜地将 CI 流程从 Github 官方的 runner 切换到自托管的 runner 后，问题很快就浮现了，而这也正是我“爱不起来”的主要原因。问题集中体现在我习以为常的 `setup-python` 这一由 Github 官方维护的 Github Action Flow 中，提示 3.12 版本没找到。
 
-![](https://r2-reverse.5435486.xyz/uploads/2025/09/05/1c93947170a85.webp)
+![](https://static.031130.xyz/uploads/2025/09/05/1c93947170a85.webp)
 
 在 Github 官方提供的虚拟环境中，这些 Action 会为我们准备好指定版本的开发环境。例如，`uses: actions/setup-python` 加上 `with: python-version: '3.12'` 就会自动在环境中安装并配置好 Python 3.12.x。我对此已经习以为常，认为这是一个“开箱即用”的功能。但在 Self-hosted Runner 上，情况略有些不同。setup-python 在[文档](https://github.com/actions/setup-python/blob/main/docs/advanced-usage.md#using-setup-python-with-a-self-hosted-runner)中指出
 

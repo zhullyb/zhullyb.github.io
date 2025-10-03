@@ -172,9 +172,9 @@ onMounted(async () => {
 
 **小技巧：** 如果你用的是 Chrome、Edge 这类 Chromium 内核的浏览器，打开开发者工具 (DevTools)，找到“渲染”(Rendering) 标签页，勾选「突出显示重绘区域(Paint flashing)」。这样你就能直观看到每次更新时，哪些部分被重新绘制了——重绘区域越少，性能越好！
 
-![](https://r2-reverse.5435486.xyz/uploads/2025/07/12/d5721c40fb076.webp)
+![](https://static.031130.xyz/uploads/2025/07/12/d5721c40fb076.webp)
 
-<iframe src="https://r2-reverse.5435486.xyz/demo/morphdom-vs-markdown-chunk.html" width="100%" height="500" allowfullscreen></iframe>
+<iframe src="https://static.031130.xyz/demo/morphdom-vs-markdown-chunk.html" width="100%" height="500" allowfullscreen></iframe>
 
 ## 阶段性成果
 

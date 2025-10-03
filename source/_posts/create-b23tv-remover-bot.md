@@ -20,7 +20,7 @@ tags:
 
 通过 curl 命令，我们就可以看到 b23.tv 短链接重定向到了哪个页面。
 
-![](https://r2-reverse.5435486.xyz/uploads/2024/08/12/653d49fe955f7.webp)
+![](https://static.031130.xyz/uploads/2024/08/12/653d49fe955f7.webp)
 
 这是所携带的 GET 请求参数
 

@@ -17,7 +17,7 @@ tags:
 
 首先使用 Windows 操作系统完成打印机的联网工作，在路由器的网页管理界面可以看到这台打印机的局域网 ip 是 192.168.123.20 ，记录备用。如果有条件的话，尽量将打印机的 MAC 地址与 IP 地址绑定，避免路由器将该 IP 分配给别的设备。
 
-![路由器的网页管理界面](https://r2-reverse.5435486.xyz/uploads/2024/08/12/6693aa41c079b.webp)
+![路由器的网页管理界面](https://static.031130.xyz/uploads/2024/08/12/6693aa41c079b.webp)
 
 ## 安装 CUPS
 
@@ -70,16 +70,16 @@ yay -S hpuld
 
 打开设置中的打印机设置后，选择添加打印机，CUPS 直接帮我们找到了局域网下的打印机，并自动开始搜索驱动程序（虽然没搜到）。
 
-![自动搜索](https://r2-reverse.5435486.xyz/uploads/2024/08/12/6693b6e81f9c4.webp)
+![自动搜索](https://static.031130.xyz/uploads/2024/08/12/6693b6e81f9c4.webp)
 
 但如果没能自动检测到打印机，也可以使用手动选项中的 AppSocket/HP JetDirect 手动输入打印机的 ip 地址进行配置。
 
 紧接着就到了选择驱动程序的阶段，厂商选择 HP，能够找到「HP Laser 10x Series」的选项，直接选择。
 
-![选择驱动](https://r2-reverse.5435486.xyz/uploads/2024/08/12/6693b76b9c1ca.webp)
+![选择驱动](https://static.031130.xyz/uploads/2024/08/12/6693b76b9c1ca.webp)
 
 接着就可以完成打印机的添加。
 
-![完成添加](https://r2-reverse.5435486.xyz/uploads/2024/08/12/6693b7ba82d99.webp)
+![完成添加](https://static.031130.xyz/uploads/2024/08/12/6693b7ba82d99.webp)
 
 随后便能正常打印文件啦！

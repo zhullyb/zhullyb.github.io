@@ -149,8 +149,8 @@ async function b23Remover (url) {
 
 在 Cloudflare 部署后，就可以访问 aaa.bbb.workers.dev/registerWebhook 这个 url 注册 TG 的 webhook 服务。收到 Ok 就代表注册好了。
 
-![](https://r2-reverse.5435486.xyz/uploads/2024/12/30/5fd442bb18064.webp)
+![](https://static.031130.xyz/uploads/2024/12/30/5fd442bb18064.webp)
 
 ## 成果展示
 
-![](https://r2-reverse.5435486.xyz/uploads/2024/12/30/3b0b929960840.webp)
+![](https://static.031130.xyz/uploads/2024/12/30/3b0b929960840.webp)

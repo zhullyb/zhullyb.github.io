@@ -2,7 +2,7 @@
 title: 前端中的量子力学——一打开 F12 就消失的 Bug
 date: 2025-06-08 01:22:13
 sticky:
-index_img: https://r2-reverse.5435486.xyz/uploads/2025/06/08/2798756067653.webp
+index_img: https://static.031130.xyz/uploads/2025/06/08/2798756067653.webp
 tags:
 - Web
 - HTML
@@ -15,11 +15,11 @@ tags:
 
 这事说来也邪乎，半个月前吃着火锅唱着歌，在工位上嘎嘎写码，发现一个诡异的 bug。作为如假包换的人类程序员，写出 bug 是再正常不过的事情了，但这 bug 邪门就邪门在我一打开 F12 的 DevTools 观察相关的 dom 结构，这 bug 就自动消失了；再把 DevTools 一关，Ctrl + F5 一刷新页面，Bug 又出现了。
 
-下面是使用 iframe 引入的 [demo](https://r2-reverse.5435486.xyz/demo/scroll-jump-bug.html)
+下面是使用 iframe 引入的 [demo](https://static.031130.xyz/demo/scroll-jump-bug.html)
 
-<iframe src="https://r2-reverse.5435486.xyz/demo/scroll-jump-bug.html" width="100%" height="500" allowfullscreen></iframe>
+<iframe src="https://static.031130.xyz/demo/scroll-jump-bug.html" width="100%" height="500" allowfullscreen></iframe>
 
-![“观测”指南](https://r2-reverse.5435486.xyz/uploads/2025/06/08/65620d31fce6f.webp)
+![“观测”指南](https://static.031130.xyz/uploads/2025/06/08/65620d31fce6f.webp)
 
 这 Bug 给我整得脑瓜子嗡嗡的，我又不是物理学家，写个前端怎么量子力学的观察者效应都给我整出来了（？
 
@@ -55,7 +55,7 @@ if (scrollIndex >= groupLength) {
 
 说实话，这是我短暂的码农生涯当中最绝望的一次，一方面是遇到的 bug 过于逆天以至于说出去都可能没人信，一方面是遇上这种问题是完全不能指望搜索引擎能给出什么解决方案的——毕竟我自己都不知道该怎么组织关键词进行搜索。
 
-![这是小麦茶，带我入坑前端的学长](https://r2-reverse.5435486.xyz/uploads/2025/06/08/475a61b332454.webp)
+![这是小麦茶，带我入坑前端的学长](https://static.031130.xyz/uploads/2025/06/08/475a61b332454.webp)
 
 于是抱着试一试的心态，把相关代码喂给 ChatGPT-4o 看看能不能问出个所以然来。
 
@@ -109,7 +109,7 @@ if (scrollIndex >= groupLength) {
 
 总之，我们需要杜绝浏览器将设置 transform 偏移值（瞬移列表位置）与恢复 transition 动画两件事合并到同一帧里去，而两层嵌套的 requestAnimationFrame 方法能很好的解决这个问题
 
-<iframe src="https://r2-reverse.5435486.xyz/demo/scroll-jump-bug-fixed.html" width="100%" height="500" allowfullscreen></iframe>
+<iframe src="https://static.031130.xyz/demo/scroll-jump-bug-fixed.html" width="100%" height="500" allowfullscreen></iframe>
 
 ## 驯服量子态：前端开发者的新技能
 

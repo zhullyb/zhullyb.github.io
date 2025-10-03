@@ -15,7 +15,7 @@ tags:
 
 ## 架构设计
 
-![图床架构设计图](https://r2-reverse.5435486.xyz/uploads/2024/08/12/80402e4da4ef7.webp)
+![图床架构设计图](https://static.031130.xyz/uploads/2024/08/12/80402e4da4ef7.webp)
 
 这一套架构使用 Dnspod 免费版实现在境内外的解析分流，将境内的流量导向又拍云 CDN 为境内的访客提供服务，在境外使用量大管饱的 Cloudflare CDN 节省成本，为全球提供加速访问。
 
@@ -40,7 +40,7 @@ tags:
 
 ## DNS 解析
 
-![DNS 解析方案 1](https://r2-reverse.5435486.xyz/uploads/2024/08/13/03d8243b67593.webp)
+![DNS 解析方案 1](https://static.031130.xyz/uploads/2024/08/13/03d8243b67593.webp)
 
 如上图，将图床域名 NS 接入 DnsPod，工具人域名 NS 接入 Cloudflare 即可实现境内外分流的效果。
 
@@ -48,11 +48,11 @@ tags:
 2. 图床访问域名在境内 CNAME 解析到境内 CDN 服务商
 3. 工具人域名在 Cloudflare 上解析到任何站点都行，只需点亮解析时 Cloudflare CDN 代理按钮即可生效。
 
-![代理按钮](https://r2-reverse.5435486.xyz/uploads/2024/08/13/a0387d2919850.webp)
+![代理按钮](https://static.031130.xyz/uploads/2024/08/13/a0387d2919850.webp)
 
 但如果你的备案域名已经通过 NS 接入了 Cloudflare，可以采用下面这套架构。
 
-![DNS 解析方案 2](https://r2-reverse.5435486.xyz/uploads/2024/08/13/d03d7b3155514.webp)
+![DNS 解析方案 2](https://static.031130.xyz/uploads/2024/08/13/d03d7b3155514.webp)
 
 *\* 解析方案 2 中的图床访问域名和工具人域名可以是同属于同一二级域名的不同子域名*
 
@@ -60,11 +60,11 @@ tags:
 
 ## Cloudflare SaaS 接入
 
-![SaaS 接入](https://r2-reverse.5435486.xyz/uploads/2024/08/13/eb7186205b380.webp)
+![SaaS 接入](https://static.031130.xyz/uploads/2024/08/13/eb7186205b380.webp)
 
 SaaS 接入大概就是如图所示，此外还要配置 Cloudflare Workers 的域名访问
 
-![Cloudflare Workers 域名访问](https://r2-reverse.5435486.xyz/uploads/2024/08/13/782a665cabe05.webp)
+![Cloudflare Workers 域名访问](https://static.031130.xyz/uploads/2024/08/13/782a665cabe05.webp)
 
 这样就能保证在境外访问图床域名时将请求打到 Cloudflare Workers 上了，关于使用 Cloudflare Workers 构建图床 Restful API 相关的内容我放在[下一篇博客](/2024/08/13/build-restful-api-for-cloudflare-r2-with-cloudflare-workers/)讲。
 
