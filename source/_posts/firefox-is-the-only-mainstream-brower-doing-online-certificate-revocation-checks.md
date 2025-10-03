@@ -21,21 +21,21 @@ tags:
 
 在我的 Firefox for Linux 上，两个链接我都无法打开。
 
-![](https://static.031130.xyz/uploads/2024/11/19/f7785db60b2c8.webp)
+![](https://r2-reverse.5435486.xyz/uploads/2024/11/19/f7785db60b2c8.webp)
 
 这是预期行为。Firefox 在与目标站点建立 https 链接之前，先向 CA 提供的 OCSP 服务器打了一个 http 请求来判断目标站点的 ssl 证书是否有效（是否没有被 CA 主动吊销）。
 
 在 Firefox for Android 上，我无法打开第一个链接，但可以打开第二个，这是因为 Mozilla 给 Android 用户设置的策略为「只对 EV 证书进行 ocsp 校验，跳过 DV 证书和 OV 证书」，*似乎在竞争更加激烈的移动端，Firefox 为了加载速度做出了安全性上的妥协。*
 
-<div><img src="https://static.031130.xyz/uploads/2024/11/19/b097e954f766f.webp" style="zoom:33%;" /><span style="width: 20%;"></span><img src="https://static.031130.xyz/uploads/2024/11/19/a5f58dbb50cfe.webp" style="zoom:33%;" /></div>
+<div><img src="https://r2-reverse.5435486.xyz/uploads/2024/11/19/b097e954f766f.webp" style="zoom:33%;" /><span style="width: 20%;"></span><img src="https://r2-reverse.5435486.xyz/uploads/2024/11/19/a5f58dbb50cfe.webp" style="zoom:33%;" /></div>
 
 而在 Google Chrome / Microsoft Edge 上，OCSP 是不被支持的，chromium 团队在 2014 年就禁用了 OCSP 校验，且目前没有设置项允许用户手动开启，目前它只支持[本地的 CRLSets 规则集](https://www.chromium.org/Home/chromium-security/crlsets/)。
 
-![](https://static.031130.xyz/uploads/2024/11/19/bd84e9aff71d0.webp)
+![](https://r2-reverse.5435486.xyz/uploads/2024/11/19/bd84e9aff71d0.webp)
 
 Safari 经我本人测试默认只对 EV 证书进行有效性检验。
 
-![](https://static.031130.xyz/uploads/2024/11/19/50352339f7473.webp)
+![](https://r2-reverse.5435486.xyz/uploads/2024/11/19/50352339f7473.webp)
 
 ## SSL 证书被吊销是怎么回事？
 
@@ -56,9 +56,9 @@ openssl s_client -connect example.com:443 -servername example.com | openssl x509
 
 ```
 
-![](https://static.031130.xyz/uploads/2024/11/19/32579fb56b77b.webp)
+![](https://r2-reverse.5435486.xyz/uploads/2024/11/19/32579fb56b77b.webp)
 
-![访问第二个链接时的抓包结果](https://static.031130.xyz/uploads/2024/11/19/244704705924f.webp)
+![访问第二个链接时的抓包结果](https://r2-reverse.5435486.xyz/uploads/2024/11/19/244704705924f.webp)
 
 #### 软失败
 
@@ -70,7 +70,7 @@ openssl s_client -connect example.com:443 -servername example.com | openssl x509
 
 透过在第三种情况，我们可以发现，Firefox 对 OCSP 检查的结果是软失败 (soft fail) 态度——即如果在 OCSP 过程中发生异常，Firefox 将不得不放弃 OCSP 检查并放行。根据 Mozilla Blog 的说法，如今有 9.9% 的 OCSP 检查都是超时的。
 
-![https://blog.mozilla.org/security/files/2020/01/figure4-ocsp_results.png](https://static.031130.xyz/uploads/2024/11/19/4a6c899a41128.webp)
+![https://blog.mozilla.org/security/files/2020/01/figure4-ocsp_results.png](https://r2-reverse.5435486.xyz/uploads/2024/11/19/4a6c899a41128.webp)
 
 #### Firefox 中的相关配置项
 
@@ -111,7 +111,7 @@ openssl s_client -connect example.com:443 -status
 
 如果开启了 OCSP 装订，那么返回的数据中会有 OCSP Response Data 相关的描述
 
-![](https://static.031130.xyz/uploads/2024/11/19/71f252c97e96e.webp)
+![](https://r2-reverse.5435486.xyz/uploads/2024/11/19/71f252c97e96e.webp)
 
 ### CRLite (WIP)
 
@@ -131,7 +131,7 @@ Mozilla 计划每天发布 4 次 CRLite 的更新，以减少第 4 种情况。
 
 CRLite 的本地数据查询相比起 OCSP 的在线查询拥有天然的优势，99% 的情况下，CRLite 会比 OCSP 快，其中 56% 的情况下，CRLite 会比 OCSP 快 100 毫秒以上。
 
-![https://blog.mozilla.org/security/files/2020/01/figure3-speedup_vs_ocsp.png](https://static.031130.xyz/uploads/2024/11/19/bfba9ba3515ca.webp)
+![https://blog.mozilla.org/security/files/2020/01/figure3-speedup_vs_ocsp.png](https://r2-reverse.5435486.xyz/uploads/2024/11/19/bfba9ba3515ca.webp)
 
 此外，当 CRLite 不可用时，Firefox 仍然可以回退到传统的 OCSP 检测机制。
 

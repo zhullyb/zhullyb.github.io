@@ -166,7 +166,7 @@ mkdir $HOME/rpmbuild/BUILDROOT/wechat-uos-2.0.0-1.x86_64
 
 将我们的wechat-uos直接放入对应的文件夹中
 
-![解压原先打包好的wechat-uos](https://static.031130.xyz/uploads/2024/08/12/62f3cadde8d65.webp)
+![解压原先打包好的wechat-uos](https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3cadde8d65.webp)
 
 补上我们的`/etc/lsb-release`
 
@@ -181,7 +181,7 @@ touch $HOME/rpmbuild/BUILDROOT/wechat-uos-2.0.0-1.x86_64/etc/lsb-release
 rpmbuild -bb --target=x86_64 SPECS/wechat-uos.spec --nodeps
 ```
 
-![打包成功](https://static.031130.xyz/uploads/2024/08/12/62f3cae15fdcf.webp)
+![打包成功](https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3cae15fdcf.webp)
 
 ### 安装测试
 
@@ -189,7 +189,7 @@ rpmbuild -bb --target=x86_64 SPECS/wechat-uos.spec --nodeps
 sudo dnf install ./wechat-uos-2.0.0-1.x86_64.rpm
 ```
 
-![测试通过](https://static.031130.xyz/uploads/2024/08/12/62f3cae5aa4b0.webp)
+![测试通过](https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3cae5aa4b0.webp)
 
 ### 写在最后
 

@@ -2,7 +2,7 @@
 title: 为 Hexo 添加 follow 认证
 date: 2024-10-23 23:11:32
 sticky:
-index_img: https://static.031130.xyz/uploads/2024/10/24/a93fd67a5419d.png
+index_img: https://r2-reverse.5435486.xyz/uploads/2024/10/24/a93fd67a5419d.png
 tags:
 - Hexo
 - Follow
@@ -12,7 +12,7 @@ tags:
 
 Follow 从今天开始不需要邀请码就可以开始使用部分功能了，除了只能订阅五个订阅源、成就系统没开放、签到不能获得 power 以外，还有部分功能没有解锁（如下图）
 
-![](https://static.031130.xyz/uploads/2024/10/23/d3a69a7bcde58.webp)
+![](https://r2-reverse.5435486.xyz/uploads/2024/10/23/d3a69a7bcde58.webp)
 
 我注意到 Follow 的认证机制目前对于 Hexo 用户还是相对不友好的，起码对于 Hexo 用户来说。
 
@@ -28,7 +28,7 @@ This message is used to verify that this feed (feedId:56144913816835091) belongs
 feedId:56144913816835091+userId:70410173045150720
 ```
 
-![即使是在 follow 中，这样的文字也是非常眨眼](https://static.031130.xyz/uploads/2024/10/23/10dfda54f4dcc.webp)
+![即使是在 follow 中，这样的文字也是非常眨眼](https://r2-reverse.5435486.xyz/uploads/2024/10/23/10dfda54f4dcc.webp)
 
 「RSS 标签」方案是我唯一能接受的方案，这个方案需要我们在 rss 的 xml 文件中添加一个名为 `<follow_challenge>` 的标签，或者是 json 文件中的一个 `follow_challenge` 对象。虽然具有一定的侵入性，但对于读者来说不会受到影响——应该没有除了 follow 以外的 rss reader 对这个字段进行解析。
 
@@ -71,7 +71,7 @@ feed:
 
 如果是个人用途，其实可以直接硬编码，在文件的倒数第二行把我们复制的 `<follow_challenge>` 放进去。
 
-![](https://static.031130.xyz/uploads/2024/10/23/fae341d7985ea.webp)
+![](https://r2-reverse.5435486.xyz/uploads/2024/10/23/fae341d7985ea.webp)
 
 或者如果我们想要写得考究一些，那么可以是下面这个样子的
 

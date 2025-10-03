@@ -16,7 +16,7 @@ UOS 上的软件来源起码来自两个仓库，一个是与系统有关的软�
 
 在 chinauos.com 下载到最新的 ISO 安装镜像后，直接在虚拟机中走完正常的安装流畅，然后直捣黄龙。
 
-![源地址](https://static.031130.xyz/uploads/2024/08/12/65f1b344e5581.webp)
+![源地址](https://r2-reverse.5435486.xyz/uploads/2024/08/12/65f1b344e5581.webp)
 
 可以看出，`/etc/apt/sources.list.d/appstore.list` 文件中列出的源很有可能就是我们要找的新版微信的所在源。
 
@@ -42,11 +42,11 @@ UOS 上的软件来源起码来自两个仓库，一个是与系统有关的软�
 
 我尝试了访问 `https://pro-store-packages.uniontech.com/appstore/dists/eagle-pro/Release`，获得了一系列索引文件的索引。
 
-![索引的索引（很拗口）](https://static.031130.xyz/uploads/2024/08/12/65f1b5166810a.webp)
+![索引的索引（很拗口）](https://r2-reverse.5435486.xyz/uploads/2024/08/12/65f1b5166810a.webp)
 
 第一段中就能看到熟悉的 `Packages` 文件。根据我 deepin-elf-verify 相关博客中记载，这个文件中会保存 deb 文件的相对路径。我们先拼出 amd64 架构的 Packages 文件下载链接: https://pro-store-packages.uniontech.com/appstore/dists/eagle-pro/appstore/binary-amd64/Packages
 
-![deb 包详细信息](https://static.031130.xyz/uploads/2024/08/12/65f1b5faccc86.webp)
+![deb 包详细信息](https://r2-reverse.5435486.xyz/uploads/2024/08/12/65f1b5faccc86.webp)
 
 这里可以看到源中每一个 deb 包的信息。图中红色方框框出的便是其中一个 deb 包在源中的相对路径。
 
@@ -56,10 +56,10 @@ UOS 上的软件来源起码来自两个仓库，一个是与系统有关的软�
 curl -sL https://pro-store-packages.uniontech.com/appstore/dists/eagle-pro/appstore/binary-amd64/Packages | grep -E "weixin|wechat"
 ```
 
-![获取到我们想要的 deb 包的相对路径](https://static.031130.xyz/uploads/2024/08/12/65f1b6a4c3239.webp)
+![获取到我们想要的 deb 包的相对路径](https://r2-reverse.5435486.xyz/uploads/2024/08/12/65f1b6a4c3239.webp)
 
 在这个路径前加上之前 `appstore.list` 文件中给出的 url 前缀，即可拼凑出 deb 包的完整下载地址: https://pro-store-packages.uniontech.com/appstore/pool/appstore/c/com.tencent.wechat/com.tencent.wechat_1.0.0.236_amd64.deb
 
 放到浏览器中尝试，果然可以正常下载
 
-![正常下载](https://static.031130.xyz/uploads/2024/08/12/65f1b73567121.webp)
+![正常下载](https://r2-reverse.5435486.xyz/uploads/2024/08/12/65f1b73567121.webp)

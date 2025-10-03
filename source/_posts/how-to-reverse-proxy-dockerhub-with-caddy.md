@@ -2,7 +2,7 @@
 title: 使用 Caddy 反向代理 dockerhub 需要几步？
 date: 2024-09-21 01:29:17
 sticky:
-index_img: https://static.031130.xyz/uploads/2024/09/21/46f7b160e6e56.webp
+index_img: https://r2-reverse.5435486.xyz/uploads/2024/09/21/46f7b160e6e56.webp
 tags:
 - Caddy
 - Docker
@@ -37,17 +37,17 @@ Environment="HTTPS_PROXY=http://127.0.0.1:8080"
 docker pull svenstaro/miniserve:latest
 ```
 
-![抓包结果](https://static.031130.xyz/uploads/2024/09/21/acbee0959be78.webp)
+![抓包结果](https://r2-reverse.5435486.xyz/uploads/2024/09/21/acbee0959be78.webp)
 
 docker 先请求了 `registry-1.docker.io` 得到了 401 的 http 状态码后转去访问了 `auth.docker.io`，得到了 Authorization 字段以后重新请求 `registry-1.docker.io`，获取源数据后被 307 转发到了 `production.cloudflare.docker.com` 上。
 
 其中，第一个 401 响应的响应头中，用 WWW-Authenticate 字段标注了 auth 鉴权的域
 
-![WWW-Authenticate](https://static.031130.xyz/uploads/2024/09/21/e905c55e76a25.webp)
+![WWW-Authenticate](https://r2-reverse.5435486.xyz/uploads/2024/09/21/e905c55e76a25.webp)
 
 而 307 响应的响应头中，使用 Location 字段标注了被转发到的 url
 
-![Location](https://static.031130.xyz/uploads/2024/09/21/6a2e0bf6a8284.webp)
+![Location](https://r2-reverse.5435486.xyz/uploads/2024/09/21/6a2e0bf6a8284.webp)
 
 ## 三个域名都需要反向代理嘛？
 
@@ -55,7 +55,7 @@ docker 先请求了 `registry-1.docker.io` 得到了 401 的 http 状态码后�
 
 `auth.docker.io` 只出现了一次，需要反代嘛？根据它在境内的访问质量，恐怕是需要反代的。
 
-![auth.docker.io](https://static.031130.xyz/uploads/2024/09/21/4a70c8cac6a4c.webp)
+![auth.docker.io](https://r2-reverse.5435486.xyz/uploads/2024/09/21/4a70c8cac6a4c.webp)
 
 最后就是 `production.cloudflare.docker.com` ，这也是我们最终下载镜像文件的地方，99% 以上的流量都是打到这里去的，而 cloudflare 在境内的访问质量是知名的减速器，完全不可以信赖。
 

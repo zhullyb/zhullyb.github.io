@@ -39,7 +39,7 @@ tags:
 rsync rsync://mirror.karneval.cz
 ```
 
-![image-20220511103736493](https://static.031130.xyz/uploads/2024/08/12/627b2177c4da2.webp)
+![image-20220511103736493](https://r2-reverse.5435486.xyz/uploads/2024/08/12/627b2177c4da2.webp)
 
 通过一层一层预览目录的方式，找到需要同步的路径是 `/fedora/linux/releases/36/Everything/x86_64/os/`
 
@@ -53,7 +53,7 @@ rsync -avP rsync://mirror.karneval.cz/fedora/linux/releases/36/Everything/x86_64
 
 *Ps: 中途如果由于各种原因而中断了同步过程，可以再次使用上述命令继续同步，rsync 会保证文件完整性。*
 
-![耗费两个半小时，同步成功](https://static.031130.xyz/uploads/2024/08/12/627b22fa44446.webp)
+![耗费两个半小时，同步成功](https://r2-reverse.5435486.xyz/uploads/2024/08/12/627b22fa44446.webp)
 
 ## 安装、配置并启用 static server (可选)
 
@@ -83,7 +83,7 @@ caddy run --config /etc/caddy/Caddyfile
 
 浏览器输入对应的 ip 和端口，应该就可以访问了。
 
-![image-20220511113417004](https://static.031130.xyz/uploads/2024/08/12/627b2ebd23331.webp)
+![image-20220511113417004](https://r2-reverse.5435486.xyz/uploads/2024/08/12/627b2ebd23331.webp)
 
 ## 修改源配置文件
 

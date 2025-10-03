@@ -16,17 +16,17 @@ tags:
 
 AV1 作为目前压缩效率最高的主流视频编码格式，在 2025 年的今天已经在 YouTube、Netflix、Bilibili 等视频网站全面铺开，毫无疑问是最值得优先考虑的选择；除了优异的压缩效率以外，AV1 免版税的优势使得各硬件厂商和浏览器内核开发者可以无所顾忌的将 AV1 编码的支持添加到自己的产品中。
 
-![](https://static.031130.xyz/uploads/2025/06/02/aec1af1718064.webp)
+![](https://r2-reverse.5435486.xyz/uploads/2025/06/02/aec1af1718064.webp)
 
-![](https://static.031130.xyz/uploads/2025/06/02/76a312b5a668b.webp)
+![](https://r2-reverse.5435486.xyz/uploads/2025/06/02/76a312b5a668b.webp)
 
 可惜的是，Safari 并没有对 AV1 编码添加软解支持，只有在搭载 Apple M3 及后续生产的 Mac 和 iPhone 15 Pro 后续的机型才拥有硬解 AV1 的能力，在此之前生产的产品均无法使用 Safari 播放 AV1 编码的视频。~~我宣布 Safari 已经成为当代 IE，妥妥阻碍 Web 发展的绊脚石~~
 
-![Safari 在搭载 M2Pro 处理器的 Macbook Pro 上直接罢工了](https://static.031130.xyz/uploads/2025/06/02/01ddcc3948406.webp)
+![Safari 在搭载 M2Pro 处理器的 Macbook Pro 上直接罢工了](https://r2-reverse.5435486.xyz/uploads/2025/06/02/01ddcc3948406.webp)
 
 除此之外，AV1 在压制视频时对设备的要求较高。在桌面端的消费级显卡中，目前只有 NVIDIA RTX 40 系、AMD Radeon RX 7000 系、IntelArc A380 及后续的产品拥有 AV1 的编码（encode）支持。而 Apple M 系列芯片至今没有任何一款产品拥有对 AV1 编码的硬件支持。这也导致我在我搭载 Intel Core i7-1165G7 的 ThinkPad 上使用 AV1 编码压缩视频时被迫使用 libaom-av1 进行软件编码，1080p 的视频压缩效率为 0.0025x 的速率，五分钟的视频要压一天多的时间。
 
-![](https://static.031130.xyz/uploads/2025/06/02/923ca02e1d835.webp)
+![](https://r2-reverse.5435486.xyz/uploads/2025/06/02/923ca02e1d835.webp)
 
 ### H.265 / HEVC
 
@@ -36,13 +36,13 @@ Chromium / Firefox 不愿意当承担专利授权费的冤大头，拒绝在当�
 
 目前未覆盖到的场景主要是 Chromium / Firefox on Windows 7 和 Chromium on Linux（包括 UOS、麒麟等一众国产 Linux 发行版）。
 
-![在 Linux 上不支持硬解 H.265 的 Chrome 直接把视频当作音频播放了](https://static.031130.xyz/uploads/2025/06/02/2e8e5100f645a.webp)
+![在 Linux 上不支持硬解 H.265 的 Chrome 直接把视频当作音频播放了](https://r2-reverse.5435486.xyz/uploads/2025/06/02/2e8e5100f645a.webp)
 
 ### VP9
 
 VP9 是 Google 于 2013 年推出的视频编码格式，作为 H.264 的继任者之一，在压缩效率上接近 H.265（HEVC），但最大的杀手锏是——**彻底免专利费**。这也让 VP9 成为 Google 对 HEVC 高额授权费用的掀桌式回应：**你们慢慢吃，我开一桌免费的。**
 
-![](https://static.031130.xyz/uploads/2025/06/03/a9b473a3bd120.webp)
+![](https://r2-reverse.5435486.xyz/uploads/2025/06/03/a9b473a3bd120.webp)
 
 借着免专利的东风和 Google 自家产品矩阵的强推，VP9 在 YouTube、WebRTC 乃至 Chrome 浏览器中迅速站稳了脚跟。特别是在 AV1 普及之前，VP9 几乎是网页视频播放领域的事实标准，甚至逼得苹果这个“编解码俱乐部元老”在 macOS 11 Big Sur 和 iOS 14 上的 Safari 破天荒地加入了 VP9 支持（尽管 VP9 in webm 的支持稍晚一些，具体见上表）。
 
@@ -85,7 +85,7 @@ H.264 的最大优势在于——**兼容性无敌**。不夸张地说，只要�
 
 我们不是专业的视频托管平台，不像 YouTube、Bilibili 那样专业到可以向用户提供多种分辨率、压缩算法的选择。
 
-![Bilibili 为用户提供了三种压缩算法的视频源](https://static.031130.xyz/uploads/2025/06/03/096484dbc0f3a.webp)
+![Bilibili 为用户提供了三种压缩算法的视频源](https://r2-reverse.5435486.xyz/uploads/2025/06/03/096484dbc0f3a.webp)
 
 最终的选择策略，必须在**压缩效率、播放兼容性、编码耗时**等维度之间做出权衡。
 
@@ -111,7 +111,7 @@ H.264 的最大优势在于——**兼容性无敌**。不夸张地说，只要�
 
 *由于是 VP9 独挑大梁，因此大多数人可能会考虑使用与 VP9 最为适配的 webm 格式封装视频。但目前在 webm 中最广泛使用的音频编码 opus 在 Safari 上的兼容性并不是太好（在 2024 年 3 月发布的 Safari 17.4 才开始支持），建议斟酌一下是不是继续用回 AAC 编码，并将视频封装在 mp4 中。*
 
-![https://caniuse.com/opus](https://static.031130.xyz/uploads/2025/06/03/ec3b5dbcbcc29.webp)
+![https://caniuse.com/opus](https://r2-reverse.5435486.xyz/uploads/2025/06/03/ec3b5dbcbcc29.webp)
 
 ## 音频码率太高？再砍一刀
 

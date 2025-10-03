@@ -2,7 +2,7 @@
 title: onedrive(by abraunegg) —— 一个 Linux 下的开源 OneDrive 客户端(cli)
 date: 2022-12-24 22:40:13
 sticky:
-index_img: https://static.031130.xyz/uploads/2024/08/12/63a71425507b6.webp
+index_img: https://r2-reverse.5435486.xyz/uploads/2024/08/12/63a71425507b6.webp
 tags:
 - Linux
 - Archlinux
@@ -29,15 +29,15 @@ sudo pacman -S onedrive-abraunegg
 
 在终端直接运行 `onedrive` 命令，程序将打印出一行地址。
 
-![登陆地址](https://static.031130.xyz/uploads/2024/08/12/63a71dbfd6ed3.webp)
+![登陆地址](https://r2-reverse.5435486.xyz/uploads/2024/08/12/63a71dbfd6ed3.webp)
 
 使用浏览器打开地址，就会跳出微软的登陆页面，正常登陆即可。
 
 登陆成功后，浏览器将会显示一片白屏，不必慌张，直接将浏览器地址栏中的网址复制后粘贴进终端中即可完成配置，获取到的 `refresh_token` 将会被保存到 `$HOME/.config/onedrive` 下。
 
-![浏览器显示白屏](https://static.031130.xyz/uploads/2024/08/12/63a71e1f9c916.webp)
+![浏览器显示白屏](https://r2-reverse.5435486.xyz/uploads/2024/08/12/63a71e1f9c916.webp)
 
-![授权成功](https://static.031130.xyz/uploads/2024/08/12/63a71ec6d5aca.webp)
+![授权成功](https://r2-reverse.5435486.xyz/uploads/2024/08/12/63a71ec6d5aca.webp)
 
 账号授权成功以后我有两个迫切的需求需要在开始同步前解决: 
 
@@ -67,7 +67,7 @@ Config option 'webhook_enabled'              = false
 
 这很显然，OneDrive 中的文件默认将会被保存到 `$HOME/OneDrive` 中。为了修改这个位置项，我们直接在 `$HOME/.config/onedrive/` 路径下创建一个名为 `config` 的文件，把此处给的 c[onfiguration examples](https://github.com/abraunegg/onedrive/blob/master/docs/USAGE.md#the-default-configuration-file-is-listed-below) 全部复制进去，找到 `sync_dir` 把前面的注释删掉，改成自己喜欢的路径 ~~（别问我为什么写 /tmp，问就是我内存够大~~
 
-![修改同步路径！](https://static.031130.xyz/uploads/2024/08/12/63a7282ee55e7.webp)
+![修改同步路径！](https://r2-reverse.5435486.xyz/uploads/2024/08/12/63a7282ee55e7.webp)
 
 修改好此处的配置文件后，可以再次运行 `onedrive --display-config` 检查自己的配置文件格式有没有问题、自己更改的配置项有没有生效，这样就解决了我的第二个需求。
 

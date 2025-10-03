@@ -13,7 +13,7 @@ tags:
 
 > 这学期修了一门叫《用HTML5 和 PHP编写JavaScript，jQuery 和 AJAX脚本》的 web 课（对，听起来很奇怪的名字）。期末大作业是写一个影评系统，前端允许使用框架，后端仅允许使用 php，具体的作业要求如下
 >
-> ![作业要求](https://static.031130.xyz/uploads/2024/08/12/658c4c3128ae4.webp)
+> ![作业要求](https://r2-reverse.5435486.xyz/uploads/2024/08/12/658c4c3128ae4.webp)
 >
 > （源码会在验收结束以后开源）
 >

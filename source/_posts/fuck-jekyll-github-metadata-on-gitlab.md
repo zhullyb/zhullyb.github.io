@@ -9,7 +9,7 @@ tags:       笔记
 
 报错如图：
 
-![](https://static.031130.xyz/uploads/2024/08/12/62f3caf233039.webp)
+![](https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3caf233039.webp)
 
 当然，我这边也会附上详细的报错日志，以便后人能够通过关键词搜索到。
 
@@ -35,4 +35,4 @@ ERROR: Job failed: exit code 1
 
 于是打开`_config.yml`，把`url`给补上，顺便把别的变量一同加上，如图：
 
-![](https://static.031130.xyz/uploads/2024/08/12/62f3caf51bdb5.webp)
+![](https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3caf51bdb5.webp)

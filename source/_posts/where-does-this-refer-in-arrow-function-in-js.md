@@ -56,13 +56,13 @@ new b().u2()
 
 在浏览器中，可以在代码的头部加一行 `var x = 10` 或者 `window.x = 10`，可以看到a.u2() 顺利的输出了 10，验证了我的结论。
 
-![浏览器控制台调试](https://static.031130.xyz/uploads/2024/08/12/65a2e1d093b78.webp)
+![浏览器控制台调试](https://r2-reverse.5435486.xyz/uploads/2024/08/12/65a2e1d093b78.webp)
 
 但在 Node.js 中，直接使用 `var x = 10` 或者 `global.x = 10` 并不能达到我们想要的效果。因为Node.js 中的每个 CommonJS 模块都有其自己的模块作用域，即模块的顶层作用域不是全局作用域。在模块内部，`this` 关键字不是指向 `global` 对象，而是指向模块的导出对象。这是为了确保模块内部的作用域隔离和模块的封装性。
 
 那么我们可以通过为模块的导出对象添加一个 x 属性来验证我们的结论，我们可以使用 `exports.x = 10` 来为模块的顶层作用域添加一个值为 10 的 x 属性。
 
-![nodejs 环境运行](https://static.031130.xyz/uploads/2024/08/12/65a2e379ba89e.webp)
+![nodejs 环境运行](https://r2-reverse.5435486.xyz/uploads/2024/08/12/65a2e379ba89e.webp)
 
 ## 参考文章
 

@@ -50,7 +50,7 @@ document.body.removeChild(textArea);
 
 不过在现阶段，`Clipboard.writeText()` 未必就能解决所有的问题。抛开旧版浏览器的兼容性问题不谈，`navigator.clipboard` **仅在通过 https 访问的页面中可用**（或是 localhost），如果你的项目部署在局域网，你试图通过 192.18.1.x 的 ip + port 直接访问，那么 `navigator.clipboard` 将会是 `undefined` 状态。
 
-![](https://static.031130.xyz/uploads/2025/04/19/3437b1c022853.webp)
+![](https://r2-reverse.5435486.xyz/uploads/2025/04/19/3437b1c022853.webp)
 
 除此之外，**安卓原生的 Webview** 还有因为 Permissions API 没实现而**用不了** Clipboard API 的问题。
 
@@ -107,7 +107,7 @@ window.clipboardData.setData("Text", text2copy);
 prompt('Press Ctrl + C, then Enter to copy to clipboard','copy me')
 ```
 
-![](https://static.031130.xyz/uploads/2025/04/19/7f5310ca03c80.webp)
+![](https://r2-reverse.5435486.xyz/uploads/2025/04/19/7f5310ca03c80.webp)
 
 ## 第三方库封装
 

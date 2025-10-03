@@ -15,7 +15,7 @@ tags:
 
 ## 需求分析
 
-![微精弘的技术架构图](https://static.031130.xyz/uploads/2025/01/19/74362573e371d.webp)
+![微精弘的技术架构图](https://r2-reverse.5435486.xyz/uploads/2025/01/19/74362573e371d.webp)
 
 > 如果你不知道微精弘的具体架构实现，这里有一篇由前技术总监提笔并由现任技术总监完善的架构杂谈「[微精弘 | 架构杂谈](https://mp.weixin.qq.com/s/8d6JAPsLa4TzLr50uDG8uw)」，原文最初发表于前者的[博客](https://blog.cnpatrickstar.com/posts/wejh-architecture/)。
 
@@ -34,7 +34,7 @@ tags:
 
 在数据库上，我们必须选择 Cloudflare 自家的在线数据库服务，通过 Cloudflare 自己内部的网络传输数据库查询结果才能得到尽可能低的延迟。在一番考量过后，KV 数据库和 SQL 数据库中，我果断选择了 **Cloudflare D1** 这个 SQL 数据库（本质是 SQLite），D1 数据库以更长的查询时间换取数据的实时性。Cloudflare 为免费用户提供了每天 500w 行读取和 10w 行写入的免费额度，只要好好加以利用，就不太可能超出限额。后续我还考虑通过这些数据库的数据使用 Cloudflare Worker 构建 uptime status 的后端 API，实现一个类似 status.openai.com 的在线服务状态可视化界面。
 
-![OpenAI 的 uptime status](https://static.031130.xyz/uploads/2025/01/19/f817539504140.webp)
+![OpenAI 的 uptime status](https://r2-reverse.5435486.xyz/uploads/2025/01/19/f817539504140.webp)
 
 ## 登陆 wrangler
 
@@ -59,7 +59,7 @@ npm create cloudflare@latest wjh-monitor
 > Q: Which language do you want to use? 
 > A: TypeScript
 
-![得到的项目结构](https://static.031130.xyz/uploads/2025/01/20/bf105c9fc18a3.webp)
+![得到的项目结构](https://r2-reverse.5435486.xyz/uploads/2025/01/20/bf105c9fc18a3.webp)
 
 我们只需要在 `index.ts` 中编写我们的主要逻辑即可。
 
@@ -147,11 +147,11 @@ wrangler deploy
 
 由于我对后端经验的缺乏，我在编写 sql 语句时没有意识到建立索引的重要性。我在查询时使用了 `ORDER BY <未建立索引字段> LIMIT 5` 的方式来查询最近五次的记录，这导致数据库不得不在我每次查询时都完整遍历一遍整张表。随着 cronjob 每分钟运行时插入一条新数据，记录的行数随时间增加，每次查询的成本也逐渐增加，最终造成了单日访问八百多万行的记录，超出了 Cloudflare 的免费额度，一度造成了项目被迫下线的风险。
 
-![](https://static.031130.xyz/uploads/2025/01/20/fb463f45038ac.webp)
+![](https://r2-reverse.5435486.xyz/uploads/2025/01/20/fb463f45038ac.webp)
 
 所幸 Cloudflare 没有给我停机，而我也及时定位到了问题并补建了索引，使每日的读取量回到了正常的状态。
 
-![蓝色线条为读取，黄色线条为写入](https://static.031130.xyz/uploads/2025/01/19/83f69aff3a7b4.webp)
+![蓝色线条为读取，黄色线条为写入](https://r2-reverse.5435486.xyz/uploads/2025/01/19/83f69aff3a7b4.webp)
 
 ## 参见
 

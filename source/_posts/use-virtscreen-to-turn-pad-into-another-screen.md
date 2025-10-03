@@ -51,4 +51,4 @@ Pad 端只需要安装任意一个 VNC 客户端即可，我这里使用的是"V
 
 ## 图片
 
-![效果图](https://static.031130.xyz/uploads/2024/08/12/633b1bd1ba8f4.webp)
+![效果图](https://r2-reverse.5435486.xyz/uploads/2024/08/12/633b1bd1ba8f4.webp)

@@ -16,7 +16,7 @@ tags:
 
 Typora 一直是我写博客的主用 Markdown 编辑器，之前我采用 Typora 调用 [PicUploader(php)](https://github.com/xiebruce/PicUploader) 自动上传图片的方案写博客，体验相当不错，如图: 
 
-![](https://static.031130.xyz/uploads/2024/08/12/62f3b881e3c4c.gif)
+![](https://r2-reverse.5435486.xyz/uploads/2024/08/12/62f3b881e3c4c.gif)
 
 可惜 PicUploader 目前仍然没有支持 LskyPro 的上传，我采用的是现在烂大街的 Typora+PicGo+LskyPro插件 的方案去实现 Typora 的自动上传图片功能。
 

@@ -16,7 +16,7 @@ tags:
 
 不过好在 Fedora Copr 本身有非常完备的 [api 文档](https://copr.fedorainfracloud.org/api_3/docs)，`/monitor` 这个 API 能用来获取软件包最新的构建情况。
 
-![](https://static.031130.xyz/uploads/2025/02/23/637811d2d85f6.webp)
+![](https://r2-reverse.5435486.xyz/uploads/2025/02/23/637811d2d85f6.webp)
 
 因此，我们就可以通过 Cloudflare 的 cronjob 定时请求这个接口，查询是否有软件包构建失败。
 
@@ -93,6 +93,6 @@ export default {
 
 随后在 Cloudflare Workers 的 Settings 部分设置好 Cron 表达式即可，我这里选择在每小时的 55 分进行一次检测，这样下来一天只会消耗 24 次 workers 次数，简直毫无压力。
 
-![](https://static.031130.xyz/uploads/2025/02/23/c38edfd637934.webp)
+![](https://r2-reverse.5435486.xyz/uploads/2025/02/23/c38edfd637934.webp)
 
 **缺点:** 我懒得使用持久化数据库记录软件包构建的成功状态，这会导致出现一个包构建失败后，每隔 1 小时都会有一条提醒，~~什么夺命连环 call~~。我目前不想修复这个问题，要不然还是降低 cron 的触发频率好了。

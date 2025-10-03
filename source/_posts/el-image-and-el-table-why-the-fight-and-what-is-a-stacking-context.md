@@ -12,19 +12,19 @@ tags:
 
 这是精弘内部的图床开发时遇到的事情，大一的小朋友反馈说 el-image 和 el-table 打架了。
 
-![截图](https://static.031130.xyz/uploads/2025/05/31/c6674f6f13955.webp)
+![截图](https://r2-reverse.5435486.xyz/uploads/2025/05/31/c6674f6f13955.webp)
 
-[demo](https://static.031130.xyz/demo/el-image-el-table-conflict.html) 的 iframe 引入
+[demo](https://r2-reverse.5435486.xyz/demo/el-image-el-table-conflict.html) 的 iframe 引入
 
-<iframe src="https://static.031130.xyz/demo/el-image-el-table-conflict.html" width="100%" height="500" allowfullscreen></iframe>
+<iframe src="https://r2-reverse.5435486.xyz/demo/el-image-el-table-conflict.html" width="100%" height="500" allowfullscreen></iframe>
 
 看到后面的表格透出 el-image 的预览层，我的第一反应是叫小朋友去检查 z-index 是否正确，el-image 的 mask 遮罩的 z-index 是否大于表格。
 
-![](https://static.031130.xyz/uploads/2025/05/31/1c20b4ea0b37e.webp)
+![](https://r2-reverse.5435486.xyz/uploads/2025/05/31/1c20b4ea0b37e.webp)
 
 经过我本地调试，发现 z-index 的设置确实没问题，但后面的元素为什么会透出来？谷歌搜索一番，找到了这篇文章
 
-![](https://static.031130.xyz/uploads/2025/05/31/99845899e3524.webp)
+![](https://r2-reverse.5435486.xyz/uploads/2025/05/31/99845899e3524.webp)
 
 > 给 el-table 加一行如下代码即可
 >
@@ -53,13 +53,13 @@ tags:
 
 1. el-table 给每个 cell 都设置了 `position: relative` 的 css 属性，而 position 被设为 relative 时，当前元素就会生成一个 Stacking Context。
 
-   ![image-20250531013029154](https://static.031130.xyz/uploads/2025/05/31/9df43b865b3c6.webp)
+   ![image-20250531013029154](https://r2-reverse.5435486.xyz/uploads/2025/05/31/9df43b865b3c6.webp)
 
    所以我们这么一个有十个格子的表格，其实就生成了十个画布。而这其中每个画布 z-index 都为 1。根据刚才的规则，在图片格子后面的那些格子对应的 html 代码片段在整体的 html 文档中更靠后，所以他们的优先级都高于图片格子。
 
 2. el-image 的预览功能所展开的遮罩层处于 el-image 标签内部
 
-   ![](https://static.031130.xyz/uploads/2025/05/31/f18a2b54afd63.webp)
+   ![](https://r2-reverse.5435486.xyz/uploads/2025/05/31/f18a2b54afd63.webp)
 
    上图中橙色部分是 el-image 在预览时提供的遮罩，可以看到 element-plus 组件的 image 预览的默认行为是将预览时所需要的遮罩层直接放在 \<el-image> \</el-image> 标签内部，这导致 el-image 的遮罩层被困在一个低优先级的 Stacking Context 中，后面的格子里的内容就是能凭借高优先级透过来。
 

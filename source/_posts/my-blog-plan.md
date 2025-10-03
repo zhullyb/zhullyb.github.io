@@ -19,7 +19,7 @@ tags:
 
 不过关于通过 dns 解析分流这件事，之前看[城南旧事](https://www.cities.ee/read-1553.html)的博客中有提到可以使用境外的 GeoScaling 完成，其免费支持全球分as、城市、经纬等智能解析，也支持自编辑脚本，看起来以后可以去试一试。
 
-![Dnspod截图](https://static.031130.xyz/uploads/2024/08/12/6364d4f46ff1c.webp)
+![Dnspod截图](https://r2-reverse.5435486.xyz/uploads/2024/08/12/6364d4f46ff1c.webp)
 
 而 Hexo 框架最被人诟病的一点是更新麻烦。这一点不可否认，使用 `hexo generate` 生成静态网页文件再部署到服务器上的过程在一台新设备上是不小的工作量，它涉及 git、nodejs 的安装，涉及到 ssh key 和 rsync，整个环境的搭建就要废上不小的工夫。
 
@@ -65,7 +65,7 @@ tags:
 
    应当在 Github 仓库的设置里先新建一个 secret，填入自己的 ssh 私钥（更加标准的做法应当是为 github action 专门生成一对 ssh 密钥，将公钥上传到自己的 vps，将私钥上传到 Github 仓库的 secret 中）。
 
-   ![github secret setting](https://static.031130.xyz/uploads/2024/08/12/6364dbbfeb8f6.webp)
+   ![github secret setting](https://r2-reverse.5435486.xyz/uploads/2024/08/12/6364dbbfeb8f6.webp)
 
    我这边直接从[点墨阁](https://blog.m-l.cc/2021/07/06/yong-github-actions-bu-shu-hexo/)那边抄了点代码直接用。
 
