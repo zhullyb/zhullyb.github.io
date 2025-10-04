@@ -12,6 +12,7 @@
 			@click="openPreview"
 			style="cursor: zoom-in;"
 		/>
+		<span v-if="alt" class="prose-img-caption">{{ alt }}</span>
 			<teleport to="body">
 				<div
 					v-if="preview"
@@ -111,6 +112,14 @@ onBeforeUnmount(() => {
 }
 .prose-img:hover {
 	box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+}
+.prose-img-caption {
+	display: block;
+	text-align: center;
+	font-size: 0.875rem;
+	color: #666;
+	margin-top: 0.25rem;
+	font-style: italic;
 }
 .prose-img-preview-mask {
 	position: fixed;
