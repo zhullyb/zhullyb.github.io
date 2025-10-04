@@ -1,0 +1,12 @@
+{
+	"semi": false,
+	"useTabs": true,
+	"tabWidth": 4,
+	"singleQuote": true,
+	"trailingComma": "none",
+	"printWidth": 100,
+	"endOfLine": "lf",
+	"arrowParens": "avoid",
+	"vueIndentScriptAndStyle": false,
+	"plugins": ["prettier-plugin-vue"]
+}

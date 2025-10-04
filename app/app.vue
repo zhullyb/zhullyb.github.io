@@ -1,7 +1,4 @@
-<template>
-  <NuxtRouteAnnouncer />
-  <NuxtPage />
-</template>
+<template> <NuxtRouteAnnouncer /> <NuxtPage /> </template>
 
 <style lang="less">
 .markdown-body {

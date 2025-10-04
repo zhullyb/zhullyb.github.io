@@ -1,10 +1,11 @@
 <template>
+
 	<h6 :id="id" class="prose-heading prose-h6">
-		<slot />
-		<a :href="`#${id}`" class="heading-anchor" aria-label="链接到此标题">
-			<span class="anchor-icon">#</span>
-		</a>
+		 <slot /> <a :href="`#${id}`" class="heading-anchor" aria-label="链接到此标题"
+			> <span class="anchor-icon">#</span> </a
+		>
 	</h6>
+
 </template>
 
 <script setup lang="ts">
@@ -23,3 +24,4 @@ defineProps({
 	margin: 1rem 0 0.5rem 0;
 }
 </style>
+

@@ -7,28 +7,28 @@ import { ref, onMounted, onUnmounted } from 'vue'
  * @returns closeMobileMenu - 关闭菜单
  */
 export function useMobileMenu() {
-    const showMobileMenu = ref(false)
+	const showMobileMenu = ref(false)
 
-    const toggleMobileMenu = (e: MouseEvent) => {
-        e.stopPropagation()
-        showMobileMenu.value = !showMobileMenu.value
-    }
+	const toggleMobileMenu = (e: MouseEvent) => {
+		e.stopPropagation()
+		showMobileMenu.value = !showMobileMenu.value
+	}
 
-    const closeMobileMenu = () => {
-        showMobileMenu.value = false
-    }
+	const closeMobileMenu = () => {
+		showMobileMenu.value = false
+	}
 
-    onMounted(() => {
-        document.addEventListener('click', closeMobileMenu)
-    })
+	onMounted(() => {
+		document.addEventListener('click', closeMobileMenu)
+	})
 
-    onUnmounted(() => {
-        document.removeEventListener('click', closeMobileMenu)
-    })
+	onUnmounted(() => {
+		document.removeEventListener('click', closeMobileMenu)
+	})
 
-    return {
-        showMobileMenu,
-        toggleMobileMenu,
-        closeMobileMenu
-    }
+	return {
+		showMobileMenu,
+		toggleMobileMenu,
+		closeMobileMenu
+	}
 }

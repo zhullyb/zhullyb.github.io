@@ -1,9 +1,13 @@
 <template>
+
 	<footer :style="footerStyle">
-        <div class="footer-mask"></div>
-		<!-- 可在此处添加 footer 内容 -->
-        <div class="footer-content">©2020 - 2025 By zhullyb</div>
+
+		<div class="footer-mask"></div>
+		 <!-- 可在此处添加 footer 内容 -->
+		<div class="footer-content">©2020 - 2025 By zhullyb</div>
+
 	</footer>
+
 </template>
 
 <script setup lang="ts">
@@ -11,7 +15,7 @@ const props = defineProps<{ bannerImg: string }>()
 const footerStyle = {
 	background: `url(${props.bannerImg}) center bottom / cover no-repeat`,
 	minHeight: '120px',
-	color: 'white',
+	color: 'white'
 }
 </script>
 

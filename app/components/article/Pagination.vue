@@ -1,92 +1,91 @@
 
 <template>
-  <span class="pagination" id="pagination">
-    <!-- 上一页箭头 -->
-    <a
-      class="pagination-block"
-      rel="prev"
-      :href="getPageUrl(currentPage - 1)"
-      :aria-disabled="currentPage === 1"
-      v-if="currentPage > 1"
-      @click.prevent="goToPage(currentPage - 1)"
-    >
-      &lt;
-    </a>
-    <!-- 页码列表 -->
-    <template v-for="page in pagesToShow" :key="page">
-      <span v-if="page === '...'" class="space">…</span>
-      <a
-        v-else-if="typeof page === 'number'"
-        class="pagination-block"
-        :class="{ current: page === currentPage }"
-        :href="getPageUrl(page)"
-        @click.prevent="goToPage(page)"
-      >{{ page }}</a>
-    </template>
-    <!-- 下一页箭头 -->
-    <a
-      class="pagination-block"
-      rel="next"
-      :href="getPageUrl(currentPage + 1)"
-      v-if="currentPage < totalPages"
-      @click.prevent="goToPage(currentPage + 1)"
-    >
-      &gt;
-    </a>
-  </span>
+	 <span class="pagination" id="pagination"
+		> <!-- 上一页箭头 --> <a
+			class="pagination-block"
+			rel="prev"
+			:href="getPageUrl(currentPage - 1)"
+			:aria-disabled="currentPage === 1"
+			v-if="currentPage > 1"
+			@click.prevent="goToPage(currentPage - 1)"
+			> &lt; </a
+		> <!-- 页码列表 --> <template v-for="page in pagesToShow" :key="page"
+			> <span v-if="page === '...'" class="space">…</span> <a
+				v-else-if="typeof page === 'number'"
+				class="pagination-block"
+				:class="{ current: page === currentPage }"
+				:href="getPageUrl(page)"
+				@click.prevent="goToPage(page)"
+				>{{ page }}</a
+			> </template
+		> <!-- 下一页箭头 --> <a
+			class="pagination-block"
+			rel="next"
+			:href="getPageUrl(currentPage + 1)"
+			v-if="currentPage < totalPages"
+			@click.prevent="goToPage(currentPage + 1)"
+			> &gt; </a
+		> </span
+	>
 </template>
-
 
 <script setup lang="ts">
 import { computed } from 'vue'
 const props = defineProps({
-  currentPage: {
-    type: Number,
-    required: true
-  },
-  totalPages: {
-    type: Number,
-    required: true
-  },
-  urlPrefix: {
-    type: String,
-    default: ''
-  }
+	currentPage: {
+		type: Number,
+		required: true
+	},
+	totalPages: {
+		type: Number,
+		required: true
+	},
+	urlPrefix: {
+		type: String,
+		default: ''
+	}
 })
 
 // 生成页码数组，带省略号
 const pagesToShow = computed(() => {
-  let pages: (number | string)[] = []
-  const { currentPage, totalPages } = props
-  if (totalPages <= 7) {
-    pages = Array.from({ length: totalPages }, (_, i) => i + 1)
-  } else {
-    // 靠近开头
-    if (currentPage <= 4) {
-      pages = [1, 2, 3, 4, 5, '...', totalPages]
-    }
-    // 靠近结尾
-    else if (currentPage >= totalPages - 3) {
-      pages = [1, '...', totalPages - 4, totalPages - 3, totalPages - 2, totalPages - 1, totalPages]
-    }
-    // 中间
-    else {
-      pages = [1, '...', currentPage - 1, currentPage, currentPage + 1, '...', totalPages]
-    }
-  }
-  return pages
+	let pages: (number | string)[] = []
+	const { currentPage, totalPages } = props
+	if (totalPages <= 7) {
+		pages = Array.from({ length: totalPages }, (_, i) => i + 1)
+	} else {
+		// 靠近开头
+		if (currentPage <= 4) {
+			pages = [1, 2, 3, 4, 5, '...', totalPages]
+		}
+		// 靠近结尾
+		else if (currentPage >= totalPages - 3) {
+			pages = [
+				1,
+				'...',
+				totalPages - 4,
+				totalPages - 3,
+				totalPages - 2,
+				totalPages - 1,
+				totalPages
+			]
+		}
+		// 中间
+		else {
+			pages = [1, '...', currentPage - 1, currentPage, currentPage + 1, '...', totalPages]
+		}
+	}
+	return pages
 })
 
 function getPageUrl(page: number) {
-  if (page < 1 || page > props.totalPages) return '#'
-  return page === 1 ? `${props.urlPrefix}/` : `${props.urlPrefix}/page/${page}/`
+	if (page < 1 || page > props.totalPages) return '#'
+	return page === 1 ? `${props.urlPrefix}/` : `${props.urlPrefix}/page/${page}/`
 }
 
 function goToPage(page: number) {
-    navigateTo(getPageUrl(page))
+	navigateTo(getPageUrl(page))
 }
 </script>
-
 
 <style lang="less" scoped>
 .pagination {
@@ -120,3 +119,4 @@ function goToPage(page: number) {
   color: #999;
 }
 </style>
+

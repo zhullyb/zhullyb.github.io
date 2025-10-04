@@ -1,27 +1,38 @@
 <template>
-    <div class="banner" :style="bannerStyle">
-        <div class="mask">
-            <div class="title-container">
-                <div class="title">
-                    <h1>{{ title }}</h1>
-                    <p v-if="slogan">{{ slogan }}</p>
-                </div>
-            </div>
-        </div>
-    </div>
+
+	<div class="banner" :style="bannerStyle">
+
+		<div class="mask">
+
+			<div class="title-container">
+
+				<div class="title">
+
+					<h1>{{ title }}</h1>
+
+					<p v-if="slogan">{{ slogan }}</p>
+
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
 </template>
 
 <script setup lang="ts">
 interface Props {
-    bannerImg: string
-    title: string
-    slogan?: string | null
+	bannerImg: string
+	title: string
+	slogan?: string | null
 }
 
 const props = defineProps<Props>()
 
 const bannerStyle = computed(() => ({
-    background: `url(${props.bannerImg}) center center / cover no-repeat`,
+	background: `url(${props.bannerImg}) center center / cover no-repeat`
 }))
 </script>
 
@@ -78,3 +89,4 @@ const bannerStyle = computed(() => ({
     });
 }
 </style>
+

@@ -1,7 +1,7 @@
 
 <template>
-	<span class="prose-img-wrapper">
-		<img
+	 <span class="prose-img-wrapper"
+		> <img
 			:src="src"
 			:alt="alt"
 			:title="title"
@@ -10,28 +10,37 @@
 			loading="lazy"
 			class="prose-img"
 			@click="openPreview"
-			style="cursor: zoom-in;"
-		/>
-		<span v-if="alt" class="prose-img-caption">{{ alt }}</span>
-			<teleport to="body">
-				<div
-					v-if="preview"
-					class="prose-img-preview-mask"
-					@click.self="closePreview"
-					@wheel.prevent="onWheel"
+			style="cursor: zoom-in"
+		/> <span v-if="alt" class="prose-img-caption">{{ alt }}</span
+		> <teleport to="body"
+			>
+			<div
+				v-if="preview"
+				class="prose-img-preview-mask"
+				@click.self="closePreview"
+				@wheel.prevent="onWheel"
+			>
+				 <img
+					:src="src"
+					:alt="alt"
+					class="prose-img-preview-img"
+					:style="previewImgStyle"
+					@dblclick="resetScale"
+				/> <button
+					class="prose-img-preview-close"
+					@click="closePreview"
+					aria-label="关闭预览"
 				>
-					<img
-						:src="src"
-						:alt="alt"
-						class="prose-img-preview-img"
-						:style="previewImgStyle"
-						@dblclick="resetScale"
-					/>
-					<button class="prose-img-preview-close" @click="closePreview" aria-label="关闭预览">×</button>
-					<div v-if="scale !== 1" class="prose-img-preview-scale-indicator">{{ (scale * 100).toFixed(0) }}%</div>
+					×</button
+				>
+				<div v-if="scale !== 1" class="prose-img-preview-scale-indicator">
+					{{ (scale * 100).toFixed(0) }}%
 				</div>
-			</teleport>
-        </span>
+
+			</div>
+			 </teleport
+		> </span
+	>
 </template>
 
 <script setup lang="ts">
@@ -42,7 +51,7 @@ const props = defineProps({
 	alt: { type: String, default: '' },
 	title: { type: String, default: '' },
 	width: { type: [String, Number], default: undefined },
-	height: { type: [String, Number], default: undefined },
+	height: { type: [String, Number], default: undefined }
 })
 
 const preview = ref(false)
@@ -53,7 +62,7 @@ const maxScale = 4
 const previewImgStyle = computed(() => ({
 	transform: `scale(${scale.value})`,
 	transition: 'transform 0.15s',
-	cursor: scale.value !== 1 ? 'zoom-out' : 'zoom-in',
+	cursor: scale.value !== 1 ? 'zoom-out' : 'zoom-in'
 }))
 
 function openPreview() {
@@ -176,3 +185,4 @@ onBeforeUnmount(() => {
 	to { opacity: 1; }
 }
 </style>
+

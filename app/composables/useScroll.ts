@@ -5,29 +5,29 @@ import { ref, onMounted, onUnmounted } from 'vue'
  * @returns isScrolled - 页面是否已滚动
  */
 export function useScroll() {
-    const isScrolled = ref(false)
-    let ticking = false
+	const isScrolled = ref(false)
+	let ticking = false
 
-    const handleScroll = () => {
-        if (!ticking) {
-            window.requestAnimationFrame(() => {
-                isScrolled.value = window.scrollY > 0
-                ticking = false
-            })
-            ticking = true
-        }
-    }
+	const handleScroll = () => {
+		if (!ticking) {
+			window.requestAnimationFrame(() => {
+				isScrolled.value = window.scrollY > 0
+				ticking = false
+			})
+			ticking = true
+		}
+	}
 
-    onMounted(() => {
-        handleScroll()
-        window.addEventListener('scroll', handleScroll)
-    })
+	onMounted(() => {
+		handleScroll()
+		window.addEventListener('scroll', handleScroll)
+	})
 
-    onUnmounted(() => {
-        window.removeEventListener('scroll', handleScroll)
-    })
+	onUnmounted(() => {
+		window.removeEventListener('scroll', handleScroll)
+	})
 
-    return {
-        isScrolled
-    }
+	return {
+		isScrolled
+	}
 }
