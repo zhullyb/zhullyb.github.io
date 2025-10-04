@@ -1,0 +1,24 @@
+.prose-heading {
+	position: relative;
+
+	&:hover .heading-anchor {
+		opacity: 1;
+	}
+}
+
+.heading-anchor {
+	margin-left: 0.5rem;
+	opacity: 0;
+	text-decoration: none;
+	color: #3b82f6;
+	transition: opacity 0.2s, color 0.2s;
+	font-weight: 400;
+
+	&:hover {
+		color: @active-blue;
+	}
+}
+
+.anchor-icon {
+	display: inline-block;
+}
