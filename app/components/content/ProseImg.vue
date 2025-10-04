@@ -7,6 +7,7 @@
 			:title="title"
 			:width="width"
 			:height="height"
+			loading="lazy"
 			class="prose-img"
 			@click="openPreview"
 			style="cursor: zoom-in;"
