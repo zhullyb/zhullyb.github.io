@@ -45,47 +45,46 @@ const onToggle = (e: MouseEvent) => {
 
 <style lang="less" scoped>
 .pc-nav {
-    .tablet-down({
-        display: none;
-    });
+  .tablet-down({
+    display: none;
+  });
 }
 
 .mobile-nav {
-    display: none;
-    margin-right: 16px;
-    cursor: pointer;
+  display: none;
+  cursor: pointer;
 
-    .tablet-down({
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    });
+  .tablet-down({
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  });
 
-    .container {
-        width: 25px;
-        height: 20px;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
+  .container {
+    width: 25px;
+    height: 20px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 
-    &-item {
-        width: 100%;
-        height: 2px;
-        background: white;
-        border-radius: 2px;
-        flex-shrink: 0;
-        margin: 2.5px 0;
-    }
+  &-item {
+    width: 100%;
+    height: 2px;
+    background: white;
+    border-radius: 2px;
+    flex-shrink: 0;
+    margin: 2.5px 0;
+  }
 }
 
 a {
-    color: white;
-    text-decoration: none;
-    margin-left: 16px;
-    margin-right: 16px;
+  color: white;
+  text-decoration: none;
+  margin-left: 16px;
+  margin-right: 16px;
 }
 </style>
 
