@@ -1,6 +1,7 @@
 <template>
     <div>
-        <NuxtLink :to="getUrlByPost(post)" v-for="post in posts" :key="post.path" class="post-item">
+        <div v-for="post in posts" :key="post.path" class="post-item">
+            <NuxtLink :to="getUrlByPost(post)" class="post-link"></NuxtLink>
             <h2 class="title">
                 {{ post.title }}
             </h2>
@@ -9,7 +10,7 @@
                 <span class="date">{{ post.date?.split(" ")[0] }}</span>
                 <NuxtLink class="tags" v-for="tag in toNormalTags(post.tags)" :key="tag" :to="`/tags/${encodeURIComponent(tag)}`">{{ '#' + tag }}</NuxtLink>
             </div>
-        </NuxtLink>
+        </div>
         <Pagination :currentPage="page" :totalPages="pageCount" />
     </div>
 </template>
@@ -45,7 +46,7 @@ if (posts.value && posts.value.length === 0 && page > 1) {
 
 <style lang="less" scoped>
 .post-item {
-    display: block;
+    position: relative;
     margin-bottom: 20px;
 
     .desktop-up({
@@ -56,7 +57,15 @@ if (posts.value && posts.value.length === 0 && page > 1) {
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
         }
     });
+}
 
+.post-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
 }
 
 .title {
@@ -100,6 +109,8 @@ if (posts.value && posts.value.length === 0 && page > 1) {
     }
 
     .tags {
+        position: relative;
+        z-index: 2;
         color: #666;
         text-decoration: none;
         

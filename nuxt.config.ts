@@ -24,6 +24,14 @@ export default defineNuxtConfig({
     '@nuxtjs/seo',
     '@nuxt/content',
   ],
+  components: [
+    {
+      path: '~/components/layout'
+    },
+    {
+      path: '~/components/article'
+    }
+  ],
   linkChecker: {
     skipInspections: [
       'no-non-ascii-chars',
