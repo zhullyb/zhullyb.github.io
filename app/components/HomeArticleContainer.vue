@@ -1,15 +1,15 @@
 <template>
     <div>
-        <div v-for="post in posts" :key="post.path" class="post-item">
+        <NuxtLink :to="getUrlByPost(post)" v-for="post in posts" :key="post.path" class="post-item">
             <h2 class="title">
-                <NuxtLink :to="getUrlByPost(post)">{{ post.title }}</NuxtLink>
+                {{ post.title }}
             </h2>
-            <NuxtLink class="description" :to="getUrlByPost(post)">{{ post.description }}</NuxtLink>
+            <span class="description">{{ post.description }}</span>
             <div class="post-meta">
                 <span class="date">{{ post.date?.split(" ")[0] }}</span>
                 <NuxtLink class="tags" v-for="tag in toNormalTags(post.tags)" :key="tag" :to="`/tags/${encodeURIComponent(tag)}`">{{ '#' + tag }}</NuxtLink>
             </div>
-        </div>
+        </NuxtLink>
         <Pagination :currentPage="page" :totalPages="pageCount" />
     </div>
 </template>
@@ -45,15 +45,24 @@ if (posts.value && posts.value.length === 0 && page > 1) {
 
 <style lang="less" scoped>
 .post-item {
-    margin-bottom: 40px;
+    display: block;
+    margin-bottom: 20px;
+
+    .desktop-up({
+        padding: 20px;
+        transition: box-shadow 0.2s;
+        
+        &:hover {
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+    });
+
 }
 
 .title {
     margin-bottom: 5px;
     font-size: 20px;
     font-weight: bold;
-    border-bottom: 1px solid #eee;
-    padding-bottom: 5px;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
@@ -70,10 +79,6 @@ if (posts.value && posts.value.length === 0 && page > 1) {
     a {
         color: #333;
         text-decoration: none;
-
-        &:hover {
-            color: @active-blue;
-        }
     }
 }
 
@@ -114,9 +119,5 @@ if (posts.value && posts.value.length === 0 && page > 1) {
     overflow: hidden;
     text-overflow: ellipsis;
     word-break: break-word;
-
-    &:hover {
-        color: @active-blue;
-    }
 }
 </style>

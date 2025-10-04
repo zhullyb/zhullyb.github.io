@@ -39,7 +39,7 @@ useHead({
 <style lang="less" scoped>
 main {
   min-height: calc(40vh - 120px);
-  margin: 64px auto 40px;
+  margin: 40px auto 40px;
 
   width: 50%;
   .desktop-down({

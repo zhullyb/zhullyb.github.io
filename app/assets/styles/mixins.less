@@ -8,8 +8,20 @@
     }
 }
 
+.tablet-up(@rules) {
+    @media (min-width: 769px) {
+        @rules();
+    }
+}
+
 .desktop-down(@rules) {
     @media (max-width: 1024px) {
+        @rules();
+    }
+}
+
+.desktop-up(@rules) {
+    @media (min-width: 1025px) {
         @rules();
     }
 }
