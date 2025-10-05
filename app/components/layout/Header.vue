@@ -85,13 +85,13 @@ header {
   min-width: 70%;
 
   .desktop-down({
+    padding-left: 16px;
+    padding-right: 16px;
     min-width: 75%;
   });
 
   .tablet-down({
     min-width: 100%;
-    padding-left: 16px;
-    padding-right: 16px;
   });
 
   .header-title {
