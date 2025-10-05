@@ -1,22 +1,21 @@
 <script setup lang="ts">
-const route = useRoute()
+	const route = useRoute()
 
-const { data: page } = await useAsyncData('page-' + route.path, () => {
-	return queryCollection('others').path(route.path).first()
-})
+	const { data: page } = await useAsyncData('page-' + route.path, () => {
+		return queryCollection('others').path(route.path).first()
+	})
 
-if (!page.value) {
-	throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
-}
+	if (!page.value) {
+		throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
+	}
 </script>
 
 <template>
-	 <DefaultLayout :title="page?.title"
-		> <ContentRenderer v-if="page" :value="page" class="markdown-body" /> </DefaultLayout
-	>
+	<DefaultLayout :title="page?.title">
+		<ContentRenderer v-if="page" :value="page" class="markdown-body" />
+	</DefaultLayout>
 </template>
 
 <style lang="less" scoped>
-@import '~/assets/styles/github-markdown-rewrite.less';
+	@import '~/assets/styles/github-markdown-rewrite.less';
 </style>
-

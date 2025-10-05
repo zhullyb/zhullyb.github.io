@@ -7,6 +7,5 @@
 	"printWidth": 100,
 	"endOfLine": "lf",
 	"arrowParens": "avoid",
-	"vueIndentScriptAndStyle": false,
-	"plugins": ["prettier-plugin-vue"]
+	"vueIndentScriptAndStyle": true
 }
