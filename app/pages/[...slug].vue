@@ -15,3 +15,8 @@ if (!page.value) {
 		> <ContentRenderer v-if="page" :value="page" class="markdown-body" /> </DefaultLayout
 	>
 </template>
+
+<style lang="less" scoped>
+@import '~/assets/styles/github-markdown-rewrite.less';
+</style>
+

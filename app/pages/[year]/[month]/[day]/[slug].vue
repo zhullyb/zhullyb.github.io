@@ -59,6 +59,8 @@ useHead({
 </script>
 
 <style lang="less" scoped>
+@import '~/assets/styles/github-markdown-rewrite.less';
+
 .post-nav {
     margin-top: 2em;
     display: flex;
@@ -84,3 +86,4 @@ useHead({
     }
 }
 </style>
+
