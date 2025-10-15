@@ -1,3 +1,4 @@
+---
 #---------------------------
 # Hexo Theme Fluid
 # Author: Fluid-dev
@@ -9,7 +10,6 @@
 # Guide: https://hexo.fluid-dev.com/docs/en/guide/
 # You can get more detailed help from the guide
 #---------------------------
-
 
 #---------------------------
 # 全局
@@ -229,7 +229,7 @@ custom_css: /heimu.css
 
 # 网页访问统计
 # Analysis of website visitors
-web_analytics:  # 网页访问统计
+web_analytics: # 网页访问统计
   enable: false
 
   # 遵循访客浏览器"请勿追踪"的设置，如果开启则不统计其访问
@@ -262,7 +262,7 @@ web_analytics:  # 网页访问统计
   # 51.la 站点统计 ID
   # 51.la analytics
   # See: https://www.51.la/user/site/index
-  woyaola:  # 51.la 站点统计 ID，参见
+  woyaola: # 51.la 站点统计 ID，参见
 
   # 友盟/cnzz 站点统计 web_id
   # cnzz analytics
@@ -302,7 +302,6 @@ lazyload:
 # Icon library, which includes many social icons, does not include those theme dependent, so your can modify link by yourself. See: https://hexo.fluid-dev.com/docs/en/icon/
 # iconfont: //at.alicdn.com/t/font_1736178_kmeydafke9r.css
 
-
 #---------------------------
 # 页头
 # Header
@@ -339,15 +338,24 @@ navbar:
     - { key: "about", link: "/about/", icon: "iconfont icon-user-fill" }
     - { key: "links", link: "/links/", icon: "iconfont icon-link-fill" }
     - {
-      key: '其他',
-      icon: 'iconfont icon-books',
-      link: '#',
-      submenu: [
-        { key: 'RSS', link: '/rss.xml', icon: "iconfont icon-rss" },
-        { key: '流水账', link: 'https://notes.5435486.xyz/', icon: "iconfont icon-book" },
-        { key: '给我打钱', link: 'https://zhul.in/donate', icon: "iconfont icon-qrcode" }
-      ]
-    }
+        key: "其他",
+        icon: "iconfont icon-books",
+        link: "#",
+        submenu:
+          [
+            { key: "RSS", link: "/rss.xml", icon: "iconfont icon-rss" },
+            {
+              key: "流水账",
+              link: "https://notes.5435486.xyz/",
+              icon: "iconfont icon-book",
+            },
+            {
+              key: "给我打钱",
+              link: "https://zhul.in/donate",
+              icon: "iconfont icon-qrcode",
+            },
+          ],
+      }
 
 # 搜索功能，基于 hexo-generator-search 插件，若已安装其他搜索插件请关闭此功能，以避免生成多余的索引文件
 # Search feature, based on hexo-generator-search. If you have installed other search plugins, please disable this feature to avoid generating redundant index files
@@ -411,7 +419,6 @@ open_graph:
   fb_admins:
   fb_app_id:
 
-
 #---------------------------
 # 页脚
 # Footer
@@ -427,9 +434,9 @@ footer:
     <a href="https://notbyai.fyi/" target="_blank"><img style="max-height: 50px; margin: 10px" src=https://static.031130.xyz/uploads/2024/08/28/ae6dd98bdf60e.png alt="written by human, not by AI" /></a>
     <br />
     <iframe frameborder=0
-      src="https://support.nodeget.com/page/promotion?id=61"
-      style="border-radius:8px; border: none; height: 246px;
-      transform: scale(0.8);">
+    src="https://support.nodeget.com/page/promotion?id=61"
+    style="border-radius:8px; border: none; height: 246px;
+    transform: scale(0.8);">
     </iframe>
     <br />
     <span>本网站由 <a href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img style="max-height: 50px;" loading="lazy" src="https://static.031130.xyz/uploads/2024/08/12/ba8d70971c408.webp" alt="又拍云 Logo" /></a> 提供 CDN 加速/云存储服务</span>
@@ -463,7 +470,6 @@ footer:
     # 公安备案的图片. 为空时不显示备案图片
     police_icon: /img/police_beian.png
 
-
 #---------------------------
 # 首页
 # Home Page
@@ -471,7 +477,7 @@ footer:
 index:
   # 首页 Banner 头图，可以是相对路径或绝对路径，以下相同
   # Path of Banner image, can be a relative path or an absolute path, the same on other pages
-  banner_img: 
+  banner_img:
 
   # 头图高度，屏幕百分比
   # Height ratio of banner image
@@ -536,7 +542,6 @@ index:
   post_sticky:
     enable: true
     icon: "iconfont icon-top"
-
 
 #---------------------------
 # 文章页
@@ -629,7 +634,7 @@ post:
 
     # CreativeCommons license
     # Options: BY | BY-SA | BY-ND | BY-NC | BY-NC-SA | BY-NC-ND
-    license: 'BY-NC-SA'
+    license: "BY-NC-SA"
 
     # 显示作者
     author:
@@ -664,7 +669,7 @@ post:
     enable: true
     # 放大后图片链接替换规则，可用于将压缩图片链接替换为原图片链接，如 ['-slim', ''] 是将链接中 `-slim` 移除；如果想使用正则请使用 `re:` 前缀，如 ['re:\\d{3,4}\\/\\d{3,4}\\/', '']
     # The image url replacement when zooming, the feature can be used to replace the compressed image to the original image, eg: ['-slim', ''] removes `-slim` from the image url when zooming; if you want to use regular, use prefix `re:`, eg: ['re:\\d{3,4}\\/\\d{3,4}\\/','']
-    img_url_replace: ['', '']
+    img_url_replace: ["", ""]
 
   # 脚注语法，会在文章底部生成脚注，如果 Markdown 渲染器本身支持，则建议关闭，否则可能会冲突
   # Support footnote syntax, footnotes will be generated at the bottom of the post page. If the Markdown renderer itself supports it, please disable it, otherwise it may conflict
@@ -672,7 +677,7 @@ post:
     enable: true
     # 脚注的节标题，也可以在 front-matter 中通过 `footnote: <h2>Reference</h2>` 这种形式修改单独页面的 header
     # The section title of the footnote, you can also modify the header of a single page in the form of `footnote: <h2>Reference</h2>` in front-matter
-    header: ''
+    header: ""
 
   # 数学公式，开启之前需要更换 Markdown 渲染器，否则复杂公式会有兼容问题，具体请见：https://hexo.fluid-dev.com/docs/guide/##latex-数学公式
   # Mathematical formula. If enable, you need to change the Markdown renderer, see: https://hexo.fluid-dev.com/docs/en/guide/#math
@@ -700,7 +705,7 @@ post:
     specific: false
 
     # See: http://mermaid-js.github.io/mermaid/
-    options: { theme: 'default' }
+    options: { theme: "default" }
 
   # 评论插件
   # Comment plugin
@@ -710,7 +715,6 @@ post:
     # The specified plugin needs to set the necessary parameters at the same time
     # Options: utterances | disqus | gitalk | valine | waline | changyan | livere | remark42 | twikoo | cusdis
     type: waline
-
 
 #---------------------------
 # 评论插件
@@ -753,9 +757,9 @@ gitalk:
   clientSecret:
   repo:
   owner:
-  admin: ['name']
+  admin: ["name"]
   language: zh-CN
-  labels: ['Gitalk']
+  labels: ["Gitalk"]
   perPage: 10
   pagerDirection: last
   distractionFreeMode: false
@@ -775,14 +779,14 @@ valine:
   appKey:
   path: window.location.pathname
   placeholder:
-  avatar: 'retro'
-  meta: ['nick', 'mail', 'link']
+  avatar: "retro"
+  meta: ["nick", "mail", "link"]
   requiredFields: []
   pageSize: 10
-  lang: 'zh-CN'
+  lang: "zh-CN"
   highlight: false
   recordIP: false
-  serverURLs: ''
+  serverURLs: ""
   emojiCDN:
   emojiMaps:
   enableQQ: false
@@ -792,16 +796,16 @@ valine:
 # Derived from Valine, with self-hosted service and new features
 # See: https://waline.js.org/
 waline:
-  serverURL: 'https://waline.zhul.in'
+  serverURL: "https://waline.zhul.in"
   path: window.location.pathname
-  meta: ['nick', 'mail', 'link']
-  requiredMeta: ['nick']
-  lang: 'zh-CN'
-  emoji: ['https://registry.npmmirror.com/@waline/emojis/^1/files/weibo']
+  meta: ["nick", "mail", "link"]
+  requiredMeta: ["nick"]
+  lang: "zh-CN"
+  emoji: ["https://registry.npmmirror.com/@waline/emojis/^1/files/weibo"]
   dark: 'html[data-user-color-scheme="dark"]'
   wordLimit: 0
   pageSize: 10
-  login: 'disable'
+  login: "disable"
   locale:
     placeholder: "快发个评论让我知道你在看（x"
 # 畅言 Changyan
@@ -809,15 +813,15 @@ waline:
 # Based on third-party service, insufficient support for regions outside China
 # http://changyan.kuaizhan.com
 changyan:
-  appid: ''
-  appkey: ''
+  appid: ""
+  appkey: ""
 
 # 来必力 Livere
 # 基于第三方的服务
 # Based on third-party service
 # See: https://www.livere.com
 livere:
-  uid: ''
+  uid: ""
 
 # Remark42
 # 需要自托管服务端
@@ -828,7 +832,7 @@ remark42:
   site_id:
   max_shown_comments: 10
   locale: zh
-  components: ['embed']
+  components: ["embed"]
 
 # Twikoo
 # 基于腾讯云开发
@@ -857,7 +861,6 @@ archive:
   banner_img_height: 60
   banner_mask_alpha: 0.3
   subtitle:
-
 
 #---------------------------
 # 分类页
@@ -888,7 +891,6 @@ category:
   # The maximum number of posts in a single category. If the limit is exceeded, it will be displayed More. If 0 no limit
   post_limit: 10
 
-
 #---------------------------
 # 标签页
 # Tag Page
@@ -906,7 +908,6 @@ tag:
     start_color: "#BBBBEE"
     end_color: "#337ab7"
 
-
 #---------------------------
 # 关于页
 # About Page
@@ -923,13 +924,24 @@ about:
   # 更多图标可从 https://hexo.fluid-dev.com/docs/icon/ 查找，`class` 代表图标的 css class，添加 `qrcode` 后，图标不再是链接而是悬浮二维码
   # More icons can be found from https://hexo.fluid-dev.com/docs/en/icon/  `class` is the css class of the icon. If adding `qrcode`, The icon is no longer a link, but a hovering QR code
   icons:
-    - { class: "iconfont icon-github-fill", link: "https://github.com/zhullyb", tip: "GitHub" }
+    - {
+        class: "iconfont icon-github-fill",
+        link: "https://github.com/zhullyb",
+        tip: "GitHub",
+      }
     - { class: "iconfont icon-rss-fill", link: "/rss.xml", tip: "RSS" }
-    - { class: "iconfont icon-mail", link: "mailto:zhullyb@outlook.com", tip: "Email" }
-    - { class: "iconfont icon-book", link: "https://notes.5435486.xyz/", tip: "流水账" }
+    - {
+        class: "iconfont icon-mail",
+        link: "mailto:zhullyb@outlook.com",
+        tip: "Email",
+      }
+    - {
+        class: "iconfont icon-book",
+        link: "https://notes.5435486.xyz/",
+        tip: "流水账",
+      }
     #- { class: "iconfont icon-douban-fill", link: "https://douban.com", tip: "豆瓣" }
     #- { class: "iconfont icon-wechat-fill", qrcode: "/img/favicon.png" }
-
 
 #---------------------------
 # 自定义页
@@ -943,7 +955,6 @@ page:
   banner_img_height: 60
   banner_mask_alpha: 0.3
 
-
 #---------------------------
 # 404页
 # 404 Page
@@ -954,7 +965,6 @@ page404:
   banner_img_height: 85
   banner_mask_alpha: 0.3
   subtitle: "你找的页面似乎被吃掉啦("
-
 
 #---------------------------
 # 友链页
@@ -970,149 +980,143 @@ links:
   # Member item of page
   items:
     - {
-      title: "精弘 RSS 看板",
-      intro: "浙江工业大学精弘网络技术团队",
-      link: "https://zjutjh.github.io",
-      avatar: "https://static.031130.xyz/uploads/2024/12/31/71b730c8be4a8.webp"
-    }
+        title: "精弘 RSS 看板",
+        intro: "浙江工业大学精弘网络技术团队",
+        link: "https://zjutjh.github.io",
+        avatar: "https://static.031130.xyz/uploads/2024/12/31/71b730c8be4a8.webp",
+      }
     - {
-      title: "iNetech Blog",
-      intro: "凡心所向，素履所往",
-      link: "https://blog.udp0.com",
-      avatar: "https://static.031130.xyz/uploads/2024/08/12/6653ed001e208.webp"
-    }
+        title: "iNetech Blog",
+        intro: "凡心所向，素履所往",
+        link: "https://blog.udp0.com",
+        avatar: "https://static.031130.xyz/uploads/2024/08/12/6653ed001e208.webp",
+      }
     - {
-      title: "Karuboniru's Blog",
-      intro: "就是个学物理的，懂个屁的计算机",
-      link: "https://yanqiyu.info",
-      avatar: "https://static.031130.xyz/uploads/2024/08/12/62f7d8f114851.webp"
-    }
+        title: "Karuboniru's Blog",
+        intro: "就是个学物理的，懂个屁的计算机",
+        link: "https://yanqiyu.info",
+        avatar: "https://static.031130.xyz/uploads/2024/08/12/62f7d8f114851.webp",
+      }
     - {
-      title: "星外之神的博客",
-      intro: "天下难事，必作于易；天下大事，必作于细。",
-      link: "https://wszqkzqk.github.io",
-      avatar: "https://static.031130.xyz/uploads/2024/08/12/62f7d98e0fd18.webp"
-    }
+        title: "星外之神的博客",
+        intro: "天下难事，必作于易；天下大事，必作于细。",
+        link: "https://wszqkzqk.github.io",
+        avatar: "https://static.031130.xyz/uploads/2024/08/12/62f7d98e0fd18.webp",
+      }
     - {
-      title: "Endle's Blog",
-      intro: "Fedora/Firefox/Wine User.",
-      link: "https://endle.github.io/",
-      avatar: "https://static.031130.xyz/uploads/2024/08/12/62f7db1280c26.webp"
-    }
+        title: "Endle's Blog",
+        intro: "Fedora/Firefox/Wine User.",
+        link: "https://endle.github.io/",
+        avatar: "https://static.031130.xyz/uploads/2024/08/12/62f7db1280c26.webp",
+      }
     - {
-      title: "ImBearChild",
-      intro: "又一个WordPress站点，我的自留地",
-      link: "https://imbearchild.cyou/",
-      avatar: "https://static.031130.xyz/uploads/2024/08/12/74139df97bae3.webp"
-    }
+        title: "ImBearChild",
+        intro: "又一个WordPress站点，我的自留地",
+        link: "https://imbearchild.cyou/",
+        avatar: "https://static.031130.xyz/uploads/2024/08/12/74139df97bae3.webp",
+      }
     - {
-      title: "白杨的文档站",
-      intro: "鸽子/咸鱼/openSUSE 新闻译者",
-      link: "https://whiteboard-ui8.pages.dev/",
-      avatar: "https://static.031130.xyz/uploads/2024/08/12/259396342424f.webp"
-    }
+        title: "白杨的文档站",
+        intro: "鸽子/咸鱼/openSUSE 新闻译者",
+        link: "https://whiteboard-ui8.pages.dev/",
+        avatar: "https://static.031130.xyz/uploads/2024/08/12/259396342424f.webp",
+      }
     - {
-      title: "派大星的石头屋",
-      intro: "一头蠢猪罢了",
-      link: "https://blog.cnpatrickstar.com/",
-      avatar: "https://static.031130.xyz/uploads/2024/08/12/6329b2a587c1f.webp"
-    }
+        title: "派大星的石头屋",
+        intro: "一头蠢猪罢了",
+        link: "https://blog.cnpatrickstar.com/",
+        avatar: "https://static.031130.xyz/uploads/2024/08/12/6329b2a587c1f.webp",
+      }
     - {
-      title: "Finley's Blog",
-      intro: "一个不想平庸的平庸之人. 来自浙江工业大学的计算机科学学生, 正在努力成为一名全栈开发者.",
-      link: "https://www.f1nley.xyz/",
-      avatar: "https://static.031130.xyz/uploads/2024/09/23/5c47b2d971736.webp"
-    }
+        title: "Finley's Blog",
+        intro: "一个不想平庸的平庸之人. 来自浙江工业大学的计算机科学学生, 正在努力成为一名全栈开发者.",
+        link: "https://www.f1nley.xyz/",
+        avatar: "https://static.031130.xyz/uploads/2024/09/23/5c47b2d971736.webp",
+      }
+    - { title: "j10c's Blog", link: "https://site.j10ccc.xyz" }
     - {
-      title: "j10c's Blog",
-      link: "https://site.j10ccc.xyz"
-    }
+        title: "i1nfo",
+        intro: "I Info forever",
+        link: "https://blog.i1nfo.com/",
+        avatar: "https://blog.i1nfo.com/images/iinfo-sq.png",
+      }
     - {
-      title: "i1nfo",
-      intro: "I Info forever",
-      link: "https://blog.i1nfo.com/",
-      avatar: "https://blog.i1nfo.com/images/iinfo-sq.png"
-    }
+        title: "Node Sans",
+        intro: "不知道 Node 和 Sans 有什么关系",
+        link: "https://blog.node189.top",
+        avatar: "https://static.031130.xyz/uploads/2024/08/12/65c37927314ac.webp",
+      }
     - {
-      title: "Node Sans",
-      intro: "不知道 Node 和 Sans 有什么关系",
-      link: "https://blog.node189.top",
-      avatar: "https://static.031130.xyz/uploads/2024/08/12/65c37927314ac.webp"
-    }
+        title: "树下集熵",
+        intro: "the mirror of life",
+        link: "https://www.entropy-tree.top/",
+      }
+    - { title: "chloris", link: "https://www.cnblogs.com/chloris/" }
     - {
-      title: "树下集熵",
-      intro: "the mirror of life",
-      link: "https://www.entropy-tree.top/"
-    }
+        title: "惜寞 - 无人小间",
+        intro: "也许大概应该可能 maybe/possible 会发（水）点文章",
+        link: "https://lonesome.cn/",
+        avatar: "https://static.031130.xyz/uploads/2024/08/12/653dce34279de.webp",
+      }
     - {
-      title: "chloris",
-      link: "https://www.cnblogs.com/chloris/"
-    }
+        title: "青鸟の博客",
+        intro: "一只不会飞的小笨鸟",
+        link: "https://blog.bluebird.icu/",
+        avatar: "https://static.031130.xyz/uploads/2024/08/12/665c87250daa1.webp",
+      }
     - {
-      title: "惜寞 - 无人小间",
-      intro: "也许大概应该可能 maybe/possible 会发（水）点文章",
-      link: "https://lonesome.cn/",
-      avatar: "https://static.031130.xyz/uploads/2024/08/12/653dce34279de.webp"
-    }
+        title: "浅浅子的博客",
+        intro: "内心丰盈者独行也如众",
+        link: "https://blog.qianqianzyk.top/",
+        avatar: "https://static.031130.xyz/uploads/2024/08/12/659f548c17c9b.webp",
+      }
     - {
-      title: "青鸟の博客",
-      intro: "一只不会飞的小笨鸟",
-      link: "https://blog.bluebird.icu/",
-      avatar: "https://static.031130.xyz/uploads/2024/08/12/665c87250daa1.webp"
-    }
+        title: "Skykey's Home",
+        intro: "Skykey的私人博客ᕕ( ᐛ )ᕗ",
+        link: "https://blog.skykey.fun",
+      }
     - {
-      title: "浅浅子的博客",
-      intro: "内心丰盈者独行也如众",
-      link: "https://blog.qianqianzyk.top/",
-      avatar: "https://static.031130.xyz/uploads/2024/08/12/659f548c17c9b.webp"
-    }
+        title: "点墨的私人部落阁",
+        intro: "寄情山水的arch玩客",
+        link: "https://blog.m-l.cc/",
+        avatar: "https://static.031130.xyz/uploads/2024/08/12/65ce4796c447d.webp",
+      }
     - {
-      title: "Skykey's Home",
-      intro: "Skykey的私人博客ᕕ( ᐛ )ᕗ",
-      link: "https://blog.skykey.fun"
-    }
+        title: "T-ON-Y的小窝",
+        intro: "wwwww",
+        link: "https://tonywu.top/",
+        avatar: "https://static.031130.xyz/uploads/2024/08/12/665c86dd86375.webp",
+      }
     - {
-      title: "点墨的私人部落阁",
-      intro: "寄情山水的arch玩客",
-      link: "https://blog.m-l.cc/",
-      avatar: "https://static.031130.xyz/uploads/2024/08/12/65ce4796c447d.webp"
-    }
+        title: "望舒的尘歌壶",
+        intro: "技术宅拯救世界",
+        link: "https://blog.phlin.cn/",
+        avatar: "https://qiuniu.phlin.top/bucket/icon.png",
+      }
     - {
-      title: "T-ON-Y的小窝",
-      intro: "wwwww",
-      link: "https://tonywu.top/",
-      avatar: "https://static.031130.xyz/uploads/2024/08/12/665c86dd86375.webp"
-    }
+        title: "消失在彩霞里的博客",
+        intro: "一只爱编程的小马",
+        link: "https://blog.aiyin.club/",
+        avatar: "https://static.031130.xyz/uploads/2024/09/24/9d106a106aef1.webp",
+      }
     - {
-      title: "望舒的尘歌壶",
-      intro: "技术宅拯救世界",
-      link: "https://blog.phlin.cn/",
-      avatar: "https://qiuniu.phlin.top/bucket/icon.png"
-    }
+        title: "風雪城",
+        intro: "浩繁星空下的一场稚嫩的梦",
+        link: "https://blog.chyk.ink/",
+        avatar: "https://static.031130.xyz/uploads/2024/11/18/9b6f5d7231d91.webp",
+      }
     - {
-      title: "消失在彩霞里的博客",
-      intro: "一只爱编程的小马",
-      link: "https://blog.aiyin.club/",
-      avatar: "https://static.031130.xyz/uploads/2024/09/24/9d106a106aef1.webp"
-    }
+        title: "纸鹿本鹿",
+        intro: "纸鹿至麓不知路，支炉制露不止漉",
+        link: "https://blog.zhilu.cyou/",
+        avatar: "https://www.zhilu.cyou/api/avatar.png",
+      }
     - {
-      title: "風雪城",
-      intro: "浩繁星空下的一场稚嫩的梦",
-      link: "https://blog.chyk.ink/",
-      avatar: "https://static.031130.xyz/uploads/2024/11/18/9b6f5d7231d91.webp"
-    }
-    - {
-      title: "纸鹿本鹿",
-      intro: "纸鹿至麓不知路，支炉制露不止漉",
-      link: "https://blog.zhilu.cyou/",
-      avatar: "https://www.zhilu.cyou/api/avatar.png"
-    }
-    - {
-      title: "SugarMGP",
-      intro: "白糖的记事本",
-      link: "https://blog.sugarmgp.cn/",
-      avatar: "https://blog.sugarmgp.cn/img/icon.png"
-    }
+        title: "SugarMGP",
+        intro: "白糖的记事本",
+        link: "https://blog.sugarmgp.cn/",
+        avatar: "https://blog.sugarmgp.cn/img/icon.png",
+      }
 
   # 当成员头像加载失败时，替换为指定图片
   # When the member avatar fails to load, replace the specified image
@@ -1122,7 +1126,7 @@ links:
   # Custom content at the bottom of the links
   custom:
     enable: false
-    content: '<hr><p>在下方留言申请加入我的友链，按如下格式提供信息：</p><ul><li>博客名：Fluid</li><li>简介：Fluid 主题官方博客</li><li>链接：https://hexo.fluid-dev.com</li><li>图片：https://hexo.fluid-dev.com/img/favicon.png</li></ul>'
+    content: "<hr><p>在下方留言申请加入我的友链，按如下格式提供信息：</p><ul><li>博客名：Fluid</li><li>简介：Fluid 主题官方博客</li><li>链接：https://hexo.fluid-dev.com</li><li>图片：https://hexo.fluid-dev.com/img/favicon.png</li></ul>"
 
   # 评论插件
   # Comment plugin
@@ -1180,7 +1184,7 @@ static_prefix:
 
   valine: https://lib.baomitu.com/valine/1.5.1/
 
-  waline: https://static.031130.xyz/res/
+  waline: https://static.031130.xyz/assets/
 
   gitalk: https://lib.baomitu.com/gitalk/1.8.0/
 
