@@ -1,0 +1,842 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/favicon.ico">
+  <link rel="icon" href="/favicon.ico">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="竹林里有冰">
+  <meta name="keywords" content="博客, 技术, Linux">
+  
+    <meta name="description" content="2023 年 8 月，CA&#x2F;Browser Forum 通过了一项投票——不再强制要求 Let’s Encrypt 等公开信任的 CA 设立 OCSP Server 2024 年 7 月，Let’s Encrypt 发布博客，披露其计划关闭 OCSP Server 同年 12 月，Let’s Encrypt 发布其关闭 OCSP Server 的时间计划表，大致情况如下：  2025 年 1 月">
+<meta property="og:type" content="article">
+<meta property="og:title" content="后 OCSP 时代，浏览器如何应对证书吊销新挑战">
+<meta property="og:url" content="https://zhul.in/2025/10/16/how-s-mozilla-crlite-going-now/index.html">
+<meta property="og:site_name" content="竹林里有冰的博客">
+<meta property="og:description" content="2023 年 8 月，CA&#x2F;Browser Forum 通过了一项投票——不再强制要求 Let’s Encrypt 等公开信任的 CA 设立 OCSP Server 2024 年 7 月，Let’s Encrypt 发布博客，披露其计划关闭 OCSP Server 同年 12 月，Let’s Encrypt 发布其关闭 OCSP Server 的时间计划表，大致情况如下：  2025 年 1 月">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-10-16T07:38:50.000Z">
+<meta property="article:modified_time" content="2025-10-16T13:05:14.000Z">
+<meta property="article:author" content="竹林里有冰">
+<meta property="article:tag" content="SSL">
+<meta property="article:tag" content="Firefox">
+<meta property="article:tag" content="Web PKI">
+<meta property="article:tag" content="OCSP">
+<meta property="article:tag" content="CRLSets">
+<meta property="article:tag" content="CRLite">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>后 OCSP 时代，浏览器如何应对证书吊销新挑战 - 竹林里有冰的博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/heimu.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"zhul.in","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<!-- hexo injector head_end start -->
+  <link rel="preconnect" href="//static.031130.xyz">
+<script async defer data-website-id="5346b89b-f4bf-4593-971d-1f41a1118bc1" src="/custom.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/rss.xml" title="竹林里有冰的博客" type="application/atom+xml">
+</head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>竹林里有冰的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="iconfont icon-books"></i>
+                <span>其他</span>
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="/rss.xml" target="_self">
+                    <i class="iconfont icon-rss"></i>
+                    <span>RSS</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="https://notes.5435486.xyz/" target="_self">
+                    <i class="iconfont icon-book"></i>
+                    <span>流水账</span>
+                  </a>
+                
+                  
+                  
+                  
+                  <a class="dropdown-item" href="https://zhul.in/donate" target="_self">
+                    <i class="iconfont icon-qrcode"></i>
+                    <span>给我打钱</span>
+                  </a>
+                
+              </div>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/null') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="后 OCSP 时代，浏览器如何应对证书吊销新挑战"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-10-16 15:38" pubdate>
+          2025年10月16日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          2.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          12 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">后 OCSP 时代，浏览器如何应对证书吊销新挑战</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    <!-- compatible with older versions-->
+                    本文最后更新于：2025年10月16日 晚上
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <p>2023 年 8 月，CA/Browser Forum 通过了一项投票——不再强制要求 Let’s Encrypt 等公开信任的 CA 设立 OCSP Server</p>
+<p>2024 年 7 月，Let’s Encrypt 发布<a target="_blank" rel="noopener" href="https://letsencrypt.org/2024/07/23/replacing-ocsp-with-crls">博客</a>，披露其计划关闭 OCSP Server</p>
+<p>同年 12 月，Let’s Encrypt 发布<a target="_blank" rel="noopener" href="https://letsencrypt.org/2024/12/05/ending-ocsp">其关闭 OCSP Server 的时间计划表</a>，大致情况如下：</p>
+<ul>
+<li>2025 年 1 月 30 日 - Let’s Encrypt 不再接受新的包含 OCSP Must-Staple 扩展的证书签发请求，除非你的账号先前申请过此类证书</li>
+<li>2025 年 5 月 7 日 - Let’s Encrypt 新签发的证书将加入 CRL URLs，不再包含 OCSP URLs，并且所有新的包含 OCSP Must-Staple 扩展的证书签发请求都将被拒绝</li>
+<li>2025 年 8 月 6 日 - Let’s Encrypt 关闭 OCSP 服务器</li>
+</ul>
+<p><strong>Let’s Encrypt 是全世界最大的免费 SSL 证书颁发机构，而这一举动标志着我们已逐渐步入后 OCSP 时代。</strong></p>
+<h2 id="OCSP-的困境：性能与隐私的权衡"><a href="#OCSP-的困境：性能与隐私的权衡" class="headerlink" title="OCSP 的困境：性能与隐私的权衡"></a>OCSP 的困境：性能与隐私的权衡</h2><p>Let’s Encrypt 这一举动的背后，是人们对 OCSP（在线证书状态协议）长久以来累积的不满。OCSP 作为一种实时查询证书有效性的方式，最初的设想很美好：当浏览器访问一个网站时，它可以向 <strong>CA（证书颁发机构）</strong> 的 OCSP 服务器发送一个简短的请求，询问该证书是否仍然有效。这似乎比下载一个巨大的 <strong>CRL（证书吊销列表）</strong> 要高效得多。</p>
+<p>然而，OCSP 在实际应用中暴露出众多缺陷：</p>
+<p>首先是<strong>性能问题</strong>。尽管单个请求很小，但当数百万用户同时访问网站时，OCSP 服务器需要处理海量的实时查询。这不仅给 CA 带来了巨大的服务器压力，也增加了用户访问网站的延迟。如果 OCSP 服务器响应缓慢甚至宕机，浏览器可能会因为无法确认证书状态而中断连接，或者为了用户体验而不得不“睁一只眼闭一只眼”，这都削弱了 OCSP 的安全性。</p>
+<p>更严重的是<strong>隐私问题</strong>。每一次 OCSP 查询，都相当于向 CA 报告了用户的访问行为。这意味着 CA 能够知道某个用户在何时访问了哪个网站。虽然 OCSP 查询本身不包含个人身份信息，但将这些信息与 IP 地址等数据结合起来，CA 完全可以建立起用户的浏览习惯画像。对于重视隐私的用户和开发者来说，这种“无声的监视”是不可接受的。<strong>即使 CA 故意不保留这些信息，地区法律也可能强制 CA 收集这些信息。</strong></p>
+<p>再者，OCSP  还存在设计上的<strong>安全缺陷</strong>。由于担心连接超时影响用户体验，浏览器通常默认采用 soft-fail 机制：一旦无法连接 OCSP  服务器，便会选择放行而非阻断连接。攻击者恰恰可以利用这一点，通过阻断客户端与 OCSP  服务器之间的通信，使查询始终超时，从而轻松绕过证书状态验证。</p>
+<h3 id="OCSP-装订-OCSP-stapling"><a href="#OCSP-装订-OCSP-stapling" class="headerlink" title="OCSP 装订 (OCSP stapling)"></a>OCSP 装订 (OCSP stapling)</h3><p>基于上面这些缺陷，我们有了 OCSP 装订 (OCSP stapling) 方案，这<a href="/2024/11/19/firefox-is-the-only-mainstream-brower-doing-online-certificate-revocation-checks/#OCSP-%E8%A3%85%E8%AE%A2-OCSP-stapling">在我去年的博客里讲过，欢迎回顾</a>。</p>
+<h3 id="强制-OCSP-装订-OCSP-Must-Staple"><a href="#强制-OCSP-装订-OCSP-Must-Staple" class="headerlink" title="强制 OCSP 装订 (OCSP Must-Staple)"></a>强制 OCSP 装订 (OCSP Must-Staple)</h3><p>OCSP Must-Staple 是一个在 ssl 证书申请时的拓展项，该扩展会告知浏览器：若在证书中识别到此扩展，则不得向证书颁发机构发送查询请求，而应在握手阶段获取装订式副本。若未能获得有效副本，浏览器应拒绝连接。</p>
+<p>这项功能赋予了浏览器开发者 hard-fail 的勇气，但在 OCSP 淡出历史之前，Let’s Encrypt 似乎是唯一支持这一拓展的主流 CA，并且这项功能并没有得到广泛使用。</p>
+<p><del>本来不想介绍这项功能的（因为根本没人用），但考虑到这东西快入土了，还是给它在中文互联网中立个碑，</del>更多信息参考 <a target="_blank" rel="noopener" href="https://letsencrypt.org/2024/12/05/ending-ocsp#must-staple">Let’s Encrypt 的博客</a>。</p>
+<h2 id="Chromium-的方案：弱水三千只取一瓢"><a href="#Chromium-的方案：弱水三千只取一瓢" class="headerlink" title="Chromium 的方案：弱水三千只取一瓢"></a>Chromium 的方案：弱水三千只取一瓢</h2><p>OCSP 的隐私和性能问题并非秘密，浏览器厂商们早就开始了各自的探索。2012 年，Chrome 默认禁用了 CRLs、OCSP 检查，转向自行设计的证书校验机制。</p>
+<p>众所周知，吊销列表可以非常庞大。如果浏览器需要下载和解析一个完整的全球吊销列表，那将是一场性能灾难（Mozilla 团队在<a target="_blank" rel="noopener" href="https://hacks.mozilla.org/2025/08/crlite-fast-private-and-comprehensive-certificate-revocation-checking-in-firefox/">今年的博客</a>中提到，从 3000 个活跃的 CRL 下载的文件大小将达到 300MB）。Chromium 团队通过分析历史数据发现，大多数被吊销的证书属于少数高风险类别，例如证书颁发机构（CA）本身被攻破、或者某些大型网站的证书被吊销。基于此洞察，CRLSets 采取了以下策略：</p>
+<ol>
+<li><strong>分层吊销</strong>：Chromium 不会下载所有被吊销的证书信息，而是由 Google 团队维护一个精简的、包含“最重要”吊销信息的列表。这个列表会定期更新并通过 Chrome 浏览器更新推送给用户。</li>
+<li><strong>精简高效</strong>：这个列表体积非常小，目前大概只有 600KB。它包含了那些一旦被滥用就会造成大规模安全事故的证书，例如 CA 的中间证书、或者一些知名网站（如 Google、Facebook）的证书。</li>
+<li><strong>牺牲部分安全性</strong>：这种方案的缺点也很明显——它无法覆盖所有的证书吊销情况。对于一个普通网站的证书被吊销，CRLSets 大概率无法检测到。根据 Mozilla 今年的博客所说，CRLSets 只包含了 1%~2% 的未过期的被吊销证书信息。</li>
+</ol>
+<p>虽然 CRLSets 是一种“不完美”的解决方案，但它在性能和可用性之间找到了一个平衡点。它确保了用户在访问主流网站时的基础安全，同时避免了 OCSP 带来的性能和隐私开销。对于 Chromium 而言，与其追求一个在现实中难以完美实现的 OCSP 方案，不如集中精力解决最紧迫的安全威胁。</p>
+<h2 id="Firefox-的方案：从-CRLs-到-CRLite"><a href="#Firefox-的方案：从-CRLs-到-CRLite" class="headerlink" title="Firefox 的方案：从 CRLs 到 CRLite"></a>Firefox 的方案：从 CRLs 到 CRLite</h2><p>与 Chromium 的“只取一瓢”策略不同，Firefox 的开发者们一直在寻找一种既能保证全面性，又能解决性能问题的方案。</p>
+<p>为了解决这个问题，Mozilla 提出了一个创新的方案：<strong>CRLite</strong>。CRLite 的设计理念是通过<strong>哈希函数和布隆过滤器</strong>等数据结构，将庞大的证书吊销列表压缩成一个<strong>小巧、可下载且易于本地验证的格式</strong>。</p>
+<p>CRLite 的工作原理可以简单概括为：</p>
+<ol>
+<li><strong>数据压缩</strong>：CA 定期生成其全部吊销证书的列表。</li>
+<li><strong>服务器处理</strong>：Mozilla 的服务器会收集这些列表，并使用加密哈希函数和布隆过滤器等技术，将所有吊销证书的信息<strong>编码</strong>成一个非常紧凑的数据结构。</li>
+<li><strong>客户端验证</strong>：浏览器下载这个压缩文件，当访问网站时，只需本地对证书进行哈希计算，然后查询这个本地文件，就能快速判断该证书是否已被吊销。</li>
+</ol>
+<p>与 CRLSets 相比，CRLite 的优势在于它能够实现<strong>对所有吊销证书的全面覆盖</strong>，同时保持<strong>极小的体积</strong>。更重要的是，它<strong>完全在本地完成验证</strong>，这意味着浏览器<strong>无需向任何第三方服务器发送请求</strong>，从而彻底解决了 OCSP 的隐私问题。</p>
+<p>Firefox 当前的策略为每 12 小时对 CRLite 数据进行一次增量更新，每日的下载数据大约为 300KB；每 45 天进行一次全量的快照同步，下载数据约为 4MB。</p>
+<p>Mozilla 开放了他们的数据看板，你可以在这里找到近期的 CRLite 数据大小：<a target="_blank" rel="noopener" href="https://yardstick.mozilla.org/dashboard/snapshot/c1WZrxGkNxdm9oZp7xVvGUEFJCELfApN">https://yardstick.mozilla.org/dashboard/snapshot/c1WZrxGkNxdm9oZp7xVvGUEFJCELfApN</a></p>
+<p>自 2025 年 4 月 1 日发布的 Firefox Desktop 137 版本起，Firefox 开始逐步以 CRLite 替换 OCSP 校验；同年 8 月 19 日，Firefox Desktop 142 针对 DV 证书正式弃用 OCSP 检验。</p>
+<p>CRLite 已经成为 Firefox 未来证书吊销验证的核心方案，它代表了对性能、隐私和安全性的全面追求。</p>
+<h2 id="后-OCSP-时代的展望"><a href="#后-OCSP-时代的展望" class="headerlink" title="后 OCSP 时代的展望"></a>后 OCSP 时代的展望</h2><p>随着 Let’s Encrypt 等主要 CA 关闭 OCSP 服务，OCSP 的时代正在加速落幕。我们可以看到，浏览器厂商们已经开始各自探索更高效、更安全的替代方案。</p>
+<ul>
+<li><strong>Chromium</strong> 凭借其 CRLSets 方案，在<strong>性能和关键安全保障</strong>之间取得了务实的平衡。</li>
+<li><strong>Firefox</strong> 则通过 <strong>CRLite</strong> 这一技术创新，试图在<strong>全面性、隐私和性能</strong>三者之间找到最佳的解决方案。</li>
+</ul>
+<p>这些方案的共同点是：<strong>将证书吊销验证从实时在线查询（OCSP）转变为本地化验证</strong>，从而规避了 OCSP 固有的性能瓶颈和隐私风险。</p>
+<p>未来，证书吊销的生态系统将不再依赖单一的、中心化的 OCSP 服务器。取而代之的是，一个更加多元、分布式和智能化的新时代正在到来。<strong>OCSP 这一技术可能逐渐被淘汰，但它所试图解决的“证书吊销”这一核心安全问题，将永远是浏览器和网络安全社区关注的重点。</strong></p>
+<h2 id="参见"><a href="#参见" class="headerlink" title="参见"></a>参见</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://hacks.mozilla.org/2025/08/crlite-fast-private-and-comprehensive-certificate-revocation-checking-in-firefox/">CRLite: Fast, private, and comprehensive certificate revocation checking in Firefox - Mozilla Hacks - the Web developer blog</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.feistyduck.com/newsletter/issue_121_the_slow_death_of_ocsp">The Slow Death of OCSP | Feisty Duck</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/mozilla/crlite">mozilla/crlite: Compact certificate revocation lists for the WebPKI</a></li>
+<li><a target="_blank" rel="noopener" href="https://letsencrypt.org/2025/08/06/ocsp-service-has-reached-end-of-life">OCSP Service Has Reached End of Life - Let’s Encrypt</a></li>
+<li><a target="_blank" rel="noopener" href="https://letsencrypt.org/2024/12/05/ending-ocsp">Ending OCSP Support in 2025 - Let’s Encrypt</a></li>
+<li><a target="_blank" rel="noopener" href="https://letsencrypt.org/2024/07/23/replacing-ocsp-with-crls">Intent to End OCSP Service - Let’s Encrypt</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.chromium.org/Home/chromium-security/crlsets/">CRLSets - The Chromium Projects</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.pcworld.com/article/474296/google_chrome_will_no_longer_check_for_revoked_ssl_certificates_online-2.html">Google Chrome Will No Longer Check for Revoked SSL Certificates Online | PCWorld</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.zdnet.com/article/chrome-does-certificate-revocation-better/">Chrome does certificate revocation better | ZDNET</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.hats-land.com/WIP/2025-technical-and-analysis-of-mainstream-clientbrowser-certificate-revocation-verification-mechanism.html">主流客户端/浏览器证书吊销验证机制技术对与分析 | 帽之岛, Hat’s Land</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.gslin.org/archives/2025/02/02/12239/ocsp-%E7%9A%84%E6%B7%A1%E5%87%BA/">OCSP 的淡出… – Gea-Suan Lin’s BLOG</a></li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/SSL/" class="print-no-link">#SSL</a>
+      
+        <a href="/tags/Firefox/" class="print-no-link">#Firefox</a>
+      
+        <a href="/tags/Web-PKI/" class="print-no-link">#Web PKI</a>
+      
+        <a href="/tags/OCSP/" class="print-no-link">#OCSP</a>
+      
+        <a href="/tags/CRLSets/" class="print-no-link">#CRLSets</a>
+      
+        <a href="/tags/CRLite/" class="print-no-link">#CRLite</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>后 OCSP 时代，浏览器如何应对证书吊销新挑战</div>
+      <div>https://zhul.in/2025/10/16/how-s-mozilla-crlite-going-now/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>竹林里有冰</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年10月16日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2025年10月16日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/09/05/first-try-of-github-action-self-hosted-runner/" title="初试 Github Action Self-hosted Runner，想说爱你不容易">
+                        <span class="hidden-mobile">初试 Github Action Self-hosted Runner，想说爱你不容易</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="waline"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#waline', function() {
+      Fluid.utils.createCssLink('https://static.031130.xyz/assets/waline.css')
+      Fluid.utils.createScript('https://static.031130.xyz/assets/waline.js', function() {
+        var options = Object.assign(
+          {"serverURL":"https://waline.zhul.in","path":"window.location.pathname","meta":["nick","mail","link"],"requiredMeta":["nick"],"lang":"zh-CN","emoji":["https://registry.npmmirror.com/@waline/emojis/^1/files/weibo"],"dark":"html[data-user-color-scheme=\"dark\"]","wordLimit":0,"pageSize":10,"login":"disable","locale":{"placeholder":"快发个评论让我知道你在看（x"}},
+          {
+            el: '#waline',
+            path: window.location.pathname
+          }
+        )
+        Waline.init(options);
+        Fluid.utils.waitElementVisible('#waline .vcontent', () => {
+          var imgSelector = '#waline .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br /> <a href="https://notbyai.fyi/" target="_blank"><img style="max-height: 50px; margin: 10px" src=https://static.031130.xyz/uploads/2024/08/28/ae6dd98bdf60e.png alt="written by human, not by AI" /></a> <br /> <iframe frameborder=0 src="https://support.nodeget.com/page/promotion?id=61" style="border-radius:8px; border: none; height: 246px; transform: scale(0.8);"> </iframe> <br /> <span>本网站由 <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img style="max-height: 50px;" loading="lazy" src="https://static.031130.xyz/uploads/2024/08/12/ba8d70971c408.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="又拍云 Logo" /></a> 提供 CDN 加速/云存储服务</span> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<!-- hexo injector body_end start -->
+<script>
+    const imgs = [
+        "https://static.031130.xyz/uploads/2024/08/12/62f373292129a.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f3732b562d8.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f3732d6ebe2.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f3732f6b225.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f37332b1c8b.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f37338661d8.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f3733c35741.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f3733deca7f.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f373406909e.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f373423b6c0.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f37343c5254.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f37345532e7.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f373479efcf.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f3734a2de90.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f3734bea5a7.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f3734dc3404.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f3734fe20d3.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f37351bae52.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f373539bd9f.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f37354f1ec7.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f373569f4ef.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f3735851795.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f37359a2c36.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/5fd959de5f180.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/1ef8787039f53.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/fb261297a3570.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f374ea7b242.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/62f374ec8c14d.webp",
+        "https://static.031130.xyz/uploads/2024/08/12/6609df9b83ecd.webp",
+        "https://static.031130.xyz/uploads/2025/05/04/e1aa9e18bebb1.webp"
+    ]
+
+    const luck_img = imgs[Math.floor(Math.random() * imgs.length)]
+    const banner = document.getElementById('banner')
+    banner.style.background = "url(" + luck_img + ") center center / cover no-repeat"
+</script>
+<!-- hexo injector body_end end --></body>
+</html>
