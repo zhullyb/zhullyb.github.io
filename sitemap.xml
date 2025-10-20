@@ -128,7 +128,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2025/06/02/choosing-the-right-video-compression-format-for-web-in-2025/</loc>
+    <loc>https://zhul.in/2024/07/14/config-hp-laser-103w-printer-for-archlinux/</loc>
     
     <lastmod>2025-10-03</lastmod>
     
@@ -137,7 +137,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/07/14/config-hp-laser-103w-printer-for-archlinux/</loc>
+    <loc>https://zhul.in/2025/06/02/choosing-the-right-video-compression-format-for-web-in-2025/</loc>
     
     <lastmod>2025-10-03</lastmod>
     
@@ -164,7 +164,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2021/09/21/csdn-copied-my-article/</loc>
+    <loc>https://zhul.in/2023/10/29/create-b23tv-remover-bot/</loc>
     
     <lastmod>2025-10-03</lastmod>
     
@@ -173,7 +173,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2023/10/29/create-b23tv-remover-bot/</loc>
+    <loc>https://zhul.in/2021/09/21/csdn-copied-my-article/</loc>
     
     <lastmod>2025-10-03</lastmod>
     
@@ -326,15 +326,6 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2025/06/08/front-end-bug-gone-when-open-devtool/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://zhul.in/2022/11/08/free-umami-deploy-plan/</loc>
     
     <lastmod>2025-10-03</lastmod>
@@ -345,6 +336,15 @@
   
   <url>
     <loc>https://zhul.in/2021/04/16/fuck-jekyll-github-metadata-on-gitlab/</loc>
+    
+    <lastmod>2025-10-03</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/2025/06/08/front-end-bug-gone-when-open-devtool/</loc>
     
     <lastmod>2025-10-03</lastmod>
     
@@ -434,7 +434,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/09/20/migrate-rustdesk-server-from-arch-to-debian/</loc>
+    <loc>https://zhul.in/2024/11/18/mi-ai-class-schedule-adapter-for-zjut/</loc>
     
     <lastmod>2025-10-03</lastmod>
     
@@ -443,7 +443,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2024/11/18/mi-ai-class-schedule-adapter-for-zjut/</loc>
+    <loc>https://zhul.in/2024/09/20/migrate-rustdesk-server-from-arch-to-debian/</loc>
     
     <lastmod>2025-10-03</lastmod>
     
@@ -515,7 +515,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2023/12/12/php-simple-rest-api/</loc>
+    <loc>https://zhul.in/2023/12/27/php-and-vuejs-project-deploy-on-caddy/</loc>
     
     <lastmod>2025-10-03</lastmod>
     
@@ -524,7 +524,7 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/2023/12/27/php-and-vuejs-project-deploy-on-caddy/</loc>
+    <loc>https://zhul.in/2023/12/12/php-simple-rest-api/</loc>
     
     <lastmod>2025-10-03</lastmod>
     
@@ -1430,20 +1430,6 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/tags/HTML/</loc>
-    <lastmod>2025-10-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Web/</loc>
-    <lastmod>2025-10-20</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://zhul.in/tags/Hardware/</loc>
     <lastmod>2025-10-20</lastmod>
     <changefreq>weekly</changefreq>
@@ -1459,6 +1445,20 @@
   
   <url>
     <loc>https://zhul.in/tags/HomeServer/</loc>
+    <lastmod>2025-10-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/HTML/</loc>
+    <lastmod>2025-10-20</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://zhul.in/tags/Web/</loc>
     <lastmod>2025-10-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -1493,14 +1493,14 @@
   </url>
   
   <url>
-    <loc>https://zhul.in/tags/Blog/</loc>
+    <loc>https://zhul.in/tags/Privacy/</loc>
     <lastmod>2025-10-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://zhul.in/tags/Privacy/</loc>
+    <loc>https://zhul.in/tags/Blog/</loc>
     <lastmod>2025-10-20</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
