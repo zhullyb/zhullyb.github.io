@@ -34,7 +34,7 @@
 <meta property="og:image" content="https://static.031130.xyz/uploads/2025/10/20/007e72e7b476d.webp">
 <meta property="og:image" content="https://static.031130.xyz/uploads/2025/10/20/17ba3ccbbdf9e.webp">
 <meta property="article:published_time" content="2025-10-20T13:52:59.000Z">
-<meta property="article:modified_time" content="2025-10-20T15:28:43.000Z">
+<meta property="article:modified_time" content="2025-10-20T15:29:13.000Z">
 <meta property="article:author" content="竹林里有冰">
 <meta property="article:tag" content="JavaScript">
 <meta property="article:tag" content="Nuxt">
@@ -99,9 +99,9 @@
 
 
   
-<!-- hexo injector head_end start --><script async defer data-website-id="5346b89b-f4bf-4593-971d-1f41a1118bc1" src="/custom.js"></script>
+<!-- hexo injector head_end start -->
   <link rel="preconnect" href="//static.031130.xyz">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/rss.xml" title="竹林里有冰的博客" type="application/atom+xml">
+<script async defer data-website-id="5346b89b-f4bf-4593-971d-1f41a1118bc1" src="/custom.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/rss.xml" title="竹林里有冰的博客" type="application/atom+xml">
 </head>
 
 
@@ -396,7 +396,7 @@ tags:
     )
 &#125;)</code></pre></div>
 
-<p>这种方法虽然满足了需求，但也带来了明显的性能代价：**<code>_payload.json</code> 文件体积的膨胀。**</p>
+<p>这种方法虽然满足了需求，但也带来了明显的性能代价：**_payload.json 文件体积的膨胀。**</p>
 <p>在 Nuxt 项目中，<code>_payload.json</code> 用于存储 <code>useAsyncData</code> 的结果等动态数据。在全量拉取的方案下，<strong>每一个 Tag 页面</strong> 都会加载包含所有文章信息的 <code>_payload.json</code>，造成数据冗余。很多 Tag 页面仅需一两篇文章的数据，却被迫加载了全部文章信息，严重影响了性能。</p>
 <p><img src="https://static.031130.xyz/uploads/2025/10/20/a748878c03c64.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="tags 目录占据了 2.9MiB，是所有目录中最大的"></p>
 <p><img src="https://static.031130.xyz/uploads/2025/10/20/8ef786d873da1.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="_payload.json"></p>
