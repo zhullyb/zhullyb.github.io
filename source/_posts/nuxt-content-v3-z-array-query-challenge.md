@@ -117,9 +117,9 @@ const { data } = await useAsyncData(`tag-${route.params.tag}`, () =>
 
 通过这种方法，我们成功将查询逻辑下推到了数据库层，避免了不必要的全量数据传输，显著降低了单个目录中 `_payload.json` 的体积，实现了性能优化。
 
-![tags 目录体积下降](/home/zhullyb/.config/Typora/typora-user-images/image-20251020231120146.png)
+![tags 目录体积下降](https://static.031130.xyz/uploads/2025/10/20/007e72e7b476d.webp)
 
-![_payload.json](/home/zhullyb/.config/Typora/typora-user-images/image-20251020231307825.png)
+![_payload.json](https://static.031130.xyz/uploads/2025/10/20/17ba3ccbbdf9e.webp)
 
 ## 参见
 
