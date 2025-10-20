@@ -14,25 +14,22 @@
 	import type { Post } from '~/types/post'
 
 	const route = useRoute()
+	const tag = decodeURIComponent(route.params.tag as string)
 
-	const allPosts = (
-		await useAsyncData(`tag-${route.params.tag}`, () =>
-			queryCollection('posts')
-				.order('date', 'DESC')
-				.select('title', 'date', 'path', 'tags')
-				.all()
-		)
-	).data as Ref<Post[]>
+	// 使用 LIKE 查询 JSON 数组,添加引号确保精确匹配标签
+	// tags 在数据库中存储为 JSON 格式: ["Github","Github Action","CI/CD"]
+	// 使用 %"Github"% 可以精确匹配 "Github"，避免匹配到 "Github Action"
+	const { data } = await useAsyncData(`tag-${route.params.tag}`, () =>
+		queryCollection('posts')
+			.where('tags', 'LIKE', `%"${tag}"%`)
+			.order('date', 'DESC')
+			.select('title', 'date', 'path', 'tags')
+			.all()
+	)
 
-	const Posts = computed(() => {
-		return allPosts.value.filter(post =>
-			typeof post.tags?.map === 'function'
-				? post.tags?.includes(decodeURIComponent(route.params.tag as string))
-				: false
-		)
-	})
+	const Posts = data as Ref<Post[]>
 
-	if (Posts.value.length === 0) {
+	if (!Posts.value || Posts.value.length === 0) {
 		throw createError({ statusCode: 404, statusMessage: 'Tag not found', fatal: true })
 	}
 </script>
