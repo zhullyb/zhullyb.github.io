@@ -1,9 +1,9 @@
 <template>
 	<div>
-		<div v-for="post in posts" :key="post.path" class="post-item">
+		<div v-for="post in processedPosts" :key="post.path" class="post-item">
 			<NuxtLink :to="getUrlByPost(post)" class="post-link"></NuxtLink>
 			<h2 class="title">{{ post.title }}</h2>
-			<span class="description">{{ post.description }}</span>
+			<span class="description">{{ post.excerpt }}</span>
 			<div class="post-meta">
 				<span class="date">{{ post.date?.split(' ')[0] }}</span>
 				<NuxtLink
@@ -21,6 +21,7 @@
 
 <script setup lang="ts">
 	import type { Post } from '~/types/post'
+	import { processExcerpt } from '~/utils/extractExcerpt'
 
 	const route = useRoute()
 	const page = route.params.page ? parseInt(route.params.page as string) || 1 : 1
@@ -33,10 +34,19 @@
 				.order('date', 'DESC')
 				.skip((page - 1) * pageSize)
 				.limit(pageSize)
-				.select('title', 'date', 'path', 'description', 'tags')
+				.select('title', 'date', 'path', 'tags', 'body')
 				.all()
 		)
 	).data as Ref<Post[]>
+
+	// 提取纯文本 excerpt 并限制字数到 300
+	const processedPosts = computed(() => {
+		if (!posts.value) return []
+		return posts.value.map(post => ({
+			...post,
+			excerpt: processExcerpt((post as any).body, 300)
+		}))
+	})
 
 	const total = (await useAsyncData('posts-total', () => queryCollection('posts').count()))
 		.data as Ref<number>
@@ -56,7 +66,7 @@
 		.desktop-up({
         padding: 20px;
         transition: box-shadow 0.2s;
-        
+
         &:hover {
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
         }
