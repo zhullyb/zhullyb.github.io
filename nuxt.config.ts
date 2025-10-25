@@ -41,7 +41,8 @@ export default defineNuxtConfig({
 		url: blogConfig.url,
 		name: blogConfig.title,
 		description: blogConfig.description,
-		defaultLocale: 'zh-CN'
+		defaultLocale: 'zh-CN',
+		trailingSlash: true
 	},
 	devtools: { enabled: true },
 	future: {
