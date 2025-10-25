@@ -1,7 +1,17 @@
 <template>
 	<div>
 		<Header :banner-img="bannerImg" :title="title" />
-		<main><slot /></main>
+		<div class="content-wrapper">
+			<div class="before-main side">
+				<slot name="BeforeMain" />
+			</div>
+			<main>
+				<slot />
+			</main>
+			<div class="after-main side">
+				<slot name="AfterMain" />
+			</div>
+		</div>
 		<Footer :banner-img="bannerImg" />
 	</div>
 </template>
@@ -33,18 +43,34 @@
 </script>
 
 <style lang="less" scoped>
-	main {
-		min-height: calc(40vh - 120px);
-		margin: 40px auto 40px;
+	.content-wrapper {
+		margin-top: 40px;
+		margin-bottom: 40px;
 
-		width: 50%;
-		.desktop-down({
-    width: 75%;
-  });
+		.tablet-up({
+      display: flex;
+      justify-content: space-around;
+
+      .side {
+        width: 20%;
+      }
+    });
 
 		.tablet-down({
-    width: unset;
-    margin: 30px;
-  });
+      margin: 30px;
+    });
+	}
+
+	main {
+		min-height: calc(40vh - 120px);
+		width: 50%;
+
+		.desktop-down({
+      width: 75%;
+    });
+
+		.tablet-down({
+      width: unset;
+    });
 	}
 </style>

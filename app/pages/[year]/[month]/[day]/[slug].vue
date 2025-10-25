@@ -18,6 +18,11 @@
 				下一篇：{{ nextPost.title }}
 			</div>
 		</div>
+		<template #AfterMain>
+			<aside>
+				<TableOfContents :body="post?.body" />
+			</aside>
+		</template>
 	</DefaultLayout>
 </template>
 
@@ -83,5 +88,10 @@
 			margin-left: auto;
 			text-align: right;
 		}
+	}
+
+	aside {
+		position: sticky;
+		top: @header-height + 20px;
 	}
 </style>
