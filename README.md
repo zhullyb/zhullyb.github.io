@@ -1,75 +1,26 @@
-# Nuxt Content Starter
+# blog-next (WIP)
 
-Look at the [Nuxt Content documentation](https://content.nuxt.com) to learn more.
+这是一个使用 Nuxt v4 + Nuxt Content v3 构建的博客系统，目前仍在开发中。
 
-## Setup
+## Todo List
 
-Make sure to install dependencies:
-
-```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+- [x] 博客首页（文章列表）
+    - [ ] 封面图片
+- [x] 文章详情页
+    - [x] Markdown 渲染
+    - [x] 图片预览
+    - [ ] 侧栏目录
+    - [ ] 接入 waline 评论
+    - [ ] 代码块高亮
+    - [ ] 代码块折行
+    - [ ] 文末上/下一篇
+- [x] 归档
+- [x] 标签
+- [x] 关于
+- [ ] 新旧 URL 兼容重定向
+- [ ] 友链
+- [ ] RSS 订阅
+- [ ] 搜索功能
+- [ ] 深色模式
+- [ ] 接入 umami 统计
+- [ ] 无 title 小记
