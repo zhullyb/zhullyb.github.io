@@ -12,7 +12,7 @@
 
 <template>
 	<DefaultLayout :title="page?.title">
-		<ContentRenderer v-if="page" :value="page" class="markdown-body" />
+		<ContentRenderer v-if="page" :value="page" tag="article" class="markdown-body" />
 	</DefaultLayout>
 </template>
 

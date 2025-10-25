@@ -1,6 +1,6 @@
 <template>
 	<DefaultLayout :title="post?.title">
-		<ContentRenderer v-if="post" :value="post" class="markdown-body" />
+		<ContentRenderer v-if="post" :value="post" tag="article" class="markdown-body" />
 		<div v-if="prevPost || nextPost" class="post-nav">
 			<div
 				class="post-nav-item prev"
