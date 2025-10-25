@@ -192,7 +192,6 @@
 		overflow-y: auto;
 		padding: 1.25rem;
 		background: #fafafa;
-		border-radius: 6px;
 		border: 1px solid #e5e5e5;
 
 		.tablet-down({
@@ -237,7 +236,6 @@
 			text-decoration: none;
 			display: block;
 			padding: 0.35rem 0.5rem;
-			border-radius: 3px;
 			transition:
 				color 0.2s,
 				background-color 0.2s;
@@ -312,7 +310,6 @@
 
 	.toc::-webkit-scrollbar-thumb {
 		background: #d1d5db;
-		border-radius: 3px;
 
 		&:hover {
 			background: #9ca3af;
