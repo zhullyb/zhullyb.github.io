@@ -1,23 +1,7 @@
 <template>
 	<DefaultLayout :title="post?.title">
 		<ContentRenderer v-if="post" :value="post" tag="article" class="markdown-body" />
-		<div v-if="prevPost || nextPost" class="post-nav">
-			<div
-				class="post-nav-item prev"
-				v-if="prevPost"
-				@click="navigateTo(getUrlByPost(prevPost))"
-			>
-				上一篇：{{ prevPost.title }}
-			</div>
-
-			<div
-				class="post-nav-item next"
-				v-if="nextPost"
-				@click="navigateTo(getUrlByPost(nextPost))"
-			>
-				下一篇：{{ nextPost.title }}
-			</div>
-		</div>
+		<PostNavigation :prevPost="prevPost" :nextPost="nextPost" />
 		<template #AfterMain>
 			<aside>
 				<TableOfContents :body="post?.body" />
@@ -62,33 +46,6 @@
 
 <style lang="less" scoped>
 	@import '~/assets/styles/github-markdown-rewrite.less';
-
-	.post-nav {
-		margin-top: 2em;
-		display: flex;
-	}
-
-	.post-nav-item {
-		cursor: pointer;
-		display: inline-block;
-		transition:
-			background-color 0.3s,
-			color 0.3s;
-
-		&:hover {
-			color: @active-blue;
-		}
-
-		&.prev {
-			margin-right: auto;
-			text-align: left;
-		}
-
-		&.next {
-			margin-left: auto;
-			text-align: right;
-		}
-	}
 
 	aside {
 		position: sticky;
