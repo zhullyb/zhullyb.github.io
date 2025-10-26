@@ -11,9 +11,11 @@ tags:
 - Linux
 ---
 
-几个月前，由于众所周知的原因，中国大陆境内失去了所有公共的 dockerhub 镜像（或者说是反代）。网上随即涌现了一批自建 dockerhub 反代的，有用 Cloudflare Workers 的，也有用 nginx 的，甚至还有自建 registry 的。我使用 caddy 的原因很简单，一是配置简单，而是通过一台国内访问质量良好的境外服务器进行反向代理的访问质量会比 Cloudflare 减速器好很多。
+几个月前，由于众所周知的原因，中国大陆境内失去了所有公共的 dockerhub 镜像（或者说是反代）。网上随即涌现了一批自建 dockerhub 反代的，有用 Cloudflare Workers 的，也有用 nginx 的，甚至还有自建 registry 的。
 
-前一阵子在中国大陆境内想要从 dockerhub 拉取镜像的时候遇到了这方面的困扰，因此有自建 dockerhub 反代的想法。
+我使用 caddy 去反代 dockerhub 的原因很简单，一是配置简单，二是通过一台国内访问质量良好的境外服务器进行反向代理的访问质量会比 Cloudflare 减速器好很多。
+
+在网上一阵搜索后，并没有发现任何使用 caddy 去反向代理 dockerhub 的文章， 于是本文应运而生。
 
 ## 遇事不决先抓包
 
