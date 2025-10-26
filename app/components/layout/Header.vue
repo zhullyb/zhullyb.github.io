@@ -3,7 +3,18 @@
 		<div class="header-container">
 			<div class="header">
 				<a href="/" class="header-title">{{ appConfig.title }}</a>
-				<HeaderNav :nav-items="appConfig.nav.items" @toggle="toggleMobileMenu" />
+				<div class="header-right">
+					<HeaderNav :nav-items="appConfig.nav.items" @toggle="toggleMobileMenu" />
+					<button
+						type="button"
+						class="search-trigger"
+						@click="openSearch"
+						aria-label="搜索文章"
+					>
+						<span aria-hidden="true">🔍</span>
+						<span class="search-trigger__label">搜索</span>
+					</button>
+				</div>
 			</div>
 		</div>
 
@@ -19,6 +30,7 @@
 		</div>
 	</header>
 	<Banner :banner-img="bannerImg" :title="realTitle" :slogan="slogan" />
+	<SearchOverlay v-model="showSearch" />
 </template>
 
 <script setup lang="ts">
@@ -47,6 +59,20 @@
 	// 使用 composables
 	const { isScrolled } = useScroll()
 	const { showMobileMenu, toggleMobileMenu, closeMobileMenu } = useMobileMenu()
+
+	const showSearch = ref(false)
+
+	const openSearch = () => {
+		closeMobileMenu()
+		showSearch.value = true
+	}
+
+	watch(
+		() => route.fullPath,
+		() => {
+			showSearch.value = false
+		}
+	)
 </script>
 
 <style lang="less" scoped>
@@ -107,6 +133,12 @@
 		align-items: center;
 	}
 
+	.header-right {
+		display: flex;
+		align-items: center;
+		gap: 16px;
+	}
+
 	.mobile-menu-dropdown {
 		border-radius: 8px;
 		display: flex;
@@ -127,5 +159,37 @@
 	a {
 		color: white;
 		text-decoration: none;
+	}
+
+	.search-trigger {
+		display: flex;
+		align-items: center;
+		gap: 6px;
+		padding: 6px 12px;
+		border-radius: 999px;
+		border: 1px solid rgba(255, 255, 255, 0.3);
+		background: rgba(255, 255, 255, 0.1);
+		color: white;
+		cursor: pointer;
+		font-size: 14px;
+		transition:
+			background 0.2s ease,
+			border-color 0.2s ease;
+
+		&:hover {
+			border-color: rgba(255, 255, 255, 0.6);
+			background: rgba(255, 255, 255, 0.2);
+		}
+
+		span[aria-hidden='true'] {
+			font-size: 16px;
+			line-height: 1;
+		}
+
+		.search-trigger__label {
+			.tablet-down({
+      display: none;
+    });
+		}
 	}
 </style>
