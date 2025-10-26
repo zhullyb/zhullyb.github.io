@@ -7,7 +7,6 @@ import remarkRehype from 'remark-rehype'
 import rehypeStringify from 'rehype-stringify'
 import { XMLBuilder } from 'fast-xml-parser'
 import blogConfig from '../../blog.config'
-import getUrlByPost from '~/utils/getUrlByPost'
 import type { Post } from '~/types/post'
 
 type RawPost = {
@@ -42,7 +41,7 @@ const normaliseSiteUrl = (url: string) => url.replace(/\/+$/, '')
 
 const buildAbsoluteUrl = (siteUrl: string, path: string) => new URL(path, `${siteUrl}/`).toString()
 
-const buildPostLink = (post: Post, siteUrl: string) => buildAbsoluteUrl(siteUrl, getUrlByPost(post))
+const buildPostLink = (post: Post, siteUrl: string) => buildAbsoluteUrl(siteUrl, post.path)
 
 const formatIsoDate = (input?: string | Date | null) => {
 	if (!input) return undefined

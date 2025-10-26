@@ -16,7 +16,7 @@
 	const { year, month, day, slug } = route.params
 
 	const { data: post } = await useAsyncData(`post-${year}-${month}-${day}-${slug}`, () =>
-		queryCollection('posts').path(`/posts/${slug}`).first()
+		queryCollection('posts').path(`/${year}/${month}/${day}/${slug}`).first()
 	)
 
 	if (!post.value) {

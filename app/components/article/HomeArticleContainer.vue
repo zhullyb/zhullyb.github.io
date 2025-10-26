@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<div v-for="post in processedPosts" :key="post.path" class="post-item">
-			<NuxtLink :to="getUrlByPost(post)" class="post-link"></NuxtLink>
+			<NuxtLink :to="post.path" class="post-link"></NuxtLink>
 			<h2 class="title">{{ post.title }}</h2>
 			<span class="description">{{ post.excerpt }}</span>
 			<div class="post-meta">
