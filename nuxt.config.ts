@@ -10,6 +10,12 @@ export default defineNuxtConfig({
 				{
 					rel: 'stylesheet',
 					href: 'https://static.031130.xyz/res/github-markdown.css'
+				},
+				{
+					rel: 'alternate',
+					type: 'application/atom+xml',
+					title: `${blogConfig.title} Atom Feed`,
+					href: `${blogConfig.url.replace(/\/$/, '')}/rss.xml`
 				}
 			],
 			meta: [
@@ -18,6 +24,11 @@ export default defineNuxtConfig({
 					content: blogConfig.description
 				}
 			]
+		}
+	},
+	nitro: {
+		prerender: {
+			routes: ['/rss.xml']
 		}
 	},
 	modules: ['@nuxtjs/seo', '@nuxt/content'],

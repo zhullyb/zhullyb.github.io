@@ -8,7 +8,8 @@ const articleSchema = z.object({
 		.transform(str => new Date(str))
 		.optional(),
 	sticky: z.boolean().optional(),
-	tags: z.array(z.string()).optional()
+	tags: z.array(z.string()).optional(),
+	rawbody: z.string()
 })
 
 export default defineContentConfig({
