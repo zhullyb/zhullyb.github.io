@@ -28,7 +28,7 @@ export default defineNuxtConfig({
 	},
 	nitro: {
 		prerender: {
-			routes: ['/rss.xml']
+			routes: ['/rss.xml', '/search/sections.json']
 		}
 	},
 	modules: ['@nuxtjs/seo', '@nuxt/content'],

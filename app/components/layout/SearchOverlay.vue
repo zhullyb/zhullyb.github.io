@@ -108,10 +108,30 @@
 	const searchTerm = ref('')
 	const inputRef = ref<HTMLInputElement | null>(null)
 
-	const { data, pending } = await useAsyncData('posts-search-sections', () =>
-		queryCollectionSearchSections('posts', {
-			ignoredTags: ['code', 'pre']
-		})
+	const requestFetch = useRequestFetch()
+	const hasRequested = ref(false)
+	const fetchSections = async (): Promise<SearchSection[]> => {
+		const payload = await requestFetch('/search/sections.json')
+		if (Array.isArray(payload)) {
+			return payload as SearchSection[]
+		}
+		if (typeof payload === 'string') {
+			try {
+				return JSON.parse(payload) as SearchSection[]
+			} catch (error) {
+				console.warn('[search] Failed to parse sections payload', error)
+			}
+		}
+		return []
+	}
+	const { data, pending, refresh } = useLazyAsyncData<SearchSection[]>(
+		'posts-search-sections',
+		fetchSections,
+		{
+			server: false,
+			immediate: false,
+			default: () => []
+		}
 	)
 
 	const sections = computed<SearchSection[]>(() => data.value ?? [])
@@ -245,6 +265,10 @@
 			() => props.modelValue,
 			value => {
 				if (value) {
+					if (!hasRequested.value) {
+						hasRequested.value = true
+						refresh()
+					}
 					document.body.style.setProperty('overflow', 'hidden')
 					nextTick(() => {
 						searchTerm.value = ''
