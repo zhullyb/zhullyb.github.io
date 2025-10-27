@@ -18,13 +18,13 @@ export default defineAppConfig({
 				link: '/tags/'
 			},
 			{
+				text: '友链',
+				link: '/links/'
+			},
+			{
 				text: '关于',
 				link: '/about/'
 			}
-			// {
-			//     text: '友链',
-			//     link: '/links/'
-			// }
 		]
 	},
 	imgs: [
