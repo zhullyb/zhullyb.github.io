@@ -28,7 +28,12 @@ export default defineNuxtConfig({
 	},
 	nitro: {
 		prerender: {
-			routes: ['/rss.xml', '/search/sections.json']
+			routes: [
+				'/rss.xml',
+				'/search/sections.json',
+				// 预渲染所有需要重定向的页面
+				...Object.keys(blogConfig.urlRedirects)
+			]
 		}
 	},
 	modules: ['@nuxtjs/seo', '@nuxt/content'],

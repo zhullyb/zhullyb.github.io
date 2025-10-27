@@ -26,6 +26,27 @@ const blogConfig = {
 			placeholder: '快发个评论让我知道你在看（x'
 		}
 	},
+	urlRedirects: {
+		'/2020/07/11/GitNotes/': '/2020/07/11/gitnotes/',
+		'/2020/07/11/RepoNotes/': '/2020/07/11/reponotes/',
+		'/2020/08/10/AndroidUnpack/': '/2020/08/10/androidunpack/',
+		'/2020/10/08/NoHello/': '/2020/10/08/nohello/',
+		'/2020/12/22/Did-UOS-have-Secure-Boot-Signature/':
+			'/2020/12/22/did-uos-have-secure-boot-signature/',
+		'/2021/01/01/Why-I-dont-recommend-Manjaro/': '/2021/01/01/why-i-dont-recommend-manjaro/',
+		'/2023/11/12/a-introduce-of-GLWTPL/': '/2023/11/12/a-introduce-of-glwtpl/',
+		'/tags/CI-CD/': '/tags/CI%2FCD/',
+		'/tags/Casual-Talk/': '/tags/Casual%20Talk/',
+		'/tags/Github-Action/': '/tags/Github%20Action/',
+		'/tags/Lsky-Pro/': '/tags/Lsky%20Pro/',
+		'/tags/Nuxt-Content/': '/tags/Nuxt%20Content/',
+		'/tags/OpenSource-Project/': '/tags/OpenSource%20Project/',
+		'/tags/RPM-Package/': '/tags/RPM%20Package/',
+		'/tags/Shell-Script/': '/tags/Shell%20Script/',
+		'/tags/Virtual-Machine/': '/tags/Virtual%20Machine/',
+		'/tags/Vue-js/': '/tags/Vue.js',
+		'/tags/Web-PKI/': '/tags/Web%20PKI/'
+	},
 	links: [
 		{
 			title: '精弘 RSS 看板',
