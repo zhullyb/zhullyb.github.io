@@ -18,6 +18,14 @@ export default defineNuxtConfig({
 					href: `${blogConfig.url.replace(/\/$/, '')}/rss.xml`
 				}
 			],
+			script: [
+				// umami 统计脚本
+				{
+					src: '/js/u.js',
+					defer: true,
+					'data-website-id': '5346b89b-f4bf-4593-971d-1f41a1118bc1'
+				}
+			],
 			meta: [
 				{
 					name: 'description',
