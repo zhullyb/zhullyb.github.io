@@ -13,6 +13,19 @@ const blogConfig = {
 		homepage: 'https://zhul.in'
 	},
 	url: 'https://zhul.in/',
+	waline: {
+		serverURL: 'https://waline.zhul.in/',
+		meta: ['nick', 'mail', 'link'],
+		requiredMeta: ['nick'],
+		lang: 'zh-CN',
+		emoji: ['https://registry.npmmirror.com/@waline/emojis/^1/files/weibo'],
+		wordLimit: 0,
+		pageSize: 10,
+		login: 'disable',
+		locale: {
+			placeholder: '快发个评论让我知道你在看（x'
+		}
+	},
 	links: [
 		{
 			title: '精弘 RSS 看板',
