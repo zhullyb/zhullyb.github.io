@@ -17,9 +17,6 @@
 	@import './prose-heading.less';
 
 	.prose-h2 {
-		font-size: 1.875rem;
-		font-weight: 600;
-		line-height: 1.3;
 		margin: 1.75rem 0 0.875rem 0;
 	}
 </style>
