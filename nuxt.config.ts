@@ -29,10 +29,10 @@ export default defineNuxtConfig({
 	nitro: {
 		prerender: {
 			routes: [
-				'/rss.xml',
-				'/search/sections.json',
-				// 预渲染所有需要重定向的页面
-				...Object.keys(blogConfig.urlRedirects)
+				'/rss.xml', // RSS 订阅
+				'/search/sections.json', // 搜索结果
+				'/tags/Vue.js', // 带有 . 的标签页，必须显式列出
+				...Object.keys(blogConfig.urlRedirects) // 预渲染所有需要重定向的页面
 			]
 		}
 	},
