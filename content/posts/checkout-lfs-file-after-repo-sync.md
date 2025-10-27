@@ -1,7 +1,6 @@
 ---
 title: 执行 repo sync 后将 git-lfs 中的资源文件 checkout
 date: 2023-05-03 01:15:35
-description: 本文将介绍在执行 repo sync 后如何高效处理 git-lfs 中未被自动拉取的资源文件。通过分析常见问题，如 git-lfs 未安装或全仓库执行命令效率低下，我们提供了一种优化方案：仅对包含 .lfsconfig 文件的仓库执行 git lfs install 和 git lfs pull 操作，从而提升同步效率并减少不必要的资源消耗。适合 Android 系统开发、AOSP 源码维护及使用 repo 工具管理多仓库的开发者参考。
 sticky:
 tags:
 - 笔记

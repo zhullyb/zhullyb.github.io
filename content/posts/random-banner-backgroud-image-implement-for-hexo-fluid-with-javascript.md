@@ -1,7 +1,6 @@
 ---
 title: 基于 JavaScript 的 Hexo Fluid 主题 banner 随机背景图实现
 date: 2024-09-25 00:00:42
-description: 本文详细介绍了如何通过纯 JavaScript 方式为 Hexo Fluid 主题实现随机 banner 背景图，替代原有的 Vercel API 方案。原方案因冷启动问题、额外网络请求及大陆访问质量不佳，导致图片加载时间长达 2.5 秒，严重影响用户体验。文章逐步指导读者删除原有背景图配置，使用本地 JavaScript 数组存储图片链接，并通过随机函数动态设置背景样式，有效减少加载延迟、提升访问速度。适合 Hexo 用户、前端开发者及博客优化爱好者阅读，旨在提供一种高效、稳定的前端实现方案。
 sticky:
 tags:
 - JavaScript

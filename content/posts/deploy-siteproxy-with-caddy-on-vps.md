@@ -1,7 +1,6 @@
 ---
 title: 在 vps 上配合 caddy 部署 siteproxy
 date: 2023-02-01 22:33:53
-description: 本文将详细介绍如何在 VPS 上使用 Caddy 部署 SiteProxy 开源反代工具，替代官方推荐的 Nginx 方案。内容涵盖从安装 Node.js、下载并精简 SiteProxy 核心文件、配置 Caddy 反向代理，到修改默认首页、设置 Systemd 自启动服务，以及可选的安全加固步骤，如添加访问密码和限制端口公网访问。适合希望在 Arch Linux 环境下快速搭建私有反代服务，并追求轻量、可控部署方案的用户阅读。
 sticky:
 tags:
 - OpenSource Project

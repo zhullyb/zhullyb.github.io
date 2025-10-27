@@ -1,7 +1,6 @@
 ---
 title: 在Archlinux上解包A/B机型的payload.bin
 date: 2021-02-07
-description: 本文详细介绍了在 Archlinux 系统中解包 A/B 分区 Android 设备的 OTA 更新文件 payload.bin 的完整流程。文章重点讲解了如何使用 Python 脚本 payload_dumper，并解决依赖安装过程中可能遇到的问题，例如社区版本 python-bsdiff4 的缺失问题及其 AUR 替代方案。通过清晰的命令行操作指引，读者可以顺利完成解包过程，获取所需的 img 镜像文件，适用于 ROM 编译、系统定制或升级分析等场景。适合 Android 开发者、刷机爱好者及对系统底层操作感兴趣的 Arch 用户阅读。
 tags: 
       - Android
       - Archlinux

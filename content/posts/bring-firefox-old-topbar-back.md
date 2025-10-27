@@ -1,7 +1,6 @@
 ---
 title: 把老版的火狐顶栏UI带回来
 top: false
-description: 如果你怀念 Firefox 经典简洁的顶栏界面，这篇文章正是为你准备的。新版 Firefox 的标签页占用空间更大，操作效率有所下降。本文将一步步教你如何通过 black7375/Firefox-UI-Fix 项目，恢复旧版 Photon 风格的 UI，包括 CSS 加载、主题安装，甚至解决系统深色模式自动启用的问题。适合 Linux 和 Firefox 老用户，尤其是追求效率和经典视觉风格的用户阅读。
 tags:
 - Firefox
 - Linux

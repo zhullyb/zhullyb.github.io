@@ -1,7 +1,6 @@
 ---
 title: vuejs、php、caddy 与 docker —— web 期末大作业上云部署
 date: 2023-12-27 22:09:00
-description: 本文详细记录了如何将基于Vue.js前端、PHP后端和MySQL数据库的Web期末大作业（影评系统）使用Docker容器化部署到云服务器。内容涵盖PHP后端在Docker中的配置与运行、解决Docker容器与宿主机MySQL连接问题、Vue.js静态文件部署，以及使用Caddy服务器配置反向代理实现前后端分离访问。通过逐步的操作指导和问题排查，为开发者提供了一套完整的、可复用的Web应用上云部署方案，适合有一定基础的Web开发者和DevOps初学者参考。
 sticky:
 tags:
 - PHP

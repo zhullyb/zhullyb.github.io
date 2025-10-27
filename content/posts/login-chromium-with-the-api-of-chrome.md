@@ -1,7 +1,6 @@
 ---
 title:      使用Chrome的同步api为chromium开启同步功能
 date:       2021-04-15
-description: 本文介绍了如何为Chromium浏览器重新启用Google同步功能。由于Google限制了Chromium的同步API使用次数，导致许多Linux发行版中的Chromium无法正常同步。文章提供了两种解决方案：针对Arch Linux用户，可以通过修改chromium-flags.conf配置文件添加OAuth2客户端ID和密钥；对于其他发行版（如Fedora）用户，则可以通过复制并修改桌面启动文件，设置环境变量来实现同步功能恢复。操作步骤详细，附有代码示例和注意事项，帮助用户快速解决Chromium同步失效的问题。
 tags:       笔记
 ---
 

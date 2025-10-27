@@ -1,7 +1,6 @@
 ---
 title: 2025年，前端如何使用 JS 将文本复制到剪切板？
 date: 2025-04-21 19:48:05
-description: 本文全面解析了2025年JavaScript实现文本复制到剪贴板的技术演进与最佳实践。从已被弃用但广泛兼容的document.execCommand方法，到现代、异步且功能更强的Clipboard API，文章详细对比了两种方案的优缺点、兼容性及适用场景，并深入探讨了历史方案如Flash时代的ZeroClipboard。同时，介绍了多个热门第三方库（如clipboard.js、copy-to-clipboard）和框架生态（如VueUse、React相关Hooks）的封装实现，帮助开发者根据项目需求选择优雅且兼容的解决方案。无论你是关注前沿技术还是需要向下兼容，这篇文章都将为你提供清晰的技术选型指导和代码示例。
 sticky:
 tags:
 - JavaScript

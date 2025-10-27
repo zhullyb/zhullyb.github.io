@@ -1,7 +1,6 @@
 ---
 title: 在 Archlinux 下使用 l2tp 协议连接校园网
 date: 2022-09-29 14:30:46
-description: 本文将详细介绍在 Archlinux 系统下如何使用 l2tp 协议连接校园网，尤其针对那些仅提供 Windows 和 macOS 官方客户端的学校网络环境。通过安装 NetworkManager 的 l2tp 插件，用户可以在图形界面中轻松配置 VPN 连接，无需依赖复杂的命令行操作或第三方拨号工具。文章逐步指导如何获取服务器地址、设置认证信息，并成功建立稳定的 l2tp 连接，适合 Linux 用户尤其是 Arch 使用者解决校园网接入问题。同时，本方法也适用于其他使用标准 l2tp 协议的 VPN 环境。
 sticky:
 tags:
 - Archlinux

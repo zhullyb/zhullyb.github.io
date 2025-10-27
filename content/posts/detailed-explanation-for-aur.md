@@ -1,7 +1,6 @@
 ---
 title: 使用AUR(Helper)安装软件时究竟发生了什么？对于常见的构建错误如何解决？
 top: false
-description: 本文将深入解析使用 AUR Helper（如 yay）安装软件时的完整流程，包括 PKGBUILD 的获取、源码下载、校验、编译和打包过程。同时，针对构建过程中常见的错误，如 base-devel 缺失、网络下载失败、校验和不匹配及 AUR 请求频率限制等问题，提供具体可行的解决方案。无论你是刚接触 Arch Linux 的新手，还是希望更深入了解 AUR 工作机制的用户，这篇文章都能帮助你更顺畅地使用 AUR，并有效应对安装过程中可能遇到的各类问题。
 tags:
 - Linux
 - Archlinux

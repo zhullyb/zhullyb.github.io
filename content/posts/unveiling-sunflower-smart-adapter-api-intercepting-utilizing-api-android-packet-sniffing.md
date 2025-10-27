@@ -1,7 +1,6 @@
 ---
 title: 使用 Root 后的安卓手机获取向日葵智能插座 C2 的开关 api
 date: 2023-11-01 23:46:28
-description: 本文详细介绍了如何通过Root后的安卓手机抓取向日葵智能插座C2的开关API，实现脱离官方App的本地或远程控制。内容包括使用HttpCanary进行HTTPS抓包、解析请求参数（如status、sn、key等）、识别设备局域网IP及端口，并通过替换域名和端口的方式直接通过HTTP调用控制接口。适合对IoT设备逆向、网络抓包或智能家居自动化感兴趣的读者参考实践。
 sticky:
 tags:
 - Android

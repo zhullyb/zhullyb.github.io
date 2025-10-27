@@ -1,7 +1,6 @@
 ---
 title: 2024年，Firefox 是唯一还在坚持执行在线的 SSL 证书吊销状态检查的主流浏览器
 date: 2024-11-19 17:58:14
-description: 在2024年，Firefox成为唯一坚持执行在线SSL证书吊销状态检查的主流浏览器。本文通过实际测试对比了Firefox、Chrome、Edge和Safari在证书吊销检查方面的差异，并深入解析了OCSP（在线证书状态协议）的工作原理及其软失败机制。同时介绍了Firefox正在推进的CRLite技术，这一创新方案能大幅压缩吊销数据并提升验证速度，兼顾安全与性能。文章还探讨了OCSP装订、隐私问题以及Let's Encrypt等CA逐步淘汰OCSP服务的趋势，为读者全面呈现浏览器在证书吊销验证方面的现状与未来发展方向。
 sticky:
 tags:
 - Firefox

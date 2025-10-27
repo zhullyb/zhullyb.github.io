@@ -1,7 +1,6 @@
 ---
 title: PicUploader使用系列（一）——在Archlinux上使用Caddy部署PicUploader
 date: 2021-10-21 22:15:33
-description: 本文详细介绍了在 Archlinux 系统上使用 Caddy 服务器和 PHP-FPM 部署 PicUploader 图床应用的全过程。内容涵盖 Caddy 和 PHP-FPM 的安装、关键配置文件的修改、PHP 扩展的启用、文件上传大小限制调整、用户权限设置以及 Caddyfile 的编写与优化。此外，文章还提供了设置访问密码、修改本地 hosts 或 DNS 解析、服务自启动等实用技巧，并分享了作者在实际部署中遇到的坑及解决方法。适合希望在 Archlinux 环境下快速搭建自托管图床的用户参考，尤其适合偏好 Caddy 轻量、自动 HTTPS 等特性的开发者。
 sticky:
 tags:
 - Archlinux

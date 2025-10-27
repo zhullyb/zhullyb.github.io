@@ -1,7 +1,6 @@
 ---
 title: onedrive(by abraunegg) —— 一个 Linux 下的开源 OneDrive 客户端(cli)
 date: 2022-12-24 22:40:13
-description: 本文介绍了在 Linux 系统下使用 abraunegg 开发的开源命令行版 OneDrive 客户端。内容涵盖从安装、授权登录、配置文件设置，到选择性同步、自定义同步路径等核心功能的详细操作步骤。同时，文章还解析了 monitor 与 standalone 两种运行模式的区别，并提供了常用命令行参数的使用示例，如 --dry-run、--local-first、--download-only 等，帮助用户更灵活地控制文件同步行为。无论是桌面用户还是服务器环境，都能通过本指南快速搭建稳定可靠的 OneDrive 同步服务。
 sticky:
 index_img: https://static.031130.xyz/uploads/2024/08/12/63a71425507b6.webp
 tags:

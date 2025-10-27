@@ -1,7 +1,6 @@
 ---
 title: 在Fedora搭建jekyll环境——dnf module
 date: 2022-01-12 22:11:42
-description: 本文详细介绍了在Fedora系统上使用dnf module功能搭建Jekyll静态博客环境的完整流程。针对因Ruby版本不兼容导致Jekyll主题依赖安装失败的问题，作者通过启用dnf的module模块安装指定版本的Ruby（2.7），并配合bundle完成依赖部署，最终成功运行Jekyll本地服务器。文章还解释了dnf module的基本概念与操作命令，包括查看可用模块、启用特定版本和重置模块等方法，为在Fedora上使用旧版Ruby或其他软件提供了实用指南，适合有类似需求的开发者和博客作者参考。
 sticky:
 tags:
 - Fedora

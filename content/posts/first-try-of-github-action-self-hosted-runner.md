@@ -1,7 +1,6 @@
 ---
 title: 初试 Github Action Self-hosted Runner，想说爱你不容易
 date: 2025-09-05 05:54:17
-description: 在这篇文章中，我分享了初次尝试使用 Github Action Self-hosted Runner 的真实体验。原本希望通过自托管 Runner 解决免费账户每月 2000 分钟私有仓库 CI 时长耗尽的问题，并享受更强的硬件性能和内网通信能力。然而实际配置后，却发现 setup-python 等官方 Action 在非官方支持的操作系统（如 Debian）上无法正常工作，暴露了自托管环境与 Github 官方运行环境之间的差异。Self-hosted Runner 并非简单的计算资源转移，而是需要用户自行维护基础设施、管理依赖和安全的复杂方案。它更适合有高阶需求的团队，对普通开发者来说，可能带来意料之外的运维负担。如果你也在考虑自建 Runner，不妨先看看我的踩坑经历。
 sticky:
 tags:
 - Github

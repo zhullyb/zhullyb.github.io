@@ -1,14 +1,13 @@
 ---
 title: 在 Linux 下使用 mitmproxy 抓取安卓手机上的 HTTPS 流量
 date: 2024-07-31 16:02:28
-description: 本文将详细介绍如何在 Linux 系统下使用 mitmproxy 抓取安卓手机上的 HTTPS 流量。文章首先分析了不同安卓版本（特别是 Android 7 以上）在抓包时的限制和应对方法，包括系统证书安装、SSL Pinning 绕过等关键问题。随后逐步讲解实际操作，包括生成和安装 SSL 证书、配置代理服务器，以及使用 Nekobox 实现分应用代理，确保目标流量准确捕获。适合对网络调试、安全分析或移动应用逆向感兴趣的开发者和安全研究人员阅读。
 sticky:
 tags:
-- mitmproxy
-- Network
-- Linux
-- Archlinux
-- Android
+    - mitmproxy
+    - Network
+    - Linux
+    - Archlinux
+    - Android
 ---
 
 纵使安卓下有小黄鸟 HttpCanary 这种抓包神器，但手机一块 6 英寸的小屏实在是不方便分析流量情况，还得是 PC 的屏幕更大一些，处理起流量信息来更得心应手一些。
@@ -17,10 +16,10 @@ tags:
 
 - Android 7 以下的版本: 直接以普通用户的权限安装 ssl 证书即可被信任
 - Android 7 以上的版本:
-  - 安全性较低的应用: **需要使用 root 权限**将证书移动至 `/system/etc/security/cacerts`使证书被系统信任
-  - 安全性较高的应用（比如微信 7.0 以上的版本）: 在满足上一条条件的情况下，需要阻止第三方应用使用自带的 ssl 证书信任范围（绕过 SSL Pinning）。通常情况下需要额外的手段对目标应用进行篡改，比如使用 [justTrustMe](https://github.com/Fuzion24/JustTrustMe) 这个 xposed 模块，或者 [frida](https://github.com/frida/frida/)。
+    - 安全性较低的应用: **需要使用 root 权限**将证书移动至 `/system/etc/security/cacerts`使证书被系统信任
+    - 安全性较高的应用（比如微信 7.0 以上的版本）: 在满足上一条条件的情况下，需要阻止第三方应用使用自带的 ssl 证书信任范围（绕过 SSL Pinning）。通常情况下需要额外的手段对目标应用进行篡改，比如使用 [justTrustMe](https://github.com/Fuzion24/JustTrustMe) 这个 xposed 模块，或者 [frida](https://github.com/frida/frida/)。
 
-> 除此之外，Linux 版本 >= 5.5 的安卓设备也可以使用 [eCapture](https://github.com/gojue/ecapture) 这款基于 eBPF Linux  内核模块实现的抓包软件，算是种奇技淫巧。
+> 除此之外，Linux 版本 >= 5.5 的安卓设备也可以使用 [eCapture](https://github.com/gojue/ecapture) 这款基于 eBPF Linux 内核模块实现的抓包软件，算是种奇技淫巧。
 
 本文只讨论 Android 7 以上版本中安全性较低的应用，因为我当前的抓包目标局限于一款安全性不高的外包软件。
 
@@ -62,7 +61,7 @@ wlp0s20f3        UP             192.168.20.212/24 fe80::a6bc:919:281e:dcab/64
 docker0          DOWN           172.17.0.1/16 fe80::42:d1ff:febe:d513/64
 ```
 
-在这里我们能看到本机的无线网卡地址是 192.168.20.212，所以 http 代理服务器的地址就是 http://192.168.20.212:8080 （如果你的有线网卡和手机在同一局域网下，当然也可以用有线网卡的 ip 地址）
+在这里我们能看到本机的无线网卡地址是 192.168.20.212，所以 http 代理服务器的地址就是 http://192.168.20.212:8080 。（如果你的有线网卡和手机在同一局域网下，当然也可以用有线网卡的 ip 地址）
 
 我们当然可以在安卓手机的 WIFI 连接页面填入 http 代理地址。
 

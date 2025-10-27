@@ -1,7 +1,6 @@
 ---
 title: 使用 Caddy 反向代理 dockerhub 需要几步？
 date: 2024-09-21 01:29:17
-description: 本文详细介绍了如何利用 Caddy 服务器搭建 Docker Hub 反向代理服务，以解决中国大陆用户访问 Docker Hub 镜像缓慢或无法访问的问题。文章首先通过 mitmproxy 抓包分析 Docker 拉取镜像的完整流程，识别出关键请求域名，并解释为什么需要同时代理 registry-1.docker.io、auth.docker.io 和 production.cloudflare.docker.com 三个域名。随后，逐步讲解 Caddy 配置方法，包括响应头重写、域名替换等关键技术细节，并提供两种使用方式：命令行指定镜像地址或修改 Docker 守护进程配置。最后，文章还提供了验证方法和相关参考资料，适合有一定 Linux 和 Docker 使用经验的用户阅读实践。
 sticky:
 index_img: https://static.031130.xyz/uploads/2024/09/21/46f7b160e6e56.webp
 tags:
@@ -12,9 +11,11 @@ tags:
 - Linux
 ---
 
-几个月前，由于众所周知的原因，中国大陆境内失去了所有公共的 dockerhub 镜像（或者说是反代）。网上随即涌现了一批自建 dockerhub 反代的，有用 Cloudflare Workers 的，也有用 nginx 的，甚至还有自建 registry 的。我使用 caddy 的原因很简单，一是配置简单，而是通过一台国内访问质量良好的境外服务器进行反向代理的访问质量会比 Cloudflare 减速器好很多。
+几个月前，由于众所周知的原因，中国大陆境内失去了所有公共的 dockerhub 镜像（或者说是反代）。网上随即涌现了一批自建 dockerhub 反代的，有用 Cloudflare Workers 的，也有用 nginx 的，甚至还有自建 registry 的。
 
-前一阵子在中国大陆境内想要从 dockerhub 拉取镜像的时候遇到了这方面的困扰，因此有自建 dockerhub 反代的想法。
+我使用 caddy 去反代 dockerhub 的原因很简单，一是配置简单，二是通过一台国内访问质量良好的境外服务器进行反向代理的访问质量会比 Cloudflare 减速器好很多。
+
+在网上一阵搜索后，并没有发现任何使用 caddy 去反向代理 dockerhub 的文章， 于是本文应运而生。
 
 ## 遇事不决先抓包
 

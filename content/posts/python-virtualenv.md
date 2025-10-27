@@ -1,7 +1,6 @@
 ---
 title: 虚拟Python环境
 date: 2021-01-20
-description: 本文介绍了如何在不同Linux发行版（Ubuntu、Arch Linux）中安装指定版本的Python及pip，并详细讲解了使用virtualenv创建和管理虚拟Python环境的方法。内容涵盖从源码安装Python、配置pip镜像源，到创建、激活、退出和删除虚拟环境的完整步骤。无论您是需要切换Python版本以适配项目需求，还是希望隔离不同项目的依赖环境，这篇指南都能为您提供清晰、实用的操作指引。
 tags: 
       - Rom编译
       - Python

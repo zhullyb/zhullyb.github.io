@@ -1,7 +1,6 @@
 ---
 title: el-image 和 el-table 怎么就打架了？Stacking Context 是什么？
 date: 2025-05-31 00:29:40
-description: 本文探讨了在Vue.js项目中使用Element Plus的el-image和el-table组件时出现的层叠冲突问题。当el-image的预览遮罩层被el-table的单元格遮挡时，即使设置了正确的z-index值也无法解决问题。文章深入解析了CSS层叠上下文（Stacking Context）的工作原理，揭示了el-table单元格默认的 position： relative属性会创建多个独立的层叠上下文，导致后面单元格的内容会覆盖前面的el-image预览层。提供了两种解决方案：一是修改el-table单元格的position属性为static，二是使用el-image的preview-teleported属性将预览层插入到body末尾。本文通过实际案例帮助前端开发者深入理解CSS层叠机制，并提供了实用的调试技巧和解决方案。
 sticky:
 tags:
 - Vue.js

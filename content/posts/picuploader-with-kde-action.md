@@ -1,7 +1,6 @@
 ---
 title: PicUploader使用系列（二）——为KDE的dolphin添加右键快捷菜单
 date: 2021-10-24 22:26:50
-description: 本文详细介绍了如何在 KDE Plasma 的 Dolphin 文件管理器中为 PicUploader 图床工具添加右键快捷上传菜单。内容包括创建并配置 .desktop 服务文件、支持多种图片格式、安装必要的系统组件（如 libnotify、xclip 和 wl-clipboard），以及编写跨 X11 和 Wayland 的剪贴板脚本。此外，还提供了处理文件权限和刷新菜单的实用命令，帮助用户实现一键上传图片并自动复制链接到剪贴板，提升工作流效率。适合在 Arch Linux 或其他使用 KDE 环境的用户参考配置。
 tags:
 - Archlinux
 - PicUploader

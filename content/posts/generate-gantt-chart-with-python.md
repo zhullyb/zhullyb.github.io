@@ -1,7 +1,6 @@
 ---
 title: 使用 Python 生成甘特图(Gantt Chart)
 date: 2024-04-24 12:02:58
-description: 本文介绍了如何使用Python生成简洁直观的甘特图，特别适合操作系统课程中进程调度作业的需求。针对传统手绘或现代甘特图工具过于复杂的问题，推荐使用轻量级开源库matplotlib-gantt。文章详细展示了如何通过简单的Python代码，快速生成符合教学要求的FCFS、SJF、优先级调度和轮转调度等多种调度算法的甘特图。包含完整代码示例和可视化效果图，帮助读者轻松实现专业、美观的甘特图嵌入电子作业，提升作业质量和学习效率。
 sticky:
 index_img: https://static.031130.xyz/uploads/2024/08/12/662890f78f1da.webp
 tags:

@@ -1,7 +1,6 @@
 ---
 title: 禁止deepin-wine-tim使用simsun字体渲染
 date: 2021-04-27
-description: 本文介绍了如何在 Arch Linux 系统中通过 bwrap 命令屏蔽 deepin-wine-tim 对 simsun 字体的调用，从而改善 TIM 客户端的字体渲染效果。作者详细说明了操作步骤，包括定位字体文件、使用 bubblewrap 工具隔离字体路径，并修改桌面启动文件以实现持久化配置。适用于使用 deepin-wine 运行 TIM 或 QQ 且希望获得更清晰现代字体显示效果的用户。方法同样适用于 deepin-wine-qq，但不保证适用于其他安装方式或版本。
 tags:
 - Archlinux
 - Linux

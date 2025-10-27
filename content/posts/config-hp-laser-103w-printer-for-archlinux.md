@@ -1,7 +1,6 @@
 ---
 title: 在 Arch Linux 下配置使用 HP Laser 103w 打印机无线打印
 date: 2024-07-14 18:30:33
-description: 本文详细介绍了在 Arch Linux 系统下配置 HP Laser 103w 无线打印机的完整流程。内容涵盖打印机联网设置、CUPS 打印系统的安装与启动、相关依赖包的安装，以及如何通过 AUR 获取官方驱动程序并完成打印机添加。适用于 HP Laser 100 和 HP Color Laser 150 系列打印机用户，也提供了适用于其他品牌打印机的驱动查找思路。适合有一定 Linux 使用经验的用户参考，实现无线打印功能。
 sticky:
 tags:
 - Archlinux

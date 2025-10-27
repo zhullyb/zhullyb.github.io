@@ -1,7 +1,6 @@
 ---
 title: 我是来吹CloudflareMirrors的
 date: 2021-11-21 01:48:49
-description: CloudflareMirrors 是 Cloudflare 推出的开源软件镜像服务，通过其全球 CDN 网络为 Linux 用户提供高速、稳定的软件包下载支持。本文重点评测其在境外 VPS 上的实际表现，涵盖 Arch Linux、Debian、Ubuntu 和 CentOS 等多个发行版的镜像加速效果。测试显示，在美国达拉斯等地区的服务器上，下载速度可达 80MB/s 以上，表现优异。尽管该服务对中国大陆用户并不友好，但在海外服务器环境中，CloudflareMirrors 可显著简化镜像源选择流程，提供一致的高质量访问体验。如果你经常使用境外 VPS，不妨试试这个一站式的镜像解决方案。
 sticky:
 index_img: https://static.031130.xyz/uploads/2024/08/12/62f3c9a9448a4.webp
 tags:

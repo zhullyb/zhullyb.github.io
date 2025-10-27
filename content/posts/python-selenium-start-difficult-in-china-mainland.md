@@ -1,7 +1,6 @@
 ---
 title: 手动指定 python-selenium 的 driver path 以解决在中国大陆网络环境下启动卡住的问题
 date: 2023-09-02 01:59:18
-description: 本文介绍了在中国大陆网络环境下使用 Python Selenium 时遇到的 WebDriver 启动卡住问题的解决方案。由于 Selenium 4.6 及以上版本默认尝试自动下载浏览器驱动，但在国内网络环境下访问 GitHub 等境外网站时常出现连接失败，导致无法正常启动 Firefox 或 Chrome。文章通过分析错误日志，指出问题根源，并提供了手动指定 geckodriver 路径的有效方法。作者以实际代码示例展示了如何通过创建 Service 对象并传入 executable_path 参数来避免自动下载，从而显著提升启动速度和稳定性。该方法适用于 Docker 部署及云服务器环境，帮助开发者解决因网络限制导致的 Selenium 启动失败问题。
 sticky:
 tags:
 - Python

@@ -1,7 +1,6 @@
 ---
 title: Cudy TR3000 吃鹅(daed)记
 date: 2025-02-28 21:18:34
-description: 本文详细记录了作者为Cudy TR3000迷你路由器刷入ImmortalWRT并成功部署dae/daed透明代理的完整过程。文章从购买动机入手，介绍了这款路由器的硬件特性，包括2.5Gbps WAN口和1Gbps LAN口，并逐步演示了从官方系统刷入过渡固件、解锁FIP分区、刷入uboot引导程序，最终安装定制版ImmortalWRT系统的详细步骤。作者还分享了刷机过程中所需的固件文件信息和相关注意事项，并展示了成功运行daed后的网络性能测试结果，为对OpenWRT路由器和网络代理方案感兴趣的读者提供了一份实用的操作指南。
 sticky:
 index_img: https://static.031130.xyz/uploads/2025/02/28/cbf464c37ea4f.webp
 tags:

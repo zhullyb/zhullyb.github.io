@@ -1,7 +1,6 @@
 ---
 title: 给家里云装上 Fedora 41 KDE 后，我是如何配置的
 date: 2024-11-01 23:35:08
-description: 本文记录了作者在N100小主机上安装Fedora 41 KDE版并进行个性化配置的详细过程。内容涵盖了更换国内镜像源、添加RPMFusion软件仓库、优化dnf配置、移除不需要的预装软件、关闭SELinux和防火墙、安装多媒体和开发工具、配置远程控制软件RustDesk、设置中文输入法fcitx5、安装VSCode编辑器以及网络优化等实用步骤。适合希望搭建家庭服务器或对Fedora KDE环境进行深度定制的Linux用户参考，提供了从基础系统调整到开发环境搭建的一站式解决方案。
 sticky:
 tags:
 - Linux
