@@ -2,9 +2,8 @@
 	<DefaultLayout :title="post?.title">
 		<ContentRenderer v-if="post" :value="post" tag="article" class="markdown-body" />
 		<PostNavigation :prevPost="prevPost" :nextPost="nextPost" />
-		<ClientOnly>
-			<WalineClient v-bind="walineProps" />
-		</ClientOnly>
+		<hr />
+		<Waline />
 		<template #AfterMain>
 			<aside>
 				<TableOfContents :body="post?.body" />
@@ -15,10 +14,6 @@
 
 <script setup lang="ts">
 	import type { Post } from '~/types/post'
-	import blogConfig from '~~/blog.config'
-	const WalineClient = defineAsyncComponent(() =>
-		import('@waline/client/component').then(module => module.Waline)
-	)
 	const route = useRoute()
 	const { year, month, day, slug } = route.params
 
@@ -42,24 +37,11 @@
 
 	const prevPost = computed(() => surroundingPosts.value?.[0] || null)
 	const nextPost = computed(() => surroundingPosts.value?.[1] || null)
-	const walineProps = computed(
-		() =>
-			({
-				...blogConfig.waline,
-				path: route.path + '/'
-			}) as any
-	)
 
 	useHead({
 		meta: [
 			{ name: 'description', content: post.value?.description || '' },
 			{ name: 'keywords', content: toNormalTags(post.value?.tags)?.join(',') || '' }
-		],
-		link: [
-			{
-				rel: 'stylesheet',
-				href: 'https://static.031130.xyz/assets/waline.css'
-			}
 		]
 	})
 </script>
@@ -70,5 +52,9 @@
 	aside {
 		position: sticky;
 		top: @header-height + 20px;
+	}
+
+	:deep(#waline) {
+		margin-top: 3rem;
 	}
 </style>

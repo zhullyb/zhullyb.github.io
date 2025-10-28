@@ -41,7 +41,6 @@
 
 <style lang="less" scoped>
 	.post-navigation {
-		margin-top: 3rem;
 		display: flex;
 		gap: 1rem;
 		flex-wrap: wrap;
