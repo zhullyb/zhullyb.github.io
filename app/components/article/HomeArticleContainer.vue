@@ -56,6 +56,11 @@
 	if (posts.value && posts.value.length === 0 && page > 1) {
 		throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
 	}
+
+	useHead({
+		title: '竹林里有冰的博客',
+		titleTemplate: '%s' // 首页不加 siteName
+	})
 </script>
 
 <style lang="less" scoped>
