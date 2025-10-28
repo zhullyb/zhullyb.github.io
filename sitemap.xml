@@ -1,1812 +1,1975 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
-  <url>
-    <loc>https://zhul.in/2024/09/21/how-to-reverse-proxy-dockerhub-with-caddy/</loc>
-    
-    <lastmod>2025-10-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2025/10/20/nuxt-content-v3-z-array-query-challenge/</loc>
-    
-    <lastmod>2025-10-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2025/10/16/how-s-mozilla-crlite-going-now/</loc>
-    
-    <lastmod>2025-10-16</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/01/01/Why-I-dont-recommend-Manjaro/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2022/08/04/a-fucking-store-about-openssl3-and-nodejs16/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2023/11/12/a-introduce-of-GLWTPL/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2022/08/10/add-sticker-support-for-element/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2025/03/30/apt-upgrade-on-internal-server-via-ssh-tunnel-and-reverse-proxy/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2024/08/14/auto-renew-ssl-certificate-and-deploy-to-upyun-with-github-action/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2024/02/01/backup-umami-database-and-send-it-by-tg-bot/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/10/01/bring-firefox-old-topbar-back/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/07/23/build-a-rpm-package-from-aur-with-archlinux/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2024/08/13/build-restful-api-for-cloudflare-r2-with-cloudflare-workers/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2024/07/31/capture-android-https-traffic-on-linux-with-mitmproxy/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2024/02/29/capture-https-traffic-on-linux-with-mitmproxy/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2024/07/14/config-hp-laser-103w-printer-for-archlinux/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2025/06/02/choosing-the-right-video-compression-format-for-web-in-2025/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2023/06/24/connect-china-mobile-with-router-in-zjut-dormitory/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2024/01/10/cors-when-using-splited-frontend-and-backend/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2023/10/29/create-b23tv-remover-bot/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/09/21/csdn-copied-my-article/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2025/02/28/cudy-tr3000-daed-install-record/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2023/02/01/deploy-siteproxy-with-caddy-on-vps/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/09/11/detailed-explanation-for-aur/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/12/03/dev-app-update-in-wolai/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/04/23/disable-firefox-nightmode-when-your-system-is-using-that/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2022/01/12/dnf-module-in-setting-up-the-jekyll/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2025/08/11/dns-resolve-time-destroyed-my-optimization-for-pic-cdn/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/06/06/download-openharmony-source-code/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2024/06/30/dynamic-public-ip-and-ddns-for-rustdesk/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2025/05/31/el-image-and-el-table-why-the-fight-and-what-is-a-stacking-context/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2024/07/22/enable-ac-power-loss-for-jumper-n100/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2022/04/14/fastocr-experience/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2022/07/03/fcitx5-blinking-on-tg-under-wayland-kde/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2024/11/19/firefox-is-the-only-mainstream-brower-doing-online-certificate-revocation-checks/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2025/09/05/first-try-of-github-action-self-hosted-runner/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2024/10/23/follow-cert-for-hexo-feed/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2022/11/08/free-umami-deploy-plan/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2025/06/08/front-end-bug-gone-when-open-devtool/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/04/16/fuck-jekyll-github-metadata-on-gitlab/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2024/04/24/generate-gantt-chart-with-python/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/04/27/hide-simsun-from-deepin-wine-tim/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2024/04/01/image-preload-in-uniapp/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2025/04/21/how-we-copy-text-to-clipboard-with-js-in-2025/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2023/03/26/implicit-forwarding-is-a-new-site-deploying-method/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2023/11/02/integrating-sunflower-smart-socket-with-mi-home-via-bemfa-cloud/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2024/09/24/log-last-water-boiling-water-with-sunlogin-adapter-power-consumption/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/04/15/login-chromium-with-the-api-of-chrome/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2024/11/18/mi-ai-class-schedule-adapter-for-zjut/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2024/09/20/migrate-rustdesk-server-from-arch-to-debian/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2025/02/23/monitor-copr-build-state-with-cloudflare-workers/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2024/07/18/my-blog-is-completely-proxied-and-translated-into-traditional-chinese/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2022/11/04/my-blog-plan/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2024/08/12/new-picbed-based-on-cloudflare-and-upyun/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/10/02/nutstore-guide-on-archlinux-kde/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2022/12/24/onedrive-abraunegg-recommendation/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2024/05/03/open-rpmbuild-in-the-way-of-archlinux-makepkg/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2023/12/27/php-and-vuejs-project-deploy-on-caddy/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2023/12/12/php-simple-rest-api/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2024/08/20/picbed-upload-script-and-image-migration/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/10/24/picuploader-with-kde-action/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2024/09/25/random-banner-backgroud-image-implement-for-hexo-fluid-with-javascript/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2023/06/24/redmi-ac2100-router-with-padavan/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/05/27/relieve-the-pressure-of-tuna-mirror-site-please/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2022/03/06/run-rpmbuild-with-github-action/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2024/08/21/self-host-cdn-expense/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2025/01/18/service-status-monitor-based-on-cloudflare-workers/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2022/05/11/setup-a-local-fedora-source/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2024/05/23/setup-network-environment-for-non-linux-vpn-client-with-virtual-machine/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/05/30/share-xiaomi-bluetooth-mouse-on-both-windows-and-linux/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2023/08/04/static-webpage-deployment-for-a-beginner/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2024/12/30/tg-bot-hosted-on-cloudflare-workers/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/12/12/the-history-of-cutefish/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2023/05/12/troubles-when-applying-azure-education/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2024/07/15/try-ssh-connection-in-fedora-copr/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2024/03/13/try-to-compose-download-links-of-deb-packages-in-apt-repository/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/11/26/typora-and-me/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2023/11/01/unveiling-sunflower-smart-adapter-api-intercepting-utilizing-api-android-packet-sniffing/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2024/11/15/upgrade-waline-from-v2-to-v3/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2022/03/31/upload-pic-to-lskypro-with-curl/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/11/21/use-cloudflare-mirrors/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2024/10/12/use-gpt-to-review-waline-comments/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2022/09/29/use-l2tp-protocol-to-connect-internet/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/04/11/use-motrix-install-of-firefox-to-download/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2023/11/28/use-lxgw-wenkai-in-hexo-fluid/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2022/10/04/use-virtscreen-to-turn-pad-into-another-screen/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2025/07/12/vue-markdown-render-improvement-1/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/10/31/waydroid-experience-on-kde/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/11/20/what-is-deepin-elf-verify/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2024/01/14/where-does-this-refer-in-arrow-function-in-js/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/09/05/wrong-fonts-color-fix-under-kde-with-a-dark-theme/</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/about/index.html</loc>
-    
-    <lastmod>2025-10-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/02/07/extract-payload-dot-bin-on-archlinux/</loc>
-    
-    <lastmod>2025-08-31</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2025/07/13/vue-markdown-render-improvement-2/</loc>
-    
-    <lastmod>2025-08-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2025/07/05/node-sass-migration-to-dart-sass/</loc>
-    
-    <lastmod>2025-07-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/04/04/yay-more/</loc>
-    
-    <lastmod>2025-02-26</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2022/11/21/a-few-words-about-the-events-of-november-2022/</loc>
-    
-    <lastmod>2024-11-15</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2023/05/03/checkout-lfs-file-after-repo-sync/</loc>
-    
-    <lastmod>2024-11-15</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2024/02/08/extra-usage-for-crontab/</loc>
-    
-    <lastmod>2024-11-15</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2024/02/11/how-to-deploy-onemanager-with-docker/</loc>
-    
-    <lastmod>2024-11-15</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2023/09/03/jinja2-nl-to-br/</loc>
-    
-    <lastmod>2024-11-15</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2024/11/01/my-config-for-fedora-kde-41/</loc>
-    
-    <lastmod>2024-11-15</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2023/09/02/python-selenium-start-difficult-in-china-mainland/</loc>
-    
-    <lastmod>2024-11-15</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2023/07/31/run-qq-bot-on-phicomm-n1-openwrt/</loc>
-    
-    <lastmod>2024-11-15</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2024/04/29/update-a-rpm-spec-by-github-action/</loc>
-    
-    <lastmod>2024-11-15</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2022/01/01/pacman-gpgme-error-no-data/</loc>
-    
-    <lastmod>2024-06-24</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/05/21/create-a-random-picture-api-with-vercel/</loc>
-    
-    <lastmod>2024-05-15</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/10/21/picuploader-on-archlinux-with-caddy/</loc>
-    
-    <lastmod>2023-12-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2022/01/19/the-common-software-hidden-in-mirrors/</loc>
-    
-    <lastmod>2023-05-01</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/11/05/please-dont-theme-our-apps/</loc>
-    
-    <lastmod>2023-02-04</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2020/07/11/china-mainland-mirrorlist/</loc>
-    
-    <lastmod>2022-12-18</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2020/03/03/set-proxy-for-cmd-under-windows/</loc>
-    
-    <lastmod>2022-09-29</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/04/16/the-software-i-use-on-archlinux/</loc>
-    
-    <lastmod>2022-08-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/04/13/where-will-appimage-put-its-file/</loc>
-    
-    <lastmod>2022-08-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/05/23/why-i-use-archlinux/</loc>
-    
-    <lastmod>2022-08-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2022/07/25/restore-the-sound-of-hollywood/</loc>
-    
-    <lastmod>2022-08-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2020/07/11/GitNotes/</loc>
-    
-    <lastmod>2022-08-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2020/10/08/NoHello/</loc>
-    
-    <lastmod>2022-08-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2020/07/11/RepoNotes/</loc>
-    
-    <lastmod>2022-08-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/02/27/change-your-firefox-icon-into-a-bluedoge/</loc>
-    
-    <lastmod>2022-08-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/05/29/choose-the-last-archlinux-mirror-site-in-china/</loc>
-    
-    <lastmod>2022-08-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2022/02/07/how-to-package-a-git-rpm-package/</loc>
-    
-    <lastmod>2022-08-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/03/14/lets-fuck-dm-and-use-startx/</loc>
-    
-    <lastmod>2022-08-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2020/12/22/Did-UOS-have-Secure-Boot-Signature/</loc>
-    
-    <lastmod>2022-08-22</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2022/05/30/use-caddy-to-proxy-wikipedia/</loc>
-    
-    <lastmod>2022-08-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/collections/index.html</loc>
-    
-    <lastmod>2022-06-20</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2020/08/10/AndroidUnpack/</loc>
-    
-    <lastmod>2021-10-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/01/25/how-to-solve-the-adb-devices-unauthorized-problem/</loc>
-    
-    <lastmod>2021-10-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/2021/01/20/python-virtualenv/</loc>
-    
-    <lastmod>2021-10-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/404.html</loc>
-    
-    <lastmod>2021-10-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/archives/index.html</loc>
-    
-    <lastmod>2021-10-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/index.html</loc>
-    
-    <lastmod>2021-10-13</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-
-  <url>
-    <loc>https://zhul.in/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-  </url>
-
-  
-  <url>
-    <loc>https://zhul.in/tags/Android/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Rom%E7%BC%96%E8%AF%91/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Linux/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/%E5%A4%A7%E4%BD%AC%E5%AF%B9%E8%AF%9D%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/deepin/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/%E7%BF%BB%E8%AF%91/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Z-Library/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Fedora/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/nodejs/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/OpenSSL/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Fun/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Apt/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Network/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/OpenSSH/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Caddy/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Debian/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Bot/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/CDN/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Github-Action/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/SSL/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/%E5%9B%BE%E5%BA%8A/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/umami/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Shell-Script/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Firefox/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Bwrap/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Archlinux/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/RPM-Package/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Cloudflare/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/JavaScript/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Python/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/mitmproxy/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/%E9%95%9C%E5%83%8F%E7%AB%99/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Hardware/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Printer/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/HomeServer/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/HTML/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Web/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Router/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Vue-js/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/PHP/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/vercel/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Privacy/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Blog/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/OpenSource-Project/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/OpenWRT/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/ImmortalWRT/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/siteproxy/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/electron/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/DNS/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Dnspod/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Rustdesk/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/CSS/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/crontab/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Experience/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/KDE/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Github/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/CI-CD/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Hexo/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Follow/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Debug/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/OneDrive/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Docker/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Web-PKI/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/OCSP/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/CRLSets/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/CRLite/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/uniapp/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/IoT/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/MiAI/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/jinja2/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/waline/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Sass/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Nuxt/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Nuxt-Content/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/PicUploader/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/selenium/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Windows/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Virtual-Machine/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Azure/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Casual-Talk/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Lsky-Pro/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/GPT/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Markdown/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/Waydroid/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/AST/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://zhul.in/tags/unified/</loc>
-    <lastmod>2025-10-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-
-  
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="/__sitemap__/style.xsl"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.google.com/schemas/sitemap-image/1.1 http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://zhul.in/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/about/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/archives/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/links/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/12/31/71b730c8be4a8.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6653ed001e208.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f7d8f114851.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f7d98e0fd18.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f7db1280c26.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/74139df97bae3.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/259396342424f.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6329b2a587c1f.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/09/23/5c47b2d971736.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://blog.i1nfo.com/images/iinfo-sq.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/65c37927314ac.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/653dce34279de.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/665c87250daa1.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/659f548c17c9b.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/65ce4796c447d.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/665c86dd86375.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://qiuniu.phlin.cn/bucket/icon.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/09/24/9d106a106aef1.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/11/18/9b6f5d7231d91.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://www.zhilu.cyou/api/avatar.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://blog.sugarmgp.cn/img/icon.png</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/page/2/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/page/3/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/page/4/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/page/5/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/page/6/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/page/7/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/page/8/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/page/9/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/page/10/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/page/11/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/page/12/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/page/13/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/%E5%9B%BE%E5%BA%8A/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/%E5%A4%A7%E4%BD%AC%E5%AF%B9%E8%AF%9D%E7%AC%94%E8%AE%B0/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/%E7%AC%94%E8%AE%B0/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/%E7%BF%BB%E8%AF%91/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/%E9%95%9C%E5%83%8F%E7%AB%99/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/Android/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/Apt/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/Archlinux/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/AST/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/Azure/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/Blog/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/Bot/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/Bwrap/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/Caddy/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/Casual-Talk/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/Casual%20Talk/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/CDN/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/CI-CD/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/CI%2FCD/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/Cloudflare/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/CRLite/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/CRLSets/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/crontab/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/CSS/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/Debian/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/Debug/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/deepin/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/DNS/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/Dnspod/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/Docker/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/electron/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/Experience/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/Fedora/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/Firefox/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/Follow/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/Fun/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/Github-Action/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/Github/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/Github%20Action/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/GPT/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/Hardware/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/Hexo/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/HomeServer/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/HTML/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/ImmortalWRT/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/IoT/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/JavaScript/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/jinja2/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/KDE/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/Linux/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/Lsky-Pro/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/Lsky%20Pro/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/Markdown/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/MiAI/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/mitmproxy/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/Network/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/nodejs/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/Nuxt-Content/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/Nuxt/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/Nuxt%20Content/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/OCSP/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/OneDrive/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/OpenSource-Project/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/OpenSource%20Project/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/OpenSSH/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/OpenSSL/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/OpenWRT/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/PHP/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/PicUploader/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/Printer/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/Privacy/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/Python/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/Rom%E7%BC%96%E8%AF%91/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/Router/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/RPM-Package/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/RPM%20Package/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/Rustdesk/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/Sass/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/selenium/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/Shell-Script/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/Shell%20Script/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/siteproxy/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/SSL/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/umami/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/uniapp/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/unified/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/vercel/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/Virtual-Machine/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/Virtual%20Machine/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/Vue-js/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/waline/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/Waydroid/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/Web-PKI/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/Web/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/Web%20PKI/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/Windows/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/Z-Library/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/archives/page/2/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/archives/page/3/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/archives/page/4/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/archives/page/5/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/archives/page/6/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/archives/page/7/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/archives/page/8/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/archives/page/9/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/archives/page/10/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/archives/page/11/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/archives/page/12/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/archives/page/13/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/2020/03/03/set-proxy-for-cmd-under-windows/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/2020/07/11/china-mainland-mirrorlist/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/2020/07/11/gitnotes/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/2020/07/11/GitNotes/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/2020/07/11/reponotes/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/2020/07/11/RepoNotes/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/2020/08/10/androidunpack/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/2020/08/10/AndroidUnpack/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/2020/10/08/nohello/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/2020/10/08/NoHello/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/2020/12/22/did-uos-have-secure-boot-signature/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/2020/12/22/Did-UOS-have-Secure-Boot-Signature/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/2021/01/01/why-i-dont-recommend-manjaro/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f36d8eb724a.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2021/01/01/Why-I-dont-recommend-Manjaro/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/2021/01/20/python-virtualenv/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/2021/01/25/how-to-solve-the-adb-devices-unauthorized-problem/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/2021/02/07/extract-payload-dot-bin-on-archlinux/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/2021/02/27/change-your-firefox-icon-into-a-bluedoge/</loc>
+        <image:image>
+            <image:loc>https://www.mozilla.org/media/img/logos/firefox/logo-nightdoge-lg-high-res.14f40a7985fe.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://www.mozilla.org/media/protocol/img/logos/firefox/browser/logo-lg-high-res.fbc7ffbb50fd.png</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2021/03/14/lets-fuck-dm-and-use-startx/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/2021/04/04/yay-more/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/2021/04/11/use-motrix-install-of-firefox-to-download/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f36d3a79438.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f36d3d08a23.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2021/04/13/where-will-appimage-put-its-file/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/2021/04/15/login-chromium-with-the-api-of-chrome/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3cafe4a5ec.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2021/04/16/fuck-jekyll-github-metadata-on-gitlab/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3caf233039.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3caf51bdb5.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2021/04/16/the-software-i-use-on-archlinux/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/2021/04/23/disable-firefox-nightmode-when-your-system-is-using-that/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f36c8f05efd.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f36cce30773.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2021/04/27/hide-simsun-from-deepin-wine-tim/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3c887040ff.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3c88b119f8.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3c88f41790.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2021/05/21/create-a-random-picture-api-with-vercel/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/2021/05/23/why-i-use-archlinux/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/2021/05/27/relieve-the-pressure-of-tuna-mirror-site-please/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3baac63cd2.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3ba4204ecb.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2021/05/29/choose-the-last-archlinux-mirror-site-in-china/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/2021/05/30/share-xiaomi-bluetooth-mouse-on-both-windows-and-linux/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3cb081565a.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3cb0aae88f.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3cb0d9e04f.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2021/06/06/download-openharmony-source-code/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3cb1057a22.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3cb13027fb.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3cb15ccbf1.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3cb182333b.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2021/07/23/build-a-rpm-package-from-aur-with-archlinux/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3cadde8d65.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3cae15fdcf.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3cae5aa4b0.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2021/09/05/wrong-fonts-color-fix-under-kde-with-a-dark-theme/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3cb059b229.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2021/09/11/detailed-explanation-for-aur/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3cdb03ec8c.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3cc9c9dda8.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3cca0c7aba.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2021/09/21/csdn-copied-my-article/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3cacc1ff3f.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3cad01576d.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3cad3ceaa6.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3cad833827.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3cadacac4d.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2021/10/01/bring-firefox-old-topbar-back/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3cca6bb523.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3ccaa2b91c.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3ccadd6ce8.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3ccb1b0ebf.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3ccb49ff10.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3ccb7bc14f.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3ccbb36c5e.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3ccbe6f31a.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2021/10/02/nutstore-guide-on-archlinux-kde/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3cc797bc09.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3cc7df08ad.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3cc822fbe9.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3cc864a783.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3cc89ca4eb.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3cc8f193b1.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3cc9245d26.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3cc95f0dd1.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2021/10/21/picuploader-on-archlinux-with-caddy/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/2021/10/24/picuploader-with-kde-action/</loc>
+        <image:image>
+            <image:loc>https://img.xiebruce.top/2018/09/11/f4859eda8832f814486fc00df971e3cc.gif</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f36f57f34aa.gif</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2021/10/31/waydroid-experience-on-kde/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3cb238c027.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3cb26cba03.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3cc722835c.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3cc76b986c.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2021/11/05/please-dont-theme-our-apps/</loc>
+        <image:image>
+            <image:loc>https://stopthemingmy.app/assets/stylesheets.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://stopthemingmy.app/assets/iconthemes.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://stopthemingmy.app/assets/appicons.png</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2021/11/20/what-is-deepin-elf-verify/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3ccc192986.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3ccc53d544.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2021/11/21/use-cloudflare-mirrors/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3c9a9448a4.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3ccc8d7c82.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2021/11/26/typora-and-me/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3b881e3c4c.gif</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2021/12/03/dev-app-update-in-wolai/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3caf822bec.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3cafb6b04d.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2021/12/12/the-history-of-cutefish/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3cae911901.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2022/01/01/pacman-gpgme-error-no-data/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/2022/01/12/dnf-module-in-setting-up-the-jekyll/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3caeec8ef6.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2022/01/19/the-common-software-hidden-in-mirrors/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/2022/02/07/how-to-package-a-git-rpm-package/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/2022/03/06/run-rpmbuild-with-github-action/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/bb263c91c7bf4.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2022/03/31/upload-pic-to-lskypro-with-curl/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3b881e3c4c.gif</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2022/04/14/fastocr-experience/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/a4ddb3b05e19c.gif</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/488835757d5e3.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/a404346841d02.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2022/05/11/setup-a-local-fedora-source/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/627b2177c4da2.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/627b22fa44446.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/627b2ebd23331.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2022/05/30/use-caddy-to-proxy-wikipedia/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/2022/07/03/fcitx5-blinking-on-tg-under-wayland-kde/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62c13162a6efc.gif</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62c134907ada9.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62c138b030469.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2022/07/25/restore-the-sound-of-hollywood/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/2022/08/04/a-fucking-store-about-openssl3-and-nodejs16/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62eba4eabc963.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62ebadf02a5b3.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62ebb0927943f.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2022/08/10/add-sticker-support-for-element/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f4dab8c7647.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f4f4d55f4d3.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f4f5179fd73.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f4f57459b6f.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f4f6d9e120e.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f4f7728b1e6.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2022/09/29/use-l2tp-protocol-to-connect-internet/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/63353e0e1978c.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/63354161dbe28.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2022/10/04/use-virtscreen-to-turn-pad-into-another-screen/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/633b1bd1ba8f4.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2022/11/04/my-blog-plan/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6364d4f46ff1c.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6364dbbfeb8f6.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2022/11/08/free-umami-deploy-plan/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6369ee9308dc3.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6369ef8d3451e.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6369f03faba15.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6369f0d98a59c.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6369f209c27aa.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6369f2bda5f78.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6369f33ccf6d0.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6369f3adbd34d.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6369f58f6acd4.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6369f5ec7a0e2.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2022/11/21/a-few-words-about-the-events-of-november-2022/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/2022/12/24/onedrive-abraunegg-recommendation/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/63a71dbfd6ed3.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/63a71e1f9c916.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/63a71ec6d5aca.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/63a7282ee55e7.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2023/02/01/deploy-siteproxy-with-caddy-on-vps/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/63da866e26712.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2023/03/26/implicit-forwarding-is-a-new-site-deploying-method/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/641f1e2cd8809.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/641f2272ab7fb.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/642014b05bb43.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/642014519ce2a.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2023/05/03/checkout-lfs-file-after-repo-sync/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/2023/05/12/troubles-when-applying-azure-education/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/645e646bc5b58.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/645e5fdfb25a3.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/645e60ad79001.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/645e62bae0c0a.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/645e639e2c9d1.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/645e63e39523f.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2023/06/24/connect-china-mobile-with-router-in-zjut-dormitory/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/649987173e542.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6496ac4f3170f.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6496acaf4435b.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6496ae85a4d4f.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6506a036d0f55.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6496afd695464.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6496b029dfe3f.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6496b11b7c541.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6496b1132f497.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6496b36585000.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6496b369bbd70.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6496b3703197f.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2023/06/24/redmi-ac2100-router-with-padavan/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6495c9a227d2c.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6495ca724bf14.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6495cae48566d.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6495cb8eba4b5.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6495cc2ff1e02.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6495ce20b91d1.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6495ce1de2acd.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6495ce8d86b03.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6495cf0b224c4.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6495cf9ca81de.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6495d0bd79f4c.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6495d0bd79f4d.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6495d10b09fe0.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6495d17602f3a.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6495d2129a764.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6495d5cbbb5b9.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6495d63261ad4.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6495d64fd1e0e.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6495d6c11aa01.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6496ac4f3170f.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2023/07/31/run-qq-bot-on-phicomm-n1-openwrt/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/2023/08/04/static-webpage-deployment-for-a-beginner/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/64d4e31fd5270.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/64d4e34db94ee.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/64d4e3ca6aa29.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/64d4e4e5b1e68.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2023/09/02/python-selenium-start-difficult-in-china-mainland/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/2023/09/03/jinja2-nl-to-br/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/2023/10/29/create-b23tv-remover-bot/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/653d49fe955f7.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2023/11/01/unveiling-sunflower-smart-adapter-api-intercepting-utilizing-api-android-packet-sniffing/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/65427474ba54d.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/654275e167583.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/654277f0d5c2a.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/654278685f137.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/654279513c1f8.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2023/11/02/integrating-sunflower-smart-socket-with-mi-home-via-bemfa-cloud/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/65430fbf56dee.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/654310bb3133b.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/654312974e393.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2023/11/12/a-introduce-of-glwtpl/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/654fb6e4581bf.gif</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2023/11/12/a-introduce-of-GLWTPL/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/2023/11/28/use-lxgw-wenkai-in-hexo-fluid/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6564d0f926e58.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6564cea5c71ca.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2023/12/12/php-simple-rest-api/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6577fcdf64a96.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6577fd77c3d06.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6577fdca88f76.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6577fdf646402.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6577fe0c3a95b.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2023/12/27/php-and-vuejs-project-deploy-on-caddy/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/658c4c3128ae4.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2024/01/10/cors-when-using-splited-frontend-and-backend/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/659ec607c69af.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/659ec95acc0bc.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2024/01/14/where-does-this-refer-in-arrow-function-in-js/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/65a2e1d093b78.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/65a2e379ba89e.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2024/02/01/backup-umami-database-and-send-it-by-tg-bot/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/65ba6aae157e6.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/65c79455b2e40.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2024/02/08/extra-usage-for-crontab/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/2024/02/11/how-to-deploy-onemanager-with-docker/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/2024/02/29/capture-https-traffic-on-linux-with-mitmproxy/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/65e092503d5bb.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/65e09559dceef.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/65e0963840449.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/65e097dfe1f17.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/65e09780dd2c0.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2024/03/13/try-to-compose-download-links-of-deb-packages-in-apt-repository/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/65f1b344e5581.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/65f1b5166810a.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/65f1b5faccc86.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/65f1b6a4c3239.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/65f1b73567121.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2024/04/01/image-preload-in-uniapp/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6609d97bc4f7f.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6609db8a213da.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2024/04/24/generate-gantt-chart-with-python/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/662888bd5a0af.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/66288ba6414d4.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/662890f78f1da.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/662891bfa52fc.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2024/04/29/update-a-rpm-spec-by-github-action/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/2024/05/03/open-rpmbuild-in-the-way-of-archlinux-makepkg/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6635018238ffa.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2024/05/23/setup-network-environment-for-non-linux-vpn-client-with-virtual-machine/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/664e29866c1ab.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/664e2b93de6f9.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/664e2e1b0da09.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/664e2fbb4a36b.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/664e328cd83b3.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/664e32e6c350a.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/664e33c3e8320.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2024/06/30/dynamic-public-ip-and-ddns-for-rustdesk/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/66814701cf7ce.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6681635804e68.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/66817e416534c.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/66817f77aae7e.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2024/07/14/config-hp-laser-103w-printer-for-archlinux/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6693aa41c079b.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6693b6e81f9c4.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6693b76b9c1ca.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6693b7ba82d99.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2024/07/15/try-ssh-connection-in-fedora-copr/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6694949de2921.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/66949782e9177.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6694ca668003e.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6694988c63899.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/669499b25cd1b.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/669499b56e156.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6694bc062f6a3.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6694b09a57e06.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2024/07/18/my-blog-is-completely-proxied-and-translated-into-traditional-chinese/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/20/82e8dc389f081.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/20/4d181fd0bcc11.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/20/057a829ec9e4a.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/20/b0449632623b2.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/66989d79e740c.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/66ab4ffa4eda3.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/66989f7f73b90.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6698a0bf39f8d.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6698a101845a2.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6698a2dd3d78a.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6698a2deaa9d0.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/669929695144b.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6699bdbab5f0a.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6698d6570a780.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6698d9c326739.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/669926eddb16e.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/66992ad0d2890.gif</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2024/07/22/enable-ac-power-loss-for-jumper-n100/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/669e7e6ae10a4.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/669e7e5ab7ad6.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2024/07/31/capture-android-https-traffic-on-linux-with-mitmproxy/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/66ab548080ed6.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/66ab54f08dfd6.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/66ab5970a6ac7.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2024/08/12/new-picbed-based-on-cloudflare-and-upyun/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/80402e4da4ef7.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/13/03d8243b67593.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/13/a0387d2919850.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/13/d03d7b3155514.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/13/eb7186205b380.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/13/782a665cabe05.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2024/08/13/build-restful-api-for-cloudflare-r2-with-cloudflare-workers/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/13/61fe9ede194af.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/13/846164273571d.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/13/03d8243b67593.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/13/b4d1b5b3edfae.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://docs.aws.amazon.com/zh_cn/IAM/latest/UserGuide/images/sigV4-using-auth-header.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/13/45e58b47f3aeb.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/14/96da1f62f5fe7.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2024/08/14/auto-renew-ssl-certificate-and-deploy-to-upyun-with-github-action/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/14/831d714565906.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/14/b16f7752ef522.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/14/c0262d4aea708.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/14/f30bfc93970bc.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/14/4c8d4a2019812.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/14/c78bc5afa3641.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/14/222a754d25c97.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2024/08/20/picbed-upload-script-and-image-migration/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3b881e3c4c.gif</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2024/08/21/self-host-cdn-expense/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/21/74605f0ef84a9.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/21/96ec475817b8f.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/21/7a26d392e6c90.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/21/31a7f3c316b47.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/21/1c4eeac63a2fb.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2024/09/20/migrate-rustdesk-server-from-arch-to-debian/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/09/20/59d08477f8a0b.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/09/20/527c5b1151a57.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/09/20/cc715265b8b37.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/09/20/3108bac773390.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2024/09/21/how-to-reverse-proxy-dockerhub-with-caddy/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/09/21/acbee0959be78.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/09/21/e905c55e76a25.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/09/21/6a2e0bf6a8284.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/09/21/4a70c8cac6a4c.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2024/09/24/log-last-water-boiling-water-with-sunlogin-adapter-power-consumption/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/09/24/bd6b0bdbab1da.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/09/24/bf4ad72e00044.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/09/24/edca671f53571.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/09/24/1a0637d61471f.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2024/09/25/random-banner-backgroud-image-implement-for-hexo-fluid-with-javascript/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/09/25/3ef1a17bca955.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/09/24/f8cb9fd7a963e.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/09/25/70bd0b27f5aad.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2024/10/12/use-gpt-to-review-waline-comments/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/10/07/4673580090861.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/10/12/45f06a78286de.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2024/10/23/follow-cert-for-hexo-feed/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/10/23/d3a69a7bcde58.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/10/23/10dfda54f4dcc.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/10/23/fae341d7985ea.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2024/11/01/my-config-for-fedora-kde-41/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/2024/11/15/upgrade-waline-from-v2-to-v3/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/11/16/663e910db29b7.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/11/16/f6fbaa99a784e.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/11/16/c4487502542e5.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/11/16/d2cd564739120.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/11/16/d248ae2eac74c.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/11/16/c3875dcde1d97.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2024/11/18/mi-ai-class-schedule-adapter-for-zjut/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/11/18/f2a063c982a42.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/11/18/800054d7f4ff8.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/11/18/7ea6e1e0bbfcf.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/11/18/36880519d2109.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/11/18/ff498f0a0957e.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/11/18/d8316deee7e50.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/11/18/d1ebba67ddc83.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/11/18/e697bcf2a7a1f.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/11/18/eb563904a64a1.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2024/11/19/firefox-is-the-only-mainstream-brower-doing-online-certificate-revocation-checks/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/11/19/f7785db60b2c8.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/11/19/b097e954f766f.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/11/19/a5f58dbb50cfe.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/11/19/bd84e9aff71d0.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/11/19/50352339f7473.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/11/19/32579fb56b77b.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/11/19/244704705924f.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/11/19/4a6c899a41128.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/11/19/71f252c97e96e.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/11/19/bfba9ba3515ca.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2024/12/30/tg-bot-hosted-on-cloudflare-workers/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/12/30/5fd442bb18064.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/12/30/3b0b929960840.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2025/01/18/service-status-monitor-based-on-cloudflare-workers/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/01/19/74362573e371d.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/01/19/f817539504140.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/01/20/bf105c9fc18a3.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/01/20/fb463f45038ac.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/01/19/83f69aff3a7b4.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2025/02/23/monitor-copr-build-state-with-cloudflare-workers/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/02/23/637811d2d85f6.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/02/23/c38edfd637934.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2025/02/28/cudy-tr3000-daed-install-record/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/02/23/8b0a4d5812179.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/02/23/ef2b394e6fc0d.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/02/28/1c066cb1dab3f.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/02/28/3582e569954a6.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/02/28/6fe8107a87e87.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/02/28/79caf5f643689.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/02/28/79d300bb33d21.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/02/28/bc29dc9cad24a.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/02/28/f98051faba608.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/02/28/547c5d324f0a0.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/02/28/46b4fc5be8c82.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/02/28/41c250db91756.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/02/28/e56084ff09a5d.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/02/28/dc4fa4a688cf5.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/02/28/551f1f2eb9ab4.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/02/28/651bed7ad4aba.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/03/01/9fcee79afa63b.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/03/01/6716d723a2b0d.png</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2025/03/30/apt-upgrade-on-internal-server-via-ssh-tunnel-and-reverse-proxy/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/03/30/0447b7d64886a.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/03/30/8ef15a08e4852.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/03/30/a9083c95c07a2.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/03/30/597c4af0d398d.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/03/30/46e3c7030ded4.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/03/30/a8f0c70d48f5b.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/03/30/07919bf939e92.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2025/04/21/how-we-copy-text-to-clipboard-with-js-in-2025/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/04/19/3437b1c022853.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/04/19/7f5310ca03c80.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2025/05/31/el-image-and-el-table-why-the-fight-and-what-is-a-stacking-context/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/05/31/c6674f6f13955.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/05/31/1c20b4ea0b37e.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/05/31/99845899e3524.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/05/31/9df43b865b3c6.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/05/31/f18a2b54afd63.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2025/06/02/choosing-the-right-video-compression-format-for-web-in-2025/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/06/02/aec1af1718064.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/06/02/76a312b5a668b.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/06/02/01ddcc3948406.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/06/02/923ca02e1d835.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/06/02/2e8e5100f645a.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/06/03/a9b473a3bd120.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/06/03/096484dbc0f3a.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/06/03/ec3b5dbcbcc29.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2025/06/08/front-end-bug-gone-when-open-devtool/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/06/08/65620d31fce6f.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/06/08/475a61b332454.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2025/07/05/node-sass-migration-to-dart-sass/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/2025/07/12/vue-markdown-render-improvement-1/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/07/12/d5721c40fb076.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2025/07/13/vue-markdown-render-improvement-2/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/2025/08/11/dns-resolve-time-destroyed-my-optimization-for-pic-cdn/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/08/11/26306b2a483ba.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2025/09/05/first-try-of-github-action-self-hosted-runner/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/09/05/7c0475cdb1aa9.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/09/05/96ff7cb263da1.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/09/05/f775e3bcd2cdc.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/09/05/d0d4fe4611a40.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/09/05/43c6b19038def.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/09/05/6dad15beff900.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/09/05/1c93947170a85.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/2025/10/16/how-s-mozilla-crlite-going-now/</loc>
+    </url>
+    <url>
+        <loc>https://zhul.in/2025/10/20/nuxt-content-v3-z-array-query-challenge/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/10/20/a748878c03c64.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/10/20/8ef786d873da1.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/10/20/b70036c55bb29.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/10/20/007e72e7b476d.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/10/20/17ba3ccbbdf9e.webp</image:loc>
+        </image:image>
+    </url>
 </urlset>
+<!-- XML Sitemap generated by @nuxtjs/sitemap v7.4.7 at 2025-10-28T23:54:48.231Z -->

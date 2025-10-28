@@ -1,960 +1,146 @@
-
-
-<!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=auto>
-
-
-
-<head>
-  <meta charset="UTF-8">
-
-  <link rel="apple-touch-icon" sizes="76x76" href="/favicon.ico">
-  <link rel="icon" href="/favicon.ico">
-  
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-  
-  <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="竹林里有冰">
-  <meta name="keywords" content="博客, 技术, Linux">
-  
-    <meta name="description" content="前面三篇小记分别讲述了图床的整体架构、用 Workers 构建 Restful API 和 自动更新部署 SSL 证书，这一篇c处理由此带来的图片上传问题，主要是要为 Typora 编写自动上传脚本，并为博客原有的图片进行迁移。 自动上传脚本主要还是给 Typora 用，实现这种效果  #!&#x2F;bin&#x2F;bash  HOST&#x3D;&quot;upload.example.com&quot; CDN_HOS">
-<meta property="og:type" content="article">
-<meta property="og:title" content="自建图床小记四——上传脚本编写与图片迁移">
-<meta property="og:url" content="https://zhul.in/2024/08/20/picbed-upload-script-and-image-migration/index.html">
-<meta property="og:site_name" content="竹林里有冰的博客">
-<meta property="og:description" content="前面三篇小记分别讲述了图床的整体架构、用 Workers 构建 Restful API 和 自动更新部署 SSL 证书，这一篇c处理由此带来的图片上传问题，主要是要为 Typora 编写自动上传脚本，并为博客原有的图片进行迁移。 自动上传脚本主要还是给 Typora 用，实现这种效果  #!&#x2F;bin&#x2F;bash  HOST&#x3D;&quot;upload.example.com&quot; CDN_HOS">
-<meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://static.031130.xyz/uploads/2024/08/12/62f3b881e3c4c.gif">
-<meta property="article:published_time" content="2024-08-20T15:12:30.000Z">
-<meta property="article:modified_time" content="2025-10-03T19:33:08.000Z">
-<meta property="article:author" content="竹林里有冰">
-<meta property="article:tag" content="Linux">
-<meta property="article:tag" content="Network">
-<meta property="article:tag" content="图床">
-<meta property="article:tag" content="Shell Script">
-<meta property="article:tag" content="Python">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://static.031130.xyz/uploads/2024/08/12/62f3b881e3c4c.gif">
-  
-  
-  
-  <title>自建图床小记四——上传脚本编写与图片迁移 - 竹林里有冰的博客</title>
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
-
-
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
-
-
-
-<!-- 主题依赖的图标库，不要自行修改 -->
-<!-- Do not modify the link that theme dependent icons -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
-
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
-  
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
-  
-
-
-
-  
-<link rel="stylesheet" href="/heimu.css">
-
-
-
-  <script id="fluid-configs">
-    var Fluid = window.Fluid || {};
-    Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"zhul.in","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
-
-    if (CONFIG.web_analytics.follow_dnt) {
-      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
-      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
-    }
-  </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
-  
-
-
-  
-<!-- hexo injector head_end start -->
-  <link rel="preconnect" href="//static.031130.xyz">
-<script async defer data-website-id="5346b89b-f4bf-4593-971d-1f41a1118bc1" src="/custom.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.4.2"><link rel="alternate" href="/rss.xml" title="竹林里有冰的博客" type="application/atom+xml">
-</head>
-
-
-<body>
-  
-
-  <header>
-    
-
-<div class="header-inner" style="height: 70vh;">
-  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand" href="/">
-      <strong>竹林里有冰的博客</strong>
-    </a>
-
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
-
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/" target="_self">
-                <i class="iconfont icon-home-fill"></i>
-                <span>首页</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/" target="_self">
-                <i class="iconfont icon-archive-fill"></i>
-                <span>归档</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/" target="_self">
-                <i class="iconfont icon-tags-fill"></i>
-                <span>标签</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/" target="_self">
-                <i class="iconfont icon-user-fill"></i>
-                <span>关于</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/links/" target="_self">
-                <i class="iconfont icon-link-fill"></i>
-                <span>友链</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" target="_self" href="javascript:;" role="button"
-                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="iconfont icon-books"></i>
-                <span>其他</span>
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" href="/rss.xml" target="_self">
-                    <i class="iconfont icon-rss"></i>
-                    <span>RSS</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" href="https://notes.5435486.xyz/" target="_self">
-                    <i class="iconfont icon-book"></i>
-                    <span>流水账</span>
-                  </a>
-                
-                  
-                  
-                  
-                  <a class="dropdown-item" href="https://zhul.in/donate" target="_self">
-                    <i class="iconfont icon-qrcode"></i>
-                    <span>给我打钱</span>
-                  </a>
-                
-              </div>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              <i class="iconfont icon-search"></i>
-            </a>
-          </li>
-          
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
-              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
-            </a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-</nav>
-
-  
-
-<div id="banner" class="banner" parallax=true
-     style="background: url('/null') no-repeat center center; background-size: cover;">
-  <div class="full-bg-img">
-    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-      <div class="banner-text text-center fade-in-up">
-        <div class="h2">
-          
-            <span id="subtitle" data-typed-text="自建图床小记四——上传脚本编写与图片迁移"></span>
-          
-        </div>
-
-        
-          
-  <div class="mt-3">
-    
-    
-      <span class="post-meta">
-        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-08-20 23:12" pubdate>
-          2024年8月20日 晚上
-        </time>
-      </span>
-    
-  </div>
-
-  <div class="mt-1">
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-chart"></i>
-        
-          <!-- compatible with older versions-->
-          1.3k 字
-        
-      </span>
-    
-
-    
-      <span class="post-meta mr-2">
-        <i class="iconfont icon-clock-fill"></i>
-        
-        
-        
-          <!-- compatible with older versions-->
-          7 分钟
-        
-      </span>
-    
-
-    
-    
-  </div>
-
-
-        
-      </div>
-
-      
-    </div>
-  </div>
-</div>
-
-</div>
-
-  </header>
-
-  <main>
-    
-      
-
-<div class="container-fluid nopadding-x">
-  <div class="row nomargin-x">
-    <div class="side-col d-none d-lg-block col-lg-2">
-      
-
-    </div>
-
-    <div class="col-lg-8 nopadding-x-md">
-      <div class="container nopadding-x-md" id="board-ctn">
-        <div id="board">
-          <article class="post-content mx-auto">
-            <h1 id="seo-header">自建图床小记四——上传脚本编写与图片迁移</h1>
-            
-              <p id="updated-time" class="note note-info" style="">
-                
-                  
-                    <!-- compatible with older versions-->
-                    本文最后更新于：2025年10月4日 凌晨
-                  
-                
-              </p>
-            
-            
-              <div class="markdown-body">
-                
-                <p>前面三篇小记分别讲述了<a href="/2024/08/12/new-picbed-based-on-cloudflare-and-upyun/">图床的整体架构</a>、<a href="/2024/08/13/build-restful-api-for-cloudflare-r2-with-cloudflare-workers/">用 Workers 构建 Restful API</a> 和 <a href="/2024/08/14/auto-renew-ssl-certificate-and-deploy-to-upyun-with-github-action/">自动更新部署 SSL 证书</a>，这一篇c处理由此带来的图片上传问题，主要是要为 Typora 编写自动上传脚本，并为博客原有的图片进行迁移。</p>
-<h2 id="自动上传脚本"><a href="#自动上传脚本" class="headerlink" title="自动上传脚本"></a>自动上传脚本</h2><p>主要还是给 Typora 用，实现这种效果</p>
-<p><img src="https://static.031130.xyz/uploads/2024/08/12/62f3b881e3c4c.gif" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="Typora 自动上传"></p>
-<div class="code-wrapper"><pre><code class="hljs bash"><span class="hljs-meta">#!/bin/bash</span>
-
-HOST=<span class="hljs-string">&quot;upload.example.com&quot;</span>
-CDN_HOST=<span class="hljs-string">&quot;cdn.example.com&quot;</span>
-UPLOAD_PATH=<span class="hljs-string">&quot;uploads/<span class="hljs-subst">$(date +%Y/%m/%d)</span>&quot;</span>
-
-AUTH_TOKEN=<span class="hljs-string">&quot;1145141919810&quot;</span>
-
-webp=<span class="hljs-literal">false</span>
-markdown=<span class="hljs-literal">false</span>
-force=<span class="hljs-literal">false</span>
-keep=<span class="hljs-literal">false</span>
-
-<span class="hljs-keyword">while</span> <span class="hljs-built_in">getopts</span> <span class="hljs-string">&quot;:mwfkp:&quot;</span> opt; <span class="hljs-keyword">do</span>
-    <span class="hljs-keyword">case</span> <span class="hljs-variable">$opt</span> <span class="hljs-keyword">in</span>
-        m|markdown) markdown=<span class="hljs-literal">true</span> ;;
-        w|webp) webp=<span class="hljs-literal">true</span> ;;
-        f|force) force=<span class="hljs-literal">true</span> ;;
-        k|keep) keep=<span class="hljs-literal">true</span> ;;
-        p|path) UPLOAD_PATH=<span class="hljs-variable">$OPTARG</span> ;;
-        \?) <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;Invalid option: -<span class="hljs-variable">$OPTARG</span>&quot;</span> ;;
-    <span class="hljs-keyword">esac</span>
-<span class="hljs-keyword">done</span>
-<span class="hljs-built_in">shift</span> $((OPTIND - <span class="hljs-number">1</span>))
-
-UPLOAD_URL=<span class="hljs-string">&quot;https://<span class="hljs-variable">$HOST</span>/<span class="hljs-variable">$UPLOAD_PATH</span>&quot;</span>
-<span class="hljs-keyword">if</span> [[ <span class="hljs-string">&quot;<span class="hljs-variable">$UPLOAD_URL</span>&quot;</span> == */ ]]; <span class="hljs-keyword">then</span>
-    UPLOAD_URL=<span class="hljs-string">&quot;<span class="hljs-variable">$&#123;UPLOAD_URL%?&#125;</span>&quot;</span>
-<span class="hljs-keyword">fi</span>
-
-<span class="hljs-keyword">for</span> image <span class="hljs-keyword">in</span> <span class="hljs-string">&quot;<span class="hljs-variable">$@</span>&quot;</span>; <span class="hljs-keyword">do</span>
-    <span class="hljs-keyword">if</span> [ <span class="hljs-string">&quot;<span class="hljs-variable">$webp</span>&quot;</span> = <span class="hljs-literal">true</span> ]; <span class="hljs-keyword">then</span>
-        cwebp -quiet <span class="hljs-string">&quot;<span class="hljs-variable">$image</span>&quot;</span> -o <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;image%.*&#125;</span>.webp&quot;</span>
-        image=<span class="hljs-string">&quot;<span class="hljs-variable">$&#123;image%.*&#125;</span>.webp&quot;</span>
-    <span class="hljs-keyword">fi</span>
-
-    <span class="hljs-keyword">if</span> [ <span class="hljs-string">&quot;<span class="hljs-variable">$keep</span>&quot;</span> = <span class="hljs-literal">true</span> ]; <span class="hljs-keyword">then</span>
-        FILENAME=$(<span class="hljs-built_in">basename</span> <span class="hljs-string">&quot;<span class="hljs-variable">$image</span>&quot;</span>)
-    <span class="hljs-keyword">else</span>
-        FILENAME=<span class="hljs-string">&quot;<span class="hljs-subst">$(md5sum $image | cut -c 1-13)</span>.<span class="hljs-subst">$(basename $image | cut -d. -f2)</span>&quot;</span>
-    <span class="hljs-keyword">fi</span>
-
-    <span class="hljs-keyword">if</span> [ <span class="hljs-string">&quot;<span class="hljs-variable">$force</span>&quot;</span> = <span class="hljs-literal">true</span> ]; <span class="hljs-keyword">then</span>
-        UPLOAD_RESPONSE=$(curl -s -X PUT <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;UPLOAD_URL&#125;</span>/<span class="hljs-variable">$FILENAME</span>&quot;</span> \
-            -w <span class="hljs-string">&quot;%&#123;http_code&#125;&quot;</span> \
-            --data-binary @<span class="hljs-string">&quot;<span class="hljs-variable">$image</span>&quot;</span> \
-            -H <span class="hljs-string">&quot;X-Custom-Auth-Key: <span class="hljs-variable">$AUTH_TOKEN</span>&quot;</span> \
-            -H <span class="hljs-string">&quot;Overwrite: true&quot;</span> \
-        )
-    <span class="hljs-keyword">else</span>
-        UPLOAD_RESPONSE=$(curl -s -X PUT <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;UPLOAD_URL&#125;</span>/<span class="hljs-variable">$FILENAME</span>&quot;</span> \
-            -w <span class="hljs-string">&quot;%&#123;http_code&#125;&quot;</span> \
-            --data-binary @<span class="hljs-string">&quot;<span class="hljs-variable">$image</span>&quot;</span> \
-            -H <span class="hljs-string">&quot;X-Custom-Auth-Key: <span class="hljs-variable">$AUTH_TOKEN</span>&quot;</span> \
-        )
-    <span class="hljs-keyword">fi</span>
-
-    UPLOAD_HTTP_CODE=$(<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$UPLOAD_RESPONSE</span>&quot;</span> | <span class="hljs-built_in">tail</span> -n1)
-    
-    <span class="hljs-keyword">if</span> [ -n <span class="hljs-string">&quot;<span class="hljs-variable">$UPLOAD_PATH</span>&quot;</span> ]; <span class="hljs-keyword">then</span>
-        CDN_URL=<span class="hljs-string">&quot;https://<span class="hljs-variable">$CDN_HOST</span>/<span class="hljs-variable">$UPLOAD_PATH</span>/<span class="hljs-variable">$FILENAME</span>&quot;</span>
-    <span class="hljs-keyword">else</span>
-        CDN_URL=<span class="hljs-string">&quot;https://<span class="hljs-variable">$CDN_HOST</span>/<span class="hljs-variable">$FILENAME</span>&quot;</span>
-    <span class="hljs-keyword">fi</span>
-
-    <span class="hljs-keyword">if</span> [ <span class="hljs-string">&quot;<span class="hljs-variable">$UPLOAD_HTTP_CODE</span>&quot;</span> != <span class="hljs-string">&quot;200&quot;</span> ]; <span class="hljs-keyword">then</span>
-        <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;上传失败: <span class="hljs-variable">$UPLOAD_RESPONSE</span>&quot;</span>
-        <span class="hljs-built_in">continue</span>
-    <span class="hljs-keyword">fi</span>
-
-    <span class="hljs-keyword">if</span> [ <span class="hljs-string">&quot;<span class="hljs-variable">$markdown</span>&quot;</span> = <span class="hljs-literal">true</span> ]; <span class="hljs-keyword">then</span>
-        <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;![](<span class="hljs-variable">$&#123;CDN_URL&#125;</span>)&quot;</span>
-    <span class="hljs-keyword">else</span>
-        <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;<span class="hljs-variable">$&#123;CDN_URL&#125;</span>&quot;</span>
-    <span class="hljs-keyword">fi</span>
-<span class="hljs-keyword">done</span></code></pre></div>
-
-<p>这一次使用 Cloudflare Workers 构建的 Restful API 很有意思，使用了 <code>GET</code>、<code>PUT</code> 和 <code>DELETE</code> 三个请求类型。<code>GET</code> 请求很常见，是用来获取图片的，<code>PUT</code> 和 <code>DELETE</code> 在 web 开发就不如 <code>GET</code> 和 <code>POST</code> 常见了，这一次也是让我体会到了这两个 http verb 在 Storage Bucket 操作中是有多么形象了。</p>
-<ul>
-<li><p><code>PUT</code> - 从直观上来讲，就是将某个文件放到目标位置</p>
-<p>打个比方，我向 <code>https://cdn.example.com/img/avatar.webp</code> 打了一个请求，并带上了要上传的文件，那就意味着我将这个文件放到了 Storage Bucket 的 <code>/img/avatar.webp</code> 这个位置，所以我在上传后，应该就能用 <code>GET</code> 请求我刚才 <code>PUT</code> 的那个 URL 获取我刚才上传的东西。如果那个路径存在文件，那么默认行为是直接覆盖。</p>
-</li>
-<li><p><code>DELETE</code> - 删除目标路径的文件</p>
-<p>和 <code>PUT</code> 一样，我在请求对应 URL 后，Storage Bucket 中对应 URL 路径的资源应该被删除。</p>
-</li>
-</ul>
-<p><code>PUT</code> 和 <code>DELETE</code> 这两个 Http Verb 让我们更像是在对一个真实的文件系统进行操作，而非那种传统的使用 <code>POST</code> 上传的图床那样，我们并不通过 POST 请求上传一个文件，然后获取资源最终被放置位置的 URL —— 我们自己决定资源被存放的位置。</p>
-<p>在这个 Shell 脚本中，引入了四个可选选项</p>
-<div class="code-wrapper"><pre><code class="hljs bash">m|markdown) markdown=<span class="hljs-literal">true</span> ;;
-w|webp) webp=<span class="hljs-literal">true</span> ;;
-f|force) force=<span class="hljs-literal">true</span> ;;
-k|keep) keep=<span class="hljs-literal">true</span> ;;
-p|path) UPLOAD_PATH=<span class="hljs-variable">$OPTARG</span> ;;</code></pre></div>
-
-<ul>
-<li>markdown 选项决定返回值是否以 <code>![]()</code> 这种 URL 格式返回</li>
-<li>webp 决定上传过程中是否将图片转为 webp 后再上传</li>
-<li>force 决定如果遇到文件路径冲突，是否强制覆盖云端的文件</li>
-<li>keep 决定是否保留文件原有的文件名进行上传</li>
-<li>path 决定文件具体被存放的路径（或者使用默认的路径）</li>
-</ul>
-<p><code>HOST</code> 是图床用于上传的地址，<code>CDN_HOST</code> 是图床用于被方可访问的地址。</p>
-<p>由于急着用，也没考虑协程的处理方式，等等看后期有没有时间用 Python 重写吧。</p>
-<h2 id="博客图床迁移脚本"><a href="#博客图床迁移脚本" class="headerlink" title="博客图床迁移脚本"></a>博客图床迁移脚本</h2><p>因为只用一次，所以也没使用协程或者多线程的方式去上传文件——毕竟图片不多，也就两三百张。</p>
-<div class="code-wrapper"><pre><code class="hljs python"><span class="hljs-keyword">import</span> os
-<span class="hljs-keyword">import</span> re
-<span class="hljs-keyword">import</span> requests
-
-<span class="hljs-comment"># 哪些后缀的文件需要检测是否存在老图床的 URL 并进行迁移？</span>
-file_extension = [
-    <span class="hljs-string">&#x27;.md&#x27;</span>,
-    <span class="hljs-string">&#x27;.yml&#x27;</span>,
-    <span class="hljs-string">&#x27;.html&#x27;</span>
-]
-
-pic_urls = []
-
-_files = []
-
-<span class="hljs-comment"># 用于匹配老图床的正则表达式，这里是按照 lsky pro 的格式编写的</span>
-pattern = <span class="hljs-string">r&#x27;https://cdn.example.com/\d&#123;4&#125;/\d&#123;2&#125;/\d&#123;2&#125;/[a-z0-9]&#123;13&#125;\.[a-z]&#123;3,4&#125;&#x27;</span>
-
-<span class="hljs-comment"># 图片的上传部分，需要先从原 url 中下载图片，在上传到新图床中，如果需要的话可以在中途转换为 webp 格式</span>
-<span class="hljs-keyword">def</span> <span class="hljs-title function_">upload</span>(<span class="hljs-params">url</span>):
-    <span class="hljs-string">&quot;&quot;&quot;</span>
-<span class="hljs-string">    此处的返回值应该是新的 url</span>
-<span class="hljs-string">    &quot;&quot;&quot;</span>
-
-<span class="hljs-comment"># 遍历目标后缀文件名的文件，如果存在老图床的 url，则将 url 加入到 pic_urls 列表中，并将这个文件的文件名（相对路径）添加到 _files 列表中</span>
-<span class="hljs-keyword">for</span> root, dirs, files <span class="hljs-keyword">in</span> os.walk(<span class="hljs-string">&quot;.&quot;</span>):
-    <span class="hljs-keyword">for</span> file <span class="hljs-keyword">in</span> files:
-        <span class="hljs-keyword">if</span> file.endswith(<span class="hljs-built_in">tuple</span>(file_extension)):
-            file_name = os.path.join(root, file)
-            <span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(file_name, <span class="hljs-string">&#x27;r&#x27;</span>) <span class="hljs-keyword">as</span> f:
-                content = f.read()
-            urls = re.findall(pattern, content)
-            <span class="hljs-keyword">if</span> urls:
-                pic_urls.extend(urls)
-                _files.append(file_name)
-
-<span class="hljs-comment"># 先转为集合，再转回列表，进行去重</span>
-pic_urls = <span class="hljs-built_in">list</span>(<span class="hljs-built_in">set</span>(pic_urls))
-<span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;共找到图片：&quot;</span>, <span class="hljs-built_in">len</span>(pic_urls))
-
-url_dict = &#123;&#125;
-
-<span class="hljs-comment"># 将列表中的图片进行上传，每张图片最多尝试三次上传，如果三次都失败，则保留原连接</span>
-<span class="hljs-keyword">for</span> i,u <span class="hljs-keyword">in</span> <span class="hljs-built_in">enumerate</span>(pci_urls, start=<span class="hljs-number">1</span>):
-    <span class="hljs-keyword">for</span> t <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,<span class="hljs-number">4</span>):
-        <span class="hljs-keyword">try</span>:
-            new_u = upload(u)
-            <span class="hljs-keyword">continue</span>
-        <span class="hljs-keyword">except</span>:
-            <span class="hljs-keyword">if</span> t == <span class="hljs-number">3</span>:
-                new_u = u
-                <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;<span class="hljs-subst">&#123;u&#125;</span> 无法上传：<span class="hljs-subst">&#123;e&#125;</span>&quot;</span>)
-	url_dict[u] = new_u
-    <span class="hljs-built_in">print</span>(<span class="hljs-string">f&quot;<span class="hljs-subst">&#123;i&#125;</span> / <span class="hljs-subst">&#123;<span class="hljs-built_in">len</span>(pic_urls)&#125;</span>&quot;</span>)
-
-<span class="hljs-comment"># 对 _files 列表中的文件一一完成替换</span>
-<span class="hljs-keyword">for</span> file <span class="hljs-keyword">in</span> _files:
-    <span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(file, <span class="hljs-string">&#x27;r&#x27;</span>) <span class="hljs-keyword">as</span> f:
-        content = f.read()
-    <span class="hljs-keyword">for</span> k, v <span class="hljs-keyword">in</span> url_dict.items():
-        content = content.replace(k, v)
-    <span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(file, <span class="hljs-string">&#x27;w&#x27;</span>) <span class="hljs-keyword">as</span> f:
-        f.write(content)
-    <span class="hljs-built_in">print</span>(<span class="hljs-string">&quot;完成替换：&quot;</span>, file)</code></pre></div>
-
-
-                
-              </div>
-            
-            <hr/>
-            <div>
-              <div class="post-metas my-3">
-  
-  
-    <div class="post-meta">
-      <i class="iconfont icon-tags"></i>
-      
-        <a href="/tags/Linux/" class="print-no-link">#Linux</a>
-      
-        <a href="/tags/Network/" class="print-no-link">#Network</a>
-      
-        <a href="/tags/%E5%9B%BE%E5%BA%8A/" class="print-no-link">#图床</a>
-      
-        <a href="/tags/Shell-Script/" class="print-no-link">#Shell Script</a>
-      
-        <a href="/tags/Python/" class="print-no-link">#Python</a>
-      
-    </div>
-  
-</div>
-
-
-              
-  
-
-  <div class="license-box my-3">
-    <div class="license-title">
-      <div>自建图床小记四——上传脚本编写与图片迁移</div>
-      <div>https://zhul.in/2024/08/20/picbed-upload-script-and-image-migration/</div>
-    </div>
-    <div class="license-meta">
-      
-        <div class="license-meta-item">
-          <div>作者</div>
-          <div>竹林里有冰</div>
-        </div>
-      
-      
-        <div class="license-meta-item license-meta-date">
-          <div>发布于</div>
-          <div>2024年8月20日</div>
-        </div>
-      
-      
-        <div class="license-meta-item license-meta-date">
-          <div>更新于</div>
-          <div>2025年10月4日</div>
-        </div>
-      
-      
-        <div class="license-meta-item">
-          <div>许可协议</div>
-          <div>
-            
-              
-              
-                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
-                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
-                    <i class="iconfont icon-cc-by"></i>
-                  </span>
-                </a>
-              
-                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
-                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
-                    <i class="iconfont icon-cc-nc"></i>
-                  </span>
-                </a>
-              
-                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
-                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
-                    <i class="iconfont icon-cc-sa"></i>
-                  </span>
-                </a>
-              
-            
-          </div>
-        </div>
-      
-    </div>
-    <div class="license-icon iconfont"></div>
-  </div>
-
-
-
-              
-                <div class="post-prevnext my-3">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/2024/08/21/self-host-cdn-expense/" title="自建图床小记五——费用">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">自建图床小记五——费用</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/2024/08/14/auto-renew-ssl-certificate-and-deploy-to-upyun-with-github-action/" title="自建图床小记三—— SSL 证书的自动更新与部署">
-                        <span class="hidden-mobile">自建图床小记三—— SSL 证书的自动更新与部署</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
-                </div>
-              
-            </div>
-
-            
-  
-  
-    <article id="comments" lazyload>
-      
-  <div id="waline"></div>
-  <script type="text/javascript">
-    Fluid.utils.loadComments('#waline', function() {
-      Fluid.utils.createCssLink('https://static.031130.xyz/assets/waline.css')
-      Fluid.utils.createScript('https://static.031130.xyz/assets/waline.js', function() {
-        var options = Object.assign(
-          {"serverURL":"https://waline.zhul.in","path":"window.location.pathname","meta":["nick","mail","link"],"requiredMeta":["nick"],"lang":"zh-CN","emoji":["https://registry.npmmirror.com/@waline/emojis/^1/files/weibo"],"dark":"html[data-user-color-scheme=\"dark\"]","wordLimit":0,"pageSize":10,"login":"disable","locale":{"placeholder":"快发个评论让我知道你在看（x"}},
-          {
-            el: '#waline',
-            path: window.location.pathname
-          }
-        )
-        Waline.init(options);
-        Fluid.utils.waitElementVisible('#waline .vcontent', () => {
-          var imgSelector = '#waline .vcontent img:not(.vemoji)';
-          Fluid.plugins.imageCaption(imgSelector);
-          Fluid.plugins.fancyBox(imgSelector);
-        })
-      });
-    });
-  </script>
-  <noscript>Please enable JavaScript to view the comments</noscript>
-
-
-    </article>
-  
-
-
-          </article>
-        </div>
-      </div>
-    </div>
-
-    <div class="side-col d-none d-lg-block col-lg-2">
-      
-  <aside class="sidebar" style="margin-left: -1rem">
-    <div id="toc">
-  <p class="toc-header">
-    <i class="iconfont icon-list"></i>
-    <span>目录</span>
-  </p>
-  <div class="toc-body" id="toc-body"></div>
-</div>
-
-
-
-  </aside>
-
-
-    </div>
-  </div>
-</div>
-
-
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-  
-
-
-
-
-
-
-
-    
-
-    
-      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
-
-    
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
-        </div>
-        <div class="list-group" id="local-search-result"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-    
-
-    
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-  
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <br /> <a href="https://notbyai.fyi/" target="_blank"><img style="max-height: 50px; margin: 10px" src=https://static.031130.xyz/uploads/2024/08/28/ae6dd98bdf60e.png alt="written by human, not by AI" /></a> <br /> <iframe frameborder=0 src="https://support.nodeget.com/page/promotion?id=61" style="border-radius:8px; border: none; height: 246px; transform: scale(0.8);"> </iframe> <br /> <span>本网站由 <a target="_blank" rel="noopener" href="https://www.upyun.com/?utm_source=lianmeng&utm_medium=referral"><img style="max-height: 50px;" loading="lazy" src="https://static.031130.xyz/uploads/2024/08/12/ba8d70971c408.webp" srcset="https://static.031130.xyz/uploads/2024/08/12/62f800fc26770.gif" lazyload alt="又拍云 Logo" /></a> 提供 CDN 加速/云存储服务</span> 
-    </div>
-  
-  
-  
-</div>
-
-  </footer>
-
-  <!-- Scripts -->
-  
-  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
-
-  <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
-  </script>
-
-
-<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
-<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
-
-
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var text = subtitle.getAttribute('data-typed-text');
-      
-        typing(text);
-      
-    })(window, document);
-  </script>
-
-
-
-
-  
-    <script  src="/js/img-lazyload.js" ></script>
-  
-
-
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
-    var toc = jQuery('#toc');
-    if (toc.length === 0 || !window.tocbot) { return; }
-    var boardCtn = jQuery('#board-ctn');
-    var boardTop = boardCtn.offset().top;
-
-    window.tocbot.init(Object.assign({
-      tocSelector     : '#toc-body',
-      contentSelector : '.markdown-body',
-      linkClass       : 'tocbot-link',
-      activeLinkClass : 'tocbot-active-link',
-      listClass       : 'tocbot-list',
-      isCollapsedClass: 'tocbot-is-collapsed',
-      collapsibleClass: 'tocbot-is-collapsible',
-      scrollSmooth    : true,
-      includeTitleTags: true,
-      headingsOffset  : -boardTop,
-    }, CONFIG.toc));
-    if (toc.find('.toc-list-item').length > 0) {
-      toc.css('visibility', 'visible');
-    }
-
-    Fluid.events.registerRefreshCallback(function() {
-      if ('tocbot' in window) {
-        tocbot.refresh();
-        var toc = jQuery('#toc');
-        if (toc.length === 0 || !tocbot) {
-          return;
-        }
-        if (toc.find('.toc-list-item').length > 0) {
-          toc.css('visibility', 'visible');
-        }
-      }
-    });
-  });
-</script>
-
-
-  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
-
-  <script>Fluid.plugins.codeWidget();</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
-    window.anchors.options = {
-      placement: CONFIG.anchorjs.placement,
-      visible  : CONFIG.anchorjs.visible
-    };
-    if (CONFIG.anchorjs.icon) {
-      window.anchors.options.icon = CONFIG.anchorjs.icon;
-    }
-    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-    var res = [];
-    for (var item of el) {
-      res.push('.markdown-body > ' + item.trim());
-    }
-    if (CONFIG.anchorjs.placement === 'left') {
-      window.anchors.options.class = 'anchorjs-link-left';
-    }
-    window.anchors.add(res.join(', '));
-
-    Fluid.events.registerRefreshCallback(function() {
-      if ('anchors' in window) {
-        anchors.removeAll();
-        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
-        var res = [];
-        for (var item of el) {
-          res.push('.markdown-body > ' + item.trim());
-        }
-        if (CONFIG.anchorjs.placement === 'left') {
-          anchors.options.class = 'anchorjs-link-left';
-        }
-        anchors.add(res.join(', '));
-      }
-    });
-  });
-</script>
-
-
-  
-<script>
-  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
-    Fluid.plugins.fancyBox();
-  });
-</script>
-
-
-  <script>Fluid.plugins.imageCaption();</script>
-
-  <script  src="/js/local-search.js" ></script>
-
-
-
-
-
-<!-- 主题的启动项，将它保持在最底部 -->
-<!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
-
-
-  
-
-  <noscript>
-    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
-  </noscript>
-<!-- hexo injector body_end start -->
-<script>
-    const imgs = [
-        "https://static.031130.xyz/uploads/2024/08/12/62f373292129a.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f3732b562d8.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f3732d6ebe2.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f3732f6b225.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f37332b1c8b.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f37338661d8.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f3733c35741.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f3733deca7f.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f373406909e.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f373423b6c0.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f37343c5254.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f37345532e7.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f373479efcf.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f3734a2de90.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f3734bea5a7.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f3734dc3404.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f3734fe20d3.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f37351bae52.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f373539bd9f.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f37354f1ec7.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f373569f4ef.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f3735851795.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f37359a2c36.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/5fd959de5f180.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/1ef8787039f53.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/fb261297a3570.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f374ea7b242.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/62f374ec8c14d.webp",
-        "https://static.031130.xyz/uploads/2024/08/12/6609df9b83ecd.webp",
-        "https://static.031130.xyz/uploads/2025/05/04/e1aa9e18bebb1.webp"
-    ]
-
-    const luck_img = imgs[Math.floor(Math.random() * imgs.length)]
-    const banner = document.getElementById('banner')
-    banner.style.background = "url(" + luck_img + ") center center / cover no-repeat"
-</script>
-<!-- hexo injector body_end end --></body>
-</html>
+<!DOCTYPE html><html  lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>自建图床小记四——上传脚本编写与图片迁移 | 竹林里有冰的博客</title><link rel="stylesheet" href="https://static.031130.xyz/res/github-markdown.css"><style>[data-v-483530c4] .markdown-body h2,[data-v-483530c4] .markdown-body h3,[data-v-483530c4] .markdown-body h4,[data-v-483530c4] .markdown-body h5,[data-v-483530c4] .markdown-body h6{scroll-margin-top:78px}[data-v-483530c4] .markdown-body h2>a,[data-v-483530c4] .markdown-body h3>a,[data-v-483530c4] .markdown-body h4>a,[data-v-483530c4] .markdown-body h5>a,[data-v-483530c4] .markdown-body h6>a{color:unset}aside[data-v-483530c4]{position:sticky;top:78px}[data-v-483530c4] #waline{margin-top:3rem}</style><style>.content-wrapper[data-v-03b6b78b]{margin-bottom:40px;margin-top:40px}@media(min-width:769px){.content-wrapper[data-v-03b6b78b]{display:flex;justify-content:space-around}.content-wrapper .side[data-v-03b6b78b]{width:20%}}@media(max-width:768px){.content-wrapper[data-v-03b6b78b]{margin:30px}}main[data-v-03b6b78b]{min-height:calc(40vh - 120px);width:50%}@media(max-width:1024px){main[data-v-03b6b78b]{width:75%}}@media(max-width:768px){main[data-v-03b6b78b]{width:unset}}</style><style>header[data-v-9eb34f73]{align-items:center;box-shadow:0 2px 4px #0000001a;display:flex;flex-direction:column;height:62px;justify-content:center;padding-bottom:16px;padding-top:20px;position:fixed;top:0;transition:all .3s ease;-webkit-user-select:none;-moz-user-select:none;user-select:none;width:100%;z-index:1}header.scrolled[data-v-9eb34f73]{height:58px;padding-bottom:16px;padding-top:16px}header.scrolled[data-v-9eb34f73],header.show-mobile-menu[data-v-9eb34f73]{-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px);background-color:#3c4658b3}header.show-mobile-menu[data-v-9eb34f73]{height:-moz-fit-content;height:fit-content}.header-container[data-v-9eb34f73]{color:#fff;min-width:70%}@media(max-width:1024px){.header-container[data-v-9eb34f73]{min-width:75%;padding-left:16px;padding-right:16px}}@media(max-width:768px){.header-container[data-v-9eb34f73]{min-width:100%}}.header-container .header-title[data-v-9eb34f73]{font-weight:700;text-shadow:0 0 10px rgba(0,0,0,.3)}.header[data-v-9eb34f73]{justify-content:space-between}.header[data-v-9eb34f73],.header-right[data-v-9eb34f73]{align-items:center;display:flex}.header-right[data-v-9eb34f73]{gap:16px}.mobile-menu-dropdown[data-v-9eb34f73]{border-radius:8px;display:flex;flex-direction:column;padding:8px 0;width:100%}.mobile-menu-dropdown a[data-v-9eb34f73]{font-size:18px;font-weight:500;padding:12px 24px;text-align:center}.mobile-menu-dropdown a[data-v-9eb34f73],a[data-v-9eb34f73]{color:#fff;text-decoration:none}.search-trigger[data-v-9eb34f73]{align-items:center;background:#ffffff1a;border:1px solid hsla(0,0%,100%,.3);border-radius:999px;color:#fff;cursor:pointer;display:flex;font-size:14px;gap:6px;padding:6px 12px;transition:background .2s ease,border-color .2s ease}.search-trigger[data-v-9eb34f73]:hover{background:#fff3;border-color:#fff9}.search-trigger span[aria-hidden=true][data-v-9eb34f73]{font-size:16px;line-height:1}@media(max-width:768px){.search-trigger .search-trigger__label[data-v-9eb34f73]{display:none}}</style><style>@media(max-width:768px){.pc-nav[data-v-f0d77200]{display:none}}.mobile-nav[data-v-f0d77200]{cursor:pointer;display:none}@media(max-width:768px){.mobile-nav[data-v-f0d77200]{align-items:center;display:flex;justify-content:center}}.mobile-nav .container[data-v-f0d77200]{align-items:center;display:flex;flex-direction:column;height:20px;justify-content:center;margin:0 auto;width:25px}.mobile-nav-item[data-v-f0d77200]{background:#fff;border-radius:2px;flex-shrink:0;height:2px;margin:2.5px 0;width:100%}a[data-v-f0d77200]{color:#fff;margin-left:16px;margin-right:16px;text-decoration:none}</style><style>.banner[data-v-e76cd4ff]{height:60vh;width:100%}.mask[data-v-e76cd4ff]{background:#0000001a;width:100%}.mask[data-v-e76cd4ff],.title-container[data-v-e76cd4ff]{align-items:center;display:flex;height:100%;justify-content:center}.title-container[data-v-e76cd4ff]{color:#fff;margin:auto;width:50%}@media(max-width:768px){.title-container[data-v-e76cd4ff]{width:80%}}.title[data-v-e76cd4ff]{color:#fff;margin:auto auto auto 0;padding-top:58px;text-shadow:0 0 5px rgba(0,0,0,.7)}.title h1[data-v-e76cd4ff]{font-size:32px;font-weight:700;margin:0}.title p[data-v-e76cd4ff]{font-size:16px;font-weight:300;margin:8px 0}@media(max-width:768px){.title[data-v-e76cd4ff]{margin:auto;text-align:center}}</style><style>.search-overlay-enter-active[data-v-62b29045],.search-overlay-leave-active[data-v-62b29045]{transition:opacity .2s ease}.search-overlay-enter-from[data-v-62b29045],.search-overlay-leave-to[data-v-62b29045]{opacity:0}.search-overlay[data-v-62b29045]{align-items:flex-start;-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px);background:#00000059;display:flex;justify-content:center;inset:0;padding:120px 16px 40px;position:fixed;z-index:2000}.search-overlay__panel[data-v-62b29045]{background:#fffffff2;box-shadow:0 18px 50px #00000040;display:flex;flex-direction:column;max-height:calc(100vh - 160px);overflow:hidden;width:min(720px,100%)}.search-overlay__header[data-v-62b29045]{align-items:center;border-bottom:1px solid rgba(0,0,0,.05);display:flex;gap:12px;padding:16px 20px 16px 16px}.search-overlay__input[data-v-62b29045]{background:#ffffffd9;border:1px solid rgba(0,0,0,.12);flex:1;font-size:16px;padding:12px 16px;transition:border-color .2s ease}.search-overlay__input[data-v-62b29045]:focus{border-color:#007bff;outline:none}.search-overlay__close[data-v-62b29045]{background:transparent;border:none;border-radius:50%;color:#0000008c;cursor:pointer;font-size:24px;height:32px;line-height:24px;width:32px}.search-overlay__close[data-v-62b29045]:hover{color:#000c}.search-overlay__body[data-v-62b29045]{overflow-y:auto;padding:8px 0 20px}.search-overlay__state[data-v-62b29045]{color:#00000094;margin:20px;text-align:center}.search-overlay__count[data-v-62b29045]{color:#000000b3;font-weight:600;margin:12px 24px 0}.search-overlay__list[data-v-62b29045]{display:flex;flex-direction:column;gap:12px;list-style:none;margin:16px 0 0;padding:0 8px 8px}.search-overlay__item[data-v-62b29045]{background:#ffffffe6;border-radius:12px;box-shadow:0 8px 18px #00000014;transition:transform .2s ease}.search-overlay__item[data-v-62b29045]:hover{transform:translateY(-2px)}.search-overlay__link[data-v-62b29045]{color:inherit;display:block;padding:16px 20px;text-decoration:none}.search-overlay__item-title[data-v-62b29045]{color:#007bff;font-size:18px;font-weight:700;margin:0}.search-overlay__item-meta[data-v-62b29045]{color:#0009;font-size:13px;margin:8px 0 0}.search-overlay__item-meta span[data-v-62b29045]{color:#0000008c}.search-overlay__item-snippet[data-v-62b29045]{color:#000c;font-size:14px;line-height:1.6;margin:12px 0 0}@media(max-width:768px){.search-overlay[data-v-62b29045]{padding:80px 12px 20px}.search-overlay__panel[data-v-62b29045]{max-height:calc(100vh - 120px)}}</style><style>.post-navigation[data-v-304034ef]{display:flex;flex-wrap:wrap;gap:1rem}.nav-button[data-v-304034ef]{align-items:center;background:#fff;border:1px solid #e1e4e8;color:#24292e;cursor:pointer;display:flex;flex:0 1 calc(50% - .5rem);gap:1rem;max-width:calc(50% - .5rem);min-width:280px;padding:1.25rem 1.5rem;text-decoration:none;transition:border-color .2s ease}.nav-button[data-v-304034ef]:hover{border-color:#007bff}.nav-button:hover .nav-title[data-v-304034ef]{color:#007bff}.nav-button.prev[data-v-304034ef]{margin-right:auto}.nav-button.prev .nav-content[data-v-304034ef]{text-align:left}.nav-button.next[data-v-304034ef]{flex-direction:row-reverse;margin-left:auto}.nav-button.next .nav-content[data-v-304034ef]{text-align:right}.nav-arrow[data-v-304034ef]{color:#6a737d;flex-shrink:0;font-size:1.5rem;font-weight:600;line-height:1}.nav-content[data-v-304034ef]{display:flex;flex:1;flex-direction:column;gap:.5rem;min-width:0}.nav-label[data-v-304034ef]{color:#6a737d;font-size:.875rem;font-weight:500}.nav-title[data-v-304034ef]{color:#24292e;display:-webkit-box;font-size:1rem;font-weight:600;-webkit-line-clamp:2;line-clamp:2;overflow:hidden;text-overflow:ellipsis;transition:color .2s ease;-webkit-box-orient:vertical;line-height:1.4}@media(max-width:768px){.post-navigation[data-v-304034ef]{flex-direction:column;gap:.75rem}.nav-button[data-v-304034ef]{min-width:100%}}</style><style>#waline{--waline-theme-color:#3f72af;--waline-active-color:#173f70}#waline .wl-panel{border-radius:0;margin:0}#waline .wl-btn{border-radius:0}</style><style>.toc[data-v-fd1537b4]{background:#fafafa;border:1px solid #e5e5e5;max-height:calc(100vh - 120px);overflow-y:auto;padding:1.25rem}@media(max-width:768px){.toc[data-v-fd1537b4]{display:none}}.toc-title[data-v-fd1537b4]{border-bottom:1px solid #e5e5e5;color:#333;font-size:1rem;font-weight:600;margin-bottom:1rem;padding-bottom:.5rem}.toc-list[data-v-fd1537b4]{list-style:none;margin:0;padding:0}.toc-item[data-v-fd1537b4]{line-height:1.5;margin:.3rem 0;max-height:100px;opacity:1;overflow:hidden;transition:max-height .25s ease,opacity .25s ease,margin .25s ease}.toc-item.collapsed[data-v-fd1537b4]{margin:0;max-height:0;opacity:0}.toc-item a[data-v-fd1537b4]{color:#666;display:block;font-size:.875rem;padding:.35rem .5rem;text-decoration:none;transition:color .2s,background-color .2s}.toc-item a[data-v-fd1537b4]:hover{background-color:#3b82f614;color:#007bff}.toc-item.active a[data-v-fd1537b4]{background-color:#3b82f61f;color:#007bff;font-weight:500}.toc-item.toc-level-1[data-v-fd1537b4]{padding-left:0}.toc-item.toc-level-1 a[data-v-fd1537b4]{font-weight:500}.toc-item.toc-level-2[data-v-fd1537b4]{padding-left:.75rem}.toc-item.toc-level-3[data-v-fd1537b4]{padding-left:1.5rem}.toc-item.toc-level-3 a[data-v-fd1537b4]{font-size:.85rem}.toc-item.toc-level-4[data-v-fd1537b4]{padding-left:2.25rem}.toc-item.toc-level-4 a[data-v-fd1537b4]{font-size:.825rem}.toc-item.toc-level-5[data-v-fd1537b4]{padding-left:3rem}.toc-item.toc-level-5 a[data-v-fd1537b4]{font-size:.8rem}.toc-item.toc-level-6[data-v-fd1537b4]{padding-left:3.75rem}.toc-item.toc-level-6 a[data-v-fd1537b4]{font-size:.775rem}.toc[data-v-fd1537b4]::-webkit-scrollbar{width:5px}.toc[data-v-fd1537b4]::-webkit-scrollbar-track{background:transparent}.toc[data-v-fd1537b4]::-webkit-scrollbar-thumb{background:#d1d5db}.toc[data-v-fd1537b4]::-webkit-scrollbar-thumb:hover{background:#9ca3af}</style><style>footer[data-v-3e1fa960]{align-items:center;color:#fff;display:flex;justify-content:center;position:relative;width:100%}.footer-content[data-v-3e1fa960]{z-index:1}.footer-mask[data-v-3e1fa960]{background:linear-gradient(180deg,#0000004d,#00000080);inset:0;position:absolute}</style><style>.prose-heading[data-v-a22a06c0]{position:relative}.prose-heading:hover .heading-anchor[data-v-a22a06c0]{opacity:1}.heading-anchor[data-v-a22a06c0]{color:#3b82f6;font-weight:400;margin-left:.5rem;opacity:0;text-decoration:none;transition:opacity .2s,color .2s}.heading-anchor[data-v-a22a06c0]:hover{color:#007bff}.anchor-icon[data-v-a22a06c0]{display:inline-block}.prose-h2[data-v-a22a06c0]{margin:1.75rem 0 .875rem}</style><style>.prose-img-wrapper[data-v-4f488808]{display:inline-block;position:relative}.prose-img[data-v-4f488808]{border-radius:4px;box-shadow:0 1px 4px #00000014;max-width:100%;transition:box-shadow .2s}.prose-img[data-v-4f488808]:hover{box-shadow:0 4px 16px #0000002e}.prose-img-caption[data-v-4f488808]{color:#666;display:block;font-size:.875rem;font-style:italic;margin-top:.25rem;text-align:center}.prose-img-preview-mask[data-v-4f488808]{align-items:center;animation:fadeIn-4f488808 .2s;background:#000000d9;display:flex;justify-content:center;inset:0;position:fixed;z-index:9999}.prose-img-preview-img[data-v-4f488808]{background:#fff;border-radius:8px;box-shadow:0 8px 32px #0006;max-height:90vh;max-width:90vw;will-change:transform}.prose-img-preview-img[data-v-4f488808],.prose-img-preview-scale-indicator[data-v-4f488808]{-webkit-user-select:none;-moz-user-select:none;user-select:none}.prose-img-preview-scale-indicator[data-v-4f488808]{background:#00000080;border-radius:4px;bottom:32px;color:#fff;font-size:1rem;left:50%;padding:2px 10px;pointer-events:none;position:absolute;transform:translate(-50%);z-index:10001}.prose-img-preview-close[data-v-4f488808]{background:none;border:none;color:#fff;cursor:pointer;font-size:2.5rem;line-height:1;padding:0 .5rem;position:absolute;right:48px;top:32px;transition:color .2s;z-index:10000}.prose-img-preview-close[data-v-4f488808]:hover{color:#ffb3b3}@keyframes fadeIn-4f488808{0%{opacity:0}to{opacity:1}}</style><style>pre code .line{display:block}</style><link rel="stylesheet" href="/_nuxt/entry.Bnif_1cD.css" crossorigin><link rel="stylesheet" href="/_nuxt/DefaultLayout.DylcrZ01.css" crossorigin><link rel="preload" as="image" href="https://static.031130.xyz/uploads/2024/08/12/62f373292129a.webp" fetchpriority="high"><link rel="preload" as="fetch" crossorigin="anonymous" href="/2024/08/20/picbed-upload-script-and-image-migration/_payload.json?2baf0b02-cd36-4580-bb90-5f1d5a7b4495"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/CydzgfdV.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/BgltQANd.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/C0GIp5Wz.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/DJaZP0QF.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/D2gguidx.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/BHwviUNk.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/Dw9FZWsg.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/QIzVRktP.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/Cq3tH4TI.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/Dp4XI05f.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/C6U-U7r_.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/CHOWpukb.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/mXf5V9hR.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/B3FuSCsM.js"><link rel="modulepreload" as="script" crossorigin href="/_nuxt/MrzFTCxB.js"><link rel="preload" as="fetch" fetchpriority="low" crossorigin="anonymous" href="/_nuxt/builds/meta/2baf0b02-cd36-4580-bb90-5f1d5a7b4495.json"><script src="/js/u.js" defer data-website-id="5346b89b-f4bf-4593-971d-1f41a1118bc1"></script><link rel="alternate" type="application/atom+xml" title="竹林里有冰的博客 Atom Feed" href="https://zhul.in/rss.xml"><meta name="description" content="前面三篇小记分别讲述了图床的整体架构、用 Workers 构建 Restful API 和 自动更新部署 SSL 证书，这一篇c处理由此带来的图片上传问题，主要是要为 Typora 编写自动上传脚本，并为博客原有的图片进行迁移。"><meta property="og:type" content="website"><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"><meta name="keywords" content="Python,图床,Linux,Network,Shell Script"><script type="module" src="/_nuxt/CydzgfdV.js" crossorigin></script><meta name="twitter:card" content="summary_large_image"><meta property="og:title" data-infer="" content="自建图床小记四——上传脚本编写与图片迁移 | 竹林里有冰的博客"><meta property="og:description" data-infer="" content="前面三篇小记分别讲述了图床的整体架构、用 Workers 构建 Restful API 和 自动更新部署 SSL 证书，这一篇c处理由此带来的图片上传问题，主要是要为 Typora 编写自动上传脚本，并为博客原有的图片进行迁移。"><link rel="canonical" href="https://zhul.in/2024/08/20/picbed-upload-script-and-image-migration/"><meta property="og:url" content="https://zhul.in/2024/08/20/picbed-upload-script-and-image-migration/"><meta property="og:locale" content="zh_CN"><meta property="og:site_name" content="竹林里有冰的博客"></head><body><!--teleport start anchor--><!----><!--teleport anchor--><!--teleport start anchor--><!----><!--teleport anchor--><div id="__nuxt"><!--[--><div></div><div data-v-483530c4 data-v-03b6b78b><!--[--><header class="" data-v-9eb34f73><div class="header-container" data-v-9eb34f73><div class="header" data-v-9eb34f73><a href="/" class="header-title" data-v-9eb34f73>竹林里有冰的博客</a><div class="header-right" data-v-9eb34f73><nav data-v-9eb34f73 data-v-f0d77200><div class="pc-nav" data-v-f0d77200><!--[--><a href="/" class="" data-v-f0d77200>首页</a><a href="/archives/" class="" data-v-f0d77200>归档</a><a href="/tags/" class="" data-v-f0d77200>标签</a><a href="/links/" class="" data-v-f0d77200>友链</a><a href="/about/" class="" data-v-f0d77200>关于</a><!--]--></div><div class="mobile-nav" data-v-f0d77200><div class="container" data-v-f0d77200><!--[--><div class="mobile-nav-item" data-v-f0d77200></div><div class="mobile-nav-item" data-v-f0d77200></div><div class="mobile-nav-item" data-v-f0d77200></div><!--]--></div></div></nav><button type="button" class="search-trigger" aria-label="搜索文章" data-v-9eb34f73><span aria-hidden="true" data-v-9eb34f73>🔍</span><span class="search-trigger__label" data-v-9eb34f73>搜索</span></button></div></div></div><!----></header><div class="banner" style="background:url(https://static.031130.xyz/uploads/2024/08/12/62f3735851795.webp) center center / cover no-repeat;" data-v-9eb34f73 data-v-e76cd4ff><div class="mask" data-v-e76cd4ff><div class="title-container" data-v-e76cd4ff><div class="title" data-v-e76cd4ff><h1 data-v-e76cd4ff>自建图床小记四——上传脚本编写与图片迁移</h1><!----></div></div></div></div><!--teleport start--><!--teleport end--><!--]--><div class="content-wrapper" data-v-03b6b78b><div class="before-main side" data-v-03b6b78b><!--[--><!--]--></div><main data-v-03b6b78b><!--[--><article class="markdown-body" data-v-483530c4><p><!--[-->前面三篇小记分别讲述了<a href="/2024/08/12/new-picbed-based-on-cloudflare-and-upyun/" class=""><!--[-->图床的整体架构<!--]--></a>、<a href="/2024/08/13/build-restful-api-for-cloudflare-r2-with-cloudflare-workers/" class=""><!--[-->用 Workers 构建 Restful API<!--]--></a> 和 <a href="/2024/08/14/auto-renew-ssl-certificate-and-deploy-to-upyun-with-github-action/" class=""><!--[-->自动更新部署 SSL 证书<!--]--></a>，这一篇c处理由此带来的图片上传问题，主要是要为 Typora 编写自动上传脚本，并为博客原有的图片进行迁移。<!--]--></p><h2 id="自动上传脚本" class="prose-heading prose-h2" data-v-a22a06c0><!--[-->自动上传脚本<!--]--><a href="#自动上传脚本" class="heading-anchor" aria-label="链接到此标题" data-v-a22a06c0><span class="anchor-icon" data-v-a22a06c0>#</span></a></h2><p><!--[-->主要还是给 Typora 用，实现这种效果<!--]--></p><p><!--[--><span class="prose-img-wrapper" data-v-4f488808><img src="https://static.031130.xyz/uploads/2024/08/12/62f3b881e3c4c.gif" alt="Typora 自动上传" title="" loading="lazy" class="prose-img" style="cursor:zoom-in;" data-v-4f488808><span class="prose-img-caption" data-v-4f488808>Typora 自动上传</span><!--teleport start--><!--teleport end--></span><!--]--></p><pre class="language-bash shiki shiki-themes github-light github-dark" style=""><!--[--><code><span class="line" line="1"><span class="sJ8bj">#!/bin/bash
+</span></span><span class="line" line="2"><span emptylineplaceholder="true">
+</span></span><span class="line" line="3"><span class="sVt8B">HOST</span><span class="szBVR">=</span><span class="sZZnC">&quot;upload.example.com&quot;
+</span></span><span class="line" line="4"><span class="sVt8B">CDN_HOST</span><span class="szBVR">=</span><span class="sZZnC">&quot;cdn.example.com&quot;
+</span></span><span class="line" line="5"><span class="sVt8B">UPLOAD_PATH</span><span class="szBVR">=</span><span class="sZZnC">&quot;uploads/$(</span><span class="sScJk">date</span><span class="sZZnC"> +%Y/%m/%d)&quot;
+</span></span><span class="line" line="6"><span emptylineplaceholder="true">
+</span></span><span class="line" line="7"><span class="sVt8B">AUTH_TOKEN</span><span class="szBVR">=</span><span class="sZZnC">&quot;1145141919810&quot;
+</span></span><span class="line" line="8"><span emptylineplaceholder="true">
+</span></span><span class="line" line="9"><span class="sVt8B">webp</span><span class="szBVR">=</span><span class="sZZnC">false
+</span></span><span class="line" line="10"><span class="sVt8B">markdown</span><span class="szBVR">=</span><span class="sZZnC">false
+</span></span><span class="line" line="11"><span class="sVt8B">force</span><span class="szBVR">=</span><span class="sZZnC">false
+</span></span><span class="line" line="12"><span class="sVt8B">keep</span><span class="szBVR">=</span><span class="sZZnC">false
+</span></span><span class="line" line="13"><span emptylineplaceholder="true">
+</span></span><span class="line" line="14"><span class="szBVR">while</span><span class="sj4cs"> getopts</span><span class="sZZnC"> &quot;:mwfkp:&quot;</span><span class="sZZnC"> opt</span><span class="sVt8B">; </span><span class="szBVR">do
+</span></span><span class="line" line="15"><span class="szBVR">    case</span><span class="sVt8B"> $opt </span><span class="szBVR">in
+</span></span><span class="line" line="16"><span class="sA_wV">        m</span><span class="szBVR">|</span><span class="sA_wV">markdown</span><span class="szBVR">)</span><span class="sVt8B"> markdown</span><span class="szBVR">=</span><span class="sZZnC">true</span><span class="sVt8B"> ;;
+</span></span><span class="line" line="17"><span class="sA_wV">        w</span><span class="szBVR">|</span><span class="sA_wV">webp</span><span class="szBVR">)</span><span class="sVt8B"> webp</span><span class="szBVR">=</span><span class="sZZnC">true</span><span class="sVt8B"> ;;
+</span></span><span class="line" line="18"><span class="sA_wV">        f</span><span class="szBVR">|</span><span class="sA_wV">force</span><span class="szBVR">)</span><span class="sVt8B"> force</span><span class="szBVR">=</span><span class="sZZnC">true</span><span class="sVt8B"> ;;
+</span></span><span class="line" line="19"><span class="sA_wV">        k</span><span class="szBVR">|</span><span class="sA_wV">keep</span><span class="szBVR">)</span><span class="sVt8B"> keep</span><span class="szBVR">=</span><span class="sZZnC">true</span><span class="sVt8B"> ;;
+</span></span><span class="line" line="20"><span class="sA_wV">        p</span><span class="szBVR">|</span><span class="sA_wV">path</span><span class="szBVR">)</span><span class="sVt8B"> UPLOAD_PATH</span><span class="szBVR">=</span><span class="sVt8B">$OPTARG ;;
+</span></span><span class="line" line="21"><span class="sj4cs">        \?</span><span class="szBVR">)</span><span class="sj4cs"> echo</span><span class="sZZnC"> &quot;Invalid option: -</span><span class="sVt8B">$OPTARG</span><span class="sZZnC">&quot;</span><span class="sVt8B"> ;;
+</span></span><span class="line" line="22"><span class="szBVR">    esac
+</span></span><span class="line" line="23"><span class="szBVR">done
+</span></span><span class="line" line="24"><span class="sj4cs">shift</span><span class="sVt8B"> $((</span><span class="sScJk">OPTIND</span><span class="sZZnC"> -</span><span class="sj4cs"> 1</span><span class="sVt8B">))
+</span></span><span class="line" line="25"><span emptylineplaceholder="true">
+</span></span><span class="line" line="26"><span class="sVt8B">UPLOAD_URL</span><span class="szBVR">=</span><span class="sZZnC">&quot;https://</span><span class="sVt8B">$HOST</span><span class="sZZnC">/</span><span class="sVt8B">$UPLOAD_PATH</span><span class="sZZnC">&quot;
+</span></span><span class="line" line="27"><span class="szBVR">if</span><span class="sVt8B"> [[ </span><span class="sZZnC">&quot;</span><span class="sVt8B">$UPLOAD_URL</span><span class="sZZnC">&quot;</span><span class="szBVR"> ==</span><span class="szBVR"> *</span><span class="sVt8B">/ ]]; </span><span class="szBVR">then
+</span></span><span class="line" line="28"><span class="sVt8B">    UPLOAD_URL</span><span class="szBVR">=</span><span class="sZZnC">&quot;${</span><span class="sVt8B">UPLOAD_URL</span><span class="szBVR">%</span><span class="sZZnC">?}&quot;
+</span></span><span class="line" line="29"><span class="szBVR">fi
+</span></span><span class="line" line="30"><span emptylineplaceholder="true">
+</span></span><span class="line" line="31"><span class="szBVR">for</span><span class="sVt8B"> image </span><span class="szBVR">in</span><span class="sZZnC"> &quot;</span><span class="sj4cs">$@</span><span class="sZZnC">&quot;</span><span class="sVt8B">; </span><span class="szBVR">do
+</span></span><span class="line" line="32"><span class="szBVR">    if</span><span class="sVt8B"> [ </span><span class="sZZnC">&quot;</span><span class="sVt8B">$webp</span><span class="sZZnC">&quot;</span><span class="szBVR"> =</span><span class="sj4cs"> true</span><span class="sVt8B"> ]; </span><span class="szBVR">then
+</span></span><span class="line" line="33"><span class="sScJk">        cwebp</span><span class="sj4cs"> -quiet</span><span class="sZZnC"> &quot;</span><span class="sVt8B">$image</span><span class="sZZnC">&quot;</span><span class="sj4cs"> -o</span><span class="sZZnC"> &quot;${</span><span class="sVt8B">image</span><span class="szBVR">%</span><span class="sZZnC">.</span><span class="szBVR">*</span><span class="sZZnC">}.webp&quot;
+</span></span><span class="line" line="34"><span class="sVt8B">        image</span><span class="szBVR">=</span><span class="sZZnC">&quot;${</span><span class="sVt8B">image</span><span class="szBVR">%</span><span class="sZZnC">.</span><span class="szBVR">*</span><span class="sZZnC">}.webp&quot;
+</span></span><span class="line" line="35"><span class="szBVR">    fi
+</span></span><span class="line" line="36"><span emptylineplaceholder="true">
+</span></span><span class="line" line="37"><span class="szBVR">    if</span><span class="sVt8B"> [ </span><span class="sZZnC">&quot;</span><span class="sVt8B">$keep</span><span class="sZZnC">&quot;</span><span class="szBVR"> =</span><span class="sj4cs"> true</span><span class="sVt8B"> ]; </span><span class="szBVR">then
+</span></span><span class="line" line="38"><span class="sVt8B">        FILENAME</span><span class="szBVR">=</span><span class="sVt8B">$(</span><span class="sScJk">basename</span><span class="sZZnC"> &quot;</span><span class="sVt8B">$image</span><span class="sZZnC">&quot;</span><span class="sVt8B">)
+</span></span><span class="line" line="39"><span class="szBVR">    else
+</span></span><span class="line" line="40"><span class="sVt8B">        FILENAME</span><span class="szBVR">=</span><span class="sZZnC">&quot;$(</span><span class="sScJk">md5sum</span><span class="sVt8B"> $image</span><span class="szBVR"> |</span><span class="sScJk"> cut</span><span class="sj4cs"> -c</span><span class="sZZnC"> 1-13).$(</span><span class="sScJk">basename</span><span class="sVt8B"> $image</span><span class="szBVR"> |</span><span class="sScJk"> cut</span><span class="sj4cs"> -d.</span><span class="sj4cs"> -f2</span><span class="sZZnC">)&quot;
+</span></span><span class="line" line="41"><span class="szBVR">    fi
+</span></span><span class="line" line="42"><span emptylineplaceholder="true">
+</span></span><span class="line" line="43"><span class="szBVR">    if</span><span class="sVt8B"> [ </span><span class="sZZnC">&quot;</span><span class="sVt8B">$force</span><span class="sZZnC">&quot;</span><span class="szBVR"> =</span><span class="sj4cs"> true</span><span class="sVt8B"> ]; </span><span class="szBVR">then
+</span></span><span class="line" line="44"><span class="sVt8B">        UPLOAD_RESPONSE</span><span class="szBVR">=</span><span class="sVt8B">$(</span><span class="sScJk">curl</span><span class="sj4cs"> -s</span><span class="sj4cs"> -X</span><span class="sZZnC"> PUT</span><span class="sZZnC"> &quot;${</span><span class="sVt8B">UPLOAD_URL</span><span class="sZZnC">}/</span><span class="sVt8B">$FILENAME</span><span class="sZZnC">&quot;</span><span class="sj4cs"> \
+</span></span><span class="line" line="45"><span class="sj4cs">            -w</span><span class="sZZnC"> &quot;%{http_code}&quot;</span><span class="sj4cs"> \
+</span></span><span class="line" line="46"><span class="sj4cs">            --data-binary</span><span class="sZZnC"> @&quot;</span><span class="sVt8B">$image</span><span class="sZZnC">&quot;</span><span class="sj4cs"> \
+</span></span><span class="line" line="47"><span class="sj4cs">            -H</span><span class="sZZnC"> &quot;X-Custom-Auth-Key: </span><span class="sVt8B">$AUTH_TOKEN</span><span class="sZZnC">&quot;</span><span class="sj4cs"> \
+</span></span><span class="line" line="48"><span class="sj4cs">            -H</span><span class="sZZnC"> &quot;Overwrite: true&quot;</span><span class="sj4cs"> \
+</span></span><span class="line" line="49"><span class="sVt8B">        )
+</span></span><span class="line" line="50"><span class="szBVR">    else
+</span></span><span class="line" line="51"><span class="sVt8B">        UPLOAD_RESPONSE</span><span class="szBVR">=</span><span class="sVt8B">$(</span><span class="sScJk">curl</span><span class="sj4cs"> -s</span><span class="sj4cs"> -X</span><span class="sZZnC"> PUT</span><span class="sZZnC"> &quot;${</span><span class="sVt8B">UPLOAD_URL</span><span class="sZZnC">}/</span><span class="sVt8B">$FILENAME</span><span class="sZZnC">&quot;</span><span class="sj4cs"> \
+</span></span><span class="line" line="52"><span class="sj4cs">            -w</span><span class="sZZnC"> &quot;%{http_code}&quot;</span><span class="sj4cs"> \
+</span></span><span class="line" line="53"><span class="sj4cs">            --data-binary</span><span class="sZZnC"> @&quot;</span><span class="sVt8B">$image</span><span class="sZZnC">&quot;</span><span class="sj4cs"> \
+</span></span><span class="line" line="54"><span class="sj4cs">            -H</span><span class="sZZnC"> &quot;X-Custom-Auth-Key: </span><span class="sVt8B">$AUTH_TOKEN</span><span class="sZZnC">&quot;</span><span class="sj4cs"> \
+</span></span><span class="line" line="55"><span class="sVt8B">        )
+</span></span><span class="line" line="56"><span class="szBVR">    fi
+</span></span><span class="line" line="57"><span emptylineplaceholder="true">
+</span></span><span class="line" line="58"><span class="sVt8B">    UPLOAD_HTTP_CODE</span><span class="szBVR">=</span><span class="sVt8B">$(</span><span class="sj4cs">echo</span><span class="sZZnC"> &quot;</span><span class="sVt8B">$UPLOAD_RESPONSE</span><span class="sZZnC">&quot;</span><span class="szBVR"> |</span><span class="sScJk"> tail</span><span class="sj4cs"> -n1</span><span class="sVt8B">)
+</span></span><span class="line" line="59"><span class="sVt8B">    
+</span></span><span class="line" line="60"><span class="szBVR">    if</span><span class="sVt8B"> [ </span><span class="szBVR">-n</span><span class="sZZnC"> &quot;</span><span class="sVt8B">$UPLOAD_PATH</span><span class="sZZnC">&quot;</span><span class="sVt8B"> ]; </span><span class="szBVR">then
+</span></span><span class="line" line="61"><span class="sVt8B">        CDN_URL</span><span class="szBVR">=</span><span class="sZZnC">&quot;https://</span><span class="sVt8B">$CDN_HOST</span><span class="sZZnC">/</span><span class="sVt8B">$UPLOAD_PATH</span><span class="sZZnC">/</span><span class="sVt8B">$FILENAME</span><span class="sZZnC">&quot;
+</span></span><span class="line" line="62"><span class="szBVR">    else
+</span></span><span class="line" line="63"><span class="sVt8B">        CDN_URL</span><span class="szBVR">=</span><span class="sZZnC">&quot;https://</span><span class="sVt8B">$CDN_HOST</span><span class="sZZnC">/</span><span class="sVt8B">$FILENAME</span><span class="sZZnC">&quot;
+</span></span><span class="line" line="64"><span class="szBVR">    fi
+</span></span><span class="line" line="65"><span emptylineplaceholder="true">
+</span></span><span class="line" line="66"><span class="szBVR">    if</span><span class="sVt8B"> [ </span><span class="sZZnC">&quot;</span><span class="sVt8B">$UPLOAD_HTTP_CODE</span><span class="sZZnC">&quot;</span><span class="szBVR"> !=</span><span class="sZZnC"> &quot;200&quot;</span><span class="sVt8B"> ]; </span><span class="szBVR">then
+</span></span><span class="line" line="67"><span class="sj4cs">        echo</span><span class="sZZnC"> &quot;上传失败: </span><span class="sVt8B">$UPLOAD_RESPONSE</span><span class="sZZnC">&quot;
+</span></span><span class="line" line="68"><span class="szBVR">        continue
+</span></span><span class="line" line="69"><span class="szBVR">    fi
+</span></span><span class="line" line="70"><span emptylineplaceholder="true">
+</span></span><span class="line" line="71"><span class="szBVR">    if</span><span class="sVt8B"> [ </span><span class="sZZnC">&quot;</span><span class="sVt8B">$markdown</span><span class="sZZnC">&quot;</span><span class="szBVR"> =</span><span class="sj4cs"> true</span><span class="sVt8B"> ]; </span><span class="szBVR">then
+</span></span><span class="line" line="72"><span class="sj4cs">        echo</span><span class="sZZnC"> &quot;![](${</span><span class="sVt8B">CDN_URL</span><span class="sZZnC">})&quot;
+</span></span><span class="line" line="73"><span class="szBVR">    else
+</span></span><span class="line" line="74"><span class="sj4cs">        echo</span><span class="sZZnC"> &quot;${</span><span class="sVt8B">CDN_URL</span><span class="sZZnC">}&quot;
+</span></span><span class="line" line="75"><span class="szBVR">    fi
+</span></span><span class="line" line="76"><span class="szBVR">done
+</span></span></code><!--]--></pre><p><!--[-->这一次使用 Cloudflare Workers 构建的 Restful API 很有意思，使用了 <code><!--[-->GET<!--]--></code>、<code><!--[-->PUT<!--]--></code> 和 <code><!--[-->DELETE<!--]--></code> 三个请求类型。<code><!--[-->GET<!--]--></code> 请求很常见，是用来获取图片的，<code><!--[-->PUT<!--]--></code> 和 <code><!--[-->DELETE<!--]--></code> 在 web 开发就不如 <code><!--[-->GET<!--]--></code> 和 <code><!--[-->POST<!--]--></code> 常见了，这一次也是让我体会到了这两个 http verb 在 Storage Bucket 操作中是有多么形象了。<!--]--></p><ul><!--[--><li><!--[--><code><!--[-->PUT<!--]--></code> - 从直观上来讲，就是将某个文件放到目标位置<br>打个比方，我向 <code><!--[-->https://cdn.example.com/img/avatar.webp<!--]--></code> 打了一个请求，并带上了要上传的文件，那就意味着我将这个文件放到了 Storage Bucket 的 <code><!--[-->/img/avatar.webp<!--]--></code> 这个位置，所以我在上传后，应该就能用 <code><!--[-->GET<!--]--></code> 请求我刚才 <code><!--[-->PUT<!--]--></code> 的那个 URL 获取我刚才上传的东西。如果那个路径存在文件，那么默认行为是直接覆盖。<!--]--></li><li><!--[--><code><!--[-->DELETE<!--]--></code> - 删除目标路径的文件<br>和 <code><!--[-->PUT<!--]--></code> 一样，我在请求对应 URL 后，Storage Bucket 中对应 URL 路径的资源应该被删除。<!--]--></li><!--]--></ul><p><!--[--><code><!--[-->PUT<!--]--></code> 和 <code><!--[-->DELETE<!--]--></code> 这两个 Http Verb 让我们更像是在对一个真实的文件系统进行操作，而非那种传统的使用 <code><!--[-->POST<!--]--></code> 上传的图床那样，我们并不通过 POST 请求上传一个文件，然后获取资源最终被放置位置的 URL —— 我们自己决定资源被存放的位置。<!--]--></p><p><!--[-->在这个 Shell 脚本中，引入了四个可选选项<!--]--></p><pre class="language-bash shiki shiki-themes github-light github-dark" style=""><!--[--><code><span class="line" line="1"><span class="sScJk">    m</span><span class="szBVR">|</span><span class="sScJk">markdown</span><span class="sVt8B">) markdown</span><span class="szBVR">=</span><span class="sZZnC">true</span><span class="sVt8B"> ;;
+</span></span><span class="line" line="2"><span class="sScJk">    w</span><span class="szBVR">|</span><span class="sScJk">webp</span><span class="sVt8B">) webp</span><span class="szBVR">=</span><span class="sZZnC">true</span><span class="sVt8B"> ;;
+</span></span><span class="line" line="3"><span class="sScJk">    f</span><span class="szBVR">|</span><span class="sScJk">force</span><span class="sVt8B">) force</span><span class="szBVR">=</span><span class="sZZnC">true</span><span class="sVt8B"> ;;
+</span></span><span class="line" line="4"><span class="sScJk">    k</span><span class="szBVR">|</span><span class="sScJk">keep</span><span class="sVt8B">) keep</span><span class="szBVR">=</span><span class="sZZnC">true</span><span class="sVt8B"> ;;
+</span></span><span class="line" line="5"><span class="sScJk">    p</span><span class="szBVR">|</span><span class="sScJk">path</span><span class="sVt8B">) UPLOAD_PATH</span><span class="szBVR">=</span><span class="sVt8B">$OPTARG ;;
+</span></span></code><!--]--></pre><ul><!--[--><li><!--[-->markdown 选项决定返回值是否以 <code><!--[-->![]()<!--]--></code> 这种 URL 格式返回<!--]--></li><li><!--[-->webp 决定上传过程中是否将图片转为 webp 后再上传<!--]--></li><li><!--[-->force 决定如果遇到文件路径冲突，是否强制覆盖云端的文件<!--]--></li><li><!--[-->keep 决定是否保留文件原有的文件名进行上传<!--]--></li><li><!--[-->path 决定文件具体被存放的路径（或者使用默认的路径）<!--]--></li><!--]--></ul><p><!--[--><code><!--[-->HOST<!--]--></code> 是图床用于上传的地址，<code><!--[-->CDN_HOST<!--]--></code> 是图床用于被方可访问的地址。<!--]--></p><p><!--[-->由于急着用，也没考虑协程的处理方式，等等看后期有没有时间用 Python 重写吧。<!--]--></p><h2 id="博客图床迁移脚本" class="prose-heading prose-h2" data-v-a22a06c0><!--[-->博客图床迁移脚本<!--]--><a href="#博客图床迁移脚本" class="heading-anchor" aria-label="链接到此标题" data-v-a22a06c0><span class="anchor-icon" data-v-a22a06c0>#</span></a></h2><p><!--[-->因为只用一次，所以也没使用协程或者多线程的方式去上传文件——毕竟图片不多，也就两三百张。<!--]--></p><pre class="language-python shiki shiki-themes github-light github-dark" style=""><!--[--><code><span class="line" line="1"><span>import os
+</span></span><span class="line" line="2"><span>import re
+</span></span><span class="line" line="3"><span>import requests
+</span></span><span class="line" line="4"><span emptylineplaceholder="true">
+</span></span><span class="line" line="5"><span># 哪些后缀的文件需要检测是否存在老图床的 URL 并进行迁移？
+</span></span><span class="line" line="6"><span>file_extension = [
+</span></span><span class="line" line="7"><span>    &#39;.md&#39;,
+</span></span><span class="line" line="8"><span>    &#39;.yml&#39;,
+</span></span><span class="line" line="9"><span>    &#39;.html&#39;
+</span></span><span class="line" line="10"><span>]
+</span></span><span class="line" line="11"><span emptylineplaceholder="true">
+</span></span><span class="line" line="12"><span>pic_urls = []
+</span></span><span class="line" line="13"><span emptylineplaceholder="true">
+</span></span><span class="line" line="14"><span>_files = []
+</span></span><span class="line" line="15"><span emptylineplaceholder="true">
+</span></span><span class="line" line="16"><span># 用于匹配老图床的正则表达式，这里是按照 lsky pro 的格式编写的
+</span></span><span class="line" line="17"><span>pattern = r&#39;https://cdn.example.com/\d{4}/\d{2}/\d{2}/[a-z0-9]{13}\.[a-z]{3,4}&#39;
+</span></span><span class="line" line="18"><span emptylineplaceholder="true">
+</span></span><span class="line" line="19"><span># 图片的上传部分，需要先从原 url 中下载图片，在上传到新图床中，如果需要的话可以在中途转换为 webp 格式
+</span></span><span class="line" line="20"><span>def upload(url):
+</span></span><span class="line" line="21"><span>    &quot;&quot;&quot;
+</span></span><span class="line" line="22"><span>    此处的返回值应该是新的 url
+</span></span><span class="line" line="23"><span>    &quot;&quot;&quot;
+</span></span><span class="line" line="24"><span emptylineplaceholder="true">
+</span></span><span class="line" line="25"><span># 遍历目标后缀文件名的文件，如果存在老图床的 url，则将 url 加入到 pic_urls 列表中，并将这个文件的文件名（相对路径）添加到 _files 列表中
+</span></span><span class="line" line="26"><span>for root, dirs, files in os.walk(&quot;.&quot;):
+</span></span><span class="line" line="27"><span>    for file in files:
+</span></span><span class="line" line="28"><span>        if file.endswith(tuple(file_extension)):
+</span></span><span class="line" line="29"><span>            file_name = os.path.join(root, file)
+</span></span><span class="line" line="30"><span>            with open(file_name, &#39;r&#39;) as f:
+</span></span><span class="line" line="31"><span>                content = f.read()
+</span></span><span class="line" line="32"><span>            urls = re.findall(pattern, content)
+</span></span><span class="line" line="33"><span>            if urls:
+</span></span><span class="line" line="34"><span>                pic_urls.extend(urls)
+</span></span><span class="line" line="35"><span>                _files.append(file_name)
+</span></span><span class="line" line="36"><span emptylineplaceholder="true">
+</span></span><span class="line" line="37"><span># 先转为集合，再转回列表，进行去重
+</span></span><span class="line" line="38"><span>pic_urls = list(set(pic_urls))
+</span></span><span class="line" line="39"><span>print(&quot;共找到图片：&quot;, len(pic_urls))
+</span></span><span class="line" line="40"><span emptylineplaceholder="true">
+</span></span><span class="line" line="41"><span>url_dict = {}
+</span></span><span class="line" line="42"><span emptylineplaceholder="true">
+</span></span><span class="line" line="43"><span># 将列表中的图片进行上传，每张图片最多尝试三次上传，如果三次都失败，则保留原连接
+</span></span><span class="line" line="44"><span>for i,u in enumerate(pci_urls, start=1):
+</span></span><span class="line" line="45"><span>    for t in range(1,4):
+</span></span><span class="line" line="46"><span>        try:
+</span></span><span class="line" line="47"><span>            new_u = upload(u)
+</span></span><span class="line" line="48"><span>            continue
+</span></span><span class="line" line="49"><span>        except:
+</span></span><span class="line" line="50"><span>            if t == 3:
+</span></span><span class="line" line="51"><span>                new_u = u
+</span></span><span class="line" line="52"><span>                print(f&quot;{u} 无法上传：{e}&quot;)
+</span></span><span class="line" line="53"><span>    url_dict[u] = new_u
+</span></span><span class="line" line="54"><span>    print(f&quot;{i} / {len(pic_urls)}&quot;)
+</span></span><span class="line" line="55"><span emptylineplaceholder="true">
+</span></span><span class="line" line="56"><span># 对 _files 列表中的文件一一完成替换
+</span></span><span class="line" line="57"><span>for file in _files:
+</span></span><span class="line" line="58"><span>    with open(file, &#39;r&#39;) as f:
+</span></span><span class="line" line="59"><span>        content = f.read()
+</span></span><span class="line" line="60"><span>    for k, v in url_dict.items():
+</span></span><span class="line" line="61"><span>        content = content.replace(k, v)
+</span></span><span class="line" line="62"><span>    with open(file, &#39;w&#39;) as f:
+</span></span><span class="line" line="63"><span>        f.write(content)
+</span></span><span class="line" line="64"><span>    print(&quot;完成替换：&quot;, file)
+</span></span></code><!--]--></pre><style>html pre.shiki code .sJ8bj, html code.shiki .sJ8bj{--shiki-default:#6A737D;--shiki-dark:#6A737D}html pre.shiki code .sVt8B, html code.shiki .sVt8B{--shiki-default:#24292E;--shiki-dark:#E1E4E8}html pre.shiki code .szBVR, html code.shiki .szBVR{--shiki-default:#D73A49;--shiki-dark:#F97583}html pre.shiki code .sZZnC, html code.shiki .sZZnC{--shiki-default:#032F62;--shiki-dark:#9ECBFF}html pre.shiki code .sScJk, html code.shiki .sScJk{--shiki-default:#6F42C1;--shiki-dark:#B392F0}html pre.shiki code .sj4cs, html code.shiki .sj4cs{--shiki-default:#005CC5;--shiki-dark:#79B8FF}html pre.shiki code .sA_wV, html code.shiki .sA_wV{--shiki-default:#032F62;--shiki-dark:#DBEDFF}html .default .shiki span {color: var(--shiki-default);background: var(--shiki-default-bg);font-style: var(--shiki-default-font-style);font-weight: var(--shiki-default-font-weight);text-decoration: var(--shiki-default-text-decoration);}html .shiki span {color: var(--shiki-default);background: var(--shiki-default-bg);font-style: var(--shiki-default-font-style);font-weight: var(--shiki-default-font-weight);text-decoration: var(--shiki-default-text-decoration);}html .dark .shiki span {color: var(--shiki-dark);background: var(--shiki-dark-bg);font-style: var(--shiki-dark-font-style);font-weight: var(--shiki-dark-font-weight);text-decoration: var(--shiki-dark-text-decoration);}html.dark .shiki span {color: var(--shiki-dark);background: var(--shiki-dark-bg);font-style: var(--shiki-dark-font-style);font-weight: var(--shiki-dark-font-weight);text-decoration: var(--shiki-dark-text-decoration);}</style></article><nav class="post-navigation" data-v-483530c4 data-v-304034ef><a class="nav-button prev" href="/2024/08/21/self-host-cdn-expense" data-v-304034ef><div class="nav-arrow" data-v-304034ef>←</div><div class="nav-content" data-v-304034ef><span class="nav-label" data-v-304034ef>上一篇</span><span class="nav-title" data-v-304034ef>自建图床小记五——费用</span></div></a><a class="nav-button next" href="/2024/08/14/auto-renew-ssl-certificate-and-deploy-to-upyun-with-github-action" data-v-304034ef><div class="nav-content" data-v-304034ef><span class="nav-label" data-v-304034ef>下一篇</span><span class="nav-title" data-v-304034ef>自建图床小记三—— SSL 证书的自动更新与部署</span></div><div class="nav-arrow" data-v-304034ef>→</div></a></nav><hr data-v-483530c4><span data-v-483530c4></span><!--]--></main><div class="after-main side" data-v-03b6b78b><!--[--><aside data-v-483530c4><nav class="toc" data-v-483530c4 data-v-fd1537b4><div class="toc-title" data-v-fd1537b4>目录</div><ul class="toc-list" data-v-fd1537b4><!--[--><li class="toc-item toc-level-2" data-v-fd1537b4><a href="#自动上传脚本" data-v-fd1537b4>自动上传脚本</a></li><li class="toc-item toc-level-2" data-v-fd1537b4><a href="#博客图床迁移脚本" data-v-fd1537b4>博客图床迁移脚本</a></li><!--]--></ul></nav></aside><!--]--></div></div><footer style="background:url(https://static.031130.xyz/uploads/2024/08/12/62f3735851795.webp) center bottom / cover no-repeat;min-height:120px;color:white;" data-v-03b6b78b data-v-3e1fa960><div class="footer-mask" data-v-3e1fa960></div><div class="footer-content" data-v-3e1fa960>©2020 - 2025 By zhullyb</div></footer></div><!--]--></div><div id="teleports"></div><script type="application/ld+json" data-nuxt-schema-org="true" data-hid="schema-org-graph">{"@context":"https://schema.org","@graph":[{"@id":"https://zhul.in/#website","@type":"WebSite","description":"这里是我的个人博客，专注于分享技术干货、学习心得和生活感悟，涵盖前端开发、后端架构、人工智能、编程技巧、工具推荐等多个领域。我持续更新原创内容，记录成长过程中的思考与收获，致力于帮助更多开发者和技术爱好者提升技能、拓展视野。如果你对技术、产品和互联网行业感兴趣，相信你能在这里找到有价值的知识与灵感。","inLanguage":"zh-CN","name":"竹林里有冰的博客","url":"https://zhul.in/"},{"@id":"https://zhul.in/2024/08/20/picbed-upload-script-and-image-migration/#webpage","@type":"WebPage","description":"前面三篇小记分别讲述了图床的整体架构、用 Workers 构建 Restful API 和 自动更新部署 SSL 证书，这一篇c处理由此带来的图片上传问题，主要是要为 Typora 编写自动上传脚本，并为博客原有的图片进行迁移。","name":"自建图床小记四——上传脚本编写与图片迁移","url":"https://zhul.in/2024/08/20/picbed-upload-script-and-image-migration/","isPartOf":{"@id":"https://zhul.in/#website"},"potentialAction":[{"@type":"ReadAction","target":["https://zhul.in/2024/08/20/picbed-upload-script-and-image-migration/"]}]}]}</script><script type="application/json" data-nuxt-data="nuxt-app" data-ssr="true" id="__NUXT_DATA__" data-src="/2024/08/20/picbed-upload-script-and-image-migration/_payload.json?2baf0b02-cd36-4580-bb90-5f1d5a7b4495">[{"state":1,"once":14,"_errors":15,"serverRendered":12,"path":17,"prerenderedAt":18},["Reactive",2],{"$snuxt-seo-utils:routeRules":3,"$ssite-config":4},{"head":-1,"seoMeta":-1},{"_priority":5,"defaultLocale":8,"description":9,"env":10,"name":11,"trailingSlash":12,"url":13},{"name":6,"env":7,"url":6,"description":6,"defaultLocale":6,"trailingSlash":6},-3,-15,"zh-CN","这里是我的个人博客，专注于分享技术干货、学习心得和生活感悟，涵盖前端开发、后端架构、人工智能、编程技巧、工具推荐等多个领域。我持续更新原创内容，记录成长过程中的思考与收获，致力于帮助更多开发者和技术爱好者提升技能、拓展视野。如果你对技术、产品和互联网行业感兴趣，相信你能在这里找到有价值的知识与灵感。","production","竹林里有冰的博客",true,"https://zhul.in/",["Set"],["ShallowReactive",16],{"post-2024-08-20-picbed-upload-script-and-image-migration":-1,"surround-2024-08-20-picbed-upload-script-and-image-migration":-1,"randomIndex/2024/08/20/picbed-upload-script-and-image-migration":-1,"posts-search-sections":-1},"/2024/08/20/picbed-upload-script-and-image-migration",1761695680843]</script><script>window.__NUXT__={};window.__NUXT__.config={public:{content:{wsUrl:""},mdc:{components:{prose:true,map:{}},headings:{anchorLinks:{h1:false,h2:true,h3:true,h4:true,h5:false,h6:false}}},"seo-utils":{canonicalQueryWhitelist:["page","sort","filter","search","q","category","tag"],canonicalLowercase:true}},app:{baseURL:"/",buildId:"2baf0b02-cd36-4580-bb90-5f1d5a7b4495",buildAssetsDir:"/_nuxt/",cdnURL:""}}</script></body></html>

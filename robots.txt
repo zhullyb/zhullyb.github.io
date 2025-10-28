@@ -1,4 +1,6 @@
+# START nuxt-robots (indexable)
 User-agent: *
-Disallow:
+Disallow: 
 
 Sitemap: https://zhul.in/sitemap.xml
+# END nuxt-robots
