@@ -15,10 +15,10 @@
   <icon>https://static.031130.xyz/avatar.webp</icon>
   <logo>https://static.031130.xyz/avatar.webp</logo>
   <entry>
-    <id>https://zhul.in/2025/10/20/nuxt-content-v3-z-array-query-challenge</id>
+    <id>https://zhul.in/2025/10/20/nuxt-content-v3-z-array-query-challenge/</id>
     <title>Nuxt Content v3 中数组字段的筛选困境与性能优化</title>
     <updated>2025-10-20T13:52:59.000Z</updated>
-    <link href="https://zhul.in/2025/10/20/nuxt-content-v3-z-array-query-challenge" rel="alternate"></link>
+    <link href="https://zhul.in/2025/10/20/nuxt-content-v3-z-array-query-challenge/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>Nuxt Content 是 Nuxt 生态中用于处理 Markdown、YAML 等内容的强大模块。最近，我在使用 <strong>Nuxt v4 + Nuxt Content v3</strong> 重构博客（原为 Hexo）时，遇到了一个棘手的问题：v3 版本的默认查询 API <strong>并未直接提供</strong>对数组字段进行“包含”（<code>$contains</code>）操作的支持。</p>
 <p>例如，这是我的正在写的这篇博客的 Front Matter：</p>
@@ -116,10 +116,10 @@ const { data } = await useAsyncData(`tag-${route.params.tag}`, () =>
     <category term="JavaScript"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2025/10/16/how-s-mozilla-crlite-going-now</id>
+    <id>https://zhul.in/2025/10/16/how-s-mozilla-crlite-going-now/</id>
     <title>后 OCSP 时代，浏览器如何应对证书吊销新挑战</title>
     <updated>2025-10-16T07:38:50.000Z</updated>
-    <link href="https://zhul.in/2025/10/16/how-s-mozilla-crlite-going-now" rel="alternate"></link>
+    <link href="https://zhul.in/2025/10/16/how-s-mozilla-crlite-going-now/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>2023 年 8 月，CA/Browser Forum 通过了一项投票——不再强制要求 Let’s Encrypt 等公开信任的 CA 设立 OCSP Server</p>
 <p>2024 年 7 月，Let's Encrypt 发布<a href="https://letsencrypt.org/2024/07/23/replacing-ocsp-with-crls">博客</a>，披露其计划关闭 OCSP Server</p>
@@ -202,10 +202,10 @@ const { data } = await useAsyncData(`tag-${route.params.tag}`, () =>
     <category term="CRLite"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2025/09/05/first-try-of-github-action-self-hosted-runner</id>
+    <id>https://zhul.in/2025/09/05/first-try-of-github-action-self-hosted-runner/</id>
     <title>初试 Github Action Self-hosted Runner，想说爱你不容易</title>
     <updated>2025-09-04T21:54:17.000Z</updated>
-    <link href="https://zhul.in/2025/09/05/first-try-of-github-action-self-hosted-runner" rel="alternate"></link>
+    <link href="https://zhul.in/2025/09/05/first-try-of-github-action-self-hosted-runner/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>在今年八月的时候，我这边所在的一个 Github Organization 在私有项目开发阶段频繁触发 CI，耗尽了 Github 为免费计划 (Free Plan) 提供的<a href="https://docs.github.com/en/get-started/learning-about-github/githubs-plans#github-free-for-organizations">每月 2000 分钟 Action 额度</a>（所有私有仓库共享，公有仓库不计）。大致看了下，CI 流设置得是合理的，那么就要另寻他法看看有没有办法去提供更宽裕的资源，因此也就盯上了文章标题中所提到的 <a href="https://docs.github.com/en/actions/concepts/runners/self-hosted-runners">Github Action Self-hosted Runner</a>。</p>
 <p>对于这个 Self-hosted Runner，与 Github 官方提供的 runner 相比，主要有以下几个优势</p>
@@ -258,10 +258,10 @@ const { data } = await useAsyncData(`tag-${route.params.tag}`, () =>
     <category term="Experience"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2025/08/11/dns-resolve-time-destroyed-my-optimization-for-pic-cdn</id>
+    <id>https://zhul.in/2025/08/11/dns-resolve-time-destroyed-my-optimization-for-pic-cdn/</id>
     <title>DNS 解析时长毁了我精心设计的图床网络架构</title>
     <updated>2025-08-10T16:06:40.000Z</updated>
-    <link href="https://zhul.in/2025/08/11/dns-resolve-time-destroyed-my-optimization-for-pic-cdn" rel="alternate"></link>
+    <link href="https://zhul.in/2025/08/11/dns-resolve-time-destroyed-my-optimization-for-pic-cdn/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>去年夏天，我兴致勃勃地写了好几篇博文，详细讲述了我如何搭建博客图床。核心目标很明确：<strong>分地区解析 DNS</strong>，让国内外的访客都能嗖嗖地加载图片，体验拉满。想法嘛，绝对是走在技术前沿的，堪称完美！然而……现实它总是喜欢给你来点小惊喜，对吧？</p>
 <p><img src="https://static.031130.xyz/uploads/2025/08/11/26306b2a483ba.webp" alt=""></p>
@@ -322,10 +322,10 @@ const { data } = await useAsyncData(`tag-${route.params.tag}`, () =>
     <category term="Dnspod"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2025/07/13/vue-markdown-render-improvement-2</id>
+    <id>https://zhul.in/2025/07/13/vue-markdown-render-improvement-2/</id>
     <title>Vue Markdown 渲染优化实战(下)：告别 DOM 操作，拥抱 AST 与函数式渲染</title>
     <updated>2025-07-12T16:01:35.000Z</updated>
-    <link href="https://zhul.in/2025/07/13/vue-markdown-render-improvement-2" rel="alternate"></link>
+    <link href="https://zhul.in/2025/07/13/vue-markdown-render-improvement-2/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<h2>上回回顾：当 <code>morphdom</code> 遇上 Vue</h2>
 <p>在<a href="/2025/07/12/vue-markdown-render-improvement-1/">上一篇文章</a>中，我们经历了一场 Markdown 渲染的性能优化之旅。从最原始的 <code>v-html</code> 全量刷新，到按块更新，最终我们请出了 <code>morphdom</code> 这个“终极武器”。它通过直接比对和操作真实 DOM，以最小的代价更新视图，完美解决了实时渲染中的性能瓶颈和交互状态丢失问题。</p>
@@ -524,10 +524,10 @@ const markdownContent = ref('# Hello Vue\n\nThis is rendered via AST!')
     <category term="unified"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2025/07/12/vue-markdown-render-improvement-1</id>
+    <id>https://zhul.in/2025/07/12/vue-markdown-render-improvement-1/</id>
     <title>Vue Markdown 渲染优化实战(上)：从暴力刷新、分块更新到 Morphdom 的华丽变身</title>
     <updated>2025-07-12T12:48:56.000Z</updated>
-    <link href="https://zhul.in/2025/07/12/vue-markdown-render-improvement-1" rel="alternate"></link>
+    <link href="https://zhul.in/2025/07/12/vue-markdown-render-improvement-1/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<h2>需求背景</h2>
 <p>在最近接手的 AI 需求中，需要实现一个类似 ChatGPT 的对话交互界面。其核心流程是：后端通过 SSE（Server-Sent  Events）协议，持续地将 AI 生成的 Markdown 格式文本片段推送到前端。前端负责动态接收并拼接这些 Markdown  片段，最终将拼接完成的 Markdown 文本实时渲染并显示在用户界面上。</p>
@@ -685,10 +685,10 @@ onMounted(async () => {
     <category term="HTML"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2025/07/05/node-sass-migration-to-dart-sass</id>
+    <id>https://zhul.in/2025/07/05/node-sass-migration-to-dart-sass/</id>
     <title>node-sass 迁移至 dart-sass 踩坑实录</title>
     <updated>2025-07-05T09:57:02.000Z</updated>
-    <link href="https://zhul.in/2025/07/05/node-sass-migration-to-dart-sass" rel="alternate"></link>
+    <link href="https://zhul.in/2025/07/05/node-sass-migration-to-dart-sass/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<h2>更新目标</h2>
 <ul>
@@ -883,10 +883,10 @@ import path from 'path'
     <category term="JavaScript"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2025/06/08/front-end-bug-gone-when-open-devtool</id>
+    <id>https://zhul.in/2025/06/08/front-end-bug-gone-when-open-devtool/</id>
     <title>前端中的量子力学——一打开 F12 就消失的 Bug</title>
     <updated>2025-06-07T17:22:13.000Z</updated>
-    <link href="https://zhul.in/2025/06/08/front-end-bug-gone-when-open-devtool" rel="alternate"></link>
+    <link href="https://zhul.in/2025/06/08/front-end-bug-gone-when-open-devtool/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<h2>前端「量子态」现象的首次观测</h2>
 <p>这事说来也邪乎，半个月前吃着火锅唱着歌，在工位上嘎嘎写码，发现一个诡异的 bug。作为如假包换的人类程序员，写出 bug 是再正常不过的事情了，但这 bug 邪门就邪门在我一打开 F12 的 DevTools 观察相关的 dom 结构，这 bug 就自动消失了；再把 DevTools 一关，Ctrl + F5 一刷新页面，Bug 又出现了。</p>
@@ -989,10 +989,10 @@ import path from 'path'
     <category term="Debug"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2025/06/02/choosing-the-right-video-compression-format-for-web-in-2025</id>
+    <id>https://zhul.in/2025/06/02/choosing-the-right-video-compression-format-for-web-in-2025/</id>
     <title>2025 年，如何为 web 页面上展示的视频选择合适的压缩算法？</title>
     <updated>2025-06-02T12:59:10.000Z</updated>
-    <link href="https://zhul.in/2025/06/02/choosing-the-right-video-compression-format-for-web-in-2025" rel="alternate"></link>
+    <link href="https://zhul.in/2025/06/02/choosing-the-right-video-compression-format-for-web-in-2025/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>事情的起因是需要在网页上展示一个时长约为 5 分钟的产品展示视频，拿到的 H264 编码的原文件有 60MB 大。高达 1646 Kbps 码率的视频文件通过网络传输，烧 cdn 流量费用不说，对于弱网环境下的用户体验也绝对不会好。因此必须在兼顾浏览器兼容性（太好了不用管 IE）的情况下，使用更现代的视频压缩算法进行压缩。</p>
 <h2>哪些压缩算法是目前的主流？</h2>
@@ -1194,10 +1194,10 @@ import path from 'path'
     <category term="Network"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2025/05/31/el-image-and-el-table-why-the-fight-and-what-is-a-stacking-context</id>
+    <id>https://zhul.in/2025/05/31/el-image-and-el-table-why-the-fight-and-what-is-a-stacking-context/</id>
     <title>el-image 和 el-table 怎么就打架了？Stacking Context 是什么？</title>
     <updated>2025-05-30T16:29:40.000Z</updated>
-    <link href="https://zhul.in/2025/05/31/el-image-and-el-table-why-the-fight-and-what-is-a-stacking-context" rel="alternate"></link>
+    <link href="https://zhul.in/2025/05/31/el-image-and-el-table-why-the-fight-and-what-is-a-stacking-context/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>这是精弘内部的图床开发时遇到的事情，大一的小朋友反馈说 el-image 和 el-table 打架了。</p>
 <p><img src="https://static.031130.xyz/uploads/2025/05/31/c6674f6f13955.webp" alt="截图"></p>
@@ -1269,10 +1269,10 @@ import path from 'path'
     <category term="Web"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2025/04/21/how-we-copy-text-to-clipboard-with-js-in-2025</id>
+    <id>https://zhul.in/2025/04/21/how-we-copy-text-to-clipboard-with-js-in-2025/</id>
     <title>2025年，前端如何使用 JS 将文本复制到剪切板？</title>
     <updated>2025-04-21T11:48:05.000Z</updated>
-    <link href="https://zhul.in/2025/04/21/how-we-copy-text-to-clipboard-with-js-in-2025" rel="alternate"></link>
+    <link href="https://zhul.in/2025/04/21/how-we-copy-text-to-clipboard-with-js-in-2025/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<h2>基础原理</h2>
 <p>如果你尝试在搜索引擎上检索本文的标题，你搜到的文章大概会让你使用下面两个 API。<span class="heimu">我希望你用的搜索引擎不至于像某度一样灵车到 2025 年还在让你使用基于 Flash 的 ZeroClipboard 方案</span></p>
@@ -1444,10 +1444,10 @@ copy('Text');
     <category term="JavaScript"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2025/03/30/apt-upgrade-on-internal-server-via-ssh-tunnel-and-reverse-proxy</id>
+    <id>https://zhul.in/2025/03/30/apt-upgrade-on-internal-server-via-ssh-tunnel-and-reverse-proxy/</id>
     <title>ssh 拯救世界——通过 ssh 隧道在内网服务器执行 APT 更新</title>
     <updated>2025-03-30T13:45:24.000Z</updated>
-    <link href="https://zhul.in/2025/03/30/apt-upgrade-on-internal-server-via-ssh-tunnel-and-reverse-proxy" rel="alternate"></link>
+    <link href="https://zhul.in/2025/03/30/apt-upgrade-on-internal-server-via-ssh-tunnel-and-reverse-proxy/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>事情的起因是因为精弘的<a href="https://blog.cnpatrickstar.com/">前技术总监</a>抱怨学校的内网服务器无法连接外网，从而导致 apt 安装与更新异常困难，需要手动从源中下载软件包、软件包的依赖及其依赖的依赖。。。然后将这些包通过 sftp/rsync 一类的手段传到服务器上手动安装。</p>
 <p><img src="https://static.031130.xyz/uploads/2025/03/30/0447b7d64886a.webp" alt=""></p>
@@ -1514,10 +1514,10 @@ copy('Text');
     <category term="Debian"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2025/02/28/cudy-tr3000-daed-install-record</id>
+    <id>https://zhul.in/2025/02/28/cudy-tr3000-daed-install-record/</id>
     <title>Cudy TR3000 吃鹅(daed)记</title>
     <updated>2025-02-28T13:18:34.000Z</updated>
-    <link href="https://zhul.in/2025/02/28/cudy-tr3000-daed-install-record" rel="alternate"></link>
+    <link href="https://zhul.in/2025/02/28/cudy-tr3000-daed-install-record/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<h2>缘起</h2>
 <p>前不久在京东自营看到我馋了很久的 Cudy TR3000 有 ￥153 的折扣价，虽然比起 ￥130 的史低价（甚至 ￥110 的凑单史低价）还有些距离，但已经到我的可接受范围内了，于是果断下单剁手了这台我心心念念的 Cudy TR3000 迷你路由器，以此来缓解我的<span class="heimu">开学前综合症</span>（一种精神性疾病）</p>
@@ -1600,10 +1600,10 @@ copy('Text');
     <category term="ImmortalWRT"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2025/02/23/monitor-copr-build-state-with-cloudflare-workers</id>
+    <id>https://zhul.in/2025/02/23/monitor-copr-build-state-with-cloudflare-workers/</id>
     <title>使用 Cloudflare Workers 监控 Fedora Copr 构建状态</title>
     <updated>2025-02-23T04:12:53.000Z</updated>
-    <link href="https://zhul.in/2025/02/23/monitor-copr-build-state-with-cloudflare-workers" rel="alternate"></link>
+    <link href="https://zhul.in/2025/02/23/monitor-copr-build-state-with-cloudflare-workers/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<blockquote>
 <p><del>确信，是 cloudflare workers 用上瘾了</del></p>
@@ -1690,10 +1690,10 @@ copy('Text');
     <category term="Fedora"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2025/01/18/service-status-monitor-based-on-cloudflare-workers</id>
+    <id>https://zhul.in/2025/01/18/service-status-monitor-based-on-cloudflare-workers/</id>
     <title>基于 Cloudflare Workers 实现的在线服务状态检测告警系统</title>
     <updated>2025-01-17T18:00:08.000Z</updated>
-    <link href="https://zhul.in/2025/01/18/service-status-monitor-based-on-cloudflare-workers" rel="alternate"></link>
+    <link href="https://zhul.in/2025/01/18/service-status-monitor-based-on-cloudflare-workers/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<h2>起因</h2>
 <p>受一些客观因素的影响，微精弘前一阵子针对学校教务系统的数据爬取服务状态出现了非常不稳定的状态，而后端在设计初并没有考虑到异常告警机制，恰逢现任员工都身陷期末周的痛苦之中，我这种计院 Lite 专业的精弘老人就打算实现一个针对「<strong>微精弘主后端 &#x3C;->  funnel 爬虫服务 &#x3C;-> 教务系统</strong>」这一条链路的告警机制。旨在短期内（即期末周结束之前）填补微精弘的后端服务告警机制的空白，让运维人员能够及时收到并处理排查后端网络链路的异常情况，尽最大努力保证服务在线率，保障工大本科生在期末周内使用体验。</p>
@@ -1812,10 +1812,10 @@ VALUES (100, 1, 1, 0, 'initial');
     <category term="Network"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2024/12/30/tg-bot-hosted-on-cloudflare-workers</id>
+    <id>https://zhul.in/2024/12/30/tg-bot-hosted-on-cloudflare-workers/</id>
     <title>构建部署在 Cloudflare Workers 上的 TG Bot</title>
     <updated>2024-12-30T11:45:43.000Z</updated>
-    <link href="https://zhul.in/2024/12/30/tg-bot-hosted-on-cloudflare-workers" rel="alternate"></link>
+    <link href="https://zhul.in/2024/12/30/tg-bot-hosted-on-cloudflare-workers/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<h2>起因</h2>
 <p>早在去年 10 月，我就写过一篇<a href="/2023/10/29/create-b23tv-remover-bot/">《创建 b23.tv 追踪参数移除 bot》</a>。记录了部署 b23.tv 的追踪参数移除 Bot 的部署方案。其中提到的 TG Bot 随着服务器到期不再续费也一同落灰了——<strong>公益服务总是这样，开始时满腔热血，随着时间散去没有多少人能坚持投入成本，徒留下一地鸡毛。</strong></p>
@@ -1943,10 +1943,10 @@ async function b23Remover (url) {
     <category term="Cloudflare"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2024/11/19/firefox-is-the-only-mainstream-brower-doing-online-certificate-revocation-checks</id>
+    <id>https://zhul.in/2024/11/19/firefox-is-the-only-mainstream-brower-doing-online-certificate-revocation-checks/</id>
     <title>2024年，Firefox 是唯一还在坚持执行在线的 SSL 证书吊销状态检查的主流浏览器</title>
     <updated>2024-11-19T09:58:14.000Z</updated>
-    <link href="https://zhul.in/2024/11/19/firefox-is-the-only-mainstream-brower-doing-online-certificate-revocation-checks" rel="alternate"></link>
+    <link href="https://zhul.in/2024/11/19/firefox-is-the-only-mainstream-brower-doing-online-certificate-revocation-checks/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<h2>小试一下？</h2>
 <p>在开始阅读后面的内容之前，或许你可以试试看你正在使用的浏览器能不能访问下面两个链接:</p>
@@ -2073,10 +2073,10 @@ async function b23Remover (url) {
     <category term="OpenSSL"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2024/11/18/mi-ai-class-schedule-adapter-for-zjut</id>
+    <id>https://zhul.in/2024/11/18/mi-ai-class-schedule-adapter-for-zjut/</id>
     <title>小爱课程表适配不完全指北——以 ZJUT 本科正方教务系统为例</title>
     <updated>2024-11-18T13:13:56.000Z</updated>
-    <link href="https://zhul.in/2024/11/18/mi-ai-class-schedule-adapter-for-zjut" rel="alternate"></link>
+    <link href="https://zhul.in/2024/11/18/mi-ai-class-schedule-adapter-for-zjut/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<h2>写在前面</h2>
 <p>一个月前，我发现小爱课程表中针对我学校的教务系统导入系统年久失修，因此我便决定自己另立门户、独立维护一版针对 ZJUT 教务系统课表信息导入的适配项目。</p>
@@ -2350,10 +2350,10 @@ async function scheduleTimer({
     <category term="Fun"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2024/11/15/upgrade-waline-from-v2-to-v3</id>
+    <id>https://zhul.in/2024/11/15/upgrade-waline-from-v2-to-v3/</id>
     <title>将博客从 waline v2 更新到 waline v3</title>
     <updated>2024-11-15T15:49:43.000Z</updated>
-    <link href="https://zhul.in/2024/11/15/upgrade-waline-from-v2-to-v3" rel="alternate"></link>
+    <link href="https://zhul.in/2024/11/15/upgrade-waline-from-v2-to-v3/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<blockquote>
 <p>waline 更新到 V3 版本已经是九个月前的事情了，眼瞅着 hexo fluid 主题并没有带我更新的意思，我就打算自己更新到最新版，结果遇到了两个坑，写文供大家参考。</p>
@@ -2430,10 +2430,10 @@ with open('Comment.1.jsonl', 'w') as f:
     <category term="Hexo"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2024/11/01/my-config-for-fedora-kde-41</id>
+    <id>https://zhul.in/2024/11/01/my-config-for-fedora-kde-41/</id>
     <title>给家里云装上 Fedora 41 KDE 后，我是如何配置的</title>
     <updated>2024-11-01T15:35:08.000Z</updated>
-    <link href="https://zhul.in/2024/11/01/my-config-for-fedora-kde-41" rel="alternate"></link>
+    <link href="https://zhul.in/2024/11/01/my-config-for-fedora-kde-41/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<blockquote>
 <p>前两天给自己的 N100 小主机重装成了最近发布的 Fedora 41 ( KDE )，也是花了不少时间把整个系统调成自己熟悉的样子，因此开一篇博客记录一下。以下仅为我个人的 HomeServer 小主机使用，不具有普适性。</p>
@@ -2568,10 +2568,10 @@ sudo dnf install code
     <category term="笔记"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2024/10/23/follow-cert-for-hexo-feed</id>
+    <id>https://zhul.in/2024/10/23/follow-cert-for-hexo-feed/</id>
     <title>为 Hexo 添加 follow 认证</title>
     <updated>2024-10-23T15:11:32.000Z</updated>
-    <link href="https://zhul.in/2024/10/23/follow-cert-for-hexo-feed" rel="alternate"></link>
+    <link href="https://zhul.in/2024/10/23/follow-cert-for-hexo-feed/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<h2>前言</h2>
 <p>Follow 从今天开始不需要邀请码就可以开始使用部分功能了，除了只能订阅五个订阅源、成就系统没开放、签到不能获得 power 以外，还有部分功能没有解锁（如下图）</p>
@@ -2647,10 +2647,10 @@ sudo dnf install code
     <category term="Follow"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2024/10/12/use-gpt-to-review-waline-comments</id>
+    <id>https://zhul.in/2024/10/12/use-gpt-to-review-waline-comments/</id>
     <title>使用 GPT 对 waline 的评论进行审查</title>
     <updated>2024-10-12T08:11:06.000Z</updated>
-    <link href="https://zhul.in/2024/10/12/use-gpt-to-review-waline-comments" rel="alternate"></link>
+    <link href="https://zhul.in/2024/10/12/use-gpt-to-review-waline-comments/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>前一阵子收到了这么一条来自 waline 的评论提醒。</p>
 <blockquote>
@@ -2804,10 +2804,10 @@ module.exports = Waline({
     <category term="GPT"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2024/09/25/random-banner-backgroud-image-implement-for-hexo-fluid-with-javascript</id>
+    <id>https://zhul.in/2024/09/25/random-banner-backgroud-image-implement-for-hexo-fluid-with-javascript/</id>
     <title>基于 JavaScript 的 Hexo Fluid 主题 banner 随机背景图实现</title>
     <updated>2024-09-24T16:00:42.000Z</updated>
-    <link href="https://zhul.in/2024/09/25/random-banner-backgroud-image-implement-for-hexo-fluid-with-javascript" rel="alternate"></link>
+    <link href="https://zhul.in/2024/09/25/random-banner-backgroud-image-implement-for-hexo-fluid-with-javascript/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<h2>为什么要换掉随机图片 API</h2>
 <p>因为 API 太慢了。根据 <a href="https://pagespeed.web.dev/">PageSpeed</a> 的测速，使用 API 的图片加载时间来到了整整 2.5s，这似乎有些不可忍受。</p>
@@ -2875,10 +2875,10 @@ banner.style.background = `url(${luck_img}) center center / cover no-repeat`
     <category term="Hexo"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2024/09/24/log-last-water-boiling-water-with-sunlogin-adapter-power-consumption</id>
+    <id>https://zhul.in/2024/09/24/log-last-water-boiling-water-with-sunlogin-adapter-power-consumption/</id>
     <title>使用向日葵智能插座 C2 用电记录推算宿舍上次烧水时间</title>
     <updated>2024-09-23T21:17:47.000Z</updated>
-    <link href="https://zhul.in/2024/09/24/log-last-water-boiling-water-with-sunlogin-adapter-power-consumption" rel="alternate"></link>
+    <link href="https://zhul.in/2024/09/24/log-last-water-boiling-water-with-sunlogin-adapter-power-consumption/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>我宿舍里入口处有一张公用的桌子，上面有一个烧水壶。根据生活经验，当用手摸烧水壶外壳能感受到明显热量时，水壶内的水大概是两小时内烧的，绝对能喝；但如果用手摸烧水壶外壳感受不到明显热量时，水壶内的水就不知道是什么时候烧的了，可能是三小时前，也可能是三天前。此时，在不寻求外部科学仪器介入的情况下，唯一能做的是询问寝室成员上一次水是谁烧的，是什么时候烧的。但寝室成员并不总是能够及时回答，可能在睡觉，也可能不在寝室里，<del>还有可能出现记忆错乱。</del></p>
 <p>因此，<strong>我们需要一种可靠的方案获取上一次烧水时间。</strong></p>
@@ -2940,10 +2940,10 @@ banner.style.background = `url(${luck_img}) center center / cover no-repeat`
     <category term="Bot"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2024/09/21/how-to-reverse-proxy-dockerhub-with-caddy</id>
+    <id>https://zhul.in/2024/09/21/how-to-reverse-proxy-dockerhub-with-caddy/</id>
     <title>使用 Caddy 反向代理 dockerhub 需要几步？</title>
     <updated>2024-09-20T17:29:17.000Z</updated>
-    <link href="https://zhul.in/2024/09/21/how-to-reverse-proxy-dockerhub-with-caddy" rel="alternate"></link>
+    <link href="https://zhul.in/2024/09/21/how-to-reverse-proxy-dockerhub-with-caddy/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>几个月前，由于众所周知的原因，中国大陆境内失去了所有公共的 dockerhub 镜像（或者说是反代）。网上随即涌现了一批自建 dockerhub 反代的，有用 Cloudflare Workers 的，也有用 nginx 的，甚至还有自建 registry 的。</p>
 <p>我使用 caddy 去反代 dockerhub 的原因很简单，一是配置简单，二是通过一台国内访问质量良好的境外服务器进行反向代理的访问质量会比 Cloudflare 减速器好很多。</p>
@@ -3037,10 +3037,10 @@ sudo systemctl restart docker
     <category term="Linux"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2024/09/20/migrate-rustdesk-server-from-arch-to-debian</id>
+    <id>https://zhul.in/2024/09/20/migrate-rustdesk-server-from-arch-to-debian/</id>
     <title>将 Rustdesk 中继服务从 Arch Linux 迁移至 Debian</title>
     <updated>2024-09-19T19:20:38.000Z</updated>
-    <link href="https://zhul.in/2024/09/20/migrate-rustdesk-server-from-arch-to-debian" rel="alternate"></link>
+    <link href="https://zhul.in/2024/09/20/migrate-rustdesk-server-from-arch-to-debian/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>这次迁移主要是两方面原因，一来是我安装了 Arch Linux 的 VPS 要过期了，续费价格过高，没有续费的动力；二来是手上的 VPS 越来越多，逐渐意识到 Arch Linux 作为滚动发行版，每次安装新的软件都要 Syu 甚至重启系统，实在没有太多的精力去维护，这也是为什么 Arch Linux 仅适合桌面发行版。</p>
 <p>原本在 Arch Linux 上部署的 rustdesk server 我是按照这篇文章「<a href="https://www.liyp.cc/archives/1698241638248">(水文)在archlinux上部署rustdesk服务端</a>」部署的。本身没什么技巧，直接从 AUR 安装现成的 rustdesk-server-bin，使用 systemctl 启用 <code>rustdesk-server-hbbr.service</code> 和 <code>rustdesk-server-hbbs.service</code> 两个服务即可。</p>
@@ -3107,10 +3107,10 @@ rm $hbbr_deb $hbbs_deb $utils_deb
     <category term="Linux"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2024/08/21/self-host-cdn-expense</id>
+    <id>https://zhul.in/2024/08/21/self-host-cdn-expense/</id>
     <title>自建图床小记五——费用</title>
     <updated>2024-08-20T16:05:15.000Z</updated>
-    <link href="https://zhul.in/2024/08/21/self-host-cdn-expense" rel="alternate"></link>
+    <link href="https://zhul.in/2024/08/21/self-host-cdn-expense/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>自建的图床自 8 月 13 日正式启用以来，已经过去一周多了，具体的费用是多少呢？原先设计的 0 额外投入有没有实现呢？</p>
 <p><img src="https://static.031130.xyz/uploads/2024/08/21/74605f0ef84a9.webp" alt="博客访问统计"></p>
@@ -3133,10 +3133,10 @@ rm $hbbr_deb $hbbs_deb $utils_deb
     <category term="CDN"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2024/08/20/picbed-upload-script-and-image-migration</id>
+    <id>https://zhul.in/2024/08/20/picbed-upload-script-and-image-migration/</id>
     <title>自建图床小记四——上传脚本编写与图片迁移</title>
     <updated>2024-08-20T15:12:30.000Z</updated>
-    <link href="https://zhul.in/2024/08/20/picbed-upload-script-and-image-migration" rel="alternate"></link>
+    <link href="https://zhul.in/2024/08/20/picbed-upload-script-and-image-migration/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>前面三篇小记分别讲述了<a href="/2024/08/12/new-picbed-based-on-cloudflare-and-upyun/">图床的整体架构</a>、<a href="/2024/08/13/build-restful-api-for-cloudflare-r2-with-cloudflare-workers/">用 Workers 构建 Restful API</a> 和 <a href="/2024/08/14/auto-renew-ssl-certificate-and-deploy-to-upyun-with-github-action/">自动更新部署 SSL 证书</a>，这一篇c处理由此带来的图片上传问题，主要是要为 Typora 编写自动上传脚本，并为博客原有的图片进行迁移。</p>
 <h2>自动上传脚本</h2>
@@ -3328,10 +3328,10 @@ for file in _files:
     <category term="Shell Script"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2024/08/14/auto-renew-ssl-certificate-and-deploy-to-upyun-with-github-action</id>
+    <id>https://zhul.in/2024/08/14/auto-renew-ssl-certificate-and-deploy-to-upyun-with-github-action/</id>
     <title>自建图床小记三—— SSL 证书的自动更新与部署</title>
     <updated>2024-08-14T02:35:18.000Z</updated>
-    <link href="https://zhul.in/2024/08/14/auto-renew-ssl-certificate-and-deploy-to-upyun-with-github-action" rel="alternate"></link>
+    <link href="https://zhul.in/2024/08/14/auto-renew-ssl-certificate-and-deploy-to-upyun-with-github-action/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<h2>为什么要自动更新？</h2>
 <p>众所周知，为站点开启 https 访问需要获得对应 host 的 ssl 证书，而如果希望证书被访客的浏览器所信任，需要拿到由 Certificate Authority (CA) 签发的 ssl 证书。在前一阵子那波 BAT 等大厂提供的云服务停止发放免费的由 TrustAsia/DigiCert 签发的一年有效期免费 ssl 证书之后，市面上已经没有被广泛信任的 CA 签发的免费的一年有效期的 ssl 证书了，于是不得不用回由 Let's Encrypt/ZeroSSL 等 CA 签发三个月免费证书。</p>
@@ -3434,10 +3434,10 @@ export CF_Zone_ID=""
     <category term="图床"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2024/08/13/build-restful-api-for-cloudflare-r2-with-cloudflare-workers</id>
+    <id>https://zhul.in/2024/08/13/build-restful-api-for-cloudflare-r2-with-cloudflare-workers/</id>
     <title>自建图床小记二——使用 Workers 为 R2 构建 Restful API</title>
     <updated>2024-08-13T14:58:26.000Z</updated>
-    <link href="https://zhul.in/2024/08/13/build-restful-api-for-cloudflare-r2-with-cloudflare-workers" rel="alternate"></link>
+    <link href="https://zhul.in/2024/08/13/build-restful-api-for-cloudflare-r2-with-cloudflare-workers/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<h2>访问 R2 的两种方式</h2>
 <p>一般来说，想要访问 Cloudflare R2 中的文件，会有两种方式。</p>
@@ -3612,10 +3612,10 @@ requests.delete(
     <category term="Python"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2024/08/12/new-picbed-based-on-cloudflare-and-upyun</id>
+    <id>https://zhul.in/2024/08/12/new-picbed-based-on-cloudflare-and-upyun/</id>
     <title>自建图床小记一——图床架构与 DNS 解析</title>
     <updated>2024-08-12T09:07:11.000Z</updated>
-    <link href="https://zhul.in/2024/08/12/new-picbed-based-on-cloudflare-and-upyun" rel="alternate"></link>
+    <link href="https://zhul.in/2024/08/12/new-picbed-based-on-cloudflare-and-upyun/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<blockquote>
 <p>一直以来，我使用的都是使用付费的第三方图床，可惜最近几年为了节省成本，境内的稳定性出现了一些问题。过去一年中光是我本人遇到的无法访问的情况就有三四次，其中两次持续时间超过 2 小时，甚至有网友特意来 at 我告知我博客使用的图床出问题了，还有两次是在我作品验收前 24 小时内出现，幸亏我及时切换了资源链接。此外，境外 CDN 也从原先的 Cloudflare 换掉了，目前海外的解析结果似乎只有一个在美国的节点，其余地区（尤其是日本香港新加坡等常用的落地地区）的访问质量不佳，Google 的 page speed test 甚至提示我的图片拖慢了网站加载速度。</p>
@@ -3672,10 +3672,10 @@ requests.delete(
     <category term="Cloudflare"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2024/07/31/capture-android-https-traffic-on-linux-with-mitmproxy</id>
+    <id>https://zhul.in/2024/07/31/capture-android-https-traffic-on-linux-with-mitmproxy/</id>
     <title>在 Linux 下使用 mitmproxy 抓取安卓手机上的 HTTPS 流量</title>
     <updated>2024-07-31T08:02:28.000Z</updated>
-    <link href="https://zhul.in/2024/07/31/capture-android-https-traffic-on-linux-with-mitmproxy" rel="alternate"></link>
+    <link href="https://zhul.in/2024/07/31/capture-android-https-traffic-on-linux-with-mitmproxy/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>纵使安卓下有小黄鸟 HttpCanary 这种抓包神器，但手机一块 6 英寸的小屏实在是不方便分析流量情况，还得是 PC 的屏幕更大一些，处理起流量信息来更得心应手一些。</p>
 <p>把话说在前面，目前的安卓抓包有不小的限制</p>
@@ -3745,10 +3745,10 @@ docker0          DOWN           172.17.0.1/16 fe80::42:d1ff:febe:d513/64
     <category term="Android"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2024/07/22/enable-ac-power-loss-for-jumper-n100</id>
+    <id>https://zhul.in/2024/07/22/enable-ac-power-loss-for-jumper-n100/</id>
     <title>为中柏 N100 小主机开启来电自启</title>
     <updated>2024-07-22T15:31:51.000Z</updated>
-    <link href="https://zhul.in/2024/07/22/enable-ac-power-loss-for-jumper-n100" rel="alternate"></link>
+    <link href="https://zhul.in/2024/07/22/enable-ac-power-loss-for-jumper-n100/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>因为收到通知，寝室过两天要断电 20 分钟，所以需要打开 N100 家里云的来电自启功能。</p>
 <p>正常关机短暂等待数秒后，开机，狂按 Delete 键进入 BIOS。</p>
@@ -3773,10 +3773,10 @@ docker0          DOWN           172.17.0.1/16 fe80::42:d1ff:febe:d513/64
     <category term="笔记"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2024/07/18/my-blog-is-completely-proxied-and-translated-into-traditional-chinese</id>
+    <id>https://zhul.in/2024/07/18/my-blog-is-completely-proxied-and-translated-into-traditional-chinese/</id>
     <title>我的博客被完整地反向代理，并自动翻译成了繁体中文</title>
     <updated>2024-07-18T03:22:37.000Z</updated>
-    <link href="https://zhul.in/2024/07/18/my-blog-is-completely-proxied-and-translated-into-traditional-chinese" rel="alternate"></link>
+    <link href="https://zhul.in/2024/07/18/my-blog-is-completely-proxied-and-translated-into-traditional-chinese/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<h2>2024.08.20更新</h2>
 <p>我将境外的 Github Pages 解析停了，所有流量全部指向我的 HK 的 vps。</p>
@@ -3903,10 +3903,10 @@ module.exports = Application({
     <category term="umami"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2024/07/15/try-ssh-connection-in-fedora-copr</id>
+    <id>https://zhul.in/2024/07/15/try-ssh-connection-in-fedora-copr/</id>
     <title>尝试体验 Fedora COPR 中的 allow SSH 功能</title>
     <updated>2024-07-15T03:14:12.000Z</updated>
-    <link href="https://zhul.in/2024/07/15/try-ssh-connection-in-fedora-copr" rel="alternate"></link>
+    <link href="https://zhul.in/2024/07/15/try-ssh-connection-in-fedora-copr/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>在今年的早些时候，我在 COPR 看到了一个新出现的名为「allow SSH」的按钮。</p>
 <p><img src="https://static.031130.xyz/uploads/2024/08/12/6694949de2921.webp" alt=""></p>
@@ -3961,10 +3961,10 @@ module.exports = Application({
     <category term="Linux"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2024/07/14/config-hp-laser-103w-printer-for-archlinux</id>
+    <id>https://zhul.in/2024/07/14/config-hp-laser-103w-printer-for-archlinux/</id>
     <title>在 Arch Linux 下配置使用 HP Laser 103w 打印机无线打印</title>
     <updated>2024-07-14T10:30:33.000Z</updated>
-    <link href="https://zhul.in/2024/07/14/config-hp-laser-103w-printer-for-archlinux" rel="alternate"></link>
+    <link href="https://zhul.in/2024/07/14/config-hp-laser-103w-printer-for-archlinux/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>我寝室有一台使用 wifi 连接的 HP Laser 103w 打印机，这些天刚好布置了新的 HomeServer，因此来记录一下这台打印机的配置过程，根据 HP 官网驱动包的名字「HP Laser 100 and HP Color Laser 150 Printer series Print Driver」推断，此过程应该能适用于所有的 HP Laser 100 及 HP Color Laser 150 系列的打印机。</p>
 <h2>打印机联网</h2>
@@ -4018,10 +4018,10 @@ systemctl enable cups.socket
     <category term="笔记"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2024/06/30/dynamic-public-ip-and-ddns-for-rustdesk</id>
+    <id>https://zhul.in/2024/06/30/dynamic-public-ip-and-ddns-for-rustdesk/</id>
     <title>使用动态公网 ip + ddns 实现 rustdesk 的 ip 直连</title>
     <updated>2024-06-30T10:15:00.000Z</updated>
-    <link href="https://zhul.in/2024/06/30/dynamic-public-ip-and-ddns-for-rustdesk" rel="alternate"></link>
+    <link href="https://zhul.in/2024/06/30/dynamic-public-ip-and-ddns-for-rustdesk/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>最近跟风整了一台 n100 的迷你主机装了个 Archlinux 当 HomeServer，搭配上了显卡欺骗器，平常一直远程使用，因此需要实现稳定的远程桌面连接。开源软件 Rustdesk 本身对 Linux 的适配尚可，可惜官方提供的服务器位于境外，且前一阵子因为诈骗相关的风波使得官方对连接做出了一些限制，应当使用自建服务器或者 ip 直连。</p>
 <p>单从网络安全的角度出发，最佳实践应该是通过 wireguard 或者别的协议先接入局域网，然后使用局域网内的 ip 直连，这是最稳妥的，但我有点懒，而且我可能会在多个设备上都有控制 HomeServer 的需求，给所有设备配置 wireguard 是一件挺麻烦的事情，因此我决定放弃安全性，直接公网裸奔。</p>
@@ -4060,10 +4060,10 @@ systemctl enable cups.socket
     <category term="HomeServer"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2024/05/23/setup-network-environment-for-non-linux-vpn-client-with-virtual-machine</id>
+    <id>https://zhul.in/2024/05/23/setup-network-environment-for-non-linux-vpn-client-with-virtual-machine/</id>
     <title>使用 Windows 虚拟机运行虚拟专用网客户端为 Linux 提供内网环境</title>
     <updated>2024-05-22T17:07:44.000Z</updated>
-    <link href="https://zhul.in/2024/05/23/setup-network-environment-for-non-linux-vpn-client-with-virtual-machine" rel="alternate"></link>
+    <link href="https://zhul.in/2024/05/23/setup-network-environment-for-non-linux-vpn-client-with-virtual-machine/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<h2>起因</h2>
 <p>最近在某家公司实习，公司内部的 git 部署在内网环境上，需要通过虚拟专用网的客户端（天翼云的 AONE）才能够正常访问。很可惜，客户端只提供了 Windows 和 MacOS 的版本。</p>
@@ -4101,10 +4101,10 @@ systemctl enable cups.socket
     <category term="Network"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2024/05/03/open-rpmbuild-in-the-way-of-archlinux-makepkg</id>
+    <id>https://zhul.in/2024/05/03/open-rpmbuild-in-the-way-of-archlinux-makepkg/</id>
     <title>以 Archlinux 中 makepkg 的方式打开 rpmbuild</title>
     <updated>2024-05-03T14:48:39.000Z</updated>
-    <link href="https://zhul.in/2024/05/03/open-rpmbuild-in-the-way-of-archlinux-makepkg" rel="alternate"></link>
+    <link href="https://zhul.in/2024/05/03/open-rpmbuild-in-the-way-of-archlinux-makepkg/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>在 Redhat 系的发行版上打包软件的时候，会发现与 Archlinux 完全不同的思路。</p>
 <p>Fedora 所代表的 Redhat 阵营一看就是那种宏大叙事的大型发行版，rpmbuild 在默认情况下会在 $HOME/rpmbuild 下的一系列文件夹进行构建过程。使用 <code>rpmdev-setuptree</code> 命令会创建好下面这些目录进行构建。</p>
@@ -4180,10 +4180,10 @@ repo
     <category term="Linux"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2024/04/29/update-a-rpm-spec-by-github-action</id>
+    <id>https://zhul.in/2024/04/29/update-a-rpm-spec-by-github-action/</id>
     <title>使用 Github Action 更新用于 rpm 打包的 spec 文件</title>
     <updated>2024-04-29T11:19:54.000Z</updated>
-    <link href="https://zhul.in/2024/04/29/update-a-rpm-spec-by-github-action" rel="alternate"></link>
+    <link href="https://zhul.in/2024/04/29/update-a-rpm-spec-by-github-action/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>有一些软件包的上游本身就是使用 Github Action 发版的，每次 commit 都会触发 Github Action 去构建并分发新版本，使用构建时的时间日期作为版本号。针对这种包，手动更新费时费力，而规范的 specfile 应当是更新 <code>%changelog</code> 的，因此应当是使用 rpmdev-bumpspec 命令。只不过 rpmdev-bumpspec 需要在 rpm 系发行版或者装有 rpm 系列依赖包的发行版下执行，这不是随随便便一个 Linux 环境就能运行的。</p>
 <p>我找到了 <a href="https://github.com/netoarmando/rpmdev-bumpspec-action">netoarmando/rpmdev-bumpspec-action</a> 这个 Github Action，它通过启动一个 Fedora 的 docker 实现了使用 rpmdev-bumpspec 的效果。虽然 release 中只有一个 2021 年构建的 v1 版本，~~但 Fedora 的版本高低不影响 rpmdev-bumpspec 的效果。~~但每次 Github Action 执行时都会使用 fedora:latest 的 docker 重新构建一遍，不用担心 fedora 版本过低。</p>
@@ -4245,10 +4245,10 @@ repo
     <category term="Github Action"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2024/04/24/generate-gantt-chart-with-python</id>
+    <id>https://zhul.in/2024/04/24/generate-gantt-chart-with-python/</id>
     <title>使用 Python 生成甘特图(Gantt Chart)</title>
     <updated>2024-04-24T04:02:58.000Z</updated>
-    <link href="https://zhul.in/2024/04/24/generate-gantt-chart-with-python" rel="alternate"></link>
+    <link href="https://zhul.in/2024/04/24/generate-gantt-chart-with-python/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>在写操作系统的作业的时候有几道题给出了几个进程的相关信息，要求我们画出几种简单调度的甘特图。操作系统的作业一直是电子版，上传 pdf 即可的。我觉得手画甘特图拍照嵌入 pdf 中不太优雅，过于掉价，因此就想直接生成甘特图嵌入。</p>
 <p>在谷歌搜寻了一番，我发现现在的甘特图生成网站都太现代化了，根本不是操作系统课上教的样子了。</p>
@@ -4299,10 +4299,10 @@ gantt(category_names, results, arrival_t).show()
     <category term="Python"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2024/04/01/image-preload-in-uniapp</id>
+    <id>https://zhul.in/2024/04/01/image-preload-in-uniapp/</id>
     <title>uniapp 中的图片预加载</title>
     <updated>2024-03-31T21:31:25.000Z</updated>
-    <link href="https://zhul.in/2024/04/01/image-preload-in-uniapp" rel="alternate"></link>
+    <link href="https://zhul.in/2024/04/01/image-preload-in-uniapp/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>最近在做微信小程序的时候遇到了图片资源过大无法正常打包的问题，没什么太好的方法，只能是使用图床托管这些图片资源。但部分图片的体积实在太大，即使是采用了境内 cdn 的图床，即使是采用 webp 对图片进行了压缩，部分图片都需要小几秒去把图片加载出来，这导致的用户体验就不是很好了，因此我们需要实现图片预加载的功能。</p>
 <hr>
@@ -4350,10 +4350,10 @@ const imageToPreload = [
     <category term="JavaScript"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2024/03/13/try-to-compose-download-links-of-deb-packages-in-apt-repository</id>
+    <id>https://zhul.in/2024/03/13/try-to-compose-download-links-of-deb-packages-in-apt-repository/</id>
     <title>小记 - 尝试拼凑出 apt 仓库中的 deb 包下载地址</title>
     <updated>2024-03-13T13:55:04.000Z</updated>
-    <link href="https://zhul.in/2024/03/13/try-to-compose-download-links-of-deb-packages-in-apt-repository" rel="alternate"></link>
+    <link href="https://zhul.in/2024/03/13/try-to-compose-download-links-of-deb-packages-in-apt-repository/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>大概一周前，有一个来源不明的 Linux 微信，从包的结构来看是基于 qt 实现的图形化界面，deb 包中的 control 信息表明是腾讯团队官方出品的。今天听人说 UOS 的商店上架了最新的微信，便尝试从 UOS 的官方仓库提取下载链接，帮助 AUR Maintainer 获取到新的地址。</p>
 <p>在我的<a href="https://zhul.in/2021/11/20/what-is-deepin-elf-verify/">《deepin-elf-verify究竟是何物？》</a>这篇文章中，我成功从 uos.deepin.cn 下载到了来自 UOS 中的软件包。可惜，当我采用同样的方法搜索 weixin 或者 wechat 字样时，没有得到任何结果。</p>
@@ -4399,10 +4399,10 @@ const imageToPreload = [
     <category term="deepin"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2024/02/29/capture-https-traffic-on-linux-with-mitmproxy</id>
+    <id>https://zhul.in/2024/02/29/capture-https-traffic-on-linux-with-mitmproxy/</id>
     <title>在 Linux 下使用 mitmproxy 抓取 HTTPS 流量</title>
     <updated>2024-02-29T14:03:58.000Z</updated>
-    <link href="https://zhul.in/2024/02/29/capture-https-traffic-on-linux-with-mitmproxy" rel="alternate"></link>
+    <link href="https://zhul.in/2024/02/29/capture-https-traffic-on-linux-with-mitmproxy/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>作为部分 AUR Package 的 maintainer，一直以来我都有在 Linux 下抓取 https 流量的需求，比如抓取应用内的更新检测时访问的 url 地址。之前一直没有空去研究，趁着最近课少，总算是完成了这个目标。</p>
 <p>在这里我使用的 mitmproxy，基于 python 和 webui 的一款开源简洁的流量代理软件，可以用于抓取 https 流量信息。</p>
@@ -4487,10 +4487,10 @@ Please refer to the update-ca-trust(8) manual page for additional information.
     <category term="mitmproxy"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2024/02/11/how-to-deploy-onemanager-with-docker</id>
+    <id>https://zhul.in/2024/02/11/how-to-deploy-onemanager-with-docker/</id>
     <title>如何使用 docker 部署 onemanager</title>
     <updated>2024-02-11T08:30:29.000Z</updated>
-    <link href="https://zhul.in/2024/02/11/how-to-deploy-onemanager-with-docker" rel="alternate"></link>
+    <link href="https://zhul.in/2024/02/11/how-to-deploy-onemanager-with-docker/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<hr>
 <h2>部署方法</h2>
@@ -4538,10 +4538,10 @@ RUN chown -R www-data:www-data /var/www/html
     <category term="Docker"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2024/02/08/extra-usage-for-crontab</id>
+    <id>https://zhul.in/2024/02/08/extra-usage-for-crontab/</id>
     <title>crontab 中简单的@语法糖</title>
     <updated>2024-02-08T09:21:31.000Z</updated>
-    <link href="https://zhul.in/2024/02/08/extra-usage-for-crontab" rel="alternate"></link>
+    <link href="https://zhul.in/2024/02/08/extra-usage-for-crontab/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>说来惭愧，其实我用了这么久的 Linux，一直没有学会编写 crontab 脚本。一行的开头写上五位莫名其妙的数字或星号，后面跟上需要执行的命令，看上去很 kiss，<del>但我确实记不住，以至于我现在每次写 crontab 都是让 ChatGPT 来帮我写。</del></p>
 <p>不过我最近查阅 Linux 下设置开机自启脚本的方案的时候，意外地看到 crontab 中居然可以用 <code>@reboot command</code> 的方式去写，这让我意识到 crontab 也是有一些简单的语法糖的。在查阅了 <a href="https://man.archlinux.org/man/crontab.5.en#EXTENSIONS">crontab 的 manual</a> 后，我发现一共有下面这么几种 @ 写法的语法糖。这是在全网大部分的 crontab 中文教程中是没有的。</p>
@@ -4606,10 +4606,10 @@ RUN chown -R www-data:www-data /var/www/html
     <category term="crontab"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2024/02/01/backup-umami-database-and-send-it-by-tg-bot</id>
+    <id>https://zhul.in/2024/02/01/backup-umami-database-and-send-it-by-tg-bot/</id>
     <title>备份 umami 数据库，并使用 TG Bot 保存 dump 文件</title>
     <updated>2024-01-31T16:00:01.000Z</updated>
-    <link href="https://zhul.in/2024/02/01/backup-umami-database-and-send-it-by-tg-bot" rel="alternate"></link>
+    <link href="https://zhul.in/2024/02/01/backup-umami-database-and-send-it-by-tg-bot/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>前一阵子看到点墨的博客<a href="https://blog.m-l.cc/2023/11/09/ding-shi-bei-fen-mysql-mariadb-shu-ju-ku-bing-shang-chuan-zhi-tgbot/">「定时备份mysql/mariadb数据库并上传至tgbot」</a>，我意识到个人站点的数据库 dump 使用 TG Bot 存放是一个非常合适的做法。个人站点的数据库体积本身就不大，TG Bot 又有官方提供的 api，非常适合自动化任务。我就寻思着给我的 umami 数据库也写个定时任务备份一下，也不至于之前做一次迁移数据全部爆炸的悲剧重演。</p>
 <p>我的 umami 是<a href="/2022/11/08/free-umami-deploy-plan/">「使用 vercel+supabase 免费部署 umami」</a>部署出来的，数据库在 supabase 上，因此我们先打开 supabase 的 dashboard，获取到数据库的 url。</p>
@@ -4658,10 +4658,10 @@ apt install postgresql-client
     <category term="Bot"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2024/01/14/where-does-this-refer-in-arrow-function-in-js</id>
+    <id>https://zhul.in/2024/01/14/where-does-this-refer-in-arrow-function-in-js/</id>
     <title>在 JavaScript 中，箭头函数中的 this 指针到底指向哪里？</title>
     <updated>2024-01-13T18:50:03.000Z</updated>
-    <link href="https://zhul.in/2024/01/14/where-does-this-refer-in-arrow-function-in-js" rel="alternate"></link>
+    <link href="https://zhul.in/2024/01/14/where-does-this-refer-in-arrow-function-in-js/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>这学期期末复习的时候，学校里负责上 JavaScript 的老师给我们提出了一个问题。下面这段代码中，<code>a.u2()</code> 在 ES Module 下执行会抛出 TypeError 的异常，在 CommonJS 下运行则会输出 undefined，而 B 这个类的 u2 函数则能够在对象实例化以后正常运行。</p>
 <pre><code class="language-javascript">const a = {
@@ -4721,10 +4721,10 @@ new b().u2()
     <category term="JavaScript"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2024/01/10/cors-when-using-splited-frontend-and-backend</id>
+    <id>https://zhul.in/2024/01/10/cors-when-using-splited-frontend-and-backend/</id>
     <title>结合 Vue.js 与 php 完成的 web 期末大作业，讲讲前后端分离站点开发与部署中可能遇到的 CORS 跨域问题</title>
     <updated>2024-01-10T15:55:36.000Z</updated>
-    <link href="https://zhul.in/2024/01/10/cors-when-using-splited-frontend-and-backend" rel="alternate"></link>
+    <link href="https://zhul.in/2024/01/10/cors-when-using-splited-frontend-and-backend/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>在<a href="/2023/12/27/php-and-vuejs-project-deploy-on-caddy/">上一篇博客</a>中，我讲到了 web 期末大作业的上云部署。整个项目是使用 Vue.js 作为前端，php 作为后端，mysql 作为数据库实现的。</p>
 <p>在使用 Vue.js 开发前端界面时，我选择了使用 vite 脚手架帮助开发，这意味着我的作品将使用前后端分离的架构实现。因此在开发部署过程中均遇到了跨域的问题，故写下这篇博客记录下解决方案。</p>
@@ -4798,10 +4798,10 @@ new b().u2()
     <category term="Web"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2023/12/27/php-and-vuejs-project-deploy-on-caddy</id>
+    <id>https://zhul.in/2023/12/27/php-and-vuejs-project-deploy-on-caddy/</id>
     <title>vuejs、php、caddy 与 docker —— web 期末大作业上云部署</title>
     <updated>2023-12-27T14:09:00.000Z</updated>
-    <link href="https://zhul.in/2023/12/27/php-and-vuejs-project-deploy-on-caddy" rel="alternate"></link>
+    <link href="https://zhul.in/2023/12/27/php-and-vuejs-project-deploy-on-caddy/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<blockquote>
 <p>这学期修了一门叫《用HTML5 和 PHP编写JavaScript，jQuery 和 AJAX脚本》的 web 课（对，听起来很奇怪的名字）。期末大作业是写一个影评系统，前端允许使用框架，后端仅允许使用 php，具体的作业要求如下</p>
@@ -4884,10 +4884,10 @@ GRANT ALL ON *.* TO 'root'@'%';
     <category term="Web"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2023/12/12/php-simple-rest-api</id>
+    <id>https://zhul.in/2023/12/12/php-simple-rest-api/</id>
     <title>【翻译】使用 PHP 构建简单的 REST API</title>
     <updated>2023-12-12T05:07:32.000Z</updated>
-    <link href="https://zhul.in/2023/12/12/php-simple-rest-api" rel="alternate"></link>
+    <link href="https://zhul.in/2023/12/12/php-simple-rest-api/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<blockquote>
 <p>我这学期有一门偏向前端的 WEB 课程，期末大作业要求使用 PHP 作为后端语言实现一个简单的影评系统，应该是不允许使用框架，使用中文关键字在搜索引擎上搜了一阵子似乎没有可供参考的案例，后来就找到了这篇博客，当中的许多观点与我不谋而合，因此我将这篇博客翻译成中文，原文戳这里: <a href="https://amirkamizi.com/blog/php-simple-rest-api">https://amirkamizi.com/blog/php-simple-rest-api</a></p>
@@ -5234,10 +5234,10 @@ switch ($method | $uri) {
     <category term="PHP"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2023/11/28/use-lxgw-wenkai-in-hexo-fluid</id>
+    <id>https://zhul.in/2023/11/28/use-lxgw-wenkai-in-hexo-fluid/</id>
     <title>在 Hexo Fluid 主题中使用霞鹜文楷</title>
     <updated>2023-11-27T16:16:23.000Z</updated>
-    <link href="https://zhul.in/2023/11/28/use-lxgw-wenkai-in-hexo-fluid" rel="alternate"></link>
+    <link href="https://zhul.in/2023/11/28/use-lxgw-wenkai-in-hexo-fluid/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>我的博客换到 fluid 主题已经有两年了，期间一直有为博客更换字体的想法，但之前没有前端开发的相关知识支撑我换字体的需求。不过现在，我已经有了一些 Vue.js 的开发经验，相信能支撑我完成这个目标。</p>
 <p><img src="https://static.031130.xyz/uploads/2024/08/12/6564d0f926e58.webp" alt="最终成品"></p>
@@ -5273,10 +5273,10 @@ switch ($method | $uri) {
     <category term="Web"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2023/11/12/a-introduce-of-glwtpl</id>
+    <id>https://zhul.in/2023/11/12/a-introduce-of-glwtpl/</id>
     <title>【翻译】GLWTPL——祝你好运开源许可证</title>
     <updated>2023-11-11T17:09:09.000Z</updated>
-    <link href="https://zhul.in/2023/11/12/a-introduce-of-glwtpl" rel="alternate"></link>
+    <link href="https://zhul.in/2023/11/12/a-introduce-of-glwtpl/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<blockquote>
 <p>说实话，当我第一次看见 GLWTPL( Good Luck With That Public License ) 的时候，我差点把嘴里的饭给喷出来了，这是一个非常有意思的开源许可证。原文请直接戳原仓库 -> <a href="https://github.com/me-shaon/GLWTPL">https://github.com/me-shaon/GLWTPL</a></p>
@@ -5392,10 +5392,10 @@ Good luck and Godspeed.
     <category term="翻译"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2023/11/02/integrating-sunflower-smart-socket-with-mi-home-via-bemfa-cloud</id>
+    <id>https://zhul.in/2023/11/02/integrating-sunflower-smart-socket-with-mi-home-via-bemfa-cloud/</id>
     <title>通过巴法云将向日葵智能插座接入米家，实现小爱同学远程控制</title>
     <updated>2023-11-02T02:17:02.000Z</updated>
-    <link href="https://zhul.in/2023/11/02/integrating-sunflower-smart-socket-with-mi-home-via-bemfa-cloud" rel="alternate"></link>
+    <link href="https://zhul.in/2023/11/02/integrating-sunflower-smart-socket-with-mi-home-via-bemfa-cloud/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>在<a href="/2023/11/01/unveiling-sunflower-smart-adapter-api-intercepting-utilizing-api-android-packet-sniffing/">上一篇博客</a>中，我们介绍了如何在本地局域网中通过发送 http 请求控制向日葵智能插座 C2 的开关状态。但这还远远不够，我自己是小米生态链的忠实用户，在宿舍里也接入了四五个米家的智能设备，因此我想把这个智能插座接入米家，实现离家时一键关闭。</p>
 <p>在阅读<a href="https://iot.mi.com/">小米IoT开发者平台</a>的接入文档后，我发现米家对于个人开发者并不友好，接入文档大部分要完成企业认证以后才能实现。在谷歌一番搜索过后，我发现了通过假设 Home Assistant 后通过巴法云接入米家的方案。但我眼下就这一个非米家的智能家具，暂时还不想去碰 Home Assistant 那套体系。</p>
@@ -5513,10 +5513,10 @@ client.loop_forever()
     <category term="Fun"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2023/11/01/unveiling-sunflower-smart-adapter-api-intercepting-utilizing-api-android-packet-sniffing</id>
+    <id>https://zhul.in/2023/11/01/unveiling-sunflower-smart-adapter-api-intercepting-utilizing-api-android-packet-sniffing/</id>
     <title>使用 Root 后的安卓手机获取向日葵智能插座 C2 的开关 api</title>
     <updated>2023-11-01T15:46:28.000Z</updated>
-    <link href="https://zhul.in/2023/11/01/unveiling-sunflower-smart-adapter-api-intercepting-utilizing-api-android-packet-sniffing" rel="alternate"></link>
+    <link href="https://zhul.in/2023/11/01/unveiling-sunflower-smart-adapter-api-intercepting-utilizing-api-android-packet-sniffing/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<blockquote>
 <p>之前看到 <a href="https://https.gs/archives/338/">https.gs 上的一篇文章</a>，发现可以抓取向日葵智能插座 C1Pro 的开关 api，并实现局域网或公网的控制。这样一来，我们其实就不需要依赖于向日葵自己家的 App 去实现智能插座的开关操作，还是比较方便的。今年趁着双十一，直接低价拿下来带有计电功能的 C2，便也来试一试能不能抓到接口。</p>
@@ -5555,10 +5555,10 @@ client.loop_forever()
     <category term="Hardware"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2023/10/29/create-b23tv-remover-bot</id>
+    <id>https://zhul.in/2023/10/29/create-b23tv-remover-bot/</id>
     <title>创建 b23.tv 追踪参数移除 bot</title>
     <updated>2023-10-28T16:35:48.000Z</updated>
-    <link href="https://zhul.in/2023/10/29/create-b23tv-remover-bot" rel="alternate"></link>
+    <link href="https://zhul.in/2023/10/29/create-b23tv-remover-bot/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<blockquote>
 <p>前两天似乎有人高调宣称自己发 b23.tv 没问题，结果过两天就被拿下的消息。我自己并不是他的粉丝，但这个戏剧性的流言也又一次说明了注重隐私保护的重要性。</p>
@@ -5676,10 +5676,10 @@ if __name__ == '__main__':
     <category term="Privacy"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2023/09/03/jinja2-nl-to-br</id>
+    <id>https://zhul.in/2023/09/03/jinja2-nl-to-br/</id>
     <title>jinja2 中如何优雅地实现换行</title>
     <updated>2023-09-03T05:37:35.000Z</updated>
-    <link href="https://zhul.in/2023/09/03/jinja2-nl-to-br" rel="alternate"></link>
+    <link href="https://zhul.in/2023/09/03/jinja2-nl-to-br/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>在使用 python 的 jinja2 模板引擎生成 html 的时候，会遇到 <code>\n</code> 换行符无法被正常换行的问题。我本能的想法就是将 <code>\n</code> 替换成 html 标签 &#x3C;br />，但失败了，jinja2 有自动转义的功能，直接将标签原模原样地渲染了出来，并没有生效。而为这一段代码块关闭自动转义则会有被 js 注入的风险，因此这也不是上策。</p>
 <p>在 jinja2 的官方文档中，提出了使用 filter 的方案。也就是说，filter 将 <code>\n</code> 识别出来，并自动替换成 &#x3C;br /> 标签，并且使用 Markup 函数将这一段 html 文本标记成安全且无需转义的。见: <a href="https://jinja.palletsprojects.com/en/3.1.x/api/#custom-filters">https://jinja.palletsprojects.com/en/3.1.x/api/#custom-filters</a></p>
@@ -5720,10 +5720,10 @@ def nl2br(eval_ctx, value):
     <category term="CSS"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2023/09/02/python-selenium-start-difficult-in-china-mainland</id>
+    <id>https://zhul.in/2023/09/02/python-selenium-start-difficult-in-china-mainland/</id>
     <title>手动指定 python-selenium 的 driver path 以解决在中国大陆网络环境下启动卡住的问题</title>
     <updated>2023-09-01T17:59:18.000Z</updated>
-    <link href="https://zhul.in/2023/09/02/python-selenium-start-difficult-in-china-mainland" rel="alternate"></link>
+    <link href="https://zhul.in/2023/09/02/python-selenium-start-difficult-in-china-mainland/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>之前因为学校社团迎新的需求，就临时写了一个 QQ Bot，最近又给 bot 加上了 <a href="https://github.com/zhullyb/qq-quote-generator">/q 的功能</a>，原理是通过 python 的 selenium 去启动一个 headless Firefox 去截由 jinja2 模板引擎生成的 html 的图。</p>
 <p>每次这个 bot 重启的时候都因为 selenium 而需要花费好几秒的时间，甚至经常概率性启动失败。我就寻思者应该把这个图片生成的 generator 从 bot 中抽出来，这样就不至于每次重启 bot 都要遭此一劫。但就在我将 generator 打包成 docker 部署上云服务器的时候，发现居然无法启动。于是手动进 docker 的 shell 开 python 的交互式终端，发现在创建 firefox 的 webdriver 对象的时候异常缓慢，等了半分钟以后蹲到一个报错如下:</p>
@@ -5793,10 +5793,10 @@ driver.quit()
     <category term="Linux"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2023/08/04/static-webpage-deployment-for-a-beginner</id>
+    <id>https://zhul.in/2023/08/04/static-webpage-deployment-for-a-beginner/</id>
     <title>从零开始的静态网页部署（到个人云服务器）</title>
     <updated>2023-08-03T17:19:22.000Z</updated>
-    <link href="https://zhul.in/2023/08/04/static-webpage-deployment-for-a-beginner" rel="alternate"></link>
+    <link href="https://zhul.in/2023/08/04/static-webpage-deployment-for-a-beginner/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<blockquote>
 <p>这篇博客是受 <a href="https://blog.tiancy.cn/">Tiancy</a> 之托，在2023年精弘网络暑期授课的前端系列第七节课时针对项目部署这一块内容时所产生的产物。在授课视频中，受时长所限，我不得不采用宝塔面板+纯 ip 访问的方式来完成一个简单的部署，但这终究不是什么优雅的方案: 宝塔的安全性堪忧、其隐私性也是备受争议，而纯 ip 访问的方式也过于简陋，且没有支持 https 访问。</p>
@@ -6116,10 +6116,10 @@ sftp>
     <category term="Web"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2023/07/31/run-qq-bot-on-phicomm-n1-openwrt</id>
+    <id>https://zhul.in/2023/07/31/run-qq-bot-on-phicomm-n1-openwrt/</id>
     <title>在运行OpenWRT的N1盒子上部署 QQBot</title>
     <updated>2023-07-30T20:11:31.000Z</updated>
-    <link href="https://zhul.in/2023/07/31/run-qq-bot-on-phicomm-n1-openwrt" rel="alternate"></link>
+    <link href="https://zhul.in/2023/07/31/run-qq-bot-on-phicomm-n1-openwrt/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>由于学校社团的招新需要，我写了一个依赖于 go-cqhttp 运行的 QQ Bot，并没有实现什么花里胡哨的功能，只是实现了关键词回复和新人入群时的欢迎语。因为没考虑后续维护的问题，代码也写得比较草，但毕竟是能跑。这么一个小型的程序并不会占用的多少的服务器资源，单独为这么一个 Bot 去开一台国内的 vps 似乎是有些大材小用了，刚好我手上有一台运行在 OpenWRT 上的 Phicomm N1 盒子，反正也是 Linux 系统，便打算拿来挂 QQ Bot。</p>
 <h2>安装 JDK</h2>
@@ -6237,10 +6237,10 @@ if __name__ == '__main__':
     <category term="Bot"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2023/06/24/connect-china-mobile-with-router-in-zjut-dormitory</id>
+    <id>https://zhul.in/2023/06/24/connect-china-mobile-with-router-in-zjut-dormitory/</id>
     <title>在浙工大宿舍使用路由器连接移动网络(校园网)</title>
     <updated>2023-06-24T06:30:24.000Z</updated>
-    <link href="https://zhul.in/2023/06/24/connect-china-mobile-with-router-in-zjut-dormitory" rel="alternate"></link>
+    <link href="https://zhul.in/2023/06/24/connect-china-mobile-with-router-in-zjut-dormitory/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p><strong>2025.09.01 Updates:</strong></p>
 <p>最近看到这篇博客的热度还挺高，应该是最近新生开学有不少都在看。但移动的认证方式于今年的 8 月 15 日发生了变更，具体可以看<a href="https://mp.weixin.qq.com/s/KtaP62A3h96FETerPdnQmw">这篇微信公众号文章</a>。我近期不在学校，没有环境去研究新的认证方式，但据我身边的人说不再需要什么 l2tp 了，找台常见的路由器直接走 dhcp 以后过一遍网页验证就好了。</p>
@@ -6343,10 +6343,10 @@ fi
     <category term="Router"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2023/06/24/redmi-ac2100-router-with-padavan</id>
+    <id>https://zhul.in/2023/06/24/redmi-ac2100-router-with-padavan/</id>
     <title>为红米 Redmi AC2100 路由器刷入 Padavan</title>
     <updated>2023-06-23T16:22:53.000Z</updated>
-    <link href="https://zhul.in/2023/06/24/redmi-ac2100-router-with-padavan" rel="alternate"></link>
+    <link href="https://zhul.in/2023/06/24/redmi-ac2100-router-with-padavan/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<blockquote>
 <p>大一一年转眼就要过去了，最近要搬校区了，顺手就把之前刷过的「小米路由器4A千兆版」出手给了同学，自己反手入了一个 「Redmi AC 2100」，尽管是跟着教程走，但过程中依然是遇见了不少坑，因此就开一篇博客记录了一下。</p>
@@ -6429,10 +6429,10 @@ fi
     <category term="Network"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2023/05/12/troubles-when-applying-azure-education</id>
+    <id>https://zhul.in/2023/05/12/troubles-when-applying-azure-education/</id>
     <title>Azure 教育订阅申请时遇到的麻烦</title>
     <updated>2023-05-12T15:38:29.000Z</updated>
-    <link href="https://zhul.in/2023/05/12/troubles-when-applying-azure-education" rel="alternate"></link>
+    <link href="https://zhul.in/2023/05/12/troubles-when-applying-azure-education/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>进入大学已经快一年了，但我的 Azure 教育订阅申请一直没有成功，每年有 100 刀的额度，<del>再这样下去就要亏掉近 700 元了</del>，于是便打算趁期中考试刚结束的闲暇时间把 Azure 的教育订阅给过了。</p>
 <p>我拥有 *.edu.cn 的邮箱，并且通过了 Github Student Pack 的认证，但每次在 <a href="https://signup.azure.com/studentverification?offerType=1">https://signup.azure.com/studentverification?offerType=1</a> 页面尝试申请 Azure 订阅时，总是会得到一句冷冷的「你没有资格使用 Azure 免费帐户」。于是，我找到了 Azure 订阅支持客服帮忙，链接是这个: <a href="https://azureforeducation.microsoft.com/en-us/institutions/Contact">https://azureforeducation.microsoft.com/en-us/institutions/Contact</a>，简要填写了我的基本信息后就开始等待邮件回复了。</p>
@@ -6459,10 +6459,10 @@ fi
     <category term="Azure"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2023/05/03/checkout-lfs-file-after-repo-sync</id>
+    <id>https://zhul.in/2023/05/03/checkout-lfs-file-after-repo-sync/</id>
     <title>执行 repo sync 后将 git-lfs 中的资源文件 checkout</title>
     <updated>2023-05-02T17:15:35.000Z</updated>
-    <link href="https://zhul.in/2023/05/03/checkout-lfs-file-after-repo-sync" rel="alternate"></link>
+    <link href="https://zhul.in/2023/05/03/checkout-lfs-file-after-repo-sync/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<blockquote>
 <p>最近期中考试挺忙的，五一好不容易有一些自己的时间，于是打算重操旧业，搞点有意思的内容，没想到准备阶段就出了新问题，有点跟不上时代了</p>
@@ -6486,10 +6486,10 @@ fi
     <category term="笔记"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2023/03/26/implicit-forwarding-is-a-new-site-deploying-method</id>
+    <id>https://zhul.in/2023/03/26/implicit-forwarding-is-a-new-site-deploying-method/</id>
     <title>隐式转发——骚套路建站方案</title>
     <updated>2023-03-25T16:10:02.000Z</updated>
-    <link href="https://zhul.in/2023/03/26/implicit-forwarding-is-a-new-site-deploying-method" rel="alternate"></link>
+    <link href="https://zhul.in/2023/03/26/implicit-forwarding-is-a-new-site-deploying-method/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>其实很久以前就接触到了国内 DNS 解析服务商提供的这个「隐式 URL」 这种 “DNS 记录类型”了，但我域名没有备案，一直没有机会去体验。</p>
 <p><img src="https://static.031130.xyz/uploads/2024/08/12/641f1e2cd8809.webp" alt="DNSPOD 的解析面板中提供的记录类型"></p>
@@ -6536,10 +6536,10 @@ fi
     <category term="Network"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2023/02/01/deploy-siteproxy-with-caddy-on-vps</id>
+    <id>https://zhul.in/2023/02/01/deploy-siteproxy-with-caddy-on-vps/</id>
     <title>在 vps 上配合 caddy 部署 siteproxy</title>
     <updated>2023-02-01T14:33:53.000Z</updated>
-    <link href="https://zhul.in/2023/02/01/deploy-siteproxy-with-caddy-on-vps" rel="alternate"></link>
+    <link href="https://zhul.in/2023/02/01/deploy-siteproxy-with-caddy-on-vps/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>之前趁着春节活动的时候在某 vps 服务商买了 1 年的 vps，线路不算太好，但勉强够用，于是打算在上面部署一些反代程序。在群友的推荐下，发现了这款名为 <a href="https://github.com/netptop/siteproxy">siteproxy</a> 的开源项目。</p>
 <p>siteproxy 相较于我在 <code>r.zhullyb.top</code> 部署的那个反代，其特点是可以运行在 vps 上，且将会替换被反代页面上的所有 url，因此遇到使用相对路径的网页也可以从容应对。</p>
@@ -6632,10 +6632,10 @@ WantedBy=multi-user.target
     <category term="Caddy"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2022/12/24/onedrive-abraunegg-recommendation</id>
+    <id>https://zhul.in/2022/12/24/onedrive-abraunegg-recommendation/</id>
     <title>onedrive(by abraunegg) —— 一个 Linux 下的开源 OneDrive 客户端(cli)</title>
     <updated>2022-12-24T14:40:13.000Z</updated>
-    <link href="https://zhul.in/2022/12/24/onedrive-abraunegg-recommendation" rel="alternate"></link>
+    <link href="https://zhul.in/2022/12/24/onedrive-abraunegg-recommendation/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<blockquote>
 <p>这款 Linux 下的 OneDrive 客户端我其实一年前就已经在用了，最近打算给自己的 vps 重装系统并重新部署下 aria 的下载服务，顺便把上传到 OneDrive 的功能增加进去，便又想到了这款运行在命令行中的第三方开源 Linux 客户端，去谷歌上搜索了一番，依然没有什么成规模的中文博客去写它的用法，于是就打算自己来写。<del>那肯定不是因为我博客这个月没有什么题材</del></p>
@@ -6719,10 +6719,10 @@ Config option 'webhook_enabled'              = false
     <category term="OneDrive"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2022/11/21/a-few-words-about-the-events-of-november-2022</id>
+    <id>https://zhul.in/2022/11/21/a-few-words-about-the-events-of-november-2022/</id>
     <title>【翻译】关于2022年11月的事件的一些话[Z-Library]</title>
     <updated>2022-11-21T05:24:33.000Z</updated>
-    <link href="https://zhul.in/2022/11/21/a-few-words-about-the-events-of-november-2022" rel="alternate"></link>
+    <link href="https://zhul.in/2022/11/21/a-few-words-about-the-events-of-november-2022/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<blockquote>
 <p>正如我们所知道的那样，Z-Library 的主域名在前不久已经被美国警方给 take down 了，目前仅剩下 Telegram Bot 和 Tor 网络两种访问方式是我们仍然可以信任的。在11月18日，Z-Library 于其博客上发布了<a href="http://bookszlibb74ugqojhzhg2a63w5i2atv5bqarulgczawnbmsb6s6qead.onion/blog/36">一篇新的文章（onion链接）</a>，此处是我的翻译版本。</p>
@@ -6755,10 +6755,10 @@ Config option 'webhook_enabled'              = false
     <category term="Z-Library"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2022/11/08/free-umami-deploy-plan</id>
+    <id>https://zhul.in/2022/11/08/free-umami-deploy-plan/</id>
     <title>【已过期】使用 vercel+supabase 免费部署 umami</title>
     <updated>2022-11-08T05:37:53.000Z</updated>
-    <link href="https://zhul.in/2022/11/08/free-umami-deploy-plan" rel="alternate"></link>
+    <link href="https://zhul.in/2022/11/08/free-umami-deploy-plan/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<blockquote>
 <p>讲起静态网站的访客统计，我最先使用的是百度统计，但后来转到了 umeng，发现后续的几天百度爬虫的光顾次数反而多了起来。好家伙，使用百度统计相当于把自己网站访问量向百度全盘托出，<del>我说我的博客怎么还不被百度收录呢</del>。</p>
@@ -6800,10 +6800,10 @@ Config option 'webhook_enabled'              = false
     <category term="vercel"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2022/11/04/my-blog-plan</id>
+    <id>https://zhul.in/2022/11/04/my-blog-plan/</id>
     <title>我的博客部署方案</title>
     <updated>2022-11-04T08:41:28.000Z</updated>
-    <link href="https://zhul.in/2022/11/04/my-blog-plan" rel="alternate"></link>
+    <link href="https://zhul.in/2022/11/04/my-blog-plan/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>一直以来，我的博客使用的几乎都是 Hexo 框架。</p>
 <p>静态博客的一大优点就是可以支持 Serverless 部署，这使得我们可以直接在 Github Pages、Vercel 等平台直接部署上我的博客，如果用上 <code>.eu.org</code> <del>或者非洲国家免费域名</del>就可以实现零成本的博客部署。</p>
@@ -6871,10 +6871,10 @@ Config option 'webhook_enabled'              = false
     <category term="Blog"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2022/10/04/use-virtscreen-to-turn-pad-into-another-screen</id>
+    <id>https://zhul.in/2022/10/04/use-virtscreen-to-turn-pad-into-another-screen/</id>
     <title>使用 VirtScreen 将 Pad 作为副屏</title>
     <updated>2022-10-03T16:19:20.000Z</updated>
-    <link href="https://zhul.in/2022/10/04/use-virtscreen-to-turn-pad-into-another-screen" rel="alternate"></link>
+    <link href="https://zhul.in/2022/10/04/use-virtscreen-to-turn-pad-into-another-screen/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<blockquote>
 <p>由于浙江工地大专的朝晖尚9宿舍实在是太小了，我没有办法放下一块便携显示屏，所以只能把家中闲置的 Huawei Pad M6 作为自己的副屏。</p>
@@ -6912,10 +6912,10 @@ Config option 'webhook_enabled'              = false
     <category term="Hardware"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2022/09/29/use-l2tp-protocol-to-connect-internet</id>
+    <id>https://zhul.in/2022/09/29/use-l2tp-protocol-to-connect-internet/</id>
     <title>在 Archlinux 下使用 l2tp 协议连接校园网</title>
     <updated>2022-09-29T06:30:46.000Z</updated>
-    <link href="https://zhul.in/2022/09/29/use-l2tp-protocol-to-connect-internet" rel="alternate"></link>
+    <link href="https://zhul.in/2022/09/29/use-l2tp-protocol-to-connect-internet/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<blockquote>
 <p>由于高考爆炸，所以不得不进入浙江工地大专来度过自己接下来四年的人生（希望到时候可以借助学校的力量润出去）。</p>
@@ -6942,10 +6942,10 @@ Config option 'webhook_enabled'              = false
     <category term="Network"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2022/08/10/add-sticker-support-for-element</id>
+    <id>https://zhul.in/2022/08/10/add-sticker-support-for-element/</id>
     <title>为 Element 添加自己喜欢的贴纸</title>
     <updated>2022-08-10T11:51:19.000Z</updated>
-    <link href="https://zhul.in/2022/08/10/add-sticker-support-for-element" rel="alternate"></link>
+    <link href="https://zhul.in/2022/08/10/add-sticker-support-for-element/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<blockquote>
 <p>在读这篇文章之前，你应该已经知道 element、matrix 是什么，这部分内容咱就不过多展开讲了。</p>
@@ -7022,10 +7022,10 @@ Config option 'webhook_enabled'              = false
     </author>
   </entry>
   <entry>
-    <id>https://zhul.in/2022/08/04/a-fucking-store-about-openssl3-and-nodejs16</id>
+    <id>https://zhul.in/2022/08/04/a-fucking-store-about-openssl3-and-nodejs16/</id>
     <title>nodejs16：是我配不上 openssl 3 咯？</title>
     <updated>2022-08-04T09:31:49.000Z</updated>
-    <link href="https://zhul.in/2022/08/04/a-fucking-store-about-openssl3-and-nodejs16" rel="alternate"></link>
+    <link href="https://zhul.in/2022/08/04/a-fucking-store-about-openssl3-and-nodejs16/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p><img src="https://static.031130.xyz/uploads/2024/08/12/62eba4eabc963.webp" alt="长毛象的截图.png"></p>
 <p>今年上半年升级 Fedora 36 的时候遇到了这个问题。</p>
@@ -7056,10 +7056,10 @@ Config option 'webhook_enabled'              = false
     <category term="OpenSSL"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2022/07/25/restore-the-sound-of-hollywood</id>
+    <id>https://zhul.in/2022/07/25/restore-the-sound-of-hollywood/</id>
     <title>如何拯救失声的 hollywood</title>
     <updated>2022-07-25T03:25:44.000Z</updated>
-    <link href="https://zhul.in/2022/07/25/restore-the-sound-of-hollywood" rel="alternate"></link>
+    <link href="https://zhul.in/2022/07/25/restore-the-sound-of-hollywood/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>我刚开始接触 Linux 下的 hollywood 时，我记得它运行时是有声音的，应该是 007 的主题音乐，如今再次装上 hollywood，却发现音乐没了。</p>
 <p>在 Github 找到 hollywood，发现有一个 <a href="https://github.com/dustinkirkland/hollywood/issues/58">issue</a> 也提到了这个问题。</p>
@@ -7111,10 +7111,10 @@ dir="$(dirname $0)/../../share/$PKG"
     <category term="Linux"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2022/07/03/fcitx5-blinking-on-tg-under-wayland-kde</id>
+    <id>https://zhul.in/2022/07/03/fcitx5-blinking-on-tg-under-wayland-kde/</id>
     <title>处理 fcitx5 的文字候选框在 tg 客户端上闪烁的问题</title>
     <updated>2022-07-03T05:52:44.000Z</updated>
-    <link href="https://zhul.in/2022/07/03/fcitx5-blinking-on-tg-under-wayland-kde" rel="alternate"></link>
+    <link href="https://zhul.in/2022/07/03/fcitx5-blinking-on-tg-under-wayland-kde/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<blockquote>
 <p>文章开头，先要感谢 fcitx5 的开发者 <a href="https://www.csslayer.info/wordpress/">老K</a> 帮我 debug 这个问题</p>
@@ -7174,10 +7174,10 @@ Input Context without group
     <category term="KDE"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2022/05/30/use-caddy-to-proxy-wikipedia</id>
+    <id>https://zhul.in/2022/05/30/use-caddy-to-proxy-wikipedia/</id>
     <title>使用caddy反向代理维基百科中文站点</title>
     <updated>2022-05-30T00:59:21.000Z</updated>
-    <link href="https://zhul.in/2022/05/30/use-caddy-to-proxy-wikipedia" rel="alternate"></link>
+    <link href="https://zhul.in/2022/05/30/use-caddy-to-proxy-wikipedia/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>反代的目的无非是两点</p>
 <ul>
@@ -7270,10 +7270,10 @@ https://up.zhwiki.example.com {
     <category term="Caddy"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2022/05/11/setup-a-local-fedora-source</id>
+    <id>https://zhul.in/2022/05/11/setup-a-local-fedora-source/</id>
     <title>创建一个本地的 Fedora 镜像源</title>
     <updated>2022-05-10T20:18:26.000Z</updated>
-    <link href="https://zhul.in/2022/05/11/setup-a-local-fedora-source" rel="alternate"></link>
+    <link href="https://zhul.in/2022/05/11/setup-a-local-fedora-source/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<blockquote>
 <p>Fedora 36 在多次跳票后，总算是在 5月10日正式发布了。截止北京时间 5月11日凌晨两点，上海交通大学开源镜像站的上游 <code>rsync://download-ib01.fedoraproject.org/</code>  仍然没有同步 Fedora 36 的 Release 源。鉴于 Release 自 freeze 以后基本是不会有什么大变动的，也不需要及时同步更新，干脆就直接建立一个本地的镜像源。</p>
@@ -7369,10 +7369,10 @@ skip_if_unavailable=False
     <category term="Caddy"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2022/04/14/fastocr-experience</id>
+    <id>https://zhul.in/2022/04/14/fastocr-experience/</id>
     <title>好软推荐——FastOCR</title>
     <updated>2022-04-13T21:55:18.000Z</updated>
-    <link href="https://zhul.in/2022/04/14/fastocr-experience" rel="alternate"></link>
+    <link href="https://zhul.in/2022/04/14/fastocr-experience/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>前两天在 PC 端有 OCR 的需求，需求如下</p>
 <ul>
@@ -7398,10 +7398,10 @@ skip_if_unavailable=False
     <category term="OpenSource Project"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2022/03/31/upload-pic-to-lskypro-with-curl</id>
+    <id>https://zhul.in/2022/03/31/upload-pic-to-lskypro-with-curl/</id>
     <title>抛弃PicGo，直接使用curl将图片上传到LskyPro</title>
     <updated>2022-03-31T11:19:14.000Z</updated>
-    <link href="https://zhul.in/2022/03/31/upload-pic-to-lskypro-with-curl" rel="alternate"></link>
+    <link href="https://zhul.in/2022/03/31/upload-pic-to-lskypro-with-curl/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>前一阵子为了图床折腾了好长一段时间。刚开始用的是 cloudinary，虽然每月有限制，但强在境内访问速度还不错，可惜后来 <code>res.cloudinary.com</code> 这个域名在某些地方被 DNS 污染了，而自定义域名是付费版的功能，就不得不放弃了。</p>
 <p>后来也尝试过 npm图床 的方案，可惜面对这种滥用公共资源的行为我无法接受~~（肯定不是因为受不了那繁琐的上传步骤，随便传张图都得 bump 下版本号的原因）~~，而且现在境内的能作为图床使用的 npm 镜像似乎也就只剩下 <code>npm.elemecdn.com</code> 这一个能够正常回源了，没准哪天就用不了了，所以就去投奔了<a href="https://dusays.com/">杜老师</a>的<a href="https://7bu.top/">去不图床</a>。</p>
@@ -7463,10 +7463,10 @@ done
     <category term="Lsky Pro"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2022/03/06/run-rpmbuild-with-github-action</id>
+    <id>https://zhul.in/2022/03/06/run-rpmbuild-with-github-action/</id>
     <title>使用 Github Action 跑 rpmbuild</title>
     <updated>2022-03-06T08:02:54.000Z</updated>
-    <link href="https://zhul.in/2022/03/06/run-rpmbuild-with-github-action" rel="alternate"></link>
+    <link href="https://zhul.in/2022/03/06/run-rpmbuild-with-github-action/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>一直打算用 Github Action 跑 rpmbuild 构建 rpm 包，然后传到 Action 的 Artifacts 里面，用户就可以在登陆 Github 帐号的情况下进行下载。只要不发 Release，应该就不算「再分发」的行为，也就自然规避了再分发闭源软件的法律风险。</p>
 <p>然而，现有的那些 Action 几乎全都是针对 CentOS 老古董定制的，，有些甚至连 buildrequires 都不帮你安装，而且大部分情况下都不支持 Source 直接填写一个链接，需要你直接提供 Source 文件。我自己又不可能在 Github 的仓库里用 lfs 强行存一个 200MB+ 的二进制文件，显然是不符合我要求的。还有几个项目使用 mock 去构建的，但使用 mock 构建需要提前用 rpmbuild 生成 srpm，在我们的个人电脑上可以理解为用一个干净的 chroot 打包防止自己的环境受污染，但在一个全新的、用完一次就要扔掉的 docker 里面还要防止环境被污染似乎有些画蛇添足的嫌疑。</p>
@@ -7494,10 +7494,10 @@ done
     <category term="Github Action"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2022/02/07/how-to-package-a-git-rpm-package</id>
+    <id>https://zhul.in/2022/02/07/how-to-package-a-git-rpm-package/</id>
     <title>如何打出一个「-git」的rpm包</title>
     <updated>2022-02-07T02:23:29.000Z</updated>
-    <link href="https://zhul.in/2022/02/07/how-to-package-a-git-rpm-package" rel="alternate"></link>
+    <link href="https://zhul.in/2022/02/07/how-to-package-a-git-rpm-package/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>本文中，笔者通过 github api 获取最新的 commit_id ，以一种曲线救国的方式成功为 rpm 打下了一个 <code>-git</code> 包。</p>
 <h2>On Archlinux</h2>
@@ -7542,10 +7542,10 @@ done
     <category term="RPM Package"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2022/01/19/the-common-software-hidden-in-mirrors</id>
+    <id>https://zhul.in/2022/01/19/the-common-software-hidden-in-mirrors/</id>
     <title>雪藏在开源镜像站点中的那些常用却不为人知的软件</title>
     <updated>2022-01-19T05:01:30.000Z</updated>
-    <link href="https://zhul.in/2022/01/19/the-common-software-hidden-in-mirrors" rel="alternate"></link>
+    <link href="https://zhul.in/2022/01/19/the-common-software-hidden-in-mirrors/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>前两天在下载 微PE 的时候眼睛突然一瞥，发现了山东大学的开源镜像站。突然间才发现在各个开源镜像站点中提供了许多那些我们误以为只能顶着断断续续的 Github  网络才能下载的软件。</p>
 <p>下面这张列表主要来自山东大学的镜像站中的「常用软件」和南京大学的「github-release」。<del>我严重怀疑南京大学就是把整个 tuna 给搬了一遍过来。</del></p>
@@ -7666,10 +7666,10 @@ done
     </author>
   </entry>
   <entry>
-    <id>https://zhul.in/2022/01/12/dnf-module-in-setting-up-the-jekyll</id>
+    <id>https://zhul.in/2022/01/12/dnf-module-in-setting-up-the-jekyll/</id>
     <title>在Fedora搭建jekyll环境——dnf module</title>
     <updated>2022-01-12T14:11:42.000Z</updated>
-    <link href="https://zhul.in/2022/01/12/dnf-module-in-setting-up-the-jekyll" rel="alternate"></link>
+    <link href="https://zhul.in/2022/01/12/dnf-module-in-setting-up-the-jekyll/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<h2>起因</h2>
 <p>我之前的博客一直用的是<a href="https://github.com/qiubaiying/qiubaiying.github.io">这个主题</a>，直接使用 Fedora 官方源里的 <code>rubygem-jekyll</code> 似乎无法正常安装 Gemfile 中的依赖。之前使用 Archlinux 的时候，我是直接从 AUR 安装了一个 <code>ruby-2.6</code> 来使用的，但最近转到 Fedora 以后似乎就没法用这样的方案来解决了。</p>
@@ -7710,10 +7710,10 @@ bundle install --path vendor/bundle
     <category term="Fedora"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2022/01/01/pacman-gpgme-error-no-data</id>
+    <id>https://zhul.in/2022/01/01/pacman-gpgme-error-no-data/</id>
     <title>pacman更新时遇到「GPGME 错误：无数据」</title>
     <updated>2022-01-01T15:42:09.000Z</updated>
-    <link href="https://zhul.in/2022/01/01/pacman-gpgme-error-no-data" rel="alternate"></link>
+    <link href="https://zhul.in/2022/01/01/pacman-gpgme-error-no-data/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<h2>情景再现</h2>
 <p>当初是使用 pacman 更新时遇上了「GPGME 错误：无数据」的问题，我尝试复现了下，大概是下面这样的情况。</p>
@@ -7766,10 +7766,10 @@ error: failed to synchronize all databases (invalid or corrupted database (PGP s
     <category term="Archlinux"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2021/12/12/the-history-of-cutefish</id>
+    <id>https://zhul.in/2021/12/12/the-history-of-cutefish/</id>
     <title>Cutefish的前世今生</title>
     <updated>2021-12-11T16:10:34.000Z</updated>
-    <link href="https://zhul.in/2021/12/12/the-history-of-cutefish" rel="alternate"></link>
+    <link href="https://zhul.in/2021/12/12/the-history-of-cutefish/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<blockquote>
 <p>CutefishOS是由我们国内的开发者主导（目前也主要是他们在开发）的桌面环境。不过似乎对于他的前世今生，似乎很多人都有误解。尤其是很多人认为他是一个Archlinux-based发行版；部分用户分不清他到底是基于Debian还是基于Ubuntu；还有人把它和 JingOS 弄混了。</p>
@@ -7853,10 +7853,10 @@ error: failed to synchronize all databases (invalid or corrupted database (PGP s
     <category term="OpenSource Project"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2021/12/03/dev-app-update-in-wolai</id>
+    <id>https://zhul.in/2021/12/03/dev-app-update-in-wolai/</id>
     <title>wolai再打包遇到的问题--electron应用的dev判断机制</title>
     <updated>2021-12-03T14:53:25.000Z</updated>
-    <link href="https://zhul.in/2021/12/03/dev-app-update-in-wolai" rel="alternate"></link>
+    <link href="https://zhul.in/2021/12/03/dev-app-update-in-wolai/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>之前对于electron懵懵懂懂的时候就把 <a href="https://www.wolai.com/">wolai</a> 给打包上了 AUR ，那会儿年少无知，也不懂得把内置的 electron 拆开来换成系统内置的以节省空间。前一阵子给CN源打完 Motrix 以后突然想起来自己在 AUR 上还有维护一个叫 wolai 的electron 应用，于是打算把软件内置的 electron 拆出来。尝试使用 <code>electron /path/to/app.asar</code> 命令启动的时候发现了以下的问题。</p>
 <p><img src="https://static.031130.xyz/uploads/2024/08/12/62f3caf822bec.webp" alt="报错了"></p>
@@ -7910,10 +7910,10 @@ asar pack ${srcdir}/new_app ${srcdir}/squashfs-root/resources/app.asar
     <category term="electron"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2021/11/26/typora-and-me</id>
+    <id>https://zhul.in/2021/11/26/typora-and-me/</id>
     <title>Typora与我</title>
     <updated>2021-11-26T15:05:05.000Z</updated>
-    <link href="https://zhul.in/2021/11/26/typora-and-me" rel="alternate"></link>
+    <link href="https://zhul.in/2021/11/26/typora-and-me/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>Typora 要收费了，$14.9 买断制，支持三设备激活。而且尚且不知道这里买断的是单个大版本更新还是多个大版本更新。</p>
 <p>很多人说，不要紧，我们有VsCode、我们有Vnote、我们有MarkText。。。</p>
@@ -7952,10 +7952,10 @@ asar pack ${srcdir}/new_app ${srcdir}/squashfs-root/resources/app.asar
     <category term="Casual Talk"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2021/11/21/use-cloudflare-mirrors</id>
+    <id>https://zhul.in/2021/11/21/use-cloudflare-mirrors/</id>
     <title>我是来吹CloudflareMirrors的</title>
     <updated>2021-11-20T17:48:49.000Z</updated>
-    <link href="https://zhul.in/2021/11/21/use-cloudflare-mirrors" rel="alternate"></link>
+    <link href="https://zhul.in/2021/11/21/use-cloudflare-mirrors/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>Cloudflare也开始提供<a href="https://cloudflaremirrors.com/">Linux开源镜像站</a>了。</p>
 <p>虽然在中国大陆地区，Cloudflare速度日常抽风，不适合作为我们本机镜像源，但完全可以用于境外VPS。平常我们对国内的镜像站比较熟悉，也知道自己的网络环境使用哪个镜像站会稍微快一些，但一旦出了国，这些经验就没有用了。</p>
@@ -7977,10 +7977,10 @@ asar pack ${srcdir}/new_app ${srcdir}/squashfs-root/resources/app.asar
     <category term="Cloudflare"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2021/11/20/what-is-deepin-elf-verify</id>
+    <id>https://zhul.in/2021/11/20/what-is-deepin-elf-verify/</id>
     <title>deepin-elf-verify究竟是何物？</title>
     <updated>2021-11-20T00:00:00.000Z</updated>
-    <link href="https://zhul.in/2021/11/20/what-is-deepin-elf-verify" rel="alternate"></link>
+    <link href="https://zhul.in/2021/11/20/what-is-deepin-elf-verify/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<h2>起因</h2>
 <p>越来越多上架在 Deepin 应用商店中的 deb 包中开始依赖了一个叫做 <code>deepin-elf-verify</code> 的依赖，今天来讲讲这个<del>神奇</del>的 <code>deepin-elf-verify</code> 到底为何物，为什么这么多程序都要依赖于他来工作。</p>
@@ -8048,10 +8048,10 @@ Filename: pool/main/d/deepin-elf-verify/deepin-elf-verify-dbgsym_0.0.14.5-1_amd6
     <category term="Linux"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2021/11/05/please-dont-theme-our-apps</id>
+    <id>https://zhul.in/2021/11/05/please-dont-theme-our-apps/</id>
     <title>【翻译】请别再使用主题装饰我们的软件</title>
     <updated>2021-11-05T12:35:58.000Z</updated>
-    <link href="https://zhul.in/2021/11/05/please-dont-theme-our-apps" rel="alternate"></link>
+    <link href="https://zhul.in/2021/11/05/please-dont-theme-our-apps/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p><em>标题中的「我们」当然不是我自己，这是一封来自GNOME开发者针对广大GNOME社区开发者的一封公开信。看着挺有意思的，其中也透露出了GNOME的设计理念，我在这里尽力将其不掺杂个人情感地翻译完。原文可以查看这里: <a href="https://stopthemingmy.app/">https://stopthemingmy.app/</a></em></p>
 <hr>
@@ -8149,10 +8149,10 @@ Maintainer of <a href="https://gitlab.gnome.org/World/design/icon-preview">Icon 
     <category term="翻译"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2021/10/31/waydroid-experience-on-kde</id>
+    <id>https://zhul.in/2021/10/31/waydroid-experience-on-kde/</id>
     <title>Waydroid on KDE 初体验</title>
     <updated>2021-10-31T07:57:57.000Z</updated>
-    <link href="https://zhul.in/2021/10/31/waydroid-experience-on-kde" rel="alternate"></link>
+    <link href="https://zhul.in/2021/10/31/waydroid-experience-on-kde/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<blockquote>
 <p>在<a href="https://yanqiyu.info/">西木野羰基的博客</a>中看到了其在Fedora中使用waydroid跑明日方舟的<a href="https://static.031130.xyz/uploads/2024/08/12/62f3cc0d6b9e8.webp">截图</a>，心里有有些痒痒了，决定在Archlinux上尝试使用waydroid。</p>
@@ -8223,10 +8223,10 @@ Maintainer of <a href="https://gitlab.gnome.org/World/design/icon-preview">Icon 
     <category term="Experience"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2021/10/24/picuploader-with-kde-action</id>
+    <id>https://zhul.in/2021/10/24/picuploader-with-kde-action/</id>
     <title>PicUploader使用系列（二）——为KDE的dolphin添加右键快捷菜单</title>
     <updated>2021-10-24T14:26:50.000Z</updated>
-    <link href="https://zhul.in/2021/10/24/picuploader-with-kde-action" rel="alternate"></link>
+    <link href="https://zhul.in/2021/10/24/picuploader-with-kde-action/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p><a href="/2021/10/21/picuploader-on-archlinux-with-caddy/">上一篇文章</a>我们在Archlinux中成功部署了PicUploader的web端，本文我们来讲讲如何为KDE的dolphin添加右键快捷键上传，效果类似这样。（gif图来自<a href="https://www.xiebruce.top/17.html">PicUploader作者的博客</a>)</p>
 <center><img src="https://img.xiebruce.top/2018/09/11/f4859eda8832f814486fc00df971e3cc.gif" width = "" height = ""></center>
@@ -8305,10 +8305,10 @@ fi
     <category term="PHP"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2021/10/21/picuploader-on-archlinux-with-caddy</id>
+    <id>https://zhul.in/2021/10/21/picuploader-on-archlinux-with-caddy/</id>
     <title>PicUploader使用系列（一）——在Archlinux上使用Caddy部署PicUploader</title>
     <updated>2021-10-21T14:15:33.000Z</updated>
-    <link href="https://zhul.in/2021/10/21/picuploader-on-archlinux-with-caddy" rel="alternate"></link>
+    <link href="https://zhul.in/2021/10/21/picuploader-on-archlinux-with-caddy/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<blockquote>
 <p>之前找对大陆网络友好的图床时，找到了cloudinary，但是全英文界面对操作增加了不少难度，其页面也不是很简洁，让我一下打消了使用网页版的念头。通过搜索，找到了 PicUploader 这一方案，使用php编写，支持cloudinary的api。</p>
@@ -8516,10 +8516,10 @@ import /etc/caddy/conf.d/*
     <category term="PHP"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2021/10/02/nutstore-guide-on-archlinux-kde</id>
+    <id>https://zhul.in/2021/10/02/nutstore-guide-on-archlinux-kde/</id>
     <title>Archlinux坚果云踩坑实录</title>
     <updated>2021-10-01T16:21:34.000Z</updated>
-    <link href="https://zhul.in/2021/10/02/nutstore-guide-on-archlinux-kde" rel="alternate"></link>
+    <link href="https://zhul.in/2021/10/02/nutstore-guide-on-archlinux-kde/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<blockquote>
 <p>在Archlinux上，坚果云似乎出现了一些问题。</p>
@@ -8582,10 +8582,10 @@ Categories=Network;Application;
     <category term="Archlinux"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2021/10/01/bring-firefox-old-topbar-back</id>
+    <id>https://zhul.in/2021/10/01/bring-firefox-old-topbar-back/</id>
     <title>把老版的火狐顶栏UI带回来</title>
     <updated>2021-10-01T11:20:23.000Z</updated>
-    <link href="https://zhul.in/2021/10/01/bring-firefox-old-topbar-back" rel="alternate"></link>
+    <link href="https://zhul.in/2021/10/01/bring-firefox-old-topbar-back/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p><img src="https://static.031130.xyz/uploads/2024/08/12/62f3cca6bb523.webp" alt="这是最新版火狐的顶栏"></p>
 <p><img src="https://static.031130.xyz/uploads/2024/08/12/62f3ccaa2b91c.webp" alt="这是去掉标题栏后的样子"></p>
@@ -8624,10 +8624,10 @@ cd Firefox-UI-Fix.git
     <category term="Bwrap"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2021/09/21/csdn-copied-my-article</id>
+    <id>https://zhul.in/2021/09/21/csdn-copied-my-article/</id>
     <title>记录一次原创文章被抄袭</title>
     <updated>2021-09-21T00:00:00.000Z</updated>
-    <link href="https://zhul.in/2021/09/21/csdn-copied-my-article" rel="alternate"></link>
+    <link href="https://zhul.in/2021/09/21/csdn-copied-my-article/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>今天在网站自搜的时候偶然间发现了一个叫「程序员宝宝」的站点转载了我去年在知乎专栏上发的一篇文章<a href="https://zhuanlan.zhihu.com/p/141107518">《Ubuntu下对deepin-wine的使用详解》</a>。</p>
 <p>转载的质量并不高，超链接都没有转载上去，只有干巴巴的图片和文字。翻到结尾处，我一口老血喷出。</p>
@@ -8661,10 +8661,10 @@ cd Firefox-UI-Fix.git
     <category term="Blog"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2021/09/11/detailed-explanation-for-aur</id>
+    <id>https://zhul.in/2021/09/11/detailed-explanation-for-aur/</id>
     <title>使用AUR(Helper)安装软件时究竟发生了什么？对于常见的构建错误如何解决？</title>
     <updated>2021-09-11T11:22:29.000Z</updated>
-    <link href="https://zhul.in/2021/09/11/detailed-explanation-for-aur" rel="alternate"></link>
+    <link href="https://zhul.in/2021/09/11/detailed-explanation-for-aur/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<blockquote>
 <p>虽然对于没有能力手动修改/编写PKGBUILD的Arch用户其实是不应该使用AUR中的包的，这些软件的PKGBUILD可以由个人随意发布，并不能保证安全性，但是作为Archlinux的特色，但随着AUR Helper的趋于便利，还是吸引了不少小白使用AUR。本文将主要讲一讲 AUR Helper 帮助我们安装软件时到底做了些什么事情，并提供一些使用AUR Helper构建时常见错误的解决方案。</p>
@@ -8765,10 +8765,10 @@ cd Firefox-UI-Fix.git
     <category term="Archlinux"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2021/09/05/wrong-fonts-color-fix-under-kde-with-a-dark-theme</id>
+    <id>https://zhul.in/2021/09/05/wrong-fonts-color-fix-under-kde-with-a-dark-theme/</id>
     <title>使用fakehome方案暂时解决跑在KDE暗色主题下的程序使用亮色字体的问题</title>
     <updated>2021-09-05T00:00:00.000Z</updated>
-    <link href="https://zhul.in/2021/09/05/wrong-fonts-color-fix-under-kde-with-a-dark-theme" rel="alternate"></link>
+    <link href="https://zhul.in/2021/09/05/wrong-fonts-color-fix-under-kde-with-a-dark-theme/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p><strong>9月6日更新：AUR的<code>wemeet-bin</code>维护者sukanka已经将咱的运行指令直接打进了包内，故本文已经基本失去原本的应用意义，但仍可以作为一个案例来解决类似问题。</strong></p>
 <blockquote>
@@ -8805,10 +8805,10 @@ cd Firefox-UI-Fix.git
     <category term="Bwrap"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2021/07/23/build-a-rpm-package-from-aur-with-archlinux</id>
+    <id>https://zhul.in/2021/07/23/build-a-rpm-package-from-aur-with-archlinux/</id>
     <title>来，从AUR给Fedora偷个包</title>
     <updated>2021-07-22T17:50:09.000Z</updated>
-    <link href="https://zhul.in/2021/07/23/build-a-rpm-package-from-aur-with-archlinux" rel="alternate"></link>
+    <link href="https://zhul.in/2021/07/23/build-a-rpm-package-from-aur-with-archlinux/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<blockquote>
 <p>前一阵子，某Q群里的某初中生居然跳上了Fedora这辆灵车，还一直缠着我要我给他整个打rpm包的教程，说什么要复兴FedoraCN之类的我听不懂的话。碰巧听说Fedora似乎还没有wechat-uos，于是我就寻思着给Fedora打一个，顺便熟悉一下dnf的操作。</p>
@@ -8974,10 +8974,10 @@ touch $HOME/rpmbuild/BUILDROOT/wechat-uos-2.0.0-1.x86_64/etc/lsb-release
     <category term="RPM Package"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2021/06/06/download-openharmony-source-code</id>
+    <id>https://zhul.in/2021/06/06/download-openharmony-source-code/</id>
     <title>下载一份openharmony的源码</title>
     <updated>2021-06-06T08:47:34.000Z</updated>
-    <link href="https://zhul.in/2021/06/06/download-openharmony-source-code" rel="alternate"></link>
+    <link href="https://zhul.in/2021/06/06/download-openharmony-source-code/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<blockquote>
 <p>不知道为什么，总是有人告诉我鸿蒙已经开源了，不信可以自己去看源码balabala，其实鸿蒙的手机端目前为止依然没有开源，或者说没有完整完整开源。本文我将介绍如何拉取一份openharmony开源的源码。</p>
@@ -9107,10 +9107,10 @@ error: Cannot checkout device_hisilicon_modules
     </author>
   </entry>
   <entry>
-    <id>https://zhul.in/2021/05/30/share-xiaomi-bluetooth-mouse-on-both-windows-and-linux</id>
+    <id>https://zhul.in/2021/05/30/share-xiaomi-bluetooth-mouse-on-both-windows-and-linux/</id>
     <title>在Windows与Linux双系统下共享蓝牙鼠标</title>
     <updated>2021-05-30T00:00:00.000Z</updated>
-    <link href="https://zhul.in/2021/05/30/share-xiaomi-bluetooth-mouse-on-both-windows-and-linux" rel="alternate"></link>
+    <link href="https://zhul.in/2021/05/30/share-xiaomi-bluetooth-mouse-on-both-windows-and-linux/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<blockquote>
 <p>我自己使用的鼠标是一只<a href="https://www.mi.com/mouse">小米的无线蓝牙双模鼠标</a>。但是由于我的USB接口不是很充裕，我平时还是蓝牙鼠标用的比较多。</p>
@@ -9198,10 +9198,10 @@ E3C0B28E642B1216D8C2D7D4595592CD
     <category term="Windows"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2021/05/29/choose-the-last-archlinux-mirror-site-in-china</id>
+    <id>https://zhul.in/2021/05/29/choose-the-last-archlinux-mirror-site-in-china/</id>
     <title>选择最新的Archlinux镜像源</title>
     <updated>2021-05-29T00:00:00.000Z</updated>
-    <link href="https://zhul.in/2021/05/29/choose-the-last-archlinux-mirror-site-in-china" rel="alternate"></link>
+    <link href="https://zhul.in/2021/05/29/choose-the-last-archlinux-mirror-site-in-china/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<h3>找到最新的Archlinux镜像源</h3>
 <p>我是testing+kde-unstable用户，平均每天更新4次，对于我而言，选择最新的Archlinux镜像是非常重要的。</p>
@@ -9321,10 +9321,10 @@ EOF' > /usr/bin/pacsync
     </author>
   </entry>
   <entry>
-    <id>https://zhul.in/2021/05/27/relieve-the-pressure-of-tuna-mirror-site-please</id>
+    <id>https://zhul.in/2021/05/27/relieve-the-pressure-of-tuna-mirror-site-please/</id>
     <title>请给 tuna/ustc 镜像站减压</title>
     <updated>2021-05-27T13:25:48.000Z</updated>
-    <link href="https://zhul.in/2021/05/27/relieve-the-pressure-of-tuna-mirror-site-please" rel="alternate"></link>
+    <link href="https://zhul.in/2021/05/27/relieve-the-pressure-of-tuna-mirror-site-please/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>不知道从什么时候开始，我总觉得tuna的镜像站提供的下载速度越来越慢，直到我前几天翻开tuna镜像站的「<a href="https://mirrors.tuna.tsinghua.edu.cn/status/#server-status">服务器状态</a>」，我被眼前的景象给震惊到了。</p>
 <p><img src="https://static.031130.xyz/uploads/2024/08/12/62f3baac63cd2.webp" alt="本图截于2021年5月27日晚"></p>
@@ -9360,10 +9360,10 @@ EOF' > /usr/bin/pacsync
     <category term="镜像站"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2021/05/23/why-i-use-archlinux</id>
+    <id>https://zhul.in/2021/05/23/why-i-use-archlinux/</id>
     <title>我为什么选择Archlinux？</title>
     <updated>2021-05-23T00:00:00.000Z</updated>
-    <link href="https://zhul.in/2021/05/23/why-i-use-archlinux" rel="alternate"></link>
+    <link href="https://zhul.in/2021/05/23/why-i-use-archlinux/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>对于我而言，我用Archlinux主要的原因就是实用主义。我可以很负责的说，Arch真的是在我所有用过的发行版当中最符合实用主义的一个了。</p>
 <p>很多大佬一提到Archlinux就扯些什么kiss原则，在我看来则不然。</p>
@@ -9402,10 +9402,10 @@ EOF' > /usr/bin/pacsync
     </author>
   </entry>
   <entry>
-    <id>https://zhul.in/2021/05/21/create-a-random-picture-api-with-vercel</id>
+    <id>https://zhul.in/2021/05/21/create-a-random-picture-api-with-vercel/</id>
     <title>使用vercel创建一个随机图片api</title>
     <updated>2021-05-21T00:00:00.000Z</updated>
-    <link href="https://zhul.in/2021/05/21/create-a-random-picture-api-with-vercel" rel="alternate"></link>
+    <link href="https://zhul.in/2021/05/21/create-a-random-picture-api-with-vercel/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>如果你的网络环境不算太差的话，你在访问我博客的时候应该可以看到顶部有一张背景图。假如你访问我的博客时留心观察，你或许会发现每次你访问我博客时的背景都是不一样的。如果你没玩够，或许你可以尝试<a href="https://randompic.zhul.in/api/randomtoppic.php"><strong>点击这里</strong></a>，我总共搜集了20张壁纸供诸位赏玩。</p>
 <p>是的，这是使用php实现的随机图片api，托管于vercel，你可以在<a href="https://note.aya1.top/#/4-phpapi"><strong>aya的博客</strong></a>上找到我使用的代码。具体配置方式我不再赘述。</p>
@@ -9441,10 +9441,10 @@ EOF' > /usr/bin/pacsync
     <category term="vercel"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2021/04/27/hide-simsun-from-deepin-wine-tim</id>
+    <id>https://zhul.in/2021/04/27/hide-simsun-from-deepin-wine-tim/</id>
     <title>禁止deepin-wine-tim使用simsun字体渲染</title>
     <updated>2021-04-27T00:00:00.000Z</updated>
-    <link href="https://zhul.in/2021/04/27/hide-simsun-from-deepin-wine-tim" rel="alternate"></link>
+    <link href="https://zhul.in/2021/04/27/hide-simsun-from-deepin-wine-tim/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<blockquote>
 <p>本文中，我通过bwrap命令对运行Tim的wine程序屏蔽了simsun字体以获得了一个更为舒适的字体渲染效果。我所使用的Tim为<code>deepin-wine-tim</code>，至于<code>deepin-wine-qq</code>通过相同的方式应该也能达到相同的效果，spark商店的Tim我自己测试下来似乎是没法达到这样的效果，而使用其他方法安装simsun字体的网友们则需要注意灵活变通，不要照抄我给出的字体路径。</p>
@@ -9501,10 +9501,10 @@ MimeType=
     <category term="Bwrap"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2021/04/23/disable-firefox-nightmode-when-your-system-is-using-that</id>
+    <id>https://zhul.in/2021/04/23/disable-firefox-nightmode-when-your-system-is-using-that/</id>
     <title>在系统使用暗色主题时禁用Firefox的夜间模式</title>
     <updated>2021-04-23T00:00:00.000Z</updated>
-    <link href="https://zhul.in/2021/04/23/disable-firefox-nightmode-when-your-system-is-using-that" rel="alternate"></link>
+    <link href="https://zhul.in/2021/04/23/disable-firefox-nightmode-when-your-system-is-using-that/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>在我使用Archlinux的时候经常会使用一些暗色主题，但是我并不希望我浏览网页时一些自作聪明的网页自动切换成夜间模式。</p>
 <p>这个设置我找了好久，每次在谷歌上检索都会跳出来一堆教我改Firefox主题的、用插件开夜间模式的，却都不是我的目的。</p>
@@ -9525,10 +9525,10 @@ MimeType=
     </author>
   </entry>
   <entry>
-    <id>https://zhul.in/2021/04/16/fuck-jekyll-github-metadata-on-gitlab</id>
+    <id>https://zhul.in/2021/04/16/fuck-jekyll-github-metadata-on-gitlab/</id>
     <title>记一次在Gitlab部署Jekyll博客时遇到的jekyll-github-metadata报错问题</title>
     <updated>2021-04-16T00:00:00.000Z</updated>
-    <link href="https://zhul.in/2021/04/16/fuck-jekyll-github-metadata-on-gitlab" rel="alternate"></link>
+    <link href="https://zhul.in/2021/04/16/fuck-jekyll-github-metadata-on-gitlab/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>我的博客是挂在GitlabPages上的，在为博客更换主题的时候遇到了一点点小麻烦。</p>
 <p>报错如图：</p>
@@ -9561,10 +9561,10 @@ ERROR: Job failed: exit code 1
     </author>
   </entry>
   <entry>
-    <id>https://zhul.in/2021/04/16/the-software-i-use-on-archlinux</id>
+    <id>https://zhul.in/2021/04/16/the-software-i-use-on-archlinux/</id>
     <title>我在Archlinux上的常用软件</title>
     <updated>2021-04-16T00:00:00.000Z</updated>
-    <link href="https://zhul.in/2021/04/16/the-software-i-use-on-archlinux" rel="alternate"></link>
+    <link href="https://zhul.in/2021/04/16/the-software-i-use-on-archlinux/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<blockquote>
 <p>最近基本固定了在Archlinux上的常用软件，也供各位参考一下。</p>
@@ -9592,10 +9592,10 @@ ERROR: Job failed: exit code 1
     <category term="Archlinux"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2021/04/15/login-chromium-with-the-api-of-chrome</id>
+    <id>https://zhul.in/2021/04/15/login-chromium-with-the-api-of-chrome/</id>
     <title>使用Chrome的同步api为chromium开启同步功能</title>
     <updated>2021-04-15T00:00:00.000Z</updated>
-    <link href="https://zhul.in/2021/04/15/login-chromium-with-the-api-of-chrome" rel="alternate"></link>
+    <link href="https://zhul.in/2021/04/15/login-chromium-with-the-api-of-chrome/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>今年两三月的时候，Google限制了chromium的同步api次数，导致各个发行版内置的chromium将不再能继续使用Google的数据同步功能。</p>
 <p>今天在翻 archlinuxcn 的群组的时候翻到了一段脚本: <a href="https://gist.github.com/foutrelis/14e339596b89813aa9c37fd1b4e5d9d5">https://gist.github.com/foutrelis/14e339596b89813aa9c37fd1b4e5d9d5</a></p>
@@ -9626,10 +9626,10 @@ sed -i "s|/usr/bin/chromium-browser|GOOGLE_DEFAULT_CLIENT_ID=77185425430.apps.go
     </author>
   </entry>
   <entry>
-    <id>https://zhul.in/2021/04/13/where-will-appimage-put-its-file</id>
+    <id>https://zhul.in/2021/04/13/where-will-appimage-put-its-file/</id>
     <title>Appimage的文件储存在哪里</title>
     <updated>2021-04-13T00:00:00.000Z</updated>
-    <link href="https://zhul.in/2021/04/13/where-will-appimage-put-its-file" rel="alternate"></link>
+    <link href="https://zhul.in/2021/04/13/where-will-appimage-put-its-file/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>我不饿：</p>
 <blockquote>
@@ -9654,10 +9654,10 @@ sed -i "s|/usr/bin/chromium-browser|GOOGLE_DEFAULT_CLIENT_ID=77185425430.apps.go
     </author>
   </entry>
   <entry>
-    <id>https://zhul.in/2021/04/11/use-motrix-install-of-firefox-to-download</id>
+    <id>https://zhul.in/2021/04/11/use-motrix-install-of-firefox-to-download/</id>
     <title>使用Motrix接管Firefox的下载</title>
     <updated>2021-04-11T00:00:00.000Z</updated>
-    <link href="https://zhul.in/2021/04/11/use-motrix-install-of-firefox-to-download" rel="alternate"></link>
+    <link href="https://zhul.in/2021/04/11/use-motrix-install-of-firefox-to-download/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<blockquote>
 <p>本文是一篇个人笔记，不具有太强的技术性，仅仅是为后来者指个方向。</p>
@@ -9678,10 +9678,10 @@ sed -i "s|/usr/bin/chromium-browser|GOOGLE_DEFAULT_CLIENT_ID=77185425430.apps.go
     </author>
   </entry>
   <entry>
-    <id>https://zhul.in/2021/04/04/yay-more</id>
+    <id>https://zhul.in/2021/04/04/yay-more/</id>
     <title>yay进阶</title>
     <updated>2021-04-04T00:00:00.000Z</updated>
-    <link href="https://zhul.in/2021/04/04/yay-more" rel="alternate"></link>
+    <link href="https://zhul.in/2021/04/04/yay-more/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<blockquote>
 <p>yay是一个AUR Helper，他可以执行pacman的几乎所有操作，并在此基础上添加了很多额外用法。</p>
@@ -9972,10 +9972,10 @@ yay -Ga
     <category term="Archlinux"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2021/03/14/lets-fuck-dm-and-use-startx</id>
+    <id>https://zhul.in/2021/03/14/lets-fuck-dm-and-use-startx/</id>
     <title>抛弃DisplayManager，拥抱startx</title>
     <updated>2021-03-14T00:00:00.000Z</updated>
-    <link href="https://zhul.in/2021/03/14/lets-fuck-dm-and-use-startx" rel="alternate"></link>
+    <link href="https://zhul.in/2021/03/14/lets-fuck-dm-and-use-startx/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>在正常情况下，我们会给Linux装上一个DisplayManager以方便我们输入账号密码来进入图形化系统，但是我不想要额外装一个DM来启动我的图形化系统（而且之前我一直用的sddm也出过一小阵子的问题）</p>
 <p>首先卸载我的sddm</p>
@@ -10013,10 +10013,10 @@ startplasma-x11
     </author>
   </entry>
   <entry>
-    <id>https://zhul.in/2021/02/27/change-your-firefox-icon-into-a-bluedoge</id>
+    <id>https://zhul.in/2021/02/27/change-your-firefox-icon-into-a-bluedoge/</id>
     <title>FireFox? IceDoge!!!</title>
     <updated>2021-02-27T00:00:00.000Z</updated>
-    <link href="https://zhul.in/2021/02/27/change-your-firefox-icon-into-a-bluedoge" rel="alternate"></link>
+    <link href="https://zhul.in/2021/02/27/change-your-firefox-icon-into-a-bluedoge/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>事情的起因是这样的。</p>
 <blockquote>
@@ -10060,10 +10060,10 @@ rm logo-nightdoge-lg-high-res.14f40a7985fe.png
     <category term="Fun"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2021/02/07/extract-payload-dot-bin-on-archlinux</id>
+    <id>https://zhul.in/2021/02/07/extract-payload-dot-bin-on-archlinux/</id>
     <title>在Archlinux上解包A/B机型的payload.bin</title>
     <updated>2021-02-07T00:00:00.000Z</updated>
-    <link href="https://zhul.in/2021/02/07/extract-payload-dot-bin-on-archlinux" rel="alternate"></link>
+    <link href="https://zhul.in/2021/02/07/extract-payload-dot-bin-on-archlinux/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>解包A/B机型的OTA更新包时，会发现zip文件中只有一个payload.bin文件</p>
 <p>解包这个文件，我们需要用到这个叫<a href="https://github.com/vm03/payload_dumper/blob/master/payload_dumper.py">payload_dumper</a>的python脚本，同时需要安装依赖: <code>community/python-google-api-core</code>和<code>python-bsdiff4</code>，我解包的时候发现缺少python3版本的python-bsdiff4，因此已经打包上传至<a href="https://aur.archlinux.org/packages/python-bsdiff4">AUR</a></p>
@@ -10086,10 +10086,10 @@ python payload_dumper.py payload.bin
     <category term="Python"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2021/01/25/how-to-solve-the-adb-devices-unauthorized-problem</id>
+    <id>https://zhul.in/2021/01/25/how-to-solve-the-adb-devices-unauthorized-problem/</id>
     <title>如何解决adb未授权的问题</title>
     <updated>2021-01-25T00:00:00.000Z</updated>
-    <link href="https://zhul.in/2021/01/25/how-to-solve-the-adb-devices-unauthorized-problem" rel="alternate"></link>
+    <link href="https://zhul.in/2021/01/25/how-to-solve-the-adb-devices-unauthorized-problem/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>在调试安卓设备的时候，我们经常会遇到adb未授权的问题，本方案适用于未开机时遇到以下两种情况。</p>
 <ol>
@@ -10131,10 +10131,10 @@ python payload_dumper.py payload.bin
     <category term="Rom编译"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2021/01/20/python-virtualenv</id>
+    <id>https://zhul.in/2021/01/20/python-virtualenv/</id>
     <title>虚拟Python环境</title>
     <updated>2021-01-20T00:00:00.000Z</updated>
-    <link href="https://zhul.in/2021/01/20/python-virtualenv" rel="alternate"></link>
+    <link href="https://zhul.in/2021/01/20/python-virtualenv/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>在python使用中，我们经常会遇到本地默认python版本与程序所需要的python版本不一致的问题，此时我们需要创建一个虚拟的python环境。</p>
 <h2>安装目标python版本</h2>
@@ -10201,10 +10201,10 @@ virtualenv $(TRAGET_PATH) python=python3.【x】		#python3
     <category term="Linux"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2021/01/01/why-i-dont-recommend-manjaro</id>
+    <id>https://zhul.in/2021/01/01/why-i-dont-recommend-manjaro/</id>
     <title>为什么我不推荐Manjaro</title>
     <updated>2021-01-01T00:00:00.000Z</updated>
-    <link href="https://zhul.in/2021/01/01/why-i-dont-recommend-manjaro" rel="alternate"></link>
+    <link href="https://zhul.in/2021/01/01/why-i-dont-recommend-manjaro/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>说起Linux发行版，很多人都会去推荐Manjaro给新手使用，原因很简单——安装简单、有庞大的AUR和ArchlinuxCN提供软件、有丰富的ArchWiki以供新手查阅。那么，为什么大多数Archlinux用户（包括我）始终不推荐Manjaro作为自己使用的发行版呢。</p>
 <hr>
@@ -10260,10 +10260,10 @@ virtualenv $(TRAGET_PATH) python=python3.【x】		#python3
     </author>
   </entry>
   <entry>
-    <id>https://zhul.in/2020/12/22/did-uos-have-secure-boot-signature</id>
+    <id>https://zhul.in/2020/12/22/did-uos-have-secure-boot-signature/</id>
     <title>UOS到底有没有Secure Boot签名/UOS引导怎么修复</title>
     <updated>2020-12-22T00:00:00.000Z</updated>
-    <link href="https://zhul.in/2020/12/22/did-uos-have-secure-boot-signature" rel="alternate"></link>
+    <link href="https://zhul.in/2020/12/22/did-uos-have-secure-boot-signature/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>以下内容来自2020年12月22日晚上的大佬对话，非本人原创。</p>
 <p><strong>吃瓜群众:</strong></p>
@@ -10310,10 +10310,10 @@ virtualenv $(TRAGET_PATH) python=python3.【x】		#python3
     <category term="deepin"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2020/10/08/nohello</id>
+    <id>https://zhul.in/2020/10/08/nohello/</id>
     <title>No Hello</title>
     <updated>2020-10-08T00:00:00.000Z</updated>
-    <link href="https://zhul.in/2020/10/08/nohello" rel="alternate"></link>
+    <link href="https://zhul.in/2020/10/08/nohello/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<p>Don't Just Say "Hello" in Chat.</p>
 <h2>别在向别人问问题的时候问“在吗？”</h2>
@@ -10349,10 +10349,10 @@ virtualenv $(TRAGET_PATH) python=python3.【x】		#python3
     <category term="翻译"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2020/08/10/androidunpack</id>
+    <id>https://zhul.in/2020/08/10/androidunpack/</id>
     <title>安卓解包笔记</title>
     <updated>2020-08-10T00:00:00.000Z</updated>
-    <link href="https://zhul.in/2020/08/10/androidunpack" rel="alternate"></link>
+    <link href="https://zhul.in/2020/08/10/androidunpack/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<pre><code>brotli -d system.new.dat.br
 sdat2img system.transfer.list system.new.dat
@@ -10371,10 +10371,10 @@ mount system.img {known_path}
     <category term="Linux"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2020/07/11/china-mainland-mirrorlist</id>
+    <id>https://zhul.in/2020/07/11/china-mainland-mirrorlist/</id>
     <title>国内Linux镜像源列表</title>
     <updated>2020-07-11T00:00:00.000Z</updated>
-    <link href="https://zhul.in/2020/07/11/china-mainland-mirrorlist" rel="alternate"></link>
+    <link href="https://zhul.in/2020/07/11/china-mainland-mirrorlist/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<h2>企业镜像</h2>
 <h4>阿里</h4>
@@ -10449,10 +10449,10 @@ mount system.img {known_path}
     <category term="镜像站"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2020/07/11/gitnotes</id>
+    <id>https://zhul.in/2020/07/11/gitnotes/</id>
     <title>git笔记</title>
     <updated>2020-07-11T00:00:00.000Z</updated>
-    <link href="https://zhul.in/2020/07/11/gitnotes" rel="alternate"></link>
+    <link href="https://zhul.in/2020/07/11/gitnotes/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<h3>git自动填入账号密码</h3>
 <p>打开终端，输入</p>
@@ -10502,10 +10502,10 @@ Everything up-to-date
     <category term="笔记"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2020/07/11/reponotes</id>
+    <id>https://zhul.in/2020/07/11/reponotes/</id>
     <title>repo笔记</title>
     <updated>2020-07-11T00:00:00.000Z</updated>
-    <link href="https://zhul.in/2020/07/11/reponotes" rel="alternate"></link>
+    <link href="https://zhul.in/2020/07/11/reponotes/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<h3>清除同步过程中产生的不完整碎片文件</h3>
 <p>在<code>源码路径/.repo</code>下搜索tmp_pack
@@ -10542,10 +10542,10 @@ done
     <category term="笔记"></category>
   </entry>
   <entry>
-    <id>https://zhul.in/2020/03/03/set-proxy-for-cmd-under-windows</id>
+    <id>https://zhul.in/2020/03/03/set-proxy-for-cmd-under-windows/</id>
     <title>在Windows下给cmd设置代理</title>
     <updated>2020-03-03T00:00:00.000Z</updated>
-    <link href="https://zhul.in/2020/03/03/set-proxy-for-cmd-under-windows" rel="alternate"></link>
+    <link href="https://zhul.in/2020/03/03/set-proxy-for-cmd-under-windows/" rel="alternate"></link>
     <content type="html">
       <![CDATA[<h2>cmd打开方法</h2>
 <p>按住<code>win</code>+<code>R</code>键，调出一个运行框，接着输入<code>cmd</code>并回车即可</p>
