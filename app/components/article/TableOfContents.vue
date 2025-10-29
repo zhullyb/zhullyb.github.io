@@ -194,6 +194,11 @@
 		background: #fafafa;
 		border: 1px solid #e5e5e5;
 
+		.dark-mode({
+      background: @dark-second-color;
+      border: 1px solid #444c5a;
+    });
+
 		.tablet-down({
 			display: none;
 		});
@@ -206,6 +211,11 @@
 		color: #333;
 		border-bottom: 1px solid #e5e5e5;
 		padding-bottom: 0.5rem;
+
+		.dark-mode({
+      color: #fff;
+      border-bottom: 1px solid #444c5a;
+    });
 	}
 
 	.toc-list {
@@ -232,7 +242,6 @@
 		}
 
 		a {
-			color: #666;
 			text-decoration: none;
 			display: block;
 			padding: 0.35rem 0.5rem;
@@ -240,6 +249,10 @@
 				color 0.2s,
 				background-color 0.2s;
 			font-size: 0.875rem;
+			color: #666;
+			.dark-mode({
+        color: #ccc;
+      });
 
 			&:hover {
 				color: @active-blue;

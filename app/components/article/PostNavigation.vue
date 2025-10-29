@@ -54,12 +54,16 @@
 		align-items: center;
 		gap: 1rem;
 		padding: 1.25rem 1.5rem;
-		border: 1px solid #e1e4e8;
-		background: #fff;
 		text-decoration: none;
-		color: #24292e;
 		transition: border-color 0.2s ease;
 		cursor: pointer;
+
+		color: #24292e;
+		border: 1px solid #e1e4e8;
+		.dark-mode({
+      border: 1px solid #444c5a;
+      color: #c9d1d9;
+    });
 
 		&:hover {
 			border-color: @active-blue;
@@ -112,7 +116,6 @@
 	.nav-title {
 		font-size: 1rem;
 		font-weight: 600;
-		color: #24292e;
 		transition: color 0.2s ease;
 		overflow: hidden;
 		text-overflow: ellipsis;
@@ -121,6 +124,11 @@
 		line-clamp: 2;
 		-webkit-box-orient: vertical;
 		line-height: 1.4;
+		color: #24292e;
+
+		.dark-mode({
+      color: #c9d1d9;
+    });
 	}
 
 	.tablet-down({

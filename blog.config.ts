@@ -19,6 +19,7 @@ const blogConfig = {
 		requiredMeta: ['nick'],
 		lang: 'zh-CN',
 		emoji: ['https://registry.npmmirror.com/@waline/emojis/^1/files/weibo'],
+		dark: 'auto',
 		wordLimit: 0,
 		pageSize: 10,
 		login: 'disable',

@@ -15,7 +15,7 @@
 	}
 </script>
 
-<style scoped>
+<style lang="less" scoped>
 	footer {
 		width: 100%;
 		display: flex;
@@ -36,5 +36,8 @@
 		left: 0;
 		right: 0;
 		background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
+		.dark-mode({
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8));
+    });
 	}
 </style>

@@ -10,4 +10,14 @@
 
 		scroll-margin-top: @header-height + 20px;
 	}
+
+	.dark-mode({
+    --bgColor-default: @dark-bg-color;
+    --bgColor-muted: @dark-second-color;
+
+    .shiki,
+    .shiki span {
+      color: var(--shiki-dark) !important;
+    }
+  });
 }

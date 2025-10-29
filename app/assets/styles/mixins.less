@@ -1,6 +1,14 @@
 @active-blue: #007bff;
+@dark-bg-color: #252d38;
+@dark-second-color: #181c27;
 
 @header-height: 58px;
+
+.dark-mode(@rules) {
+	@media (prefers-color-scheme: dark) {
+		@rules();
+	}
+}
 
 .tablet-down(@rules) {
 	@media (max-width: 768px) {

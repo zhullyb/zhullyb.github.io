@@ -30,6 +30,7 @@
 
 		.wl-panel {
 			border-radius: 0;
+			border: 0;
 			margin: 0;
 		}
 

@@ -48,5 +48,9 @@
 	.date {
 		color: #666;
 		font-size: 0.9em;
+
+		.dark-mode({
+      color: #aaa;
+    });
 	}
 </style>

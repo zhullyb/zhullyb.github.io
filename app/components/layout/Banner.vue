@@ -33,12 +33,15 @@
 	}
 
 	.mask {
-		background: rgba(0, 0, 0, 0.1);
 		width: 100%;
 		height: 100%;
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		background: rgba(0, 0, 0, 0.1);
+		.dark-mode({
+      background: rgba(0, 0, 0, 0.5);
+    });
 	}
 
 	.title-container {

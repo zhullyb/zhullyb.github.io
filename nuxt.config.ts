@@ -34,6 +34,18 @@ export default defineNuxtConfig({
 			]
 		}
 	},
+	content: {
+		build: {
+			markdown: {
+				highlight: {
+					theme: {
+						default: 'one-light',
+						dark: 'one-dark-pro'
+					}
+				}
+			}
+		}
+	},
 	nitro: {
 		prerender: {
 			routes: [

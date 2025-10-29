@@ -109,15 +109,28 @@
 		text-decoration: none;
 		cursor: pointer;
 
+		.dark-mode({
+      color: #fff;
+    });
+
 		&.current {
 			background: #f8f9fa;
 			cursor: default;
+
+			.dark-mode({
+        background: @dark-second-color;
+        color: #fff;
+      });
 		}
 
 		&:not(.current) {
 			&:hover {
 				background: #f8f9fa;
 				color: @active-blue;
+
+				.dark-mode({
+          background: @dark-second-color;
+        });
 			}
 		}
 	}

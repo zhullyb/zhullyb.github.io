@@ -103,11 +103,6 @@
         border-bottom: none;
         padding-bottom: 2px;
     });
-
-		a {
-			color: #333;
-			text-decoration: none;
-		}
 	}
 
 	.post-meta {
@@ -140,7 +135,6 @@
 	}
 
 	.description {
-		color: #333;
 		text-decoration: none;
 		display: -webkit-box;
 		-webkit-box-orient: vertical;
@@ -148,5 +142,10 @@
 		overflow: hidden;
 		text-overflow: ellipsis;
 		word-break: break-word;
+		color: #333;
+
+		.dark-mode({
+      color: #ccc;
+    });
 	}
 </style>
