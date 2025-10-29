@@ -55,7 +55,6 @@ export default defineAppConfig({
 		'https://static.031130.xyz/uploads/2024/08/12/1ef8787039f53.webp',
 		'https://static.031130.xyz/uploads/2024/08/12/fb261297a3570.webp',
 		'https://static.031130.xyz/uploads/2024/08/12/62f374ea7b242.webp',
-		'https://static.031130.xyz/uploads/2024/08/12/6609df9b83ecd.webp',
 		'https://static.031130.xyz/uploads/2025/05/04/e1aa9e18bebb1.webp'
 	]
 })
