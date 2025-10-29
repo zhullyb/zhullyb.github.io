@@ -1,8 +1,21 @@
 <template>
-	<footer :style="footerStyle">
+	<footer ref="footerRef" :style="footerStyle">
 		<div class="footer-mask"></div>
 		<!-- 可在此处添加 footer 内容 -->
-		<div class="footer-content">©2020 - 2025 By zhullyb</div>
+		<div class="footer-content">
+			<div>©2020 - 2025 By zhullyb</div>
+			<iframe
+				v-if="showNodeSupport"
+				frameborder="0"
+				src="https://support.nodeget.com/page/promotion?id=61"
+				style="
+					border-radius: 8px;
+					height: 246px;
+					transform: scale(0.8);
+					transform-origin: top center;
+				"
+			></iframe>
+		</div>
 	</footer>
 </template>
 
@@ -13,6 +26,34 @@
 		minHeight: '120px',
 		color: 'white'
 	}
+
+	const footerRef = ref<HTMLElement | null>(null)
+	const showNodeSupport = ref(false)
+
+	onMounted(() => {
+		if (!footerRef.value) return
+
+		const observer = new IntersectionObserver(
+			entries => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting && !showNodeSupport.value) {
+						showNodeSupport.value = true
+						observer.disconnect()
+					}
+				})
+			},
+			{
+				rootMargin: '100px', // 提前100px开始加载
+				threshold: 0.1
+			}
+		)
+
+		observer.observe(footerRef.value)
+
+		onBeforeUnmount(() => {
+			observer.disconnect()
+		})
+	})
 </script>
 
 <style lang="less" scoped>
@@ -27,6 +68,11 @@
 
 	.footer-content {
 		z-index: 1;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 12px;
+		padding: 20px;
 	}
 
 	.footer-mask {

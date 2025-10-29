@@ -49,10 +49,18 @@
 		margin: 0;
 		font-size: 1.25rem;
 		color: #333;
+
+		.dark-mode({
+      color: #fff;
+    });
 	}
 
 	.link-intro {
 		margin: 4px 0 0;
 		color: #666;
+
+		.dark-mode({
+      color: #ccc;
+    });
 	}
 </style>
