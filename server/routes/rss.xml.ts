@@ -39,7 +39,10 @@ const builder = new XMLBuilder({
 
 const normaliseSiteUrl = (url: string) => url.replace(/\/+$/, '')
 
-const buildAbsoluteUrl = (siteUrl: string, path: string) => new URL(path, `${siteUrl}/`).toString()
+const buildAbsoluteUrl = (siteUrl: string, path: string) => {
+	path = path.endsWith('/') ? path : path + '/'
+	return new URL(path, `${siteUrl}/`).toString()
+}
 
 const buildPostLink = (post: Post, siteUrl: string) => buildAbsoluteUrl(siteUrl, post.path)
 
