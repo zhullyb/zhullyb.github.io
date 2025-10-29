@@ -3,8 +3,8 @@
 		<a
 			v-if="prevPost"
 			class="nav-button prev"
-			:href="prevPost.path"
-			@click.prevent="navigateTo(prevPost.path)"
+			:href="prevPost.path + '/'"
+			@click.prevent="navigateTo(prevPost.path + '/')"
 		>
 			<div class="nav-arrow">←</div>
 			<div class="nav-content">
@@ -16,8 +16,8 @@
 		<a
 			v-if="nextPost"
 			class="nav-button next"
-			:href="nextPost.path"
-			@click.prevent="navigateTo(nextPost.path)"
+			:href="nextPost.path + '/'"
+			@click.prevent="navigateTo(nextPost.path + '/')"
 		>
 			<div class="nav-content">
 				<span class="nav-label">下一篇</span>

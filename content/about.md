@@ -1,6 +1,7 @@
 ---
 title: 关于
 ---
+
 ## About Me
 
 咱是一只大四的大本钟，日常全靠摆，就读于~~杭州化工学校~~。
@@ -21,7 +22,7 @@ title: 关于
 
 ## My Websites
 
-博客(本站): [https://zhul.in](https://zhul.in)
+博客(本站): [https://zhul.in](https://zhul.in/)
 
 ## Contact Me
 

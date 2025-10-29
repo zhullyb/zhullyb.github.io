@@ -54,12 +54,7 @@ export default defineNuxtConfig({
 		}
 	],
 	linkChecker: {
-		skipInspections: [
-			'no-non-ascii-chars',
-			'no-uppercase-chars',
-			'trailing-slash',
-			'absolute-site-urls'
-		]
+		skipInspections: ['no-non-ascii-chars', 'no-uppercase-chars', 'absolute-site-urls']
 	},
 	site: {
 		url: blogConfig.url,
@@ -96,6 +91,13 @@ export default defineNuxtConfig({
 				less: {
 					additionalData: `@import "@/assets/styles/mixins.less";`
 				}
+			}
+		}
+	},
+	experimental: {
+		defaults: {
+			nuxtLink: {
+				trailingSlash: 'append'
 			}
 		}
 	}
