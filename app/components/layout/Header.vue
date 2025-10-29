@@ -89,7 +89,7 @@
 		top: 0;
 		transition: all 0.3s ease;
 		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-		z-index: 1;
+		z-index: 2;
 		user-select: none;
 
 		&.scrolled {
