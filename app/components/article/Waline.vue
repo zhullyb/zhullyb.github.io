@@ -18,7 +18,7 @@
 		() =>
 			({
 				...blogConfig.waline,
-				path: route.path
+				path: route.path.endsWith('/') ? route.path : route.path + '/'
 			}) as any
 	)
 </script>
