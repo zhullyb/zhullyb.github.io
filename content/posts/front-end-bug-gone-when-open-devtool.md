@@ -17,7 +17,7 @@ tags:
 
 下面是使用 iframe 引入的 [demo](https://static.031130.xyz/demo/scroll-jump-bug.html)
 
-<iframe src="https://static.031130.xyz/demo/scroll-jump-bug.html" width="100%" height="500" allowfullscreen></iframe>
+<iframe src="https://static.031130.xyz/demo/scroll-jump-bug.html" width="100%" height="500" allowfullscreen loading="lazy"></iframe>
 
 ![“观测”指南](https://static.031130.xyz/uploads/2025/06/08/65620d31fce6f.webp)
 
@@ -109,7 +109,7 @@ if (scrollIndex >= groupLength) {
 
 总之，我们需要杜绝浏览器将设置 transform 偏移值（瞬移列表位置）与恢复 transition 动画两件事合并到同一帧里去，而两层嵌套的 requestAnimationFrame 方法能很好的解决这个问题
 
-<iframe src="https://static.031130.xyz/demo/scroll-jump-bug-fixed.html" width="100%" height="500" allowfullscreen></iframe>
+<iframe src="https://static.031130.xyz/demo/scroll-jump-bug-fixed.html" width="100%" height="500" allowfullscreen loading="lazy"></iframe>
 
 ## 驯服量子态：前端开发者的新技能
 

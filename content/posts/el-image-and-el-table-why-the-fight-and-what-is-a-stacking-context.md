@@ -16,7 +16,7 @@ tags:
 
 [demo](https://static.031130.xyz/demo/el-image-el-table-conflict.html) 的 iframe 引入
 
-<iframe src="https://static.031130.xyz/demo/el-image-el-table-conflict.html" width="100%" height="500" allowfullscreen></iframe>
+<iframe src="https://static.031130.xyz/demo/el-image-el-table-conflict.html" width="100%" height="500" allowfullscreen loading="lazy"></iframe>
 
 看到后面的表格透出 el-image 的预览层，我的第一反应是叫小朋友去检查 z-index 是否正确，el-image 的 mask 遮罩的 z-index 是否大于表格。
 

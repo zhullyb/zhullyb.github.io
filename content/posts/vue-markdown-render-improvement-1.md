@@ -142,10 +142,10 @@ import morphdom from 'morphdom';
 const markdownContent = ref('');
 const markdownContainer = ref(null);
 const md = new MarkdownIt();
-    
+
 const render = () => {
   if (!markdownContainer.value.querySelector('#md-root')) return;
-  
+
   const newHtml = `<div id="md-root">` + md.render(markdownContent.value) + `</div>`
 
   morphdom(markdownContainer.value, newHtml, {
@@ -156,7 +156,7 @@ const render = () => {
 watch(markdownContent, () => {
     render()
 });
-    
+
 onMounted(async () => {
   // 等待 Dom 被挂载上
   await nextTick()
@@ -174,7 +174,7 @@ onMounted(async () => {
 
 ![](https://static.031130.xyz/uploads/2025/07/12/d5721c40fb076.webp)
 
-<iframe src="https://static.031130.xyz/demo/morphdom-vs-markdown-chunk.html" width="100%" height="500" allowfullscreen></iframe>
+<iframe src="https://static.031130.xyz/demo/morphdom-vs-markdown-chunk.html" width="100%" height="500" allowfullscreen loading="lazy"></iframe>
 
 ## 阶段性成果
 
