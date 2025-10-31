@@ -1,7 +1,10 @@
 <template>
-	<ClientOnly>
-		<WalineClient id="waline" v-bind="walineProps" />
-	</ClientOnly>
+	<div id="waline" ref="walineRef">
+		<ClientOnly>
+			<WalineClient v-if="walineVisible" v-bind="walineProps" />
+			<div v-else>Waline Loading...</div>
+		</ClientOnly>
+	</div>
 </template>
 
 <script lang="ts" setup>
@@ -21,6 +24,11 @@
 				path: route.path.endsWith('/') ? route.path : route.path + '/'
 			}) as any
 	)
+
+  const { targetRef: walineRef, isVisible: walineVisible } = useLazyLoad({
+    rootMargin: '200px',
+    threshold: 0
+  })
 </script>
 
 <style lang="less">
