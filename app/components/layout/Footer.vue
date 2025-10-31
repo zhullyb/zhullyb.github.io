@@ -27,32 +27,9 @@
 		color: 'white'
 	}
 
-	const footerRef = ref<HTMLElement | null>(null)
-	const showNodeSupport = ref(false)
-
-	onMounted(() => {
-		if (!footerRef.value) return
-
-		const observer = new IntersectionObserver(
-			entries => {
-				entries.forEach(entry => {
-					if (entry.isIntersecting && !showNodeSupport.value) {
-						showNodeSupport.value = true
-						observer.disconnect()
-					}
-				})
-			},
-			{
-				rootMargin: '100px', // 提前100px开始加载
-				threshold: 0.1
-			}
-		)
-
-		observer.observe(footerRef.value)
-
-		onBeforeUnmount(() => {
-			observer.disconnect()
-		})
+	const { targetRef: footerRef, isVisible: showNodeSupport } = useLazyLoad({
+		rootMargin: '100px', // 提前100px开始加载
+		threshold: 0.1
 	})
 </script>
 
