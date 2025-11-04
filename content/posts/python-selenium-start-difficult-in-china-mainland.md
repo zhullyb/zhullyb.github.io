@@ -5,7 +5,8 @@ sticky:
 tags:
 - Python
 - selenium
-- Linux 
+- Linux
+- Firefox
 ---
 
 之前因为学校社团迎新的需求，就临时写了一个 QQ Bot，最近又给 bot 加上了 [/q 的功能](https://github.com/zhullyb/qq-quote-generator)，原理是通过 python 的 selenium 去启动一个 headless Firefox 去截由 jinja2 模板引擎生成的 html 的图。
