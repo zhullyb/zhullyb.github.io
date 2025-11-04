@@ -5791,6 +5791,7 @@ driver.quit()
     <category term="Python"></category>
     <category term="selenium"></category>
     <category term="Linux"></category>
+    <category term="Firefox"></category>
   </entry>
   <entry>
     <id>https://zhul.in/2023/08/04/static-webpage-deployment-for-a-beginner/</id>
@@ -9523,6 +9524,8 @@ MimeType=
       <email>zhullyb@outlook.com</email>
       <uri>https://zhul.in</uri>
     </author>
+    <category term="笔记"></category>
+    <category term="Firefox"></category>
   </entry>
   <entry>
     <id>https://zhul.in/2021/04/16/fuck-jekyll-github-metadata-on-gitlab/</id>
@@ -10058,6 +10061,7 @@ rm logo-nightdoge-lg-high-res.14f40a7985fe.png
     </author>
     <category term="Linux"></category>
     <category term="Fun"></category>
+    <category term="Firefox"></category>
   </entry>
   <entry>
     <id>https://zhul.in/2021/02/07/extract-payload-dot-bin-on-archlinux/</id>
