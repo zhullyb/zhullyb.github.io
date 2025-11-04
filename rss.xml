@@ -115,8 +115,11 @@
       <email>zhullyb@outlook.com</email>
       <uri>https://zhul.in</uri>
     </author>
-    <category term="Http"></category>
+    <category term="HTTP"></category>
     <category term="Caddy"></category>
+    <category term="Network"></category>
+    <category term="HTML"></category>
+    <category term="vercel"></category>
   </entry>
   <entry>
     <id>https://zhul.in/2025/10/20/nuxt-content-v3-z-array-query-challenge/</id>
