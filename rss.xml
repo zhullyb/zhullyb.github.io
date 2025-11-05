@@ -119,7 +119,7 @@
     <category term="Caddy"></category>
     <category term="Network"></category>
     <category term="HTML"></category>
-    <category term="vercel"></category>
+    <category term="Vercel"></category>
   </entry>
   <entry>
     <id>https://zhul.in/2025/10/20/nuxt-content-v3-z-array-query-challenge/</id>
@@ -6905,7 +6905,7 @@ Config option 'webhook_enabled'              = false
     <category term="Network"></category>
     <category term="umami"></category>
     <category term="OpenSource Project"></category>
-    <category term="vercel"></category>
+    <category term="Vercel"></category>
   </entry>
   <entry>
     <id>https://zhul.in/2022/11/04/my-blog-plan/</id>
@@ -9546,7 +9546,7 @@ EOF' > /usr/bin/pacsync
       <uri>https://zhul.in</uri>
     </author>
     <category term="Network"></category>
-    <category term="vercel"></category>
+    <category term="Vercel"></category>
   </entry>
   <entry>
     <id>https://zhul.in/2021/04/27/hide-simsun-from-deepin-wine-tim/</id>
