@@ -1,0 +1,1 @@
+import{_ as e}from"./Dp9QxfYt.js";import{_ as n}from"./BwQTfM1e.js";import{_,c,w as r,o as a,a as s}from"./TyQMILOC.js";import"./_QEnEroZ.js";import"./D6Ad_r5Q.js";import"./BWil4abv.js";const i={};function m(p,f){const t=e,o=n;return a(),c(o,{title:"归档"},{default:r(()=>[s(t)]),_:1})}const w=_(i,[["render",m]]);export{w as default};
