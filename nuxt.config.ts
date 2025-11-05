@@ -31,26 +31,26 @@ export default defineNuxtConfig({
 					'data-website-id': '5346b89b-f4bf-4593-971d-1f41a1118bc1'
 				},
 				// Aegis SDK - 使用 defer 异步加载
-				{
-					src: 'https://tam.cdn-go.cn/aegis-sdk/latest/aegis.min.js',
-					defer: true
-				},
-				{
-					innerHTML: `
-						window.addEventListener('load', function() {
-							if (typeof Aegis === 'function') {
-								var aegis = new Aegis({
-									id: 'qVpxoSLlkdylxWwEdn',
-									reportApiSpeed: true,
-									reportAssetSpeed: true,
-									spa: true,
-									hostUrl: 'https://rumt-zh.com'
-								});
-							}
-						});
-					`,
-					defer: true
-				}
+				// {
+				// 	src: 'https://tam.cdn-go.cn/aegis-sdk/latest/aegis.min.js',
+				// 	defer: true
+				// },
+				// {
+				// 	innerHTML: `
+				// 		window.addEventListener('load', function() {
+				// 			if (typeof Aegis === 'function') {
+				// 				var aegis = new Aegis({
+				// 					id: 'qVpxoSLlkdylxWwEdn',
+				// 					reportApiSpeed: true,
+				// 					reportAssetSpeed: true,
+				// 					spa: true,
+				// 					hostUrl: 'https://rumt-zh.com'
+				// 				});
+				// 			}
+				// 		});
+				// 	`,
+				// 	defer: true
+				// }
 			],
 			meta: [
 				{
