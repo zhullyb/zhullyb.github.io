@@ -46,7 +46,8 @@ const blogConfig = {
 		'/tags/Shell-Script/': '/tags/Shell%20Script/',
 		'/tags/Virtual-Machine/': '/tags/Virtual%20Machine/',
 		'/tags/Vue-js/': '/tags/Vue.js',
-		'/tags/Web-PKI/': '/tags/Web%20PKI/'
+		'/tags/Web-PKI/': '/tags/Web%20PKI/',
+		'/tags/vercel/': '/tags/Vercel/'
 	},
 	links: [
 		{

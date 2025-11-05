@@ -1,9 +1,9 @@
 ---
 title: 使用vercel创建一个随机图片api
 date: 2021-05-21
-tags: 
+tags:
 - Network
-- vercel
+- Vercel
 ---
 
 如果你的网络环境不算太差的话，你在访问我博客的时候应该可以看到顶部有一张背景图。假如你访问我的博客时留心观察，你或许会发现每次你访问我博客时的背景都是不一样的。如果你没玩够，或许你可以尝试[**点击这里**](https://randompic.zhul.in/api/randomtoppic.php)，我总共搜集了20张壁纸供诸位赏玩。
