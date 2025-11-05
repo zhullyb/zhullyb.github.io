@@ -13,7 +13,8 @@ export default defineNuxtConfig({
           crossorigin: ''
         },
 				{
-					rel: 'stylesheet',
+					rel: 'prefetch',
+          as: 'style',
 					href: 'https://static.031130.xyz/res/github-markdown.css'
 				},
 				{

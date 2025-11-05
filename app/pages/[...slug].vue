@@ -8,6 +8,15 @@
 	if (!page.value) {
 		throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
 	}
+
+  useHead({
+    link: [
+      {
+        rel: 'stylesheet',
+        href: 'https://static.031130.xyz/res/github-markdown.css'
+      }
+    ]
+  })
 </script>
 
 <template>

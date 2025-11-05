@@ -42,7 +42,13 @@
 		meta: [
 			{ name: 'description', content: post.value?.description || '' },
 			{ name: 'keywords', content: toNormalTags(post.value?.tags)?.join(',') || '' }
-		]
+		],
+    link: [
+      {
+        rel: 'stylesheet',
+        href: 'https://static.031130.xyz/res/github-markdown.css'
+      }
+    ]
 	})
 </script>
 
