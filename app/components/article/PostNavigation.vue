@@ -61,7 +61,7 @@
 		color: #24292e;
 		border: 1px solid #e1e4e8;
 		.dark-mode({
-      border: 1px solid #444c5a;
+      border: 1px solid @dark-border-color;
       color: #c9d1d9;
     });
 

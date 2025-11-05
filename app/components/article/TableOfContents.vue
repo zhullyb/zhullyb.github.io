@@ -196,7 +196,7 @@
 
 		.dark-mode({
       background: @dark-second-color;
-      border: 1px solid #444c5a;
+      border: 1px solid @dark-border-color;
     });
 
 		.tablet-down({
@@ -214,7 +214,7 @@
 
 		.dark-mode({
       color: #fff;
-      border-bottom: 1px solid #444c5a;
+      border-bottom: 1px solid @dark-border-color;
     });
 	}
 

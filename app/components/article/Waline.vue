@@ -38,8 +38,11 @@
 
 		.wl-panel {
 			border-radius: 0;
-			border: 0;
 			margin: 0;
+
+      .dark-mode({
+        border-color: @dark-border-color;
+      });
 		}
 
 		.wl-btn {
