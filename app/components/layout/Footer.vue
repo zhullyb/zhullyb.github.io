@@ -20,11 +20,16 @@
 </template>
 
 <script setup lang="ts">
-	const props = defineProps<{ bannerImg: string }>()
+	const props = defineProps<{ background: {
+    backgroundColor: string,
+    backgroundImage: string
+  } }>()
 	const footerStyle = {
-		background: `url(${props.bannerImg}) center bottom / cover no-repeat`,
 		minHeight: '120px',
-		color: 'white'
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center center',
+    backgroundSize: 'cover',
+    ...props.background
 	}
 
 	const { targetRef: footerRef, isVisible: showNodeSupport } = useLazyLoad({

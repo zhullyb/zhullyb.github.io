@@ -14,15 +14,21 @@
 
 <script setup lang="ts">
 	interface Props {
-		bannerImg: string
 		title: string
 		slogan?: string | null
+    background: {
+      backgroundColor: string
+      backgroundImage: string
+    }
 	}
 
 	const props = defineProps<Props>()
 
 	const bannerStyle = computed(() => ({
-		background: `url(${props.bannerImg}) center center / cover no-repeat`
+    backgroundRepeat: 'no-repeat',
+    backgroundPosition: 'center center',
+    backgroundSize: 'cover',
+    ...props.background
 	}))
 </script>
 

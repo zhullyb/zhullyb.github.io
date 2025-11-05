@@ -29,7 +29,7 @@
 			</NuxtLink>
 		</div>
 	</header>
-	<Banner :banner-img="bannerImg" :title="realTitle" :slogan="slogan" />
+	<Banner :background="background" :title="realTitle" :slogan="slogan" />
 	<SearchOverlay v-model="showSearch" />
 </template>
 
@@ -46,8 +46,11 @@
 	})
 
 	interface Props {
-		bannerImg: string
 		title?: string
+    background: {
+      backgroundColor: string,
+      backgroundImage: string
+    }
 	}
 
 	const props = withDefaults(defineProps<Props>(), {

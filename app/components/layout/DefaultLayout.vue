@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<Header :banner-img="bannerImg" :title="title" />
+		<Header :background="background" :title="title" />
 		<div class="content-wrapper">
 			<div class="before-main side">
 				<slot name="BeforeMain" />
@@ -12,7 +12,7 @@
 				<slot name="AfterMain" />
 			</div>
 		</div>
-		<Footer :banner-img="bannerImg" />
+		<Footer :background="background" />
 	</div>
 </template>
 
@@ -25,20 +25,15 @@
 	})
 	const appConfig = useAppConfig()
 	const { data: randomIndex } = useAsyncData('randomIndex' + route.path, async () => {
-		return Math.floor(Math.random() * appConfig.imgs.length)
+		return Math.floor(Math.random() * appConfig.backgrounds.length)
 	})
-	const bannerImg = computed(() => appConfig.imgs[randomIndex.value ?? 0] as string)
+	const background = computed(() => appConfig.backgrounds[randomIndex.value ?? 0] as {
+    backgroundColor: string,
+    backgroundImage: string
+  })
 
 	useHead({
 		title: props.title || appConfig.title,
-		link: [
-			{
-				rel: 'preload',
-				as: 'image',
-				href: bannerImg.value,
-				fetchpriority: 'high'
-			}
-		]
 	})
 </script>
 
