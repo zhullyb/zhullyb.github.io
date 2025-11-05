@@ -25,9 +25,6 @@
 	const props = defineProps<Props>()
 
 	const bannerStyle = computed(() => ({
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center center',
-    backgroundSize: 'cover',
     ...props.background
 	}))
 </script>

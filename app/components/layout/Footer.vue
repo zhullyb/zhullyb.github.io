@@ -26,9 +26,6 @@
   } }>()
 	const footerStyle = {
 		minHeight: '120px',
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center center',
-    backgroundSize: 'cover',
     ...props.background
 	}
 
