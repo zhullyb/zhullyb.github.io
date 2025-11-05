@@ -7,6 +7,11 @@ export default defineNuxtConfig({
 			title: blogConfig.title,
 			htmlAttrs: { lang: 'zh-CN' },
 			link: [
+        {
+          rel: 'preconnect',
+          href: 'https://static.031130.xyz',
+          crossorigin: ''
+        },
 				{
 					rel: 'stylesheet',
 					href: 'https://static.031130.xyz/res/github-markdown.css'
