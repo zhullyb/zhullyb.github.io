@@ -20,14 +20,17 @@
 </template>
 
 <script setup lang="ts">
-	const props = defineProps<{ background: {
-    backgroundColor: string,
-    backgroundImage: string
-  } }>()
-	const footerStyle = {
+	const props = defineProps<{
+		background: {
+			backgroundColor: string
+			backgroundImage: string
+		}
+	}>()
+
+	const footerStyle = computed(() => ({
 		minHeight: '120px',
-    ...props.background
-	}
+		...props.background
+	}))
 
 	const { targetRef: footerRef, isVisible: showNodeSupport } = useLazyLoad({
 		rootMargin: '100px', // 提前100px开始加载
