@@ -2,6 +2,9 @@
 	"name": "nuxt-content-starter",
 	"private": true,
 	"type": "module",
+  "engines": {
+    "node": ">=22.5"
+  },
 	"scripts": {
 		"build": "nuxt build",
 		"dev": "nuxt dev",
@@ -14,7 +17,6 @@
 		"@nuxt/content": "^3.7.1",
 		"@nuxtjs/seo": "^3.2.2",
 		"@waline/client": "^3.7.0",
-		"better-sqlite3": "^12.2.0",
 		"mermaid": "^11.12.1",
 		"nuxt": "^4.1.2",
 		"vue": "^3.5.21"
