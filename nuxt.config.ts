@@ -7,14 +7,14 @@ export default defineNuxtConfig({
 			title: blogConfig.title,
 			htmlAttrs: { lang: 'zh-CN' },
 			link: [
-        {
-          rel: 'preconnect',
-          href: 'https://static.031130.xyz',
-          crossorigin: ''
-        },
+				{
+					rel: 'preconnect',
+					href: 'https://static.031130.xyz',
+					crossorigin: ''
+				},
 				{
 					rel: 'prefetch',
-          as: 'style',
+					as: 'style',
 					href: 'https://static.031130.xyz/res/github-markdown.css'
 				},
 				{
@@ -30,7 +30,7 @@ export default defineNuxtConfig({
 					src: '/js/u.js',
 					defer: true,
 					'data-website-id': '5346b89b-f4bf-4593-971d-1f41a1118bc1'
-				},
+				}
 				// Aegis SDK - 使用 defer 异步加载
 				// {
 				// 	src: 'https://tam.cdn-go.cn/aegis-sdk/latest/aegis.min.js',
@@ -68,7 +68,26 @@ export default defineNuxtConfig({
 					theme: {
 						default: 'one-light',
 						dark: 'one-dark-pro'
-					}
+					},
+					langs: [
+						'json',
+						'js',
+						'ts',
+						'html',
+						'css',
+						'vue',
+						'shell',
+						'mdc',
+						'md',
+						'yaml',
+						'bash',
+						'diff',
+						'python',
+						'xml',
+						'nginx',
+						'php',
+						'powershell'
+					]
 				}
 			}
 		}

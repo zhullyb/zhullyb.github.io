@@ -27,13 +27,13 @@ tags:
 
 > 解压
 >
-> ```undefined
+> ```bash
 > asar extract 压缩文件  解压文件夹
 > ```
 >
 > 压缩：如果压缩文件存在，则会被替换
 >
-> ```undefined
+> ```bash
 > asar pack 文件夹  压缩文件名
 > ```
 
@@ -51,7 +51,7 @@ asar pack ${srcdir}/new_app ${srcdir}/squashfs-root/resources/app.asar
 
 ![成功啦](https://static.031130.xyz/uploads/2024/08/12/62f3cafb6b04d.webp)
 
-参考: 
+参考:
 
 [^1]: https://github.com/electron-userland/electron-builder/issues/1505
 [^2]: https://www.jianshu.com/p/15bde714e198

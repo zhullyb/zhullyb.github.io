@@ -49,13 +49,13 @@ tags:
 
 在地址栏，删除 `/web/home#router` 部分，加入下面这串代码
 
-```text
+```
 /api/misystem/set_config_iotdev?bssid=Xiaomi&user_id=longdike&ssid=-h%3B%20nvram%20set%20ssh_en%3D1%3B%20nvram%20commit%3B%20sed%20-i%20's%2Fchannel%3D.*%2Fchannel%3D%5C%22debug%5C%22%2Fg'%20%2Fetc%2Finit.d%2Fdropbear%3B%20%2Fetc%2Finit.d%2Fdropbear%20start%3B
 ```
 
 再次删除后面的代码，加入下面这串代码
 
-```text
+```
 /api/misystem/set_config_iotdev?bssid=Xiaomi&user_id=longdike&ssid=-h%3B%20echo%20-e%20'admin%5Cnadmin'%20%7C%20passwd%20root%3B
 ```
 
@@ -69,7 +69,7 @@ tags:
 
 此时应该就可以使用 ssh 访问路由器的 root 账户了，密码已经被改为了 admin
 
-```ba
+```bash
 ssh -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa root@192.168.31.1
 ```
 
@@ -127,7 +127,7 @@ Padavan 的默认 WIFI 名是 PDCN 和 PDCN_5G，WIFI 密码是 1234567890
 
 ![Padavan 设置界面](https://static.031130.xyz/uploads/2024/08/12/6496ac4f3170f.webp)
 
-> 参考文章: 
+> 参考文章:
 >
 > [《小米/红米AC2100刷OpenWrt/Padavan/第三方固件的详细教程（2022年8月23日更新）》](https://www.bilibili.com/read/cv18237601/)
 >

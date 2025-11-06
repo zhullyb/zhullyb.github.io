@@ -26,7 +26,7 @@ docker pull 时，是调用 dockerd 进行镜像拉取，而 dockerd 在绝大�
 比较好的方案是直接在 systemd 服务这一层设置好代理的环境变量，我这里参考的是「[配置 HTTP/HTTPS 网络代理 | Docker — 从入门到实践](https://yeasy.gitbook.io/docker_practice/advanced_network/http_https_proxy)」这篇文章。
 
 ```bash
-$ cat /etc/systemd/system/docker.service.d/http-proxy.conf 
+$ cat /etc/systemd/system/docker.service.d/http-proxy.conf
 
 [Service]
 Environment="HTTP_PROXY=http://127.0.0.1:8080"
@@ -69,7 +69,7 @@ docker 先请求了 `registry-1.docker.io` 得到了 401 的 http 状态码后�
 
 最后的成果大概就是这个样子:
 
-```caddyfile
+```
 dockerhub.example.com {
 	reverse_proxy https://registry-1.docker.io {
 		header_up Host {http.reverse_proxy.upstream.hostport}
