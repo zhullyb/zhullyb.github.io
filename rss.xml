@@ -3059,7 +3059,7 @@ banner.style.background = `url(${luck_img}) center center / cover no-repeat`
 <p>为了弄清楚 docker 从 dockerhub 拉取镜像的过程，需要先对网络请求进行抓包。具体的抓包方案我使用的是 mitmproxy，手动信任 ssl 证书的操作在「<a href="/2024/02/29/capture-https-traffic-on-linux-with-mitmproxy/">在 Linux 下使用 mitmproxy 抓取 HTTPS 流量</a>」这篇文章中已经讲过了，只需要配置 dockerd 使用本机的 8080 端口进行代理即可。</p>
 <p>docker pull 时，是调用 dockerd 进行镜像拉取，而 dockerd 在绝大多数发行版上都是由 systemd 进程直接启用了，在 shell 中直接设置环境变量的方式并不能进行代理，而透明代理的方案会引入大量无关请求，增加流量分析的难度。</p>
 <p>比较好的方案是直接在 systemd 服务这一层设置好代理的环境变量，我这里参考的是「<a href="https://yeasy.gitbook.io/docker_practice/advanced_network/http_https_proxy">配置 HTTP/HTTPS 网络代理 | Docker — 从入门到实践</a>」这篇文章。</p>
-<pre><code class="language-bash">$ cat /etc/systemd/system/docker.service.d/http-proxy.conf 
+<pre><code class="language-bash">$ cat /etc/systemd/system/docker.service.d/http-proxy.conf
 
 [Service]
 Environment="HTTP_PROXY=http://127.0.0.1:8080"
@@ -3083,7 +3083,7 @@ Environment="HTTPS_PROXY=http://127.0.0.1:8080"
 <h2>如何反代</h2>
 <p>分三个域名各自代理，在 <code>registry-1.docker.io</code> 那一块进行特殊处理，将响应头中的 WWW-Authenticate 和 location 字段进行关键词替换，将原域名替换为反代域名。</p>
 <p>最后的成果大概就是这个样子:</p>
-<pre><code class="language-caddyfile">dockerhub.example.com {
+<pre><code>dockerhub.example.com {
 	reverse_proxy https://registry-1.docker.io {
 		header_up Host {http.reverse_proxy.upstream.hostport}
 		header_down WWW-Authenticate "https://auth.docker.io" "https://auth.dockerhub.example.com"
@@ -6481,17 +6481,17 @@ fi
 <p>首先是确认路由器的版本，我从闲鱼上购得的路由器自带的版本是官方稳定版 2.0.23，一开始跟着别人的思路就降级到了 2.0.7，但后来遇见问题在网上查解决方案的时候看到有人说这个漏洞在 2.0.23 依然可用，但我也没有去试。</p>
 <p>在电脑上下载 2.0.7 的<a href="https://cdn.cnbj1.fds.api.mi-img.com/xiaoqiang/rom/rm2100/miwifi_rm2100_firmware_d6234_2.0.7.bin">升级包</a>，在路由器设置界面的常用设置->系统状态->手动升级 选择自己下载的升级包，确认等待重启即可。有些教程说可以选择保留数据，但我也懒得试，就直接清除了所有数据，又不得不再次过一遍上面的配置引导。</p>
 <p>在地址栏，删除 <code>/web/home#router</code> 部分，加入下面这串代码</p>
-<pre><code class="language-text">/api/misystem/set_config_iotdev?bssid=Xiaomi&#x26;user_id=longdike&#x26;ssid=-h%3B%20nvram%20set%20ssh_en%3D1%3B%20nvram%20commit%3B%20sed%20-i%20's%2Fchannel%3D.*%2Fchannel%3D%5C%22debug%5C%22%2Fg'%20%2Fetc%2Finit.d%2Fdropbear%3B%20%2Fetc%2Finit.d%2Fdropbear%20start%3B
+<pre><code>/api/misystem/set_config_iotdev?bssid=Xiaomi&#x26;user_id=longdike&#x26;ssid=-h%3B%20nvram%20set%20ssh_en%3D1%3B%20nvram%20commit%3B%20sed%20-i%20's%2Fchannel%3D.*%2Fchannel%3D%5C%22debug%5C%22%2Fg'%20%2Fetc%2Finit.d%2Fdropbear%3B%20%2Fetc%2Finit.d%2Fdropbear%20start%3B
 </code></pre>
 <p>再次删除后面的代码，加入下面这串代码</p>
-<pre><code class="language-text">/api/misystem/set_config_iotdev?bssid=Xiaomi&#x26;user_id=longdike&#x26;ssid=-h%3B%20echo%20-e%20'admin%5Cnadmin'%20%7C%20passwd%20root%3B
+<pre><code>/api/misystem/set_config_iotdev?bssid=Xiaomi&#x26;user_id=longdike&#x26;ssid=-h%3B%20echo%20-e%20'admin%5Cnadmin'%20%7C%20passwd%20root%3B
 </code></pre>
 <p><img src="https://static.031130.xyz/uploads/2024/08/12/6495ce20b91d1.webp" alt="需要被去除的 url 部分"></p>
 <p><img src="https://static.031130.xyz/uploads/2024/08/12/6495ce1de2acd.webp" alt="被截剩的 url 部分"></p>
 <p>两次请求的正常反馈应该长成下面这个样子。</p>
 <p><img src="https://static.031130.xyz/uploads/2024/08/12/6495ce8d86b03.webp" alt="正常反馈"></p>
 <p>此时应该就可以使用 ssh 访问路由器的 root 账户了，密码已经被改为了 admin</p>
-<pre><code class="language-ba">ssh -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa root@192.168.31.1
+<pre><code class="language-bash">ssh -o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedKeyTypes=+ssh-rsa root@192.168.31.1
 </code></pre>
 <p><img src="https://static.031130.xyz/uploads/2024/08/12/6495cf0b224c4.webp" alt="登陆成功"></p>
 <h2>刷入 breed</h2>
@@ -7979,10 +7979,10 @@ error: failed to synchronize all databases (invalid or corrupted database (PGP s
 <p>根据又一篇简书的文章<sup><a href="#user-content-fn-3" id="user-content-fnref-3" data-footnote-ref aria-describedby="footnote-label">3</a></sup>，我们了解到 npm 中有一个叫 asar 的程序可以帮助我们解压缩 app.asar。我这里直接将内容搬过来</p>
 <blockquote>
 <p>解压</p>
-<pre><code class="language-undefined">asar extract 压缩文件  解压文件夹
+<pre><code class="language-bash">asar extract 压缩文件  解压文件夹
 </code></pre>
 <p>压缩：如果压缩文件存在，则会被替换</p>
-<pre><code class="language-undefined">asar pack 文件夹  压缩文件名
+<pre><code class="language-bash">asar pack 文件夹  压缩文件名
 </code></pre>
 </blockquote>
 <p>原文是让我们直接使用 npm 下载安装 asar 程序，然而这就会让打包过程变得很复杂，所幸 Archlinux 官方源中已经将这个程序打完了，我们可以直接将 asar 写入 makedepends。</p>
