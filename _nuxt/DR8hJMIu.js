@@ -1,1 +1,0 @@
-import{_ as r,C as o,o as n,r as s}from"./BbDEcWei.js";const t={};function a(e,c){return n(),o("strong",null,[s(e.$slots,"default")])}const l=Object.assign(r(t,[["render",a]]),{__name:"ProseStrong"});export{l as default};
