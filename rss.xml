@@ -94,7 +94,12 @@
 <p>但我现在正在使用简体中文，根据我的博客统计数据，我的读者大多来自中国大陆，他们的站点访客大多也来自中国大陆，他们请求的公共 DNS 服务器大概率也都部署在中国大陆，而 Cloudflare/Google Cloud DNS 完全没有权威 DNS 服务器的中国大陆节点，这会拖慢速度。所以<strong>如果你的访客主要来自中国大陆境内，或许可以试试阿里云或者 Dnspod</strong>，他们主要的权威 DNS 服务器节点都在中国大陆境内，这在理论上可以减少公共 DNS 服务器与 权威 DNS 服务器之间的通信时长。</p>
 <h2>结语：推石头的人</h2>
 <p>DNS 冷启动的问题，从未有完美的解决方案。它像是互联网架构中注定存在的一段“延迟的诗意”——每个访问者都从自己的网络拓扑出发，沿着看不见的路径，一步步推着那块属于自己的石头，直到抵达你的服务器山顶，换得屏幕上第一个像素的亮起。</p>
-<p>对小型站点而言，这或许是命运的重量；但理解它、优化它、监测它，便是我们在这条漫长上坡路上，为石头磨出更光滑的棱角。</p>]]>
+<p>对小型站点而言，这或许是命运的重量；但理解它、优化它、监测它，便是我们在这条漫长上坡路上，为石头磨出更光滑的棱角。</p>
+<h3>参见</h3>
+<ul>
+<li><a href="https://developers.google.com/speed/public-dns/docs/performance">Performance Benefits  |  Public DNS  |  Google for Developers</a></li>
+<li><a href="https://falconcloud.ae/about/blog/how-do-dns-queries-affect-website-latency/">How do DNS queries affect website latency? - falconcloud.ae</a></li>
+</ul>]]>
     </content>
     <published>2025-11-11T00:00:00.000Z</published>
     <author>
