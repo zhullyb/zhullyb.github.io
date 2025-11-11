@@ -11,6 +11,7 @@
 					v-for="tag in toNormalTags(post.tags)"
 					:key="tag"
 					:to="`/tags/${encodeURIComponent(tag)}`"
+          prefetchOn="interaction"
 					>{{ '#' + tag }}</NuxtLink
 				>
 			</div>

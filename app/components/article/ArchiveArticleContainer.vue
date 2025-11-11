@@ -4,7 +4,7 @@
 			<p class="date">{{ post.date?.split(' ')[0] }}</p>
 
 			<p>
-				<NuxtLink :to="post.path">{{ post.title }}</NuxtLink>
+				<NuxtLink :to="post.path" prefetchOn="interaction">{{ post.title }}</NuxtLink>
 			</p>
 		</div>
 		<Pagination :currentPage="page" :totalPages="pageCount" :urlPrefix="`/archives`" />
