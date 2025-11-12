@@ -1,0 +1,1 @@
+import{_ as r,C as s,o,r as n}from"./DDN1AUMT.js";const t={};function a(e,c){return o(),s("p",null,[n(e.$slots,"default")])}const l=Object.assign(r(t,[["render",a]]),{__name:"ProseP"});export{l as default};

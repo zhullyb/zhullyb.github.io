@@ -518,7 +518,7 @@ const { data } = await useAsyncData(`tag-${route.params.tag}`, () =>
       <uri>https://zhul.in</uri>
     </author>
     <category term="CDN"></category>
-    <category term="图床"></category>
+    <category term="Image Hosting"></category>
     <category term="DNS"></category>
     <category term="Network"></category>
     <category term="Cloudflare"></category>
@@ -2768,7 +2768,7 @@ sudo dnf install code
     <category term="KDE"></category>
     <category term="HomeServer"></category>
     <category term="Rustdesk"></category>
-    <category term="笔记"></category>
+    <category term="Notes"></category>
   </entry>
   <entry>
     <id>https://zhul.in/2024/10/23/follow-cert-for-hexo-feed/</id>
@@ -3238,6 +3238,7 @@ sudo systemctl restart docker
     <category term="mitmproxy"></category>
     <category term="Network"></category>
     <category term="Linux"></category>
+    <category term="Mirror Site"></category>
   </entry>
   <entry>
     <id>https://zhul.in/2024/09/20/migrate-rustdesk-server-from-arch-to-debian/</id>
@@ -3332,7 +3333,7 @@ rm $hbbr_deb $hbbs_deb $utils_deb
       <email>zhullyb@outlook.com</email>
       <uri>https://zhul.in</uri>
     </author>
-    <category term="图床"></category>
+    <category term="Image Hosting"></category>
     <category term="CDN"></category>
   </entry>
   <entry>
@@ -3403,7 +3404,7 @@ for image in "$@"; do
     fi
 
     UPLOAD_HTTP_CODE=$(echo "$UPLOAD_RESPONSE" | tail -n1)
-    
+
     if [ -n "$UPLOAD_PATH" ]; then
         CDN_URL="https://$CDN_HOST/$UPLOAD_PATH/$FILENAME"
     else
@@ -3525,7 +3526,7 @@ for file in _files:
       <uri>https://zhul.in</uri>
     </author>
     <category term="Python"></category>
-    <category term="图床"></category>
+    <category term="Image Hosting"></category>
     <category term="Linux"></category>
     <category term="Network"></category>
     <category term="Shell Script"></category>
@@ -3634,7 +3635,7 @@ export CF_Zone_ID=""
     <category term="Network"></category>
     <category term="Linux"></category>
     <category term="SSL"></category>
-    <category term="图床"></category>
+    <category term="Image Hosting"></category>
   </entry>
   <entry>
     <id>https://zhul.in/2024/08/13/build-restful-api-for-cloudflare-r2-with-cloudflare-workers/</id>
@@ -3768,7 +3769,7 @@ AUTH_KEY_SECRET='1145141919810'
 
 with open('1MB.bin', ''rb) as f:
     file_content = f.read()
-    
+
 requests.put(
 	'https://r2.example.workers.dev/example/1MB.bin',
     headers={
@@ -3787,7 +3788,7 @@ AUTH_KEY_SECRET='1145141919810'
 
 with open('1MB.bin', ''rb) as f:
     file_content = f.read()
-    
+
 requests.delete(
 	'https://r2.example.workers.dev/example/1MB.bin',
     headers={
@@ -3809,7 +3810,7 @@ requests.delete(
       <email>zhullyb@outlook.com</email>
       <uri>https://zhul.in</uri>
     </author>
-    <category term="图床"></category>
+    <category term="Image Hosting"></category>
     <category term="Cloudflare"></category>
     <category term="JavaScript"></category>
     <category term="Python"></category>
@@ -3870,7 +3871,7 @@ requests.delete(
       <uri>https://zhul.in</uri>
     </author>
     <category term="CDN"></category>
-    <category term="图床"></category>
+    <category term="Image Hosting"></category>
     <category term="Network"></category>
     <category term="Cloudflare"></category>
   </entry>
@@ -3973,7 +3974,7 @@ docker0          DOWN           172.17.0.1/16 fe80::42:d1ff:febe:d513/64
     </author>
     <category term="Hardware"></category>
     <category term="HomeServer"></category>
-    <category term="笔记"></category>
+    <category term="Notes"></category>
   </entry>
   <entry>
     <id>https://zhul.in/2024/07/18/my-blog-is-completely-proxied-and-translated-into-traditional-chinese/</id>
@@ -4218,7 +4219,7 @@ systemctl enable cups.socket
     <category term="Linux"></category>
     <category term="Printer"></category>
     <category term="HomeServer"></category>
-    <category term="笔记"></category>
+    <category term="Notes"></category>
   </entry>
   <entry>
     <id>https://zhul.in/2024/06/30/dynamic-public-ip-and-ddns-for-rustdesk/</id>
@@ -4997,7 +4998,7 @@ new b().u2()
     <category term="Vue.js"></category>
     <category term="PHP"></category>
     <category term="Network"></category>
-    <category term="笔记"></category>
+    <category term="Notes"></category>
     <category term="Web"></category>
   </entry>
   <entry>
@@ -5433,7 +5434,7 @@ switch ($method | $uri) {
       <email>zhullyb@outlook.com</email>
       <uri>https://zhul.in</uri>
     </author>
-    <category term="翻译"></category>
+    <category term="Translation"></category>
     <category term="PHP"></category>
   </entry>
   <entry>
@@ -5592,7 +5593,7 @@ Good luck and Godspeed.
       <uri>https://zhul.in</uri>
     </author>
     <category term="Fun"></category>
-    <category term="翻译"></category>
+    <category term="Translation"></category>
   </entry>
   <entry>
     <id>https://zhul.in/2023/11/02/integrating-sunflower-smart-socket-with-mi-home-via-bemfa-cloud/</id>
@@ -6687,7 +6688,7 @@ fi
       <email>zhullyb@outlook.com</email>
       <uri>https://zhul.in</uri>
     </author>
-    <category term="笔记"></category>
+    <category term="Notes"></category>
   </entry>
   <entry>
     <id>https://zhul.in/2023/03/26/implicit-forwarding-is-a-new-site-deploying-method/</id>
@@ -6955,7 +6956,7 @@ Config option 'webhook_enabled'              = false
       <email>zhullyb@outlook.com</email>
       <uri>https://zhul.in</uri>
     </author>
-    <category term="翻译"></category>
+    <category term="Translation"></category>
     <category term="Z-Library"></category>
   </entry>
   <entry>
@@ -7374,7 +7375,7 @@ Input Context without group
       <uri>https://zhul.in</uri>
     </author>
     <category term="Linux"></category>
-    <category term="笔记"></category>
+    <category term="Notes"></category>
     <category term="KDE"></category>
   </entry>
   <entry>
@@ -7663,7 +7664,7 @@ done
       <uri>https://zhul.in</uri>
     </author>
     <category term="Shell Script"></category>
-    <category term="图床"></category>
+    <category term="Image Hosting"></category>
     <category term="Lsky Pro"></category>
   </entry>
   <entry>
@@ -8179,6 +8180,7 @@ asar pack ${srcdir}/new_app ${srcdir}/squashfs-root/resources/app.asar
       <uri>https://zhul.in</uri>
     </author>
     <category term="Cloudflare"></category>
+    <category term="Mirror Site"></category>
   </entry>
   <entry>
     <id>https://zhul.in/2021/11/20/what-is-deepin-elf-verify/</id>
@@ -8350,7 +8352,7 @@ Maintainer of <a href="https://gitlab.gnome.org/World/design/icon-preview">Icon 
       <email>zhullyb@outlook.com</email>
       <uri>https://zhul.in</uri>
     </author>
-    <category term="翻译"></category>
+    <category term="Translation"></category>
   </entry>
   <entry>
     <id>https://zhul.in/2021/10/31/waydroid-experience-on-kde/</id>
@@ -9524,6 +9526,7 @@ EOF' > /usr/bin/pacsync
       <uri>https://zhul.in</uri>
     </author>
     <category term="Archlinux"></category>
+    <category term="Mirror Site"></category>
   </entry>
   <entry>
     <id>https://zhul.in/2021/05/27/relieve-the-pressure-of-tuna-mirror-site-please/</id>
@@ -9562,7 +9565,7 @@ EOF' > /usr/bin/pacsync
       <uri>https://zhul.in</uri>
     </author>
     <category term="Linux"></category>
-    <category term="镜像站"></category>
+    <category term="Mirror Site"></category>
   </entry>
   <entry>
     <id>https://zhul.in/2021/05/23/why-i-use-archlinux/</id>
@@ -9729,7 +9732,7 @@ MimeType=
       <email>zhullyb@outlook.com</email>
       <uri>https://zhul.in</uri>
     </author>
-    <category term="笔记"></category>
+    <category term="Notes"></category>
     <category term="Firefox"></category>
   </entry>
   <entry>
@@ -9767,7 +9770,7 @@ ERROR: Job failed: exit code 1
       <email>zhullyb@outlook.com</email>
       <uri>https://zhul.in</uri>
     </author>
-    <category term="笔记"></category>
+    <category term="Notes"></category>
   </entry>
   <entry>
     <id>https://zhul.in/2021/04/16/the-software-i-use-on-archlinux/</id>
@@ -9797,7 +9800,7 @@ ERROR: Job failed: exit code 1
       <email>zhullyb@outlook.com</email>
       <uri>https://zhul.in</uri>
     </author>
-    <category term="笔记"></category>
+    <category term="Notes"></category>
     <category term="Archlinux"></category>
   </entry>
   <entry>
@@ -9833,7 +9836,7 @@ sed -i "s|/usr/bin/chromium-browser|GOOGLE_DEFAULT_CLIENT_ID=77185425430.apps.go
       <email>zhullyb@outlook.com</email>
       <uri>https://zhul.in</uri>
     </author>
-    <category term="笔记"></category>
+    <category term="Notes"></category>
   </entry>
   <entry>
     <id>https://zhul.in/2021/04/13/where-will-appimage-put-its-file/</id>
@@ -9862,7 +9865,7 @@ sed -i "s|/usr/bin/chromium-browser|GOOGLE_DEFAULT_CLIENT_ID=77185425430.apps.go
       <email>zhullyb@outlook.com</email>
       <uri>https://zhul.in</uri>
     </author>
-    <category term="大佬对话笔记"></category>
+    <category term="Notes"></category>
   </entry>
   <entry>
     <id>https://zhul.in/2021/04/11/use-motrix-install-of-firefox-to-download/</id>
@@ -9887,7 +9890,7 @@ sed -i "s|/usr/bin/chromium-browser|GOOGLE_DEFAULT_CLIENT_ID=77185425430.apps.go
       <email>zhullyb@outlook.com</email>
       <uri>https://zhul.in</uri>
     </author>
-    <category term="笔记"></category>
+    <category term="Notes"></category>
   </entry>
   <entry>
     <id>https://zhul.in/2021/04/04/yay-more/</id>
@@ -10521,7 +10524,7 @@ virtualenv $(TRAGET_PATH) python=python3.【x】		#python3
       <uri>https://zhul.in</uri>
     </author>
     <category term="Linux"></category>
-    <category term="大佬对话笔记"></category>
+    <category term="Notes"></category>
     <category term="deepin"></category>
   </entry>
   <entry>
@@ -10561,7 +10564,7 @@ virtualenv $(TRAGET_PATH) python=python3.【x】		#python3
       <email>zhullyb@outlook.com</email>
       <uri>https://zhul.in</uri>
     </author>
-    <category term="翻译"></category>
+    <category term="Translation"></category>
   </entry>
   <entry>
     <id>https://zhul.in/2020/08/10/androidunpack/</id>
@@ -10661,7 +10664,7 @@ mount system.img {known_path}
       <uri>https://zhul.in</uri>
     </author>
     <category term="Linux"></category>
-    <category term="镜像站"></category>
+    <category term="Mirror Site"></category>
   </entry>
   <entry>
     <id>https://zhul.in/2020/07/11/gitnotes/</id>
@@ -10714,7 +10717,7 @@ Everything up-to-date
       <uri>https://zhul.in</uri>
     </author>
     <category term="Linux"></category>
-    <category term="笔记"></category>
+    <category term="Notes"></category>
   </entry>
   <entry>
     <id>https://zhul.in/2020/07/11/reponotes/</id>
@@ -10754,7 +10757,7 @@ done
       <uri>https://zhul.in</uri>
     </author>
     <category term="Linux"></category>
-    <category term="笔记"></category>
+    <category term="Notes"></category>
   </entry>
   <entry>
     <id>https://zhul.in/2020/03/03/set-proxy-for-cmd-under-windows/</id>
