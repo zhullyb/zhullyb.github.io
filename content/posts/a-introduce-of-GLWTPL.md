@@ -4,7 +4,7 @@ date: 2023-11-12 01:09:09
 sticky:
 tags:
 - Fun
-- 翻译
+- Translation
 ---
 
 > 说实话，当我第一次看见 GLWTPL( Good Luck With That Public License ) 的时候，我差点把嘴里的饭给喷出来了，这是一个非常有意思的开源许可证。原文请直接戳原仓库 -> https://github.com/me-shaon/GLWTPL

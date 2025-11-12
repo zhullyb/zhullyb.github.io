@@ -2,7 +2,7 @@
 title:      No Hello
 date:       2020-10-08
 tags:
-- 翻译
+- Translation
 ---
 
 Don't Just Say "Hello" in Chat.

@@ -2,7 +2,7 @@
 title:      在系统使用暗色主题时禁用Firefox的夜间模式
 date:       2021-04-23
 tags:
-- 笔记
+- Notes
 - Firefox
 ---
 

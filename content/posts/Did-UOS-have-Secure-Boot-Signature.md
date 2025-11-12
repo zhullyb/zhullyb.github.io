@@ -1,9 +1,9 @@
 ---
 title: UOS到底有没有Secure Boot签名/UOS引导怎么修复
 date: 2020-12-22
-tags: 
+tags:
 - Linux
-- 大佬对话笔记
+- Notes
 - deepin
 ---
 

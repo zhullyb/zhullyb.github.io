@@ -8,7 +8,7 @@ tags:
 - Linux
 - Printer
 - HomeServer
-- 笔记
+- Notes
 ---
 
 我寝室有一台使用 wifi 连接的 HP Laser 103w 打印机，这些天刚好布置了新的 HomeServer，因此来记录一下这台打印机的配置过程，根据 HP 官网驱动包的名字「HP Laser 100 and HP Color Laser 150 Printer series Print Driver」推断，此过程应该能适用于所有的 HP Laser 100 及 HP Color Laser 150 系列的打印机。

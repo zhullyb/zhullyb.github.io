@@ -3,7 +3,7 @@ title: 【翻译】使用 PHP 构建简单的 REST API
 date: 2023-12-12 13:07:32
 sticky:
 tags:
-- 翻译
+- Translation
 - PHP
 ---
 

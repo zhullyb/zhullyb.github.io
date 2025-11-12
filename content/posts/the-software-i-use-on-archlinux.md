@@ -1,8 +1,8 @@
 ---
 title:      我在Archlinux上的常用软件
 date:       2021-04-16
-tags: 
-      - 笔记
+tags:
+      - Notes
       - Archlinux
 ---
 

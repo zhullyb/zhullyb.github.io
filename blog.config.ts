@@ -47,7 +47,12 @@ const blogConfig = {
 		'/tags/Virtual-Machine/': '/tags/Virtual%20Machine/',
 		'/tags/Vue-js/': '/tags/Vue.js',
 		'/tags/Web-PKI/': '/tags/Web%20PKI/',
-		'/tags/vercel/': '/tags/Vercel/'
+		'/tags/vercel/': '/tags/Vercel/',
+    '/tags/%E9%95%9C%E5%83%8F%E7%AB%99/': '/tags/Mirror%20Site/',
+    '/tags/%E5%9B%BE%E5%BA%8A/': '/tags/Image%20Hosting/',
+    '/tags/%E7%AC%94%E8%AE%B0/': '/tags/Notes/',
+    '/tags/%E7%BF%BB%E8%AF%91/': '/tags/Translation/',
+    '/tags/%E5%A4%A7%E4%BD%AC%E5%AF%B9%E8%AF%9D%E7%AC%94%E8%AE%B0/': '/tags/Notes/'
 	},
 	links: [
 		{

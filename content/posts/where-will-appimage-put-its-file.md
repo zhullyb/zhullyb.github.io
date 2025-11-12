@@ -2,7 +2,7 @@
 title:      Appimage的文件储存在哪里
 date:       2021-04-13
 tags:
-- 大佬对话笔记
+- Notes
 ---
 
 我不饿：

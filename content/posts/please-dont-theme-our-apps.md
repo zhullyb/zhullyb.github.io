@@ -3,7 +3,7 @@ title: 【翻译】请别再使用主题装饰我们的软件
 date: 2021-11-05 20:35:58
 sticky:
 tags:
-- 翻译
+- Translation
 ---
 
 *标题中的「我们」当然不是我自己，这是一封来自GNOME开发者针对广大GNOME社区开发者的一封公开信。看着挺有意思的，其中也透露出了GNOME的设计理念，我在这里尽力将其不掺杂个人情感地翻译完。原文可以查看这里: [https://stopthemingmy.app/](https://stopthemingmy.app/)*
@@ -28,7 +28,7 @@ tags:
 
 *注: 这些例子纯粹只是用于说明问题，并不针对个别主题。所以，主题开发者们别多想。❤️*
 
-当然，还有些不那么直接的后果，包括: 
+当然，还有些不那么直接的后果，包括:
 
 - 在GNOME软件中心或Flathub 中使用的截图( **Appstream Screenshots** )中的UI会和你实际安装以后的UI看上去完全不同，这使得这些截图失去了原有的意义。
 
@@ -44,11 +44,11 @@ tags:
 
 虽然我们可以直接在我们的应用程序中禁用主题，但我们不想这么做。 我们认为技术性的解决方案可能不会有效，因为这不是技术问题。
 
-在技术上，我们希望软件可以在没有人工干预的情况下被自动地重新设计，但这到目前为止仍然是个幻想。在这种技术现状被改善之前，这种（应用被主题搞炸）的情况几乎不可能被解决。因此，我们正试图通过这封信向大家告知这种情况，并尽自己的一份力量。 
+在技术上，我们希望软件可以在没有人工干预的情况下被自动地重新设计，但这到目前为止仍然是个幻想。在这种技术现状被改善之前，这种（应用被主题搞炸）的情况几乎不可能被解决。因此，我们正试图通过这封信向大家告知这种情况，并尽自己的一份力量。
 
 **如果你想要美化你自己的系统，我们没有意见**。然而，如果你改变了诸如图标、样式表等东西，你应当意识到你的行为不会得到支持（应该是指不会得到社区的帮助）。您遇到的任何问题都应直接报告给主题开发者，而不是软件开发者。
 
-作为一个平台，**我们坚信GTK应当停止强制默认在所有软件使用同一个样式表**（也就是说应该可以为不同的软件指定不同的GTK样式）。应用程序不必通过把样式表写死来避免这种情况，而是应该使用平台样式表（系统提供的样式表），除非他们魔改了样式表以加入其他内容。 我们意识到这是一个复杂的问题，但假设每个应用程序都适用于每个样式表同样也是一个糟糕的默认设置。 
+作为一个平台，**我们坚信GTK应当停止强制默认在所有软件使用同一个样式表**（也就是说应该可以为不同的软件指定不同的GTK样式）。应用程序不必通过把样式表写死来避免这种情况，而是应该使用平台样式表（系统提供的样式表），除非他们魔改了样式表以加入其他内容。 我们意识到这是一个复杂的问题，但假设每个应用程序都适用于每个样式表同样也是一个糟糕的默认设置。
 
 **如果你是更改了系统样式表和图标的发行版的开发人员，希望你重新考虑此决定**。 在没有任何 QA 的情况下更改第三方应用程序是鲁莽的，并且在任何其他平台上都是不可接受的。 您的行为对我们这些应用程序开发人员造成了很大的伤害，并且正在损害除了您的发行版以外的整个软件生态。
 
@@ -60,45 +60,45 @@ tags:
 
 署名,
 
-- **Alexander Mikhaylenko** 
+- **Alexander Mikhaylenko**
    Maintainer of [Games](https://gitlab.gnome.org/GNOME/gnome-games)
-- **Avi Wadhwa** 
+- **Avi Wadhwa**
    Maintainer of [Organizer](https://gitlab.gnome.org/aviwad/organizer)
-- **Bilal Elmoussaoui** 
+- **Bilal Elmoussaoui**
    Maintainer of [Authenticator](https://gitlab.gnome.org/World/Authenticator), [Icon Library](https://gitlab.gnome.org/World/design/icon-library), [Contrast](https://gitlab.gnome.org/World/design/contrast) and [Obfuscate](https://gitlab.gnome.org/World/obfuscate)
-- **Cédric Bellegarde** 
+- **Cédric Bellegarde**
    Maintainer of [Lollypop](https://gitlab.gnome.org/World/lollypop), [Eolie](https://gitlab.gnome.org/World/eolie), and [Passbook](https://gitlab.gnome.org/gnumdk/passbook)
-- **Christopher Davis** 
+- **Christopher Davis**
    Core contributor to [Fractal](https://gitlab.gnome.org/GNOME/Fractal)
-- **Daniel García Moreno** 
+- **Daniel García Moreno**
    Maintainer of [Fractal](https://gitlab.gnome.org/GNOME/Fractal) and [Timetrack](https://gitlab.gnome.org/danigm/timetrack)
-- **Falk Alexander Seidl** 
+- **Falk Alexander Seidl**
    Maintainer of [Password Safe](https://gitlab.gnome.org/World/PasswordSafe)
-- **Felix Häcker**, 
+- **Felix Häcker**,
    Maintainer of [Gradio/Shortwave](https://gitlab.gnome.org/World/Shortwave), [Fragments](https://gitlab.gnome.org/World/Fragments), and [Remotely](https://gitlab.gnome.org/World/Remotely)
-- **Forever XML** 
+- **Forever XML**
    Maintainer of [Random](https://codeberg.org/foreverxml/random)
-- **Jan Lukas Gernert** 
+- **Jan Lukas Gernert**
    Author of [FeedReader](https://jangernert.github.io/FeedReader/) and [NewsFlash](https://gitlab.com/news-flash)
-- **Jordan Petridis** 
+- **Jordan Petridis**
    Maintainer of [Podcasts](https://gitlab.gnome.org/World/podcasts)
-- **Julian Sparber** 
+- **Julian Sparber**
    Core contributor to [Fractal](https://gitlab.gnome.org/GNOME/Fractal), maintainer of [Teleport](https://gitlab.gnome.org/jsparber/teleport)
-- **Lains** 
+- **Lains**
    Maintainer of [Notejot](https://github.com/lainsce/notejot), [Khronos](https://github.com/lainsce/khronos), [Dot Matrix](https://github.com/lainsce/dot-matrix), [Quilter](https://github.com/lainsce/quilter), and [Emulsion](https://github.com/lainsce/emulsion)
-- **Manuel Genovés** 
+- **Manuel Genovés**
    Maintainer of [UberWriter](https://github.com/UberWriter/uberwriter)
-- **Maximiliano Sandoval** 
+- **Maximiliano Sandoval**
    Maintainer of [Decoder](https://gitlab.gnome.org/World/decoder) and [Lorem](https://gitlab.gnome.org/World/design/lorem), core contributor to [Password Safe](https://gitlab.gnome.org/World/PasswordSafe)
-- **Michael Gratton** 
+- **Michael Gratton**
    Maintainer of [Geary](https://gitlab.gnome.org/GNOME/Geary)
-- **Rafael Mardojai C.M.** 
+- **Rafael Mardojai C.M.**
    Maintainer of [Blanket](https://github.com/rafaelmardojai/blanket), [Dialect](https://github.com/dialect-app/dialect), [Share Preview](https://github.com/rafaelmardojai/share-preview) and [Webfont Kit Generator](https://github.com/rafaelmardojai/webfont-kit-generator)
-- **Sophie Herold** 
+- **Sophie Herold**
    Maintainer of [Pika Backup](https://apps.gnome.org/app/org.gnome.World.PikaBackup/)
-- **Tobias Bernard** 
+- **Tobias Bernard**
    Designer of [Fragments](https://gitlab.gnome.org/World/Fragments) and [Podcasts](https://gitlab.gnome.org/World/podcasts) (among others)
-- **Zander Brown** 
+- **Zander Brown**
    Maintainer of [Icon Preview](https://gitlab.gnome.org/World/design/icon-preview)
 - **The [Bottles](https://usebottles.com) Developers**
 - **The [Pitivi](https://pitivi.org) Developers**

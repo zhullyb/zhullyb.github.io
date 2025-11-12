@@ -4,7 +4,7 @@ date: 2022-07-03 13:52:44
 sticky:
 tags:
 - Linux
-- 笔记
+- Notes
 - KDE
 ---
 

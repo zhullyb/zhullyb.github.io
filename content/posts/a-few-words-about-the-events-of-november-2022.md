@@ -3,7 +3,7 @@ title: 【翻译】关于2022年11月的事件的一些话[Z-Library]
 date: 2022-11-21 13:24:33
 sticky:
 tags:
-- 翻译
+- Translation
 - Z-Library
 ---
 

@@ -5,6 +5,7 @@ sticky:
 index_img: https://static.031130.xyz/uploads/2024/08/12/62f3c9a9448a4.webp
 tags:
 - Cloudflare
+- Mirror Site
 ---
 
 Cloudflare也开始提供[Linux开源镜像站](https://cloudflaremirrors.com/)了。
@@ -23,6 +24,6 @@ Cloudflare也开始提供[Linux开源镜像站](https://cloudflaremirrors.com/)�
 
 ![](https://static.031130.xyz/uploads/2024/08/12/62f3ccc8d7c82.webp)
 
-小结: 
+小结:
 
 CloudflareMirrors非常适合境外的vps使用，免去了用户自行给一个个镜像站测速的麻烦。

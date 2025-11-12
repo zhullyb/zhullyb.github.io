@@ -9,6 +9,7 @@ tags:
 - mitmproxy
 - Network
 - Linux
+- Mirror Site
 ---
 
 几个月前，由于众所周知的原因，中国大陆境内失去了所有公共的 dockerhub 镜像（或者说是反代）。网上随即涌现了一批自建 dockerhub 反代的，有用 Cloudflare Workers 的，也有用 nginx 的，甚至还有自建 registry 的。

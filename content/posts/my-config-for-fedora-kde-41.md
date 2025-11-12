@@ -8,7 +8,7 @@ tags:
 - KDE
 - HomeServer
 - Rustdesk
-- 笔记
+- Notes
 ---
 
 > 前两天给自己的 N100 小主机重装成了最近发布的 Fedora 41 ( KDE )，也是花了不少时间把整个系统调成自己熟悉的样子，因此开一篇博客记录一下。以下仅为我个人的 HomeServer 小主机使用，不具有普适性。

@@ -6,7 +6,7 @@ tags:
 - Vue.js
 - PHP
 - Network
-- 笔记
+- Notes
 - Web
 ---
 

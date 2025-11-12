@@ -3,7 +3,7 @@ title: 自建图床小记二——使用 Workers 为 R2 构建 Restful API
 date: 2024-08-13 22:58:26
 sticky:
 tags:
-- 图床
+- Image Hosting
 - Cloudflare
 - JavaScript
 - Python
@@ -156,7 +156,7 @@ export default {
 代码的大部分都是基于 Cloudflare Docs 中给出的样例，修改了几个小的优化点
 
 - 删除了 ALLOW_LIST 部分代码，默认所有文件都是可以被访问的
-- 在上传一个文件时，如果目标路径存在同名文件，则不直接覆盖，而是返回 409 的异常 HTTP 相应，如果想要强制覆盖，则需要在 Http Header 中加入 `Overwrite: true` 
+- 在上传一个文件时，如果目标路径存在同名文件，则不直接覆盖，而是返回 409 的异常 HTTP 相应，如果想要强制覆盖，则需要在 Http Header 中加入 `Overwrite: true`
 - 解出请求路径时，使用 decodeURI( ) 方法先进行解码，解决文件路径中含有中文时会导致请求失败的问题。
 
 填入代码后，还需要绑定两个变量，一个是 R2 Bucket
@@ -180,7 +180,7 @@ AUTH_KEY_SECRET='1145141919810'
 
 with open('1MB.bin', ''rb) as f:
     file_content = f.read()
-    
+
 requests.put(
 	'https://r2.example.workers.dev/example/1MB.bin',
     headers={
@@ -205,7 +205,7 @@ AUTH_KEY_SECRET='1145141919810'
 
 with open('1MB.bin', ''rb) as f:
     file_content = f.read()
-    
+
 requests.delete(
 	'https://r2.example.workers.dev/example/1MB.bin',
     headers={

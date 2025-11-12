@@ -9,7 +9,7 @@ tags:
 - Network
 - Linux
 - SSL
-- 图床
+- Image Hosting
 ---
 
 ## 为什么要自动更新？

@@ -4,7 +4,7 @@ date: 2022-03-31 19:19:14
 sticky:
 tags:
 -	Shell Script
-- 图床
+- Image Hosting
 - Lsky Pro
 ---
 
@@ -14,7 +14,7 @@ tags:
 
 去不图床采用开源图床程序 [Lsky Pro](https://www.lsky.pro/) 搭建，没有免费服务，且配置了鉴黄服务，看起来就是打算长久做下去的图床站点。境内使用腾讯云cdn，境外采用 cloudflare cdn，速度都挺让我满意的。~~（杜老师看见请给我打钱，或者多送我点空间也行~~（x
 
-Typora 一直是我写博客的主用 Markdown 编辑器，之前我采用 Typora 调用 [PicUploader(php)](https://github.com/xiebruce/PicUploader) 自动上传图片的方案写博客，体验相当不错，如图: 
+Typora 一直是我写博客的主用 Markdown 编辑器，之前我采用 Typora 调用 [PicUploader(php)](https://github.com/xiebruce/PicUploader) 自动上传图片的方案写博客，体验相当不错，如图:
 
 ![](https://static.031130.xyz/uploads/2024/08/12/62f3b881e3c4c.gif)
 

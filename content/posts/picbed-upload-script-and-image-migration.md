@@ -4,7 +4,7 @@ date: 2024-08-20 23:12:30
 sticky:
 tags:
 - Python
-- 图床
+- Image Hosting
 - Linux
 - Network
 - Shell Script
@@ -77,7 +77,7 @@ for image in "$@"; do
     fi
 
     UPLOAD_HTTP_CODE=$(echo "$UPLOAD_RESPONSE" | tail -n1)
-    
+
     if [ -n "$UPLOAD_PATH" ]; then
         CDN_URL="https://$CDN_HOST/$UPLOAD_PATH/$FILENAME"
     else

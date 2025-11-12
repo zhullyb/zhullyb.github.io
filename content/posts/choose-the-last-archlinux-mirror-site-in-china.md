@@ -3,6 +3,7 @@ title: 选择最新的Archlinux镜像源
 date: 2021-05-29
 tags:
 - Archlinux
+- Mirror Site
 ---
 
 

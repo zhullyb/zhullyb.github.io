@@ -4,7 +4,7 @@ date: 2025-08-11 00:06:40
 sticky:
 tags:
 - CDN
-- 图床
+- Image Hosting
 - DNS
 - Network
 - Cloudflare

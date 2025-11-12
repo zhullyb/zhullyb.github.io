@@ -3,7 +3,7 @@ title: 国内Linux镜像源列表
 date: 2020-07-11
 tags:
 - Linux
-- 镜像站
+- Mirror Site
 ---
 
 ## 企业镜像

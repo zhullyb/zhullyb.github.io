@@ -5,7 +5,7 @@ sticky:
 tags:
 - Hardware
 - HomeServer
-- 笔记
+- Notes
 ---
 
 因为收到通知，寝室过两天要断电 20 分钟，所以需要打开 N100 家里云的来电自启功能。

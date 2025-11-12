@@ -3,7 +3,7 @@ title: 请给 tuna/ustc 镜像站减压
 date: 2021-05-27 21:25:48
 tags:
 - Linux
-- 镜像站
+- Mirror Site
 ---
 
 不知道从什么时候开始，我总觉得tuna的镜像站提供的下载速度越来越慢，直到我前几天翻开tuna镜像站的「[服务器状态](https://mirrors.tuna.tsinghua.edu.cn/status/#server-status)」，我被眼前的景象给震惊到了。
