@@ -9523,6 +9523,7 @@ EOF' > /usr/bin/pacsync
       <email>zhullyb@outlook.com</email>
       <uri>https://zhul.in</uri>
     </author>
+    <category term="Archlinux"></category>
   </entry>
   <entry>
     <id>https://zhul.in/2021/05/27/relieve-the-pressure-of-tuna-mirror-site-please/</id>
@@ -9604,6 +9605,7 @@ EOF' > /usr/bin/pacsync
       <email>zhullyb@outlook.com</email>
       <uri>https://zhul.in</uri>
     </author>
+    <category term="Archlinux"></category>
   </entry>
   <entry>
     <id>https://zhul.in/2021/05/21/create-a-random-picture-api-with-vercel/</id>
@@ -9744,7 +9746,7 @@ MimeType=
             Source: /builds/zhullyb/test
        Destination: public
  Incremental build: disabled. Enable with --incremental
-      Generating... 
+      Generating...
        Jekyll Feed: Generating feed for posts
    GitHub Metadata: No GitHub API authentication could be found. Some fields may be missing or have incorrect data.
    GitHub Metadata: Error processing value 'url':
@@ -9765,6 +9767,7 @@ ERROR: Job failed: exit code 1
       <email>zhullyb@outlook.com</email>
       <uri>https://zhul.in</uri>
     </author>
+    <category term="笔记"></category>
   </entry>
   <entry>
     <id>https://zhul.in/2021/04/16/the-software-i-use-on-archlinux/</id>
@@ -9830,6 +9833,7 @@ sed -i "s|/usr/bin/chromium-browser|GOOGLE_DEFAULT_CLIENT_ID=77185425430.apps.go
       <email>zhullyb@outlook.com</email>
       <uri>https://zhul.in</uri>
     </author>
+    <category term="笔记"></category>
   </entry>
   <entry>
     <id>https://zhul.in/2021/04/13/where-will-appimage-put-its-file/</id>
@@ -9858,6 +9862,7 @@ sed -i "s|/usr/bin/chromium-browser|GOOGLE_DEFAULT_CLIENT_ID=77185425430.apps.go
       <email>zhullyb@outlook.com</email>
       <uri>https://zhul.in</uri>
     </author>
+    <category term="大佬对话笔记"></category>
   </entry>
   <entry>
     <id>https://zhul.in/2021/04/11/use-motrix-install-of-firefox-to-download/</id>
@@ -9882,6 +9887,7 @@ sed -i "s|/usr/bin/chromium-browser|GOOGLE_DEFAULT_CLIENT_ID=77185425430.apps.go
       <email>zhullyb@outlook.com</email>
       <uri>https://zhul.in</uri>
     </author>
+    <category term="笔记"></category>
   </entry>
   <entry>
     <id>https://zhul.in/2021/04/04/yay-more/</id>
@@ -10217,6 +10223,7 @@ startplasma-x11
       <email>zhullyb@outlook.com</email>
       <uri>https://zhul.in</uri>
     </author>
+    <category term="Linux"></category>
   </entry>
   <entry>
     <id>https://zhul.in/2021/02/27/change-your-firefox-icon-into-a-bluedoge/</id>
@@ -10465,6 +10472,7 @@ virtualenv $(TRAGET_PATH) python=python3.【x】		#python3
       <email>zhullyb@outlook.com</email>
       <uri>https://zhul.in</uri>
     </author>
+    <category term="Linux"></category>
   </entry>
   <entry>
     <id>https://zhul.in/2020/12/22/did-uos-have-secure-boot-signature/</id>
