@@ -1,5 +1,6 @@
 <template>
-	<div ref="mermaidContainer" class="mermaid-container"></div>
+	<div ref="mermaidContainer" class="mermaid-container" :class="{ 'mermaid-loaded': mermiadLoaded }"></div>
+  <pre v-if="!mermiadLoaded" :class="[$props.class, 'mermaid-placeholder']">{{ props.code }}</pre>
 </template>
 
 <script setup lang="ts">
@@ -7,10 +8,12 @@ import { ref, onMounted } from 'vue'
 import mermaid from 'mermaid'
 
 const props = defineProps<{
-	code: string
+	code: string,
+  class?: string
 }>()
 
 const mermaidContainer = ref<HTMLElement | null>(null)
+const mermiadLoaded = ref(false)
 
 onMounted(async () => {
 	if (!mermaidContainer.value) return
@@ -31,6 +34,7 @@ onMounted(async () => {
 
 		if (mermaidContainer.value) {
 			mermaidContainer.value.innerHTML = svg
+      mermiadLoaded.value = true
 		}
 	} catch (error) {
 		console.error('Mermaid rendering error:', error)
@@ -47,6 +51,20 @@ onMounted(async () => {
 	justify-content: center;
 	margin: 1.5em 0;
 	overflow-x: auto;
+	opacity: 0;
+	transform: translateY(10px);
+	transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+}
+
+.mermaid-container.mermaid-loaded {
+	opacity: 1;
+	transform: translateY(0);
+}
+
+.mermaid-placeholder {
+	opacity: 1;
+	transform: translateY(0);
+	transition: opacity 0.3s ease-out, transform 0.3s ease-out;
 }
 
 .mermaid-error {

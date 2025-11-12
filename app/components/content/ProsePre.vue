@@ -1,6 +1,6 @@
 <template>
 	<!-- 如果是 mermaid 代码块，使用 Mermaid 组件渲染 -->
-	<Mermaid v-if="language === 'mermaid'" :code="code || ''" />
+	<Mermaid v-if="language === 'mermaid'" :code="code || ''" :class="$props.class" />
 	<!-- 否则使用默认的 pre 渲染 -->
 	<pre v-else :class="$props.class"><slot /></pre>
 </template>
