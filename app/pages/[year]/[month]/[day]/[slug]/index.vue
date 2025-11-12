@@ -1,5 +1,8 @@
 <template>
 	<DefaultLayout :title="post?.title">
+    <div v-if="hasEnglishVersion" class="english-version-notice">
+      This article has an <NuxtLink :to="`${post?.path}/en`">English version</NuxtLink>.
+    </div>
 		<ContentRenderer v-if="post" :value="post" tag="article" class="markdown-body" />
     <hr class="article-end-hr" />
     <div class="tags">
@@ -28,6 +31,10 @@
 	const { data: post } = await useAsyncData(`post-${year}-${month}-${day}-${slug}`, () =>
 		queryCollection('posts').path(`/${year}/${month}/${day}/${slug}`).first()
 	)
+
+  const { data: hasEnglishVersion } = await useAsyncData(`has-en-${year}-${month}-${day}-${slug}`, () =>
+    queryCollection('posts').path(`/${year}/${month}/${day}/${slug}-en`).count().then(count => count > 0)
+  )
 
 	if (!post.value) {
 		throw createError({ statusCode: 404, statusMessage: 'Post not found', fatal: true })
@@ -62,6 +69,24 @@
 
 <style lang="less" scoped>
 	@import '~/assets/styles/github-markdown-rewrite.less';
+
+  .english-version-notice {
+    border-left: 0.35rem solid;
+    border-color: #f0ad4e;
+    background: rgba(248,214,166,0.25);
+    padding: 0.75rem;
+    border-radius: 0.25rem;
+    margin-bottom: 1.5rem;
+
+    a {
+      font-weight: 500;
+      color: @active-blue;
+
+      &:hover {
+        color: darken(@active-blue, 10%);
+      }
+    }
+  }
 
 	aside {
 		position: sticky;

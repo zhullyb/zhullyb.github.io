@@ -142,6 +142,12 @@ export default defineNuxtConfig({
 					.replace(/[^a-z0-9]+/g, '-')
 					.replace(/^-+|-+$/g, '')}`
 			}
+      if (!content.lang) {
+        content.lang = 'zh-CN'
+      }
+      if (content.lang === 'en') {
+        content.navigation = false
+      }
 		}
 	},
 	vite: {

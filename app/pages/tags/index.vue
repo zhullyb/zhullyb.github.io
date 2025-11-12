@@ -21,7 +21,7 @@
 	import type { Post } from '~/types/post'
 
 	const posts = (
-		await useAsyncData('tags-posts', () => queryCollection('posts').select('tags').all())
+		await useAsyncData('tags-posts', () => queryCollection('posts').where('lang', '=', 'zh-CN').select('tags').all())
 	).data as Ref<Post[]>
 
 	const maxFontSize = 40

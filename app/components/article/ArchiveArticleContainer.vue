@@ -22,6 +22,7 @@
 	const posts = (
 		await useAsyncData(`index-page-${page}`, () =>
 			queryCollection('posts')
+        .where('lang', '=', 'zh-CN')
 				.order('date', 'DESC')
 				.skip((page - 1) * pageSize)
 				.limit(pageSize)
@@ -30,7 +31,7 @@
 		)
 	).data as Ref<Post[]>
 
-	const total = (await useAsyncData('posts-nums-total', () => queryCollection('posts').count()))
+	const total = (await useAsyncData('posts-nums-total', () => queryCollection('posts').where('lang', '=', 'zh-CN').count()))
 		.data as Ref<number>
 
 	const pageCount = Math.max(1, Math.ceil((total.value ?? 0) / pageSize))

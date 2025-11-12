@@ -21,6 +21,7 @@
 	// 使用 %"Github"% 可以精确匹配 "Github"，避免匹配到 "Github Action"
 	const { data } = await useAsyncData(`tag-${route.params.tag}`, () =>
 		queryCollection('posts')
+      .where('lang', '=', 'zh-CN')
 			.where('tags', 'LIKE', `%"${tag}"%`)
 			.order('date', 'DESC')
 			.select('title', 'date', 'path', 'tags')
