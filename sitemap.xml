@@ -139,21 +139,6 @@
         <loc>https://zhul.in/tags/%25E9%2595%259C%25E5%2583%258F%25E7%25AB%2599/</loc>
     </url>
     <url>
-        <loc>https://zhul.in/tags/%E5%9B%BE%E5%BA%8A/</loc>
-    </url>
-    <url>
-        <loc>https://zhul.in/tags/%E5%A4%A7%E4%BD%AC%E5%AF%B9%E8%AF%9D%E7%AC%94%E8%AE%B0/</loc>
-    </url>
-    <url>
-        <loc>https://zhul.in/tags/%E7%AC%94%E8%AE%B0/</loc>
-    </url>
-    <url>
-        <loc>https://zhul.in/tags/%E7%BF%BB%E8%AF%91/</loc>
-    </url>
-    <url>
-        <loc>https://zhul.in/tags/%E9%95%9C%E5%83%8F%E7%AB%99/</loc>
-    </url>
-    <url>
         <loc>https://zhul.in/tags/Android/</loc>
     </url>
     <url>
@@ -181,16 +166,10 @@
         <loc>https://zhul.in/tags/Caddy/</loc>
     </url>
     <url>
-        <loc>https://zhul.in/tags/Casual-Talk/</loc>
-    </url>
-    <url>
         <loc>https://zhul.in/tags/Casual%20Talk/</loc>
     </url>
     <url>
         <loc>https://zhul.in/tags/CDN/</loc>
-    </url>
-    <url>
-        <loc>https://zhul.in/tags/CI-CD/</loc>
     </url>
     <url>
         <loc>https://zhul.in/tags/CI%2FCD/</loc>
@@ -247,9 +226,6 @@
         <loc>https://zhul.in/tags/Fun/</loc>
     </url>
     <url>
-        <loc>https://zhul.in/tags/Github-Action/</loc>
-    </url>
-    <url>
         <loc>https://zhul.in/tags/Github/</loc>
     </url>
     <url>
@@ -295,9 +271,6 @@
         <loc>https://zhul.in/tags/Linux/</loc>
     </url>
     <url>
-        <loc>https://zhul.in/tags/Lsky-Pro/</loc>
-    </url>
-    <url>
         <loc>https://zhul.in/tags/Lsky%20Pro/</loc>
     </url>
     <url>
@@ -322,9 +295,6 @@
         <loc>https://zhul.in/tags/Notes/</loc>
     </url>
     <url>
-        <loc>https://zhul.in/tags/Nuxt-Content/</loc>
-    </url>
-    <url>
         <loc>https://zhul.in/tags/Nuxt/</loc>
     </url>
     <url>
@@ -335,9 +305,6 @@
     </url>
     <url>
         <loc>https://zhul.in/tags/OneDrive/</loc>
-    </url>
-    <url>
-        <loc>https://zhul.in/tags/OpenSource-Project/</loc>
     </url>
     <url>
         <loc>https://zhul.in/tags/OpenSource%20Project/</loc>
@@ -373,9 +340,6 @@
         <loc>https://zhul.in/tags/Router/</loc>
     </url>
     <url>
-        <loc>https://zhul.in/tags/RPM-Package/</loc>
-    </url>
-    <url>
         <loc>https://zhul.in/tags/RPM%20Package/</loc>
     </url>
     <url>
@@ -386,9 +350,6 @@
     </url>
     <url>
         <loc>https://zhul.in/tags/selenium/</loc>
-    </url>
-    <url>
-        <loc>https://zhul.in/tags/Shell-Script/</loc>
     </url>
     <url>
         <loc>https://zhul.in/tags/Shell%20Script/</loc>
@@ -412,28 +373,16 @@
         <loc>https://zhul.in/tags/unified/</loc>
     </url>
     <url>
-        <loc>https://zhul.in/tags/vercel/</loc>
-    </url>
-    <url>
         <loc>https://zhul.in/tags/Vercel/</loc>
     </url>
     <url>
-        <loc>https://zhul.in/tags/Virtual-Machine/</loc>
-    </url>
-    <url>
         <loc>https://zhul.in/tags/Virtual%20Machine/</loc>
-    </url>
-    <url>
-        <loc>https://zhul.in/tags/Vue-js/</loc>
     </url>
     <url>
         <loc>https://zhul.in/tags/waline/</loc>
     </url>
     <url>
         <loc>https://zhul.in/tags/Waydroid/</loc>
-    </url>
-    <url>
-        <loc>https://zhul.in/tags/Web-PKI/</loc>
     </url>
     <url>
         <loc>https://zhul.in/tags/Web/</loc>
@@ -493,40 +442,22 @@
         <loc>https://zhul.in/2020/07/11/gitnotes/</loc>
     </url>
     <url>
-        <loc>https://zhul.in/2020/07/11/GitNotes/</loc>
-    </url>
-    <url>
         <loc>https://zhul.in/2020/07/11/reponotes/</loc>
-    </url>
-    <url>
-        <loc>https://zhul.in/2020/07/11/RepoNotes/</loc>
     </url>
     <url>
         <loc>https://zhul.in/2020/08/10/androidunpack/</loc>
     </url>
     <url>
-        <loc>https://zhul.in/2020/08/10/AndroidUnpack/</loc>
-    </url>
-    <url>
         <loc>https://zhul.in/2020/10/08/nohello/</loc>
     </url>
     <url>
-        <loc>https://zhul.in/2020/10/08/NoHello/</loc>
-    </url>
-    <url>
         <loc>https://zhul.in/2020/12/22/did-uos-have-secure-boot-signature/</loc>
-    </url>
-    <url>
-        <loc>https://zhul.in/2020/12/22/Did-UOS-have-Secure-Boot-Signature/</loc>
     </url>
     <url>
         <loc>https://zhul.in/2021/01/01/why-i-dont-recommend-manjaro/</loc>
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f36d8eb724a.webp</image:loc>
         </image:image>
-    </url>
-    <url>
-        <loc>https://zhul.in/2021/01/01/Why-I-dont-recommend-Manjaro/</loc>
     </url>
     <url>
         <loc>https://zhul.in/2021/01/20/python-virtualenv/</loc>
@@ -1217,9 +1148,6 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/654fb6e4581bf.gif</image:loc>
         </image:image>
-    </url>
-    <url>
-        <loc>https://zhul.in/2023/11/12/a-introduce-of-GLWTPL/</loc>
     </url>
     <url>
         <loc>https://zhul.in/2023/11/28/use-lxgw-wenkai-in-hexo-fluid/</loc>
@@ -2023,4 +1951,4 @@
         <loc>https://zhul.in/2025/11/11/dns-cold-start-dilemma/en/</loc>
     </url>
 </urlset>
-<!-- XML Sitemap generated by @nuxtjs/sitemap v7.4.7 at 2025-11-12T15:19:12.950Z -->
+<!-- XML Sitemap generated by @nuxtjs/sitemap v7.4.7 at 2025-11-12T16:25:17.826Z -->
