@@ -49,7 +49,7 @@
 	useHead({
 		meta: [
 			{ name: 'description', content: post.value?.description || '' },
-			{ name: 'keywords', content: toNormalTags(post.value?.tags)?.join(',') || '' }
+			{ name: 'keywords', content: post.value?.tags?.join(',') || '' }
 		],
     link: [
       {
