@@ -1,8 +1,16 @@
 <template>
 	<DefaultLayout :title="post?.title">
 		<ContentRenderer v-if="post" :value="post" tag="article" class="markdown-body" />
+    <hr class="article-end-hr" />
+    <div class="tags">
+      <NuxtLink
+        v-for="tag in post?.tags"
+        :key="tag"
+        :to="`/tags/${encodeURIComponent(tag)}`"
+        prefetchOn="interaction"
+      >#{{ tag }}</NuxtLink>
+    </div>
 		<PostNavigation :prevPost="prevPost" :nextPost="nextPost" />
-		<hr />
 		<Waline />
 		<template #AfterMain>
 			<aside>
@@ -63,4 +71,24 @@
 	:deep(#waline) {
 		margin-top: 3rem;
 	}
+
+  .article-end-hr {
+    margin: 1rem 0;
+    border: none;
+    border-top: 1px solid #e1e4e8;
+
+    .dark-mode({
+      border-color: #444c56;
+    });
+  }
+
+  .tags {
+    margin: 1rem 0;
+    a {
+      margin-left: 0.2rem;
+      &:hover {
+        color: @active-blue;
+      }
+    }
+  }
 </style>
