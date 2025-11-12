@@ -1,7 +1,8 @@
 ---
 title:      记一次在Gitlab部署Jekyll博客时遇到的jekyll-github-metadata报错问题
 date:       2021-04-16
-tags:       笔记
+tags:
+- 笔记
 ---
 
 
@@ -18,7 +19,7 @@ Configuration file: /builds/zhullyb/test/_config.yml
             Source: /builds/zhullyb/test
        Destination: public
  Incremental build: disabled. Enable with --incremental
-      Generating... 
+      Generating...
        Jekyll Feed: Generating feed for posts
    GitHub Metadata: No GitHub API authentication could be found. Some fields may be missing or have incorrect data.
    GitHub Metadata: Error processing value 'url':

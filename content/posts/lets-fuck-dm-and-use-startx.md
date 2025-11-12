@@ -1,7 +1,8 @@
 ---
 title:      抛弃DisplayManager，拥抱startx
 date:       2021-03-14
-tags:       Linux
+tags:
+- Linux
 ---
 
 在正常情况下，我们会给Linux装上一个DisplayManager以方便我们输入账号密码来进入图形化系统，但是我不想要额外装一个DM来启动我的图形化系统（而且之前我一直用的sddm也出过一小阵子的问题）

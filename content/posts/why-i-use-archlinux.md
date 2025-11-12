@@ -1,7 +1,8 @@
 ---
 title: 我为什么选择Archlinux？
 date: 2021-05-23
-tags: Archlinux
+tags:
+- Archlinux
 ---
 
 对于我而言，我用Archlinux主要的原因就是实用主义。我可以很负责的说，Arch真的是在我所有用过的发行版当中最符合实用主义的一个了。
