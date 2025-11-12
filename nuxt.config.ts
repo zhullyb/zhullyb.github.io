@@ -159,6 +159,12 @@ export default defineNuxtConfig({
 			}
 		}
 	},
+  sitemap: {
+    exclude: [
+      ...Object.keys(blogConfig.urlRedirects),
+      ...Object.keys(blogConfig.urlRedirects).map(i => encodeURI(i))
+    ]
+  },
 	experimental: {
 		defaults: {
 			nuxtLink: {
