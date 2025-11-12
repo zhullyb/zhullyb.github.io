@@ -28,23 +28,23 @@ sequenceDiagram
     participant Auth as 权威DNS服务器
 
     Note over User,Auth: DNS递归查询完整流程
-    
+
     User->>Local: 1. 查询域名<br>www.example.com
     Note over Local: 检查缓存<br>未找到记录
-    
+
     Local->>Root: 2. 查询 .com 的TLD服务器
     Root-->>Local: 3. 返回 .com TLD服务器地址
-    
+
     Local->>TLD: 4. 查询 example.com 的权威服务器
     TLD-->>Local: 5. 返回 example.com 的权威服务器地址
-    
+
     Local->>Auth: 6. 查询 www.example.com 的A记录
     Auth-->>Local: 7. 返回 IP地址 (e.g., 1.1.1.1)
-    
+
     Note over Local: 缓存结果<br>(根据TTL设置)
-    
+
     Local-->>User: 8. 返回最终IP地址
-    
+
     Note over User,Auth: 后续流程
     User->>Auth: 9. 使用IP地址建立TCP连接<br>开始HTTP请求
 ```
@@ -110,7 +110,7 @@ DNS 冷启动的问题，从未有完美的解决方案。它像是互联网架�
 
 对小型站点而言，这或许是命运的重量；但理解它、优化它、监测它，便是我们在这条漫长上坡路上，为石头磨出更光滑的棱角。
 
-### 参见
+## 参见
 
 - [Performance Benefits  |  Public DNS  |  Google for Developers](https://developers.google.com/speed/public-dns/docs/performance)
 - [How do DNS queries affect website latency? - falconcloud.ae](https://falconcloud.ae/about/blog/how-do-dns-queries-affect-website-latency/)
