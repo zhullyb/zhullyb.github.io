@@ -1,21 +1,22 @@
 <template>
 	<div>
-		<div v-for="post in processedPosts" :key="post.path" class="post-item">
-			<NuxtLink :to="post.path" class="post-link" :aria-label="post.title"></NuxtLink>
-			<h2 class="title">{{ post.title }}</h2>
-			<span class="description">{{ post.excerpt }}</span>
-			<div class="post-meta">
-				<span class="date">{{ post.date?.split(' ')[0] }}</span>
-				<NuxtLink
-					class="tags"
-					v-for="tag in post.tags"
-					:key="tag"
-					:to="`/tags/${encodeURIComponent(tag)}`"
-          prefetchOn="interaction"
-					>{{ '#' + tag }}</NuxtLink
-				>
-			</div>
-		</div>
+    <template v-for="(post, index) in processedPosts" :key="post.path">
+      <div class="post-item">
+        <NuxtLink class="title" :to="post.path">{{ post.title }}</NuxtLink>
+        <NuxtLink class="description" :to="post.path">{{ post.excerpt }}</NuxtLink>
+        <div class="post-meta">
+          <span class="date">{{ post.date?.split(' ')[0] }}</span>
+          <NuxtLink
+            class="tags"
+            v-for="tag in post.tags"
+            :key="tag"
+            :to="`/tags/${encodeURIComponent(tag)}`"
+            prefetchOn="interaction"
+            >{{ '#' + tag }}</NuxtLink
+          >
+        </div>
+      </div>
+    </template>
 		<Pagination :currentPage="page" :totalPages="pageCount" />
 	</div>
 </template>
@@ -68,30 +69,15 @@
 <style lang="less" scoped>
 	.post-item {
 		position: relative;
-		margin-bottom: 20px;
+		margin-bottom: 30px;
 
-		.desktop-up({
-        padding: 20px;
-        transition: box-shadow 0.2s;
-
-        &:hover {
-            box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
-        }
+    .desktop-up({
+      margin-bottom: 40px;
     });
 	}
 
-	.post-link {
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-		z-index: 1;
-	}
-
 	.title {
-		margin-bottom: 5px;
-		font-size: 20px;
+		font-size: 24px;
 		font-weight: bold;
 		display: -webkit-box;
 		-webkit-box-orient: vertical;
@@ -99,21 +85,54 @@
 		overflow: hidden;
 		text-overflow: ellipsis;
 		word-break: break-word;
+    margin-top: 8px;
+    margin-bottom: 8px;
 
 		.tablet-down({
+        font-size: 20px;
         -webkit-line-clamp: 2;
         border-bottom: none;
         padding-bottom: 2px;
     });
+
+    .desktop-up({
+      &:hover {
+        color: @active-blue;
+      }
+      transition: color 0.3s;
+    });
 	}
 
-	.post-meta {
+  .description {
+		text-decoration: none;
 		display: -webkit-box;
 		-webkit-box-orient: vertical;
-		-webkit-line-clamp: 1;
+		-webkit-line-clamp: 3;
 		overflow: hidden;
 		text-overflow: ellipsis;
 		word-break: break-word;
+		color: #333;
+    font-size: 16px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+
+		.dark-mode({
+      color: #ccc;
+    });
+
+    .desktop-up({
+      &:hover {
+        color: @active-blue;
+      }
+      transition: color 0.3s;
+    });
+	}
+
+	.post-meta {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		word-break: break-word;
+    white-space: nowrap;
 
 		* + * {
 			margin-left: 5px;
@@ -130,24 +149,12 @@
 			color: #666;
 			text-decoration: none;
 
-			&:hover {
-				color: @active-blue;
-			}
+      .desktop-up({
+        &:hover {
+          color: @active-blue;
+        }
+        transition: color 0.3s;
+      });
 		}
-	}
-
-	.description {
-		text-decoration: none;
-		display: -webkit-box;
-		-webkit-box-orient: vertical;
-		-webkit-line-clamp: 3;
-		overflow: hidden;
-		text-overflow: ellipsis;
-		word-break: break-word;
-		color: #333;
-
-		.dark-mode({
-      color: #ccc;
-    });
 	}
 </style>
