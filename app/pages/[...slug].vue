@@ -13,7 +13,7 @@
     link: [
       {
         rel: 'stylesheet',
-        href: 'https://static.031130.xyz/res/github-markdown.css'
+        href: 'https://s4.zstatic.net/ajax/libs/github-markdown-css/5.8.1/github-markdown.min.css'
       }
     ]
   })
