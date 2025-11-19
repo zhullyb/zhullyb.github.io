@@ -23,5 +23,9 @@
     "sectionMatches": "涉及段落：{sections}",
     "moreSuffix": "…",
     "untitled": "未命名文章"
+  },
+  "postNavigation": {
+    "prev": "上一篇",
+    "next": "下一篇"
   }
 }

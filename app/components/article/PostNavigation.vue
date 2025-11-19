@@ -1,30 +1,28 @@
 <template>
 	<nav v-if="prevPost || nextPost" class="post-navigation">
-		<a
+		<NuxtLinkLocale
 			v-if="prevPost"
 			class="nav-button prev"
-			:href="prevPost.path + '/'"
-			@click.prevent="navigateTo(prevPost.path + '/')"
+      :to="prevPost.path"
 		>
 			<div class="nav-arrow">←</div>
 			<div class="nav-content">
-				<span class="nav-label">上一篇</span>
+				<span class="nav-label">{{ t('postNavigation.prev') }}</span>
 				<span class="nav-title">{{ prevPost.title }}</span>
 			</div>
-		</a>
+		</NuxtLinkLocale>
 
-		<a
+		<NuxtLinkLocale
 			v-if="nextPost"
 			class="nav-button next"
-			:href="nextPost.path + '/'"
-			@click.prevent="navigateTo(nextPost.path + '/')"
+			:to="nextPost.path"
 		>
 			<div class="nav-content">
-				<span class="nav-label">下一篇</span>
+				<span class="nav-label">{{ t('postNavigation.next') }}</span>
 				<span class="nav-title">{{ nextPost.title }}</span>
 			</div>
 			<div class="nav-arrow">→</div>
-		</a>
+		</NuxtLinkLocale>
 	</nav>
 </template>
 
@@ -37,6 +35,8 @@
 	}
 
 	defineProps<Props>()
+
+	const { t } = useI18n()
 </script>
 
 <style lang="less" scoped>

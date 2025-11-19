@@ -23,5 +23,9 @@
     "sectionMatches": "Sections: {sections}",
     "moreSuffix": "…",
     "untitled": "Untitled article"
+  },
+  "postNavigation": {
+    "prev": "Previous",
+    "next": "Next"
   }
 }

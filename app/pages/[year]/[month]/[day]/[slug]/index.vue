@@ -38,16 +38,6 @@
       .first()
 	)
 
-  const otherLocale = computed(() => locale.value === 'zh' ? 'en' : 'zh')
-
-  const { data: hasOtherVersion } = await useAsyncData(`has-other-${year}-${month}-${day}-${slug}-${locale.value}`, () =>
-    queryCollection('posts')
-      .path(contentPath.value)
-      .where('lang', '=', otherLocale.value === 'zh' ? 'zh-CN' : 'en')
-      .count()
-      .then(count => count > 0)
-  )
-
 	if (!post.value) {
 		throw createError({ statusCode: 404, statusMessage: 'Post not found', fatal: true })
 	}
@@ -57,8 +47,10 @@
 			queryCollectionItemSurroundings('posts', post.value!.path, {
 				before: 1,
 				after: 1,
-				fields: ['title', 'path', 'date']
-			}).order('date', 'DESC')
+				fields: ['title', 'path', 'date', 'lang'],
+			})
+      .where('lang', '=', locale.value === 'zh' ? 'zh-CN' : 'en')
+      .order('date', 'DESC')
 		)
 	).data as unknown as Ref<Post[]>
 

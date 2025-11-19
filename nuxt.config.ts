@@ -167,10 +167,6 @@ export default defineNuxtConfig({
       } else if (!content.lang) {
         content.lang = 'zh-CN'
       }
-
-      if (content.lang === 'en') {
-        content.navigation = false
-      }
 		}
 	},
 	vite: {
