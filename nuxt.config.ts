@@ -1,4 +1,7 @@
 import blogConfig from './blog.config'
+import Icons from 'unplugin-icons/vite'
+import IconsResolver from 'unplugin-icons/resolver'
+import Components from 'unplugin-vue-components/vite'
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -16,12 +19,12 @@ export default defineNuxtConfig({
 					as: 'style',
 					href: 'https://s4.zstatic.net/ajax/libs/github-markdown-css/5.8.1/github-markdown.min.css'
 				},
-        {
-          rel: 'alternate',
-          type: 'application/rss+xml',
-          title: `${blogConfig.title} RSS Feed (Chinese)`,
-          href: `${blogConfig.url.replace(/\/$/, '')}/rss.xml`
-        },
+				{
+					rel: 'alternate',
+					type: 'application/rss+xml',
+					title: `${blogConfig.title} RSS Feed (Chinese)`,
+					href: `${blogConfig.url.replace(/\/$/, '')}/rss.xml`
+				},
 				{
 					rel: 'alternate',
 					type: 'application/atom+xml',
@@ -102,7 +105,7 @@ export default defineNuxtConfig({
 		prerender: {
 			routes: [
 				'/rss.xml', // RSS 订阅
-        '/en/rss.xml', // RSS 订阅 (English)
+				'/en/rss.xml', // RSS 订阅 (English)
 				'/search/sections.json', // 搜索结果
 				'/tags/Vue.js', // 带有 . 的标签页，必须显式列出
 				...Object.keys(blogConfig.urlRedirects) // 预渲染所有需要重定向的页面
@@ -110,23 +113,27 @@ export default defineNuxtConfig({
 		}
 	},
 	modules: ['@nuxtjs/i18n', '@nuxtjs/seo', '@nuxt/content'],
-  i18n: {
-    locales: [
-      { code: 'zh', language: 'zh-CN', name: '简体中文', file: 'zh.json' },
-      { code: 'en', language: 'en-US', name: 'English', file: 'en.json' }
-    ],
-    defaultLocale: 'zh',
-    strategy: 'prefix_except_default',
-    detectBrowserLanguage: false,
-    langDir: 'locales',
-    vueI18n: './i18n.config.ts'
-  },
+	i18n: {
+		locales: [
+			{ code: 'zh', language: 'zh-CN', name: '简体中文', file: 'zh.json' },
+			{ code: 'en', language: 'en-US', name: 'English', file: 'en.json' }
+		],
+		defaultLocale: 'zh',
+		strategy: 'prefix_except_default',
+		detectBrowserLanguage: false,
+		langDir: 'locales',
+		vueI18n: './i18n.config.ts'
+	},
 	components: [
 		{
 			path: '~/components/layout'
 		},
 		{
 			path: '~/components/article'
+		},
+		{
+			path: '~/components',
+			pathPrefix: false
 		}
 	],
 	linkChecker: {
@@ -159,14 +166,14 @@ export default defineNuxtConfig({
 					.replace(/[^a-z0-9]+/g, '-')
 					.replace(/^-+|-+$/g, '')}`
 			}
-      // 根据文件路径判断语言
-      if (ctx.file.path.includes('/posts/en/')) {
-        content.lang = 'en'
-      } else if (ctx.file.path.includes('/posts/zh/')) {
-        content.lang = 'zh-CN'
-      } else if (!content.lang) {
-        content.lang = 'zh-CN'
-      }
+			// 根据文件路径判断语言
+			if (ctx.file.path.includes('/posts/en/')) {
+				content.lang = 'en'
+			} else if (ctx.file.path.includes('/posts/zh/')) {
+				content.lang = 'zh-CN'
+			} else if (!content.lang) {
+				content.lang = 'zh-CN'
+			}
 		}
 	},
 	vite: {
@@ -176,7 +183,20 @@ export default defineNuxtConfig({
 					additionalData: `@import "@/assets/styles/mixins.less";`
 				}
 			}
-		}
+		},
+		plugins: [
+			Components({
+				resolvers: [
+					IconsResolver({
+						prefix: '' // 可选，图标组件的前缀，默认为 'i'
+					})
+				],
+				dts: true // 生成类型声明文件
+			}),
+			Icons({
+				compiler: 'vue3'
+			})
+		]
 	},
 	sitemap: {
 		exclude: [

@@ -19,7 +19,7 @@
 						@click="openSearch"
 						aria-label="Search"
 					>
-						<span aria-hidden="true">🔍</span>
+            <IcBaselineSearch/>
 						<span class="search-trigger__label">{{ $t('search') }}</span>
 					</button>
 				</div>
@@ -36,7 +36,7 @@
 				{{ $t(item.text) }}
 			</NuxtLinkLocale>
 			<a @click.prevent="openSearch">
-				{{ $t('search') }}
+				<IcBaselineSearch/>
       </a>
 		</div>
 	</header>
