@@ -5,17 +5,17 @@
 				<NuxtLink :to="localePath('/')" class="header-title">{{ $t('title') }}</NuxtLink>
 				<div class="header-right">
 					<HeaderNav :nav-items="appConfig.nav.items" @toggle="toggleMobileMenu" />
-          <button
-            type="button"
-            class="lang-switch"
-            @click="toggleLang"
-            aria-label="Switch Language"
-          >
-            <span class="lang-switch__label">{{ locale === 'zh' ? 'En' : '中' }}</span>
-          </button>
 					<button
 						type="button"
-						class="search-trigger"
+						class="lang-switch"
+						@click="toggleLang"
+						aria-label="Switch Language"
+					>
+						<span class="lang-switch__label">{{ locale === 'zh' ? 'En' : '中' }}</span>
+					</button>
+					<button
+						type="button"
+						class="search-trigger pc"
 						@click="openSearch"
 						aria-label="Search"
 					>
@@ -35,6 +35,9 @@
 			>
 				{{ $t(item.text) }}
 			</NuxtLink>
+			<a @click.prevent="openSearch">
+				{{ $t('search') }}
+      </a>
 		</div>
 	</header>
 	<Banner :background="background" :title="realTitle" :slogan="slogan" />
@@ -44,10 +47,10 @@
 <script setup lang="ts">
 	const appConfig = useAppConfig()
 	const route = useRoute()
-  const { locale } = useI18n()
-  const localePath = useLocalePath()
+	const { locale } = useI18n()
+	const localePath = useLocalePath()
 
-  const { toggleLang } = useLanguageSwitch()
+	const { toggleLang } = useLanguageSwitch()
 
 	// 计算 slogan 和标题
 	const slogan = computed(() => {
@@ -59,10 +62,10 @@
 
 	interface Props {
 		title?: string
-    background: {
-      backgroundColor: string,
-      backgroundImage: string
-    }
+		background: {
+			backgroundColor: string
+			backgroundImage: string
+		}
 	}
 
 	const props = withDefaults(defineProps<Props>(), {
@@ -176,7 +179,7 @@
 		text-decoration: none;
 	}
 
-  .lang-switch {
+	.lang-switch {
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -195,7 +198,7 @@
 			border-color: rgba(255, 255, 255, 0.6);
 			background: rgba(255, 255, 255, 0.2);
 		}
-  }
+	}
 
 	.search-trigger {
 		display: flex;
@@ -227,5 +230,11 @@
       display: none;
     });
 		}
+	}
+
+	.pc {
+		.tablet-down({
+      display: none;
+    });
 	}
 </style>
