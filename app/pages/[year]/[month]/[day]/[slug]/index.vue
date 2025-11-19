@@ -3,6 +3,7 @@
 		<ContentRenderer v-if="post" :value="post" tag="article" class="markdown-body" />
     <hr class="article-end-hr" />
     <div class="tags">
+      <IonPricetagsOutline />
       <NuxtLink
         v-for="tag in post?.tags"
         :key="tag"
@@ -95,6 +96,15 @@
 
   .tags {
     margin: 1rem 0;
+
+    * {
+      vertical-align: middle;
+    }
+
+    svg {
+      font-size: 0.9em;
+    }
+
     a {
       margin-left: 0.2rem;
       &:hover {

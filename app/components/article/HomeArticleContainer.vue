@@ -5,14 +5,16 @@
         <NuxtLinkLocale class="title" :to="post.path">{{ post.title }}</NuxtLinkLocale>
         <NuxtLinkLocale class="description" :to="post.path">{{ post.excerpt }}</NuxtLinkLocale>
         <div class="post-meta">
+          <MaterialSymbolsCalendarMonthRounded />
           <span class="date">{{ post.date?.split(' ')[0] }}</span>
+          <IonPricetagsOutline style="font-size: 0.9em;" />
           <NuxtLink
             class="tags"
             v-for="tag in post.tags"
             :key="tag"
             :to="`${localePath('/tags')}/${encodeURIComponent(tag)}`"
             prefetchOn="interaction"
-            >{{ '#' + tag }}</NuxtLink>
+            >{{ '#' + tag }}</NuxtLink
           >
         </div>
       </div>
@@ -117,7 +119,7 @@
 		color: #333;
     font-size: 16px;
     margin-top: 8px;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
 
 		.dark-mode({
       color: #ccc;
@@ -137,20 +139,21 @@
 		word-break: break-word;
     white-space: nowrap;
 
-		* + * {
-			margin-left: 5px;
-		}
+    * {
+      vertical-align: middle;
+    }
+
+    svg {
+      margin-right: 3px;
+      color: #666;
+    }
 
 		.date {
 			color: #666;
-			font-size: 0.9em;
-      display: inline-flex;
-      align-items: center;
+      margin-right: 8px;
 		}
 
 		.tags {
-			position: relative;
-			z-index: 2;
 			color: #666;
 			text-decoration: none;
 
@@ -161,5 +164,9 @@
         transition: color 0.3s;
       });
 		}
+
+    .tags + .tags {
+      margin-left: 5px;
+    }
 	}
 </style>
