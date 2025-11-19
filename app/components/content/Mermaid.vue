@@ -1,6 +1,8 @@
 <template>
-	<div ref="mermaidContainer" class="mermaid-container" :class="{ 'mermaid-loaded': mermiadLoaded }"></div>
-  <pre v-if="!mermiadLoaded" :class="[$props.class, 'mermaid-placeholder']">{{ props.code }}</pre>
+	<div class="mermaid-wrapper">
+		<div ref="mermaidContainer" class="mermaid-container" :class="{ 'mermaid-loaded': mermiadLoaded }"></div>
+		<pre v-if="!mermiadLoaded" :class="[props.class, 'mermaid-placeholder']">{{ props.code }}</pre>
+	</div>
 </template>
 
 <script setup lang="ts">
@@ -46,6 +48,10 @@ onMounted(async () => {
 </script>
 
 <style scoped>
+.mermaid-wrapper {
+	display: block;
+}
+
 .mermaid-container {
 	display: flex;
 	justify-content: center;
