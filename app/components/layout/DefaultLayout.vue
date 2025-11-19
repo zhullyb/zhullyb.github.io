@@ -33,7 +33,7 @@
   })
 
 	useHead({
-		title: props.title || appConfig.title,
+		title: props.title || $t('title'),
 	})
 </script>
 

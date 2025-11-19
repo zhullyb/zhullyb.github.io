@@ -1,18 +1,18 @@
 <template>
-	<DefaultLayout title="标签">
+	<DefaultLayout :title="$t('tag')">
 		<div class="text-center tagcloud">
 			<template v-if="tagCloudData.length">
 				<NuxtLink
 					v-for="tag in tagCloudData"
 					class="tag"
 					:key="tag.name"
-					:to="`/tags/${encodeURIComponent(tag.name)}`"
+					:to="`${localePath('/tags')}/${encodeURIComponent(tag.name)}`"
 					:style="tag.style"
 				>
 					{{ tag.name }}
 				</NuxtLink>
 			</template>
-			<p v-else>Loading tags...</p>
+			<p v-else>{{ $t('loading_tags') }}</p>
 		</div>
 	</DefaultLayout>
 </template>
@@ -20,8 +20,12 @@
 <script lang="ts" setup>
 	import type { Post } from '~/types/post'
 
+  const { locale } = useI18n()
+  const localePath = useLocalePath()
+  const contentLang = computed(() => locale.value === 'zh' ? 'zh-CN' : 'en')
+
 	const posts = (
-		await useAsyncData('tags-posts', () => queryCollection('posts').where('lang', '=', 'zh-CN').select('tags').all())
+		await useAsyncData(`tags-posts-${locale.value}`, () => queryCollection('posts').where('lang', '=', contentLang.value).select('tags').all())
 	).data as Ref<Post[]>
 
 	const maxFontSize = 40

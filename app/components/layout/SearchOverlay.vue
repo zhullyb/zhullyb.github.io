@@ -15,28 +15,30 @@
 							type="search"
 							v-model="searchTerm"
 							class="search-overlay__input"
-							placeholder="搜索文章，支持多个关键词"
+							:placeholder="t('searchOverlay.placeholder')"
 						/>
 						<button
 							class="search-overlay__close"
 							type="button"
 							@click="close"
-							aria-label="关闭搜索"
+							:aria-label="t('searchOverlay.closeLabel')"
 						>
 							×
 						</button>
 					</div>
 
-					<div v-if="pending" class="search-overlay__state">正在准备索引…</div>
+						<div v-if="pending" class="search-overlay__state">
+							{{ t('searchOverlay.indexing') }}
+						</div>
 					<div v-else class="search-overlay__body">
 						<p v-if="!searchTerm.trim()" class="search-overlay__state">
-							输入关键词开始搜索。
+								{{ t('searchOverlay.startTyping') }}
 						</p>
 						<p v-else-if="!results.length" class="search-overlay__state">
-							没有找到匹配内容，换个关键词试试？
+								{{ t('searchOverlay.noResults') }}
 						</p>
 						<div v-else class="search-overlay__count">
-							共找到 {{ results.length }} 条结果
+								{{ t('searchOverlay.resultsCount', { count: results.length }) }}
 						</div>
 
 						<ul v-if="results.length" class="search-overlay__list">
@@ -54,7 +56,7 @@
 										{{ result.documentTitle }}
 									</h3>
 									<p class="search-overlay__item-meta">
-										共 {{ result.matchCount }} 处匹配
+										{{ t('searchOverlay.matchCount', { count: result.matchCount }) }}
 										<span v-if="result.sectionLabel">
 											· {{ result.sectionLabel }}</span
 										>
@@ -105,6 +107,8 @@
 		(event: 'update:modelValue', value: boolean): void
 	}>()
 
+	const { t, locale } = useI18n()
+	const isZhLocale = computed(() => locale.value.startsWith('zh'))
 	const searchTerm = ref('')
 	const inputRef = ref<HTMLInputElement | null>(null)
 
@@ -295,7 +299,7 @@
 	}
 
 	function getDocumentTitle(section: SearchSection) {
-		return section.titles?.[0] ?? section.title ?? '未命名文章'
+		return section.titles?.[0] ?? section.title ?? t('searchOverlay.untitled')
 	}
 
 	function getSectionTitle(section: SearchSection) {
@@ -344,8 +348,11 @@
 			return ''
 		}
 
-		const label = sectionTitles.join('、')
-		return `涉及段落：${label}${matchCount > sectionTitles.length ? '…' : ''}`
+		const separator = isZhLocale.value ? '、' : ', '
+		const label = sectionTitles.join(separator)
+		const prefix = t('searchOverlay.sectionMatches', { sections: label })
+		const suffix = matchCount > sectionTitles.length ? t('searchOverlay.moreSuffix') : ''
+		return `${prefix}${suffix}`
 	}
 
 	function buildSnippet(content: string, tokens: string[]) {

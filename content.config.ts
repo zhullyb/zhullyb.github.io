@@ -19,12 +19,12 @@ export default defineContentConfig({
 	collections: {
 		posts: defineCollection({
 			type: 'page',
-			source: 'posts/*',
+			source: 'posts/**/*.md',
 			schema: articleSchema
 		}),
 		others: defineCollection({
 			type: 'page',
-			source: '**'
+			source: 'others/*.md'
 		})
 	}
 })

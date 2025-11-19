@@ -1,8 +1,5 @@
 <template>
 	<DefaultLayout :title="post?.title">
-    <div v-if="hasEnglishVersion" class="english-version-notice">
-      This article has an <NuxtLink :to="`${post?.path}/en`">English version</NuxtLink>.
-    </div>
 		<ContentRenderer v-if="post" :value="post" tag="article" class="markdown-body" />
     <hr class="article-end-hr" />
     <div class="tags">
@@ -26,14 +23,28 @@
 <script setup lang="ts">
 	import type { Post } from '~/types/post'
 	const route = useRoute()
+  const { locale } = useI18n()
 	const { year, month, day, slug } = route.params
 
-	const { data: post } = await useAsyncData(`post-${year}-${month}-${day}-${slug}`, () =>
-		queryCollection('posts').path(`/${year}/${month}/${day}/${slug}`).first()
+  const contentPath = computed(() => {
+    return `/${year}/${month}/${day}/${slug}`
+  })
+
+	const { data: post } = await useAsyncData(`post-${year}-${month}-${day}-${slug}-${locale.value}`, () =>
+		queryCollection('posts')
+      .path(contentPath.value)
+      .where('lang', '=', locale.value === 'zh' ? 'zh-CN' : 'en')
+      .first()
 	)
 
-  const { data: hasEnglishVersion } = await useAsyncData(`has-en-${year}-${month}-${day}-${slug}`, () =>
-    queryCollection('posts').path(`/${year}/${month}/${day}/${slug}-en`).count().then(count => count > 0)
+  const otherLocale = computed(() => locale.value === 'zh' ? 'en' : 'zh')
+
+  const { data: hasOtherVersion } = await useAsyncData(`has-other-${year}-${month}-${day}-${slug}-${locale.value}`, () =>
+    queryCollection('posts')
+      .path(contentPath.value)
+      .where('lang', '=', otherLocale.value === 'zh' ? 'zh-CN' : 'en')
+      .count()
+      .then(count => count > 0)
   )
 
 	if (!post.value) {
@@ -41,7 +52,7 @@
 	}
 
 	const surroundingPosts = (
-		await useAsyncData(`surround-${year}-${month}-${day}-${slug}`, () =>
+		await useAsyncData(`surround-${year}-${month}-${day}-${slug}-${locale.value}`, () =>
 			queryCollectionItemSurroundings('posts', post.value!.path, {
 				before: 1,
 				after: 1,
@@ -69,24 +80,6 @@
 
 <style lang="less" scoped>
 	@import '~/assets/styles/github-markdown-rewrite.less';
-
-  .english-version-notice {
-    border-left: 0.35rem solid;
-    border-color: #f0ad4e;
-    background: rgba(248,214,166,0.25);
-    padding: 0.75rem;
-    border-radius: 0.25rem;
-    margin-bottom: 1.5rem;
-
-    a {
-      font-weight: 500;
-      color: @active-blue;
-
-      &:hover {
-        color: darken(@active-blue, 10%);
-      }
-    }
-  }
 
 	aside {
 		position: sticky;

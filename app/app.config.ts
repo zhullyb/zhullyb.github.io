@@ -6,23 +6,23 @@ export default defineAppConfig({
 		title: '',
 		items: [
 			{
-				text: '首页',
+				text: 'nav.home',
 				link: '/'
 			},
 			{
-				text: '归档',
+				text: 'nav.archives',
 				link: '/archives/'
 			},
 			{
-				text: '标签',
+				text: 'nav.tags',
 				link: '/tags/'
 			},
 			{
-				text: '友链',
+				text: 'nav.links',
 				link: '/links/'
 			},
 			{
-				text: '关于',
+				text: 'nav.about',
 				link: '/about/'
 			}
 		]

@@ -26,14 +26,16 @@
 	import { processExcerpt } from '~/utils/extractExcerpt'
 
 	const route = useRoute()
+  const { locale } = useI18n()
 	const page = route.params.page ? parseInt(route.params.page as string) || 1 : 1
 
 	const pageSize = 10
+  const contentLang = computed(() => locale.value === 'zh' ? 'zh-CN' : 'en')
 
 	const posts = (
-		await useAsyncData(`index-page-${page}`, () =>
+		await useAsyncData(`index-page-${page}-${locale.value}`, () =>
 			queryCollection('posts')
-        .where('lang', '=', 'zh-CN')
+        .where('lang', '=', contentLang.value)
 				.order('date', 'DESC')
 				.skip((page - 1) * pageSize)
 				.limit(pageSize)
@@ -51,7 +53,7 @@
 		}))
 	})
 
-	const total = (await useAsyncData('posts-total', () => queryCollection('posts').where('lang', '=', 'zh-CN').count()))
+	const total = (await useAsyncData(`posts-total-${locale.value}`, () => queryCollection('posts').where('lang', '=', contentLang.value).count()))
 		.data as Ref<number>
 
 	const pageCount = Math.max(1, Math.ceil((total.value ?? 0) / pageSize))
@@ -141,6 +143,8 @@
 		.date {
 			color: #666;
 			font-size: 0.9em;
+      display: inline-flex;
+      align-items: center;
 		}
 
 		.tags {

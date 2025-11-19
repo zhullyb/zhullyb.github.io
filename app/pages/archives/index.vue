@@ -1,5 +1,5 @@
 <template>
-	<DefaultLayout title="归档">
+	<DefaultLayout :title="$t('archives')">
     <ArchiveArticleContainer />
   </DefaultLayout>
 </template>

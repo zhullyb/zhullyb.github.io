@@ -2,9 +2,9 @@
 	"name": "nuxt-content-starter",
 	"private": true,
 	"type": "module",
-  "engines": {
-    "node": ">=22.5"
-  },
+	"engines": {
+		"node": ">=22.5"
+	},
 	"scripts": {
 		"build": "nuxt build",
 		"dev": "nuxt dev",
@@ -15,6 +15,7 @@
 	},
 	"dependencies": {
 		"@nuxt/content": "^3.7.1",
+		"@nuxtjs/i18n": "^10.2.1",
 		"@nuxtjs/seo": "^3.2.2",
 		"@waline/client": "^3.7.0",
 		"mermaid": "^11.12.1",

@@ -5,7 +5,6 @@ export default defineNuxtConfig({
 	app: {
 		head: {
 			title: blogConfig.title,
-			htmlAttrs: { lang: 'zh-CN' },
 			link: [
 				{
 					rel: 'preconnect',
@@ -17,11 +16,17 @@ export default defineNuxtConfig({
 					as: 'style',
 					href: 'https://s4.zstatic.net/ajax/libs/github-markdown-css/5.8.1/github-markdown.min.css'
 				},
+        {
+          rel: 'alternate',
+          type: 'application/rss+xml',
+          title: `${blogConfig.title} RSS Feed (Chinese)`,
+          href: `${blogConfig.url.replace(/\/$/, '')}/rss.xml`
+        },
 				{
 					rel: 'alternate',
 					type: 'application/atom+xml',
-					title: `${blogConfig.title} Atom Feed`,
-					href: `${blogConfig.url.replace(/\/$/, '')}/rss.xml`
+					title: `${blogConfig.title} Atom Feed (English)`,
+					href: `${blogConfig.url.replace(/\/$/, '')}/en/rss.xml`
 				}
 			],
 			script: [
@@ -97,13 +102,25 @@ export default defineNuxtConfig({
 		prerender: {
 			routes: [
 				'/rss.xml', // RSS 订阅
+        '/en/rss.xml', // RSS 订阅 (English)
 				'/search/sections.json', // 搜索结果
 				'/tags/Vue.js', // 带有 . 的标签页，必须显式列出
 				...Object.keys(blogConfig.urlRedirects) // 预渲染所有需要重定向的页面
 			]
 		}
 	},
-	modules: ['@nuxtjs/seo', '@nuxt/content'],
+	modules: ['@nuxtjs/i18n', '@nuxtjs/seo', '@nuxt/content'],
+  i18n: {
+    locales: [
+      { code: 'zh', language: 'zh-CN', name: '简体中文', file: 'zh.json' },
+      { code: 'en', language: 'en-US', name: 'English', file: 'en.json' }
+    ],
+    defaultLocale: 'zh',
+    strategy: 'prefix_except_default',
+    detectBrowserLanguage: false,
+    langDir: 'locales',
+    vueI18n: './i18n.config.ts'
+  },
 	components: [
 		{
 			path: '~/components/layout'
@@ -142,9 +159,15 @@ export default defineNuxtConfig({
 					.replace(/[^a-z0-9]+/g, '-')
 					.replace(/^-+|-+$/g, '')}`
 			}
-      if (!content.lang) {
+      // 根据文件路径判断语言
+      if (ctx.file.path.includes('/posts/en/')) {
+        content.lang = 'en'
+      } else if (ctx.file.path.includes('/posts/zh/')) {
+        content.lang = 'zh-CN'
+      } else if (!content.lang) {
         content.lang = 'zh-CN'
       }
+
       if (content.lang === 'en') {
         content.navigation = false
       }
@@ -159,12 +182,13 @@ export default defineNuxtConfig({
 			}
 		}
 	},
-  sitemap: {
-    exclude: [
-      ...Object.keys(blogConfig.urlRedirects),
-      ...Object.keys(blogConfig.urlRedirects).map(i => encodeURI(i))
-    ]
-  },
+	sitemap: {
+		exclude: [
+			...Object.keys(blogConfig.urlRedirects),
+			...Object.keys(blogConfig.urlRedirects).map(i => encodeURI(i))
+		],
+		sitemaps: false
+	},
 	experimental: {
 		defaults: {
 			nuxtLink: {

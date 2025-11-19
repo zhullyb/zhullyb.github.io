@@ -2,8 +2,8 @@
 	<nav>
 		<!-- PC 端导航 -->
 		<div class="pc-nav">
-			<NuxtLink v-for="item in navItems" :key="item.link" :to="item.link">
-				{{ item.text }}
+			<NuxtLink v-for="item in navItems" :key="item.link" :to="localePath(item.link)">
+				{{ $t(item.text) }}
 			</NuxtLink>
 		</div>
 		<!-- 移动端汉堡菜单图标 -->
@@ -30,6 +30,8 @@
 	const emit = defineEmits<{
 		toggle: [e: MouseEvent]
 	}>()
+
+  const localePath = useLocalePath()
 
 	const onToggle = (e: MouseEvent) => {
 		emit('toggle', e)

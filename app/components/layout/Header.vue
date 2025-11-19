@@ -2,17 +2,25 @@
 	<header :class="{ scrolled: isScrolled, 'show-mobile-menu': showMobileMenu }">
 		<div class="header-container">
 			<div class="header">
-				<a href="/" class="header-title">{{ appConfig.title }}</a>
+				<NuxtLink :to="localePath('/')" class="header-title">{{ $t('title') }}</NuxtLink>
 				<div class="header-right">
 					<HeaderNav :nav-items="appConfig.nav.items" @toggle="toggleMobileMenu" />
+          <button
+            type="button"
+            class="lang-switch"
+            @click="toggleLang"
+            aria-label="Switch Language"
+          >
+            <span class="lang-switch__label">{{ locale === 'zh' ? 'En' : '中' }}</span>
+          </button>
 					<button
 						type="button"
 						class="search-trigger"
 						@click="openSearch"
-						aria-label="搜索文章"
+						aria-label="Search"
 					>
 						<span aria-hidden="true">🔍</span>
-						<span class="search-trigger__label">搜索</span>
+						<span class="search-trigger__label">{{ $t('search') }}</span>
 					</button>
 				</div>
 			</div>
@@ -22,10 +30,10 @@
 			<NuxtLink
 				v-for="item in appConfig.nav.items"
 				:key="item.link"
-				:to="item.link"
+				:to="localePath(item.link)"
 				@click="closeMobileMenu"
 			>
-				{{ item.text }}
+				{{ $t(item.text) }}
 			</NuxtLink>
 		</div>
 	</header>
@@ -36,6 +44,10 @@
 <script setup lang="ts">
 	const appConfig = useAppConfig()
 	const route = useRoute()
+  const { locale } = useI18n()
+  const localePath = useLocalePath()
+
+  const { toggleLang } = useLanguageSwitch()
 
 	// 计算 slogan 和标题
 	const slogan = computed(() => {
@@ -57,7 +69,7 @@
 		title: ''
 	})
 
-	const realTitle = computed(() => props.title || appConfig.title)
+	const realTitle = computed(() => props.title || $t('title'))
 
 	// 使用 composables
 	const { isScrolled } = useScroll()
@@ -163,6 +175,27 @@
 		color: white;
 		text-decoration: none;
 	}
+
+  .lang-switch {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 6px 12px;
+		border-radius: 999px;
+		border: 1px solid rgba(255, 255, 255, 0.3);
+		background: rgba(255, 255, 255, 0.1);
+		color: white;
+		cursor: pointer;
+		font-size: 14px;
+		transition:
+			background 0.2s ease,
+			border-color 0.2s ease;
+
+		&:hover {
+			border-color: rgba(255, 255, 255, 0.6);
+			background: rgba(255, 255, 255, 0.2);
+		}
+  }
 
 	.search-trigger {
 		display: flex;
