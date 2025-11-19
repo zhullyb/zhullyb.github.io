@@ -2,7 +2,7 @@
 	<header :class="{ scrolled: isScrolled, 'show-mobile-menu': showMobileMenu }">
 		<div class="header-container">
 			<div class="header">
-				<NuxtLink :to="localePath('/')" class="header-title">{{ $t('title') }}</NuxtLink>
+				<NuxtLinkLocale :to="'/'" class="header-title">{{ $t('title') }}</NuxtLinkLocale>
 				<div class="header-right">
 					<HeaderNav :nav-items="appConfig.nav.items" @toggle="toggleMobileMenu" />
 					<button
@@ -27,14 +27,14 @@
 		</div>
 
 		<div v-if="showMobileMenu" class="mobile-menu-dropdown">
-			<NuxtLink
+			<NuxtLinkLocale
 				v-for="item in appConfig.nav.items"
 				:key="item.link"
-				:to="localePath(item.link)"
+				:to="item.link"
 				@click="closeMobileMenu"
 			>
 				{{ $t(item.text) }}
-			</NuxtLink>
+			</NuxtLinkLocale>
 			<a @click.prevent="openSearch">
 				{{ $t('search') }}
       </a>
@@ -48,7 +48,6 @@
 	const appConfig = useAppConfig()
 	const route = useRoute()
 	const { locale } = useI18n()
-	const localePath = useLocalePath()
 
 	const { toggleLang } = useLanguageSwitch()
 

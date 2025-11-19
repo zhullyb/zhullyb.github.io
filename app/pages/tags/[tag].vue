@@ -4,7 +4,7 @@
 			<p class="date">{{ post.date?.split(' ')[0] }}</p>
 
 			<p>
-				<NuxtLink :to="post.path">{{ post.title }}</NuxtLink>
+				<NuxtLinkLocale :to="post.path">{{ post.title }}</NuxtLinkLocale>
 			</p>
 		</div>
 	</DefaultLayout>

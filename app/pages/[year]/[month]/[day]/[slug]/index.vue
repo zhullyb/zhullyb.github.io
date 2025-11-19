@@ -6,7 +6,7 @@
       <NuxtLink
         v-for="tag in post?.tags"
         :key="tag"
-        :to="`/tags/${encodeURIComponent(tag)}`"
+        :to="`${localePath('/tags')}/${encodeURIComponent(tag)}`"
         prefetchOn="interaction"
       >#{{ tag }}</NuxtLink>
     </div>
@@ -24,6 +24,7 @@
 	import type { Post } from '~/types/post'
 	const route = useRoute()
   const { locale } = useI18n()
+  const localePath = useLocalePath()
 	const { year, month, day, slug } = route.params
 
   const contentPath = computed(() => {

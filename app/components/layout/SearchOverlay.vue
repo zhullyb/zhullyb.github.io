@@ -47,7 +47,7 @@
 								:key="result.id"
 								class="search-overlay__item"
 							>
-								<NuxtLink
+								<NuxtLinkLocale
 									:to="result.id"
 									class="search-overlay__link"
 									@click="close"
@@ -62,7 +62,7 @@
 										>
 									</p>
 									<p class="search-overlay__item-snippet">{{ result.snippet }}</p>
-								</NuxtLink>
+								</NuxtLinkLocale>
 							</li>
 						</ul>
 					</div>

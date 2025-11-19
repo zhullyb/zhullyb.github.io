@@ -2,17 +2,17 @@
 	<div>
     <template v-for="(post, index) in processedPosts" :key="post.path">
       <div class="post-item">
-        <NuxtLink class="title" :to="post.path">{{ post.title }}</NuxtLink>
-        <NuxtLink class="description" :to="post.path">{{ post.excerpt }}</NuxtLink>
+        <NuxtLinkLocale class="title" :to="post.path">{{ post.title }}</NuxtLinkLocale>
+        <NuxtLinkLocale class="description" :to="post.path">{{ post.excerpt }}</NuxtLinkLocale>
         <div class="post-meta">
           <span class="date">{{ post.date?.split(' ')[0] }}</span>
           <NuxtLink
             class="tags"
             v-for="tag in post.tags"
             :key="tag"
-            :to="`/tags/${encodeURIComponent(tag)}`"
+            :to="`${localePath('/tags')}/${encodeURIComponent(tag)}`"
             prefetchOn="interaction"
-            >{{ '#' + tag }}</NuxtLink
+            >{{ '#' + tag }}</NuxtLink>
           >
         </div>
       </div>
@@ -27,6 +27,7 @@
 
 	const route = useRoute()
   const { locale } = useI18n()
+  const localePath = useLocalePath()
 	const page = route.params.page ? parseInt(route.params.page as string) || 1 : 1
 
 	const pageSize = 10

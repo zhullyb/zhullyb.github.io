@@ -52,7 +52,9 @@ const blogConfig = {
     '/tags/%E5%9B%BE%E5%BA%8A/': '/tags/Image%20Hosting/',
     '/tags/%E7%AC%94%E8%AE%B0/': '/tags/Notes/',
     '/tags/%E7%BF%BB%E8%AF%91/': '/tags/Translation/',
-    '/tags/%E5%A4%A7%E4%BD%AC%E5%AF%B9%E8%AF%9D%E7%AC%94%E8%AE%B0/': '/tags/Notes/'
+    '/tags/%E5%A4%A7%E4%BD%AC%E5%AF%B9%E8%AF%9D%E7%AC%94%E8%AE%B0/': '/tags/Notes/',
+    '/2025/11/11/dns-cold-start-dilemma/en/': '/en/2025/11/11/dns-cold-start-dilemma/',
+    '/2025/11/05/http-2-server-push-is-practically-obsolete/en/': '/en/2025/11/05/http-2-server-push-is-practically-obsolete/'
 	},
 	links: [
 		{
