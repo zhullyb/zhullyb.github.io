@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US">
+  <id>https://zhul.in</id>
+  <title>竹林里有冰的博客</title>
+  <updated>2025-11-11T00:00:00.000Z</updated>
+  <subtitle>这里是我的个人博客，专注于分享技术干货、学习心得和生活感悟，涵盖前端开发、后端架构、人工智能、编程技巧、工具推荐等多个领域。我持续更新原创内容，记录成长过程中的思考与收获，致力于帮助更多开发者和技术爱好者提升技能、拓展视野。如果你对技术、产品和互联网行业感兴趣，相信你能在这里找到有价值的知识与灵感。</subtitle>
+  <rights>© 2025 竹林里有冰</rights>
+  <link href="https://zhul.in/en/rss.xml" rel="self" type="application/atom+xml"></link>
+  <link href="https://zhul.in" rel="alternate"></link>
+  <author>
+    <name>竹林里有冰</name>
+    <email>zhullyb@outlook.com</email>
+    <uri>https://zhul.in</uri>
+  </author>
+  <icon>https://static.031130.xyz/avatar.webp</icon>
+  <logo>https://static.031130.xyz/avatar.webp</logo>
+  <entry>
+    <id>https://zhul.in/2025/11/11/dns-cold-start-dilemma/</id>
+    <title>DNS Cold Start: The &quot;Stone of Sisyphus&quot; for Small Sites</title>
+    <updated>2025-11-11T00:00:00.000Z</updated>
+    <link href="https://zhul.in/2025/11/11/dns-cold-start-dilemma/" rel="alternate"></link>
+    <content type="html">
+      <![CDATA[<p>When we talk about website performance, we usually focus on front-end rendering, lazy loading of resources, server response time (TTFB), and so on. However, before the user's browser can even begin to request content, there is a crucial part that is rarely mentioned in performance optimization: DNS resolution. For obscure small sites, a "DNS Cache Miss," or what I call a "DNS Cold Start," can become an unavoidable performance bottleneck. This is the "Stone of Sisyphus" mentioned in the title.</p>
+<h2>The Myth's Metaphor: The Long Journey of DNS Resolution</h2>
+<p>To understand the weight of this "stone," we must review the complete path of DNS resolution. This isn't a simple lookup, but a global relay race:</p>
+<ol>
+<li><strong>Starting Point: Public DNS Server</strong> — A user sends a request, and the public DNS server tries to find the answer in its cache.</li>
+<li><strong>The First "Push": Root Servers</strong> — Cache Miss. The public DNS server is directed to one of the 13 root server groups worldwide.</li>
+<li><strong>The Second Leg: TLD Servers</strong> — The root server points to the Top-Level Domain (TLD) server for the specific suffix (like <code>.com</code>).</li>
+<li><strong>The Third Leg: Authoritative Servers</strong> — The TLD server points to the domain's final "steward"—the Authoritative DNS Server.</li>
+<li><strong>The Finish Line:</strong> The authoritative server returns the final IP address, which is then returned to the user by the public DNS server.</li>
+</ol>
+<pre><code class="language-mermaid">sequenceDiagram
+    participant User as User/Browser
+    participant Local as Local DNS&#x3C;br>Recursive Resolver
+    participant Root as Root Server
+    participant TLD as TLD Server&#x3C;br>(.com, .org, etc.)
+    participant Auth as Authoritative DNS Server
+
+    Note over User,Auth: Full DNS Recursive Query Flow
+
+    User->>Local: 1. Query domain&#x3C;br>[www.example.com](https://www.example.com)
+    Note over Local: Check cache&#x3C;br>Record not found
+
+    Local->>Root: 2. Query for .com TLD server
+    Root-->>Local: 3. Return .com TLD server address
+
+    Local->>TLD: 4. Query for example.com authoritative server
+    TLD-->>Local: 5. Return example.com authoritative server address
+
+    Local->>Auth: 6. Query for [www.example.com](https://www.example.com) A record
+    Auth-->>Local: 7. Return IP address (e.g., 1.1.1.1)
+
+    Note over Local: Cache result&#x3C;br>(based on TTL)
+
+    Local-->>User: 8. Return final IP address
+
+    Note over User,Auth: Subsequent process
+    User->>Auth: 9. Establish TCP connection with IP&#x3C;br>Start HTTP request
+</code></pre>
+<p>For a <strong>first-time</strong> or <strong>long-unvisited</strong> request, this process means at least 4 network round-trips (RTT), and even more in cases involving CNAMEs. For large websites with perfect caching, this stone may have already been pushed to the hilltop by someone else. But for a small site, it is always at the foot of the hill, waiting for its Sisyphus.</p>
+<h2>A Multiverse: The Mirror Maze of Anycast</h2>
+<p>"Since the cost of a DNS cold start is so high, can I use a script to periodically visit my own site to 'warm up' the public DNS cache in advance?" — This was a solution I once envisioned.</p>
+<p>However, this idea is often futile under the Anycast architecture of the modern internet.</p>
+<p>The core concept of Anycast is: the same IP address exists at multiple global nodes simultaneously, and user requests are routed to the "closest" or "most optimal network path" node.</p>
+<p>This means that public DNS servers like Google DNS (8.8.8.8), Cloudflare DNS (1.1.1.1), AliDNS (223.5.5.5), and Tencent DNS (119.29.29.29) are not backed by a single, centralized server, but a cluster of nodes distributed worldwide, routed dynamically.</p>
+<p>Thus, the problem arises:</p>
+<ul>
+<li>The pre-warming script I run in Shanghai might hit the Shanghai node of 223.5.5.5;</li>
+<li>But a visitor from Beijing will be routed to the Beijing node of 223.5.5.5;</li>
+<li>The caches of these two nodes are <strong>independent and not shared with each other.</strong></li>
+</ul>
+<p>From a webmaster's perspective, the DNS cache is no longer a predictable entity but has splintered into a "mirror maze" of geographically isolated, ever-changing fragments.</p>
+<p>Each visitor is at the base of a different hill, pushing their own stone, as if there are thousands of Sisyphuses in the world, walking their own paths alone.</p>
+<h2>Uncontrollable Caching and the "Normalization" of Cold Starts</h2>
+<p>This also explains why even if a small site is visited regularly by a script, real visitors might still experience significant DNS latency. Because "pre-warming" is only locally effective—it warms the cache of one Anycast node, not the entire network. And when the TTL expires or the cache is cleared by the public DNS server's algorithm (like LRU), this warmth quietly dissipates.</p>
+<p>From a macro perspective, this traps "low-traffic sites" in a kind of fatalistic loop:</p>
+<ol>
+<li>Due to low traffic, cache hits are rare;</li>
+<li>Due to cache misses, resolution time is high;</li>
+<li>Due to high resolution time, first-paint performance is poor, and users visit less;</li>
+<li>Due to fewer user visits, the cache is even harder to hit.</li>
+</ol>
+<p>The cold start is no longer an occasional "accident," but a passive "new normal."</p>
+<h2>Can We Make the Stone Lighter? — Strategies to Mitigate Cold Start Impact</h2>
+<p>The predicament of Sisyphus seems unsolvable, but we are not entirely powerless. While we cannot completely eliminate the DNS cold start, we can significantly reduce the weight of this stone through a series of strategies and shorten the time it takes to be pushed back up the hill after each time it rolls down.</p>
+<h3>The Art of the Trade-off: Adjusting DNS TTL (Time-To-Live)</h3>
+<p>TTL (Time-To-Live) is a critical value in a DNS record. It tells recursive resolvers (like public DNS, local caches) how long they can cache a record, although they might still be evicted by an LRU algorithm.</p>
+<p>Lengthening the TTL can effectively increase the cache hit rate, reduce DNS cold starts, and keep Sisyphus's stone at the top of the hill for as long as possible.</p>
+<p>But lengthening the TTL comes at the cost of flexibility: if you need to change the IP address for your domain for any reason, an overly long TTL might cause visitors to retrieve a stale IP address for a long time.</p>
+<h3>Choosing a Faster "Messenger": Using the Right Authoritative DNS Server</h3>
+<p>The "last mile" of DNS resolution—the time it takes to get from the public DNS server to your authoritative DNS server—is equally critical. If the Nameserver service your domain uses responds slowly, has few global nodes, or is too far from the public DNS server the visitor is querying, then the entire resolution chain will still be slowed down by this final link, even if the user's public DNS node is nearby.</p>
+<p>If I were writing this blog post in English, I would just say to switch your Nameserver to a top-tier provider like Cloudflare or Google, and be done with it. These large companies offer free authoritative DNS hosting, have numerous nodes around the world, and are very professional and trustworthy in this regard.</p>
+<p>But I am currently using Simplified Chinese. According to my blog's statistics, most of my readers are from mainland China, and the public DNS servers they query are most likely also deployed in mainland China. Whereas Cloudflare/Google Cloud DNS have no authoritative DNS server nodes in mainland China, which will slow things down. So <strong>if your visitors are primarily from mainland China, you might want to try AliYun (Alibaba Cloud) or Dnspod</strong>. Their main authoritative DNS server nodes are within mainland China, which, in theory, can reduce the communication time between the public DNS server and the authoritative DNS server.</p>
+<h2>Conclusion: The Stone Pusher</h2>
+<p>There has never been a perfect solution to the problem of DNS cold starts. It's like a fated "poetry of latency" within the internet's architecture—each visitor starts from their own network topology, pushing their own stone step-by-step along an invisible path, until they reach the summit of your server, in exchange for the first pixel lighting up on their screen.</p>
+<p>For small sites, this may be the weight of destiny; but to understand it, optimize it, and monitor it, is how we, on this long uphill road, polish the stone's edges to make them smoother.</p>
+<h2>See Also</h2>
+<ul>
+<li><a href="https://developers.google.com/speed/public-dns/docs/performance">Performance Benefits | Public DNS | Google for Developers</a></li>
+<li><a href="https://falconcloud.ae/about/blog/how-do-dns-queries-affect-website-latency/">How do DNS queries affect website latency? - falconcloud.ae</a></li>
+</ul>]]>
+    </content>
+    <published>2025-11-11T00:00:00.000Z</published>
+    <author>
+      <name>竹林里有冰</name>
+      <email>zhullyb@outlook.com</email>
+      <uri>https://zhul.in</uri>
+    </author>
+    <category term="DNS"></category>
+    <category term="Network"></category>
+  </entry>
+  <entry>
+    <id>https://zhul.in/2025/11/05/http-2-server-push-is-practically-obsolete/</id>
+    <title>HTTP/2 Server Push Has Effectively &quot;Died&quot; - I Miss It</title>
+    <updated>2025-11-05T00:00:00.000Z</updated>
+    <link href="https://zhul.in/2025/11/05/http-2-server-push-is-practically-obsolete/" rel="alternate"></link>
+    <content type="html">
+      <![CDATA[<p>I've been refactoring my blog recently, and while preparing for autumn recruitment and memorizing technical concepts, I came across HTTP/2 server push. I then attempted to configure HTTP/2 server push for my blog during deployment to further optimize first-screen loading speed.</p>
+<h2>Why HTTP/2 Server Push Could Improve First-Screen Loading Speed</h2>
+<p>As shown in the diagram below, in traditional HTTP/1.1, the browser first downloads <code>index.html</code> and completes the initial parsing, then retrieves the URLs for CSS/JS resources from the parsed data before making a second round of requests. After establishing TCP/TLS connections, it requires <strong>at least two RTTs to retrieve</strong> all the resources needed to fully render the page.</p>
+<pre><code class="language-mermaid">sequenceDiagram
+    participant Browser
+    participant Server
+
+    Browser->>Server: GET /index.html
+    Server-->>Browser: 200 OK + HTML
+    Browser->>Server: GET /style.css
+    Browser->>Server: GET /app.js
+    Server-->>Browser: 200 OK + CSS
+    Server-->>Browser: 200 OK + JS
+
+    Note over Browser: Browser must wait for HTML to download&#x3C;br/>and parse before making subsequent requests,&#x3C;br/>increasing round-trip latency (RTT)
+</code></pre>
+<p>In HTTP/2's vision, the process would look like the diagram below. When the browser requests index.html, the server can simultaneously push CSS/JS resources to the client. This way, after establishing the TCP/TLS connection, it only needs <strong>one RTT</strong> to retrieve all resources needed for page rendering.</p>
+<pre><code class="language-mermaid">sequenceDiagram
+    participant Browser
+    participant Server
+
+    Browser->>Server: GET /index.html
+    Server-->>Browser: 200 OK + HTML
+    Server-->>Browser: PUSH_PROMISE /style.css
+    Server-->>Browser: PUSH_PROMISE /app.js
+    Server-->>Browser: (Push) style.css + app.js content
+
+    Note over Browser: Browser receives proactive resource push&#x3C;br/>Reduces request rounds and first-screen latency
+</code></pre>
+<p>To minimize subsequent requests in HTTP/1.1, front-end developers have tried numerous optimization techniques. As Sukka mentioned in "<a href="https://blog.skk.moe/post/http2-server-push/">Static Resource Delivery Optimization: HTTP/2 and Server Push</a>":</p>
+<blockquote>
+<p>The concepts of critical resources, critical rendering path, and critical request chain have existed for a long time. Asynchronous resource loading is old news: lazy-loading images, videos, iframes, and even lazy-loading CSS, JS, DOM, and lazy execution of functions. However, the approach to critical resource delivery hasn't changed much.</p>
+</blockquote>
+<p>HTTP/2 Server Push created a new resource delivery paradigm. CSS/JS and other resources don't need to be delivered along with HTML to reach the client within one RTT, and these resources can be cached by the browser without being constrained by HTML's shorter TTL.</p>
+<h2>Initial Solution</h2>
+<p>Having understood the advantages of HTTP/2 server push, I prepared to implement the optimization. My blog is purely static, using DNS for traffic splitting between domestic and international visitors: domestic traffic accesses a DMIT VPS with cmin2/9929 network optimization, served through Caddy; international traffic goes directly to Vercel, leveraging Amazon's CDN for global edge acceleration. The network architecture looks roughly like this:</p>
+<pre><code class="language-mermaid">graph TD
+    A[Blog Visitors] --> B[Initiate DNS Resolution]
+    B --> C[DNSPod Service]
+    C -->|Domestic Visitors: Smart Routing| D[Network-Optimized VPS]
+    C -->|International Visitors: Smart Routing| E[Vercel Platform]
+    D --> F[Caddy]
+    F --> G[Return Blog Content to Domestic Visitors]
+    E --> H[Return Blog Content to International Visitors]
+</code></pre>
+<p>Caddy can implement HTTP/2 server push through the <code>http.handlers.push</code> module. We can write simple push logic in the Caddyfile—no problem there. However, Vercel doesn't provide configuration options for HTTP/2 server push. Fortunately, since I have a static blog with low platform dependency, I considered migrating to Cloudflare Workers, <a href="https://brianli.com/cloudflare-workers-sites-http2-server-push/">which developers implemented five years ago</a>.</p>
+<h2>Client Support Status</h2>
+<p>Historically, mainstream browser engines (Chrome/Chromium, Firefox, Edge, Safari) widely supported server push technology.</p>
+<p>In November 2020, Google announced <a href="https://groups.google.com/a/chromium.org/g/blink-dev/c/K3rYLvmQUBY/m/vOWBKZGoAQAJ">plans to remove server push functionality from Chrome's HTTP/2 and gQUIC (which later evolved into HTTP/3) implementations</a>.</p>
+<p>In October 2022, Google announced <a href="https://developer.chrome.com/blog/removing-push/">plans to remove server push from Chrome</a>, citing poor real-world performance, low adoption rates, and better alternatives. Chrome 106 became the first version to disable server push by default.</p>
+<p>On October 29, 2024, Mozilla released Firefox 132, <a href="https://www.firefox.com/en-US/firefox/132.0/releasenotes/">removing support for HTTP/2 server push due to "compatibility issues with multiple websites."</a></p>
+<p>With this, mainstream browser support for HTTP/2 Server Push has completely ended. From initially being viewed as an innovative feature to "reduce round-trip latency and optimize first-screen loading," to its eventual complete deprecation, HTTP/2 push's lifecycle lasted only a few short years, becoming an important experiment in web performance optimization history.</p>
+<h2>Alternative Solutions</h2>
+<h3>1. HTTP 103 Early Hints</h3>
+<p>103 Early Hints is the most direct "successor" to server push. It's an informational HTTP status code that allows the server to send an "early hint" response with Link headers before generating the complete HTML response (e.g., status code 200 OK).</p>
+<p>This Link header can tell the browser: "Hey, I'm still preparing the main course (HTML), but you can start preparing the side dishes (CSS, JS) first." This way, the browser can utilize the server's "thinking time" to preemptively download critical resources or warm up connections to required origins, significantly reducing first-screen rendering time.</p>
+<p>Compared to server push:</p>
+<ul>
+<li>Decision authority lies with the client: Early Hints are just "hints." The browser can decide whether to adopt them based on its own cache status, network conditions, and other factors. This solves server push's biggest pain point—servers cannot know about client caches, leading to redundant resource pushes.</li>
+<li>Better compatibility: It's a lighter mechanism that's easier for intermediary proxy servers to understand and relay.</li>
+</ul>
+<p>103 Early Hints is very meaningful for dynamic blogs. Before backend computation, the 103 response can inform the browser about needed resources, allowing the browser to retrieve other resources first while waiting for the backend to return the final HTML. However, <strong>for static blogs</strong> like mine where <strong>everything is pre-built</strong>, it has <strong>absolutely no meaning</strong>. The gateway has enough time to send the 103 response that it could just directly send the HTML instead.</p>
+<h3>2. Resource Hints: Preload &#x26; Prefetch</h3>
+<p>Even before server push was deprecated, resource hints implemented through <code>&#x3C;link></code> tags were already common tools for front-end performance optimization. They declare resource loading hints in HTML, with the browser leading the entire process.</p>
+<ul>
+<li><code>&#x3C;link rel="preload"></code>: Tells the browser about resources that the current page will definitely use, requesting immediate high-priority loading without execution. For example, font files hidden deep in CSS or first-screen images dynamically loaded by JS. Through preload, you can ensure these critical resources are discovered and downloaded early, avoiding render blocking.</li>
+<li><code>&#x3C;link rel="prefetch"></code>: Tells the browser about pages or resources the user might access in the future, requesting low-priority background downloads during browser idle time. For example, prefetching article page resources that users are most likely to click on the article list page, achieving near-"instant" navigation experience.</li>
+</ul>
+<p>Preload and Prefetch completely hand over resource loading control to developers and browsers. Through declarative methods, they allow fine-grained management of resource loading priority and timing. They are currently the most mature and widely applied resource preloading solutions, but still <strong>cannot escape the curse of 2 RTTs</strong>.</p>
+<h2>Epilogue: An Elegy for an Idealist</h2>
+<p>In the end, I couldn't configure HTTP/2 server push for my blog.</p>
+<p><strong>HTTP/2 Server Push has effectively "died." I miss it.</strong></p>
+<p>In an ideal model, when the browser requests HTML, the server conveniently pushes the CSS and JS needed for rendering along with it, cleanly compressing what would originally be at least two round trips (RTT) into one. This is such a direct, such an elegant solution—almost the "silver bullet" that front-end engineers dream of when facing first-screen rendering latency issues. Behind it lies an ambitious spirit: attempting to thoroughly solve the "critical request chain" latency problem from the server side, once and for all.</p>
+<p>But the Web world is ultimately not an ideal laboratory. It's full of caches, returning users, and all kinds of network environments.</p>
+<p>The greatest charm of server push lies in its "proactivity," and its greatest regret also stems precisely from this "proactivity." It cannot know whether the browser's cache already quietly holds that style.css file it's preparing to enthusiastically push. For the sake of the ultimate experience for a small portion of first-time visitors, it might waste precious bandwidth for more returning users.</p>
+<p>The Web's evolution ultimately chose a more prudent path with a more collaborative spirit. It returned decision-making authority to the browser, which knows the situation best. The entire interaction changed from the server's "<strong>I push to you</strong>" to the server's "<strong>I suggest you fetch</strong>," with the browser making its own judgment. This may not be romantic enough, not extreme enough, but it's more universal and more robust.</p>
+<p>So, I still miss that ambitious Server Push. It represented a pure pursuit of ultimate performance, a beautiful technical idealism. Although it has quietly faded from the historical stage, the dream about "speed" it pointed toward has long been inherited by 103 Early Hints and preload in a more mature, more balanced way.</p>
+<h2>See Also</h2>
+<ul>
+<li><a href="https://developer.chrome.com/blog/removing-push">Remove HTTP/2 Server Push from Chrome  |  Blog  |  Chrome for Developers</a></li>
+<li><a href="https://en.wikipedia.org/wiki/HTTP/2_Server_Push">HTTP/2 Server Push - Wikipedia</a></li>
+<li><a href="https://blog.skk.moe/post/http2-server-push/">静态资源递送优化：HTTP/2 和 Server Push | Sukka's Blog</a></li>
+<li><a href="https://caddyserver.com/docs/modules/http.handlers.push">Module http.handlers.push - Caddy Documentation</a></li>
+<li><a href="https://brianli.com/cloudflare-workers-sites-http2-server-push/">How to Configure HTTP/2 Server Push on Cloudflare Workers Sites</a></li>
+<li><a href="https://groups.google.com/a/chromium.org/g/blink-dev/c/K3rYLvmQUBY/m/vOWBKZGoAQAJ">Intent to Remove: HTTP/2 and gQUIC server push</a></li>
+</ul>]]>
+    </content>
+    <published>2025-11-05T00:00:00.000Z</published>
+    <author>
+      <name>竹林里有冰</name>
+      <email>zhullyb@outlook.com</email>
+      <uri>https://zhul.in</uri>
+    </author>
+    <category term="HTTP"></category>
+    <category term="Caddy"></category>
+    <category term="Network"></category>
+    <category term="HTML"></category>
+    <category term="Vercel"></category>
+  </entry>
+</feed>

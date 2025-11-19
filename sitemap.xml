@@ -2,21 +2,42 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.google.com/schemas/sitemap-image/1.1 http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
         <loc>https://zhul.in/</loc>
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://zhul.in/" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://zhul.in/en/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://zhul.in/" />
     </url>
     <url>
         <loc>https://zhul.in/about/</loc>
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://zhul.in/about/" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://zhul.in/en/about/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://zhul.in/about/" />
     </url>
     <url>
         <loc>https://zhul.in/archives/</loc>
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://zhul.in/archives/" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://zhul.in/en/archives/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://zhul.in/archives/" />
     </url>
     <url>
         <loc>https://zhul.in/donate/</loc>
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://zhul.in/donate/" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://zhul.in/en/donate/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://zhul.in/donate/" />
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/6552d6098f397.webp</image:loc>
         </image:image>
     </url>
     <url>
+        <loc>https://zhul.in/en/</loc>
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://zhul.in/" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://zhul.in/en/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://zhul.in/" />
+    </url>
+    <url>
         <loc>https://zhul.in/links/</loc>
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://zhul.in/links/" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://zhul.in/en/links/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://zhul.in/links/" />
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/12/31/71b730c8be4a8.webp</image:loc>
         </image:image>
@@ -83,375 +104,760 @@
     </url>
     <url>
         <loc>https://zhul.in/tags/</loc>
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://zhul.in/tags/" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://zhul.in/en/tags/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://zhul.in/tags/" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Vue.js</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Vue.js" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Vue.js" hreflang="zh-CN" />
+    </url>
+    <url>
+        <loc>https://zhul.in/en/about/</loc>
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://zhul.in/about/" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://zhul.in/en/about/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://zhul.in/about/" />
+    </url>
+    <url>
+        <loc>https://zhul.in/en/archives/</loc>
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://zhul.in/archives/" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://zhul.in/en/archives/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://zhul.in/archives/" />
+    </url>
+    <url>
+        <loc>https://zhul.in/en/donate/</loc>
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://zhul.in/donate/" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://zhul.in/en/donate/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://zhul.in/donate/" />
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6552d6098f397.webp</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/en/links/</loc>
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://zhul.in/links/" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://zhul.in/en/links/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://zhul.in/links/" />
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/12/31/71b730c8be4a8.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6653ed001e208.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f7d8f114851.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f7d98e0fd18.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f7db1280c26.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/74139df97bae3.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/259396342424f.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/6329b2a587c1f.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/09/23/5c47b2d971736.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://blog.i1nfo.com/images/iinfo-sq.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/65c37927314ac.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/653dce34279de.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/665c87250daa1.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/659f548c17c9b.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/65ce4796c447d.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/08/12/665c86dd86375.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://qiuniu.phlin.cn/bucket/icon.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/09/24/9d106a106aef1.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2024/11/18/9b6f5d7231d91.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://www.zhilu.cyou/api/avatar.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://blog.sugarmgp.cn/img/icon.png</image:loc>
+        </image:image>
+    </url>
+    <url>
+        <loc>https://zhul.in/en/tags/</loc>
+        <xhtml:link rel="alternate" hreflang="zh-CN" href="https://zhul.in/tags/" />
+        <xhtml:link rel="alternate" hreflang="en-US" href="https://zhul.in/en/tags/" />
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://zhul.in/tags/" />
     </url>
     <url>
         <loc>https://zhul.in/page/2/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/page/2/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/page/2/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/page/3/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/page/3/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/page/3/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/page/4/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/page/4/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/page/4/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/page/5/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/page/5/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/page/5/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/page/6/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/page/6/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/page/6/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/page/7/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/page/7/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/page/7/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/page/8/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/page/8/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/page/8/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/page/9/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/page/9/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/page/9/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/page/10/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/page/10/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/page/10/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/page/11/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/page/11/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/page/11/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/page/12/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/page/12/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/page/12/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/page/13/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/page/13/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/page/13/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Android/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Android/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Android/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Apt/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Apt/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Apt/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Archlinux/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Archlinux/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Archlinux/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/AST/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/AST/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/AST/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Azure/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Azure/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Azure/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Blog/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Blog/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Blog/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Bot/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Bot/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Bot/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Bwrap/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Bwrap/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Bwrap/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Caddy/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Caddy/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Caddy/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/Caddy/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Casual%20Talk/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Casual%20Talk/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Casual%20Talk/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/CDN/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/CDN/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/CDN/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/CI%2FCD/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/CI%2FCD/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/CI%2FCD/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Cloudflare/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Cloudflare/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Cloudflare/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/CRLite/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/CRLite/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/CRLite/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/CRLSets/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/CRLSets/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/CRLSets/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/crontab/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/crontab/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/crontab/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/CSS/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/CSS/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/CSS/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Debian/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Debian/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Debian/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Debug/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Debug/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Debug/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/deepin/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/deepin/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/deepin/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/DNS/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/DNS/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/DNS/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/DNS/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Dnspod/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Dnspod/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Dnspod/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Docker/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Docker/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Docker/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/electron/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/electron/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/electron/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Experience/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Experience/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Experience/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Fedora/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Fedora/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Fedora/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Firefox/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Firefox/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Firefox/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Follow/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Follow/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Follow/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Fun/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Fun/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Fun/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Github/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Github/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Github/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Github%20Action/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Github%20Action/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Github%20Action/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/GPT/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/GPT/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/GPT/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Hardware/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Hardware/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Hardware/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Hexo/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Hexo/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Hexo/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/HomeServer/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/HomeServer/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/HomeServer/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/HTML/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/HTML/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/HTML/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/HTML/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/tags/HTTP/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/HTTP/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/HTTP/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/HTTP/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Image%20Hosting/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Image%20Hosting/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Image%20Hosting/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/ImmortalWRT/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/ImmortalWRT/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/ImmortalWRT/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/IoT/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/IoT/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/IoT/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/JavaScript/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/JavaScript/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/JavaScript/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/jinja2/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/jinja2/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/jinja2/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/KDE/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/KDE/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/KDE/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Linux/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Linux/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Linux/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Lsky%20Pro/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Lsky%20Pro/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Lsky%20Pro/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Markdown/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Markdown/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Markdown/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/MiAI/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/MiAI/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/MiAI/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Mirror%20Site/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Mirror%20Site/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Mirror%20Site/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/mitmproxy/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/mitmproxy/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/mitmproxy/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Network/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Network/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Network/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/Network/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/tags/nodejs/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/nodejs/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/nodejs/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Notes/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Notes/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Notes/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Nuxt/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Nuxt/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Nuxt/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Nuxt%20Content/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Nuxt%20Content/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Nuxt%20Content/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/OCSP/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/OCSP/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/OCSP/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/OneDrive/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/OneDrive/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/OneDrive/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/OpenSource%20Project/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/OpenSource%20Project/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/OpenSource%20Project/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/OpenSSH/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/OpenSSH/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/OpenSSH/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/OpenSSL/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/OpenSSL/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/OpenSSL/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/OpenWRT/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/OpenWRT/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/OpenWRT/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/PHP/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/PHP/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/PHP/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/PicUploader/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/PicUploader/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/PicUploader/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Printer/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Printer/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Printer/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Privacy/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Privacy/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Privacy/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Python/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Python/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Python/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Rom%E7%BC%96%E8%AF%91/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Rom%E7%BC%96%E8%AF%91/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Rom%E7%BC%96%E8%AF%91/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Router/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Router/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Router/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/RPM%20Package/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/RPM%20Package/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/RPM%20Package/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Rustdesk/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Rustdesk/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Rustdesk/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Sass/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Sass/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Sass/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/selenium/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/selenium/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/selenium/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Shell%20Script/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Shell%20Script/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Shell%20Script/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/siteproxy/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/siteproxy/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/siteproxy/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/SSL/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/SSL/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/SSL/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Translation/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Translation/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Translation/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/umami/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/umami/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/umami/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/uniapp/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/uniapp/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/uniapp/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/unified/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/unified/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/unified/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Vercel/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Vercel/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Vercel/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/Vercel/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Virtual%20Machine/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Virtual%20Machine/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Virtual%20Machine/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/waline/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/waline/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/waline/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Waydroid/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Waydroid/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Waydroid/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Web/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Web/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Web/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Web%20PKI/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Web%20PKI/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Web%20PKI/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Windows/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Windows/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Windows/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Z-Library/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Z-Library/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Z-Library/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/archives/page/2/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/archives/page/2/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/archives/page/2/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/archives/page/3/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/archives/page/3/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/archives/page/3/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/archives/page/4/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/archives/page/4/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/archives/page/4/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/archives/page/5/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/archives/page/5/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/archives/page/5/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/archives/page/6/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/archives/page/6/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/archives/page/6/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/archives/page/7/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/archives/page/7/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/archives/page/7/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/archives/page/8/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/archives/page/8/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/archives/page/8/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/archives/page/9/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/archives/page/9/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/archives/page/9/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/archives/page/10/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/archives/page/10/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/archives/page/10/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/archives/page/11/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/archives/page/11/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/archives/page/11/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/archives/page/12/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/archives/page/12/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/archives/page/12/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/archives/page/13/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/archives/page/13/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/archives/page/13/" hreflang="zh-CN" />
+    </url>
+    <url>
+        <loc>https://zhul.in/en/tags/Caddy/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Caddy/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Caddy/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/Caddy/" hreflang="en-US" />
+    </url>
+    <url>
+        <loc>https://zhul.in/en/tags/DNS/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/DNS/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/DNS/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/DNS/" hreflang="en-US" />
+    </url>
+    <url>
+        <loc>https://zhul.in/en/tags/HTML/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/HTML/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/HTML/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/HTML/" hreflang="en-US" />
+    </url>
+    <url>
+        <loc>https://zhul.in/en/tags/HTTP/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/HTTP/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/HTTP/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/HTTP/" hreflang="en-US" />
+    </url>
+    <url>
+        <loc>https://zhul.in/en/tags/Network/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Network/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Network/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/Network/" hreflang="en-US" />
+    </url>
+    <url>
+        <loc>https://zhul.in/en/tags/Vercel/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Vercel/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Vercel/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/Vercel/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/2020/03/03/set-proxy-for-cmd-under-windows/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/2020/03/03/set-proxy-for-cmd-under-windows/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2020/03/03/set-proxy-for-cmd-under-windows/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2020/07/11/china-mainland-mirrorlist/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/2020/07/11/china-mainland-mirrorlist/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2020/07/11/china-mainland-mirrorlist/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2020/07/11/gitnotes/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/2020/07/11/gitnotes/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2020/07/11/gitnotes/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2020/07/11/reponotes/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/2020/07/11/reponotes/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2020/07/11/reponotes/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2020/08/10/androidunpack/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/2020/08/10/androidunpack/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2020/08/10/androidunpack/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2020/10/08/nohello/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/2020/10/08/nohello/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2020/10/08/nohello/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2020/12/22/did-uos-have-secure-boot-signature/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/2020/12/22/did-uos-have-secure-boot-signature/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2020/12/22/did-uos-have-secure-boot-signature/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2021/01/01/why-i-dont-recommend-manjaro/</loc>
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f36d8eb724a.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/01/01/why-i-dont-recommend-manjaro/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/01/01/why-i-dont-recommend-manjaro/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2021/01/20/python-virtualenv/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/01/20/python-virtualenv/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/01/20/python-virtualenv/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2021/01/25/how-to-solve-the-adb-devices-unauthorized-problem/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/01/25/how-to-solve-the-adb-devices-unauthorized-problem/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/01/25/how-to-solve-the-adb-devices-unauthorized-problem/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2021/02/07/extract-payload-dot-bin-on-archlinux/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/02/07/extract-payload-dot-bin-on-archlinux/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/02/07/extract-payload-dot-bin-on-archlinux/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2021/02/27/change-your-firefox-icon-into-a-bluedoge/</loc>
@@ -461,12 +867,18 @@
         <image:image>
             <image:loc>https://www.mozilla.org/media/protocol/img/logos/firefox/browser/logo-lg-high-res.fbc7ffbb50fd.png</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/02/27/change-your-firefox-icon-into-a-bluedoge/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/02/27/change-your-firefox-icon-into-a-bluedoge/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2021/03/14/lets-fuck-dm-and-use-startx/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/03/14/lets-fuck-dm-and-use-startx/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/03/14/lets-fuck-dm-and-use-startx/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2021/04/04/yay-more/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/04/04/yay-more/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/04/04/yay-more/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2021/04/11/use-motrix-install-of-firefox-to-download/</loc>
@@ -476,15 +888,21 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f36d3d08a23.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/04/11/use-motrix-install-of-firefox-to-download/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/04/11/use-motrix-install-of-firefox-to-download/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2021/04/13/where-will-appimage-put-its-file/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/04/13/where-will-appimage-put-its-file/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/04/13/where-will-appimage-put-its-file/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2021/04/15/login-chromium-with-the-api-of-chrome/</loc>
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3cafe4a5ec.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/04/15/login-chromium-with-the-api-of-chrome/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/04/15/login-chromium-with-the-api-of-chrome/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2021/04/16/fuck-jekyll-github-metadata-on-gitlab/</loc>
@@ -494,9 +912,13 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3caf51bdb5.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/04/16/fuck-jekyll-github-metadata-on-gitlab/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/04/16/fuck-jekyll-github-metadata-on-gitlab/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2021/04/16/the-software-i-use-on-archlinux/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/04/16/the-software-i-use-on-archlinux/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/04/16/the-software-i-use-on-archlinux/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2021/04/23/disable-firefox-nightmode-when-your-system-is-using-that/</loc>
@@ -506,6 +928,8 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f36cce30773.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/04/23/disable-firefox-nightmode-when-your-system-is-using-that/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/04/23/disable-firefox-nightmode-when-your-system-is-using-that/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2021/04/27/hide-simsun-from-deepin-wine-tim/</loc>
@@ -518,12 +942,18 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3c88f41790.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/04/27/hide-simsun-from-deepin-wine-tim/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/04/27/hide-simsun-from-deepin-wine-tim/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2021/05/21/create-a-random-picture-api-with-vercel/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/05/21/create-a-random-picture-api-with-vercel/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/05/21/create-a-random-picture-api-with-vercel/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2021/05/23/why-i-use-archlinux/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/05/23/why-i-use-archlinux/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/05/23/why-i-use-archlinux/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2021/05/27/relieve-the-pressure-of-tuna-mirror-site-please/</loc>
@@ -533,9 +963,13 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3ba4204ecb.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/05/27/relieve-the-pressure-of-tuna-mirror-site-please/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/05/27/relieve-the-pressure-of-tuna-mirror-site-please/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2021/05/29/choose-the-last-archlinux-mirror-site-in-china/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/05/29/choose-the-last-archlinux-mirror-site-in-china/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/05/29/choose-the-last-archlinux-mirror-site-in-china/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2021/05/30/share-xiaomi-bluetooth-mouse-on-both-windows-and-linux/</loc>
@@ -548,6 +982,8 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3cb0d9e04f.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/05/30/share-xiaomi-bluetooth-mouse-on-both-windows-and-linux/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/05/30/share-xiaomi-bluetooth-mouse-on-both-windows-and-linux/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2021/06/06/download-openharmony-source-code/</loc>
@@ -563,6 +999,8 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3cb182333b.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/06/06/download-openharmony-source-code/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/06/06/download-openharmony-source-code/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2021/07/23/build-a-rpm-package-from-aur-with-archlinux/</loc>
@@ -575,12 +1013,16 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3cae5aa4b0.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/07/23/build-a-rpm-package-from-aur-with-archlinux/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/07/23/build-a-rpm-package-from-aur-with-archlinux/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2021/09/05/wrong-fonts-color-fix-under-kde-with-a-dark-theme/</loc>
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3cb059b229.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/09/05/wrong-fonts-color-fix-under-kde-with-a-dark-theme/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/09/05/wrong-fonts-color-fix-under-kde-with-a-dark-theme/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2021/09/11/detailed-explanation-for-aur/</loc>
@@ -593,6 +1035,8 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3cca0c7aba.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/09/11/detailed-explanation-for-aur/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/09/11/detailed-explanation-for-aur/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2021/09/21/csdn-copied-my-article/</loc>
@@ -611,6 +1055,8 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3cadacac4d.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/09/21/csdn-copied-my-article/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/09/21/csdn-copied-my-article/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2021/10/01/bring-firefox-old-topbar-back/</loc>
@@ -638,6 +1084,8 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3ccbe6f31a.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/10/01/bring-firefox-old-topbar-back/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/10/01/bring-firefox-old-topbar-back/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2021/10/02/nutstore-guide-on-archlinux-kde/</loc>
@@ -665,9 +1113,13 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3cc95f0dd1.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/10/02/nutstore-guide-on-archlinux-kde/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/10/02/nutstore-guide-on-archlinux-kde/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2021/10/21/picuploader-on-archlinux-with-caddy/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/10/21/picuploader-on-archlinux-with-caddy/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/10/21/picuploader-on-archlinux-with-caddy/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2021/10/24/picuploader-with-kde-action/</loc>
@@ -677,6 +1129,8 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f36f57f34aa.gif</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/10/24/picuploader-with-kde-action/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/10/24/picuploader-with-kde-action/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2021/10/31/waydroid-experience-on-kde/</loc>
@@ -692,6 +1146,8 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3cc76b986c.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/10/31/waydroid-experience-on-kde/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/10/31/waydroid-experience-on-kde/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2021/11/05/please-dont-theme-our-apps/</loc>
@@ -704,6 +1160,8 @@
         <image:image>
             <image:loc>https://stopthemingmy.app/assets/appicons.png</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/11/05/please-dont-theme-our-apps/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/11/05/please-dont-theme-our-apps/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2021/11/20/what-is-deepin-elf-verify/</loc>
@@ -713,6 +1171,8 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3ccc53d544.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/11/20/what-is-deepin-elf-verify/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/11/20/what-is-deepin-elf-verify/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2021/11/21/use-cloudflare-mirrors/</loc>
@@ -722,12 +1182,16 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3ccc8d7c82.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/11/21/use-cloudflare-mirrors/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/11/21/use-cloudflare-mirrors/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2021/11/26/typora-and-me/</loc>
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3b881e3c4c.gif</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/11/26/typora-and-me/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/11/26/typora-and-me/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2021/12/03/dev-app-update-in-wolai/</loc>
@@ -737,39 +1201,55 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3cafb6b04d.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/12/03/dev-app-update-in-wolai/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/12/03/dev-app-update-in-wolai/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2021/12/12/the-history-of-cutefish/</loc>
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3cae911901.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/12/12/the-history-of-cutefish/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2021/12/12/the-history-of-cutefish/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2022/01/01/pacman-gpgme-error-no-data/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/2022/01/01/pacman-gpgme-error-no-data/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2022/01/01/pacman-gpgme-error-no-data/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2022/01/12/dnf-module-in-setting-up-the-jekyll/</loc>
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3caeec8ef6.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2022/01/12/dnf-module-in-setting-up-the-jekyll/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2022/01/12/dnf-module-in-setting-up-the-jekyll/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2022/01/19/the-common-software-hidden-in-mirrors/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/2022/01/19/the-common-software-hidden-in-mirrors/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2022/01/19/the-common-software-hidden-in-mirrors/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2022/02/07/how-to-package-a-git-rpm-package/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/2022/02/07/how-to-package-a-git-rpm-package/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2022/02/07/how-to-package-a-git-rpm-package/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2022/03/06/run-rpmbuild-with-github-action/</loc>
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/bb263c91c7bf4.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2022/03/06/run-rpmbuild-with-github-action/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2022/03/06/run-rpmbuild-with-github-action/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2022/03/31/upload-pic-to-lskypro-with-curl/</loc>
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3b881e3c4c.gif</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2022/03/31/upload-pic-to-lskypro-with-curl/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2022/03/31/upload-pic-to-lskypro-with-curl/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2022/04/14/fastocr-experience/</loc>
@@ -782,6 +1262,8 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/a404346841d02.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2022/04/14/fastocr-experience/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2022/04/14/fastocr-experience/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2022/05/11/setup-a-local-fedora-source/</loc>
@@ -794,9 +1276,13 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/627b2ebd23331.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2022/05/11/setup-a-local-fedora-source/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2022/05/11/setup-a-local-fedora-source/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2022/05/30/use-caddy-to-proxy-wikipedia/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/2022/05/30/use-caddy-to-proxy-wikipedia/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2022/05/30/use-caddy-to-proxy-wikipedia/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2022/07/03/fcitx5-blinking-on-tg-under-wayland-kde/</loc>
@@ -809,9 +1295,13 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/62c138b030469.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2022/07/03/fcitx5-blinking-on-tg-under-wayland-kde/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2022/07/03/fcitx5-blinking-on-tg-under-wayland-kde/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2022/07/25/restore-the-sound-of-hollywood/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/2022/07/25/restore-the-sound-of-hollywood/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2022/07/25/restore-the-sound-of-hollywood/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2022/08/04/a-fucking-store-about-openssl3-and-nodejs16/</loc>
@@ -824,6 +1314,8 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/62ebb0927943f.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2022/08/04/a-fucking-store-about-openssl3-and-nodejs16/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2022/08/04/a-fucking-store-about-openssl3-and-nodejs16/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2022/08/10/add-sticker-support-for-element/</loc>
@@ -845,6 +1337,8 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f4f7728b1e6.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2022/08/10/add-sticker-support-for-element/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2022/08/10/add-sticker-support-for-element/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2022/09/29/use-l2tp-protocol-to-connect-internet/</loc>
@@ -854,12 +1348,16 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/63354161dbe28.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2022/09/29/use-l2tp-protocol-to-connect-internet/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2022/09/29/use-l2tp-protocol-to-connect-internet/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2022/10/04/use-virtscreen-to-turn-pad-into-another-screen/</loc>
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/633b1bd1ba8f4.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2022/10/04/use-virtscreen-to-turn-pad-into-another-screen/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2022/10/04/use-virtscreen-to-turn-pad-into-another-screen/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2022/11/04/my-blog-plan/</loc>
@@ -869,6 +1367,8 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/6364dbbfeb8f6.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2022/11/04/my-blog-plan/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2022/11/04/my-blog-plan/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2022/11/08/free-umami-deploy-plan/</loc>
@@ -902,9 +1402,13 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/6369f5ec7a0e2.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2022/11/08/free-umami-deploy-plan/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2022/11/08/free-umami-deploy-plan/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2022/11/21/a-few-words-about-the-events-of-november-2022/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/2022/11/21/a-few-words-about-the-events-of-november-2022/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2022/11/21/a-few-words-about-the-events-of-november-2022/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2022/12/24/onedrive-abraunegg-recommendation/</loc>
@@ -920,12 +1424,16 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/63a7282ee55e7.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2022/12/24/onedrive-abraunegg-recommendation/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2022/12/24/onedrive-abraunegg-recommendation/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2023/02/01/deploy-siteproxy-with-caddy-on-vps/</loc>
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/63da866e26712.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2023/02/01/deploy-siteproxy-with-caddy-on-vps/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2023/02/01/deploy-siteproxy-with-caddy-on-vps/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2023/03/26/implicit-forwarding-is-a-new-site-deploying-method/</loc>
@@ -941,9 +1449,13 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/642014519ce2a.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2023/03/26/implicit-forwarding-is-a-new-site-deploying-method/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2023/03/26/implicit-forwarding-is-a-new-site-deploying-method/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2023/05/03/checkout-lfs-file-after-repo-sync/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/2023/05/03/checkout-lfs-file-after-repo-sync/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2023/05/03/checkout-lfs-file-after-repo-sync/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2023/05/12/troubles-when-applying-azure-education/</loc>
@@ -965,6 +1477,8 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/645e63e39523f.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2023/05/12/troubles-when-applying-azure-education/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2023/05/12/troubles-when-applying-azure-education/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2023/06/24/connect-china-mobile-with-router-in-zjut-dormitory/</loc>
@@ -1004,6 +1518,8 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/6496b3703197f.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2023/06/24/connect-china-mobile-with-router-in-zjut-dormitory/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2023/06/24/connect-china-mobile-with-router-in-zjut-dormitory/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2023/06/24/redmi-ac2100-router-with-padavan/</loc>
@@ -1067,9 +1583,13 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/6496ac4f3170f.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2023/06/24/redmi-ac2100-router-with-padavan/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2023/06/24/redmi-ac2100-router-with-padavan/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2023/07/31/run-qq-bot-on-phicomm-n1-openwrt/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/2023/07/31/run-qq-bot-on-phicomm-n1-openwrt/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2023/07/31/run-qq-bot-on-phicomm-n1-openwrt/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2023/08/04/static-webpage-deployment-for-a-beginner/</loc>
@@ -1085,18 +1605,26 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/64d4e4e5b1e68.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2023/08/04/static-webpage-deployment-for-a-beginner/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2023/08/04/static-webpage-deployment-for-a-beginner/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2023/09/02/python-selenium-start-difficult-in-china-mainland/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/2023/09/02/python-selenium-start-difficult-in-china-mainland/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2023/09/02/python-selenium-start-difficult-in-china-mainland/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2023/09/03/jinja2-nl-to-br/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/2023/09/03/jinja2-nl-to-br/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2023/09/03/jinja2-nl-to-br/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2023/10/29/create-b23tv-remover-bot/</loc>
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/653d49fe955f7.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2023/10/29/create-b23tv-remover-bot/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2023/10/29/create-b23tv-remover-bot/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2023/11/01/unveiling-sunflower-smart-adapter-api-intercepting-utilizing-api-android-packet-sniffing/</loc>
@@ -1115,6 +1643,8 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/654279513c1f8.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2023/11/01/unveiling-sunflower-smart-adapter-api-intercepting-utilizing-api-android-packet-sniffing/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2023/11/01/unveiling-sunflower-smart-adapter-api-intercepting-utilizing-api-android-packet-sniffing/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2023/11/02/integrating-sunflower-smart-socket-with-mi-home-via-bemfa-cloud/</loc>
@@ -1127,12 +1657,16 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/654312974e393.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2023/11/02/integrating-sunflower-smart-socket-with-mi-home-via-bemfa-cloud/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2023/11/02/integrating-sunflower-smart-socket-with-mi-home-via-bemfa-cloud/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2023/11/12/a-introduce-of-glwtpl/</loc>
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/654fb6e4581bf.gif</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2023/11/12/a-introduce-of-glwtpl/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2023/11/12/a-introduce-of-glwtpl/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2023/11/28/use-lxgw-wenkai-in-hexo-fluid/</loc>
@@ -1142,6 +1676,8 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/6564cea5c71ca.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2023/11/28/use-lxgw-wenkai-in-hexo-fluid/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2023/11/28/use-lxgw-wenkai-in-hexo-fluid/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2023/12/12/php-simple-rest-api/</loc>
@@ -1160,12 +1696,16 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/6577fe0c3a95b.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2023/12/12/php-simple-rest-api/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2023/12/12/php-simple-rest-api/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2023/12/27/php-and-vuejs-project-deploy-on-caddy/</loc>
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/658c4c3128ae4.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2023/12/27/php-and-vuejs-project-deploy-on-caddy/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2023/12/27/php-and-vuejs-project-deploy-on-caddy/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2024/01/10/cors-when-using-splited-frontend-and-backend/</loc>
@@ -1175,6 +1715,8 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/659ec95acc0bc.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/01/10/cors-when-using-splited-frontend-and-backend/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/01/10/cors-when-using-splited-frontend-and-backend/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2024/01/14/where-does-this-refer-in-arrow-function-in-js/</loc>
@@ -1184,6 +1726,8 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/65a2e379ba89e.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/01/14/where-does-this-refer-in-arrow-function-in-js/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/01/14/where-does-this-refer-in-arrow-function-in-js/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2024/02/01/backup-umami-database-and-send-it-by-tg-bot/</loc>
@@ -1193,12 +1737,18 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/65c79455b2e40.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/02/01/backup-umami-database-and-send-it-by-tg-bot/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/02/01/backup-umami-database-and-send-it-by-tg-bot/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2024/02/08/extra-usage-for-crontab/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/02/08/extra-usage-for-crontab/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/02/08/extra-usage-for-crontab/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2024/02/11/how-to-deploy-onemanager-with-docker/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/02/11/how-to-deploy-onemanager-with-docker/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/02/11/how-to-deploy-onemanager-with-docker/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2024/02/29/capture-https-traffic-on-linux-with-mitmproxy/</loc>
@@ -1217,6 +1767,8 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/65e09780dd2c0.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/02/29/capture-https-traffic-on-linux-with-mitmproxy/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/02/29/capture-https-traffic-on-linux-with-mitmproxy/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2024/03/13/try-to-compose-download-links-of-deb-packages-in-apt-repository/</loc>
@@ -1235,6 +1787,8 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/65f1b73567121.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/03/13/try-to-compose-download-links-of-deb-packages-in-apt-repository/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/03/13/try-to-compose-download-links-of-deb-packages-in-apt-repository/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2024/04/01/image-preload-in-uniapp/</loc>
@@ -1244,6 +1798,8 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/6609db8a213da.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/04/01/image-preload-in-uniapp/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/04/01/image-preload-in-uniapp/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2024/04/24/generate-gantt-chart-with-python/</loc>
@@ -1259,15 +1815,21 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/662891bfa52fc.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/04/24/generate-gantt-chart-with-python/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/04/24/generate-gantt-chart-with-python/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2024/04/29/update-a-rpm-spec-by-github-action/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/04/29/update-a-rpm-spec-by-github-action/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/04/29/update-a-rpm-spec-by-github-action/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2024/05/03/open-rpmbuild-in-the-way-of-archlinux-makepkg/</loc>
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/6635018238ffa.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/05/03/open-rpmbuild-in-the-way-of-archlinux-makepkg/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/05/03/open-rpmbuild-in-the-way-of-archlinux-makepkg/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2024/05/23/setup-network-environment-for-non-linux-vpn-client-with-virtual-machine/</loc>
@@ -1292,6 +1854,8 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/664e33c3e8320.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/05/23/setup-network-environment-for-non-linux-vpn-client-with-virtual-machine/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/05/23/setup-network-environment-for-non-linux-vpn-client-with-virtual-machine/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2024/06/30/dynamic-public-ip-and-ddns-for-rustdesk/</loc>
@@ -1307,6 +1871,8 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/66817f77aae7e.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/06/30/dynamic-public-ip-and-ddns-for-rustdesk/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/06/30/dynamic-public-ip-and-ddns-for-rustdesk/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2024/07/14/config-hp-laser-103w-printer-for-archlinux/</loc>
@@ -1322,6 +1888,8 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/6693b7ba82d99.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/07/14/config-hp-laser-103w-printer-for-archlinux/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/07/14/config-hp-laser-103w-printer-for-archlinux/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2024/07/15/try-ssh-connection-in-fedora-copr/</loc>
@@ -1349,6 +1917,8 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/6694b09a57e06.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/07/15/try-ssh-connection-in-fedora-copr/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/07/15/try-ssh-connection-in-fedora-copr/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2024/07/18/my-blog-is-completely-proxied-and-translated-into-traditional-chinese/</loc>
@@ -1403,6 +1973,8 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/66992ad0d2890.gif</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/07/18/my-blog-is-completely-proxied-and-translated-into-traditional-chinese/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/07/18/my-blog-is-completely-proxied-and-translated-into-traditional-chinese/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2024/07/22/enable-ac-power-loss-for-jumper-n100/</loc>
@@ -1412,6 +1984,8 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/669e7e5ab7ad6.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/07/22/enable-ac-power-loss-for-jumper-n100/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/07/22/enable-ac-power-loss-for-jumper-n100/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2024/07/31/capture-android-https-traffic-on-linux-with-mitmproxy/</loc>
@@ -1424,6 +1998,8 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/66ab5970a6ac7.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/07/31/capture-android-https-traffic-on-linux-with-mitmproxy/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/07/31/capture-android-https-traffic-on-linux-with-mitmproxy/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2024/08/12/new-picbed-based-on-cloudflare-and-upyun/</loc>
@@ -1445,6 +2021,8 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/13/782a665cabe05.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/08/12/new-picbed-based-on-cloudflare-and-upyun/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/08/12/new-picbed-based-on-cloudflare-and-upyun/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2024/08/13/build-restful-api-for-cloudflare-r2-with-cloudflare-workers/</loc>
@@ -1469,6 +2047,8 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/14/96da1f62f5fe7.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/08/13/build-restful-api-for-cloudflare-r2-with-cloudflare-workers/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/08/13/build-restful-api-for-cloudflare-r2-with-cloudflare-workers/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2024/08/14/auto-renew-ssl-certificate-and-deploy-to-upyun-with-github-action/</loc>
@@ -1493,12 +2073,16 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/14/222a754d25c97.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/08/14/auto-renew-ssl-certificate-and-deploy-to-upyun-with-github-action/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/08/14/auto-renew-ssl-certificate-and-deploy-to-upyun-with-github-action/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2024/08/20/picbed-upload-script-and-image-migration/</loc>
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/12/62f3b881e3c4c.gif</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/08/20/picbed-upload-script-and-image-migration/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/08/20/picbed-upload-script-and-image-migration/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2024/08/21/self-host-cdn-expense/</loc>
@@ -1517,6 +2101,8 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/08/21/1c4eeac63a2fb.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/08/21/self-host-cdn-expense/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/08/21/self-host-cdn-expense/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2024/09/20/migrate-rustdesk-server-from-arch-to-debian/</loc>
@@ -1532,6 +2118,8 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/09/20/3108bac773390.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/09/20/migrate-rustdesk-server-from-arch-to-debian/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/09/20/migrate-rustdesk-server-from-arch-to-debian/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2024/09/21/how-to-reverse-proxy-dockerhub-with-caddy/</loc>
@@ -1547,6 +2135,8 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/09/21/4a70c8cac6a4c.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/09/21/how-to-reverse-proxy-dockerhub-with-caddy/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/09/21/how-to-reverse-proxy-dockerhub-with-caddy/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2024/09/24/log-last-water-boiling-water-with-sunlogin-adapter-power-consumption/</loc>
@@ -1562,6 +2152,8 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/09/24/1a0637d61471f.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/09/24/log-last-water-boiling-water-with-sunlogin-adapter-power-consumption/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/09/24/log-last-water-boiling-water-with-sunlogin-adapter-power-consumption/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2024/09/25/random-banner-backgroud-image-implement-for-hexo-fluid-with-javascript/</loc>
@@ -1574,6 +2166,8 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/09/25/70bd0b27f5aad.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/09/25/random-banner-backgroud-image-implement-for-hexo-fluid-with-javascript/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/09/25/random-banner-backgroud-image-implement-for-hexo-fluid-with-javascript/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2024/10/12/use-gpt-to-review-waline-comments/</loc>
@@ -1583,6 +2177,8 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/10/12/45f06a78286de.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/10/12/use-gpt-to-review-waline-comments/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/10/12/use-gpt-to-review-waline-comments/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2024/10/23/follow-cert-for-hexo-feed/</loc>
@@ -1595,9 +2191,13 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/10/23/fae341d7985ea.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/10/23/follow-cert-for-hexo-feed/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/10/23/follow-cert-for-hexo-feed/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2024/11/01/my-config-for-fedora-kde-41/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/11/01/my-config-for-fedora-kde-41/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/11/01/my-config-for-fedora-kde-41/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2024/11/15/upgrade-waline-from-v2-to-v3/</loc>
@@ -1619,6 +2219,8 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/11/16/c3875dcde1d97.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/11/15/upgrade-waline-from-v2-to-v3/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/11/15/upgrade-waline-from-v2-to-v3/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2024/11/18/mi-ai-class-schedule-adapter-for-zjut/</loc>
@@ -1649,6 +2251,8 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/11/18/eb563904a64a1.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/11/18/mi-ai-class-schedule-adapter-for-zjut/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/11/18/mi-ai-class-schedule-adapter-for-zjut/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2024/11/19/firefox-is-the-only-mainstream-brower-doing-online-certificate-revocation-checks/</loc>
@@ -1682,6 +2286,8 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/11/19/bfba9ba3515ca.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/11/19/firefox-is-the-only-mainstream-brower-doing-online-certificate-revocation-checks/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/11/19/firefox-is-the-only-mainstream-brower-doing-online-certificate-revocation-checks/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2024/12/30/tg-bot-hosted-on-cloudflare-workers/</loc>
@@ -1691,6 +2297,8 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2024/12/30/3b0b929960840.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/12/30/tg-bot-hosted-on-cloudflare-workers/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2024/12/30/tg-bot-hosted-on-cloudflare-workers/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2025/01/18/service-status-monitor-based-on-cloudflare-workers/</loc>
@@ -1709,6 +2317,8 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2025/01/19/83f69aff3a7b4.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2025/01/18/service-status-monitor-based-on-cloudflare-workers/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2025/01/18/service-status-monitor-based-on-cloudflare-workers/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2025/02/23/monitor-copr-build-state-with-cloudflare-workers/</loc>
@@ -1718,6 +2328,8 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2025/02/23/c38edfd637934.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2025/02/23/monitor-copr-build-state-with-cloudflare-workers/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2025/02/23/monitor-copr-build-state-with-cloudflare-workers/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2025/02/28/cudy-tr3000-daed-install-record/</loc>
@@ -1775,6 +2387,8 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2025/03/01/6716d723a2b0d.png</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2025/02/28/cudy-tr3000-daed-install-record/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2025/02/28/cudy-tr3000-daed-install-record/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2025/03/30/apt-upgrade-on-internal-server-via-ssh-tunnel-and-reverse-proxy/</loc>
@@ -1799,6 +2413,8 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2025/03/30/07919bf939e92.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2025/03/30/apt-upgrade-on-internal-server-via-ssh-tunnel-and-reverse-proxy/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2025/03/30/apt-upgrade-on-internal-server-via-ssh-tunnel-and-reverse-proxy/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2025/04/21/how-we-copy-text-to-clipboard-with-js-in-2025/</loc>
@@ -1808,6 +2424,8 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2025/04/19/7f5310ca03c80.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2025/04/21/how-we-copy-text-to-clipboard-with-js-in-2025/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2025/04/21/how-we-copy-text-to-clipboard-with-js-in-2025/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2025/05/31/el-image-and-el-table-why-the-fight-and-what-is-a-stacking-context/</loc>
@@ -1826,6 +2444,8 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2025/05/31/f18a2b54afd63.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2025/05/31/el-image-and-el-table-why-the-fight-and-what-is-a-stacking-context/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2025/05/31/el-image-and-el-table-why-the-fight-and-what-is-a-stacking-context/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2025/06/02/choosing-the-right-video-compression-format-for-web-in-2025/</loc>
@@ -1853,6 +2473,8 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2025/06/03/ec3b5dbcbcc29.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2025/06/02/choosing-the-right-video-compression-format-for-web-in-2025/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2025/06/02/choosing-the-right-video-compression-format-for-web-in-2025/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2025/06/08/front-end-bug-gone-when-open-devtool/</loc>
@@ -1862,24 +2484,34 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2025/06/08/475a61b332454.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2025/06/08/front-end-bug-gone-when-open-devtool/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2025/06/08/front-end-bug-gone-when-open-devtool/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2025/07/05/node-sass-migration-to-dart-sass/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/2025/07/05/node-sass-migration-to-dart-sass/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2025/07/05/node-sass-migration-to-dart-sass/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2025/07/12/vue-markdown-render-improvement-1/</loc>
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2025/07/12/d5721c40fb076.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2025/07/12/vue-markdown-render-improvement-1/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2025/07/12/vue-markdown-render-improvement-1/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2025/07/13/vue-markdown-render-improvement-2/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/2025/07/13/vue-markdown-render-improvement-2/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2025/07/13/vue-markdown-render-improvement-2/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2025/08/11/dns-resolve-time-destroyed-my-optimization-for-pic-cdn/</loc>
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2025/08/11/26306b2a483ba.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2025/08/11/dns-resolve-time-destroyed-my-optimization-for-pic-cdn/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2025/08/11/dns-resolve-time-destroyed-my-optimization-for-pic-cdn/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2025/09/05/first-try-of-github-action-self-hosted-runner/</loc>
@@ -1904,9 +2536,13 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2025/09/05/1c93947170a85.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2025/09/05/first-try-of-github-action-self-hosted-runner/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2025/09/05/first-try-of-github-action-self-hosted-runner/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2025/10/16/how-s-mozilla-crlite-going-now/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/2025/10/16/how-s-mozilla-crlite-going-now/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2025/10/16/how-s-mozilla-crlite-going-now/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2025/10/20/nuxt-content-v3-z-array-query-challenge/</loc>
@@ -1925,18 +2561,18 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2025/10/20/17ba3ccbbdf9e.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2025/10/20/nuxt-content-v3-z-array-query-challenge/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2025/10/20/nuxt-content-v3-z-array-query-challenge/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2025/11/05/http-2-server-push-is-practically-obsolete/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/2025/11/11/dns-cold-start-dilemma/</loc>
-    </url>
-    <url>
-        <loc>https://zhul.in/2025/11/05/http-2-server-push-is-practically-obsolete/en/</loc>
-    </url>
-    <url>
-        <loc>https://zhul.in/2025/11/11/dns-cold-start-dilemma/en/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/2025/11/11/dns-cold-start-dilemma/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2025/11/11/dns-cold-start-dilemma/" hreflang="zh-CN" />
     </url>
 </urlset>
-<!-- XML Sitemap generated by @nuxtjs/sitemap v7.4.7 at 2025-11-17T08:03:06.850Z -->
+<!-- XML Sitemap generated by @nuxtjs/sitemap v7.4.7 at 2025-11-19T15:23:15.095Z -->
