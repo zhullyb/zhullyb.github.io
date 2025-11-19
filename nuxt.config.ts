@@ -171,8 +171,6 @@ export default defineNuxtConfig({
 				content.lang = 'en'
 			} else if (ctx.file.path.includes('/posts/zh/')) {
 				content.lang = 'zh-CN'
-			} else if (!content.lang) {
-				content.lang = 'zh-CN'
 			}
 		}
 	},
