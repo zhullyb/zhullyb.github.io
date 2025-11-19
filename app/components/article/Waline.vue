@@ -16,12 +16,14 @@
 	import '@waline/client/style'
 
 	const route = useRoute()
+  const { locale } = useI18n()
 
 	const walineProps = computed(
 		() =>
 			({
 				...blogConfig.waline,
-				path: route.path.endsWith('/') ? route.path : route.path + '/'
+        lang: locale.value === 'zh' ? 'zh-CN' : 'en',
+				path: (route.path.endsWith('/') ? route.path : route.path + '/').replace('/en/', '/')
 			}) as any
 	)
 
