@@ -27,18 +27,18 @@
 						</button>
 					</div>
 
-						<div v-if="pending" class="search-overlay__state">
-							{{ t('searchOverlay.indexing') }}
-						</div>
+					<div v-if="pending" class="search-overlay__state">
+						{{ t('searchOverlay.indexing') }}
+					</div>
 					<div v-else class="search-overlay__body">
 						<p v-if="!searchTerm.trim()" class="search-overlay__state">
-								{{ t('searchOverlay.startTyping') }}
+							{{ t('searchOverlay.startTyping') }}
 						</p>
 						<p v-else-if="!results.length" class="search-overlay__state">
-								{{ t('searchOverlay.noResults') }}
+							{{ t('searchOverlay.noResults') }}
 						</p>
 						<div v-else class="search-overlay__count">
-								{{ t('searchOverlay.resultsCount', { count: results.length }) }}
+							{{ t('searchOverlay.resultsCount', { count: results.length }) }}
 						</div>
 
 						<ul v-if="results.length" class="search-overlay__list">
@@ -56,7 +56,11 @@
 										{{ result.documentTitle }}
 									</h3>
 									<p class="search-overlay__item-meta">
-										{{ t('searchOverlay.matchCount', { count: result.matchCount }) }}
+										{{
+											t('searchOverlay.matchCount', {
+												count: result.matchCount
+											})
+										}}
 										<span v-if="result.sectionLabel">
 											· {{ result.sectionLabel }}</span
 										>

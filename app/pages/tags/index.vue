@@ -20,12 +20,14 @@
 <script lang="ts" setup>
 	import type { Post } from '~/types/post'
 
-  const { locale } = useI18n()
-  const localePath = useLocalePath()
-  const contentLang = computed(() => locale.value === 'zh' ? 'zh-CN' : 'en')
+	const { locale } = useI18n()
+	const localePath = useLocalePath()
+	const contentLang = computed(() => (locale.value === 'zh' ? 'zh-CN' : 'en'))
 
 	const posts = (
-		await useAsyncData(`tags-posts-${locale.value}`, () => queryCollection('posts').where('lang', '=', contentLang.value).select('tags').all())
+		await useAsyncData(`tags-posts-${locale.value}`, () =>
+			queryCollection('posts').where('lang', '=', contentLang.value).select('tags').all()
+		)
 	).data as Ref<Post[]>
 
 	const maxFontSize = 40

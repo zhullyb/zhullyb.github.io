@@ -1,16 +1,17 @@
 <template>
 	<DefaultLayout :title="post?.title">
 		<ContentRenderer v-if="post" :value="post" tag="article" class="markdown-body" />
-    <hr class="article-end-hr" />
-    <div class="tags">
-      <IonPricetagsOutline />
-      <NuxtLink
-        v-for="tag in post?.tags"
-        :key="tag"
-        :to="`${localePath('/tags')}/${encodeURIComponent(tag)}`"
-        prefetchOn="interaction"
-      >#{{ tag }}</NuxtLink>
-    </div>
+		<hr class="article-end-hr" />
+		<div class="tags">
+			<IonPricetagsOutline />
+			<NuxtLink
+				v-for="tag in post?.tags"
+				:key="tag"
+				:to="`${localePath('/tags')}/${encodeURIComponent(tag)}`"
+				prefetchOn="interaction"
+				>#{{ tag }}</NuxtLink
+			>
+		</div>
 		<PostNavigation :prevPost="prevPost" :nextPost="nextPost" />
 		<Waline />
 		<template #AfterMain>
@@ -24,19 +25,21 @@
 <script setup lang="ts">
 	import type { Post } from '~/types/post'
 	const route = useRoute()
-  const { locale } = useI18n()
-  const localePath = useLocalePath()
+	const { locale } = useI18n()
+	const localePath = useLocalePath()
 	const { year, month, day, slug } = route.params
 
-  const contentPath = computed(() => {
-    return `/${year}/${month}/${day}/${slug}`
-  })
+	const contentPath = computed(() => {
+		return `/${year}/${month}/${day}/${slug}`
+	})
 
-	const { data: post } = await useAsyncData(`post-${year}-${month}-${day}-${slug}-${locale.value}`, () =>
-		queryCollection('posts')
-      .path(contentPath.value)
-      .where('lang', '=', locale.value === 'zh' ? 'zh-CN' : 'en')
-      .first()
+	const { data: post } = await useAsyncData(
+		`post-${year}-${month}-${day}-${slug}-${locale.value}`,
+		() =>
+			queryCollection('posts')
+				.path(contentPath.value)
+				.where('lang', '=', locale.value === 'zh' ? 'zh-CN' : 'en')
+				.first()
 	)
 
 	if (!post.value) {
@@ -48,10 +51,10 @@
 			queryCollectionItemSurroundings('posts', post.value!.path, {
 				before: 1,
 				after: 1,
-				fields: ['title', 'path', 'date', 'lang'],
+				fields: ['title', 'path', 'date', 'lang']
 			})
-      .where('lang', '=', locale.value === 'zh' ? 'zh-CN' : 'en')
-      .order('date', 'DESC')
+				.where('lang', '=', locale.value === 'zh' ? 'zh-CN' : 'en')
+				.order('date', 'DESC')
 		)
 	).data as unknown as Ref<Post[]>
 
@@ -63,12 +66,12 @@
 			{ name: 'description', content: post.value?.description || '' },
 			{ name: 'keywords', content: post.value?.tags?.join(',') || '' }
 		],
-    link: [
-      {
-        rel: 'stylesheet',
-        href: 'https://s4.zstatic.net/ajax/libs/github-markdown-css/5.8.1/github-markdown.min.css'
-      }
-    ]
+		link: [
+			{
+				rel: 'stylesheet',
+				href: 'https://s4.zstatic.net/ajax/libs/github-markdown-css/5.8.1/github-markdown.min.css'
+			}
+		]
 	})
 </script>
 
@@ -84,32 +87,32 @@
 		margin-top: 3rem;
 	}
 
-  .article-end-hr {
-    margin: 1rem 0;
-    border: none;
-    border-top: 1px solid #e1e4e8;
+	.article-end-hr {
+		margin: 1rem 0;
+		border: none;
+		border-top: 1px solid #e1e4e8;
 
-    .dark-mode({
+		.dark-mode({
       border-color: #444c56;
     });
-  }
+	}
 
-  .tags {
-    margin: 1rem 0;
+	.tags {
+		margin: 1rem 0;
 
-    * {
-      vertical-align: middle;
-    }
+		* {
+			vertical-align: middle;
+		}
 
-    svg {
-      font-size: 0.9em;
-    }
+		svg {
+			font-size: 0.9em;
+		}
 
-    a {
-      margin-left: 0.2rem;
-      &:hover {
-        color: @active-blue;
-      }
-    }
-  }
+		a {
+			margin-left: 0.2rem;
+			&:hover {
+				color: @active-blue;
+			}
+		}
+	}
 </style>

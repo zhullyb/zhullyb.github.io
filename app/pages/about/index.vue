@@ -5,14 +5,14 @@
 		return queryCollection('others').path('/others/about').first()
 	})
 
-  useHead({
-    link: [
-      {
-        rel: 'stylesheet',
-        href: 'https://s4.zstatic.net/ajax/libs/github-markdown-css/5.8.1/github-markdown.min.css'
-      }
-    ]
-  })
+	useHead({
+		link: [
+			{
+				rel: 'stylesheet',
+				href: 'https://s4.zstatic.net/ajax/libs/github-markdown-css/5.8.1/github-markdown.min.css'
+			}
+		]
+	})
 </script>
 
 <template>

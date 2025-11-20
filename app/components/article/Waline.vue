@@ -16,21 +16,24 @@
 	import '@waline/client/style'
 
 	const route = useRoute()
-  const { locale } = useI18n()
+	const { locale } = useI18n()
 
 	const walineProps = computed(
 		() =>
 			({
 				...blogConfig.waline,
-        lang: locale.value === 'zh' ? 'zh-CN' : 'en',
-				path: (route.path.endsWith('/') ? route.path : route.path + '/').replace('/en/', '/')
+				lang: locale.value === 'zh' ? 'zh-CN' : 'en',
+				path: (route.path.endsWith('/') ? route.path : route.path + '/').replace(
+					'/en/',
+					'/'
+				)
 			}) as any
 	)
 
-  const { targetRef: walineRef, isVisible: walineVisible } = useLazyLoad({
-    rootMargin: '200px',
-    threshold: 0
-  })
+	const { targetRef: walineRef, isVisible: walineVisible } = useLazyLoad({
+		rootMargin: '200px',
+		threshold: 0
+	})
 </script>
 
 <style lang="less">
@@ -42,7 +45,7 @@
 			border-radius: 0;
 			margin: 0;
 
-      .dark-mode({
+			.dark-mode({
         border-color: @dark-border-color;
       });
 		}

@@ -1,10 +1,6 @@
 <template>
 	<nav v-if="prevPost || nextPost" class="post-navigation">
-		<NuxtLinkLocale
-			v-if="prevPost"
-			class="nav-button prev"
-      :to="prevPost.path"
-		>
+		<NuxtLinkLocale v-if="prevPost" class="nav-button prev" :to="prevPost.path">
 			<div class="nav-arrow">←</div>
 			<div class="nav-content">
 				<span class="nav-label">{{ t('postNavigation.prev') }}</span>
@@ -12,11 +8,7 @@
 			</div>
 		</NuxtLinkLocale>
 
-		<NuxtLinkLocale
-			v-if="nextPost"
-			class="nav-button next"
-			:to="nextPost.path"
-		>
+		<NuxtLinkLocale v-if="nextPost" class="nav-button next" :to="nextPost.path">
 			<div class="nav-content">
 				<span class="nav-label">{{ t('postNavigation.next') }}</span>
 				<span class="nav-title">{{ nextPost.title }}</span>

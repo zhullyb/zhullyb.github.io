@@ -10,9 +10,7 @@ const articleSchema = z.object({
 	sticky: z.boolean().optional(),
 	tags: z.array(z.string()).optional(),
 	rawbody: z.string(),
-  lang: z
-    .string()
-    .transform(str => str || 'zh-CN')
+	lang: z.string().transform(str => str || 'zh-CN')
 })
 
 export default defineContentConfig({

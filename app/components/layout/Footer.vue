@@ -6,7 +6,7 @@
 			<div>©2020 - 2025 By zhullyb</div>
 			<iframe
 				v-if="showNodeSupport"
-        title="NodeSupport Sponsorship"
+				title="NodeSupport Sponsorship"
 				frameborder="0"
 				src="https://support.nodeget.com/page/promotion?id=61"
 				style="

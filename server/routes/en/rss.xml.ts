@@ -67,7 +67,7 @@ async function renderMarkdownToHtml(rawbody: RawPost['rawbody']): Promise<string
 
 async function fetchLatestPosts(event: H3Event): Promise<RawPost[]> {
 	return queryCollection(event, 'posts')
-    .where('lang', '=', 'en')
+		.where('lang', '=', 'en')
 		.order('date', 'DESC')
 		.select('title', 'description', 'path', 'date', 'tags', 'rawbody')
 		.all() as Promise<RawPost[]>

@@ -4,7 +4,9 @@
 			<p class="date">{{ post.date?.split(' ')[0] }}</p>
 
 			<p>
-				<NuxtLinkLocale :to="post.path" prefetchOn="interaction">{{ post.title }}</NuxtLinkLocale>
+				<NuxtLinkLocale :to="post.path" prefetchOn="interaction">{{
+					post.title
+				}}</NuxtLinkLocale>
 			</p>
 		</div>
 		<Pagination :currentPage="page" :totalPages="pageCount" :urlPrefix="`/archives`" />
@@ -15,16 +17,16 @@
 	import type { Post } from '~/types/post'
 
 	const route = useRoute()
-  const { locale } = useI18n()
+	const { locale } = useI18n()
 	const page = route.params.page ? parseInt(route.params.page as string) || 1 : 1
 
 	const pageSize = 10
-  const contentLang = computed(() => locale.value === 'zh' ? 'zh-CN' : 'en')
+	const contentLang = computed(() => (locale.value === 'zh' ? 'zh-CN' : 'en'))
 
 	const posts = (
 		await useAsyncData(`index-page-${page}-${locale.value}`, () =>
 			queryCollection('posts')
-        .where('lang', '=', contentLang.value)
+				.where('lang', '=', contentLang.value)
 				.order('date', 'DESC')
 				.skip((page - 1) * pageSize)
 				.limit(pageSize)
@@ -33,8 +35,11 @@
 		)
 	).data as Ref<Post[]>
 
-	const total = (await useAsyncData(`posts-nums-total-${locale.value}`, () => queryCollection('posts').where('lang', '=', contentLang.value).count()))
-		.data as Ref<number>
+	const total = (
+		await useAsyncData(`posts-nums-total-${locale.value}`, () =>
+			queryCollection('posts').where('lang', '=', contentLang.value).count()
+		)
+	).data as Ref<number>
 
 	const pageCount = Math.max(1, Math.ceil((total.value ?? 0) / pageSize))
 

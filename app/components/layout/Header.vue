@@ -19,7 +19,7 @@
 						@click="openSearch"
 						aria-label="Search"
 					>
-            <IcBaselineSearch/>
+						<IcBaselineSearch />
 						<span class="search-trigger__label">{{ $t('search') }}</span>
 					</button>
 				</div>
@@ -36,8 +36,8 @@
 				{{ $t(item.text) }}
 			</NuxtLinkLocale>
 			<a @click.prevent="openSearch">
-				<IcBaselineSearch/>
-      </a>
+				<IcBaselineSearch />
+			</a>
 		</div>
 	</header>
 	<Banner :background="background" :title="realTitle" :slogan="slogan" />
@@ -104,7 +104,11 @@
 		height: @header-height + 4px;
 		position: fixed;
 		top: 0;
-		transition: background-color 0.3s ease, height 0.3s ease, padding-top 0.3s ease, backdrop-filter 0.3s ease;
+		transition:
+			background-color 0.3s ease,
+			height 0.3s ease,
+			padding-top 0.3s ease,
+			backdrop-filter 0.3s ease;
 		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 		z-index: 2;
 		user-select: none;

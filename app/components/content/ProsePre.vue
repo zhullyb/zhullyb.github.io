@@ -6,14 +6,14 @@
 </template>
 
 <script setup lang="ts">
-// ProsePre 组件会包裹 ProseCode 组件
-// 我们需要检查内部的 code 元素的 language 属性
-const props = defineProps<{
-	class?: string
-	code?: string
-	language?: string
-	filename?: string
-	highlights?: number[]
-	meta?: string
-}>()
+	// ProsePre 组件会包裹 ProseCode 组件
+	// 我们需要检查内部的 code 元素的 language 属性
+	const props = defineProps<{
+		class?: string
+		code?: string
+		language?: string
+		filename?: string
+		highlights?: number[]
+		meta?: string
+	}>()
 </script>

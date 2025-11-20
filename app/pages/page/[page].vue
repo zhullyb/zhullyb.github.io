@@ -1,5 +1,5 @@
 <template>
 	<DefaultLayout>
-    <HomeArticleContainer />
-  </DefaultLayout>
+		<HomeArticleContainer />
+	</DefaultLayout>
 </template>

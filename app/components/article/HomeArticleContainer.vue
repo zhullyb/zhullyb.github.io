@@ -1,24 +1,26 @@
 <template>
 	<div>
-    <template v-for="(post, index) in processedPosts" :key="post.path">
-      <div class="post-item">
-        <NuxtLinkLocale class="title" :to="post.path">{{ post.title }}</NuxtLinkLocale>
-        <NuxtLinkLocale class="description" :to="post.path">{{ post.excerpt }}</NuxtLinkLocale>
-        <div class="post-meta">
-          <MaterialSymbolsCalendarMonthRounded />
-          <span class="date">{{ post.date?.split(' ')[0] }}</span>
-          <IonPricetagsOutline style="font-size: 0.9em;" />
-          <NuxtLink
-            class="tags"
-            v-for="tag in post.tags"
-            :key="tag"
-            :to="`${localePath('/tags')}/${encodeURIComponent(tag)}`"
-            prefetchOn="interaction"
-            >{{ '#' + tag }}</NuxtLink
-          >
-        </div>
-      </div>
-    </template>
+		<template v-for="(post, index) in processedPosts" :key="post.path">
+			<div class="post-item">
+				<NuxtLinkLocale class="title" :to="post.path">{{ post.title }}</NuxtLinkLocale>
+				<NuxtLinkLocale class="description" :to="post.path">{{
+					post.excerpt
+				}}</NuxtLinkLocale>
+				<div class="post-meta">
+					<MaterialSymbolsCalendarMonthRounded />
+					<span class="date">{{ post.date?.split(' ')[0] }}</span>
+					<IonPricetagsOutline style="font-size: 0.9em" />
+					<NuxtLink
+						class="tags"
+						v-for="tag in post.tags"
+						:key="tag"
+						:to="`${localePath('/tags')}/${encodeURIComponent(tag)}`"
+						prefetchOn="interaction"
+						>{{ '#' + tag }}</NuxtLink
+					>
+				</div>
+			</div>
+		</template>
 		<Pagination :currentPage="page" :totalPages="pageCount" />
 	</div>
 </template>
@@ -28,17 +30,17 @@
 	import { processExcerpt } from '~/utils/extractExcerpt'
 
 	const route = useRoute()
-  const { locale } = useI18n()
-  const localePath = useLocalePath()
+	const { locale } = useI18n()
+	const localePath = useLocalePath()
 	const page = route.params.page ? parseInt(route.params.page as string) || 1 : 1
 
 	const pageSize = 10
-  const contentLang = computed(() => locale.value === 'zh' ? 'zh-CN' : 'en')
+	const contentLang = computed(() => (locale.value === 'zh' ? 'zh-CN' : 'en'))
 
 	const posts = (
 		await useAsyncData(`index-page-${page}-${locale.value}`, () =>
 			queryCollection('posts')
-        .where('lang', '=', contentLang.value)
+				.where('lang', '=', contentLang.value)
 				.order('date', 'DESC')
 				.skip((page - 1) * pageSize)
 				.limit(pageSize)
@@ -56,8 +58,11 @@
 		}))
 	})
 
-	const total = (await useAsyncData(`posts-total-${locale.value}`, () => queryCollection('posts').where('lang', '=', contentLang.value).count()))
-		.data as Ref<number>
+	const total = (
+		await useAsyncData(`posts-total-${locale.value}`, () =>
+			queryCollection('posts').where('lang', '=', contentLang.value).count()
+		)
+	).data as Ref<number>
 
 	const pageCount = Math.max(1, Math.ceil((total.value ?? 0) / pageSize))
 
@@ -76,7 +81,7 @@
 		position: relative;
 		margin-bottom: 30px;
 
-    .desktop-up({
+		.desktop-up({
       margin-bottom: 40px;
     });
 	}
@@ -90,8 +95,8 @@
 		overflow: hidden;
 		text-overflow: ellipsis;
 		word-break: break-word;
-    margin-top: 8px;
-    margin-bottom: 8px;
+		margin-top: 8px;
+		margin-bottom: 8px;
 
 		.tablet-down({
         font-size: 20px;
@@ -100,7 +105,7 @@
         padding-bottom: 2px;
     });
 
-    .desktop-up({
+		.desktop-up({
       &:hover {
         color: @active-blue;
       }
@@ -108,7 +113,7 @@
     });
 	}
 
-  .description {
+	.description {
 		text-decoration: none;
 		display: -webkit-box;
 		-webkit-box-orient: vertical;
@@ -117,15 +122,15 @@
 		text-overflow: ellipsis;
 		word-break: break-word;
 		color: #333;
-    font-size: 16px;
-    margin-top: 8px;
-    margin-bottom: 6px;
+		font-size: 16px;
+		margin-top: 8px;
+		margin-bottom: 6px;
 
 		.dark-mode({
       color: #ccc;
     });
 
-    .desktop-up({
+		.desktop-up({
       &:hover {
         color: @active-blue;
       }
@@ -137,27 +142,27 @@
 		overflow: hidden;
 		text-overflow: ellipsis;
 		word-break: break-word;
-    white-space: nowrap;
+		white-space: nowrap;
 
-    * {
-      vertical-align: middle;
-    }
+		* {
+			vertical-align: middle;
+		}
 
-    svg {
-      margin-right: 3px;
-      color: #666;
-    }
+		svg {
+			margin-right: 3px;
+			color: #666;
+		}
 
 		.date {
 			color: #666;
-      margin-right: 8px;
+			margin-right: 8px;
 		}
 
 		.tags {
 			color: #666;
 			text-decoration: none;
 
-      .desktop-up({
+			.desktop-up({
         &:hover {
           color: @active-blue;
         }
@@ -165,8 +170,8 @@
       });
 		}
 
-    .tags + .tags {
-      margin-left: 5px;
-    }
+		.tags + .tags {
+			margin-left: 5px;
+		}
 	}
 </style>

@@ -27,13 +27,16 @@
 	const { data: randomIndex } = useAsyncData('randomIndex' + route.path, async () => {
 		return Math.floor(Math.random() * appConfig.backgrounds.length)
 	})
-	const background = computed(() => appConfig.backgrounds[randomIndex.value ?? 0] as {
-    backgroundColor: string,
-    backgroundImage: string
-  })
+	const background = computed(
+		() =>
+			appConfig.backgrounds[randomIndex.value ?? 0] as {
+				backgroundColor: string
+				backgroundImage: string
+			}
+	)
 
 	useHead({
-		title: props.title || $t('title'),
+		title: props.title || $t('title')
 	})
 </script>
 
