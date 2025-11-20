@@ -143,6 +143,11 @@
 		text-overflow: ellipsis;
 		word-break: break-word;
 		white-space: nowrap;
+    color: #666;
+
+    .dark-mode({
+      color: #aaa;
+    });
 
 		* {
 			vertical-align: middle;
@@ -150,16 +155,13 @@
 
 		svg {
 			margin-right: 3px;
-			color: #666;
 		}
 
 		.date {
-			color: #666;
 			margin-right: 8px;
 		}
 
 		.tags {
-			color: #666;
 			text-decoration: none;
 
 			.desktop-up({
