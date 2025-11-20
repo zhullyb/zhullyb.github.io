@@ -3,7 +3,7 @@
     <!-- 上一页箭头 -->
     <NuxtLinkLocale class="pagination-block" :to="getPageUrl(currentPage - 1)" :aria-disabled="currentPage === 1"
       v-if="currentPage > 1">
-      &lt;
+      <MaterialSymbolsArrowLeft />
     </NuxtLinkLocale>
     <!-- 页码列表 -->
     <template v-for="page in pagesToShow" :key="page">
@@ -13,7 +13,7 @@
     </template>
     <!-- 下一页箭头 -->
     <NuxtLinkLocale class="pagination-block" :to="getPageUrl(currentPage + 1)" v-if="currentPage < totalPages">
-      &gt;
+      <MaterialSymbolsArrowRight />
     </NuxtLinkLocale>
   </span>
 </template>
@@ -82,11 +82,19 @@ function getPageUrl(page: number) {
 }
 
 .pagination-block {
-  padding: 0.3rem 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2em;
+  width: 2em;
   border-radius: 4px;
   color: #333;
   text-decoration: none;
   cursor: pointer;
+
+  svg {
+    font-size: 1.1em;
+  }
 
   .dark-mode({
     color: #fff;
