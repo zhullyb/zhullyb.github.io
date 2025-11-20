@@ -10,7 +10,7 @@ const articleSchema = z.object({
 	sticky: z.boolean().optional(),
 	tags: z.array(z.string()).optional(),
 	rawbody: z.string(),
-	lang: z.string().transform(str => str || 'zh-CN')
+	lang: z.string().optional()
 })
 
 export default defineContentConfig({
@@ -22,7 +22,11 @@ export default defineContentConfig({
 		}),
 		others: defineCollection({
 			type: 'page',
-			source: 'others/*.md'
+			source: 'others/**/*.md',
+      schema: z.object({
+        title: z.string(),
+        lang: z.string().optional()
+      })
 		})
 	}
 })

@@ -154,22 +154,28 @@ export default defineNuxtConfig({
 	css: ['@/assets/styles/main.less'],
 	hooks: {
 		'content:file:afterParse'(ctx: any) {
-			const { content } = ctx
-			if (content && content.date) {
-				const date = new Date(content.date)
-				const year = date.getFullYear()
-				const month = String(date.getMonth() + 1).padStart(2, '0')
-				const day = String(date.getDate()).padStart(2, '0')
-				const filename = content.path.split('/').pop() || 'untitled'
-				content.path = `/${year}/${month}/${day}/${filename
-					.toLowerCase()
-					.replace(/[^a-z0-9]+/g, '-')
-					.replace(/^-+|-+$/g, '')}`
-			}
+			const { content, file, collection } = ctx
+
+      if (collection.name === 'posts') {
+        if (content && content.date) {
+          const date = new Date(content.date)
+          const year = date.getFullYear()
+          const month = String(date.getMonth() + 1).padStart(2, '0')
+          const day = String(date.getDate()).padStart(2, '0')
+          const filename = content.path.split('/').pop() || 'untitled'
+          content.path = `/${year}/${month}/${day}/${filename
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, '-')
+            .replace(/^-+|-+$/g, '')}`
+        }
+      }
+      if (collection.name === 'others') {
+        content.path = '/' + content.path.split('/').slice(3).join('/')
+      }
 			// 根据文件路径判断语言
-			if (ctx.file.path.includes('/posts/en/')) {
+			if (file.path.includes('/en/')) {
 				content.lang = 'en'
-			} else if (ctx.file.path.includes('/posts/zh/')) {
+			} else if (file.path.includes('/zh/')) {
 				content.lang = 'zh-CN'
 			}
 		}
