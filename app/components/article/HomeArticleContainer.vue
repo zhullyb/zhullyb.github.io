@@ -49,12 +49,11 @@
 		)
 	).data as Ref<Post[]>
 
-	// 提取纯文本 excerpt 并限制字数到 300
 	const processedPosts = computed(() => {
 		if (!posts.value) return []
 		return posts.value.map(post => ({
 			...post,
-			excerpt: processExcerpt((post as any).body, 300)
+			excerpt: processExcerpt((post as any).body, 400)
 		}))
 	})
 
@@ -87,7 +86,7 @@
 	}
 
 	.title {
-		font-size: 24px;
+		font-size: 1.5rem;
 		font-weight: bold;
 		display: -webkit-box;
 		-webkit-box-orient: vertical;
@@ -122,7 +121,6 @@
 		text-overflow: ellipsis;
 		word-break: break-word;
 		color: #333;
-		font-size: 16px;
 		margin-top: 8px;
 		margin-bottom: 6px;
 

@@ -17,3 +17,9 @@
 		meta?: string
 	}>()
 </script>
+
+<style scoped lang="less">
+  pre {
+    font-size: 14px;
+  }
+</style>
