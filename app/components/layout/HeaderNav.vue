@@ -38,20 +38,20 @@
 
 <style lang="less" scoped>
 	.pc-nav {
-		.tablet-down({
-    display: none;
-  });
+		.desktop-down({
+      display: none;
+    });
 	}
 
 	.mobile-nav {
 		display: none;
 		cursor: pointer;
 
-		.tablet-down({
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  });
+		.desktop-down({
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    });
 
 		.container {
 			width: 25px;

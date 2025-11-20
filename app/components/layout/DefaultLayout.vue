@@ -45,7 +45,7 @@
 		margin-top: 40px;
 		margin-bottom: 40px;
 
-		.tablet-up({
+		.desktop-up({
       display: flex;
       justify-content: space-around;
 
@@ -54,7 +54,7 @@
       }
     });
 
-		.tablet-down({
+		.desktop-down({
       margin: 30px;
     });
 	}
@@ -64,10 +64,6 @@
 		width: 50%;
 
 		.desktop-down({
-      width: 75%;
-    });
-
-		.tablet-down({
       width: unset;
     });
 	}

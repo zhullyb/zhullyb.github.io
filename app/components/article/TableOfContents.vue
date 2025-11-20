@@ -199,7 +199,7 @@
       border: 1px solid @dark-border-color;
     });
 
-		.tablet-down({
+		.desktop-down({
 			display: none;
 		});
 	}

@@ -56,7 +56,7 @@
 		color: white;
 		width: 50%;
 
-		.tablet-down({
+		.desktop-down({
         width: 80%;
     });
 	}
@@ -83,9 +83,9 @@
 		text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
 		margin: auto auto auto 0;
 
-		.tablet-down({
-        text-align: center;
-        margin: auto;
+		.desktop-down({
+      text-align: center;
+      margin: auto;
     });
 	}
 </style>
