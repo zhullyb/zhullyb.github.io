@@ -5,10 +5,19 @@
 				<NuxtLinkLocale :to="'/'" class="header-title">{{ $t('title') }}</NuxtLinkLocale>
 				<div class="header-right">
 					<HeaderNav :nav-items="appConfig.nav.items" @toggle="toggleMobileMenu" />
+					<NuxtLink
+						v-if="targetPath"
+						:to="targetPath"
+						class="lang-switch"
+						aria-label="Switch Language"
+					>
+						<span class="lang-switch__label">{{ locale === 'zh' ? 'En' : '中' }}</span>
+					</NuxtLink>
 					<button
+						v-else
 						type="button"
 						class="lang-switch"
-						@click="toggleLang"
+						@click="handleMissingTranslation"
 						aria-label="Switch Language"
 					>
 						<span class="lang-switch__label">{{ locale === 'zh' ? 'En' : '中' }}</span>
@@ -49,7 +58,11 @@
 	const route = useRoute()
 	const { locale } = useI18n()
 
-	const { toggleLang } = useLanguageSwitch()
+	const { targetPath, targetLocale } = useLanguageSwitch()
+
+	const handleMissingTranslation = () => {
+		alert(targetLocale.value === 'en' ? 'English version not available' : '暂无中文版本')
+	}
 
 	// 计算 slogan 和标题
 	const slogan = computed(() => {
