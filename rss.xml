@@ -462,54 +462,105 @@ const { data } = await useAsyncData(`tag-${route.params.tag}`, () =>
   </entry>
   <entry>
     <id>https://zhul.in/2025/08/11/dns-resolve-time-destroyed-my-optimization-for-pic-cdn/</id>
-    <title>DNS 解析时长毁了我精心设计的图床网络架构</title>
+    <title>DNS 解析延迟毁了我的图床优化</title>
     <updated>2025-08-10T16:06:40.000Z</updated>
     <link href="https://zhul.in/2025/08/11/dns-resolve-time-destroyed-my-optimization-for-pic-cdn/" rel="alternate"></link>
     <content type="html">
-      <![CDATA[<p>去年夏天，我兴致勃勃地写了好几篇博文，详细讲述了我如何搭建博客图床。核心目标很明确：<strong>分地区解析 DNS</strong>，让国内外的访客都能嗖嗖地加载图片，体验拉满。想法嘛，绝对是走在技术前沿的，堪称完美！然而……现实它总是喜欢给你来点小惊喜，对吧？</p>
+      <![CDATA[<p>去年夏天，我花了不少时间搭建博客图床，核心目标是<strong>分地区解析 DNS</strong>，让国内外访客都能快速加载图片。技术方案看起来完美无缺，直到最近群友反馈首次访问时图片加载很慢，我才发现问题所在。</p>
 <p><img src="https://static.031130.xyz/uploads/2025/08/11/26306b2a483ba.webp" alt=""></p>
-<p><strong>955 毫秒！</strong> 看到这个 DNS  解析时长的时候，我差点把刚喝下去的霸王茶姬喷在屏幕上。这简直就是一个隐形刺客，在我精心设计的图床网络架构背后，悄咪咪地给了致命一击。想象一下，访客满怀期待地点开你的博客，结果光是为了搞清楚图片服务器在哪，就要等上差不多一秒钟？这体验优化了个寂寞啊！</p>
-<p>为啥之前没发现？这得“感谢”<strong>DNS 缓存</strong>这位老好人。它勤勤恳恳地帮后来的访客记住了答案，让我的本地测试和复访测试都一片祥和。直到最近，有群友向我反馈了首次访问时图片的加载速度过慢，我才如梦初醒。再结合最近为了秋招准备的八股文中里面关于 DNS 解析那套繁琐的流程（递归查询、权威查询、根域名、顶级域名……查个地址堪比查户口本），我瞬间锁定了罪魁祸首：<strong>首次访问时的 DNS 解析延迟</strong>。</p>
-<p><strong>来，复盘一下我那“曲折离奇”的 DNS 寻址之旅（访客视角）：</strong></p>
-<ol>
-<li><strong>访客想访问 <code>static.031130.xyz</code> 的图片。</strong></li>
-<li><strong>查 <code>031130.xyz</code> 的权威 DNS：</strong> 问了一圈，发现权威服务器原来在 <strong>Cloudflare</strong> (国外)。</li>
-<li><strong>Cloudflare 权威服务器回复：</strong> “哦，<code>static.031130.xyz</code> 啊？它是个马甲 (<code>CNAME</code>)，真身是 <code>cdn-cname.zhul.in</code>，你去找它吧！”</li>
-<li><strong>查 <code>zhul.in</code> 的权威 DNS：</strong> 这次权威服务器在 <strong>DNSPod</strong> (国内)。</li>
-<li><strong>DNSPod 权威服务器回复 (针对国内用户)：</strong> “<code>cdn-cname.zhul.in</code> 也是个马甲 (<code>CNAME</code>)，它实际是 <code>small-storage-cdn.b0.aicdn.com</code>，接着找！”</li>
-<li><strong>查 <code>small-storage-cdn.b0.aicdn.com</code>：</strong> 最终，它可能还会再 <code>CNAME</code> 到类似 <code>nm.aicdn.com</code> 这样的 CDN 节点主机名。</li>
-<li><strong>最终获得 IP 地址，开始连接 CDN 节点下载图片。</strong></li>
-</ol>
-<p>发现问题没？<strong>关键的第一步和第二步，权威 DNS 查询指向了国外的 Cloudflare！</strong> 对于国内用户，虽然最终解析到的 CDN 节点 (<code>small-storage-cdn.b0.aicdn.com/nm.aicdn.com</code>) 是国内的、速度飞快，但光是<strong>前两步跨越重洋的 DNS 查询</strong>，就足够让首次访问的用户体验跌入谷底。那个 955ms 的解析时长，基本就是花在跟国外 DNS 服务器“跨国聊天”上了。</p>
-<p><strong>优化方案：三管齐下，围剿 DNS 延迟</strong></p>
-<p>既然找到了病根，就得下猛药：</p>
-<ol>
-<li><strong>DNS 预取 (<code>dns-prefetch</code>):</strong> 在博客的 HTML <code>&#x3C;head></code> 里，早早地加上 <code>&#x3C;link rel="dns-prefetch" href="//static.031130.xyz"></code>。这相当于浏览器在渲染页面时，就悄悄开始解析图床域名了，等真需要加载图片时，DNS 结果可能已经准备好了，神不知鬼不觉。当然也可以使用 preconnect 等等更激进的策略，但本文着重讲 DNS 解析，因此不做拓展。</li>
-<li><strong>延长 DNS 记录的 TTL (生存时间)：</strong> 把 <code>static.031130.xyz</code> 这个 <code>CNAME</code> 记录的 TTL 值调大。以前都设置得较短，方便快速切换。现在为了缓存，适当延长（比如几小时甚至一天）。这样，一旦有用户解析过，本地 DNS 服务器就能记住更久，后续用户（包括同一用户再次访问）就能直接从缓存拿到结果，省掉跨国查询。</li>
-<li><strong>釜底抽薪：迁移权威 DNS！</strong> 这是最核心的一步。直接把 <code>031130.xyz</code> 域名的<strong>权威 DNS 服务器</strong>，从 Cloudflare <strong>搬回国内 DNSPod</strong>。这样一来：
+<p><strong>955 毫秒的 DNS 解析时长！</strong> 这个数字让我大吃一惊。访客点开博客后，光是确定图片服务器位置就要等将近一秒，这完全抵消了 CDN 优化的效果。</p>
+<h2>为什么之前没发现？</h2>
+<p>主要是 <strong>DNS 缓存</strong>的"功劳"。它会为后续访问记住解析结果，让我的本地测试和复访测试看起来都很正常。直到用户反馈，结合最近准备秋招复习的 DNS 解析流程（递归查询、权威查询、根域名、顶级域名等），我才定位到问题：<strong>首次访问时的 DNS 解析延迟</strong>。</p>
+<h2>DNS 解析流程分析</h2>
+<p>让我们看看访客访问 <code>static.031130.xyz</code> 时，DNS 是如何工作的：</p>
+<pre><code class="language-mermaid">sequenceDiagram
+    participant User as 访客浏览器
+    participant Local as 本地 DNS
+    participant CF as Cloudflare&#x3C;br/>(国外权威)
+    participant DP as DNSPod&#x3C;br/>(国内权威)
+    participant CDN as CDN 节点
+
+    User->>Local: 请求 static.031130.xyz
+    Local->>CF: 查询 031130.xyz 权威
+    Note over Local,CF: 跨国查询，延迟高
+    CF->>Local: CNAME: cdn-cname.zhul.in
+    Local->>DP: 查询 zhul.in 权威
+    DP->>Local: CNAME: small-storage-cdn.b0.aicdn.com
+    Local->>DP: 查询 aicdn.com
+    DP->>Local: CNAME: nm.aicdn.com
+    Local->>DP: 查询最终 IP
+    DP->>Local: 返回 CDN IP
+    Local->>User: 返回解析结果
+    User->>CDN: 连接并下载图片
+</code></pre>
+<p>问题就在这里：<strong>前两步查询指向了国外的 Cloudflare 权威服务器</strong>。对于国内用户，虽然最终解析到的 CDN 节点是国内的，但跨国 DNS 查询就足以拖垮首次访问体验。那 955ms 的延迟，基本都耗在与国外 DNS 服务器的通信上了。</p>
+<h2>优化方案</h2>
+<p>针对这个问题，我采取了三个措施：</p>
+<h3>1. DNS 预取</h3>
+<p>在博客 HTML 的 <code>&#x3C;head></code> 中添加：</p>
+<pre><code class="language-html">&#x3C;link rel="dns-prefetch" href="//static.031130.xyz">
+</code></pre>
+<p>这样浏览器在渲染页面时就会提前解析图床域名，等真正需要加载图片时，DNS 结果可能已经准备好了。</p>
+<h3>2. 延长 TTL</h3>
+<p>将 <code>static.031130.xyz</code> 的 CNAME 记录 TTL 值调大（从几分钟延长到几小时甚至一天）。这样本地 DNS 服务器会缓存更久，后续用户可以直接使用缓存结果，省掉权威查询。</p>
+<h3>3. 迁移权威 DNS（核心）</h3>
+<p>将 <code>031130.xyz</code> 域名的<strong>权威 DNS 服务器</strong>从 Cloudflare 迁移到国内的 DNSPod：</p>
+<pre><code class="language-mermaid">graph TB
+    subgraph "优化前"
+        A1[访客] --> B1[本地 DNS]
+        B1 --> C1[Cloudflare 权威&#x3C;br/>国外]
+        C1 --> D1[DNSPod 权威&#x3C;br/>国内]
+        D1 --> E1[CDN 节点]
+        style C1 fill:#ffcccc
+    end
+</code></pre>
+<pre><code class="language-mermaid">graph TB
+    subgraph "优化后"
+        A2[访客] --> B2[本地 DNS]
+        B2 --> D2[DNSPod 权威&#x3C;br/>国内]
+        D2 --> E2[CDN 节点]
+        style D2 fill:#ccffcc
+    end
+
+</code></pre>
+<p>迁移后的好处：</p>
 <ul>
-<li>访客的递归 DNS 服务器查询 <code>031130.xyz</code> 的权威服务器时，直接找到的就是国内的 DNSPod，响应飞快。</li>
-<li>DNSPod 直接告诉递归服务器 <code>static.031130.xyz</code> -> <code>small-storage-cdn.b0.aicdn.com</code> 完全在国内完成，丝般顺滑，不需要 <code>cdn-cname.zhul.in</code> 当分区域解析的工具人</li>
-<li>整个 DNS 解析链路都在国内高速完成，首次访问的 955ms 噩梦彻底拜拜。</li>
+<li>递归 DNS 查询 <code>031130.xyz</code> 时，直接找到国内的 DNSPod，响应快</li>
+<li>DNSPod 直接返回 <code>static.031130.xyz</code> -> <code>small-storage-cdn.b0.aicdn.com</code>，无需中间跳转</li>
+<li>整个 DNS 解析链路在国内完成，首次访问延迟大幅降低</li>
 </ul>
+<h2>优化效果</h2>
+<p>虽然 DNS 缓存给测试带来了困难，但迁移权威 DNS + 调整 TTL + 添加预取后，首次访问的 DNS 解析时间降到了可接受的范围。</p>
+<h2>经验教训</h2>
+<ol>
+<li>
+<p><strong>DNS 位置很重要</strong>：涉及多地优化时，权威 DNS 的地理位置对首次访问延迟影响很大。优先使用国内权威服务器。</p>
+</li>
+<li>
+<p><strong>首次访问是关键</strong>：虽然缓存能帮助后续访问，但首次访问体验直接影响用户印象。善用 <code>dns-prefetch</code> 和合理的 TTL 设置。</p>
+</li>
+<li>
+<p><strong>监控和反馈重要</strong>：本地测试环境往往有缓存加持，真实的首次访问体验需要通过监控和用户反馈来发现。</p>
 </li>
 </ol>
-<p><strong>效果如何？</strong></p>
-<p>受限于 DNS 缓存带来的测试困难，最终的效果确实很难在短时间内测试出来。但迁移权威 DNS 到 DNSPod + 调整 TTL +  加上预取之后，再测试首次访问的 DNS 解析时间总算是降到了可接受的程度，这才是 CDN  优化该有的样子！</p>
-<p><strong>教训总结：</strong></p>
-<ul>
-<li><strong>别让 DNS 成为性能短板！</strong> 尤其是在涉及多地优化时，权威 DNS 的地理位置对首次访问延迟至关重要。能用国内的权威，就别用国外的。</li>
-<li><strong>缓存是好东西，但首次访问是软肋。</strong> 善用 <code>dns-prefetch</code> 和合理设置 TTL 能有效缓解。</li>
-<li><strong>监控和用户反馈是金。</strong> 自己的测试环境往往有缓存“美化”，真实世界的首次访问体验要靠更细致的监控和用户的火眼金睛（感谢反馈的朋友！）。</li>
-</ul>
-<p><strong>!!! 超级重要补充：警惕 CNAME 拉平 !!!</strong></p>
-<p>最后，必须给各位提个醒！如果你和我一样，需要依赖分地区解析来让访客访问到最近的 CDN 节点（比如让国内走国内CDN，国外走Cloudflare），那么千万要<strong>避开 <code>CNAME Flattening</code> (CNAME 拉平) 这个“优化”方案</strong>！</p>
-<ul>
-<li><strong>CNAME 拉平是什么？</strong> 简单说，就是权威 DNS 服务器（比如 Cloudflare）看到你设置了一个 <code>CNAME</code> 记录（比如 <code>static.example.com</code> -> <code>cdn.cname.target.com</code>），它主动帮你去找 <code>cdn.cname.target.com</code> 的最终 <code>A</code>/<code>AAAA</code> 记录 (IP地址)，然后把 <strong>最终的 IP 地址</strong> 直接返回给查询者，而不是返回 <code>CNAME</code>。</li>
-<li><strong>听起来很美好？它确实能减少 CNAME 链的长度！</strong> 但它有个<strong>致命缺点</strong>：<strong>权威 DNS 服务器在拉平解析时，会丢掉分地区解析的上下文！</strong></li>
-<li><strong>为什么失效？</strong> 分地区解析 (<code>DNS View</code> 或 <code>GeoDNS</code>) 的功能是<strong>在权威 DNS 服务器层面实现的</strong>。当权威服务器执行 <code>CNAME</code> 拉平时，它是在它自己所在的位置去查询 <code>cdn.cname.target.com</code> 的 IP。比如你的权威 DNS 在 Cloudflare (美国节点)，它拉平查询时，拿到的 <code>cdn.cname.target.com</code> 的 IP <strong>大概率是给美国用户用的最优 IP</strong>。然后它把这个 IP <strong>返回给了所有地区的查询者</strong>，包括中国用户！你精心配置的让中国用户解析到国内 CDN IP 的策略就完全失效了！</li>
-<li><strong>结论：</strong> 如果你需要 <strong>分地区解析 (<code>GeoDNS</code>)</strong> 功能，<strong>绝对不要</strong>在你希望应用分地区解析的域名上启用 <code>CNAME Flattening</code> (或 <code>ALIAS</code>, <code>ANAME</code> 等实现类似拉平效果的功能)。老老实实用 <code>CNAME</code> 指向另一个支持 <code>GeoDNS</code> 的域名（就像我初始方案里 <code>static.031130.xyz</code> -> <code>cdn-cname.zhul.in</code>，而 <code>zhul.in</code> 在 DNSPod 上做分地区解析），才能保证你的分流策略正确执行。</li>
-</ul>]]>
+<h2>重要提醒：警惕 CNAME 拉平</h2>
+<p>如果你需要分地区解析来让访客连接到最近的 CDN 节点，<strong>务必避开 CNAME Flattening（CNAME 拉平）</strong>。</p>
+<h3>什么是 CNAME 拉平？</h3>
+<p>权威 DNS 服务器（如 Cloudflare）看到 CNAME 记录后，会主动查询目标域名的最终 IP 地址，然后直接返回 IP 而不是 CNAME。</p>
+<h3>为什么会出问题？</h3>
+<p>分地区解析（GeoDNS）在权威 DNS 服务器层面实现。当权威服务器执行 CNAME 拉平时，它会在自己的位置查询目标域名的 IP。如果权威 DNS 在美国，它获取的 IP 就是美国最优节点，然后把这个 IP 返回给所有地区的查询者，包括中国用户。这样，你为中国用户配置的国内 CDN IP 策略就完全失效了。</p>
+<pre><code class="language-mermaid">graph LR
+    subgraph "启用 CNAME 拉平的问题"
+        A[中国用户] --> B[Cloudflare 权威&#x3C;br/>美国节点]
+        B --> C[查询目标 CNAME]
+        C --> D[返回美国 CDN IP]
+        D --> A
+        style D fill:#ffcccc
+    end
+</code></pre>
+<h3>正确做法</h3>
+<p>老实使用 CNAME 指向另一个支持 GeoDNS 的域名（如 <code>static.031130.xyz</code> -> <code>cdn-cname.zhul.in</code>，后者在 DNSPod 上做分地区解析），才能保证分流策略正确执行。</p>
+<p>如果需要分地区解析功能，<strong>不要</strong>在相关域名上启用 CNAME Flattening（或 ALIAS、ANAME 等类似功能）。</p>]]>
     </content>
     <published>2025-08-10T16:06:40.000Z</published>
     <author>
