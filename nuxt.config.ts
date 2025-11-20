@@ -131,6 +131,9 @@ export default defineNuxtConfig({
 		{
 			path: '~/components/article'
 		},
+    {
+			path: '~/components/common'
+		},
 		{
 			path: '~/components',
 			pathPrefix: false

@@ -4,18 +4,15 @@
 		<!-- 可在此处添加 footer 内容 -->
 		<div class="footer-content">
 			<div>©2020 - 2025 By zhullyb</div>
-			<iframe
-				v-if="showNodeSupport"
-				title="NodeSupport Sponsorship"
-				frameborder="0"
-				src="https://support.nodeget.com/page/promotion?id=61"
-				style="
-					border-radius: 8px;
-					height: 246px;
-					transform: scale(0.8);
-					transform-origin: top center;
-				"
-			></iframe>
+      <NodeSupport />
+      <template v-if="showNodeSupport">
+        <iframe
+          v-show="false"
+          title="NodeSupport Sponsorship"
+          frameborder="0"
+          src="https://support.nodeget.com/page/promotion?id=61"
+        ></iframe>
+      </template>
 		</div>
 	</footer>
 </template>
