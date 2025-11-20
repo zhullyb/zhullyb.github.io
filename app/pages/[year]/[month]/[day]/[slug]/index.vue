@@ -109,6 +109,7 @@
 		}
 
 		a {
+      display: inline-block;
 			margin-left: 0.2rem;
 			&:hover {
 				color: @active-blue;
