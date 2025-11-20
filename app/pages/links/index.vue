@@ -1,5 +1,5 @@
 <template>
-	<DefaultLayout title="友链">
+	<DefaultLayout :title="$t('friend_links')">
 		<div class="link-container">
 			<div class="link-card" v-for="link in blogConfig.links" :key="link.link">
 				<img
