@@ -1,7 +1,7 @@
 <template>
 	<nav v-if="prevPost || nextPost" class="post-navigation">
 		<NuxtLinkLocale v-if="prevPost" class="nav-button prev" :to="prevPost.path">
-			<div class="nav-arrow">←</div>
+			<MaterialSymbolsArrowBackIos class="nav-arrow" />
 			<div class="nav-content">
 				<span class="nav-label">{{ t('postNavigation.prev') }}</span>
 				<span class="nav-title">{{ prevPost.title }}</span>
@@ -9,11 +9,11 @@
 		</NuxtLinkLocale>
 
 		<NuxtLinkLocale v-if="nextPost" class="nav-button next" :to="nextPost.path">
+			<MaterialSymbolsArrowForwardIos class="nav-arrow" />
 			<div class="nav-content">
 				<span class="nav-label">{{ t('postNavigation.next') }}</span>
 				<span class="nav-title">{{ nextPost.title }}</span>
 			</div>
-			<div class="nav-arrow">→</div>
 		</NuxtLinkLocale>
 	</nav>
 </template>
@@ -60,6 +60,8 @@
 		&:hover {
 			border-color: @active-blue;
 
+			.nav-arrow,
+			.nav-label,
 			.nav-title {
 				color: @active-blue;
 			}
@@ -84,7 +86,6 @@
 	}
 
 	.nav-arrow {
-		font-size: 1.5rem;
 		font-weight: 600;
 		color: #6a737d;
 		flex-shrink: 0;
