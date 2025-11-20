@@ -66,6 +66,10 @@
 			font-size: 32px;
 			font-weight: bold;
 			margin: 0;
+
+      .tablet-down({
+          font-size: 24px;
+      });
 		}
 
 		p {
