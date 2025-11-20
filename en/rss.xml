@@ -459,6 +459,130 @@ const { data } = await useAsyncData(`tag-${route.params.tag}`, () =>
     <category term="Experience"></category>
   </entry>
   <entry>
+    <id>https://zhul.in/2025/08/11/dns-resolve-time-destroyed-my-optimization-for-pic-cdn/</id>
+    <title>How DNS Resolution Latency Destroyed My Image Hosting Optimization</title>
+    <updated>2025-08-10T16:06:40.000Z</updated>
+    <link href="https://zhul.in/2025/08/11/dns-resolve-time-destroyed-my-optimization-for-pic-cdn/" rel="alternate"></link>
+    <content type="html">
+      <![CDATA[<p>Last summer, I spent considerable time setting up an image hosting solution for my blog. The core goal was <strong>geo-distributed DNS resolution</strong> to ensure fast image loading for visitors both inside and outside China. The technical approach seemed perfect—until recently, when fellow bloggers reported slow image loading on first visits. That's when I discovered the real problem.</p>
+<p><img src="https://static.031130.xyz/uploads/2025/08/11/26306b2a483ba.webp" alt=""></p>
+<p><strong>955 milliseconds of DNS resolution time!</strong> This number shocked me. After visitors opened my blog, they had to wait nearly a full second just to determine the image server location—completely negating the benefits of CDN optimization.</p>
+<blockquote>
+<p><strong>Context Note:</strong> In China, there's a significant network divide between domestic and international internet access due to the Great Firewall. Many Chinese websites use geo-DNS to serve domestic users from servers within China and international users from overseas servers, optimizing for both speed and accessibility.</p>
+</blockquote>
+<h2>Why Didn't I Notice Earlier?</h2>
+<p>The main culprit was <strong>DNS caching</strong>. It remembers resolution results for subsequent visits, making both my local tests and return visitor tests appear normal. It wasn't until users reported issues—combined with my recent review of DNS resolution flows for job interview prep (recursive queries, authoritative queries, root domains, TLDs, etc.)—that I pinpointed the problem: <strong>first-visit DNS resolution latency</strong>.</p>
+<h2>DNS Resolution Flow Analysis</h2>
+<p>Let's examine what happens when a visitor accesses <code>static.031130.xyz</code>:</p>
+<pre><code class="language-mermaid">sequenceDiagram
+    participant User as Visitor Browser
+    participant Local as Local DNS
+    participant CF as Cloudflare&#x3C;br/>(Foreign Authority)
+    participant DP as DNSPod&#x3C;br/>(Domestic Authority)
+    participant CDN as CDN Node
+
+    User->>Local: Request static.031130.xyz
+    Local->>CF: Query 031130.xyz authority
+    Note over Local,CF: Cross-border query, high latency
+    CF->>Local: CNAME: cdn-cname.zhul.in
+    Local->>DP: Query zhul.in authority
+    DP->>Local: CNAME: small-storage-cdn.b0.aicdn.com
+    Local->>DP: Query aicdn.com
+    DP->>Local: CNAME: nm.aicdn.com
+    Local->>DP: Query final IP
+    DP->>Local: Return CDN IP
+    Local->>User: Return resolution result
+    User->>CDN: Connect and download images
+</code></pre>
+<p>Here's the problem: <strong>the first two query steps point to Cloudflare's authoritative servers overseas</strong>. For domestic Chinese users, even though the final resolved CDN node is within China, the cross-border DNS queries are enough to cripple the first-visit experience. That 955ms latency is mostly spent communicating with foreign DNS servers.</p>
+<blockquote>
+<p><strong>Context Note:</strong> DNSPod is Tencent's DNS service provider, widely used in China for its domestic infrastructure and reliability.</p>
+</blockquote>
+<h2>Optimization Solutions</h2>
+<p>To address this issue, I implemented three measures:</p>
+<h3>1. DNS Prefetch</h3>
+<p>Added to the blog's HTML <code>&#x3C;head></code> section:</p>
+<pre><code class="language-html">&#x3C;link rel="dns-prefetch" href="//static.031130.xyz">
+</code></pre>
+<p>This way, the browser performs DNS resolution for the image hosting domain while rendering the page. By the time images actually need to load, the DNS results may already be ready.</p>
+<h3>2. Extended TTL</h3>
+<p>Increased the TTL (Time To Live) value for the <code>static.031130.xyz</code> CNAME record from a few minutes to several hours or even a day. This allows local DNS servers to cache results longer, enabling subsequent users to directly use cached results and skip authoritative queries.</p>
+<h3>3. Migrate Authoritative DNS (Core Solution)</h3>
+<p>Migrated the <strong>authoritative DNS servers</strong> for the <code>031130.xyz</code> domain from Cloudflare to DNSPod in China:</p>
+<pre><code class="language-mermaid">graph TB
+    subgraph "Before Optimization"
+        A1[Visitor] --> B1[Local DNS]
+        B1 --> C1[Cloudflare Authority&#x3C;br/>Overseas]
+        C1 --> D1[DNSPod Authority&#x3C;br/>Domestic]
+        D1 --> E1[CDN Node]
+        style C1 fill:#ffcccc
+    end
+</code></pre>
+<pre><code class="language-mermaid">graph TB
+    subgraph "After Optimization"
+        A2[Visitor] --> B2[Local DNS]
+        B2 --> D2[DNSPod Authority&#x3C;br/>Domestic]
+        D2 --> E2[CDN Node]
+        style D2 fill:#ccffcc
+    end
+</code></pre>
+<p>Benefits after migration:</p>
+<ul>
+<li>When recursive DNS queries <code>031130.xyz</code>, it directly reaches DNSPod in China with fast response</li>
+<li>DNSPod directly returns <code>static.031130.xyz</code> -> <code>small-storage-cdn.b0.aicdn.com</code> without intermediate hops</li>
+<li>The entire DNS resolution chain completes domestically, dramatically reducing first-visit latency</li>
+</ul>
+<h2>Optimization Results</h2>
+<p>While DNS caching makes testing difficult, after migrating the authoritative DNS + adjusting TTL + adding prefetch, first-visit DNS resolution time dropped to an acceptable range.</p>
+<h2>Lessons Learned</h2>
+<ol>
+<li>
+<p><strong>DNS Location Matters</strong>: When optimizing for multiple regions, the geographic location of authoritative DNS servers significantly impacts first-visit latency. Prioritize using domestic authoritative servers for your target audience.</p>
+</li>
+<li>
+<p><strong>First Visits Are Critical</strong>: While caching helps subsequent visits, the first-visit experience directly affects user impression. Make good use of <code>dns-prefetch</code> and reasonable TTL settings.</p>
+</li>
+<li>
+<p><strong>Monitoring and Feedback Are Important</strong>: Local test environments often benefit from caching; real first-visit experiences need to be discovered through monitoring and user feedback.</p>
+</li>
+</ol>
+<h2>Important Warning: Beware of CNAME Flattening</h2>
+<p>If you need geo-distributed resolution to connect visitors to the nearest CDN node, <strong>absolutely avoid CNAME Flattening</strong>.</p>
+<h3>What Is CNAME Flattening?</h3>
+<p>When an authoritative DNS server (like Cloudflare) sees a CNAME record, it proactively queries the final IP address of the target domain and then directly returns the IP instead of the CNAME.</p>
+<h3>Why Does This Cause Problems?</h3>
+<p>Geo-distributed resolution (GeoDNS) is implemented at the authoritative DNS server level. When the authoritative server performs CNAME flattening, it queries the target domain's IP from its own location. If the authoritative DNS is in the US, it gets the optimal US node IP, then returns this IP to all regional queries, including Chinese users. This completely breaks your domestic CDN IP strategy configured for Chinese users.</p>
+<pre><code class="language-mermaid">graph LR
+    subgraph "CNAME Flattening Problem"
+        A[Chinese User] --> B[Cloudflare Authority&#x3C;br/>US Node]
+        B --> C[Query Target CNAME]
+        C --> D[Return US CDN IP]
+        D --> A
+        style D fill:#ffcccc
+    end
+</code></pre>
+<h3>The Correct Approach</h3>
+<p>Honestly use CNAME to point to another domain that supports GeoDNS (such as <code>static.031130.xyz</code> -> <code>cdn-cname.zhul.in</code>, with the latter doing geo-distributed resolution on DNSPod). Only this way can you ensure the routing strategy executes correctly.</p>
+<p>If you need geo-distributed resolution functionality, <strong>do not</strong> enable CNAME Flattening (or similar features like ALIAS, ANAME, etc.) on related domains.</p>
+<hr>
+<blockquote>
+<p><strong>Author's Note:</strong> This article reflects the unique challenges of optimizing web services for the Chinese internet landscape, where the network infrastructure divide between domestic and international access requires careful DNS and CDN configuration to provide optimal performance for all users.</p>
+</blockquote>]]>
+    </content>
+    <published>2025-08-10T16:06:40.000Z</published>
+    <author>
+      <name>竹林里有冰</name>
+      <email>zhullyb@outlook.com</email>
+      <uri>https://zhul.in</uri>
+    </author>
+    <category term="CDN"></category>
+    <category term="Image Hosting"></category>
+    <category term="DNS"></category>
+    <category term="Network"></category>
+    <category term="Cloudflare"></category>
+    <category term="Dnspod"></category>
+  </entry>
+  <entry>
     <id>https://zhul.in/2025/07/13/vue-markdown-render-improvement-2/</id>
     <title>Vue Markdown Rendering Optimization in Practice (Part 2): Farewell to DOM Manipulation, Embrace AST and Functional Rendering</title>
     <updated>2025-07-12T16:01:35.000Z</updated>
@@ -827,5 +951,313 @@ onMounted(async () => {
     <category term="JavaScript"></category>
     <category term="Web"></category>
     <category term="HTML"></category>
+  </entry>
+  <entry>
+    <id>https://zhul.in/2025/07/05/node-sass-migration-to-dart-sass/</id>
+    <title>Migration from node-sass to dart-sass: A Troubleshooting Chronicle</title>
+    <updated>2025-07-05T09:57:02.000Z</updated>
+    <link href="https://zhul.in/2025/07/05/node-sass-migration-to-dart-sass/" rel="alternate"></link>
+    <content type="html">
+      <![CDATA[<h2>Update Goals</h2>
+<ul>
+<li>node-sass -> sass (dart-sass)</li>
+<li>Minimize impact, avoid updating other dependency versions unless necessary</li>
+<li>Based on the above two conditions, see if we can upgrade the node.js version</li>
+</ul>
+<h2>Reasons to Abandon node-sass</h2>
+<ul>
+<li><a href="https://sass-lang.com/blog/libsass-is-deprecated/">node-sass has been deprecated, dart-sass is the officially recommended successor by Sass</a></li>
+<li>node-sass installation on Windows is very troublesome, requiring both Python 2 and Microsoft Visual C++ on the development machine during npm installation</li>
+<li>When installing node-sass, resources need to be pulled from GitHub, which has a low success rate in certain network environments</li>
+</ul>
+<h2>Current Project Dependency Versions</h2>
+<ul>
+<li><code>node@^12</code></li>
+<li><code>vue@^2</code></li>
+<li><code>webpack@^3</code></li>
+<li><code>vue-loader@^14</code></li>
+<li><code>sass-loader@^7.0.3</code></li>
+<li><code>node-sass@^4</code></li>
+</ul>
+<h2>Update Strategy</h2>
+<h3>node.js</h3>
+<p>Webpack officially doesn't provide the maximum node version supported by webpack 3, and even if webpack officially supports it, related webpack plugins may not. Therefore, whether the node version can be updated can only be determined through testing. Fortunately, although this project's CI/CD runs on node 12, I've been using node 14 for daily development, so I'll take this opportunity to upgrade the node version to 14.</p>
+<h3>webpack, sass-loader</h3>
+<p>The webpack version is currently in a "ticking time bomb" state of not updating unless necessary. Based on the current webpack 3 limitation, the maximum supported sass-loader version is ^7 (sass-loader's <a href="https://github.com/webpack-contrib/sass-loader/blob/v8.0.0/CHANGELOG.md">8.0.0 version changelog</a> explicitly states that version 8.0.0 requires webpack 4.36.0).</p>
+<p>If sass-loader@^7 in the project supports using dart-sass, then there's no need to update sass-loader, and consequently no need to update webpack; otherwise, webpack would need to be updated to 4, and then determine the sass-loader version accordingly.</p>
+<p>So does it support it or not? I found this package.json snippet on the <a href="https://www.webpackjs.com/loaders/sass-loader/">webpack official documentation page introducing sass-loader</a>:</p>
+<pre><code class="language-json">{
+  "devDependencies": {
+    "sass-loader": "^7.2.0",
+    "sass": "^1.22.10"
+  }
+}
+</code></pre>
+<p>This proves that at least sass-loader@7.2.0 already supported dart-sass, so the webpack version can stay at ^3, and sass-loader can temporarily stay at version 7.0.3. If there are issues later, it can be updated to the latest version 7.3.1 in the ^7 range.</p>
+<h3>dart-sass</h3>
+<p>I couldn't find the maximum sass version supported by sass-loader@^7. GitHub Copilot confidently told me:</p>
+<blockquote>
+<p><strong>Official documentation quote:</strong></p>
+<blockquote>
+<p>sass-loader@^7.0.0 requires node-sass >=4.0.0 or sass >=1.3.0, &#x3C;=1.26.5.</p>
+</blockquote>
+<p><strong>Suggestion:</strong></p>
+<ul>
+<li>If you need to use a higher version of <code>sass</code>, please upgrade to <code>sass-loader</code> 8 or higher.</li>
+</ul>
+</blockquote>
+<p>However, I couldn't find any trace of this text on the internet. Moreover, the last version in sass's ~1.26 range is 1.26.11, not 1.26.5. <a href="https://docs.npmjs.com/about-semantic-versioning">According to common npm versioning principles</a>, releases that only change the patch version while keeping the major and minor versions the same generally only contain bugfixes without breaking changes. It's unlikely that updating from 1.26.5 to 1.26.11 would suddenly become incompatible with sass-loader 7, so this is more likely an AI hallucination or limited training data.</p>
+<p>Out of caution, I ultimately decided to use the last version of sass 1.22 mentioned in the webpack official documentation, which is 1.22.12.</p>
+<h2>Analysis Complete, Let's Update</h2>
+<h3>Step 1: Uninstall node-sass, Install sass@^1.22.12</h3>
+<pre><code class="language-bash">npm uninstall node-sass
+npm install sass@^1.22.12
+</code></pre>
+<h3>Step 2: Update webpack Configuration (Optional)</h3>
+<pre><code class="language-diff">module.exports = {
+  // ...
+  module: {
+    rules: [
+      {
+        test: /\.(scss|sass)$/,
+        use: [
+          'style-loader',
+          'css-loader',
+          {
+            loader: 'sass-loader',
++            options: {
++                // In fact, this line doesn't need to be added in most sass-loader versions, sass-loader can automatically detect whether it's sass or node-sass
++                implementation: require('sass')
++              },
+            },
+          },
+        ],
+      },
+    ],
+  },
+};
+</code></pre>
+<h3>Step 3: Batch Replace /deep/ Syntax with ::v-deep</h3>
+<p>Because <a href="https://chromestatus.com/feature/4964279606312960">the /deep/ syntax was deprecated in 2017</a>, /deep/ became an unsupported deep selector. node-sass, with its excellent error tolerance, could continue to provide compatibility, but dart-sass doesn't support this syntax. So we need to batch replace the /deep/ syntax with ::v-deep, which, although abandoned in Vue's subsequent RFC, is still effectively supported to this day.</p>
+<pre><code class="language-bash"># Something like this, using VSCode's batch replace also works
+sed -i 's#\s*/deep/\s*# ::v-deep #g' $(grep -rl '/deep/' .)
+</code></pre>
+<h3>Step 4: Fix Other Sass Syntax Errors</h3>
+<p>During the migration, I found some non-standard syntax in the project. node-sass, with its excellent robustness, silently forced parsing, while dart-sass can't handle this rough work. Therefore, these syntax errors need to be manually fixed based on compilation errors. I encountered two types:</p>
+<pre><code class="language-diff">// Extra colon
+.foo {
+-  color:: #fff;
++  color: #fff;
+}
+
+// :nth-last-child without specified number
+.bar {
+-  &#x26;:nth-last-child() {
++  &#x26;:nth-last-child(1) {
+      margin-bottom: 0;
+  }
+}
+</code></pre>
+<h2>Pitfalls</h2>
+<h3>::v-deep Styles Not Taking Effect</h3>
+<p>After updating dependencies, everything seemed fine at first glance, so I pushed to the test environment. Less than a day later, a colleague called me - the ::v-deep deep selector wasn't working?</p>
+<p>Trying my luck, GPT gave the following answer:</p>
+<blockquote>
+<p>In the <strong>Vue 2 + vue-loader + Sass</strong> combination, <strong>this syntax is correct</strong>, <strong>provided that your build toolchain supports the <code>::v-deep</code> syntax</strong> (such as <code>vue-loader@15</code> and above + <code>sass-loader</code>).</p>
+</blockquote>
+<p>Although I still haven't verified why updating to vue-loader@15 is required to use ::v-deep syntax, after updating vue-loader, the ::v-deep syntax did work. While writing this article, I found some clues that might explain this issue:</p>
+<ol>
+<li>
+<p>The vue-loader <a href="https://vue-loader-v14.vuejs.org/en/features/scoped-css.html#deep-selectors">version 14 official documentation</a> simply doesn't have examples of ::v-deep syntax. <a href="https://github.com/vuejs/vue-loader/commit/2585d254fc774386a898887467fbdd30eb864b53">This example was only added after vue-loader 15.7.0 was released</a>.</p>
+</li>
+<li>
+<p>Someone mentioned in a vue-cli GitHub Issue comment:</p>
+<blockquote>
+<p><code>::v-deep</code> implemented in @vue/component-compiler-utils v2.6.0, should work after you reinstall the deps.</p>
+</blockquote>
+<p>And vue-loader only <a href="https://github.com/vuejs/vue-loader/commit/e32cd0e4372fcc6f13b6c307402713807516d71c#diff-7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519">added @vue/component-compiler-utils to its dependencies in version 15.0.0-beta.1</a>, and didn't <a href="https://github.com/vuejs/vue-loader/commit/c359a38db0fbb4135fc97114baec3cd557d4123a">update its @vue/component-compiler-utils version to the required ^3.0.0 until vue-loader 15.7.1</a>.</p>
+</li>
+</ol>
+<p>Can we upgrade to vue-loader 16 or even 17? No. The <a href="https://github.com/vuejs/vue-loader/releases/tag/v16.1.2">vue-loader v16.1.2 changelog</a> clearly states:</p>
+<blockquote>
+<p>Note: vue-loader v16 is for Vue 3 only.</p>
+</blockquote>
+<h3>vue-loader 14 -> 15 Breaking Changes</h3>
+<p>When migrating vue-loader from 14 upward, running directly without modifying the webpack configuration will encounter Vue syntax recognition issues. Specifically, even though .vue file naming uses correct and valid syntax, the compiler just won't recognize it during build/development, reporting syntax errors. vue-loader officially has a <a href="https://vue-loader.vuejs.org/migrating.html">migration document</a> that needs attention.</p>
+<pre><code>ERROR in ./src/......
+Module parse failed: Unexpected token(1:0)
+You may need an appropriate loader to handle this file type.
+</code></pre>
+<pre><code class="language-diff">// ...
+import path from 'path'
++const VueLoaderPlugin = require('vue-loader/lib/plugin')
+
+// ...
+
+  plugins: [
++    new VueLoaderPlugin()
+    // ...
+  ]
+</code></pre>
+<p>Additionally, in my project, I needed to remove the babel-loader for .vue files in the webpack configuration:</p>
+<pre><code class="language-diff">{
+  test: /\.vue$/,
+  use: [
+-    {
+-      loader: 'babel-loader'
+-    },
+    {
+      loader: 'vue-loader',
+    }
+  ]
+}
+</code></pre>
+<h2>Final Update Status</h2>
+<ul>
+<li><code>node@^12</code> -> <code>node@^14</code></li>
+<li><code>vue-loader@^14</code> -> <code>vue-loader@^15</code></li>
+<li><code>node-sass@^4</code> -> <code>sass@^1.22.12</code></li>
+</ul>
+<p>All other dependency versions remain unchanged</p>
+<h2>References</h2>
+<ul>
+<li><a href="https://juejin.cn/post/7327094228350500914">Switching from node-sass to dart-sass - Juejin</a></li>
+<li><a href="https://sunchenggit.github.io/2021/01/13/node-sass%E8%BF%81%E7%A7%BBdart-sass/">node-sass migration to dart-sass | Bolg</a></li>
+<li><a href="https://www.webpackjs.com/loaders/sass-loader/">sass-loader | webpack Documentation</a></li>
+<li><a href="https://sass-lang.com/blog/libsass-is-deprecated/">Sass: LibSass is Deprecated</a></li>
+<li><a href="https://www.npmjs.com/package/sass?activeTab=versions">sass - npm</a></li>
+<li><a href="https://www.npmjs.com/package/node-sass">node-sass - npm</a></li>
+<li><a href="https://docs.npmjs.com/about-semantic-versioning">About semantic versioning | npm Docs</a></li>
+<li><a href="https://chromestatus.com/feature/4964279606312960">Make /deep/ behave like the descendant combinator " " in CSS live profile - Chrome Platform Status</a></li>
+<li><a href="https://github.com/webpack-contrib/sass-loader/blob/v8.0.0/CHANGELOG.md">sass-loader/CHANGELOG.md at v8.0.0 · webpack-contrib/sass-loader</a></li>
+<li><a href="https://github.com/vuejs/vue-loader/releases/tag/v16.1.2">Release v16.1.2 · vuejs/vue-loader</a></li>
+<li><a href="https://github.com/vuejs/vue-loader/commit/e32cd0e4372fcc6f13b6c307402713807516d71c#diff-7ae45ad102eab3b6d7e7896acd08c427a9b25b346470d7bc6507b6481575d519">refactor: use @vue/component-compiler-utils · vuejs/vue-loader@e32cd0e</a></li>
+<li><a href="https://github.com/vuejs/vue-loader/commit/c359a38db0fbb4135fc97114baec3cd557d4123a">chore: update @vue/component-compiler-utils to v3 · vuejs/vue-loader@c359a38</a></li>
+<li><a href="https://github.com/vuejs/vue-cli/issues/3399#issuecomment-466319019">dart-sass does not support /deep/ selector · Issue #3399 · vuejs/vue-cli</a></li>
+<li><a href="https://vue-loader-v14.vuejs.org/en/features/scoped-css.html">Scoped CSS · vue-loader v14</a></li>
+<li><a href="https://vue-loader.vuejs.org/migrating.html">Migrating from v14 | Vue Loader</a></li>
+</ul>]]>
+    </content>
+    <published>2025-07-05T09:57:02.000Z</published>
+    <author>
+      <name>竹林里有冰</name>
+      <email>zhullyb@outlook.com</email>
+      <uri>https://zhul.in</uri>
+    </author>
+    <category term="Web"></category>
+    <category term="Vue.js"></category>
+    <category term="Sass"></category>
+    <category term="CSS"></category>
+    <category term="JavaScript"></category>
+  </entry>
+  <entry>
+    <id>https://zhul.in/2025/06/08/front-end-bug-gone-when-open-devtool/</id>
+    <title>Quantum Mechanics in Frontend Development — The Bug That Vanishes as Soon as You Open F12</title>
+    <updated>2025-06-07T17:22:13.000Z</updated>
+    <link href="https://zhul.in/2025/06/08/front-end-bug-gone-when-open-devtool/" rel="alternate"></link>
+    <content type="html">
+      <![CDATA[<h2>First Observation of the Frontend "Quantum State" Phenomenon</h2>
+<p>This story sounds bizarre—even surreal. Half a month ago, while happily coding at my desk (with hotpot and songs in the background 🍲🎤), I stumbled upon a truly uncanny bug. As a bona fide human software engineer, writing bugs is normal—but this one defied all intuition: the moment I opened DevTools (F12) to inspect the relevant DOM structure, the bug <em>vanished</em>. Close DevTools, hit Ctrl+F5 to hard-refresh, and <em>bam</em>—the bug reappeared.</p>
+<p>Below is a live demo embedded via <code>&#x3C;iframe></code>:
+<a href="https://static.031130.xyz/demo/scroll-jump-bug.html">demo</a></p>
+<iframe src="https://static.031130.xyz/demo/scroll-jump-bug.html" width="100%" height="500" allowfullscreen loading="lazy"></iframe>
+<p><img src="https://static.031130.xyz/uploads/2025/06/08/65620d31fce6f.webp" alt="“How to Observe” Guide"></p>
+<p>This bug left me utterly bewildered. I’m no physicist—why did <strong>observer effect</strong> from quantum mechanics show up in my frontend code?! 🤯</p>
+<blockquote>
+<p><strong>Observer effect</strong>: the act of <em>observation</em> inevitably influences the phenomenon being observed.</p>
+<p>In quantum experiments—for example, to measure an electron’s velocity—you might fire two photons at it over a time interval. But the first photon already disturbs the electron’s motion, making the original velocity impossible to determine (Heisenberg’s uncertainty principle). Similarly, rapidly observing a decaying particle can apparently slow its decay rate.</p>
+<p>— Wikipedia</p>
+</blockquote>
+<h2>Quantum Fog ❌ → Browser Mechanics ✅</h2>
+<p>Let’s briefly examine the problematic code snippet from the demo:</p>
+<pre><code class="language-javascript">if (scrollIndex >= groupLength) {
+  setTimeout(() => {
+    wrapper.style.transition = "none";
+    scrollIndex = 0;
+    wrapper.style.transform = `translateY(-${scrollIndex * itemHeight}px)`;
+
+    requestAnimationFrame(() => {
+      wrapper.style.transition = "transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1)";
+    });
+  }, 500);
+}
+</code></pre>
+<p>The requirement was to implement an <em>infinite vertical scrolling</em> title list. Three titles are shown at a time; every 2 seconds, the list scrolls up as a group—the top item exits view, and a new item enters from below (again, the demo clarifies this visually).</p>
+<p>When reaching the bottom, we disable CSS transitions, instantly relocate (<code>transform</code>) the wrapper back to the “top” of the logical loop (i.e., visually reset to the same three titles), then re-enable transitions—creating a seamless infinite loop illusion.</p>
+<p>But here’s the twist: even though we explicitly set <code>transition: none</code>, the jump <em>still exhibited a transition animation</em>.</p>
+<p>Frankly, this was the most despair-inducing bug in my short dev career. Not only was the behavior seemingly supernatural, but searching online felt hopeless—I didn’t even know how to phrase the issue!</p>
+<p><img src="https://static.031130.xyz/uploads/2025/06/08/475a61b332454.webp" alt="This is Xiao Maicha, the senior who got me into frontend development"></p>
+<p>Out of desperation, I fed the code to ChatGPT-4o—and got a lifeline:</p>
+<blockquote>
+<p>The phenomenon you describe — “<strong>a jarring upward jump on the 9th scroll</strong>, which <strong>disappears when DevTools is open</strong>” — is almost certainly due to <strong>frame skipping</strong> (frame rate fluctuations) or <strong>timer precision issues</strong> in the browser’s rendering pipeline.</p>
+<p>Such bugs commonly arise when combining <code>setInterval</code>-driven animation with improperly timed style switches (e.g., <code>transition</code> toggles), causing <em>transition frame skips</em>. Opening DevTools often <strong>forces frame redraws</strong> or <strong>increases timer resolution</strong>, thereby masking the issue.</p>
+</blockquote>
+<h2>Great News: <code>requestAnimationFrame</code> to the Rescue! 🎉</h2>
+<blockquote>
+<p><strong><code>window.requestAnimationFrame()</code></strong> tells the browser you wish to perform an animation and requests that the browser call a specified function to update an animation before the next repaint.</p>
+<p>— MDN</p>
+</blockquote>
+<p>Here’s the fix suggested by GPT—simple yet highly effective:</p>
+<pre><code class="language-diff">if (scrollIndex >= groupLength) {
+  setTimeout(() => {
+    wrapper.style.transition = "none";
+    scrollIndex = 0;
+    wrapper.style.transform = `translateY(-${scrollIndex * itemHeight}px)`;
+
+    requestAnimationFrame(() => {
++     requestAnimationFrame(() => {
+        wrapper.style.transition = "transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1)";
++     });
+    });
+  }, 500);
+}
+</code></pre>
+<p>If nested <code>requestAnimationFrame</code> calls feel confusing, here’s an equivalent—but clearer—version:</p>
+<pre><code class="language-javascript">if (scrollIndex >= groupLength) {
+  setTimeout(() => {
+    scrollIndex = 0;
+
+    requestAnimationFrame(() => {
+      // Frame 1: Apply instant jump (no transition)
+      wrapper.style.transition = "none";
+      wrapper.style.transform = `translateY(-${scrollIndex * itemHeight}px)`;
+
+      // Enqueue next frame
+      requestAnimationFrame(() => {
+        // Frame 2: Re-enable smooth transition
+        wrapper.style.transition = "transform 0.5s cubic-bezier(0.25, 0.1, 0.25, 1)";
+      });
+    });
+  }, 500);
+}
+</code></pre>
+<p>The core idea: we must <em>guarantee</em> that setting the new <code>transform</code> (the “teleport”) and re-enabling <code>transition</code> happen in <em>separate animation frames</em>. Two nested <code>requestAnimationFrame</code> calls ensure exactly that.</p>
+<iframe src="https://static.031130.xyz/demo/scroll-jump-bug-fixed.html" width="100%" height="500" allowfullscreen loading="lazy"></iframe>
+<h2>Taming the Quantum State: A New Skill for Frontend Developers</h2>
+<p>With double <code>requestAnimationFrame</code>, we’ve successfully tamed this “quantum” bug. Now, regardless of whether DevTools is open, the animation behaves consistently—no more vanishing acts.</p>
+<p>So it turns out: in frontend development, we need not just JavaScript expertise—<del>but perhaps a dash of quantum mechanics, too</del>. 😉
+Next time you encounter a bug that “collapses upon observation”, try this <strong>“quantum entanglement solution”</strong>: double <code>requestAnimationFrame</code>—it might just decohere your bug from a probabilistic “quantum state” into a deterministic “classical state”.</p>
+<p>And if you’ve battled even weirder bugs—please share! After all, in the universe of code, we never know what exotic form the next bug will take. Perhaps, that’s precisely where the <em>fun</em> of programming lies. 🐛✨</p>
+<blockquote>
+<p><em>This article was co-authored with assistance from ChatGPT and DeepSeek—but the bug? Sadly, 100% real (and tearful).</em></p>
+</blockquote>
+<h2>See Also</h2>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Observer_effect_(physics)">Observer Effect — Wikipedia</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame"><code>Window.requestAnimationFrame()</code> — MDN Web Docs</a></li>
+<li><a href="https://www.ruanyifeng.com/blog/2015/09/web-page-performance-in-depth.html">A Deep Dive into Web Page Performance — Ruan Yifeng’s Blog</a>"</li>
+</ul>]]>
+    </content>
+    <published>2025-06-07T17:22:13.000Z</published>
+    <author>
+      <name>竹林里有冰</name>
+      <email>zhullyb@outlook.com</email>
+      <uri>https://zhul.in</uri>
+    </author>
+    <category term="Web"></category>
+    <category term="HTML"></category>
+    <category term="CSS"></category>
+    <category term="JavaScript"></category>
+    <category term="Debug"></category>
   </entry>
 </feed>

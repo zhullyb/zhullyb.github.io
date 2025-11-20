@@ -332,6 +332,7 @@
         <loc>https://zhul.in/tags/CDN/</loc>
         <xhtml:link rel="alternate" href="https://zhul.in/tags/CDN/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/tags/CDN/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/CDN/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/tags/CI%2FCD/</loc>
@@ -343,6 +344,7 @@
         <loc>https://zhul.in/tags/Cloudflare/</loc>
         <xhtml:link rel="alternate" href="https://zhul.in/tags/Cloudflare/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/tags/Cloudflare/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/Cloudflare/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/tags/CRLite/</loc>
@@ -365,6 +367,7 @@
         <loc>https://zhul.in/tags/CSS/</loc>
         <xhtml:link rel="alternate" href="https://zhul.in/tags/CSS/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/tags/CSS/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/CSS/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Debian/</loc>
@@ -375,6 +378,7 @@
         <loc>https://zhul.in/tags/Debug/</loc>
         <xhtml:link rel="alternate" href="https://zhul.in/tags/Debug/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/tags/Debug/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/Debug/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/tags/deepin/</loc>
@@ -391,6 +395,7 @@
         <loc>https://zhul.in/tags/Dnspod/</loc>
         <xhtml:link rel="alternate" href="https://zhul.in/tags/Dnspod/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/tags/Dnspod/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/Dnspod/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Docker/</loc>
@@ -477,6 +482,7 @@
         <loc>https://zhul.in/tags/Image%20Hosting/</loc>
         <xhtml:link rel="alternate" href="https://zhul.in/tags/Image%20Hosting/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/tags/Image%20Hosting/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/Image%20Hosting/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/tags/ImmortalWRT/</loc>
@@ -643,6 +649,7 @@
         <loc>https://zhul.in/tags/Sass/</loc>
         <xhtml:link rel="alternate" href="https://zhul.in/tags/Sass/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/tags/Sass/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/Sass/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/tags/selenium/</loc>
@@ -802,10 +809,22 @@
         <xhtml:link rel="alternate" href="https://zhul.in/en/tags/Caddy/" hreflang="en-US" />
     </url>
     <url>
+        <loc>https://zhul.in/en/tags/CDN/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/CDN/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/CDN/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/CDN/" hreflang="en-US" />
+    </url>
+    <url>
         <loc>https://zhul.in/en/tags/CI%2FCD/</loc>
         <xhtml:link rel="alternate" href="https://zhul.in/tags/CI%2FCD/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/tags/CI%2FCD/" hreflang="zh-CN" />
         <xhtml:link rel="alternate" href="https://zhul.in/en/tags/CI%2FCD/" hreflang="en-US" />
+    </url>
+    <url>
+        <loc>https://zhul.in/en/tags/Cloudflare/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Cloudflare/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Cloudflare/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/Cloudflare/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/en/tags/CRLite/</loc>
@@ -820,10 +839,28 @@
         <xhtml:link rel="alternate" href="https://zhul.in/en/tags/CRLSets/" hreflang="en-US" />
     </url>
     <url>
+        <loc>https://zhul.in/en/tags/CSS/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/CSS/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/CSS/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/CSS/" hreflang="en-US" />
+    </url>
+    <url>
+        <loc>https://zhul.in/en/tags/Debug/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Debug/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Debug/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/Debug/" hreflang="en-US" />
+    </url>
+    <url>
         <loc>https://zhul.in/en/tags/DNS/</loc>
         <xhtml:link rel="alternate" href="https://zhul.in/tags/DNS/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/tags/DNS/" hreflang="zh-CN" />
         <xhtml:link rel="alternate" href="https://zhul.in/en/tags/DNS/" hreflang="en-US" />
+    </url>
+    <url>
+        <loc>https://zhul.in/en/tags/Dnspod/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Dnspod/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Dnspod/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/Dnspod/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/en/tags/Experience/</loc>
@@ -862,6 +899,12 @@
         <xhtml:link rel="alternate" href="https://zhul.in/en/tags/HTTP/" hreflang="en-US" />
     </url>
     <url>
+        <loc>https://zhul.in/en/tags/Image%20Hosting/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Image%20Hosting/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Image%20Hosting/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/Image%20Hosting/" hreflang="en-US" />
+    </url>
+    <url>
         <loc>https://zhul.in/en/tags/JavaScript/</loc>
         <xhtml:link rel="alternate" href="https://zhul.in/tags/JavaScript/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/tags/JavaScript/" hreflang="zh-CN" />
@@ -896,6 +939,12 @@
         <xhtml:link rel="alternate" href="https://zhul.in/tags/OCSP/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/tags/OCSP/" hreflang="zh-CN" />
         <xhtml:link rel="alternate" href="https://zhul.in/en/tags/OCSP/" hreflang="en-US" />
+    </url>
+    <url>
+        <loc>https://zhul.in/en/tags/Sass/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Sass/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Sass/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/Sass/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/en/tags/SSL/</loc>
@@ -2612,11 +2661,13 @@
         </image:image>
         <xhtml:link rel="alternate" href="https://zhul.in/2025/06/08/front-end-bug-gone-when-open-devtool/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/06/08/front-end-bug-gone-when-open-devtool/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/06/08/front-end-bug-gone-when-open-devtool/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/2025/07/05/node-sass-migration-to-dart-sass/</loc>
         <xhtml:link rel="alternate" href="https://zhul.in/2025/07/05/node-sass-migration-to-dart-sass/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/07/05/node-sass-migration-to-dart-sass/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/07/05/node-sass-migration-to-dart-sass/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/2025/07/12/vue-markdown-render-improvement-1/</loc>
@@ -2640,6 +2691,7 @@
         </image:image>
         <xhtml:link rel="alternate" href="https://zhul.in/2025/08/11/dns-resolve-time-destroyed-my-optimization-for-pic-cdn/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/08/11/dns-resolve-time-destroyed-my-optimization-for-pic-cdn/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/08/11/dns-resolve-time-destroyed-my-optimization-for-pic-cdn/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/2025/09/05/first-try-of-github-action-self-hosted-runner/</loc>
@@ -2697,15 +2749,33 @@
     </url>
     <url>
         <loc>https://zhul.in/2025/11/05/http-2-server-push-is-practically-obsolete/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="en-US" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="zh-CN" />
-        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/2025/11/11/dns-cold-start-dilemma/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/11/11/dns-cold-start-dilemma/" hreflang="en-US" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/11/11/dns-cold-start-dilemma/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/11/11/dns-cold-start-dilemma/" hreflang="zh-CN" />
-        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/11/11/dns-cold-start-dilemma/" hreflang="en-US" />
+    </url>
+    <url>
+        <loc>https://zhul.in/en/2025/06/08/front-end-bug-gone-when-open-devtool/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/06/08/65620d31fce6f.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/06/08/475a61b332454.webp</image:loc>
+        </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2025/06/08/front-end-bug-gone-when-open-devtool/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2025/06/08/front-end-bug-gone-when-open-devtool/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/06/08/front-end-bug-gone-when-open-devtool/" hreflang="en-US" />
+    </url>
+    <url>
+        <loc>https://zhul.in/en/2025/07/05/node-sass-migration-to-dart-sass/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/2025/07/05/node-sass-migration-to-dart-sass/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2025/07/05/node-sass-migration-to-dart-sass/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/07/05/node-sass-migration-to-dart-sass/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/en/2025/07/12/vue-markdown-render-improvement-1/</loc>
@@ -2721,6 +2791,15 @@
         <xhtml:link rel="alternate" href="https://zhul.in/2025/07/13/vue-markdown-render-improvement-2/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/07/13/vue-markdown-render-improvement-2/" hreflang="zh-CN" />
         <xhtml:link rel="alternate" href="https://zhul.in/en/2025/07/13/vue-markdown-render-improvement-2/" hreflang="en-US" />
+    </url>
+    <url>
+        <loc>https://zhul.in/en/2025/08/11/dns-resolve-time-destroyed-my-optimization-for-pic-cdn/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/08/11/26306b2a483ba.webp</image:loc>
+        </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2025/08/11/dns-resolve-time-destroyed-my-optimization-for-pic-cdn/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2025/08/11/dns-resolve-time-destroyed-my-optimization-for-pic-cdn/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/08/11/dns-resolve-time-destroyed-my-optimization-for-pic-cdn/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/en/2025/09/05/first-try-of-github-action-self-hosted-runner/</loc>
@@ -2778,15 +2857,15 @@
     </url>
     <url>
         <loc>https://zhul.in/en/2025/11/05/http-2-server-push-is-practically-obsolete/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="en-US" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="zh-CN" />
-        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/en/2025/11/11/dns-cold-start-dilemma/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/11/11/dns-cold-start-dilemma/" hreflang="en-US" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/11/11/dns-cold-start-dilemma/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/11/11/dns-cold-start-dilemma/" hreflang="zh-CN" />
-        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/11/11/dns-cold-start-dilemma/" hreflang="en-US" />
     </url>
 </urlset>
-<!-- XML Sitemap generated by @nuxtjs/sitemap v7.4.7 at 2025-11-20T10:20:39.524Z -->
+<!-- XML Sitemap generated by @nuxtjs/sitemap v7.4.7 at 2025-11-20T10:44:47.678Z -->
