@@ -53,21 +53,26 @@
 	})
 </script>
 
-<style scoped>
+<style scoped lang="less">
 	.mermaid-wrapper {
 		display: block;
 	}
 
 	.mermaid-container {
-		display: flex;
+    display: flex;
 		justify-content: center;
 		margin: 1.5em 0;
 		overflow-x: auto;
 		opacity: 0;
 		transform: translateY(10px);
 		transition:
-			opacity 0.4s ease-out,
-			transform 0.4s ease-out;
+    opacity 0.4s ease-out,
+    transform 0.4s ease-out;
+    background: #fff;
+
+    .dark-mode({
+      background: #a7a7a7;
+    });
 	}
 
 	.mermaid-container.mermaid-loaded {
