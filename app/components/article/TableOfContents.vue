@@ -1,6 +1,6 @@
 <template>
 	<nav v-if="headings.length > 0" class="toc">
-		<div class="toc-title">目录</div>
+		<div class="toc-title">{{ $t('table_of_contents') }}</div>
 		<ul class="toc-list">
 			<li
 				v-for="heading in headings"
