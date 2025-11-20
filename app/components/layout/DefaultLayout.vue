@@ -24,7 +24,7 @@
 		}
 	})
 	const appConfig = useAppConfig()
-	const { data: randomIndex } = useAsyncData('randomIndex' + route.path, async () => {
+	const { data: randomIndex } = useAsyncData('randomIndex' + route.path.replace('/en/', '/'), async () => {
 		return Math.floor(Math.random() * appConfig.backgrounds.length)
 	})
 	const background = computed(
