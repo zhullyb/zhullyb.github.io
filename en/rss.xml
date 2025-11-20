@@ -1260,4 +1260,246 @@ Next time you encounter a bug that “collapses upon observation”, try this <s
     <category term="JavaScript"></category>
     <category term="Debug"></category>
   </entry>
+  <entry>
+    <id>https://zhul.in/2025/06/02/choosing-the-right-video-compression-format-for-web-in-2025/</id>
+    <title>In 2025, How to Choose the Right Video Compression Algorithm for Web Pages?</title>
+    <updated>2025-06-02T12:59:10.000Z</updated>
+    <link href="https://zhul.in/2025/06/02/choosing-the-right-video-compression-format-for-web-in-2025/" rel="alternate"></link>
+    <content type="html">
+      <![CDATA[<p>The issue arose from the need to display a ~5‑minute product showcase video on a webpage. The original H.264-encoded file weighed 60 MB, with a bitrate of 1646 kbps—impractical for network delivery: not only does it inflate CDN bandwidth costs, but it also severely degrades the user experience under weak network conditions. Thus, we must compress the video using more modern codecs while ensuring broad browser compatibility (fortunately, IE is no longer a concern).</p>
+<h2>What Are the Mainstream Compression Algorithms Today?</h2>
+<h3>AV1</h3>
+<p>As of 2025, AV1 stands as the most compression-efficient mainstream video codec. It has been fully adopted by major platforms such as YouTube, Netflix, and Bilibili, making it the top choice for new deployments. Beyond its superior compression, AV1’s royalty-free status encourages hardware vendors and browser developers to integrate support freely—both in hardware and software.</p>
+<p><img src="https://static.031130.xyz/uploads/2025/06/02/aec1af1718064.webp" alt="">
+<img src="https://static.031130.xyz/uploads/2025/06/02/76a312b5a668b.webp" alt=""></p>
+<p>Unfortunately, Safari still lacks <em>software</em> decoding for AV1. Only Apple devices with M3 (or later) chips and iPhone 15 Pro (or later) support <em>hardware</em> AV1 decoding. Older Apple devices simply cannot play AV1 videos in Safari.
+<em>(Let’s just say Safari has become the modern-day IE—a clear roadblock to Web advancement.)</em></p>
+<p><img src="https://static.031130.xyz/uploads/2025/06/02/01ddcc3948406.webp" alt="Safari fails outright on a MacBook Pro with an M2 Pro chip."></p>
+<p>Beyond playback compatibility, AV1 encoding is demanding. Among consumer GPUs, only NVIDIA RTX 40-series, AMD RX 7000-series, and Intel Arc A380 (and newer) support <em>hardware</em> AV1 <em>encoding</em>. Apple’s M-series chips still offer <em>no</em> AV1 encoding hardware acceleration whatsoever. On my ThinkPad with an Intel Core i7‑1165G7, software encoding via <code>libaom-av1</code> crawls at ~0.0025× real-time speed—compressing a 5‑minute 1080p video takes over a full day.</p>
+<p><img src="https://static.031130.xyz/uploads/2025/06/02/923ca02e1d835.webp" alt=""></p>
+<h3>H.265 / HEVC</h3>
+<p>As the official successor to H.264, HEVC (H.265) has arguably squandered its potential. It is governed by multiple patent pools (e.g., MPEG LA, HEVC Advance, Velos Media), resulting in fragmented and costly licensing terms. These high licensing fees have drastically limited its adoption—especially in open ecosystems and web contexts.</p>
+<p>Chromium and Firefox refuse to shoulder HEVC licensing costs, so they do <em>not</em> ship with built-in HEVC <em>software</em> decoders. Browsers today generally follow a <strong>“hardware decode if possible; otherwise, give up”</strong> policy. Firefox on Linux, however, tries a workaround: if hardware decode fails, it leverages system-installed FFmpeg for software decoding. Fortunately, HEVC—standardized in 2013—has now gained near-universal hardware decode support: Apple treats HEVC as a first-class citizen, supporting it across its entire product lineup.</p>
+<p>Uncovered edge cases remain: Chromium/Firefox on Windows 7, and Chromium on Linux (including domestic Chinese distros like UOS and Kylin).</p>
+<p><img src="https://static.031130.xyz/uploads/2025/06/02/2e8e5100f645a.webp" alt="Chrome on Linux, lacking HEVC hardware decode, mistakenly treats the video as audio-only."></p>
+<h3>VP9</h3>
+<p>VP9, introduced by Google in 2013, serves as one of H.264’s successors. Its compression efficiency rivals HEVC—yet its biggest advantage is being <strong>completely royalty-free</strong>. VP9 was Google’s defiant response to HEVC’s licensing hurdles: <em>“You keep feasting on royalties; I’ll host a free buffet.”</em></p>
+<p><img src="https://static.031130.xyz/uploads/2025/06/03/a9b473a3bd120.webp" alt=""></p>
+<p>Thanks to its zero-cost licensing and aggressive promotion across Google’s ecosystem (YouTube, WebRTC, Chrome), VP9 quickly became the de facto standard for web video—especially before AV1’s rise. In fact, it even pressured Apple—longtime gatekeeper of proprietary codecs—to add VP9 support to Safari in macOS 11 (Big Sur) and iOS 14 (though WebM container support arrived slightly later).</p>
+<p>VP9 enjoys near-universal <em>software</em> decode support: Chromium, Firefox, Edge, and even Safari include native support. Hardware decode support is also widespread: Intel Skylake (6th Gen Core) and later, NVIDIA GTX 950+, and AMD Vega/RDNA GPUs all support full VP9 decode. Unless you're running museum-grade hardware, VP9 playback “just works.”</p>
+<p>Encoding remains VP9’s weak point—Google’s reference encoder, <code>libvpx</code>, lags behind <code>x264</code>/<code>x265</code> in speed. Without hardware acceleration, VP9 encoding can still take hours. Still, compared to AV1, VP9 is far more usable: Intel introduced VP9 <em>hardware encoding</em> as early as Kaby Lake (7th Gen Core), and vendor support has matured significantly since.</p>
+<h3>H.264 / AVC</h3>
+<p>H.264—the venerable veteran—remains the undisputed champion of video codecs over the past two decades. Since its standardization in 2003, it has dominated everything: web streaming, Blu-ray, live broadcasts, surveillance, and smartphone recording.</p>
+<p>Its unbeatable strength? <strong>Universal compatibility</strong>. Almost any screen-equipped device can decode H.264. <em>Software</em> decode has been standard in browsers and players for well over a decade; <em>hardware</em> decode dates back to Intel Sandy Bridge, NVIDIA Fermi, AMD VLIW4—and even Raspberry Pis or smart refrigerators can handle it.</p>
+<p>While H.264 does involve patents, its licensing is comparatively pragmatic: MPEG LA’s pool is affordable, and free online video streaming incurs no fees. Thus, Chromium, Firefox, Safari, and Edge all ship with H.264 software decode built in.</p>
+<p>That said, as a 20‑year‑old codec, H.264 lags far behind VP9, HEVC, and AV1 in compression efficiency. At equivalent quality, H.264 typically needs 30–50% higher bitrates than AV1—making it suboptimal for bandwidth- or storage-constrained scenarios. Yet in today’s pragmatic world—where <em>playability beats perfection</em>—H.264 remains the default fallback, the “reliable old workhorse”.</p>
+<p>So even as AV1, HEVC, and VP9 gain ground, H.264 retains its central role in the video ecosystem—so long as some browsers lack AV1 support (looking at you, Safari), servers want to avoid costly transcoding, or users still run legacy devices.</p>
+<h3>Summary</h3>
+<p>Browsers can no longer singlehandedly abstract away hardware and OS discrepancies. Real-world edge cases persist beyond what compatibility tables can capture.</p>
+<table>
+<thead>
+<tr>
+<th>Codec</th>
+<th>Compression Efficiency</th>
+<th>Browser Support</th>
+<th>Desktop Support</th>
+<th>Mobile Support</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>AV1</strong></td>
+<td>★★★</td>
+<td>Chrome / Chromium: ✅ v70+ (Oct 2018)</td>
+<td>✅ (hardware preferred, software fallback)</td>
+<td>✅</td>
+<td>Safari: hardware-only (M3/A17 Pro+); <strong>no software decode</strong></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Firefox: ✅ v67+ (May 2019) desktop; ✅ v113+ (May 2023) Android</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><strong>HEVC (H.265)</strong></td>
+<td>★★☆</td>
+<td>Chrome / Chromium: ⚠️ hardware decode only (no software, unless via MS Store plugin on Windows)</td>
+<td>⚠️</td>
+<td>⚠️</td>
+<td>Firefox: hardware decode only; Linux may fall back to system FFmpeg</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td>Safari: ✅ full support (macOS 10.13+/iOS 11+, 2017)</td>
+<td></td>
+<td></td>
+<td>Apple is HEVC’s strongest advocate</td>
+</tr>
+<tr>
+<td><strong>VP9</strong></td>
+<td>★★☆</td>
+<td>Chrome / Chromium / Firefox / Edge: ✅</td>
+<td>✅ (Intel Skylake+, NVIDIA GTX 950+, AMD Vega/RDNA)</td>
+<td>✅</td>
+<td>Safari: ✅ (v14.1+/iOS 17.4+, 2021–2024; WebM support slightly later)</td>
+</tr>
+<tr>
+<td><strong>H.264 (AVC)</strong></td>
+<td>★☆☆</td>
+<td>✅ All major browsers (desktop &#x26; mobile)</td>
+<td>✅ (Intel Sandy Bridge+, NVIDIA Fermi+, AMD VLIW4+, Raspberry Pi, etc.)</td>
+<td>✅</td>
+<td>Universal fallback; “if it plays anywhere, it’s H.264”</td>
+</tr>
+</tbody>
+</table>
+<h2>How to Choose?</h2>
+<p>We aren’t a professional video platform like YouTube or Bilibili, capable of offering users multiple resolutions and codec options.</p>
+<p><img src="https://static.031130.xyz/uploads/2025/06/03/096484dbc0f3a.webp" alt="Bilibili offers three codec options for the same video."></p>
+<p>Our final strategy must balance <strong>compression efficiency</strong>, <strong>playback compatibility</strong>, and <strong>encoding time</strong>.</p>
+<h3>Option 1: AV1 as Primary, H.264 as Fallback</h3>
+<p>Modern browsers support multiple <code>&#x3C;source></code> elements inside <code>&#x3C;video></code>, letting the browser pick the first playable one:</p>
+<pre><code class="language-html">&#x3C;video controls poster="preview.jpg">
+  &#x3C;source src="video.av1.webm" type='video/webm; codecs="av01"' />
+  &#x3C;source src="video.h264.mp4" type='video/mp4; codecs="avc1"' />
+  Your browser does not support video playback.
+&#x3C;/video>
+</code></pre>
+<p>This approach leverages AV1 for bandwidth savings on modern devices, while H.264 ensures compatibility on older browsers (e.g., legacy Safari). No JavaScript or complex detection logic is needed.</p>
+<p>However, this may not be ideal for us:</p>
+<ul>
+<li>My top-end Apple M4 MacBook still lacks <em>AV1 hardware encoding</em>—a 5‑minute encode takes ~3 hours via software.</li>
+<li>Iterative tuning (adjusting CRF, bitrate, etc.) would be painfully slow.</li>
+<li>Even with AV1 <em>decode</em> supported in Chromium/Firefox, older hardware may suffer high CPU usage—leading to fan noise and complaints (as seen during YouTube’s AV1 rollout).</li>
+</ul>
+<h3>Option 2: VP9 as the Sole Choice</h3>
+<p>Given AV1’s encoding costs and playback burdens, VP9 emerges as a compelling alternative. Its browser support is robust, eliminating the need for an H.264 fallback. Moreover, VP9 <em>hardware encoding</em> is now widely available on recent CPUs/GPUs—enabling rapid iteration to find the optimal trade-off between file size and visual quality.</p>
+<blockquote>
+<p><em>Note</em>: While VP9 is most commonly packaged in WebM, the Opus audio codec (standard in WebM) still has spotty Safari support (only since Safari 17.4, March 2024). Consider using AAC audio in an MP4 container for broader compatibility.</p>
+</blockquote>
+<p><img src="https://static.031130.xyz/uploads/2025/06/03/ec3b5dbcbcc29.webp" alt="Opus audio codec browser support (Can I Use)"></p>
+<h2>Audio Bitrate Too High? Trim It Further</h2>
+<p>So far, we’ve focused on <em>video</em> compression, but the <em>audio</em> track offers room for savings too.</p>
+<pre><code>Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 128 kb/s (default)
+</code></pre>
+<p>For a product demo video, 128 kbps stereo AAC is excessive. Switching to 64 kbps mono saved an additional ~2 MB—without perceptible quality loss in narration-heavy content.</p>
+<h2>Final Thoughts</h2>
+<p>For frontend developers, selecting a video codec is no longer just about “smallest file size”. It’s a balancing act among device capabilities, browser support, user experience, and development overhead.</p>
+<p>We must embrace modern codecs like AV1 and VP9 <em>where feasible</em>, yet remain grounded in real-world constraints. HTML5’s <code>&#x3C;source></code> fallback mechanism empowers us to deliver elegant, resilient video experiences—even as the underlying codec landscape fragments.</p>
+<p>After all, the Web has never lacked <em>possibility</em>—what’s rare is <em>elegance in execution</em>. If codec development is the domain of hardware engineers and video platforms, then those few lines of <code>&#x3C;source></code> within a <code>&#x3C;video></code> tag?
+That’s <em>our</em> trench—the frontend engineer’s battlefield.</p>
+<h2>References</h2>
+<ul>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Web/Media/Guides/Formats/Video_codecs">网页视频编码指南 - Web 媒体技术 | MDN</a></li>
+<li><a href="https://research.netflix.com/research-area/video-encoding-and-quality">Encoding &#x26; Quality - Netflix Research</a></li>
+<li><a href="https://optiview.dolby.com/resources/blog/playback/how-the-vp9-codec-supports-now-streaming-to-apple-devices-more/">How the VP9 Codec Supports Now Streaming to Apple Devices &#x26; More | dolby.io</a></li>
+<li><a href="https://www.chromium.org/audio-video/">Audio/Video | The Chromium Project</a></li>
+<li><a href="https://caniuse.com/av1">AV1 video format | Can I use... Support tables for HTML5, CSS3, etc</a></li>
+<li><a href="https://caniuse.com/webm">WebM video format | Can I use... Support tables for HTML5, CSS3, etc</a></li>
+<li><a href="https://caniuse.com/hevc">HEVC/H.265 video format | Can I use... Support tables for HTML5, CSS3, etc</a></li>
+<li><a href="https://caniuse.com/opus">Opus audio format | Can I use... Support tables for HTML5, CSS3, etc</a></li>
+<li><a href="https://caniuse.com/mpeg4">MPEG-4/H.264 video format | Can I use... Support tables for HTML5, CSS3, etc</a></li>
+<li><a href="https://en.wikipedia.org/wiki/AV1">AV1 - Wikipedia</a></li>
+<li><a href="https://en.wikipedia.org/wiki/High_Efficiency_Video_Coding">High Efficiency Video Coding - Wikipedia</a></li>
+<li><a href="https://en.wikipedia.org/wiki/VP9">VP9 - Wikipedia</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Advanced_Video_Coding">Advanced Video Coding - Wikipedia</a></li>
+<li><a href="https://www.intel.com/content/www/us/en/developer/articles/technical/encode-and-decode-capabilities-for-7th-generation-intel-core-processors-and-newer.html">Encode and Decode Capabilities for 7th Generation Intel® Core™...</a></li>
+<li><a href="https://zh.wikipedia.org/zh-cn/MacOS_High_Sierra">macOS High Sierra - 维基百科，自由的百科全书</a></li>
+<li><a href="https://www.androidpolice.com/2018/10/17/chrome-70-adds-av1-video-support-improves-pwas-windows-apk-download/">Chrome 70 adds AV1 video support, improves PWAs on Windows, and more [APK Download]</a></li>
+<li><a href="https://www.mozilla.org/en-US/firefox/android/113.0/releasenotes/">Firefox for Android 113.0, See All New Features, Updates and Fixes</a></li>
+<li><a href="https://www.bilibili.com/video/BV1nW4y1V7kR/">视频网站的“蓝光”是怎么骗你的？——视频画质全解析【柴知道】_哔哩哔哩_bilibili</a></li>
+<li>“Why 4K Today Looks Worse Than 4 Years Ago” (original video unavailable)</li>
+</ul>]]>
+    </content>
+    <published>2025-06-02T12:59:10.000Z</published>
+    <author>
+      <name>竹林里有冰</name>
+      <email>zhullyb@outlook.com</email>
+      <uri>https://zhul.in</uri>
+    </author>
+    <category term="HTML"></category>
+    <category term="Web"></category>
+    <category term="Network"></category>
+  </entry>
+  <entry>
+    <id>https://zhul.in/2025/05/31/el-image-and-el-table-why-the-fight-and-what-is-a-stacking-context/</id>
+    <title>Why Do el-image and el-table Clash? What Is a Stacking Context?</title>
+    <updated>2025-05-30T16:29:40.000Z</updated>
+    <link href="https://zhul.in/2025/05/31/el-image-and-el-table-why-the-fight-and-what-is-a-stacking-context/" rel="alternate"></link>
+    <content type="html">
+      <![CDATA[<p>This happened during the internal development of Jinghong’s image hosting service. A freshman reported that <code>el-image</code> and <code>el-table</code> were “clashing.”</p>
+<p><img src="https://static.031130.xyz/uploads/2025/05/31/c6674f6f13955.webp" alt="Screenshot"></p>
+<p>Demo iframe:</p>
+<p><a href="https://static.031130.xyz/demo/el-image-el-table-conflict.html">demo</a></p>
+<iframe src="https://static.031130.xyz/demo/el-image-el-table-conflict.html" width="100%" height="500" allowfullscreen loading="lazy"></iframe>
+<p>When I saw that the table behind was showing through the <code>el-image</code> preview overlay, my first reaction was to ask the student to check whether the <code>z-index</code> was correct—specifically whether the <code>el-image</code> mask overlay had a higher <code>z-index</code> than the table.</p>
+<p><img src="https://static.031130.xyz/uploads/2025/05/31/1c20b4ea0b37e.webp" alt=""></p>
+<p>After testing locally, I confirmed that the <code>z-index</code> was indeed set correctly. So why were the elements behind showing through? A quick Google search led me to this article:</p>
+<p><img src="https://static.031130.xyz/uploads/2025/05/31/99845899e3524.webp" alt=""></p>
+<blockquote>
+<p>Simply add the following CSS to <code>el-table</code>:</p>
+<pre><code class="language-css">.el-table__cell {
+    position: static !important;
+}
+</code></pre>
+</blockquote>
+<p>Testing locally confirmed that this solution works. But why? This is where <strong>Stacking Context</strong> comes into play.</p>
+<h2>What Exactly Is a Stacking Context?</h2>
+<p>Simply put, a Stacking Context is like a canvas. On the same canvas, elements with higher <code>z-index</code> values appear on top of those with lower values, which is why I initially suggested checking <code>z-index</code>. But the catch is that <strong>Stacking Contexts themselves have a hierarchy</strong>.</p>
+<p>Imagine we have two canvases, A and B. On A, there’s an element with <code>z-index: 1145141919810</code>. This element has a very high priority and should appear at the very top of the browser window. But if canvas B has higher priority than canvas A, all elements on B will be displayed above A (essentially “winning by default”). So how is a canvas’s priority determined?</p>
+<ul>
+<li><strong>Between sibling Stacking Contexts, priority is determined by <code>z-index</code>.</strong></li>
+<li><strong>For Stacking Contexts with the same <code>z-index</code>, elements appearing later in the HTML document have higher priority.</strong></li>
+</ul>
+<p>The second rule explains why in the demo, only elements that come after the image cell in the table are showing through.</p>
+<h2>So Why Do <code>el-image</code> and <code>el-table</code> Clash?</h2>
+<p>This conflict is mainly caused by two factors:</p>
+<ol>
+<li>
+<p><code>el-table</code> sets <code>position: relative</code> for each cell. When <code>position</code> is set to <code>relative</code>, the element creates a new Stacking Context.</p>
+<p><img src="https://static.031130.xyz/uploads/2025/05/31/9df43b865b3c6.webp" alt="image-20250531013029154"></p>
+<p>So a table with ten cells actually generates ten canvases, each with <code>z-index: 1</code>. According to the rules above, table cells that appear later in the HTML document have higher priority than the earlier image cell.</p>
+</li>
+<li>
+<p>The overlay used by <code>el-image</code>’s preview feature is placed <strong>inside the <code>el-image</code> element itself</strong>.</p>
+<p><img src="https://static.031130.xyz/uploads/2025/05/31/f18a2b54afd63.webp" alt=""></p>
+<p>The orange area in the image above is the overlay used during preview. The default behavior of Element Plus is to insert the preview overlay inside the <code>&#x3C;el-image></code> tag. This traps the overlay inside a low-priority Stacking Context, allowing content from later table cells to appear on top.</p>
+</li>
+</ol>
+<h2>So What’s the Solution?</h2>
+<h3>Changing the <code>position</code> value works</h3>
+<p>The solution found online, forcing <code>position: static</code> on table cells, works because <code>static</code> does <strong>not</strong> create a new Stacking Context, avoiding the current problem.</p>
+<h3>Placing top-layer elements in the highest-priority context is more common</h3>
+<p>Other component libraries usually handle this by inserting the overlay directly into the <code>body</code> element and giving it a high <code>z-index</code>. This ensures it always appears on top of the screen (same principle used for dialogs, popovers, etc.).</p>
+<p>In fact, Element Plus supports this feature:</p>
+<blockquote>
+<p><strong>preview-teleported:</strong> Determines whether the image viewer overlay is inserted into the <code>body</code>. Should be set to <code>true</code> if the parent element may modify its properties.</p>
+</blockquote>
+<p>So using <code>:preview-teleported="true"</code> with <code>el-image</code> is a more robust approach, because we cannot guarantee that the parent of <code>el-image</code> (besides <code>el-table</code> cells) won’t create another Stacking Context.</p>
+<h2>References</h2>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_positioned_layout/Stacking_context">Stacking Context - CSS | MDN</a></li>
+<li><a href="https://juejin.cn/post/6844903667175260174">Completely Understand CSS Stacking Contexts, Levels, Order, and z-index</a></li>
+<li><a href="https://www.zhangxinxu.com/wordpress/2016/01/understand-css-stacking-context-order-z-index/">Deep Dive into CSS Stacking Context and Stacking Order</a></li>
+<li><a href="https://element-plus.org/zh-CN/component/image.html">Image | Element Plus</a></li>
+<li><a href="https://blog.csdn.net/qq_61402485/article/details/131202117">el-image and el-table display issue</a></li>
+</ul>]]>
+    </content>
+    <published>2025-05-30T16:29:40.000Z</published>
+    <author>
+      <name>竹林里有冰</name>
+      <email>zhullyb@outlook.com</email>
+      <uri>https://zhul.in</uri>
+    </author>
+    <category term="Vue.js"></category>
+    <category term="JavaScript"></category>
+    <category term="CSS"></category>
+    <category term="HTML"></category>
+    <category term="Web"></category>
+  </entry>
 </feed>

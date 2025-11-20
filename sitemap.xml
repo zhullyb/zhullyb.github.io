@@ -220,6 +220,7 @@
         <loc>https://zhul.in/page/2/</loc>
         <xhtml:link rel="alternate" href="https://zhul.in/page/2/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/page/2/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/page/2/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/page/3/</loc>
@@ -740,6 +741,7 @@
         <loc>https://zhul.in/archives/page/2/</loc>
         <xhtml:link rel="alternate" href="https://zhul.in/archives/page/2/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/archives/page/2/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/archives/page/2/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/archives/page/3/</loc>
@@ -795,6 +797,12 @@
         <loc>https://zhul.in/archives/page/13/</loc>
         <xhtml:link rel="alternate" href="https://zhul.in/archives/page/13/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/archives/page/13/" hreflang="zh-CN" />
+    </url>
+    <url>
+        <loc>https://zhul.in/en/page/2/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/page/2/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/page/2/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/page/2/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/en/tags/AST/</loc>
@@ -2621,6 +2629,7 @@
         </image:image>
         <xhtml:link rel="alternate" href="https://zhul.in/2025/05/31/el-image-and-el-table-why-the-fight-and-what-is-a-stacking-context/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/05/31/el-image-and-el-table-why-the-fight-and-what-is-a-stacking-context/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/05/31/el-image-and-el-table-why-the-fight-and-what-is-a-stacking-context/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/2025/06/02/choosing-the-right-video-compression-format-for-web-in-2025/</loc>
@@ -2650,6 +2659,7 @@
         </image:image>
         <xhtml:link rel="alternate" href="https://zhul.in/2025/06/02/choosing-the-right-video-compression-format-for-web-in-2025/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/06/02/choosing-the-right-video-compression-format-for-web-in-2025/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/06/02/choosing-the-right-video-compression-format-for-web-in-2025/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/2025/06/08/front-end-bug-gone-when-open-devtool/</loc>
@@ -2749,15 +2759,72 @@
     </url>
     <url>
         <loc>https://zhul.in/2025/11/05/http-2-server-push-is-practically-obsolete/</loc>
-        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="en-US" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/2025/11/11/dns-cold-start-dilemma/</loc>
-        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/11/11/dns-cold-start-dilemma/" hreflang="en-US" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/11/11/dns-cold-start-dilemma/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/11/11/dns-cold-start-dilemma/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/11/11/dns-cold-start-dilemma/" hreflang="en-US" />
+    </url>
+    <url>
+        <loc>https://zhul.in/en/archives/page/2/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/archives/page/2/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/archives/page/2/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/archives/page/2/" hreflang="en-US" />
+    </url>
+    <url>
+        <loc>https://zhul.in/en/2025/05/31/el-image-and-el-table-why-the-fight-and-what-is-a-stacking-context/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/05/31/c6674f6f13955.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/05/31/1c20b4ea0b37e.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/05/31/99845899e3524.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/05/31/9df43b865b3c6.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/05/31/f18a2b54afd63.webp</image:loc>
+        </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2025/05/31/el-image-and-el-table-why-the-fight-and-what-is-a-stacking-context/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2025/05/31/el-image-and-el-table-why-the-fight-and-what-is-a-stacking-context/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/05/31/el-image-and-el-table-why-the-fight-and-what-is-a-stacking-context/" hreflang="en-US" />
+    </url>
+    <url>
+        <loc>https://zhul.in/en/2025/06/02/choosing-the-right-video-compression-format-for-web-in-2025/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/06/02/aec1af1718064.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/06/02/76a312b5a668b.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/06/02/01ddcc3948406.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/06/02/923ca02e1d835.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/06/02/2e8e5100f645a.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/06/03/a9b473a3bd120.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/06/03/096484dbc0f3a.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/06/03/ec3b5dbcbcc29.webp</image:loc>
+        </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2025/06/02/choosing-the-right-video-compression-format-for-web-in-2025/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2025/06/02/choosing-the-right-video-compression-format-for-web-in-2025/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/06/02/choosing-the-right-video-compression-format-for-web-in-2025/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/en/2025/06/08/front-end-bug-gone-when-open-devtool/</loc>
@@ -2857,15 +2924,15 @@
     </url>
     <url>
         <loc>https://zhul.in/en/2025/11/05/http-2-server-push-is-practically-obsolete/</loc>
-        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="en-US" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/en/2025/11/11/dns-cold-start-dilemma/</loc>
-        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/11/11/dns-cold-start-dilemma/" hreflang="en-US" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/11/11/dns-cold-start-dilemma/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/11/11/dns-cold-start-dilemma/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/11/11/dns-cold-start-dilemma/" hreflang="en-US" />
     </url>
 </urlset>
-<!-- XML Sitemap generated by @nuxtjs/sitemap v7.4.7 at 2025-11-20T10:44:47.678Z -->
+<!-- XML Sitemap generated by @nuxtjs/sitemap v7.4.7 at 2025-11-20T11:37:03.865Z -->
