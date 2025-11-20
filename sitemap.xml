@@ -286,6 +286,7 @@
         <loc>https://zhul.in/tags/Apt/</loc>
         <xhtml:link rel="alternate" href="https://zhul.in/tags/Apt/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/tags/Apt/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/Apt/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Archlinux/</loc>
@@ -374,6 +375,7 @@
         <loc>https://zhul.in/tags/Debian/</loc>
         <xhtml:link rel="alternate" href="https://zhul.in/tags/Debian/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/tags/Debian/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/Debian/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Debug/</loc>
@@ -456,6 +458,7 @@
         <loc>https://zhul.in/tags/Hardware/</loc>
         <xhtml:link rel="alternate" href="https://zhul.in/tags/Hardware/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/tags/Hardware/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/Hardware/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Hexo/</loc>
@@ -489,6 +492,7 @@
         <loc>https://zhul.in/tags/ImmortalWRT/</loc>
         <xhtml:link rel="alternate" href="https://zhul.in/tags/ImmortalWRT/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/tags/ImmortalWRT/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/ImmortalWRT/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/tags/IoT/</loc>
@@ -515,6 +519,7 @@
         <loc>https://zhul.in/tags/Linux/</loc>
         <xhtml:link rel="alternate" href="https://zhul.in/tags/Linux/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/tags/Linux/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/Linux/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Lsky%20Pro/</loc>
@@ -585,11 +590,13 @@
         <loc>https://zhul.in/tags/OpenSource%20Project/</loc>
         <xhtml:link rel="alternate" href="https://zhul.in/tags/OpenSource%20Project/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/tags/OpenSource%20Project/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/OpenSource%20Project/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/tags/OpenSSH/</loc>
         <xhtml:link rel="alternate" href="https://zhul.in/tags/OpenSSH/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/tags/OpenSSH/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/OpenSSH/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/tags/OpenSSL/</loc>
@@ -600,6 +607,7 @@
         <loc>https://zhul.in/tags/OpenWRT/</loc>
         <xhtml:link rel="alternate" href="https://zhul.in/tags/OpenWRT/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/tags/OpenWRT/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/OpenWRT/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/tags/PHP/</loc>
@@ -635,6 +643,7 @@
         <loc>https://zhul.in/tags/Router/</loc>
         <xhtml:link rel="alternate" href="https://zhul.in/tags/Router/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/tags/Router/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/Router/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/tags/RPM%20Package/</loc>
@@ -805,6 +814,12 @@
         <xhtml:link rel="alternate" href="https://zhul.in/en/page/2/" hreflang="en-US" />
     </url>
     <url>
+        <loc>https://zhul.in/en/tags/Apt/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Apt/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Apt/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/Apt/" hreflang="en-US" />
+    </url>
+    <url>
         <loc>https://zhul.in/en/tags/AST/</loc>
         <xhtml:link rel="alternate" href="https://zhul.in/tags/AST/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/tags/AST/" hreflang="zh-CN" />
@@ -853,6 +868,12 @@
         <xhtml:link rel="alternate" href="https://zhul.in/en/tags/CSS/" hreflang="en-US" />
     </url>
     <url>
+        <loc>https://zhul.in/en/tags/Debian/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Debian/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Debian/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/Debian/" hreflang="en-US" />
+    </url>
+    <url>
         <loc>https://zhul.in/en/tags/Debug/</loc>
         <xhtml:link rel="alternate" href="https://zhul.in/tags/Debug/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/tags/Debug/" hreflang="zh-CN" />
@@ -895,6 +916,12 @@
         <xhtml:link rel="alternate" href="https://zhul.in/en/tags/Github%20Action/" hreflang="en-US" />
     </url>
     <url>
+        <loc>https://zhul.in/en/tags/Hardware/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Hardware/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Hardware/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/Hardware/" hreflang="en-US" />
+    </url>
+    <url>
         <loc>https://zhul.in/en/tags/HTML/</loc>
         <xhtml:link rel="alternate" href="https://zhul.in/tags/HTML/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/tags/HTML/" hreflang="zh-CN" />
@@ -913,10 +940,22 @@
         <xhtml:link rel="alternate" href="https://zhul.in/en/tags/Image%20Hosting/" hreflang="en-US" />
     </url>
     <url>
+        <loc>https://zhul.in/en/tags/ImmortalWRT/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/ImmortalWRT/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/ImmortalWRT/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/ImmortalWRT/" hreflang="en-US" />
+    </url>
+    <url>
         <loc>https://zhul.in/en/tags/JavaScript/</loc>
         <xhtml:link rel="alternate" href="https://zhul.in/tags/JavaScript/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/tags/JavaScript/" hreflang="zh-CN" />
         <xhtml:link rel="alternate" href="https://zhul.in/en/tags/JavaScript/" hreflang="en-US" />
+    </url>
+    <url>
+        <loc>https://zhul.in/en/tags/Linux/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Linux/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Linux/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/Linux/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/en/tags/Markdown/</loc>
@@ -947,6 +986,30 @@
         <xhtml:link rel="alternate" href="https://zhul.in/tags/OCSP/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/tags/OCSP/" hreflang="zh-CN" />
         <xhtml:link rel="alternate" href="https://zhul.in/en/tags/OCSP/" hreflang="en-US" />
+    </url>
+    <url>
+        <loc>https://zhul.in/en/tags/OpenSource%20Project/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/OpenSource%20Project/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/OpenSource%20Project/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/OpenSource%20Project/" hreflang="en-US" />
+    </url>
+    <url>
+        <loc>https://zhul.in/en/tags/OpenSSH/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/OpenSSH/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/OpenSSH/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/OpenSSH/" hreflang="en-US" />
+    </url>
+    <url>
+        <loc>https://zhul.in/en/tags/OpenWRT/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/OpenWRT/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/OpenWRT/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/OpenWRT/" hreflang="en-US" />
+    </url>
+    <url>
+        <loc>https://zhul.in/en/tags/Router/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Router/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Router/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/Router/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/en/tags/Sass/</loc>
@@ -2572,6 +2635,7 @@
         </image:image>
         <xhtml:link rel="alternate" href="https://zhul.in/2025/02/28/cudy-tr3000-daed-install-record/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/02/28/cudy-tr3000-daed-install-record/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/02/28/cudy-tr3000-daed-install-record/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/2025/03/30/apt-upgrade-on-internal-server-via-ssh-tunnel-and-reverse-proxy/</loc>
@@ -2598,6 +2662,7 @@
         </image:image>
         <xhtml:link rel="alternate" href="https://zhul.in/2025/03/30/apt-upgrade-on-internal-server-via-ssh-tunnel-and-reverse-proxy/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/03/30/apt-upgrade-on-internal-server-via-ssh-tunnel-and-reverse-proxy/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/03/30/apt-upgrade-on-internal-server-via-ssh-tunnel-and-reverse-proxy/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/2025/04/21/how-we-copy-text-to-clipboard-with-js-in-2025/</loc>
@@ -2609,6 +2674,7 @@
         </image:image>
         <xhtml:link rel="alternate" href="https://zhul.in/2025/04/21/how-we-copy-text-to-clipboard-with-js-in-2025/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/04/21/how-we-copy-text-to-clipboard-with-js-in-2025/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/04/21/how-we-copy-text-to-clipboard-with-js-in-2025/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/2025/05/31/el-image-and-el-table-why-the-fight-and-what-is-a-stacking-context/</loc>
@@ -2776,6 +2842,105 @@
         <xhtml:link rel="alternate" href="https://zhul.in/en/archives/page/2/" hreflang="en-US" />
     </url>
     <url>
+        <loc>https://zhul.in/en/2025/02/28/cudy-tr3000-daed-install-record/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/02/23/8b0a4d5812179.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/02/23/ef2b394e6fc0d.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/02/28/1c066cb1dab3f.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/02/28/3582e569954a6.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/02/28/6fe8107a87e87.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/02/28/79caf5f643689.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/02/28/79d300bb33d21.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/02/28/bc29dc9cad24a.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/02/28/f98051faba608.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/02/28/547c5d324f0a0.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/02/28/46b4fc5be8c82.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/02/28/41c250db91756.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/02/28/e56084ff09a5d.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/02/28/dc4fa4a688cf5.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/02/28/551f1f2eb9ab4.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/02/28/651bed7ad4aba.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/03/01/9fcee79afa63b.png</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/03/01/6716d723a2b0d.png</image:loc>
+        </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2025/02/28/cudy-tr3000-daed-install-record/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2025/02/28/cudy-tr3000-daed-install-record/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/02/28/cudy-tr3000-daed-install-record/" hreflang="en-US" />
+    </url>
+    <url>
+        <loc>https://zhul.in/en/2025/03/30/apt-upgrade-on-internal-server-via-ssh-tunnel-and-reverse-proxy/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/03/30/0447b7d64886a.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/03/30/8ef15a08e4852.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/03/30/a9083c95c07a2.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/03/30/597c4af0d398d.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/03/30/46e3c7030ded4.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/03/30/a8f0c70d48f5b.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/03/30/07919bf939e92.webp</image:loc>
+        </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2025/03/30/apt-upgrade-on-internal-server-via-ssh-tunnel-and-reverse-proxy/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2025/03/30/apt-upgrade-on-internal-server-via-ssh-tunnel-and-reverse-proxy/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/03/30/apt-upgrade-on-internal-server-via-ssh-tunnel-and-reverse-proxy/" hreflang="en-US" />
+    </url>
+    <url>
+        <loc>https://zhul.in/en/2025/04/21/how-we-copy-text-to-clipboard-with-js-in-2025/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/04/19/3437b1c022853.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/04/19/7f5310ca03c80.webp</image:loc>
+        </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2025/04/21/how-we-copy-text-to-clipboard-with-js-in-2025/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2025/04/21/how-we-copy-text-to-clipboard-with-js-in-2025/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/04/21/how-we-copy-text-to-clipboard-with-js-in-2025/" hreflang="en-US" />
+    </url>
+    <url>
         <loc>https://zhul.in/en/2025/05/31/el-image-and-el-table-why-the-fight-and-what-is-a-stacking-context/</loc>
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2025/05/31/c6674f6f13955.webp</image:loc>
@@ -2935,4 +3100,4 @@
         <xhtml:link rel="alternate" href="https://zhul.in/en/2025/11/11/dns-cold-start-dilemma/" hreflang="en-US" />
     </url>
 </urlset>
-<!-- XML Sitemap generated by @nuxtjs/sitemap v7.4.7 at 2025-11-20T15:46:38.840Z -->
+<!-- XML Sitemap generated by @nuxtjs/sitemap v7.4.7 at 2025-11-20T16:03:30.063Z -->

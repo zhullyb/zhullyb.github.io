@@ -1502,4 +1502,335 @@ That’s <em>our</em> trench—the frontend engineer’s battlefield.</p>
     <category term="HTML"></category>
     <category term="Web"></category>
   </entry>
+  <entry>
+    <id>https://zhul.in/2025/04/21/how-we-copy-text-to-clipboard-with-js-in-2025/</id>
+    <title>How to Copy Text to Clipboard with JavaScript in 2025</title>
+    <updated>2025-04-21T11:48:05.000Z</updated>
+    <link href="https://zhul.in/2025/04/21/how-we-copy-text-to-clipboard-with-js-in-2025/" rel="alternate"></link>
+    <content type="html">
+      <![CDATA[<h2>Fundamental Principles</h2>
+<p>If you try searching for this article's title on a search engine, the articles you find will likely suggest using the following two APIs. <del>I hope your search engine isn't so outdated that it's still recommending Flash-based ZeroClipboard solutions in 2025</del></p>
+<h3><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/execCommand">document.execCommand</a></h3>
+<p>2012 brought us not only the supposed end of the world, but also IE 10. With IE 10's release on September 4th of that year, the execCommand family welcomed two new members—the copy/cut commands (this claim comes from <a href="https://developer.chrome.com/blog/cut-and-copy-commands">Chrome's blog</a>, while <a href="https://web.archive.org/web/20160315042044/https://developer.mozilla.org/en-US/docs/Web/API/Document/execCommand">MDN believes IE 9 already supported it</a>). Three years later, when Google Chrome version 42 (released April 14, 2015) added support for execCommand's copy/cut, more and more browser vendors began implementing this standard. Finally, with Safari 10 on iOS released on September 13, 2016, web developers at last obtained the first non-Flash JavaScript solution for copying to clipboard in history.</p>
+<p>When document.execCommand's first parameter is "copy", it can copy user-selected text to the clipboard. Based on this API implementation, someone quickly developed what became the most common JavaScript implementation on the web today—first create an invisible DOM element, use JavaScript to simulate user text selection, and call execCommand('copy') to copy the text to the user's clipboard. The rough code implementation is as follows:</p>
+<pre><code class="language-javascript">// From the article "Pitfalls and Complete Solution for JS Copy Text to Clipboard", with a link at the end of this article
+
+const textArea = document.createElement("textArea");
+textArea.value = val;
+textArea.style.width = 0;
+textArea.style.position = "fixed";
+textArea.style.left = "-999px";
+textArea.style.top = "10px";
+textArea.setAttribute("readonly", "readonly");
+document.body.appendChild(textArea);
+
+textArea.select();
+document.execCommand("copy");
+document.body.removeChild(textArea);
+</code></pre>
+<p>Although <strong>this API has long been deprecated by W3C</strong> and is marked as Deprecated on MDN, it remains the most common solution in the market. While writing this article, I examined MDN's English original page on archive.org and its change history on Github. This API was first marked as Obsolete in <a href="https://web.archive.org/web/20200221235207/https://developer.mozilla.org/en-US/docs/Web/API/Document/execCommand">January-February 2020</a>, then first marked as Deprecated in <a href="https://github.com/mdn/content/commit/0c31e2bc4d6601a079bc57521e79529539c8cf68#diff-85ef9d1e72565f0ae2ffd8199d10b34c11c615aec5d116057ac2a33c21cc072f">January 2021</a>, with a red background color warning developers that the API <strong>may stop working at any time</strong>. However, as of this article's publication, all commonly used browsers still maintain compatibility with this API, at least for the copy command.</p>
+<p>This API has been widely used on so many sites that removing support for it would cause massive site failures. I believe all browser engines likely have no motivation in the short term to remove this API at the cost of losing compatibility. This means that this (seemingly bizarre) workaround of creating an invisible DOM to replace user text selection and executing execCommand to copy to the user's clipboard has left a significant mark in the history of frontend development.</p>
+<h3><a href="https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText">Clipboard.writeText()</a></h3>
+<p>As native JavaScript was gradually enhanced, developers finally completed the Clipboard piece of the puzzle. On April 17, 2018, Chrome 66 took the first step; on October 23 of the same year, Firefox followed with the Clipboard API implementation. Finally, on March 24, 2020, with Apple's Safari 13.4 belatedly joining, frontend developers could finally breathe a sigh of relief, once again obtaining a copying solution that works across mainstream browsers.</p>
+<p><strong>So if execCommand already achieved pure JavaScript text copying to clipboard, why do we still need the Clipboard API? Or rather, what advantages does this deliberately implemented Clipboard API actually have?</strong></p>
+<ol>
+<li>The traditional execCommand solution typically requires creating a temporary invisible DOM, placing text, selecting text with JS, and executing the copy command. Setting aside how inelegant this hacky approach is when writing code, the operation of using JS to select text modifies the user's current text selection state, sometimes leading to decreased user experience.</li>
+<li>The Clipboard API is asynchronous, meaning it won't block the main thread when copying large amounts of text.</li>
+<li>The Clipboard API provides more capabilities, such as <code>write()</code> and <code>read()</code> allowing reading and writing more complex data to the clipboard, like rich text or images.</li>
+<li>The Clipboard API has more modern, explicit permission controls—write operations need to be called by active user actions, while read operations require users to explicitly grant permission in the browser UI. These permission controls give users greater control, so when execCommand exits the historical stage, web security will be further improved.</li>
+</ol>
+<p>However, at the current stage, <code>Clipboard.writeText()</code> may not solve all problems. Setting aside old browser compatibility issues, <code>navigator.clipboard</code> <strong>is only available on pages accessed via HTTPS</strong> (or localhost). If your project is deployed on a LAN and you try to access it directly via 192.18.1.x IP + port, then <code>navigator.clipboard</code> will be in an <code>undefined</code> state.</p>
+<p><img src="https://static.031130.xyz/uploads/2025/04/19/3437b1c022853.webp" alt=""></p>
+<p>Additionally, <strong>Android native WebView</strong> has the problem of <strong>not being able to use</strong> the Clipboard API because the Permissions API isn't implemented.</p>
+<p>For these reasons, many websites now prioritize trying to use <code>navigator.clipboard.writeText()</code>, then fall back to using <code>execCommand('copy')</code> if that fails. The rough code implementation is as follows:</p>
+<pre><code class="language-javascript">// From the article "Pitfalls and Complete Solution for JS Copy Text to Clipboard", with a link at the end of this article
+
+const copyText = async val => {
+  if (navigator.clipboard &#x26;&#x26; navigator.permissions) {
+    await navigator.clipboard.writeText(val);
+  } else {
+    const textArea = document.createElement("textArea");
+    textArea.value = val;
+    textArea.style.width = 0;
+    textArea.style.position = "fixed";
+    textArea.style.left = "-999px";
+    textArea.style.top = "10px";
+    textArea.setAttribute("readonly", "readonly");
+    document.body.appendChild(textArea);
+
+    textArea.select();
+    document.execCommand("copy");
+    document.body.removeChild(textArea);
+  }
+};
+</code></pre>
+<h3><del>Flash Solution (<a href="https://github.com/zeroclipboard/zeroclipboard">ZeroClipboard</a>)</del></h3>
+<p>Actually, the two APIs above pretty much cover the fundamental principles, but while researching, I discovered that before the execCommand solution, the frontend mostly relied on Flash to implement copying text to clipboard. How could I not mention this?</p>
+<p>Currently, the oldest tag that can be found in the ZeroClipboard Github repository is <a href="https://github.com/zeroclipboard/zeroclipboard/releases/tag/v1.0.7">v1.0.7</a>, released on June 9, 2012. I bet this project wasn't the first to implement copying text to clipboard through Flash. Someone must have implemented this functionality using Flash before, just not open-sourced as a separate library.</p>
+<p>ZeroClipboard worked by creating a transparent Flash Movie overlaying the trigger button. When users clicked the button, they actually clicked on the Flash Movie. JavaScript then communicated with the Flash Movie through <code>ExternalInterface</code>, passing the text to be copied to Flash, which then wrote the text to the user's clipboard via Flash's API.</p>
+<p>In that era's context, this was the only solution that could implement cross-browser text copying to clipboard (although not every computer had Flash installed, and iOS didn't support Flash). The 6.6k star Github repository witnessed that chaotic era when each browser held onto its own private APIs, ultimately falling along with Flash as the execCommand solution rose.</p>
+<h3>Other Imperfect Solutions</h3>
+<h4>window.clipboardData.setData</h4>
+<p>This API was mainly used around 2000-2010 and only worked in IE browsers. Firefox didn't support pure JavaScript copying to browser during this period; Chrome's first version wasn't released until 2008 and hadn't yet become mainstream.</p>
+<pre><code class="language-javascript">window.clipboardData.setData("Text", text2copy);
+</code></pre>
+<h4>Giving Up (prompt)</h4>
+<p>Call a prompt popup to let users copy themselves.</p>
+<pre><code class="language-javascript">prompt('Press Ctrl + C, then Enter to copy to clipboard','copy me')
+</code></pre>
+<p><img src="https://static.031130.xyz/uploads/2025/04/19/7f5310ca03c80.webp" alt=""></p>
+<h2>Third-Party Library Wrappers</h2>
+<p>Since the execCommand solution is too abstract and not elegant enough, we have some ready-made third-party libraries that wrap the clipboard copying code.</p>
+<h3><a href="https://github.com/zenorocha/clipboard.js/">clipboard.js</a></h3>
+<p>clipboard.js is the most renowned third-party library, with 34.1k stars on Github as of this article's completion. The earliest tag version was released on October 28, 2015, one month after Firefox supported execCommand and all three major PC browsers achieved full compatibility.</p>
+<p>clipboard.js <a href="https://github.com/zenorocha/clipboard.js/blob/master/src/common/command.js">only uses execCommand</a> to implement clipboard copying. The project owner expects developers to use <code>ClipboardJS.isSupported()</code> to determine whether the user's browser supports the execCommand solution, and arrange success/failure actions based on the command execution's return value.</p>
+<p>However, what I find strange is that clipboard.js requires developers to pass a DOM selector (or HTML element/element list) when instantiating. It must have an actual HTML element to set event listeners to trigger the copy operation, rather than providing a JavaScript function for developers to call—although this isn't a limitation from execCommand. Example as follows:</p>
+<pre><code class="language-html">&#x3C;!-- Target -->
+&#x3C;input id="foo" value="text2copy" />
+
+&#x3C;!-- Trigger -->
+&#x3C;button class="btn" data-clipboard-target="#foo">&#x3C;/button>
+
+&#x3C;script>
+	new ClipboardJS('.btn');
+&#x3C;/script>
+</code></pre>
+<p>Yes, just one line of JavaScript can add listeners to all DOMs with the btn class. Perhaps this is why this repository got 34.1k stars. In 2015, when most people were still writing frontends with vanilla HTML/CSS/JS, clipboard.js could reduce code volume without requiring developers to set up listeners themselves.</p>
+<p>clipboard.js also provides many advanced options to meet different developers' needs, such as allowing you to pass a function to get the text you need users to copy, or use Event listeners to provide feedback on whether copying succeeded. In short, the flexibility is sufficient.</p>
+<h3><a href="https://github.com/sudodoki/copy-to-clipboard">copy-to-clipboard</a></h3>
+<p>Another third-party library <a href="https://github.com/sudodoki/copy-to-clipboard/blob/main/index.js#L79">using execCommand</a>, though with only 1.3k stars. The first tag version was released on May 24, 2015, even earlier than clipboard.js. Compared to clipboard.js, copy-to-clipboard doesn't depend on HTML elements and can be called directly in JavaScript, which I personally prefer. In modern frontend frameworks like Vue/React, we generally don't directly manipulate the DOM, so clipboard.js isn't very suitable, but this copy-to-clipboard works well. Additionally, besides the execCommand solution, copy-to-clipboard specifically adapts the <code>window.clipboardData.setData</code> solution for older IE browsers, and calls a prompt window to let users copy manually as a final fallback when both fail.</p>
+<p>Example as follows:</p>
+<pre><code class="language-javascript">import copy from 'copy-to-clipboard';
+
+copy('Text');
+</code></pre>
+<p>Compared to clipboard.js, the usage approach is more intuitive, but unfortunately it was born at the wrong time and isn't as famous as clipboard.js (naming might also be a factor).</p>
+<h3><a href="https://vueuse.org/core/useClipboard/">VueUse - useClipboard</a></h3>
+<p>VueUse's implementation of useClipboard is the one I'm most satisfied with. useClipboard fully considers browser compatibility, <strong>prioritizing <code>navigator.clipboard.writeText()</code></strong> when conditions for using navigator.clipboard are met, then <strong>falling back to execCommand-implemented legacyCopy</strong> when navigator.clipboard isn't supported or <code>navigator.clipboard.writeText()</code> fails. It also leverages Vue3's Composables to implement a copied variable that automatically resets to its initial state after 1.5 seconds, which is quite thoughtful.</p>
+<pre><code class="language-vue">const { text, copy, copied, isSupported } = useClipboard({ source })
+&#x3C;/script>
+
+&#x3C;template>
+  &#x3C;div v-if="isSupported">
+    &#x3C;button @click="copy(source)">
+      &#x3C;!-- by default, `copied` will be reset in 1.5s -->
+      &#x3C;span v-if="!copied">Copy&#x3C;/span>
+      &#x3C;span v-else>Copied!&#x3C;/span>
+    &#x3C;/button>
+    &#x3C;p>Current copied: &#x3C;code>{{ text || 'none' }}&#x3C;/code>&#x3C;/p>
+  &#x3C;/div>
+  &#x3C;p v-else>
+    Your browser does not support Clipboard API
+  &#x3C;/p>
+&#x3C;/template>
+</code></pre>
+<h3>React-Related Ecosystem</h3>
+<p>Unlike Vue's VueUse dominating the scene, React has many available hooks libraries, so let's go through them all.</p>
+<h4><a href="https://github.com/streamich/react-use">react-use - useCopyToClipboard</a></h4>
+<p>react-use is the largest React Hooks library I could find, with 42.9k stars. The copying solution directly depends on <a href="https://github.com/sudodoki/copy-to-clipboard">copy-to-clipboard</a> mentioned above, which is the execCommand solution.</p>
+<pre><code class="language-jsx">const Demo = () => {
+  const [text, setText] = React.useState('');
+  const [state, copyToClipboard] = useCopyToClipboard();
+
+  return (
+    &#x3C;div>
+      &#x3C;input value={text} onChange={e => setText(e.target.value)} />
+      &#x3C;button type="button" onClick={() => copyToClipboard(text)}>copy text&#x3C;/button>
+      {state.error
+        ? &#x3C;p>Unable to copy value: {state.error.message}&#x3C;/p>
+        : state.value &#x26;&#x26; &#x3C;p>Copied {state.value}&#x3C;/p>}
+    &#x3C;/div>
+  )
+}
+</code></pre>
+<h4><a href="https://ant.design/components/typography#typography-demo-copyable">Ant Design - Typography</a></h4>
+<p>ahooks was the first React hooks library mentioned to me. It's maintained by the Ant Design team. However, it doesn't have clipboard encapsulation in the repository, so I looked into Ant Design's Typography implementation of copying capability. Like react-use above, it directly uses <a href="https://github.com/sudodoki/copy-to-clipboard">copy-to-clipboard</a>, which is the execCommand solution.</p>
+<h4><a href="https://usehooks.com/usecopytoclipboard">usehooks - useCopyToClipboard</a></h4>
+<p>I learned about this library from an LLM, and it now has 10.5k stars. What's quite absurd is that all its logic code is implemented in a single file called index.js, which is truly baffling. It first attempts to write using <code>navigator.clipboard.writeText()</code>, then switches to the execCommand solution if that fails. The hooks usage is similar to react-use above.</p>
+<h4><a href="https://usehooks-ts.com/react-hook/use-copy-to-clipboard">usehooks-ts - useCopyToClipboard</a></h4>
+<p>I wonder if this library was created to solve the lack of TypeScript support in the above one. It only uses <code>navigator.clipboard.writeText()</code> to attempt writing to the clipboard, and directly logs a <code>console.warn</code> error if it fails, with no fallback solution.</p>
+<h2>Conclusion</h2>
+<p>From a results perspective, VueUse's encapsulation is undoubtedly the most satisfying to me. It prioritizes trying the best-performing Clipboard API, then falls back to execCommand, while providing multiple reactive variables to assist development, but doesn't presumptuously use prompt as a guarantee, maximizing the operational space left to developers.</p>
+<p>Looking back from the vantage point of 2025, the evolution trajectory of frontend clipboard operation technology is clearly visible: from early fragile Flash-dependent solutions, to execCommand's workaround, and finally moving toward the elegant implementation of standardized Clipboard API. This journey is not only a microcosm of technological iteration, but also reflects the unique "art of compromise" in frontend development.</p>
+<p>For a long time to come, we may still be finding balance between "elegant implementation" and "backward compatibility," dancing ballet in shackles within the browser sandbox. But those temporary solutions born for compatibility will eventually become precious footnotes witnessing the evolution of frontend history.</p>
+<h2>References</h2>
+<ul>
+<li><a href="https://liruifengv.com/posts/copy-text/">Pitfalls and Complete Solution for JS Copy Text to Clipboard</a></li>
+<li><a href="https://jiongks.name/blog/zeroclipboard-intro">ZeroClipboard Study Notes | Jiongks</a></li>
+<li><a href="https://developer.chrome.com/blog/cut-and-copy-commands">Cut and copy commands | Blog | Chrome for Developers</a></li>
+<li><a href="https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/platform-apis/ms536419(v=vs.85)">execCommand method (Internet Explorer) | Microsoft Learn</a></li>
+<li><a href="https://github.com/sudodoki/copy-to-clipboard">sudodoki/copy-to-clipboard</a></li>
+<li><a href="https://github.com/zenorocha/clipboard.js/">zenorocha/clipboard.js</a></li>
+<li><a href="https://vueuse.org/core/useClipboard/">useClipboard | VueUse</a></li>
+<li><a href="https://streamich.github.io/react-use/?path=/story/side-effects-usecopytoclipboard--docs">Side-effects / useCopyToClipboard - Docs ⋅ Storybook</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Document/execCommand">document.execCommand - Web API | MDN</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText">Clipboard.writeText() - Web API | MDN</a></li>
+<li><a href="https://www.sitepoint.com/community/t/onclick-select-all-and-copy-to-clipboard/3837/2">Onclick Select All and Copy to Clipboard? - JavaScript - SitePoint Forums | Web Development &#x26; Design Community</a></li>
+<li><a href="https://stackoverflow.com/questions/16526814/how-would-i-implement-copy-url-to-clipboard-from-a-link-or-button-using-javasc">How would I implement 'copy url to clipboard' from a link or button using javascript or dojo without flash - Stack Overflow</a></li>
+</ul>]]>
+    </content>
+    <published>2025-04-21T11:48:05.000Z</published>
+    <author>
+      <name>竹林里有冰</name>
+      <email>zhullyb@outlook.com</email>
+      <uri>https://zhul.in</uri>
+    </author>
+    <category term="JavaScript"></category>
+  </entry>
+  <entry>
+    <id>https://zhul.in/2025/03/30/apt-upgrade-on-internal-server-via-ssh-tunnel-and-reverse-proxy/</id>
+    <title>SSH to the Rescue - Running APT Updates on Internal Network Servers via SSH Tunnels</title>
+    <updated>2025-03-30T13:45:24.000Z</updated>
+    <link href="https://zhul.in/2025/03/30/apt-upgrade-on-internal-server-via-ssh-tunnel-and-reverse-proxy/" rel="alternate"></link>
+    <content type="html">
+      <![CDATA[<p>This all started when Jinghong's <a href="https://blog.cnpatrickstar.com/">former technical director</a> complained that the school's internal network servers couldn't connect to the external network, making APT installation and updates extremely difficult. He had to manually download packages from the source, along with their dependencies, and the dependencies of those dependencies... and then transfer all these packages to the server via sftp/rsync or similar methods for manual installation.</p>
+<p><img src="https://static.031130.xyz/uploads/2025/03/30/0447b7d64886a.webp" alt=""></p>
+<p>Thus, this article was born. We can use Caddy (Nginx works too, of course) on our local machine to reverse proxy an APT mirror site, establish port forwarding through an SSH tunnel, allowing the internal network server to access the local Caddy server and thereby reach the external mirror site.</p>
+<h2>Prerequisites</h2>
+<ul>
+<li>Your control machine (your own computer) can directly connect to the computer via SSH (possibly using some network tools), rather than first logging into a jump host via SSH and then logging into the target server from there. The latter situation can certainly achieve our goal using similar methods, but would be more complex.</li>
+<li>Your control machine (your own computer) can connect to public mirror sites while connected to the internal network server (<del>if not, you might want to sync a local mirror in advance to create an offline mirror site</del>).</li>
+</ul>
+<h2>Reverse Proxying the Mirror Site</h2>
+<p>I chose Caddy over Nginx here - on one hand, Caddy's configuration files are simpler to write, and on the other hand, Caddy is written in Golang, so it's a single binary that works everywhere, and Windows can directly <a href="https://caddyserver.com/download">download</a> and run it.</p>
+<p>Using the most common Tsinghua TUNA mirror site as an example, a simple Caddy configuration file looks like this:</p>
+<pre><code class="language-nginx">:8080 {
+    reverse_proxy https://mirrors.tuna.tsinghua.edu.cn {
+        header_up Host {http.reverse_proxy.upstream.hostport}
+    }
+}
+</code></pre>
+<p>Save the above code as a file named Caddyfile, then run it using the caddy command in the saved path:</p>
+<pre><code class="language-bash">caddy run --config ./Caddyfile
+</code></pre>
+<p><img src="https://static.031130.xyz/uploads/2025/03/30/8ef15a08e4852.webp" alt=""></p>
+<p>If there are no errors, you should be able to see the Tsinghua mirror site on your local port 8080:</p>
+<p><img src="https://static.031130.xyz/uploads/2025/03/30/a9083c95c07a2.webp" alt=""></p>
+<blockquote>
+<p>You may notice that the reverse proxied page differs slightly from Tsinghua's mirror site - it doesn't have Tsinghua's logo. This is probably because the page's JavaScript checks the host, and if it's not Tsinghua or BFSU's page, it won't add the school name. But this doesn't affect our ability to fetch updates from these mirror sites.</p>
+</blockquote>
+<h2>Establishing the SSH Tunnel</h2>
+<p>To establish the tunnel, use the following command:</p>
+<pre><code class="language-bash">ssh -R 8085:localhost:8080 root@remote.example.com
+</code></pre>
+<p>The -R flag indicates establishing a reverse tunnel. For other parameter options, you can refer to this blog post "<a href="https://www.entropy-tree.top/2024/04/18/ssh-tunneling-techniques/">SSH Tunneling Techniques</a>", also written by a Jinghong senior.</p>
+<p>At this point, we've established SSH port forwarding from the internal network server's port 8085 to our local machine's port 8080. (I used port 8085 to distinguish it from port 8080; in practice, you can use any available port)</p>
+<p>We can test whether we can access it normally on the server using curl. Here I simply accessed a README file in the Debian source root directory:</p>
+<pre><code class="language-bash">curl http://localhost:8085/debian/README
+</code></pre>
+<p><img src="https://static.031130.xyz/uploads/2025/03/30/597c4af0d398d.webp" alt=""></p>
+<h2>Changing Sources</h2>
+<p>So now we have a reverse proxy of the Tsinghua open source mirror site on the internal network server's port 8085, and we can access all content in the mirror site through port 8085.</p>
+<p>First, follow the <a href="https://mirrors.tuna.tsinghua.edu.cn/help/debian/">instructions from Tsinghua Open Source Mirror Site</a> to change sources. <strong>Remember to check "Force security updates to use mirror"</strong>.</p>
+<p><img src="https://static.031130.xyz/uploads/2025/03/30/46e3c7030ded4.webp" alt=""></p>
+<p>Then, we replace all instances of <a href="https://mirrors.tuna.tsinghua.edu.cn">https://mirrors.tuna.tsinghua.edu.cn</a> in the sources with <a href="http://localhost:8085">http://localhost:8085</a>:</p>
+<pre><code class="language-bash">sed -i 's|https\?://mirrors\.tuna\.tsinghua\.edu\.cn|http://localhost:8085|g' `grep -rlE 'http(s)?://mirrors\.tuna\.tsinghua\.edu\.cn' /etc/apt/`
+</code></pre>
+<p><img src="https://static.031130.xyz/uploads/2025/03/30/a8f0c70d48f5b.webp" alt="Running apt update"></p>
+<p><img src="https://static.031130.xyz/uploads/2025/03/30/07919bf939e92.webp" alt="Installing unzip using apt"></p>
+<p>As you can see, we've successfully implemented APT updates and software installation on the internal network server through an SSH tunnel.</p>
+<blockquote>
+<p>Friendly reminder: SSH tunnels were frequently used in the early 2010s to establish cross-border access, but quickly faded from the scene due to their distinctive traffic characteristics. Therefore, don't use SSH for large amounts of cross-border network transmission, as it's easy to get blocked.</p>
+</blockquote>
+<p>Of course, there are many ways to achieve this goal. Other tools like frp can achieve the same effect, but the SSH tunnel solution can be started and stopped on demand without additional configuration, which is why I primarily recommend it.</p>]]>
+    </content>
+    <published>2025-03-30T13:45:24.000Z</published>
+    <author>
+      <name>竹林里有冰</name>
+      <email>zhullyb@outlook.com</email>
+      <uri>https://zhul.in</uri>
+    </author>
+    <category term="Apt"></category>
+    <category term="Network"></category>
+    <category term="OpenSSH"></category>
+    <category term="Caddy"></category>
+    <category term="Linux"></category>
+    <category term="Debian"></category>
+  </entry>
+  <entry>
+    <id>https://zhul.in/2025/02/28/cudy-tr3000-daed-install-record/</id>
+    <title>Cudy TR3000 daed Installation Guide</title>
+    <updated>2025-02-28T13:18:34.000Z</updated>
+    <link href="https://zhul.in/2025/02/28/cudy-tr3000-daed-install-record/" rel="alternate"></link>
+    <content type="html">
+      <![CDATA[<h2>Background</h2>
+<p>Not long ago, I spotted the Cudy TR3000 router I'd been eyeing for a while at a discount price of ¥153 on JD.com. While it wasn't quite the all-time low of ¥130 (or even ¥110 with bundled deals), it was within my acceptable range. So I immediately ordered this Cudy TR3000 mini router I'd been longing for, to help ease my pre-semester anxiety (a mental condition).</p>
+<p><img src="https://static.031130.xyz/uploads/2025/02/23/8b0a4d5812179.webp" alt=""></p>
+<p>This router is powered by Type-C and features one 2.5Gbps WAN port and one 1Gbps LAN port. Additionally, it has a USB port that can be used for printer sharing, mounting external storage, Android phone USB network sharing, and various other purposes. What really attracted me was its compact size, making it perfect for business trips, travel, short-term rentals, and similar scenarios. Considering I might need to rent a place for an upcoming internship, I seized this opportunity to order it.</p>
+<p><img src="https://static.031130.xyz/uploads/2025/02/23/ef2b394e6fc0d.webp" alt="Size comparison with a Xiaomi 8 phone"></p>
+<p>The official firmware is a customized version of OpenWRT with limited functionality, so I decided to flash the original OpenWRT system to increase its capabilities. On the Enshan wireless forum, I found that someone had already compiled <a href="https://www.right.com.cn/forum/forum.php?mod=viewthread&#x26;tid=8418091">an OpenWRT system based on Linux kernel 6.6</a>. This meets the kernel version requirement (>= 5.17) for dae's Bind to LAN feature, and the 512MB memory size just reaches the recommended minimum. So I definitely had to give dae a try. If successful, this would be my first hardware router running dae.</p>
+<hr>
+<h2>Starting the Flashing Process</h2>
+<p>The router's official system management interface is at 192.168.10.1. On first access, you'll be asked to set a password, then just click through the initialization process to reach the main page. My unit has firmware version <code>2.3.2-20241226</code>. I'm not sure if later versions can still use this method.</p>
+<p><img src="https://static.031130.xyz/uploads/2025/02/28/1c066cb1dab3f.webp" alt=""></p>
+<h3>Transition Firmware</h3>
+<p>First, we need to flash the so-called "transition firmware". The purpose of flashing transition firmware is that it can be recognized by the official system's upgrade program, allowing us to proceed with subsequent operations.</p>
+<p>The transition firmware filename and MD5 hash:</p>
+<pre><code>b8333d8eebd067fcb43bec855ac22364  cudy_tr3000-v1-sysupgrade.bin
+</code></pre>
+<p>Then we can find the firmware upgrade section in the basic settings of the router's management page, and select the transition firmware to upload and update in the local update section.</p>
+<p><img src="https://static.031130.xyz/uploads/2025/02/28/3582e569954a6.webp" alt=""></p>
+<h3>Flash Firmware to Unlock FIP Partition Write Permission</h3>
+<p>After flashing the transition firmware, wait about one minute for the router's DHCP to restart, and we can access the transition firmware's management page at 192.168.1.1.</p>
+<p><img src="https://static.031130.xyz/uploads/2025/02/28/6fe8107a87e87.webp" alt=""></p>
+<p>There's no password on first login - you can enter anything to log in successfully. Considering we might need to restore factory settings later, it's recommended to back up the FIP partition at this step.</p>
+<p><img src="https://static.031130.xyz/uploads/2025/02/28/79caf5f643689.webp" alt=""></p>
+<p>This time we need to flash the following LEDE firmware to unlock FIP partition write permission. The filename and MD5 are provided below:</p>
+<pre><code>4af5129368cbf0d556061f682b1614f2  openwrt-mediatek-filogic-cudy_tr3000-v1-squashfs-sysupgrade.bin
+</code></pre>
+<p>Select flash firmware below, upload the firmware we need to flash, and proceed.</p>
+<p><img src="https://static.031130.xyz/uploads/2025/02/28/79d300bb33d21.webp" alt=""></p>
+<p><img src="https://static.031130.xyz/uploads/2025/02/28/bc29dc9cad24a.webp" alt=""></p>
+<h3>Flash U-Boot</h3>
+<p>After waiting about another minute for the computer to reconnect to the router, we can access this firmware with unlocked FIP partition write permission. The default password is <code>password</code>.</p>
+<p><img src="https://static.031130.xyz/uploads/2025/02/28/f98051faba608.webp" alt=""></p>
+<p>Select File Transfer in the sidebar and upload the U-Boot to be flashed. The filename and MD5 are below. <strong>Note: Extract the zip file first</strong></p>
+<pre><code>e5ff31bac07108b6ac6cd63189b4d113  dhcp-mt7981_cudy_tr3000-fip-fixed-parts-multi-layout.bin
+</code></pre>
+<p><img src="https://static.031130.xyz/uploads/2025/02/28/547c5d324f0a0.webp" alt=""></p>
+<p>Then access the TTYD terminal from the sidebar, enter the default username/password root / password, and execute the command to flash U-Boot:</p>
+<pre><code class="language-bash">mtd write /tmp/upload/dhcp-mt7981_cudy_tr3000-fip-fixed-parts-multi-layout.bin FIP
+</code></pre>
+<p><img src="https://static.031130.xyz/uploads/2025/02/28/46b4fc5be8c82.webp" alt=""></p>
+<h3>Flash Self-Compiled ImmortalWRT</h3>
+<p>After flashing U-Boot, power off the router. Ensure the ethernet cable connects the computer to the router's LAN port, then press and hold the reset button while plugging in the power. Hold until the white light blinks four times and turns red, then release the reset button to enter U-Boot.</p>
+<p>I compiled a 112m layout, so I need to select the <code>mod-112m</code> MTD layout before uploading and flashing the firmware.</p>
+<pre><code>8c9a44f29c8c5a0617e61d49bf8ad45d  112m-immortalwrt-cudy_tr3000-ebpf_by_zhullyb_20250325-squashfs-sysupgrade.bin
+</code></pre>
+<p><img src="https://static.031130.xyz/uploads/2025/02/28/41c250db91756.webp" alt=""></p>
+<p>Wait again for the computer to reconnect to the router. This is the final system with daed support. Again, there's no default password - just enter anything to access. After connecting to the network, go to System - Software Packages page and update the package list.</p>
+<p><img src="https://static.031130.xyz/uploads/2025/02/28/e56084ff09a5d.webp" alt=""></p>
+<p>Then you can install dae/daed related software. Choose <code>luci-i18n-dae-zh-cn</code> or <code>luci-i18n-daed-zh-cn</code> based on your needs. Other packages will be installed as dependencies. I installed daed here.</p>
+<p><img src="https://static.031130.xyz/uploads/2025/02/28/dc4fa4a688cf5.webp" alt=""></p>
+<p>After installation, refresh the page and you'll see daed in the Services section of the top bar.</p>
+<p><img src="https://static.031130.xyz/uploads/2025/02/28/551f1f2eb9ab4.webp" alt=""></p>
+<p>Daed runs normally and can fully utilize my home's 300Mbps downstream bandwidth (single-thread actual test: 250Mbps). CPU usage graph at peak speed is shown below.</p>
+<p><img src="https://static.031130.xyz/uploads/2025/02/28/651bed7ad4aba.webp" alt=""></p>
+<p><img src="https://static.031130.xyz/uploads/2025/03/01/9fcee79afa63b.png" alt="Multi-thread speed test"></p>
+<p><img src="https://static.031130.xyz/uploads/2025/03/01/6716d723a2b0d.png" alt="Single-thread speed test"></p>
+<h2>Files Mentioned in This Article</h2>
+<p><a href="https://www.123684.com/s/gfprVv-wEQ8d">https://www.123684.com/s/gfprVv-wEQ8d</a></p>
+<p><a href="https://www.123912.com/s/gfprVv-wEQ8d">https://www.123912.com/s/gfprVv-wEQ8d</a></p>
+<h2>References</h2>
+<ul>
+<li><a href="https://www.right.com.cn/forum/forum.php?mod=viewthread&#x26;tid=8410353">Cudy TR3000 Flashing Tutorial Guide</a></li>
+<li><a href="https://abxy.fun/post/immortalwrt-dae/">Using ImmortalWrt+Dae to Configure Transparent Proxy for Windows</a></li>
+<li><a href="https://www.right.com.cn/forum/forum.php?mod=viewthread&#x26;tid=8415351">Cudy TR3000 v1 Chinese Three-Partition DHCP U-Boot Second Edition</a></li>
+<li><a href="https://blog.imouto.in/#/posts/10">Booting Mainline OpenWrt Firmware Using hanwckf/bl-mt798x</a></li>
+<li><a href="https://github.com/QiuSimons/luci-app-daed">QiuSimons/luci-app-daed</a></li>
+</ul>]]>
+    </content>
+    <published>2025-02-28T13:18:34.000Z</published>
+    <author>
+      <name>竹林里有冰</name>
+      <email>zhullyb@outlook.com</email>
+      <uri>https://zhul.in</uri>
+    </author>
+    <category term="OpenSource Project"></category>
+    <category term="Hardware"></category>
+    <category term="Network"></category>
+    <category term="Router"></category>
+    <category term="OpenWRT"></category>
+    <category term="ImmortalWRT"></category>
+  </entry>
 </feed>
