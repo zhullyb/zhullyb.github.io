@@ -1,32 +1,37 @@
 <template>
 	<footer ref="footerRef" :style="footerStyle">
-    <div class="footer-mask"></div>
+		<div class="footer-mask"></div>
 		<!-- 可在此处添加 footer 内容 -->
 		<div class="footer-content">
-      <div class="social">
-        <NuxtLink class="social-icons" to="https://github.com/zhullyb/">
-          <F7LogoGithub />
-        </NuxtLink>
-        <a class="social-icons" :href="locale === 'en' ? '/en/rss.xml' : '/rss.xml'" target="_blank" rel="noopener noreferrer">
-          <F7LogoRss />
-        </a>
-        <NuxtLinkLocale class="social-icons" to="/donate/">
-          <BxsDonateHeart />
-        </NuxtLinkLocale>
-        <NuxtLink class="social-icons" to="mailto:zhullyb@outlook.com">
-          <IcOutlineMailOutline />
-        </NuxtLink>
-      </div>
-      <div class="center-y" style="gap: 4px; font-weight: 600;">
-        <TdesignCopyright style="font-size: 0.9em;" />
-        2020 - 2025 zhullyb
-      </div>
-      <div class="center-y" style="gap: 8px; font-weight: 600;">
-        Proudly Powered by
-        <NuxtLink to="https://nuxt.com/" class="center-y">
-          <LogosNuxt style="fill: white;" />
-        </NuxtLink>
-      </div>
+			<div class="social">
+				<NuxtLink class="social-icons" to="https://github.com/zhullyb/">
+					<F7LogoGithub />
+				</NuxtLink>
+				<a
+					class="social-icons"
+					:href="locale === 'en' ? '/en/rss.xml' : '/rss.xml'"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					<F7LogoRss />
+				</a>
+				<NuxtLinkLocale class="social-icons" to="/donate/">
+					<BxsDonateHeart />
+				</NuxtLinkLocale>
+				<a class="social-icons" href="mailto:zhullyb@outlook.com">
+					<IcOutlineMailOutline />
+				</a>
+			</div>
+			<div class="center-y" style="gap: 4px; font-weight: 600">
+				<TdesignCopyright style="font-size: 0.9em" />
+				2020 - 2025 zhullyb
+			</div>
+			<div class="center-y" style="gap: 8px; font-weight: 600">
+				Proudly Powered by
+				<NuxtLink to="https://nuxt.com/" class="center-y">
+					<LogosNuxt style="fill: white" />
+				</NuxtLink>
+			</div>
 			<NodeSupport style="margin-top: 12px" />
 			<template v-if="showNodeSupport">
 				<iframe
@@ -41,7 +46,7 @@
 </template>
 
 <script setup lang="ts">
-  const { locale } = useI18n()
+	const { locale } = useI18n()
 
 	const props = defineProps<{
 		background: {
@@ -69,7 +74,7 @@
 		justify-content: center;
 		position: relative;
 		color: white;
-    font-size: 16px;
+		font-size: 16px;
 	}
 
 	.footer-content {
@@ -97,7 +102,7 @@
 		display: flex;
 		align-items: center;
 		gap: 16px;
-    margin-bottom: 12px;
+		margin-bottom: 12px;
 
 		&-icons {
 			display: flex;
