@@ -74,7 +74,6 @@
 		justify-content: center;
 		position: relative;
 		color: white;
-		font-size: 16px;
 	}
 
 	.footer-content {
