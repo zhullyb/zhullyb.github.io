@@ -4,8 +4,8 @@
 		<NuxtLinkLocale
 			class="pagination-block"
 			:to="getPageUrl(currentPage - 1)"
-			:aria-disabled="currentPage === 1"
 			v-if="currentPage > 1"
+			aria-label="Prev Page"
 		>
 			<MaterialSymbolsArrowLeft />
 		</NuxtLinkLocale>
@@ -25,6 +25,7 @@
 			class="pagination-block"
 			:to="getPageUrl(currentPage + 1)"
 			v-if="currentPage < totalPages"
+			aria-label="Next Page"
 		>
 			<MaterialSymbolsArrowRight />
 		</NuxtLinkLocale>
@@ -118,9 +119,9 @@
 			cursor: default;
 
 			.dark-mode({
-    background: @dark-second-color;
-    color: #fff;
-  });
+        background: @dark-second-color;
+        color: #fff;
+      });
 		}
 
 		&:not(.current) {
@@ -129,8 +130,8 @@
 				color: @active-blue;
 
 				.dark-mode({
-      background: @dark-second-color;
-    });
+          background: @dark-second-color;
+        });
 			}
 		}
 	}

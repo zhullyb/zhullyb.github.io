@@ -4,7 +4,7 @@
 		<!-- 可在此处添加 footer 内容 -->
 		<div class="footer-content">
 			<div class="social">
-				<NuxtLink class="social-icons" to="https://github.com/zhullyb/">
+				<NuxtLink class="social-icons" to="https://github.com/zhullyb/" aria-label="Github">
 					<F7LogoGithub />
 				</NuxtLink>
 				<a
@@ -12,13 +12,14 @@
 					:href="locale === 'en' ? '/en/rss.xml' : '/rss.xml'"
 					target="_blank"
 					rel="noopener noreferrer"
+					aria-label="RSS"
 				>
 					<F7LogoRss />
 				</a>
-				<NuxtLinkLocale class="social-icons" to="/donate/">
+				<NuxtLinkLocale class="social-icons" to="/donate/" aria-label="Donate">
 					<BxsDonateHeart />
 				</NuxtLinkLocale>
-				<a class="social-icons" href="mailto:zhullyb@outlook.com">
+				<a class="social-icons" href="mailto:zhullyb@outlook.com" aria-label="Email">
 					<IcOutlineMailOutline />
 				</a>
 			</div>
@@ -28,7 +29,7 @@
 			</div>
 			<div class="center-y" style="gap: 8px; font-weight: 600">
 				Proudly Powered by
-				<NuxtLink to="https://nuxt.com/" class="center-y">
+				<NuxtLink to="https://nuxt.com/" class="center-y" aria-label="Nuxt">
 					<LogosNuxt style="fill: white" />
 				</NuxtLink>
 			</div>
@@ -92,6 +93,7 @@
 		left: 0;
 		right: 0;
 		background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.5));
+
 		.dark-mode({
       background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8));
     });
