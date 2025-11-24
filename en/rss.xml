@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US">
   <id>https://zhul.in</id>
   <title>竹林里有冰的博客</title>
-  <updated>2025-11-11T00:00:00.000Z</updated>
+  <updated>2025-11-25T00:00:00.000Z</updated>
   <subtitle>这里是我的个人博客，专注于分享技术干货、学习心得和生活感悟，涵盖前端开发、后端架构、人工智能、编程技巧、工具推荐等多个领域。我持续更新原创内容，记录成长过程中的思考与收获，致力于帮助更多开发者和技术爱好者提升技能、拓展视野。如果你对技术、产品和互联网行业感兴趣，相信你能在这里找到有价值的知识与灵感。</subtitle>
   <rights>© 2025 竹林里有冰</rights>
   <link href="https://zhul.in/en/rss.xml" rel="self" type="application/atom+xml"></link>
@@ -14,6 +14,346 @@
   </author>
   <icon>https://static.031130.xyz/avatar.webp</icon>
   <logo>https://static.031130.xyz/avatar.webp</logo>
+  <entry>
+    <id>https://zhul.in/2025/11/25/did-your-tld-slowing-down-your-site/</id>
+    <title>Does Your Top-Level Domain Slow Down Your Website? — Another Look at DNS Cold Start</title>
+    <updated>2025-11-25T00:00:00.000Z</updated>
+    <link href="https://zhul.in/2025/11/25/did-your-tld-slowing-down-your-site/" rel="alternate"></link>
+    <content type="html">
+      <![CDATA[<p>In my <a href="/en/2025/11/11/dns-cold-start-dilemma/">previous blog post</a>, I mentioned a core insight: <strong>For small sites with low traffic and geographically dispersed visitors, DNS cold start isn't an occasional "accident" but rather a passive "norm."</strong></p>
+<p>For most webmasters, site traffic doesn't increase overnight, so our visitors will likely need to go through the complete DNS resolution process. In the previous post, I discussed switching to authoritative DNS servers that are physically closer to visitors to improve speed, but <strong>TLD (Top-Level Domain) Nameservers are beyond our control</strong> — specifically, the portion highlighted in red in the diagram below.</p>
+<pre><code class="language-mermaid">sequenceDiagram
+    autonumber
+    participant User as User/Browser
+    participant Local as Local DNS&#x3C;br>Recursive Resolver
+    participant Root as Root Nameserver
+    participant TLD as TLD Server
+    participant Auth as Authoritative DNS Server
+
+    Note over User,Auth: Complete DNS Recursive Query Process
+
+    User->>Local: Query domain www.example.com
+    Note over Local: Check cache (MISS)
+
+    Local->>Root: Query .com TLD server
+    Root-->>Local: Return .com TLD server address
+
+    %% --- Highlighted section begins ---
+    rect rgb(255, 235, 235)
+        Note right of Local: ⚠️ Core focus of this article &#x3C;br> (TLD resolution latency)
+        Local->>TLD: Query authoritative server for example.com
+
+        Note left of TLD: Physical distance and Anycast capability&#x3C;br>determine whether hundreds of ms delay exists
+
+        TLD-->>Local: Return authoritative server address for example.com
+    end
+    %% --- Highlighted section ends ---
+
+    Local->>Auth: Query A record for www.example.com
+    Auth-->>Local: Return IP address (e.g., 1.1.1.1)
+
+    Note over Local: Cache result (TTL)
+
+    Local-->>User: Return final IP address
+
+    User->>Auth: Establish TCP connection / HTTP request
+</code></pre>
+<p>So, if you haven't purchased a domain yet but want to pursue the ultimate first-screen loading time like a true geek (even if you don't have many visitors), which TLD should you choose?</p>
+<h2>Simple Test</h2>
+<p>A simple method is to directly ping the TLD's nameserver to see how long it takes for the public DNS server requested by visitors to complete this segment of resolution.</p>
+<p>Taking my domain zhul.in as an example, on Linux, you can use the <code>dig</code> command to obtain the Nameservers for the <code>in</code> TLD:</p>
+<pre><code class="language-bash">dig NS in.
+</code></pre>
+<p><img src="https://static.031130.xyz/uploads/2025/11/24/b15e97068bd75.webp" alt="TLD Nameservers for .in"></p>
+<p>Then you can pick any Nameserver (public DNS servers actually have a selection strategy based on historical performance) and directly ping that domain:</p>
+<p><img src="https://static.031130.xyz/uploads/2025/11/24/bed48f4ed30ac.webp" alt="Latency to TLD Nameserver"></p>
+<p>My network environment here is Hangzhou Mobile. If I run a DNS recursive server on my local network, this result represents the minimum time required for the red portion in the sequence diagram above (the DNS server needs additional time to process the request).</p>
+<p>Using multi-location ping latency tests provided by some websites, we can infer in which countries or regions this TLD has deployed Anycast nodes. Below is the result provided by iplark.com.</p>
+<p><img src="https://static.031130.xyz/uploads/2025/11/24/748d25e0beecc.webp" alt="Ping values for .in TLD Nameserver worldwide"></p>
+<p>We can infer that the .in TLD Nameserver has deployed Anycast nodes in at least Japan, Hong Kong, USA, Canada, Europe, Australia, Brazil, India, South Africa, and other locations, while latency within mainland China is relatively high.</p>
+<hr>
+<p>As a comparison, we can use the same method to examine the Anycast nodes for the .cn domain's TLD Nameserver.</p>
+<p><img src="https://static.031130.xyz/uploads/2025/11/24/9751de16b460b.webp" alt="Ping values for .cn TLD Nameserver worldwide"></p>
+<p>According to tests by itdog.cn, the .cn domain's TLD Nameserver may only have nodes in Beijing.</p>
+<h2>A More Advanced Testing Approach</h2>
+<p>The above testing method is only a simple judgment method. In reality, many external factors affect DNS cold start resolution time:</p>
+<ul>
+<li>Peering exists between public DNS servers and TLD Nameservers, making their communication very fast</li>
+<li>The TLD Nameserver has poor performance, requiring an additional tens of milliseconds to process your request</li>
+<li>Among the TLD's several Nameservers, some are faster than others, and the public DNS server you use can select the faster one based on historical data</li>
+<li>...</li>
+</ul>
+<p>Therefore, we need a testing approach based on actual DNS resolution requests.</p>
+<p>Testing DNS cold start has always faced a dilemma — we don't manage public DNS servers and cannot log in to manually clear their cache, so only the first test result may be valid, with subsequent requests hitting the cache. However, this time we're testing the latency between the public DNS server and the TLD Nameserver. With Gemini's reminder, I realized we could test the resolution time for random, non-existent domains across different regions using public DNS, which can reflect differences between various TLDs.</p>
+<p>So, the test code is below. You can use bash on common Linux systems to execute this code. Ensure you have the dig and shasum commands installed, and I recommend using tools like screen/tmux to run it in the background, as the entire testing process may last over ten minutes. If your network environment is within mainland China, I suggest changing the public DNS server in the code to 223.5.5.5 / 119.29.29.29, which should better match the usage environment of domestic visitors.</p>
+<pre><code class="language-bash">#!/bin/bash
+
+# ================= Configuration Section =================
+# CSV filename
+OUTPUT_FILE="dns_benchmark_results.csv"
+
+# DNS server
+DNS_SERVER="8.8.8.8"
+
+# List of TLDs to test
+# Includes: global generic (com), country code (cn, de), popular tech (io, xyz), and potentially slower suffixes
+TLDS_TO_TEST=("com" "net" "org" "cn" "in" "de" "cc" "site" "ai" "io" "xyz" "top")
+
+# Number of tests per TLD
+SAMPLES=1000
+
+# Interval between queries (seconds), to prevent being flagged as attack by DNS server
+# 1000 times * 0.1s = 100s/TLD, total time approximately 15-20 minutes
+SLEEP_INTERVAL=0.1
+# ===========================================
+
+# Initialize CSV file header
+echo "TLD,Domain,QueryTime_ms,Status,Timestamp" > "$OUTPUT_FILE"
+
+echo "============================================="
+echo "   DNS TLD Latency Benchmark Tool"
+echo "   Target DNS: $DNS_SERVER"
+echo "   Samples per TLD: $SAMPLES"
+echo "   Output File: $OUTPUT_FILE"
+echo "============================================="
+echo ""
+
+# Define progress bar function
+function show_progress {
+    # Parameters: $1=current progress, $2=total, $3=current TLD, $4=current average time
+    let _progress=(${1}*100/${2})
+    let _done=(${_progress}*4)/10
+    let _left=40-$_done
+
+    # Build fill strings
+    _fill=$(printf "%${_done}s")
+    _empty=$(printf "%${_left}s")
+
+    # \r returns cursor to beginning of line for refresh effect
+    printf "\rProgress [${_fill// /#}${_empty// /-}] ${_progress}%% - Testing .${3} (Avg: ${4}ms) "
+}
+
+# Main loop
+for tld in "${TLDS_TO_TEST[@]}"; do
+    # Initialize statistics variables
+    total_time_accum=0
+    valid_count=0
+
+    for (( i=1; i&#x3C;=${SAMPLES}; i++ )); do
+        # 1. Generate random domain (prevent cache hits)
+        # Use date +%N (nanoseconds) for sufficient randomness, compatible with Linux/macOS
+        RAND_PART=$(date +%s%N | shasum | head -c 10)
+        DOMAIN="test-${RAND_PART}.${tld}"
+        TIMESTAMP=$(date "+%Y-%m-%d %H:%M:%S")
+
+        # 2. Execute query
+        # +tries=1 +time=2: try once, timeout 2 seconds, avoid script hanging
+        result=$(dig @${DNS_SERVER} ${DOMAIN} A +noall +stats +time=2 +tries=1)
+
+        # Extract time (Query time: 12 msec)
+        query_time=$(echo "$result" | grep "Query time" | awk '{print $4}')
+        # Extract status (status: NXDOMAIN, NOERROR, etc.)
+        status=$(echo "$result" | grep "status:" | awk '{print $6}' | tr -d ',')
+
+        # 3. Data cleaning and recording
+        if [[ -n "$query_time" &#x26;&#x26; "$query_time" =~ ^[0-9]+$ ]]; then
+            # Write to CSV
+            echo "${tld},${DOMAIN},${query_time},${status},${TIMESTAMP}" >> "$OUTPUT_FILE"
+
+            # Update statistics
+            total_time_accum=$((total_time_accum + query_time))
+            valid_count=$((valid_count + 1))
+            current_avg=$((total_time_accum / valid_count))
+        else
+            # Record failure/timeout
+            echo "${tld},${DOMAIN},-1,TIMEOUT,${TIMESTAMP}" >> "$OUTPUT_FILE"
+            current_avg="N/A"
+        fi
+
+        # 4. Display progress bar
+        show_progress $i $SAMPLES $tld $current_avg
+
+        sleep $SLEEP_INTERVAL
+    done
+
+    # New line after each TLD completes
+    echo ""
+    echo "✅ Completed .${tld} | Final Avg: ${current_avg} ms"
+    echo "---------------------------------------------"
+done
+
+echo "🎉 All Done! Results saved to $OUTPUT_FILE"
+</code></pre>
+<h2>Test Results</h2>
+<p><strong>Disclaimer: The following test results are for reference only, do not constitute any purchase recommendations, and only represent network conditions as of the test date (November 24, 2025), with no follow-up updates planned. DNS cold start has almost no impact on large sites; only small sites need to be concerned. In this test, all testing points within China used 223.5.5.5 as the DNS server, while overseas testing points used 8.8.8.8.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Test Point/Latency (ms)</th>
+<th>.com</th>
+<th>.net</th>
+<th>.org</th>
+<th>.cn</th>
+<th>.in</th>
+<th>.de</th>
+<th>.cc</th>
+<th>.site</th>
+<th>.ai</th>
+<th>.io</th>
+<th>.xyz</th>
+<th>.top</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>🇨🇳 Shanghai Tencent Cloud</td>
+<td>438</td>
+<td>429</td>
+<td>470</td>
+<td>30</td>
+<td>535</td>
+<td>353</td>
+<td>476</td>
+<td>454</td>
+<td>367</td>
+<td>485</td>
+<td>444</td>
+<td>43</td>
+</tr>
+<tr>
+<td>🇨🇳 Beijing Tencent Cloud</td>
+<td>425</td>
+<td>443</td>
+<td>469</td>
+<td>17</td>
+<td>350</td>
+<td>420</td>
+<td>466</td>
+<td>647</td>
+<td>582</td>
+<td>461</td>
+<td>559</td>
+<td>9</td>
+</tr>
+<tr>
+<td>🇭🇰 Hong Kong Yxvm</td>
+<td>75</td>
+<td>75</td>
+<td>363</td>
+<td>227</td>
+<td>6</td>
+<td>11</td>
+<td>61</td>
+<td>6</td>
+<td>33</td>
+<td>126</td>
+<td>5</td>
+<td>7</td>
+</tr>
+<tr>
+<td>🇨🇳 Zhanghua (Taiwan) Hinet</td>
+<td>90</td>
+<td>87</td>
+<td>128</td>
+<td>213</td>
+<td>59</td>
+<td>38</td>
+<td>76</td>
+<td>37</td>
+<td>73</td>
+<td>94</td>
+<td>36</td>
+<td>47</td>
+</tr>
+<tr>
+<td>🇯🇵 Osaka Vmiss</td>
+<td>20</td>
+<td>19</td>
+<td>244</td>
+<td>309</td>
+<td>15</td>
+<td>24</td>
+<td>17</td>
+<td>35</td>
+<td>19</td>
+<td>65</td>
+<td>37</td>
+<td>90</td>
+</tr>
+<tr>
+<td>🇸🇬 Singapore Wap</td>
+<td>6</td>
+<td>9</td>
+<td>139</td>
+<td>398</td>
+<td>6</td>
+<td>10</td>
+<td>7</td>
+<td>17</td>
+<td>7</td>
+<td>110</td>
+<td>17</td>
+<td>66</td>
+</tr>
+<tr>
+<td>🇺🇸 Los Angeles ColoCrossing</td>
+<td>7</td>
+<td>7</td>
+<td>307</td>
+<td>137</td>
+<td>4</td>
+<td>64</td>
+<td>5</td>
+<td>62</td>
+<td>5</td>
+<td>49</td>
+<td>47</td>
+<td>231</td>
+</tr>
+<tr>
+<td>🇩🇪 Düsseldorf WIIT AG</td>
+<td>16</td>
+<td>17</td>
+<td>288</td>
+<td>82</td>
+<td>75</td>
+<td>15</td>
+<td>14</td>
+<td>24</td>
+<td>66</td>
+<td>73</td>
+<td>24</td>
+<td>306</td>
+</tr>
+<tr>
+<td>🇦🇺 Sydney Oracle</td>
+<td>33</td>
+<td>31</td>
+<td>12</td>
+<td>338</td>
+<td>7</td>
+<td>13</td>
+<td>121</td>
+<td>7</td>
+<td>10</td>
+<td>9</td>
+<td>7</td>
+<td>191</td>
+</tr>
+</tbody>
+</table>
+<p>From the data above, we can see that .cn and .top are the fastest domain suffixes for resolution within mainland China among all tested options, but choosing .cn and .top means sacrificing resolution speed for visitors in other regions. Generic domain suffixes like .com, .net, and .org perform well in most regions globally, but their resolution speed within mainland China is relatively slow because they haven't deployed Anycast nodes on the mainland.</p>
+<p>You can click <a href="https://static.031130.xyz/bin/dns_benchmark_results_20251124.tar.zst">here</a> to download the complete test results CSV file for further analysis.</p>]]>
+    </content>
+    <published>2025-11-25T00:00:00.000Z</published>
+    <author>
+      <name>竹林里有冰</name>
+      <email>zhullyb@outlook.com</email>
+      <uri>https://zhul.in</uri>
+    </author>
+    <category term="Network"></category>
+    <category term="DNS"></category>
+  </entry>
   <entry>
     <id>https://zhul.in/2025/11/11/dns-cold-start-dilemma/</id>
     <title>DNS Cold Start: The &quot;Stone of Sisyphus&quot; for Small Sites</title>
@@ -81,7 +421,7 @@
 <li>Due to high resolution time, first-paint performance is poor, and users visit less;</li>
 <li>Due to fewer user visits, the cache is even harder to hit.</li>
 </ol>
-<p>The cold start is no longer an occasional "accident," but a passive "new normal."</p>
+<p><strong>The cold start is no longer an occasional "accident," but a passive "new normal."</strong></p>
 <h2>Can We Make the Stone Lighter? — Strategies to Mitigate Cold Start Impact</h2>
 <p>The predicament of Sisyphus seems unsolvable, but we are not entirely powerless. While we cannot completely eliminate the DNS cold start, we can significantly reduce the weight of this stone through a series of strategies and shorten the time it takes to be pushed back up the hill after each time it rolls down.</p>
 <h3>The Art of the Trade-off: Adjusting DNS TTL (Time-To-Live)</h3>
