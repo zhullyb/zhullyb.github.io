@@ -83,7 +83,7 @@ From a macro perspective, this traps "low-traffic sites" in a kind of fatalistic
 3.  Due to high resolution time, first-paint performance is poor, and users visit less;
 4.  Due to fewer user visits, the cache is even harder to hit.
 
-The cold start is no longer an occasional "accident," but a passive "new normal."
+**The cold start is no longer an occasional "accident," but a passive "new normal."**
 
 ## Can We Make the Stone Lighter? — Strategies to Mitigate Cold Start Impact
 
