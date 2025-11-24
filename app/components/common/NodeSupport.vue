@@ -4,13 +4,13 @@
       <div class="header-left">
         <div class="logo-yxvm-container">
           <a href="https://yxvm.com/" target="_blank" rel="noopener noreferrer">
-            <img src="/static/yxvm-logo.png" alt="yxvm" class="logo-img">
+            <img src="https://static.031130.xyz/uploads/2025/11/25/2584c5a5ec26b.png" alt="yxvm" class="logo-img">
           </a>
         </div>
         <span class="plus-separator">+</span>
         <div class="logo-nodeseek-container">
           <a href="https://www.nodeseek.com" target="_blank" rel="noopener noreferrer">
-            <img src="/static/logo2.png" alt="nodeseek" class="logo-img">
+            <img src="https://static.031130.xyz/uploads/2025/11/25/f56e28d4d53ca.png" alt="nodeseek" class="logo-img">
           </a>
         </div>
       </div>
