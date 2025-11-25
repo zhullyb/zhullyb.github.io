@@ -216,6 +216,6 @@ echo "🎉 All Done! Results saved to $OUTPUT_FILE"
 
 通过上面的数据，我们可以看到 .cn 和 .top 是所有测试的域名后缀中在中国大陆境内解析速度最快的，但选择 .cn 和 .top 意味着你需要牺牲其他地区访客的解析速度。而像 .com、.net、.org 这些通用的域名后缀在全球绝大部分地区表现良好，而在中国大陆境内的解析速度则相对较慢，因为他们没有在大陆境内部署 Anycast 节点。
 
-经 v2ex 的网友 [Showfom](https://www.v2ex.com/member/Showfom) 提醒，GoDaddy 作为注册局掌握的部分 TLD 的 Nameserver 同样在中国大路境内拥有 Anycast 节点，比如 .one、.tv 等，具体可自行查询验证。
+**经 v2ex 的网友 [Showfom](https://www.v2ex.com/member/Showfom) 提醒，GoDaddy 作为注册局掌握的部分 TLD 的 Nameserver 同样在中国大路境内拥有 Anycast 节点，比如 .one、.tv 等，具体可自行查询验证。**
 
 你可以点击[这里](https://static.031130.xyz/bin/dns_benchmark_results_20251124.tar.zst)下载完整的测试结果 CSV 文件进行进一步的分析。

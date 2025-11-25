@@ -216,6 +216,6 @@ echo "🎉 All Done! Results saved to $OUTPUT_FILE"
 
 From the data above, we can see that .cn and .top are the fastest domain suffixes for resolution within mainland China among all tested options, but choosing .cn and .top means sacrificing resolution speed for visitors in other regions. Generic domain suffixes like .com, .net, and .org perform well in most regions globally, but their resolution speed within mainland China is relatively slow because they haven't deployed Anycast nodes on the mainland.
 
-As reminded by Showfom, a V2EX user ([Showfom ](https://www.v2ex.com/member/Showfom)), GoDaddy, as a registry operator, operates Anycast nodes within mainland China for the nameservers of certain TLDs under its management—such as `.one`, `.tv`, etc. You may verify this independently as needed. 
+**As reminded by Showfom, a V2EX user ([Showfom ](https://www.v2ex.com/member/Showfom)), GoDaddy, as a registry operator, operates Anycast nodes within mainland China for the nameservers of certain TLDs under its management—such as `.one`, `.tv`, etc. You may verify this independently as needed.** 
 
 You can click [here](https://static.031130.xyz/bin/dns_benchmark_results_20251124.tar.zst) to download the complete test results CSV file for further analysis.
