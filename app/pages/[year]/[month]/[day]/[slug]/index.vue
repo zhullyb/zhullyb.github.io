@@ -39,6 +39,7 @@
 			queryCollection('posts')
 				.path(contentPath.value)
 				.where('lang', '=', locale.value === 'zh' ? 'zh-CN' : 'en')
+        .select('title', 'date', 'path', 'tags', 'body', 'description')
 				.first()
 	)
 
