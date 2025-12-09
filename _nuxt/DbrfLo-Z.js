@@ -1,1 +1,0 @@
-import{_ as r,b as s,o,r as t}from"./BtgmA6oR.js";const n={};function a(e,c){return o(),s("td",null,[t(e.$slots,"default")])}const l=Object.assign(r(n,[["render",a]]),{__name:"ProseTd"});export{l as default};
