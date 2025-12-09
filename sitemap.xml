@@ -278,6 +278,11 @@
         <xhtml:link rel="alternate" href="https://zhul.in/page/13/" hreflang="zh-CN" />
     </url>
     <url>
+        <loc>https://zhul.in/page/14/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/page/14/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/page/14/" hreflang="zh-CN" />
+    </url>
+    <url>
         <loc>https://zhul.in/tags/Android/</loc>
         <xhtml:link rel="alternate" href="https://zhul.in/tags/Android/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/tags/Android/" hreflang="zh-CN" />
@@ -806,6 +811,11 @@
         <loc>https://zhul.in/archives/page/13/</loc>
         <xhtml:link rel="alternate" href="https://zhul.in/archives/page/13/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/archives/page/13/" hreflang="zh-CN" />
+    </url>
+    <url>
+        <loc>https://zhul.in/archives/page/14/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/archives/page/14/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/archives/page/14/" hreflang="zh-CN" />
     </url>
     <url>
         <loc>https://zhul.in/en/page/2/</loc>
@@ -2825,15 +2835,15 @@
     </url>
     <url>
         <loc>https://zhul.in/2025/11/05/http-2-server-push-is-practically-obsolete/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="en-US" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="zh-CN" />
-        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/2025/11/11/dns-cold-start-dilemma/</loc>
-        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/11/11/dns-cold-start-dilemma/" hreflang="en-US" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/11/11/dns-cold-start-dilemma/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/11/11/dns-cold-start-dilemma/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/11/11/dns-cold-start-dilemma/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/2025/11/25/did-your-tld-slowing-down-your-site/</loc>
@@ -2852,6 +2862,12 @@
         <xhtml:link rel="alternate" href="https://zhul.in/2025/11/25/did-your-tld-slowing-down-your-site/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/11/25/did-your-tld-slowing-down-your-site/" hreflang="zh-CN" />
         <xhtml:link rel="alternate" href="https://zhul.in/en/2025/11/25/did-your-tld-slowing-down-your-site/" hreflang="en-US" />
+    </url>
+    <url>
+        <loc>https://zhul.in/2025/12/10/caddy-traffic-proxy-on-layer-4/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/2025/12/10/caddy-traffic-proxy-on-layer-4/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2025/12/10/caddy-traffic-proxy-on-layer-4/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/12/10/caddy-traffic-proxy-on-layer-4/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/en/archives/page/2/</loc>
@@ -3107,15 +3123,15 @@
     </url>
     <url>
         <loc>https://zhul.in/en/2025/11/05/http-2-server-push-is-practically-obsolete/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="en-US" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="zh-CN" />
-        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/en/2025/11/11/dns-cold-start-dilemma/</loc>
-        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/11/11/dns-cold-start-dilemma/" hreflang="en-US" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/11/11/dns-cold-start-dilemma/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/11/11/dns-cold-start-dilemma/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/11/11/dns-cold-start-dilemma/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/en/2025/11/25/did-your-tld-slowing-down-your-site/</loc>
@@ -3135,5 +3151,11 @@
         <xhtml:link rel="alternate" href="https://zhul.in/2025/11/25/did-your-tld-slowing-down-your-site/" hreflang="zh-CN" />
         <xhtml:link rel="alternate" href="https://zhul.in/en/2025/11/25/did-your-tld-slowing-down-your-site/" hreflang="en-US" />
     </url>
+    <url>
+        <loc>https://zhul.in/en/2025/12/10/caddy-traffic-proxy-on-layer-4/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/2025/12/10/caddy-traffic-proxy-on-layer-4/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2025/12/10/caddy-traffic-proxy-on-layer-4/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/12/10/caddy-traffic-proxy-on-layer-4/" hreflang="en-US" />
+    </url>
 </urlset>
-<!-- XML Sitemap generated by @nuxtjs/sitemap v7.4.7 at 2025-11-26T06:38:29.551Z -->
+<!-- XML Sitemap generated by @nuxtjs/sitemap v7.4.7 at 2025-12-09T19:08:02.471Z -->

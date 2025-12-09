@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US">
   <id>https://zhul.in</id>
   <title>竹林里有冰的博客</title>
-  <updated>2025-11-25T00:00:00.000Z</updated>
+  <updated>2025-12-10T00:00:00.000Z</updated>
   <subtitle>这里是我的个人博客，专注于分享技术干货、学习心得和生活感悟，涵盖前端开发、后端架构、人工智能、编程技巧、工具推荐等多个领域。我持续更新原创内容，记录成长过程中的思考与收获，致力于帮助更多开发者和技术爱好者提升技能、拓展视野。如果你对技术、产品和互联网行业感兴趣，相信你能在这里找到有价值的知识与灵感。</subtitle>
   <rights>© 2025 竹林里有冰</rights>
   <link href="https://zhul.in/en/rss.xml" rel="self" type="application/atom+xml"></link>
@@ -14,6 +14,100 @@
   </author>
   <icon>https://static.031130.xyz/avatar.webp</icon>
   <logo>https://static.031130.xyz/avatar.webp</logo>
+  <entry>
+    <id>https://zhul.in/2025/12/10/caddy-traffic-proxy-on-layer-4/</id>
+    <title>Layer 4 Traffic Proxying with Caddy: A Practical Guide</title>
+    <updated>2025-12-10T00:00:00.000Z</updated>
+    <link href="https://zhul.in/2025/12/10/caddy-traffic-proxy-on-layer-4/" rel="alternate"></link>
+    <content type="html">
+      <![CDATA[<h2>Background</h2>
+<p>On one of my VPS servers with optimized routing, port 443 needs to serve two distinct purposes:</p>
+<ol>
+<li>Hosting my blog for visitors from mainland China, handling HTTPS encryption/decryption and serving static content</li>
+<li>Disguising certain special-purpose traffic to mimic HTTPS traffic from well-known, commonly-allowed websites (yes, I'm talking about Reality)</li>
+</ol>
+<p>This meant I needed a solution to handle both roles simultaneously on the same port of the same server.</p>
+<h2>Choosing the Solution</h2>
+<p>I've long been aware that Nginx's <code>stream</code> directive can achieve Layer 4 (raw TCP stream forwarding) traffic splitting based on SNI recognition. However, as a devoted Caddy user who has written numerous <a href="https://zhul.in/tags/Caddy/">Caddy-related posts</a>, I still prefer Caddy despite Nginx's recent ACME v2 support. The simplicity and usability of Caddyfile keep me coming back.</p>
+<p>After some research, I discovered that while the latest Caddy version (v2.10) doesn't natively support Layer 4 traffic proxying, there's a community module called <a href="https://github.com/mholt/caddy-l4">caddy-l4</a> that provides exactly this functionality. With 1.5k stars on GitHub and active maintenance, it seemed worth trying.</p>
+<h2>Installation</h2>
+<p>Although the official Caddy APT repository doesn't include the caddy-l4 module, I recommend first installing the base Caddy version through APT, then using Caddy's official <a href="https://caddyserver.com/download">download page</a> to build a custom binary with the modules you need. Download it and replace the system Caddy executable. This approach makes systemd service configuration much easier. Just remember to disable the Caddy APT repository to prevent automatic updates from overwriting your custom build.</p>
+<p>For future updates, you can simply run:</p>
+<pre><code class="language-bash">caddy upgrade
+</code></pre>
+<p>Caddy will automatically detect the modules included in your current binary, trigger an online build from the official website to generate a new binary with those modules, and perform the replacement. You just need to manually restart the systemd service to complete the update.</p>
+<p>If Caddy's online build service fails (it's been somewhat unstable lately), you can <a href="https://caddyserver.com/docs/build#xcaddy">follow the documentation</a> to compile Caddy locally using xcaddy:</p>
+<pre><code class="language-bash">xcaddy build --with github.com/mholt/caddy-l4
+</code></pre>
+<h2>Configuration</h2>
+<p>Here's my original Caddyfile configuration for the blog:</p>
+<pre><code>zhul.in {
+    root * /var/www/zhul.in
+
+    encode zstd gzip
+    file_server
+
+    handle_errors {
+            rewrite * /404.html
+            file_server
+    }
+}
+
+www.zhul.in {
+    redir https://zhul.in{uri}
+}
+</code></pre>
+<p>Since both zhul.in and <a href="http://www.zhul.in">www.zhul.in</a> were using ports 80 and 443, I needed to move the HTTPS listeners to a different port and let caddy-l4 handle port 443.</p>
+<p>Here's the modified Caddyfile:</p>
+<pre><code>http://zhul.in:80, https://zhul.in:8443 {
+    root * /var/www/zhul.in
+
+    encode zstd gzip
+    file_server
+
+    handle_errors {
+            rewrite * /404.html
+            file_server
+    }
+}
+
+http://www.zhul.in:80, https://www.zhul.in:8443 {
+    redir https://zhul.in{uri}
+}
+</code></pre>
+<p>Next, I added the caddy-l4 configuration:</p>
+<pre><code>{
+    layer4 {
+        :443 {
+            @zhulin tls sni zhul.in www.zhul.in
+            route @zhulin {
+                proxy 127.0.0.1:8443
+            }
+
+            @proxy tls sni osxapps.itunes.apple.com
+            route @proxy {
+                proxy 127.0.0.1:20443
+            }
+        }
+    }
+}
+</code></pre>
+<p>The syntax is quite straightforward. First, listen on port 443 within the <code>layer4</code> block. Then define SNI-based matching rules using <code>@name tls sni domain</code>. Finally, use <code>route @name</code> to specify how to handle traffic matching each rule—here I'm using <code>proxy ip:port</code> to forward the traffic.</p>
+<p>Since my special traffic masquerades as Apple iTunes traffic, the SNI signature in the configuration is <code>osxapps.itunes.apple.com</code>. This traffic gets forwarded to local port 20443, where another service handles it.</p>
+<p>caddy-l4 offers various other matching methods and routing handlers. Check out their <a href="https://github.com/mholt/caddy-l4/tree/master/docs/examples">examples on GitHub</a> for more details.</p>
+<p>Once configured, restart the Caddy service:</p>
+<pre><code class="language-bash">sudo systemctl restart caddy
+</code></pre>]]>
+    </content>
+    <published>2025-12-10T00:00:00.000Z</published>
+    <author>
+      <name>竹林里有冰</name>
+      <email>zhullyb@outlook.com</email>
+      <uri>https://zhul.in</uri>
+    </author>
+    <category term="Caddy"></category>
+    <category term="Network"></category>
+  </entry>
   <entry>
     <id>https://zhul.in/2025/11/25/did-your-tld-slowing-down-your-site/</id>
     <title>Does Your Top-Level Domain Slow Down Your Website? — Another Look at DNS Cold Start</title>
