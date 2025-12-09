@@ -1,0 +1,41 @@
+.heimu {
+    background-color: #252525;
+    color: #252525;
+    text-shadow: none;
+
+    a,
+    a.new,
+    a & {
+        background-color: #252525;
+        color: #252525;
+        text-shadow: none;
+    }
+
+    &:hover,
+    &:active {
+        color: white !important;
+
+        .heimu {
+            color: white !important;
+        }
+
+        a {
+            color: lightblue !important;
+        }
+
+        .new {
+            color: #BA0000 !important;
+        }
+    }
+
+    // 兼容 a:hover .heimu 和 .new:hover .heimu 等情况
+    a:hover &,
+    a:active & {
+        color: lightblue !important;
+    }
+
+    .new:hover &,
+    .new:active & {
+        color: #BA0000 !important;
+    }
+}
