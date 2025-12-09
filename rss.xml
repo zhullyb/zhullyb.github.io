@@ -28,7 +28,7 @@
 </ol>
 <p>因此，我需要一个能够在同一台服务器的同一端口上同时处理这两种职责的方案。</p>
 <h2>方案选择</h2>
-<p>其实我很早就知道 Nginx 的 stream 关键词可以实现 Layer 4 （即 TCP 字节流原样转发）下基于 SNI 识别实现的分流功能，但我其实一直是 Caddy 的忠实用户，写了不少 <a href="https://zhul.in/tags/Caddy/">Caddy 相关的博文</a>。因此，尽管 Nginx 在不久前已经支持了 ACME v2，但 Caddyfile 的简洁和易用性依然让我更倾向于使用 Caddy 来实现这个功能。</p>
+<p>其实我很早就知道 Nginx 的 stream 关键词可以实现 Layer 4 （即 TCP 字节流原样转发）下基于 SNI 识别实现的分流功能，但我其实一直是 Caddy 的忠实用户，写了不少 <a href="/tags/Caddy/">Caddy 相关的博文</a>。因此，尽管 Nginx 在不久前已经支持了 ACME v2，但 Caddyfile 的简洁和易用性依然让我更倾向于使用 Caddy 来实现这个功能。</p>
 <p>经过一番查阅，Caddy 最新版本（v2.10）并不支持 Layer 4 的流量代理功能，但有一个名为 <a href="https://github.com/mholt/caddy-l4">caddy-l4</a> 的社区模块可以实现这个功能，在 Github 上有 1.5k stars，且最近也有更新维护，于是我决定尝试使用这个模块来实现我的需求。</p>
 <h2>安装</h2>
 <p>尽管 Caddy 官方提供的 APT 源中的 Caddy 版本并不包含 caddy-l4 模块，但我仍然建议先通过 APT 安装 Caddy 的基础版本，然后再通过 Caddy 官方提供的<a href="https://caddyserver.com/download">在线构建</a>页面选择需要的模块来生成自定义的 Caddy 二进制文件，下载后替换掉系统中的 Caddy 可执行文件。这样做的好处是可以方便地完成 systemd 服务的配置。但注意关闭 Caddy 的 APT 源，以免后续自动更新覆盖掉自定义编译的版本。</p>
@@ -97,7 +97,12 @@ http://www.zhul.in:80, https://www.zhul.in:8443 {
 <p>caddy-l4 还提供了一些其他的匹配方式和处理方式，具体可以参考他们在 Github 中给到的 <a href="https://github.com/mholt/caddy-l4/tree/master/docs/examples">examples</a>。</p>
 <p>完成配置后，重启 Caddy 服务：</p>
 <pre><code class="language-bash">sudo systemctl restart caddy
-</code></pre>]]>
+</code></pre>
+<h2>参见</h2>
+<ul>
+<li><a href="https://github.com/mholt/caddy-l4">mholt/caddy-l4: Layer 4 (TCP/UDP) app for Caddy</a></li>
+<li><a href="https://caddyserver.com/docs/build">Build from source — Caddy Documentation</a></li>
+</ul>]]>
     </content>
     <published>2025-12-10T00:00:00.000Z</published>
     <author>

@@ -28,7 +28,7 @@
 </ol>
 <p>This meant I needed a solution to handle both roles simultaneously on the same port of the same server.</p>
 <h2>Choosing the Solution</h2>
-<p>I've long been aware that Nginx's <code>stream</code> directive can achieve Layer 4 (raw TCP stream forwarding) traffic splitting based on SNI recognition. However, as a devoted Caddy user who has written numerous <a href="https://zhul.in/tags/Caddy/">Caddy-related posts</a>, I still prefer Caddy despite Nginx's recent ACME v2 support. The simplicity and usability of Caddyfile keep me coming back.</p>
+<p>I've long been aware that Nginx's <code>stream</code> directive can achieve Layer 4 (raw TCP stream forwarding) traffic splitting based on SNI recognition. However, as a devoted Caddy user who has written numerous <a href="/en/tags/Caddy/">Caddy-related posts</a>, I still prefer Caddy despite Nginx's recent ACME v2 support. The simplicity and usability of Caddyfile keep me coming back.</p>
 <p>After some research, I discovered that while the latest Caddy version (v2.10) doesn't natively support Layer 4 traffic proxying, there's a community module called <a href="https://github.com/mholt/caddy-l4">caddy-l4</a> that provides exactly this functionality. With 1.5k stars on GitHub and active maintenance, it seemed worth trying.</p>
 <h2>Installation</h2>
 <p>Although the official Caddy APT repository doesn't include the caddy-l4 module, I recommend first installing the base Caddy version through APT, then using Caddy's official <a href="https://caddyserver.com/download">download page</a> to build a custom binary with the modules you need. Download it and replace the system Caddy executable. This approach makes systemd service configuration much easier. Just remember to disable the Caddy APT repository to prevent automatic updates from overwriting your custom build.</p>
@@ -97,7 +97,12 @@ http://www.zhul.in:80, https://www.zhul.in:8443 {
 <p>caddy-l4 offers various other matching methods and routing handlers. Check out their <a href="https://github.com/mholt/caddy-l4/tree/master/docs/examples">examples on GitHub</a> for more details.</p>
 <p>Once configured, restart the Caddy service:</p>
 <pre><code class="language-bash">sudo systemctl restart caddy
-</code></pre>]]>
+</code></pre>
+<h2>See Also</h2>
+<ul>
+<li><a href="https://github.com/mholt/caddy-l4">mholt/caddy-l4: Layer 4 (TCP/UDP) app for Caddy</a></li>
+<li><a href="https://caddyserver.com/docs/build">Build from source — Caddy Documentation</a></li>
+</ul>]]>
     </content>
     <published>2025-12-10T00:00:00.000Z</published>
     <author>
