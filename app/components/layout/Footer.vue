@@ -4,9 +4,24 @@
 		<!-- 可在此处添加 footer 内容 -->
 		<div class="footer-content">
 			<div class="social">
-				<NuxtLink class="social-icons" to="https://github.com/zhullyb/" aria-label="Github">
+				<a
+					class="social-icons"
+					href="https://github.com/zhullyb/"
+					target="_blank"
+					rel="noopener noreferrer"
+					aria-label="Github"
+				>
 					<F7LogoGithub />
-				</NuxtLink>
+				</a>
+        <a
+					class="social-icons"
+					href="https://t.me/zhullyb_channel"
+					target="_blank"
+					rel="noopener noreferrer"
+					aria-label="Telegram Channel"
+				>
+					<TeenyiconsTelegramOutline/>
+				</a>
 				<a
 					class="social-icons"
 					:href="locale === 'en' ? '/en/rss.xml' : '/rss.xml'"
