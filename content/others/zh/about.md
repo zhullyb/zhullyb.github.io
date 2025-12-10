@@ -14,15 +14,11 @@ title: 关于
 
 ## About This Blog
 
-这个博客主要就是用于记录一些技术性的原创内容，初衷是为了帮助遇到相同问题的用户们节约些自己的时间。
+内容上，记录了一些技术性的原创内容，初衷是为了帮助遇到相同问题的用户们节约些自己的时间。
 
-因此这个域名我将尽我可能续费下去，而如果后期服务器费用无法承担的话我也做好诶迁移到 serverless 的准备。
+使用 Nuxt v4 + Nuxt Content v3 搭建而成的静态博客站点，源码在[zhullyb/zhullyb.github.io](https://github.com/zhullyb/zhullyb.github.io)，但可能暂时没做好开放给大家使用的准备。
 
 本站的访问情况统计: https://umami.zhul.in/share/bBTFefk1/blog
-
-## My Websites
-
-博客(本站): [https://zhul.in](https://zhul.in/)
 
 ## Contact Me
 
