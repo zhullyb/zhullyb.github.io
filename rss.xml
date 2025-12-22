@@ -84,7 +84,7 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "public, max-age=600, must-revalidate"
+          "value": "public, max-age=0, s-maxage=600, must-revalidate"
         }
       ]
     },
@@ -101,7 +101,7 @@
 }
 
 </code></pre>
-<p>这里我对所有的 CSS 和 JS 文件设置了 <code>max-age=31536000, immutable</code>，这样这些静态资源文件就可以被浏览器和 CDN 长时间缓存。而对于所有其他文件（主要是 HTML 文件），我设置了 <code>max-age=600, must-revalidate</code>，这样 HTML 文件就可以被缓存 10 分钟，在这 10 分钟内的请求都可以直接从 CDN 节点的缓存中获取内容，而不需要回源验证。</p>
+<p>这里我对所有的 CSS 和 JS 文件设置了 <code>max-age=31536000, immutable</code>，这样这些静态资源文件就可以被浏览器和 CDN 长时间缓存。而对于所有其他文件（主要是 HTML 文件），我设置了 <code>max-age=0, s-maxage=600, must-revalidate</code>，这样 HTML 文件就可以被 CDN 缓存 10 分钟，在这 10 分钟内的请求都可以直接从 CDN 节点的缓存中获取内容，而不需要回源验证。</p>
 <p>这样一来，经过修改后的缓存控制设置，HTML 文件的请求流程变成了：</p>
 <pre><code class="language-mermaid">sequenceDiagram
     participant Client
@@ -111,10 +111,7 @@
 </code></pre>
 <p>从而大大减少了请求的延迟，提高了页面加载速度。</p>
 <h2>其他</h2>
-<ol>
-<li>在有 <code>s-maxage</code> 指令的情况下，CDN 会优先使用 <code>s-maxage</code> 指令来决定缓存的有效期；如果没有 <code>s-maxage</code> 指令，则使用 <code>max-age</code> 指令。所以你也可以使用 <code>s-maxage</code> 来单独设置 CDN 的缓存时间。但我这里没有特殊需求，所以就直接使用了 <code>max-age</code>。</li>
-<li>Vercel 所采用的架构并不是传统的 「源站 - CDN」 架构，而是更接近 「全球多区域存储 + CDN边缘缓存」 的架构，所以即使是回源请求，Vercel 也会尽量从离用户最近的存储节点获取内容，从而减少延迟。但这并不意味着回源请求的延迟可以忽略不计，尤其是在追求极致的加载速度时，合理的缓存控制仍然是非常重要的。</li>
-</ol>
+<p>Vercel 所采用的架构并不是传统的 「源站 - CDN」 架构，而是更接近 「全球多区域存储 + CDN边缘缓存」 的架构，所以即使是回源请求，Vercel 也会尽量从离用户最近的存储节点获取内容，从而减少延迟。<strong>但这并不意味着回源请求的延迟可以忽略不计，尤其是在追求极致的加载速度时，合理的缓存控制仍然是非常重要的。</strong></p>
 <h2>参见</h2>
 <ul>
 <li><a href="https://vercel.com/docs/headers/cache-control-headers">Cache-Control headers | Vercel</a></li>

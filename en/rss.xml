@@ -84,7 +84,7 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "public, max-age=600, must-revalidate"
+          "value": "public, max-age=0, s-maxage=600, must-revalidate"
         }
       ]
     },
@@ -100,7 +100,7 @@
   ]
 }
 </code></pre>
-<p>Here I set <code>max-age=31536000, immutable</code> for all CSS and JS files, so these static resource files can be cached long-term by browsers and CDNs. For all other files (mainly HTML files), I set <code>max-age=600, must-revalidate</code>, so HTML files can be cached for 10 minutes. Requests within these 10 minutes can retrieve content directly from the CDN node's cache without needing origin validation.</p>
+<p>Here I set <code>max-age=31536000, immutable</code> for all CSS and JS files, so these static resource files can be cached long-term by browsers and CDNs. For all other files (mainly HTML files), I set <code>max-age=0, s-maxage=600, must-revalidate</code>, so HTML files can be cached by the CDN for 10 minutes. Requests within these 10 minutes can retrieve content directly from the CDN node's cache without needing origin validation.</p>
 <p>With this modified cache control setting, the request flow for HTML files becomes:</p>
 <pre><code class="language-mermaid">sequenceDiagram
     participant Client
@@ -110,10 +110,7 @@
 </code></pre>
 <p>This greatly reduces request latency and improves page loading speed.</p>
 <h2>Other Considerations</h2>
-<ol>
-<li>When the <code>s-maxage</code> directive is present, CDNs will prioritize using <code>s-maxage</code> to determine cache validity period; if there's no <code>s-maxage</code> directive, they'll use <code>max-age</code>. So you can also use <code>s-maxage</code> to set CDN cache time separately. But since I have no special requirements here, I directly used <code>max-age</code>.</li>
-<li>The architecture Vercel employs isn't the traditional "origin server - CDN" architecture, but rather closer to a "global multi-region storage + CDN edge cache" architecture. So even for origin requests, Vercel will try to retrieve content from the storage node closest to the user to reduce latency. However, this doesn't mean origin request latency can be ignored, especially when pursuing optimal loading speed—proper cache control remains very important.</li>
-</ol>
+<p>Vercel's architecture isn't the traditional "origin server - CDN" architecture, but rather closer to a "global multi-region storage + CDN edge cache" architecture. So even for origin requests, Vercel will try to retrieve content from the storage node closest to the user to reduce latency. However, this doesn't mean origin request latency can be ignored, especially when pursuing optimal loading speed—proper cache control remains very important.</p>
 <h2>References</h2>
 <ul>
 <li><a href="https://vercel.com/docs/headers/cache-control-headers">Cache-Control headers | Vercel</a></li>
