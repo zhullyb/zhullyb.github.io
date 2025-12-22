@@ -214,7 +214,7 @@ echo "🎉 All Done! Results saved to $OUTPUT_FILE"
 | 🇩🇪 Düsseldorf WIIT AG     | 16   | 17   | 288  | 82   | 75   | 15   | 14   | 24    | 66   | 73   | 24   | 306  |
 | 🇦🇺 Sydney Oracle          | 33   | 31   | 12   | 338  | 7    | 13   | 121  | 7     | 10   | 9    | 7    | 191  |
 
-From the data above, we can see that .cn and .top are the fastest domain suffixes for resolution within mainland China among all tested options, but choosing .cn and .top means sacrificing resolution speed for visitors in other regions. Generic domain suffixes like .com, .net, and .org perform well in most regions globally, but their resolution speed within mainland China is relatively slow because they haven't deployed Anycast nodes on the mainland.
+From the data above, we can see that .cn and .top are the fastest domain suffixes for resolution within mainland China among all tested options, but choosing .cn and .top means sacrificing resolution speed for visitors in other regions. Generic domain suffixes like .com, .net, and .org perform well in most regions globally, but their resolution speed within mainland China is relatively slow because they haven't deployed Anycast nodes on the mainland. In DNS cold start scenarios (if your site has few visitors, almost every visit is a cold start), the first screen loading time can increase by 500ms or more.
 
 **As reminded by Showfom, a V2EX user (Showfom ), GoDaddy, acting as a registry operator, hosts Anycast nodes within mainland China for the nameservers of certain TLDs under its management—such as .one, .tv and .moe. Additionally, based on my own testing, the .you domain, operated by Amazon Registry Services, also has Anycast nodes within mainland China. You may verify this independently.**
 
