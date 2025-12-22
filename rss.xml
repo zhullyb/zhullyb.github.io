@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
   <id>https://zhul.in</id>
   <title>竹林里有冰的博客</title>
-  <updated>2025-12-10T00:00:00.000Z</updated>
+  <updated>2025-12-23T00:00:00.000Z</updated>
   <subtitle>这里是我的个人博客，专注于分享技术干货、学习心得和生活感悟，涵盖前端开发、后端架构、人工智能、编程技巧、工具推荐等多个领域。我持续更新原创内容，记录成长过程中的思考与收获，致力于帮助更多开发者和技术爱好者提升技能、拓展视野。如果你对技术、产品和互联网行业感兴趣，相信你能在这里找到有价值的知识与灵感。</subtitle>
   <rights>© 2025 竹林里有冰</rights>
   <link href="https://zhul.in/rss.xml" rel="self" type="application/atom+xml"></link>
@@ -14,6 +14,124 @@
   </author>
   <icon>https://static.031130.xyz/avatar.webp</icon>
   <logo>https://static.031130.xyz/avatar.webp</logo>
+  <entry>
+    <id>https://zhul.in/2025/12/23/vercel-cache-control/</id>
+    <title>Vercel 的缓存控制，你注意过吗？</title>
+    <updated>2025-12-23T00:00:00.000Z</updated>
+    <link href="https://zhul.in/2025/12/23/vercel-cache-control/" rel="alternate"></link>
+    <content type="html">
+      <![CDATA[<p>Vercel 默认的缓存配置其实并不合理，但鲜有人注意。</p>
+<h2>先看效果</h2>
+<p><img src="https://static.031130.xyz/uploads/2025/12/23/577e579eceb96.webp" alt="图一"></p>
+<p><img src="https://static.031130.xyz/uploads/2025/12/23/0cfc9543c857a.webp" alt="图二"></p>
+<h2>分析</h2>
+<h3>测试方案</h3>
+<p>这两张图都是我博客在 <a href="https://pagespeed.web.dev/">PageSpeed Insights</a> 上测得的，测试步骤如下：</p>
+<ol>
+<li>部署</li>
+<li>在 PageSpeed Insights 进行第一次测试</li>
+<li>等待 120s，防止 PageSpeed Insights 拿之前的结果糊弄你</li>
+<li>进行第二次测试，取第二次测试的结果</li>
+</ol>
+<p><strong>取第二次结果的目的是为了</strong>让 PageSpeed Insights 所命中的 Vercel CDN 节点完成回源，并<strong>将内容缓存在 CDN 节点上</strong>，这样第二次访问的时候就会直接从 CDN 的缓存中得到结果，不需要回源。</p>
+<p>那我们看图一的测试结果，正常吗？针对首页的单个 html 加载时长达到了 <strong>450ms，看着不算慢，但其实细究下来是有问题的。</strong></p>
+<p>Vercel 采用的是 Amazon 提供的全球 CDN 网络，在我们的首次访问之后，CDN 节点应当该已经缓存了首页的内容，第二次访问的时候应该是直接从 CDN 节点的缓存中获取内容。</p>
+<h3>合理的时长是多久呢？</h3>
+<ul>
+<li>TCP 建立连接的三次握手，需要 1.5 个往返时延（RTT），再加上 TLS 1.3 握手的 1 个 RTT，共计 2.5 个 RTT。</li>
+<li>HTML 文件大小 18KB，初始拥塞窗口（IW）10 MSS ≈ 1460 字节 ≈ 14.6KB，理论上应该可以在两个 RTT 内传输完毕。</li>
+</ul>
+<p>共计 4.5 个 RTT。</p>
+<p>PageSpeed Insights 测试时使用的节点大概率是在美国，Amazon CDN 在美国的节点覆盖非常广泛，单个 RTT 时长控制在 5ms 以内绰绰有余，所以理论加载时长应该在 22.5ms 左右。加上 DNS 解析时长（这个也不多，因为两分钟前有过一次访问，这次不是冷启动）和一些不可控的网络抖动，<strong>50ms 以内应该是完全没有问题的。</strong></p>
+<p><strong>但实际测得的时长却高达 450ms，差了近 9 倍，这就很不合理了。</strong></p>
+<p>我们再来看图二的结果，单个 HTML 加载时长降到了 41ms，完全符合预期。</p>
+<p>为什么会有这么大的差异呢？原因就在于 Vercel 对缓存控制的设置上。</p>
+<h2>Vercel 的缓存控制</h2>
+<p>在 Vercel 上部署的网站，默认情况下，Vercel 会对 HTML 文件设置如下的缓存控制头：</p>
+<pre><code>cache-control: public, max-age=0, must-revalidate
+</code></pre>
+<p>这个设置的含义是：</p>
+<ul>
+<li><code>public</code>：响应可以被任何缓存区缓存，包括浏览器和 CDN。</li>
+<li><code>max-age=0</code>： 响应的最大缓存时间为 0 秒，意味着响应一旦被缓存后立即过期。</li>
+<li><code>must-revalidate</code>：一旦响应过期，缓存必须向源服务器验证其有效性。</li>
+</ul>
+<p>结合这三个指令，Vercel 实际上是告诉 CDN 节点：你可以缓存这个 HTML 文件，但每次在使用缓存之前都必须回源验证其有效性。由于 <code>max-age=0</code>，缓存一旦存储就立即过期，因此每次请求都会触发回源验证。</p>
+<p>尽管 HTTP/1.1 和 HTTP/2 中的缓存验证通常使用条件请求（如文件的 ETag 或 Last-Modified 头）来节省传输流量，但这仍然需要与源服务器进行往返通信，从而增加了额外的延迟开销。</p>
+<p>所以，在 Vercel 默认配置下，任何请求的响应都不会被 CDN 节点直接缓存，大致的流程如下：</p>
+<pre><code class="language-mermaid">sequenceDiagram
+    participant Client
+    participant CDN
+    participant Vercel
+    Client->>CDN: 请求 HTML 文件
+    CDN->>Vercel: 条件请求验证缓存
+    Vercel->>CDN: 返回最新的 HTML 文件或 304 Not Modified
+    CDN->>Client: 返回 HTML 文件
+</code></pre>
+<h2>解决方案</h2>
+<p>要解决这个问题，我们需要调整 Vercel 上的缓存控制设置，使得 HTML 文件能够被 CDN 节点缓存一段时间，而不需要每次都回源验证。</p>
+<p>Vercel 允许我们在项目的根目录下创建一个 <code>vercel.json</code> 文件以对 Vercel 的部署行为进行一系列的配置，其中就包括 HTTP 的响应头的配置。</p>
+<p>我的博客采用 Nuxt.js 框架构建，生成的构建产物大概分为两类：</p>
+<ol>
+<li>HTML 文件：这些文件的内容可能会频繁变化，不能设置过长的缓存时间；</li>
+<li>静态资源文件：包括 JavaScript、CSS 等，这些文件的文件名通常带有 hash 值，可以设置较长的缓存时间甚至被标记为不可变（immutable）。</li>
+</ol>
+<p>在部署流程上，我的博客在每次推送后会先 Github Actions 中构建成静态页面，再部署到 Vercel 上，所以我在我项目的 public 目录下创建了 <code>vercel.json</code> 文件（这样 vercel.json 文件就会在构建产物的根目录），内容如下：</p>
+<pre><code class="language-json">{
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=600, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)\\.(css|js)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ]
+}
+
+</code></pre>
+<p>这里我对所有的 CSS 和 JS 文件设置了 <code>max-age=31536000, immutable</code>，这样这些静态资源文件就可以被浏览器和 CDN 长时间缓存。而对于所有其他文件（主要是 HTML 文件），我设置了 <code>max-age=600, must-revalidate</code>，这样 HTML 文件就可以被缓存 10 分钟，在这 10 分钟内的请求都可以直接从 CDN 节点的缓存中获取内容，而不需要回源验证。</p>
+<p>这样一来，经过修改后的缓存控制设置，HTML 文件的请求流程变成了：</p>
+<pre><code class="language-mermaid">sequenceDiagram
+    participant Client
+    participant CDN
+    Client->>CDN: 请求 HTML 文件
+    CDN->>Client: 直接返回缓存的 HTML 文件
+</code></pre>
+<p>从而大大减少了请求的延迟，提高了页面加载速度。</p>
+<h2>其他</h2>
+<ol>
+<li>在有 <code>s-maxage</code> 指令的情况下，CDN 会优先使用 <code>s-maxage</code> 指令来决定缓存的有效期；如果没有 <code>s-maxage</code> 指令，则使用 <code>max-age</code> 指令。所以你也可以使用 <code>s-maxage</code> 来单独设置 CDN 的缓存时间。但我这里没有特殊需求，所以就直接使用了 <code>max-age</code>。</li>
+<li>Vercel 所采用的架构并不是传统的 「源站 - CDN」 架构，而是更接近 「全球多区域存储 + CDN边缘缓存」 的架构，所以即使是回源请求，Vercel 也会尽量从离用户最近的存储节点获取内容，从而减少延迟。但这并不意味着回源请求的延迟可以忽略不计，尤其是在追求极致的加载速度时，合理的缓存控制仍然是非常重要的。</li>
+</ol>
+<h2>参见</h2>
+<ul>
+<li><a href="https://vercel.com/docs/headers/cache-control-headers">Cache-Control headers | Vercel</a></li>
+<li><a href="https://vercel.com/docs/cdn-cache">Vercel CDN Cache | Vercel</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Caching">HTTP caching - HTTP | MDN</a></li>
+</ul>]]>
+    </content>
+    <published>2025-12-23T00:00:00.000Z</published>
+    <author>
+      <name>竹林里有冰</name>
+      <email>zhullyb@outlook.com</email>
+      <uri>https://zhul.in</uri>
+    </author>
+    <category term="Vercel"></category>
+    <category term="Network"></category>
+    <category term="HTTP"></category>
+  </entry>
   <entry>
     <id>https://zhul.in/2025/12/10/caddy-traffic-proxy-on-layer-4/</id>
     <title>小记 —— Caddy 在 Layer 4 上的流量代理实践</title>
@@ -441,7 +559,7 @@ echo "🎉 All Done! Results saved to $OUTPUT_FILE"
 </tr>
 </tbody>
 </table>
-<p>通过上面的数据，我们可以看到 .cn 和 .top 是所有测试的域名后缀中在中国大陆境内解析速度最快的，但选择 .cn 和 .top 意味着你需要牺牲其他地区访客的解析速度。而像 .com、.net、.org 这些通用的域名后缀在全球绝大部分地区表现良好，而在中国大陆境内的解析速度则相对较慢，因为他们没有在大陆境内部署 Anycast 节点。</p>
+<p>通过上面的数据，我们可以看到 .cn 和 .top 是所有测试的域名后缀中在中国大陆境内解析速度最快的，但选择 .cn 和 .top 意味着你需要牺牲其他地区访客的解析速度。而像 .com、.net、.org 这些通用的域名后缀在全球绝大部分地区表现良好，而在中国大陆境内的解析速度则相对较慢，因为他们没有在大陆境内部署 Anycast 节点。在 DNS 冷启动的场景下（如果你的站点访客少，那几乎每次访问都是冷启动），首屏加载时间会因此增加 500ms 甚至更多。</p>
 <p><strong>经 v2ex 的网友 <a href="https://www.v2ex.com/member/Showfom">Showfom</a> 提醒，GoDaddy 作为注册局掌握的部分 TLD 的 Nameserver 同样在中国大路境内拥有 Anycast 节点，比如 .one、.tv、.moe 等。另， Amazon Registry Services 旗下的 .you 域名经我测试也有境内的 Anycast 节点。其他域名后缀可自行测试。</strong></p>
 <p>你可以点击<a href="https://static.031130.xyz/bin/dns_benchmark_results_20251124.tar.zst">这里</a>下载完整的测试结果 CSV 文件进行进一步的分析。</p>]]>
     </content>

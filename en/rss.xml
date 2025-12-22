@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US">
   <id>https://zhul.in</id>
   <title>竹林里有冰的博客</title>
-  <updated>2025-12-10T00:00:00.000Z</updated>
+  <updated>2025-12-23T00:00:00.000Z</updated>
   <subtitle>这里是我的个人博客，专注于分享技术干货、学习心得和生活感悟，涵盖前端开发、后端架构、人工智能、编程技巧、工具推荐等多个领域。我持续更新原创内容，记录成长过程中的思考与收获，致力于帮助更多开发者和技术爱好者提升技能、拓展视野。如果你对技术、产品和互联网行业感兴趣，相信你能在这里找到有价值的知识与灵感。</subtitle>
   <rights>© 2025 竹林里有冰</rights>
   <link href="https://zhul.in/en/rss.xml" rel="self" type="application/atom+xml"></link>
@@ -14,6 +14,123 @@
   </author>
   <icon>https://static.031130.xyz/avatar.webp</icon>
   <logo>https://static.031130.xyz/avatar.webp</logo>
+  <entry>
+    <id>https://zhul.in/2025/12/23/vercel-cache-control/</id>
+    <title>Have You Noticed Vercel&apos;s Cache Control?</title>
+    <updated>2025-12-23T00:00:00.000Z</updated>
+    <link href="https://zhul.in/2025/12/23/vercel-cache-control/" rel="alternate"></link>
+    <content type="html">
+      <![CDATA[<p>Vercel's default cache configuration is actually not very reasonable, but few people notice it.</p>
+<h2>First, Let's Look at the Results</h2>
+<p><img src="https://static.031130.xyz/uploads/2025/12/23/577e579eceb96.webp" alt="Figure 1"></p>
+<p><img src="https://static.031130.xyz/uploads/2025/12/23/0cfc9543c857a.webp" alt="Figure 2"></p>
+<h2>Analysis</h2>
+<h3>Testing Approach</h3>
+<p>Both images show test results from my blog on <a href="https://pagespeed.web.dev/">PageSpeed Insights</a>. The testing steps were:</p>
+<ol>
+<li>Deploy</li>
+<li>Run the first test on PageSpeed Insights</li>
+<li>Wait 120 seconds to prevent PageSpeed Insights from using cached results</li>
+<li>Run the second test and use those results</li>
+</ol>
+<p><strong>The purpose of using the second test results</strong> is to ensure that the Vercel CDN node accessed by PageSpeed Insights has completed fetching from origin and <strong>cached the content on the CDN node</strong>. This way, the second access retrieves results directly from the CDN cache without needing to fetch from origin.</p>
+<p>Looking at the test results in Figure 1, does it seem normal? The loading time for a single HTML page reached <strong>450ms. While this doesn't look terribly slow, there's actually a problem when you examine it closely.</strong></p>
+<p>Vercel uses Amazon's global CDN network. After our first visit, the CDN node should have already cached the homepage content, so the second visit should retrieve content directly from the CDN node's cache.</p>
+<h3>What Would Be a Reasonable Duration?</h3>
+<ul>
+<li>TCP connection establishment requires 1.5 round-trip times (RTT) for the three-way handshake, plus 1 RTT for TLS 1.3 handshake, totaling 2.5 RTT.</li>
+<li>The HTML file size is 18KB. The initial congestion window (IW) of 10 MSS ≈ 1460 bytes ≈ 14.6KB means it should theoretically be transmitted within two RTTs.</li>
+</ul>
+<p>Total: 4.5 RTT.</p>
+<p>PageSpeed Insights likely uses a node in the United States for testing. Amazon CDN has extensive coverage in the US, so keeping a single RTT under 5ms is more than adequate. Therefore, the theoretical loading time should be around 22.5ms. Adding DNS resolution time (which shouldn't be much since there was an access two minutes prior, so this isn't a cold start) and some uncontrollable network jitter, <strong>it should be completely fine to stay within 50ms.</strong></p>
+<p><strong>But the actual measured time was 450ms, nearly 9 times higher—this is very unreasonable.</strong></p>
+<p>Now let's look at Figure 2's results. The single HTML loading time dropped to 41ms, which completely meets expectations.</p>
+<p>Why is there such a huge difference? The reason lies in Vercel's cache control settings.</p>
+<h2>Vercel's Cache Control</h2>
+<p>For websites deployed on Vercel, by default, Vercel sets the following cache control header for HTML files:</p>
+<pre><code>cache-control: public, max-age=0, must-revalidate
+</code></pre>
+<p>This setting means:</p>
+<ul>
+<li><code>public</code>: The response can be cached by any cache, including browsers and CDNs.</li>
+<li><code>max-age=0</code>: The maximum cache time for the response is 0 seconds, meaning the response expires immediately after being cached.</li>
+<li><code>must-revalidate</code>: Once the response expires, the cache must validate its validity with the origin server.</li>
+</ul>
+<p>Combined, these three directives mean Vercel is essentially telling CDN nodes: you can cache this HTML file, but you must validate its validity with the origin server before using the cache each time. Since <code>max-age=0</code>, the cache expires immediately upon storage, so every request triggers origin validation.</p>
+<p>Although cache validation in HTTP/1.1 and HTTP/2 typically uses conditional requests (such as the file's ETag or Last-Modified headers) to save transmission bandwidth, this still requires round-trip communication with the origin server, adding extra latency overhead.</p>
+<p>Therefore, under Vercel's default configuration, responses to any request won't be directly cached by CDN nodes. The general flow is as follows:</p>
+<pre><code class="language-mermaid">sequenceDiagram
+    participant Client
+    participant CDN
+    participant Vercel
+    Client->>CDN: Request HTML file
+    CDN->>Vercel: Conditional request to validate cache
+    Vercel->>CDN: Return latest HTML file or 304 Not Modified
+    CDN->>Client: Return HTML file
+</code></pre>
+<h2>Solution</h2>
+<p>To solve this problem, we need to adjust Vercel's cache control settings so that HTML files can be cached by CDN nodes for a period of time without needing origin validation every time.</p>
+<p>Vercel allows us to create a <code>vercel.json</code> file in the project's root directory to configure various aspects of Vercel's deployment behavior, including HTTP response header configuration.</p>
+<p>My blog is built with the Nuxt.js framework, and the generated build artifacts roughly fall into two categories:</p>
+<ol>
+<li>HTML files: These files' content may change frequently and shouldn't have excessively long cache times;</li>
+<li>Static resource files: Including JavaScript, CSS, etc. These files typically have hash values in their filenames and can have longer cache times or even be marked as immutable.</li>
+</ol>
+<p>In terms of deployment workflow, my blog is first built into static pages in GitHub Actions after each push, then deployed to Vercel. So I created a <code>vercel.json</code> file in my project's public directory (this way the vercel.json file will be in the root of the build artifacts) with the following content:</p>
+<pre><code class="language-json">{
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=600, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)\\.(css|js)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ]
+}
+</code></pre>
+<p>Here I set <code>max-age=31536000, immutable</code> for all CSS and JS files, so these static resource files can be cached long-term by browsers and CDNs. For all other files (mainly HTML files), I set <code>max-age=600, must-revalidate</code>, so HTML files can be cached for 10 minutes. Requests within these 10 minutes can retrieve content directly from the CDN node's cache without needing origin validation.</p>
+<p>With this modified cache control setting, the request flow for HTML files becomes:</p>
+<pre><code class="language-mermaid">sequenceDiagram
+    participant Client
+    participant CDN
+    Client->>CDN: Request HTML file
+    CDN->>Client: Directly return cached HTML file
+</code></pre>
+<p>This greatly reduces request latency and improves page loading speed.</p>
+<h2>Other Considerations</h2>
+<ol>
+<li>When the <code>s-maxage</code> directive is present, CDNs will prioritize using <code>s-maxage</code> to determine cache validity period; if there's no <code>s-maxage</code> directive, they'll use <code>max-age</code>. So you can also use <code>s-maxage</code> to set CDN cache time separately. But since I have no special requirements here, I directly used <code>max-age</code>.</li>
+<li>The architecture Vercel employs isn't the traditional "origin server - CDN" architecture, but rather closer to a "global multi-region storage + CDN edge cache" architecture. So even for origin requests, Vercel will try to retrieve content from the storage node closest to the user to reduce latency. However, this doesn't mean origin request latency can be ignored, especially when pursuing optimal loading speed—proper cache control remains very important.</li>
+</ol>
+<h2>References</h2>
+<ul>
+<li><a href="https://vercel.com/docs/headers/cache-control-headers">Cache-Control headers | Vercel</a></li>
+<li><a href="https://vercel.com/docs/cdn-cache">Vercel CDN Cache | Vercel</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Caching">HTTP caching - HTTP | MDN</a></li>
+</ul>]]>
+    </content>
+    <published>2025-12-23T00:00:00.000Z</published>
+    <author>
+      <name>竹林里有冰</name>
+      <email>zhullyb@outlook.com</email>
+      <uri>https://zhul.in</uri>
+    </author>
+    <category term="Vercel"></category>
+    <category term="Network"></category>
+    <category term="HTTP"></category>
+  </entry>
   <entry>
     <id>https://zhul.in/2025/12/10/caddy-traffic-proxy-on-layer-4/</id>
     <title>Layer 4 Traffic Proxying with Caddy: A Practical Guide</title>
@@ -441,7 +558,7 @@ echo "🎉 All Done! Results saved to $OUTPUT_FILE"
 </tr>
 </tbody>
 </table>
-<p>From the data above, we can see that .cn and .top are the fastest domain suffixes for resolution within mainland China among all tested options, but choosing .cn and .top means sacrificing resolution speed for visitors in other regions. Generic domain suffixes like .com, .net, and .org perform well in most regions globally, but their resolution speed within mainland China is relatively slow because they haven't deployed Anycast nodes on the mainland.</p>
+<p>From the data above, we can see that .cn and .top are the fastest domain suffixes for resolution within mainland China among all tested options, but choosing .cn and .top means sacrificing resolution speed for visitors in other regions. Generic domain suffixes like .com, .net, and .org perform well in most regions globally, but their resolution speed within mainland China is relatively slow because they haven't deployed Anycast nodes on the mainland. In DNS cold start scenarios (if your site has few visitors, almost every visit is a cold start), the first screen loading time can increase by 500ms or more.</p>
 <p><strong>As reminded by Showfom, a V2EX user (Showfom ), GoDaddy, acting as a registry operator, hosts Anycast nodes within mainland China for the nameservers of certain TLDs under its management—such as .one, .tv and .moe. Additionally, based on my own testing, the .you domain, operated by Amazon Registry Services, also has Anycast nodes within mainland China. You may verify this independently.</strong></p>
 <p>You can click <a href="https://static.031130.xyz/bin/dns_benchmark_results_20251124.tar.zst">here</a> to download the complete test results CSV file for further analysis.</p>]]>
     </content>
