@@ -110,7 +110,7 @@ const blogConfig = {
 		},
 		{
 			title: "j10c's Blog",
-			link: 'https://site.j10ccc.xyz'
+			link: 'https://site.j10c.cc'
 		},
 		{
 			title: 'i1nfo',
@@ -177,7 +177,7 @@ const blogConfig = {
 		{
 			title: '消失在彩霞里的博客',
 			intro: '一只爱编程的小马',
-			link: 'https://blog.aiyin.club/',
+			link: 'https://blog.tidechoir.cn/',
 			avatar: 'https://static.031130.xyz/uploads/2024/09/24/9d106a106aef1.webp'
 		},
 		{
@@ -189,8 +189,8 @@ const blogConfig = {
 		{
 			title: '纸鹿本鹿',
 			intro: '纸鹿至麓不知路，支炉制露不止漉',
-			link: 'https://blog.zhilu.cyou/',
-			avatar: 'https://www.zhilu.cyou/api/avatar.png'
+			link: 'https://blog.zhilu.site/',
+			avatar: 'https://www.zhilu.site/api/avatar.png'
 		},
 		{
 			title: 'SugarMGP',
