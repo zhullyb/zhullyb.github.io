@@ -15,12 +15,12 @@
 				</a>
         <a
 					class="social-icons"
-					href="https://t.me/zhullyb_channel"
+					href="https://zone.liolok.com/@zhullyb"
 					target="_blank"
 					rel="noopener noreferrer"
-					aria-label="Telegram Channel"
+					aria-label="Mastodon"
 				>
-					<TeenyiconsTelegramOutline/>
+					<MdiMastodon />
 				</a>
 				<a
 					class="social-icons"
