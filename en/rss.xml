@@ -2,9 +2,9 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US">
   <id>https://zhul.in</id>
   <title>竹林里有冰的博客</title>
-  <updated>2025-12-23T00:00:00.000Z</updated>
+  <updated>2026-01-31T00:00:00.000Z</updated>
   <subtitle>这里是我的个人博客，专注于分享技术干货、学习心得和生活感悟，涵盖前端开发、后端架构、人工智能、编程技巧、工具推荐等多个领域。我持续更新原创内容，记录成长过程中的思考与收获，致力于帮助更多开发者和技术爱好者提升技能、拓展视野。如果你对技术、产品和互联网行业感兴趣，相信你能在这里找到有价值的知识与灵感。</subtitle>
-  <rights>© 2025 竹林里有冰</rights>
+  <rights>© 2026 竹林里有冰</rights>
   <link href="https://zhul.in/en/rss.xml" rel="self" type="application/atom+xml"></link>
   <link href="https://zhul.in" rel="alternate"></link>
   <author>
@@ -14,6 +14,109 @@
   </author>
   <icon>https://static.031130.xyz/avatar.webp</icon>
   <logo>https://static.031130.xyz/avatar.webp</logo>
+  <entry>
+    <id>https://zhul.in/2026/01/31/mihomo-tun-fail-to-visit-dl-google-com/</id>
+    <title>I Can’t Access dl.google.com — A Network Debugging Story Under TUN</title>
+    <updated>2026-01-31T00:00:00.000Z</updated>
+    <link href="https://zhul.in/2026/01/31/mihomo-tun-fail-to-visit-dl-google-com/" rel="alternate"></link>
+    <content type="html">
+      <![CDATA[<p>If you’re familiar enough with the current network environment in mainland China, you probably know that <code>dl.google.com</code> is <strong>often directly accessible without a proxy</strong>.<br>
+For example, you can download the Chrome offline installer directly from<br>
+<a href="https://google.cn/chrome/?standalone=1">google.cn/chrome/?standalone=1</a> on a domestic network, and the final download domain is <code>dl.google.com</code>.</p>
+<p>My usual setup is to keep my proxy tool’s TUN mode enabled 24/7. All traffic goes through a virtual network interface first, and then routing rules decide automatically whether it should go through the proxy or connect directly. Most of the time this setup is pretty hassle-free — until recently, when I was rolling updates on Arch Linux with <code>yay</code> and suddenly ran into an SSL connection failure with <code>dl.google.com</code>.</p>
+<p><img src="https://static.031130.xyz/uploads/2026/01/31/df5e547511070.webp" alt="yay update failed"></p>
+<p>It wasn’t just <code>yay</code>. My browser showed the exact same result:</p>
+<p><img src="https://static.031130.xyz/uploads/2026/01/31/8ada158510aba.webp" alt="Firefox access failed"></p>
+<p>My first instinct was: <em>did my routing rules break again?</em><br>
+(They’re not written by me, so blaming them first is perfectly reasonable.)</p>
+<h2>The Rule Is DIRECT — No One Else to Blame</h2>
+<p>I double-checked the routing rules. Traffic with SNI <code>dl.google.com</code> was explicitly configured as <strong>DIRECT</strong>.</p>
+<p><img src="https://static.031130.xyz/uploads/2026/01/31/96d27a20f2bf3.webp" alt="Mihomo routing rules"></p>
+<p>That made things strange. Logically:</p>
+<ul>
+<li><code>dl.google.com</code> itself is often directly reachable from domestic networks</li>
+<li>The rule clearly says DIRECT</li>
+</ul>
+<p>To be honest, I’d seen this issue before. Back then I had higher-priority tasks, so I just turned off the proxy tool, finished the update, and moved on. This time, though, I had nothing urgent on my plate — so I decided to finally dig into it properly.</p>
+<h2>It Resolved to an Overseas IP</h2>
+<p>First, I disabled the proxy tool’s <code>fake-ip</code> mode and switched back to real IP resolution to avoid introducing extra variables. Then I used <code>curl -vv</code> to access a <code>dl.google.com</code> download URL and see where it was actually trying to connect.</p>
+<p><img src="https://static.031130.xyz/uploads/2026/01/31/d3dbfc513de9f.webp" alt="curl -vv output"></p>
+<p>Looking back now, I can say with confidence: the resolved IP belonged to Google’s <strong>overseas CDN</strong>, not a domestic or domestically reachable data center.</p>
+<p><img src="https://static.031130.xyz/uploads/2026/01/31/7ba8a0b8a2579.webp" alt="IP geolocation"></p>
+<p>For those unfamiliar: when resolving <code>dl.google.com</code> for users in mainland China, DNS often returns <strong>domestically reachable IPs</strong> (otherwise direct downloads wouldn’t work at all).<br>
+The overseas IP returned here was unreachable on my connection. Combined with the fact that I had configured <code>dl.google.com</code> as DIRECT, the result was:</p>
+<blockquote>
+<p>DNS returned an “overseas IP”</p>
+<ul>
+<li>Rules enforced DIRECT
+= Direct connection to an unreachable destination
+= TLS handshake failure</li>
+</ul>
+</blockquote>
+<p>So this wasn’t a case of “the direct rule didn’t work”. It was more like:<br>
+<strong>the rule worked perfectly, but DNS led me straight into a ditch.</strong></p>
+<h2>Who Is Answering for dl.google.com?</h2>
+<p>In the Mihomo core, the main DNS-related configuration options are:</p>
+<ol>
+<li><code>nameserver</code>: default resolvers (most domains use these)</li>
+<li><code>direct-nameserver</code>: resolvers for DIRECT domains (only available in newer versions)</li>
+<li><code>proxy-server-nameserver</code>: resolvers for proxy node hostnames (irrelevant here)</li>
+<li><code>default-nameserver</code>: used to resolve “domain-form” nameservers in the DNS config itself (not expanded here)</li>
+</ol>
+<p>Since <code>dl.google.com</code> was marked as a DIRECT domain, Mihomo should theoretically prefer <code>direct-nameserver</code>. If that isn’t set, it falls back to <code>nameserver</code>.</p>
+<p>At the time, my <code>nameserver</code> configuration was:</p>
+<ul>
+<li><code>https://dns.alidns.com/dns-query</code></li>
+</ul>
+<p>My intuition was simple: if the resolution looked like it came from an overseas CDN pool, I should verify whether AliDNS (DoH) itself was returning that overseas IP.</p>
+<h2>Querying AliDNS DoH Directly — Overseas Pool Confirmed</h2>
+<p>AliDNS provides a JSON-based query interface, so I tested it directly with curl:</p>
+<pre><code class="language-bash">curl -s 'https://dns.alidns.com/resolve?name=dl.google.com&#x26;type=A'
+</code></pre>
+<p><img src="https://static.031130.xyz/uploads/2026/01/31/b457af9299330.webp" alt="DoH response"></p>
+<p>The returned IP was exactly the overseas one I’d seen earlier. At this point, I could confidently conclude:</p>
+<p><strong>At least on my current network exit, AliDNS resolves <code>dl.google.com</code> to an overseas IP that is unreachable for me.</strong></p>
+<h3>This Requires Two Conditions (Both Are Necessary)</h3>
+<p>It’s important to emphasize something here: this is <em>not</em> simply “AliDNS always resolves it wrong”. After running a bunch of comparisons, I found the conditions to be surprisingly strict:</p>
+<blockquote>
+<p><strong>The issue reliably reproduces only when <em>both</em> “China Mobile broadband” and “AliDNS (including 223.5.5.5 or AliDNS DoH)” are used together.</strong><br>
+Remove either condition, and the problem usually disappears.</p>
+</blockquote>
+<p>More specifically:</p>
+<ul>
+<li><strong>Switch to China Telecom or China Unicom broadband</strong>: with the same AliDNS, <code>dl.google.com</code> usually resolves correctly</li>
+<li><strong>Stay on China Mobile broadband, but don’t use AliDNS</strong>: resolution is usually fine</li>
+<li><strong>China Mobile broadband + AliDNS</strong>: high probability of getting an overseas IP pool, and DIRECT connections fail</li>
+</ul>
+<p>I also ran nationwide resolution tests on itdog, and the reproduction rate was indeed much higher on China Mobile networks.</p>
+<p><img src="https://static.031130.xyz/uploads/2026/01/31/d93222096f005.webp" alt="itdog test results"></p>
+<p>Why does this happen? Honestly, I can’t provide a single authoritative explanation. What I <em>can</em> say is that the behavior is extremely consistent, and consistent enough for me to conclude:</p>
+<p><strong>The problem isn’t TUN itself — it’s that, under TUN, my DNS choice sent <code>dl.google.com</code> to an address pool that’s unreachable on China Mobile.</strong></p>
+<h2>How Did I Finally Fix It?</h2>
+<p>Since the issue was the combination of <strong>China Mobile + AliDNS</strong>, the solution was straightforward:</p>
+<p><strong>Stop letting <code>dl.google.com</code> be resolved by AliDNS.</strong></p>
+<p>You can do this by configuring <code>direct-nameserver</code>, using <code>nameserver-policy</code>, switching to another public DNS like <code>119.29.29.29</code>, or even delegating DNS resolution to your home router.</p>
+<pre><code class="language-yaml">direct-nameserver:
+  - 192.168.8.1
+
+nameserver-policy:
+  "dl.google.com": [119.29.29.29]
+</code></pre>
+<p>After this change, <code>yay</code> updates worked normally again, and browsers could directly access <code>dl.google.com</code> without issues.</p>
+<h2>References</h2>
+<ul>
+<li><a href="https://linux.do/t/topic/1061825">Minimal anti–DNS-leak configuration for the mihomo core (2025) – Development &#x26; Tuning – LINUX DO</a></li>
+</ul>]]>
+    </content>
+    <published>2026-01-31T00:00:00.000Z</published>
+    <author>
+      <name>竹林里有冰</name>
+      <email>zhullyb@outlook.com</email>
+      <uri>https://zhul.in</uri>
+    </author>
+    <category term="Network"></category>
+    <category term="DNS"></category>
+  </entry>
   <entry>
     <id>https://zhul.in/2025/12/23/vercel-cache-control/</id>
     <title>Have You Noticed Vercel&apos;s Cache Control?</title>
