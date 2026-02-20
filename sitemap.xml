@@ -286,6 +286,7 @@
         <loc>https://zhul.in/tags/Android/</loc>
         <xhtml:link rel="alternate" href="https://zhul.in/tags/Android/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/tags/Android/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/Android/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Apt/</loc>
@@ -822,6 +823,12 @@
         <xhtml:link rel="alternate" href="https://zhul.in/page/2/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/page/2/" hreflang="zh-CN" />
         <xhtml:link rel="alternate" href="https://zhul.in/en/page/2/" hreflang="en-US" />
+    </url>
+    <url>
+        <loc>https://zhul.in/en/tags/Android/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Android/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Android/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/Android/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/en/tags/Apt/</loc>
@@ -2835,9 +2842,9 @@
     </url>
     <url>
         <loc>https://zhul.in/2025/11/05/http-2-server-push-is-practically-obsolete/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="en-US" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="zh-CN" />
-        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/2025/11/11/dns-cold-start-dilemma/</loc>
@@ -2907,6 +2914,27 @@
         <xhtml:link rel="alternate" href="https://zhul.in/2026/01/31/mihomo-tun-fail-to-visit-dl-google-com/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/2026/01/31/mihomo-tun-fail-to-visit-dl-google-com/" hreflang="zh-CN" />
         <xhtml:link rel="alternate" href="https://zhul.in/en/2026/01/31/mihomo-tun-fail-to-visit-dl-google-com/" hreflang="en-US" />
+    </url>
+    <url>
+        <loc>https://zhul.in/2026/02/20/xiaomi-china-version-fcm-push-debug/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2026/02/20/6202d116db231.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2026/02/20/432922f339849.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2026/02/20/8c20be931764b.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2026/02/20/58ba6ce88ef49.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2026/02/20/51db4ed4ef15b.webp</image:loc>
+        </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2026/02/20/xiaomi-china-version-fcm-push-debug/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2026/02/20/xiaomi-china-version-fcm-push-debug/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/2026/02/20/xiaomi-china-version-fcm-push-debug/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/en/archives/page/2/</loc>
@@ -3162,9 +3190,9 @@
     </url>
     <url>
         <loc>https://zhul.in/en/2025/11/05/http-2-server-push-is-practically-obsolete/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="en-US" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="zh-CN" />
-        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/en/2025/11/11/dns-cold-start-dilemma/</loc>
@@ -3235,5 +3263,26 @@
         <xhtml:link rel="alternate" href="https://zhul.in/2026/01/31/mihomo-tun-fail-to-visit-dl-google-com/" hreflang="zh-CN" />
         <xhtml:link rel="alternate" href="https://zhul.in/en/2026/01/31/mihomo-tun-fail-to-visit-dl-google-com/" hreflang="en-US" />
     </url>
+    <url>
+        <loc>https://zhul.in/en/2026/02/20/xiaomi-china-version-fcm-push-debug/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2026/02/20/6202d116db231.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2026/02/20/432922f339849.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2026/02/20/8c20be931764b.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2026/02/20/58ba6ce88ef49.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2026/02/20/51db4ed4ef15b.webp</image:loc>
+        </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2026/02/20/xiaomi-china-version-fcm-push-debug/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2026/02/20/xiaomi-china-version-fcm-push-debug/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/2026/02/20/xiaomi-china-version-fcm-push-debug/" hreflang="en-US" />
+    </url>
 </urlset>
-<!-- XML Sitemap generated by @nuxtjs/sitemap v7.4.7 at 2026-01-31T00:11:54.666Z -->
+<!-- XML Sitemap generated by @nuxtjs/sitemap v7.4.7 at 2026-02-20T02:08:46.048Z -->

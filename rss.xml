@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
   <id>https://zhul.in</id>
   <title>竹林里有冰的博客</title>
-  <updated>2026-01-31T00:00:00.000Z</updated>
+  <updated>2026-02-20T00:00:00.000Z</updated>
   <subtitle>这里是我的个人博客，专注于分享技术干货、学习心得和生活感悟，涵盖前端开发、后端架构、人工智能、编程技巧、工具推荐等多个领域。我持续更新原创内容，记录成长过程中的思考与收获，致力于帮助更多开发者和技术爱好者提升技能、拓展视野。如果你对技术、产品和互联网行业感兴趣，相信你能在这里找到有价值的知识与灵感。</subtitle>
   <rights>© 2026 竹林里有冰</rights>
   <link href="https://zhul.in/rss.xml" rel="self" type="application/atom+xml"></link>
@@ -14,6 +14,103 @@
   </author>
   <icon>https://static.031130.xyz/avatar.webp</icon>
   <logo>https://static.031130.xyz/avatar.webp</logo>
+  <entry>
+    <id>https://zhul.in/2026/02/20/xiaomi-china-version-fcm-push-debug/</id>
+    <title>国内（大陆）版小米 FCM 熄屏断连：Rootless 环境下的尝试与可能的解决方案</title>
+    <updated>2026-02-20T00:00:00.000Z</updated>
+    <link href="https://zhul.in/2026/02/20/xiaomi-china-version-fcm-push-debug/" rel="alternate"></link>
+    <content type="html">
+      <![CDATA[<p>在去年的 11 月，我入手了一台新的国行版的小米 15 作为我的主力机。其实之前手上的 Redmi K70 Ultra 与这台小米 15 是同一年发布的产品，性能上也不相上下，但我在 Gap Year 期间在全国多地旅行，意识到没能将自己所见的夜景拍下是一件挺可惜的事，于是就想换一台拍照更好的手机。新发布的小米 17 在价格上正处于高位，且相对于 15 来说并没有太大的提升，所以我就直接入了小米 15。</p>
+<p>入手以后，我按照自己的使用习惯打开了设置中的「谷歌基础服务」，安装好「Google Play」后便正常使用。但就在这几个月的使用过程中，我发现我的 fcm 推送——无论是 outlook 邮件通知，还是某外观形似纸飞机的即时通讯软件，他们的 fcm 推送好像自始至终都没有正常 work 过。它们的通知偶尔会在我解锁手机后突然冒出来，但更多的时候它们就是不见了。一直要到我手动打开对应的 app，才会收到之前积压的通知。</p>
+<p>最近收到了海外院校的 offer，准备在 9 月份去读<span class="heimu">水硕</span>了，所以就想在出国之前把这个问题解决掉。毕竟在国内生活的时候，大部分软件能通过 mipush 给我推送消息，这些依赖 fcm 推送的 app 并不是我使用频率最高的 app，我每天睡醒手动打开一下就能收到通知了，即使回复消息的及时性不太好也无伤大雅，真有急事的话我的家人朋友们也知道哪些方式能更快的 reach 我。但到了国外，fcm 推送就变得非常重要了，所以要尽快处理掉这个问题，要不然我就得考虑换手机了。</p>
+<h2>测试环境</h2>
+<ul>
+<li>小米 15 国内版，16G + 512G，HyperOS 3.0.7.0.WOCCNXM，是截至本文撰写时最新的版本</li>
+<li>已开启「谷歌基础服务」，已安装「Google Play」</li>
+<li>连接 WIFI，且 WIFI 分流后的数据出口 IP 在🇺🇸洛杉矶</li>
+<li>未关闭 MIUI 优化</li>
+</ul>
+<h2>先把 FCM 跑起来</h2>
+<p>我需要先解决 FCM 在亮屏状态下也无法接收消息的问题。在「电话」界面的拨号盘输入 <code>*#*#426#*#*</code> 可以进入 FCM Diagnostics 界面，里面有一些关于 FCM 连接状态的日志输出。</p>
+<p><img src="https://static.031130.xyz/uploads/2026/02/20/6202d116db231.webp" alt="拨号盘输入">
+<img src="https://static.031130.xyz/uploads/2026/02/20/432922f339849.webp" alt="FCM Diagnostics 界面"></p>
+<p>在这个界面中，我发现 FCM 的连接状态其实是正常的，日志里也没有什么明显的错误信息。于是我就开始怀疑是不是 HyperOS 的某些省电机制在后台干扰了 FCM 的正常工作。通过在小红书的一番搜索，我发现在设置界面打开需要 FCM 推送的 App 的「自启动」权限，并且把电池优化设置为「不优化」，似乎能解决这个问题。</p>
+<p><img src="https://static.031130.xyz/uploads/2026/02/20/8c20be931764b.webp" alt="App 设置界面"></p>
+<p>通过 IM 软件（用一个号给另一个号发消息）测试，我发现在亮屏状态下，FCM 可以在 App 后台被关闭的情况下正常接收消息了。</p>
+<h2>熄屏一分钟后 FCM 断连的问题</h2>
+<p>然而，当我把手机熄屏后静置一分钟后，FCM 就完全不工作了。无论是邮件通知还是 IM 消息，都无法通过 FCM 推送到手机上。只有在我点亮屏幕的一瞬间，之前积压的通知才会突然冒出来。再通过 FCM Diagnostics 界面查看，FCM 的连接状态要么是 disconnected，要么是刚刚 connected 几秒。这说明在锁屏状态下，FCM 的连接会被系统断开，导致无法接收消息。</p>
+<p>PS: 我发现在充电状态下，即使手机锁屏，FCM 也能保持连接并正常接收消息。这就更加印证了是 HyperOS 的省电机制在干扰 FCM 的正常工作了。</p>
+<h2>可能的解决方案</h2>
+<p>在小红书和小绿书（酷安）一番搜索后，我找到了前人的一些尝试和解决方案：</p>
+<h3>1. 关闭 MIUI 优化</h3>
+<p>这是我最不喜欢的方案，因为 MIUI 优化确实是我喜欢 HyperOS （MIUI） 的一个重要原因。关闭 MIUI 优化后，我发现电池的剩余电量信息没法展示在状态栏电池图标内，一定会出现在电池图标右侧，这对于 HyperOS 出现超级岛（灵动岛）后的状态栏空间是一个极大的浪费。当然，还有一些别的功能也会受到影响，但这是我最在意的一个。</p>
+<p>另外，在 HyperOS 3 的开发者模式中已经找不到「关闭 MIUI 优化」这个选项了，虽然有用户反馈说可以通过重置设置状态之类的手段来让这个选项重新出现，但我觉得这并不是一个很好的解决方案。</p>
+<h3>2. 冻结「电量和性能」应用或替换为国际版</h3>
+<p>在 HyperOS 2 上，有用户反馈对「电量和性能」这个系统应用动刀可以解决 FCM 熄屏断连的问题。我尝试使用 adb shell 来冻结，经过我的测试这并不是一个有用的方案，并且它可能会导致一些系统调度异常，<strong>并且不要进入超级省电模式，因为这个模式的 UI 就是「电量和性能」这个应用提供的！！！</strong></p>
+<p>adb 命令如下</p>
+<pre><code class="language-bash">adb shell pm uninstall --user 0 com.miui.powerkeeper
+</code></pre>
+<p>如果你想恢复的话，可以通过下面的命令重新安装这个应用：</p>
+<pre><code class="language-bash">adb shell cmd package install-existing com.miui.powerkeeper
+</code></pre>
+<p>还有人反馈说可以通过替换为国际版的「电量和性能」应用来解决这个问题，但我没找到 HyperOS 3 国际版的「电量和性能」应用的安装包，下载小米 15 海外版的完整 Rom 解包后，这个应用的 apk 也没法直接覆盖更新或者通过 adb 安装。</p>
+<p><img src="https://static.031130.xyz/uploads/2026/02/20/58ba6ce88ef49.webp" alt="覆盖更新失败"></p>
+<h3>3. 解锁 Bootloader 以后使用 <a href="https://github.com/kooritea/fcmfix">fcmfix</a> 等 Xposed 模块</h3>
+<p>这个方案就。。。算了吧，虽然我在小米社区有 5 级账号，但我没有这个精力去参加小米高考（听说还停办了），况且解锁 Bootloader 以后可能还会面临支付软件无法使用等一系列问题，如果要掩盖相关痕迹又要折腾一番，感觉得不偿失了。</p>
+<h3>4. 使用 <a href="https://github.com/shaobin0604/HeartbeatFixerForGCM">HeartbeatFixerForGCM</a></h3>
+<p>该软件已在 Google Play 下架并且长期没有更新，经测试在 HyperOS 3 没法阻止 FCM 在锁屏状态下被系统断开连接。</p>
+<h3>5. 使用 Gboard 保活 FCM</h3>
+<p>虽然不知道是什么原理，但有用户反馈说安装 Gboard 键盘可以让 FCM 在锁屏状态下保持连接并正常接收消息了。我也试了一下，确实在安装了 Gboard 并将它设置为默认输入法后，FCM 在锁屏状态下确实能保持连接了。</p>
+<p>不过这个方案也不是很完美，毕竟我并不喜欢 Gboard 的输入体验，所以我不太能接受这个方案。</p>
+<h2>一些个人的小尝试</h2>
+<p>尽管我对安卓开发没多少经验，只有在大二做课设的时候接触过，但 AI 时代赋予了我 vibe coding 的能力</p>
+<p><img src="https://static.031130.xyz/uploads/2026/02/20/51db4ed4ef15b.webp" alt="尝试使用 vibe coding 修改源码并编译"></p>
+<p>所以我也让 AI 基于 HeartbeatFixerForGCM 的开源代码修改了一些保活 FCM 的逻辑，大概是下面这些思路:</p>
+<ul>
+<li>输入法保活： 延续 Gboard 的思路，利用输入法服务的常驻特性来保持 FCM 连接，能够保活 FCM，但丢失了输入法的输入能力，pass</li>
+<li>通知监听：NotificationListener 作为系统监听角色，提升常驻概率，未果，pass</li>
+<li>前台服务：常驻通知 + FGS 提升进程存活优先级，未果，pass</li>
+<li>无障碍保活: 无障碍服务同样作为系统监听角色，提升常驻概率，未果，pass</li>
+<li>VPN 保活：通过 VPN 服务的常驻特性来保持 FCM 连接，不知道有没有效果，<del>但确实给我手机整断网了</del>，pass</li>
+</ul>
+<p>总之，这些尝试都没有成功，FCM 在锁屏状态下依然会被系统断开连接。</p>
+<h2>好像找到一个可行的方案了？</h2>
+<p>就在我山重水复疑无路，准备物色下一台手机的时候，我看到一篇小红书笔记中提到，可以先卸载更新「Google Play 服务」，再重新更新到最新版的方案。帖主的解释是先把国内优化版的 Play 服务卸载掉，再从 Play Store 安装一个没有被国内优化过的版本，能解决这个问题了。</p>
+<p>虽然没法在 Play Store 上直接找到「Google Play 服务」这个应用，但可以通过手机浏览器搜索 「Google Play Services」，点开 google.com 上的那个链接，就可以自动跳转到 Play Store 上的「Google Play 服务」应用界面。你也可以直接点<a href="https://play.google.com/store/apps/details?id=com.google.android.gms">这里</a>。</p>
+<p>我也试了一下，确实在卸载更新「Google Play 服务」以后，FCM 在锁屏状态下就能保持连接了。虽然这个方案听起来有点玄学且我也无法窥见真正起作用的原理，但既然有效果了，我也就不纠结了。</p>
+<p>但就当我以为问题解决了，在写这篇文章的时候，我尝试重启手机，结果发现问题又回来了。并且在重启后，重复上面的卸载更新「Google Play 服务」的步骤，问题依然没有解决，这让我很苦恼，于是开始回忆之前的操作步骤，但始终没让我再复现之前的状态了。。。</p>
+<h2>等等，好像有保底</h2>
+<p>就在我和一位<a href="https://github.com/Rurikobaka/">资深玩机网友</a>讨论这个问题的时候，他提出国内 OS 确实会在熄屏后为了省电而断开 fcm 的长连接，但仍然会保留定时检查的机制，这与我在测试过程中的部分孤例似乎是吻合的。这个定时检查的间隔时长比较长，据他推测在 10~20 分钟左右。我自己也进行了一轮测试，流程是这样的</p>
+<ol>
+<li>熄屏一分钟，使用小号往主号发送消息，等待 6 分钟后主号收到消息，通过小米手环的振动通知我消息到了</li>
+<li>立刻再使用小号往主号发送消息，等待主号第二次收到消息，记录两次消息的时间差。</li>
+</ol>
+<p>因为时间间隔比较长，所以我只测试了一轮半，第一轮的时间差是 28 分钟，第二轮的时间差达到了 38 分钟。</p>
+<p>得出结论：<strong>在熄屏状态下，虽然 FCM 的连接会被系统断开，但系统会每隔 30 分钟左右（不准确数据）自动唤醒一次 FCM 来检查是否有新的消息，如果有的话就会收到通知了。</strong></p>
+<h2>结论</h2>
+<p>目前来说，要在国内版的小米手机上接收 FCM 推送，只能在使用 Gboard + 实时推送 / 定时检查机制的保底方案中二选一了。</p>
+<p>前者通过 Gboard 输入法的常驻特性来保持 FCM 连接，能够在熄屏状态下实时接收消息，但需要牺牲输入体验；后者则是通过系统定时唤醒 FCM 来检查是否有新的消息，虽然不需要牺牲输入体验了，但可能会有超过半小时的延迟。</p>
+<h2>参见</h2>
+<ul>
+<li><a href="https://www.mobile01.com/topicdetail.php?f=634&#x26;t=6892724">【HyperOS】修復小米陸版通知推送 - Mobile01</a></li>
+<li><a href="https://www.v2ex.com/t/993090">如何解决原生 Android 续航问题？ - V2EX</a></li>
+<li><a href="https://staging.v2ex.com/t/1089681">小米 15/hyperOS 2.0 打开 FCM 通知 - V2EX</a></li>
+<li><a href="https://www.threads.com/@silicon.salmon/post/DDR_SD8y3Gp">海外不建議購買內地版小米手機 因為一鎖屏就斷連 FCM， 導致海外 App 收不到消息推送。 亮屏後 FCM，會嘗試重連。 重連成功，才能收到通知。 已開自啟動，電池無限制。 有什麼解決辦法？ 香港澳門| salmon0105</a></li>
+<li><a href="https://github.com/shaobin0604/HeartbeatFixerForGCM">shaobin0604/HeartbeatFixerForGCM: Tiny application to fix GCM push notification delay issue</a></li>
+<li><a href="https://github.com/kooritea/fcmfix">kooritea/fcmfix: [xposed]让fcm唤醒已完全停止的应用</a></li>
+<li>小红书、小绿书等社交平台上的相关讨论和反馈，因内容较为分散且不太系统，这里就不一一列举了，感兴趣的读者可以自行搜索相关关键词进行查看。</li>
+</ul>]]>
+    </content>
+    <published>2026-02-20T00:00:00.000Z</published>
+    <author>
+      <name>竹林里有冰</name>
+      <email>zhullyb@outlook.com</email>
+      <uri>https://zhul.in</uri>
+    </author>
+    <category term="Android"></category>
+    <category term="Network"></category>
+    <category term="Hardware"></category>
+  </entry>
   <entry>
     <id>https://zhul.in/2026/01/31/mihomo-tun-fail-to-visit-dl-google-com/</id>
     <title>我没法访问 dl.google.com —— 记一次 TUN 下的网络 debug</title>
