@@ -7,8 +7,9 @@
 			:width="width"
 			:height="height"
 			loading="lazy"
-			class="prose-img"
+			:class="['prose-img', { 'prose-img--portrait': isPortrait }]"
 			@click="openPreview"
+			@load="handleImgLoad"
 			style="cursor: zoom-in"
 		/>
 		<span v-if="alt" class="prose-img-caption">{{ alt }}</span>
@@ -38,7 +39,7 @@
 </template>
 
 <script setup lang="ts">
-	import { ref, onMounted, onBeforeUnmount } from 'vue'
+	import { computed, ref, onMounted, onBeforeUnmount } from 'vue'
 
 	const props = defineProps({
 		src: { type: String, required: true },
@@ -50,6 +51,7 @@
 
 	const preview = ref(false)
 	const scale = ref(1)
+	const isPortrait = ref(false)
 	const minScale = 0.5
 	const maxScale = 4
 
@@ -87,6 +89,12 @@
 		scale.value = 1
 	}
 
+	function handleImgLoad(e: Event) {
+		const img = e.target as HTMLImageElement | null
+		if (!img) return
+		isPortrait.value = img.naturalHeight / img.naturalWidth >= 1.15
+	}
+
 	function handleKeydown(e: KeyboardEvent) {
 		if (preview.value && (e.key === 'Escape' || e.key === 'Esc')) {
 			closePreview()
@@ -104,14 +112,25 @@
 
 <style scoped>
 	.prose-img-wrapper {
-		display: inline-block;
+		display: block;
+		width: 100%;
+		max-width: 100%;
 		position: relative;
+		margin: 0 auto;
 	}
 	.prose-img {
-		max-width: 100%;
+		max-width: 90%;
+		height: auto;
+		display: block;
+		margin: 0 auto;
 		border-radius: 4px;
 		transition: box-shadow 0.2s;
 		box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+	}
+	.prose-img--portrait {
+		width: min(90%, 280px);
+		max-height: 70vh;
+		object-fit: contain;
 	}
 	.prose-img:hover {
 		box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
