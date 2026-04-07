@@ -3,10 +3,10 @@
     <div class="card-header">
       <div class="header-left">
         <div class="logo-yxvm-container">
-          <a :href="config.primaryBrand.href" target="_blank" rel="noopener noreferrer">
+          <a href="https://yxvm.com/" target="_blank" rel="noopener noreferrer">
             <img
-              :src="config.primaryBrand.image"
-              :alt="config.primaryBrand.alt"
+              src="https://static.031130.xyz/uploads/2025/11/25/2584c5a5ec26b.png"
+              alt="yxvm"
               class="logo-img"
               loading="lazy"
             />
@@ -14,10 +14,10 @@
         </div>
         <span class="plus-separator">+</span>
         <div class="logo-nodeseek-container">
-          <a :href="config.secondaryBrand.href" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.nodeseek.com" target="_blank" rel="noopener noreferrer">
             <img
-              :src="config.secondaryBrand.image"
-              :alt="config.secondaryBrand.alt"
+              src="https://static.031130.xyz/uploads/2025/11/25/f56e28d4d53ca.png"
+              alt="nodeseek"
               class="logo-img"
               loading="lazy"
             />
@@ -25,7 +25,12 @@
         </div>
       </div>
       <div>
-        <a :href="config.githubUrl" target="_blank" rel="noopener noreferrer" class="github-link">
+        <a
+          href="https://github.com/NodeSeekDev/NodeSupport"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="github-link"
+        >
           <svg
             class="github-icon"
             xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -54,26 +59,17 @@
         </a>
       </div>
     </div>
-    <h1 class="card-title">
-      {{ config.title }}
-    </h1>
+    <h1 class="card-title">NodeSupport Project</h1>
     <p class="card-description">
-      {{ config.description }}
+      Provide free server sponsorship to high-quality blogs, channels, open-source projects, and
+      popular app.
     </p>
     <div class="card-footer">
       <span>Support ID:</span>
-      <span>{{ config.supportId }}</span>
+      <span>61</span>
     </div>
   </div>
 </template>
-
-<script setup lang="ts">
-  import type { NodeSupportConfig } from '~/types/site'
-
-  defineProps<{
-    config: NodeSupportConfig
-  }>()
-</script>
 
 <style lang="less" scoped>
   .promo-card {

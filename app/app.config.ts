@@ -6,8 +6,6 @@ export default defineAppConfig({
   assets: blogConfig.assets,
   content: blogConfig.content,
   comments: blogConfig.comments,
-  pages: blogConfig.pages,
-  footer: blogConfig.footer,
   links: blogConfig.links,
   nav: {
     items: blogConfig.navigation

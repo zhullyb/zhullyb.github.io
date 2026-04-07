@@ -1,65 +1,70 @@
 <template>
-  <DefaultLayout :title="pageTitle">
+  <DefaultLayout title="Donate to zhullyb">
     <div class="radio-group">
       <button
-        v-for="method in methods"
-        :key="method.key"
-        :class="['radio-button', { active: selectedMethod === method.key }]"
-        @click="selectedMethod = method.key"
+        :class="['radio-button', { active: selectedMethod === 'wechat' }]"
+        @click="selectedMethod = 'wechat'"
       >
-        {{ method.label }}
+        WeChat Pay
+      </button>
+      <button
+        :class="['radio-button', { active: selectedMethod === 'alipay' }]"
+        @click="selectedMethod = 'alipay'"
+      >
+        AliPay
       </button>
     </div>
 
     <div class="divider"></div>
     <div class="text-container">
       <div class="donate-text">
-        <p v-for="line in introLines" :key="line">{{ line }}</p>
+        <p>全天24小时无人值守要饭，要饭我们是专业的。</p>
+        <p>Unattended 7x24 hours ask for begging.</p>
+        <p>To ask for begging, we are professional.</p>
       </div>
     </div>
     <div class="divider"></div>
 
     <div class="qrcode-container">
-      <img v-if="selectedQrCode" :src="selectedQrCode" :alt="selectedAlt" class="qrcode-image" />
+      <img
+        v-if="selectedMethod === 'wechat'"
+        :src="qrcodes.wechat"
+        alt="WeChat Pay QR Code"
+        class="qrcode-image"
+      />
+      <img
+        v-if="selectedMethod === 'alipay'"
+        :src="qrcodes.alipay"
+        alt="AliPay QR Code"
+        class="qrcode-image"
+      />
     </div>
   </DefaultLayout>
 </template>
 
 <script setup lang="ts">
-  const appConfig = useAppConfig()
-  const localeKey = useBlogLocaleKey()
-  const donateConfig = appConfig.pages.donate
-  const selectedMethod = ref(donateConfig.methods[0]?.key ?? '')
+  const selectedMethod = ref('wechat')
 
-  const pageTitle = computed(() => donateConfig.title[localeKey.value])
-  const introLines = computed(() => donateConfig.intro[localeKey.value])
-  const methods = computed(() =>
-    donateConfig.methods.map(method => ({
-      ...method,
-      label: method.label[localeKey.value],
-      alt: method.alt[localeKey.value]
-    }))
-  )
-  const selectedMethodConfig = computed(
-    () => methods.value.find(method => method.key === selectedMethod.value) ?? methods.value[0]
-  )
-  const selectedQrCode = computed(() => selectedMethodConfig.value?.qrCode ?? '')
-  const selectedAlt = computed(() => selectedMethodConfig.value?.alt ?? '')
+  const qrcodes = {
+    wechat: 'https://static.031130.xyz/uploads/2024/08/12/6552d6098f397.webp',
+    alipay: 'https://static.031130.xyz/uploads/2024/08/12/6552d6098f43c.webp'
+  }
 
-  watchEffect(() => {
-    if (!methods.value.find(method => method.key === selectedMethod.value)) {
-      selectedMethod.value = methods.value[0]?.key ?? ''
-    }
+  useHead({
+    link: [
+      {
+        rel: 'preload',
+        as: 'image',
+        href: qrcodes.wechat,
+        fetchpriority: 'high'
+      },
+      {
+        rel: 'preload',
+        as: 'image',
+        href: qrcodes.alipay
+      }
+    ]
   })
-
-  useHead(() => ({
-    link: donateConfig.methods.map((method, index) => ({
-      rel: 'preload',
-      as: 'image',
-      href: method.qrCode,
-      ...(index === 0 ? { fetchpriority: 'high' } : {})
-    }))
-  }))
 </script>
 
 <style scoped lang="less">

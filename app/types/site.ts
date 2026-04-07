@@ -40,39 +40,6 @@ export interface WalineConfig {
   login: string
 }
 
-export interface DonateMethodConfig {
-  key: string
-  label: LocalizedValue<string>
-  qrCode: string
-  alt: LocalizedValue<string>
-}
-
-export interface DonatePageConfig {
-  path: string
-  title: LocalizedValue<string>
-  intro: LocalizedValue<string[]>
-  methods: DonateMethodConfig[]
-}
-
-export interface NodeSupportConfig {
-  enabled: boolean
-  supportId: string
-  title: string
-  description: string
-  primaryBrand: {
-    image: string
-    href: string
-    alt: string
-  }
-  secondaryBrand: {
-    image: string
-    href: string
-    alt: string
-  }
-  githubUrl: string
-  promotionUrl: string
-}
-
 export interface BlogConfig {
   site: {
     url: string
@@ -102,25 +69,6 @@ export interface BlogConfig {
       scriptSrc: string
       websiteId: string
     }
-  }
-  footer: {
-    social: {
-      github?: string
-      mastodon?: string
-      email?: string
-    }
-    poweredBy: {
-      name: string
-      url: string
-    }
-    copyright: {
-      startYear: number
-      owner: string
-    }
-    nodeSupport: NodeSupportConfig
-  }
-  pages: {
-    donate: DonatePageConfig
   }
   links: FriendLink[]
   redirects: Record<string, string>
