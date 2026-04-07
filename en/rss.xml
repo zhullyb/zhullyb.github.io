@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US">
   <id>https://zhul.in</id>
-  <title>竹林里有冰的博客</title>
+  <title>Zhullyb&apos;s Blog</title>
   <updated>2026-02-20T00:00:00.000Z</updated>
-  <subtitle>这里是我的个人博客，专注于分享技术干货、学习心得和生活感悟，涵盖前端开发、后端架构、人工智能、编程技巧、工具推荐等多个领域。我持续更新原创内容，记录成长过程中的思考与收获，致力于帮助更多开发者和技术爱好者提升技能、拓展视野。如果你对技术、产品和互联网行业感兴趣，相信你能在这里找到有价值的知识与灵感。</subtitle>
+  <subtitle>This is my personal blog focused on technology, learning notes, and everyday observations. I write about frontend development, backend architecture, AI, programming techniques, useful tools, and the lessons I learn along the way.</subtitle>
   <rights>© 2026 竹林里有冰</rights>
   <link href="https://zhul.in/en/rss.xml" rel="self" type="application/atom+xml"></link>
   <link href="https://zhul.in" rel="alternate"></link>
