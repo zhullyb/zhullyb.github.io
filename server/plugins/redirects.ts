@@ -1,26 +1,27 @@
 import { defineEventHandler } from 'h3'
-import blogConfig from '../../blog.config'
+import blogConfig, { pickLocalizedValue } from '../../blog.config'
 
 export default defineNitroPlugin(nitroApp => {
-	const redirects = blogConfig.urlRedirects as Record<string, string>
+  const redirects = blogConfig.redirects as Record<string, string>
 
-	// 为每个重定向路径创建处理器
-	for (const [fromPath, toPath] of Object.entries(redirects)) {
-		nitroApp.router.use(
-			fromPath,
-			defineEventHandler(event => {
-				const fullTargetUrl = `${blogConfig.url.replace(/\/$/, '')}${toPath}`
+  // 为每个重定向路径创建处理器
+  for (const [fromPath, toPath] of Object.entries(redirects)) {
+    nitroApp.router.use(
+      fromPath,
+      defineEventHandler(event => {
+        const fullTargetUrl = `${blogConfig.site.url.replace(/\/$/, '')}${toPath}`
+        const siteTitle = pickLocalizedValue(blogConfig.site.title, 'zh')
 
-				// 设置响应头
-				event.node.res.setHeader('Content-Type', 'text/html; charset=utf-8')
+        // 设置响应头
+        event.node.res.setHeader('Content-Type', 'text/html; charset=utf-8')
 
-				// 返回包含 meta refresh、canonical 和 JS 重定向的 HTML
-				return `<!DOCTYPE html>
+        // 返回包含 meta refresh、canonical 和 JS 重定向的 HTML
+        return `<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>页面跳转中... - ${blogConfig.title}</title>
+	<title>页面跳转中... - ${siteTitle}</title>
 	<link rel="canonical" href="${fullTargetUrl}">
 	<meta http-equiv="refresh" content="0;url=${toPath}">
 	<style>
@@ -75,7 +76,7 @@ export default defineNitroPlugin(nitroApp => {
 	</div>
 </body>
 </html>`
-			})
-		)
-	}
+      })
+    )
+  }
 })

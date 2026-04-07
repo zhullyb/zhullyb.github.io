@@ -2,6 +2,23 @@
 
 这是一个使用 Nuxt v4 + Nuxt Content v3 构建的博客系统，目前仍在开发中。
 
+## 自定义入口
+
+目前站点信息已经收口到几个固定入口，常见个性化不需要再去组件里翻硬编码：
+
+- `blog.config.ts`
+  站点标题、描述、导航、评论、统计、页脚社交链接、打赏配置、重定向规则
+- `app/data/friend-links.ts`
+  友链数据
+- `app/data/backgrounds.ts`
+  首页/页脚背景图案
+- `content/others/zh/about.md`
+  中文关于页
+- `content/others/en/about.md`
+  英文关于页
+
+如果只是换站点名称、邮箱、评论服务、赞赏二维码、社交链接，优先修改 `blog.config.ts` 即可。
+
 ## Todo List
 
 - [x] 博客首页（文章列表）

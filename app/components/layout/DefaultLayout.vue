@@ -1,51 +1,56 @@
 <template>
-	<div>
-		<Header :background="background" :title="title" />
-		<div class="content-wrapper">
-			<div class="before-main side">
-				<slot name="BeforeMain" />
-			</div>
-			<main>
-				<slot />
-			</main>
-			<div class="after-main side">
-				<slot name="AfterMain" />
-			</div>
-		</div>
-		<Footer :background="background" />
-	</div>
+  <div>
+    <Header :background="background" :title="title" />
+    <div class="content-wrapper">
+      <div class="before-main side">
+        <slot name="BeforeMain" />
+      </div>
+      <main>
+        <slot />
+      </main>
+      <div class="after-main side">
+        <slot name="AfterMain" />
+      </div>
+    </div>
+    <Footer :background="background" />
+  </div>
 </template>
 
 <script setup lang="ts">
-	const route = useRoute()
-	const props = defineProps({
-		title: {
-			default: ''
-		}
-	})
-	const appConfig = useAppConfig()
-	const { data: randomIndex } = useAsyncData('randomIndex' + route.path.replace('/en/', '/'), async () => {
-		return Math.floor(Math.random() * appConfig.backgrounds.length)
-	})
-	const background = computed(
-		() =>
-			appConfig.backgrounds[randomIndex.value ?? 0] as {
-				backgroundColor: string
-				backgroundImage: string
-			}
-	)
+  const route = useRoute()
+  const appConfig = useAppConfig()
+  const siteTitle = useLocalizedConfigValue(appConfig.site.title)
 
-	useHead({
-		title: props.title || $t('title')
-	})
+  const props = defineProps({
+    title: {
+      default: ''
+    }
+  })
+  const { data: randomIndex } = useAsyncData(
+    'randomIndex' + route.path.replace('/en/', '/'),
+    async () => {
+      return Math.floor(Math.random() * appConfig.appearance.backgrounds.length)
+    }
+  )
+  const background = computed(
+    () =>
+      appConfig.appearance.backgrounds[randomIndex.value ?? 0] as {
+        backgroundColor: string
+        backgroundImage: string
+      }
+  )
+
+  useHead(() => ({
+    title: props.title || siteTitle.value
+  }))
 </script>
 
 <style lang="less" scoped>
-	.content-wrapper {
-		margin-top: 40px;
-		margin-bottom: 40px;
+  .content-wrapper {
+    margin-top: 40px;
+    margin-bottom: 40px;
 
-		.desktop-up({
+    .desktop-up({
       display: flex;
       justify-content: space-around;
 
@@ -54,17 +59,17 @@
       }
     });
 
-		.desktop-down({
+    .desktop-down({
       margin: 30px;
     });
-	}
+  }
 
-	main {
-		min-height: calc(40vh - 120px);
-		width: 50%;
+  main {
+    min-height: calc(40vh - 120px);
+    width: 50%;
 
-		.desktop-down({
+    .desktop-down({
       width: unset;
     });
-	}
+  }
 </style>

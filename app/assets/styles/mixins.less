@@ -6,31 +6,31 @@
 @header-height: 58px;
 
 .dark-mode(@rules) {
-	@media (prefers-color-scheme: dark) {
-		@rules();
-	}
+  @media (prefers-color-scheme: dark) {
+    @rules();
+  }
 }
 
 .tablet-down(@rules) {
-	@media (max-width: 720px) {
-		@rules();
-	}
+  @media (max-width: 720px) {
+    @rules();
+  }
 }
 
 .tablet-up(@rules) {
-	@media (min-width: 721px) {
-		@rules();
-	}
+  @media (min-width: 721px) {
+    @rules();
+  }
 }
 
 .desktop-down(@rules) {
-	@media (max-width: 1024px) {
-		@rules();
-	}
+  @media (max-width: 1024px) {
+    @rules();
+  }
 }
 
 .desktop-up(@rules) {
-	@media (min-width: 1025px) {
-		@rules();
-	}
+  @media (min-width: 1025px) {
+    @rules();
+  }
 }

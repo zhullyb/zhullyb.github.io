@@ -10,7 +10,7 @@ insert_final_newline = true
 charset = utf-8
 trim_trailing_whitespace = true
 
-# Tab indentation (no size specified)
+# Space indentation
 [*.{js,ts,vue,json,css,less,scss,html}]
 indent_style = space
 indent_size = 2

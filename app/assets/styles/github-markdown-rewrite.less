@@ -1,22 +1,22 @@
 :deep(.markdown-body) {
-  @import "heimu.less";
+  @import 'heimu.less';
 
   font-size: inherit;
   font-family: inherit;
 
-	h2,
-	h3,
-	h4,
-	h5,
-	h6 {
-		& > a {
-			color: unset;
-		}
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    & > a {
+      color: unset;
+    }
 
-		scroll-margin-top: @header-height + 20px;
-	}
+    scroll-margin-top: @header-height + 20px;
+  }
 
-	.dark-mode({
+  .dark-mode({
     --bgColor-default: @dark-bg-color;
     --bgColor-muted: @dark-second-color;
 
