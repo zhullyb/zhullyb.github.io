@@ -55,7 +55,7 @@ export const useLanguageSwitch = () => {
         newPath = localePath('/archives', newLocale)
       }
       // 4. 检查是否是普通分页页 (/page/[page])
-      else if (route.path.startsWith(localePath('/page/', locale.value))) {
+      else if (route.params.page) {
         // navigateTo(localePath('/', newLocale))
         // return
         newPath = localePath('/', newLocale)
