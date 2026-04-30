@@ -6,6 +6,7 @@ tags:
 - Android
 - Network
 - Hardware
+- Xiaomi
 ---
 
 In November last year, I got a new mainland China version Xiaomi 15 as my daily driver. Actually, my previous Redmi K70 Ultra was released in the same year as this Xiaomi 15, and performance-wise they're comparable. However, during my Gap Year while traveling across the country, I realized it was a shame not being able to capture the night scenes I encountered, so I wanted to switch to a phone with better camera capabilities. The newly released Xiaomi 17 was at a premium price point, and didn't offer significant improvements over the 15, so I went directly for the Xiaomi 15.
