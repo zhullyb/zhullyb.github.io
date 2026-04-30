@@ -55,6 +55,12 @@ With this, the Linux compatibility of this Xiaomi Book Pro 14 2026 can be said t
 
 Then came the migration process. I won't expand on this part—in short, it involved creating a new Linux root partition, using rsync to migrate the old system, rebuilding the fstab partition table and GRUB bootloader, and finally adding the aforementioned kernel parameters after system installation. After rebooting, everything worked normally.
 
+The rsync command was roughly like this:
+
+```bash
+rsync -axHAWXS --numeric-ids <source> <destination>
+```
+
 ![](https://static.031130.xyz/uploads/2026/04/30/99f106c17dd0c.webp)
 
 ## Summary

@@ -55,6 +55,12 @@ tags:
 
 于是便是迁移过程，这部分内容就不展开了，简单来说就是新建 Linux 根目录分区、通过 rsync 将老的系统迁移过来、重建 fstab 分区表和 GRUB 引导、最后安装好系统后再添加之前提到的内核参数，重启后就能正常使用了。
 
+rsync 的命令大概是这样的：
+
+```bash
+rsync -axHAWXS --numeric-ids <source> <destination>
+```
+
 ![](https://static.031130.xyz/uploads/2026/04/30/99f106c17dd0c.webp)
 
 ## 总结
