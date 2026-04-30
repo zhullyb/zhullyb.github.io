@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-CN">
   <id>https://zhul.in</id>
   <title>竹林里有冰的博客</title>
-  <updated>2026-02-20T00:00:00.000Z</updated>
+  <updated>2026-04-30T00:00:00.000Z</updated>
   <subtitle>这里是我的个人博客，专注于分享技术干货、学习心得和生活感悟，涵盖前端开发、后端架构、人工智能、编程技巧、工具推荐等多个领域。我持续更新原创内容，记录成长过程中的思考与收获，致力于帮助更多开发者和技术爱好者提升技能、拓展视野。如果你对技术、产品和互联网行业感兴趣，相信你能在这里找到有价值的知识与灵感。</subtitle>
   <rights>© 2026 竹林里有冰</rights>
   <link href="https://zhul.in/rss.xml" rel="self" type="application/atom+xml"></link>
@@ -14,6 +14,84 @@
   </author>
   <icon>https://static.031130.xyz/avatar.webp</icon>
   <logo>https://static.031130.xyz/avatar.webp</logo>
+  <entry>
+    <id>https://zhul.in/2026/04/30/xiaomi-book-pro-14-2026-on-linux/</id>
+    <title>小米 Xiaomi Book Pro 14 （Ultra X7） Linux 兼容性实测</title>
+    <updated>2026-04-30T00:00:00.000Z</updated>
+    <link href="https://zhul.in/2026/04/30/xiaomi-book-pro-14-2026-on-linux/" rel="alternate"></link>
+    <content type="html">
+      <![CDATA[<h2>深夜的“冲动”消费</h2>
+<p>前几天深夜 0 点，躺在床上百无聊赖刷着京东，居然奇迹般地逮到了这台常年断货的 Xiaomi Book Pro 14 2026 顶配版的现货！这突然弹出来的购买按钮，简直像是在跟我招手。虽然脑子里天人交战了一番，最后我的手还是非常诚实地按下了付款键。</p>
+<p>虽说错过了首发折扣，原价 10499 让人隐隐有些肉疼，但好在还能叠一波本地的国补，实付 8999 拿下的价格也算是“真香”了。仔细想想一点也不亏，毕竟也是时候让我那台任劳任怨、被我折腾了四年的老伙计 ThinkPad T14 Gen2i 顺理成章地退居二线享清福啦。</p>
+<h2>Linux 兼容性：一场“赌博”与测试计划</h2>
+<p>这台本子在近一个月的自媒体测评中表现亮眼，我也不过多介绍了，总之其搭载的 Panther Lake 提供的性能提升和续航表现都非常不错，再加上其 1.07kg 的轻巧重量，让我非常心动。剩下唯一的不确定因素就是它的 Linux 兼容性了。由于是新机，在加上其搭载的 Panther Lake 处理器产能极低，所以没指望有 Linux 用户能第一时间上手测试。看了看是 Intel 的平台，网卡也是 Intel 的，所以我决定赌一把。到货后不直接激活，通过 <code>oobe\bypassnro</code> 来跳过微软账户的绑定，直接进入系统桌面后关闭快速启动，便掏出 LiveCD 来测试。</p>
+<p><img src="https://static.031130.xyz/uploads/2026/04/30/effcba4d1ab8d.webp" alt="（桌上很乱，图片经过 AI 处理）"></p>
+<p>我是这样打算的：如果能进入 LiveCD，经过简单的测试后发现没有什么大问题的话，就确认收货、联网激活；如果确实是 Linux 兼容性有问题且短时间内无法解决的话，就只能退货了，因为我确实是个重度 Linux 用户。</p>
+<h2>测试项目与 LiveCD 结果</h2>
+<p>测试项如下：</p>
+<ul>
+<li>正确进入桌面环境</li>
+<li>WIFI</li>
+<li>蓝牙</li>
+<li>声卡</li>
+<li>摄像头</li>
+<li>内置键盘</li>
+<li>触控板</li>
+</ul>
+<blockquote>
+<p><em>注：需要提前向大家说明的是，对于 <strong>指纹识别</strong> 以及 <strong>电源管理（包括系统的睡眠、休眠等状态切换）</strong> 相关的特性，在本次实测中我并未作专门验证，主要考虑到我自己日常在 Linux 下基本不会用到指纹等功能，所以在这方面没有过多纠结。</em></p>
+</blockquote>
+<p>好在核心基础配置的测试结果都没辜负我的期望，我简单讲讲几个 LiveCD 的测试结果</p>
+<table>
+<thead>
+<tr>
+<th>发行版</th>
+<th>内核版本</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ubuntu 26.04</td>
+<td>7.0</td>
+<td>键盘不识别，内置屏幕偶有花屏</td>
+</tr>
+<tr>
+<td>Fedora 44</td>
+<td>6.18</td>
+<td>键盘不识别，内置屏幕偶有花屏，无声音</td>
+</tr>
+<tr>
+<td>CachyOS 260426</td>
+<td>6.18</td>
+<td>键盘不识别，内置屏幕偶有花屏，无声音</td>
+</tr>
+</tbody>
+</table>
+<h2>解决困境：万能的内核参数</h2>
+<p>从上面的测试结果可以看出，在 7.0 以上的内核版本修复了声音的问题，而我在一番搜索后找到了<a href="https://meixg.cn/2026/03/25/xiaomi-book-pro-14-omarchy/">这样一篇博客</a>能够解决键盘不识别和内置屏幕偶有花屏的问题。</p>
+<p>重新进入 LiveCD，在 GRUB 界面按 e 进入编辑模式，在 linux 行的末尾添加 <code>i8042.nopnp=1 i8042.dumbkbd=1 xe.force_probe=b081 i915.force_probe=!b081 xe.enable_psr=0</code> 参数后按 F10 启动，进入系统后键盘就能正常使用了，内置屏幕偶有花屏的问题也不再出现了。于是我连上 WIFI 放了几个小时的 YouTube 8K 视频，没出现什么明显的问题，蓝牙、声卡、摄像头经测试也都正常工作。</p>
+<h2>系统迁移与最终体验</h2>
+<p>这样一来，这台 Xiaomi Book Pro 14 2026 的 Linux 兼容性可以说是超出预期的，在正式安装系统时只需要添加几段内核参数就能解决之前测试中遇到的几个问题。</p>
+<p>于是便是迁移过程，这部分内容就不展开了，简单来说就是新建 Linux 根目录分区、通过 rsync 将老的系统迁移过来、重建 fstab 分区表和 GRUB 引导、最后安装好系统后再添加之前提到的内核参数，重启后就能正常使用了。</p>
+<p><img src="https://static.031130.xyz/uploads/2026/04/30/99f106c17dd0c.webp" alt=""></p>
+<h2>总结</h2>
+<p>总的来说，这台 Xiaomi Book Pro 14 2026 在 Linux 上的兼容性表现还是非常不错的，虽然在初始测试中遇到了一些问题，但通过添加内核参数后这些问题都得到了有效解决。我目前已经联网激活自带的 Windows 系统并确认收货，同时也成功迁移了 Linux 系统，整体体验非常满意。</p>
+<h2>参见</h2>
+<ul>
+<li><a href="https://meixg.cn/2026/03/25/xiaomi-book-pro-14-omarchy/">在 Xiaomi Book Pro 14 (2026) 上运行 Omarchy (Arch + Hyprland) </a></li>
+</ul>]]>
+    </content>
+    <published>2026-04-30T00:00:00.000Z</published>
+    <author>
+      <name>竹林里有冰</name>
+      <email>zhullyb@outlook.com</email>
+      <uri>https://zhul.in</uri>
+    </author>
+    <category term="Linux"></category>
+    <category term="Hardware"></category>
+    <category term="Xiaomi"></category>
+  </entry>
   <entry>
     <id>https://zhul.in/2026/02/20/xiaomi-china-version-fcm-push-debug/</id>
     <title>国内（大陆）版小米 FCM 熄屏断连：Rootless 环境下的尝试与可能的解决方案</title>
@@ -110,6 +188,7 @@
     <category term="Android"></category>
     <category term="Network"></category>
     <category term="Hardware"></category>
+    <category term="Xiaomi"></category>
   </entry>
   <entry>
     <id>https://zhul.in/2026/01/31/mihomo-tun-fail-to-visit-dl-google-com/</id>

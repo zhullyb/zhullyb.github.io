@@ -226,6 +226,7 @@
         <loc>https://zhul.in/page/3/</loc>
         <xhtml:link rel="alternate" href="https://zhul.in/page/3/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/page/3/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/page/3/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/page/4/</loc>
@@ -748,6 +749,12 @@
         <xhtml:link rel="alternate" href="https://zhul.in/tags/Windows/" hreflang="zh-CN" />
     </url>
     <url>
+        <loc>https://zhul.in/tags/Xiaomi/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Xiaomi/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Xiaomi/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/Xiaomi/" hreflang="en-US" />
+    </url>
+    <url>
         <loc>https://zhul.in/tags/Z-Library/</loc>
         <xhtml:link rel="alternate" href="https://zhul.in/tags/Z-Library/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/tags/Z-Library/" hreflang="zh-CN" />
@@ -762,6 +769,7 @@
         <loc>https://zhul.in/archives/page/3/</loc>
         <xhtml:link rel="alternate" href="https://zhul.in/archives/page/3/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/archives/page/3/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/archives/page/3/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/archives/page/4/</loc>
@@ -823,6 +831,12 @@
         <xhtml:link rel="alternate" href="https://zhul.in/page/2/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/page/2/" hreflang="zh-CN" />
         <xhtml:link rel="alternate" href="https://zhul.in/en/page/2/" hreflang="en-US" />
+    </url>
+    <url>
+        <loc>https://zhul.in/en/page/3/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/page/3/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/page/3/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/page/3/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/en/tags/Android/</loc>
@@ -1063,6 +1077,12 @@
         <xhtml:link rel="alternate" href="https://zhul.in/tags/Web%20PKI/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/tags/Web%20PKI/" hreflang="zh-CN" />
         <xhtml:link rel="alternate" href="https://zhul.in/en/tags/Web%20PKI/" hreflang="en-US" />
+    </url>
+    <url>
+        <loc>https://zhul.in/en/tags/Xiaomi/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Xiaomi/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Xiaomi/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/Xiaomi/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/2020/03/03/set-proxy-for-cmd-under-windows/</loc>
@@ -2848,9 +2868,9 @@
     </url>
     <url>
         <loc>https://zhul.in/2025/11/11/dns-cold-start-dilemma/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/11/11/dns-cold-start-dilemma/" hreflang="en-US" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/11/11/dns-cold-start-dilemma/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/11/11/dns-cold-start-dilemma/" hreflang="zh-CN" />
-        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/11/11/dns-cold-start-dilemma/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/2025/11/25/did-your-tld-slowing-down-your-site/</loc>
@@ -2937,10 +2957,28 @@
         <xhtml:link rel="alternate" href="https://zhul.in/en/2026/02/20/xiaomi-china-version-fcm-push-debug/" hreflang="en-US" />
     </url>
     <url>
+        <loc>https://zhul.in/2026/04/30/xiaomi-book-pro-14-2026-on-linux/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2026/04/30/effcba4d1ab8d.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2026/04/30/99f106c17dd0c.webp</image:loc>
+        </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2026/04/30/xiaomi-book-pro-14-2026-on-linux/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2026/04/30/xiaomi-book-pro-14-2026-on-linux/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/2026/04/30/xiaomi-book-pro-14-2026-on-linux/" hreflang="en-US" />
+    </url>
+    <url>
         <loc>https://zhul.in/en/archives/page/2/</loc>
         <xhtml:link rel="alternate" href="https://zhul.in/archives/page/2/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/archives/page/2/" hreflang="zh-CN" />
         <xhtml:link rel="alternate" href="https://zhul.in/en/archives/page/2/" hreflang="en-US" />
+    </url>
+    <url>
+        <loc>https://zhul.in/en/archives/page/3/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/archives/page/3/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/archives/page/3/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/archives/page/3/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/en/2025/02/28/cudy-tr3000-daed-install-record/</loc>
@@ -3196,9 +3234,9 @@
     </url>
     <url>
         <loc>https://zhul.in/en/2025/11/11/dns-cold-start-dilemma/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/11/11/dns-cold-start-dilemma/" hreflang="en-US" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/11/11/dns-cold-start-dilemma/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/11/11/dns-cold-start-dilemma/" hreflang="zh-CN" />
-        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/11/11/dns-cold-start-dilemma/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/en/2025/11/25/did-your-tld-slowing-down-your-site/</loc>
@@ -3284,5 +3322,17 @@
         <xhtml:link rel="alternate" href="https://zhul.in/2026/02/20/xiaomi-china-version-fcm-push-debug/" hreflang="zh-CN" />
         <xhtml:link rel="alternate" href="https://zhul.in/en/2026/02/20/xiaomi-china-version-fcm-push-debug/" hreflang="en-US" />
     </url>
+    <url>
+        <loc>https://zhul.in/en/2026/04/30/xiaomi-book-pro-14-2026-on-linux/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2026/04/30/effcba4d1ab8d.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2026/04/30/99f106c17dd0c.webp</image:loc>
+        </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2026/04/30/xiaomi-book-pro-14-2026-on-linux/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2026/04/30/xiaomi-book-pro-14-2026-on-linux/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/2026/04/30/xiaomi-book-pro-14-2026-on-linux/" hreflang="en-US" />
+    </url>
 </urlset>
-<!-- XML Sitemap generated by @nuxtjs/sitemap v7.4.7 at 2026-04-08T15:53:38.122Z -->
+<!-- XML Sitemap generated by @nuxtjs/sitemap v7.4.7 at 2026-04-30T16:01:41.359Z -->

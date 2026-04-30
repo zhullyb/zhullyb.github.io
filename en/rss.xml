@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US">
   <id>https://zhul.in</id>
   <title>Zhullyb&apos;s Blog</title>
-  <updated>2026-02-20T00:00:00.000Z</updated>
+  <updated>2026-04-30T00:00:00.000Z</updated>
   <subtitle>This is my personal blog focused on technology, learning notes, and everyday observations. I write about frontend development, backend architecture, AI, programming techniques, useful tools, and the lessons I learn along the way.</subtitle>
   <rights>© 2026 竹林里有冰</rights>
   <link href="https://zhul.in/en/rss.xml" rel="self" type="application/atom+xml"></link>
@@ -14,6 +14,84 @@
   </author>
   <icon>https://static.031130.xyz/avatar.webp</icon>
   <logo>https://static.031130.xyz/avatar.webp</logo>
+  <entry>
+    <id>https://zhul.in/2026/04/30/xiaomi-book-pro-14-2026-on-linux/</id>
+    <title>Xiaomi Book Pro 14 (Ultra X7) Linux Compatibility Testing</title>
+    <updated>2026-04-30T00:00:00.000Z</updated>
+    <link href="https://zhul.in/2026/04/30/xiaomi-book-pro-14-2026-on-linux/" rel="alternate"></link>
+    <content type="html">
+      <![CDATA[<h2>Late-Night "Impulse" Purchase</h2>
+<p>A few nights ago at midnight, I was lying in bed idly browsing JD.com when I miraculously caught this perpetually out-of-stock Xiaomi Book Pro 14 2026 top-spec version in stock! The suddenly appearing purchase button was practically waving at me. Although my brain wrestled with the decision for a bit, my hands were very honest and pressed the payment button.</p>
+<p>While I missed the launch discount and the original price of 10,499 CNY stung a little, fortunately I could stack some local government subsidies, bringing the actual price down to 8,999 CNY—quite a bargain. Thinking about it carefully, it's not a loss at all. After all, it was time to let my hardworking companion, the ThinkPad T14 Gen2i that I'd been tinkering with for four years, gracefully retire to secondary duty.</p>
+<h2>Linux Compatibility: A "Gamble" and Testing Plan</h2>
+<p>This laptop has performed impressively in media reviews over the past month, so I won't elaborate too much. In short, the performance boost and battery life provided by its Panther Lake processor are excellent, and its featherweight 1.07kg made me very excited. The only remaining uncertainty was its Linux compatibility. Since it's a new machine with the extremely low-volume Panther Lake processor, I didn't expect any Linux users to get their hands on it for testing right away. Seeing it was an Intel platform with an Intel network card, I decided to take a gamble. After delivery, I wouldn't activate it directly—I'd use <code>oobe\bypassnro</code> to bypass Microsoft account binding, enter the desktop, disable fast startup, and then pull out a LiveCD for testing.</p>
+<p><img src="https://static.031130.xyz/uploads/2026/04/30/effcba4d1ab8d.webp" alt="（The desk is messy; the image has been processed by AI.）"></p>
+<p>My plan was this: if I could boot into the LiveCD and after simple testing found no major issues, I'd confirm receipt and activate online; if there were Linux compatibility problems that couldn't be resolved quickly, I'd have to return it, as I'm truly a heavy Linux user.</p>
+<h2>Test Items and LiveCD Results</h2>
+<p>The test items were as follows:</p>
+<ul>
+<li>Properly entering the desktop environment</li>
+<li>WiFi</li>
+<li>Bluetooth</li>
+<li>Sound card</li>
+<li>Camera</li>
+<li>Built-in keyboard</li>
+<li>Touchpad</li>
+</ul>
+<blockquote>
+<p><em>Note: I should mention upfront that for <strong>fingerprint recognition</strong> and <strong>power management (including system sleep, hibernation, and other state transitions)</strong>, I didn't specifically verify these features in this testing, mainly because I rarely use fingerprint functionality in my daily Linux usage, so I didn't dwell on this aspect.</em></p>
+</blockquote>
+<p>Fortunately, the test results for the core basic configurations didn't disappoint me. Let me briefly discuss the LiveCD test results:</p>
+<table>
+<thead>
+<tr>
+<th>Distribution</th>
+<th>Kernel Version</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ubuntu 26.04</td>
+<td>7.0</td>
+<td>Keyboard not recognized, occasional screen artifacts on built-in display</td>
+</tr>
+<tr>
+<td>Fedora 44</td>
+<td>6.18</td>
+<td>Keyboard not recognized, occasional screen artifacts on built-in display, no sound</td>
+</tr>
+<tr>
+<td>CachyOS 260426</td>
+<td>6.18</td>
+<td>Keyboard not recognized, occasional screen artifacts on built-in display, no sound</td>
+</tr>
+</tbody>
+</table>
+<h2>Solving the Problem: The Almighty Kernel Parameters</h2>
+<p>From the test results above, you can see that kernel versions 7.0 and above fixed the sound issue. After some searching, I found this blog post that could solve the keyboard recognition and screen artifact problems.</p>
+<p>Re-entering the LiveCD, I pressed 'e' at the GRUB interface to enter edit mode, and added <code>i8042.nopnp=1 i8042.dumbkbd=1 xe.force_probe=b081 i915.force_probe=!b081 xe.enable_psr=0</code> parameters to the end of the linux line, then pressed F10 to boot. After entering the system, the keyboard worked normally and the screen artifact issue no longer appeared. I then connected to WiFi and played several hours of YouTube 8K videos without any obvious problems. Bluetooth, sound card, and camera all tested normally as well.</p>
+<h2>System Migration and Final Experience</h2>
+<p>With this, the Linux compatibility of this Xiaomi Book Pro 14 2026 can be said to exceed expectations. During the formal system installation, you only need to add a few kernel parameters to solve the problems encountered in previous testing.</p>
+<p>Then came the migration process. I won't expand on this part—in short, it involved creating a new Linux root partition, using rsync to migrate the old system, rebuilding the fstab partition table and GRUB bootloader, and finally adding the aforementioned kernel parameters after system installation. After rebooting, everything worked normally.</p>
+<p><img src="https://static.031130.xyz/uploads/2026/04/30/99f106c17dd0c.webp" alt=""></p>
+<h2>Summary</h2>
+<p>Overall, the Linux compatibility of this Xiaomi Book Pro 14 2026 is quite excellent. Although I encountered some issues during initial testing, these problems were effectively resolved by adding kernel parameters. I've now activated the pre-installed Windows system online and confirmed receipt, while also successfully migrating my Linux system. The overall experience is very satisfying.</p>
+<h2>See Also</h2>
+<ul>
+<li><a href="https://meixg.cn/2026/03/25/xiaomi-book-pro-14-omarchy/">在 Xiaomi Book Pro 14 (2026) 上运行 Omarchy (Arch + Hyprland) </a></li>
+</ul>]]>
+    </content>
+    <published>2026-04-30T00:00:00.000Z</published>
+    <author>
+      <name>竹林里有冰</name>
+      <email>zhullyb@outlook.com</email>
+      <uri>https://zhul.in</uri>
+    </author>
+    <category term="Linux"></category>
+    <category term="Hardware"></category>
+    <category term="Xiaomi"></category>
+  </entry>
   <entry>
     <id>https://zhul.in/2026/02/20/xiaomi-china-version-fcm-push-debug/</id>
     <title>Mainland China Xiaomi FCM Screen-Off Disconnection: Attempts and Possible Solutions in a Rootless Environment</title>
@@ -110,6 +188,7 @@
     <category term="Android"></category>
     <category term="Network"></category>
     <category term="Hardware"></category>
+    <category term="Xiaomi"></category>
   </entry>
   <entry>
     <id>https://zhul.in/2026/01/31/mihomo-tun-fail-to-visit-dl-google-com/</id>
