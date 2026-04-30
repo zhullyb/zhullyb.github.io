@@ -74,6 +74,9 @@
 <h2>系统迁移与最终体验</h2>
 <p>这样一来，这台 Xiaomi Book Pro 14 2026 的 Linux 兼容性可以说是超出预期的，在正式安装系统时只需要添加几段内核参数就能解决之前测试中遇到的几个问题。</p>
 <p>于是便是迁移过程，这部分内容就不展开了，简单来说就是新建 Linux 根目录分区、通过 rsync 将老的系统迁移过来、重建 fstab 分区表和 GRUB 引导、最后安装好系统后再添加之前提到的内核参数，重启后就能正常使用了。</p>
+<p>rsync 的命令大概是这样的：</p>
+<pre><code class="language-bash">rsync -axHAWXS --numeric-ids &#x3C;source> &#x3C;destination>
+</code></pre>
 <p><img src="https://static.031130.xyz/uploads/2026/04/30/99f106c17dd0c.webp" alt=""></p>
 <h2>总结</h2>
 <p>总的来说，这台 Xiaomi Book Pro 14 2026 在 Linux 上的兼容性表现还是非常不错的，虽然在初始测试中遇到了一些问题，但通过添加内核参数后这些问题都得到了有效解决。我目前已经联网激活自带的 Windows 系统并确认收货，同时也成功迁移了 Linux 系统，整体体验非常满意。</p>
