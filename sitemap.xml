@@ -440,6 +440,12 @@
         <xhtml:link rel="alternate" href="https://zhul.in/tags/Follow/" hreflang="zh-CN" />
     </url>
     <url>
+        <loc>https://zhul.in/tags/Front-End/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Front-End/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Front-End/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/Front-End/" hreflang="en-US" />
+    </url>
+    <url>
         <loc>https://zhul.in/tags/Fun/</loc>
         <xhtml:link rel="alternate" href="https://zhul.in/tags/Fun/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/tags/Fun/" hreflang="zh-CN" />
@@ -682,6 +688,12 @@
         <loc>https://zhul.in/tags/siteproxy/</loc>
         <xhtml:link rel="alternate" href="https://zhul.in/tags/siteproxy/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/tags/siteproxy/" hreflang="zh-CN" />
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/SSG/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/SSG/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/SSG/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/SSG/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/tags/SSL/</loc>
@@ -936,6 +948,8 @@
     </url>
     <url>
         <loc>https://zhul.in/en/tags/Front-End/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Front-End/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Front-End/" hreflang="zh-CN" />
         <xhtml:link rel="alternate" href="https://zhul.in/en/tags/Front-End/" hreflang="en-US" />
     </url>
     <url>
@@ -1054,6 +1068,8 @@
     </url>
     <url>
         <loc>https://zhul.in/en/tags/SSG/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/SSG/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/SSG/" hreflang="zh-CN" />
         <xhtml:link rel="alternate" href="https://zhul.in/en/tags/SSG/" hreflang="en-US" />
     </url>
     <url>
@@ -2876,9 +2892,9 @@
     </url>
     <url>
         <loc>https://zhul.in/2025/11/11/dns-cold-start-dilemma/</loc>
-        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/11/11/dns-cold-start-dilemma/" hreflang="en-US" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/11/11/dns-cold-start-dilemma/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/11/11/dns-cold-start-dilemma/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/11/11/dns-cold-start-dilemma/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/2025/11/25/did-your-tld-slowing-down-your-site/</loc>
@@ -2975,6 +2991,15 @@
         <xhtml:link rel="alternate" href="https://zhul.in/2026/04/30/xiaomi-book-pro-14-2026-on-linux/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/2026/04/30/xiaomi-book-pro-14-2026-on-linux/" hreflang="zh-CN" />
         <xhtml:link rel="alternate" href="https://zhul.in/en/2026/04/30/xiaomi-book-pro-14-2026-on-linux/" hreflang="en-US" />
+    </url>
+    <url>
+        <loc>https://zhul.in/2026/05/28/nuxt-ssg-trailing-slash-hydration-trap/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2026/05/28/e1dab1bdd0721.webp</image:loc>
+        </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2026/05/28/nuxt-ssg-trailing-slash-hydration-trap/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2026/05/28/nuxt-ssg-trailing-slash-hydration-trap/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/2026/05/28/nuxt-ssg-trailing-slash-hydration-trap/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/en/archives/page/2/</loc>
@@ -3242,9 +3267,9 @@
     </url>
     <url>
         <loc>https://zhul.in/en/2025/11/11/dns-cold-start-dilemma/</loc>
-        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/11/11/dns-cold-start-dilemma/" hreflang="en-US" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/11/11/dns-cold-start-dilemma/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/11/11/dns-cold-start-dilemma/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/11/11/dns-cold-start-dilemma/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/en/2025/11/25/did-your-tld-slowing-down-your-site/</loc>
@@ -3347,7 +3372,9 @@
         <image:image>
             <image:loc>https://static.031130.xyz/uploads/2026/05/28/e1dab1bdd0721.webp</image:loc>
         </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2026/05/28/nuxt-ssg-trailing-slash-hydration-trap/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2026/05/28/nuxt-ssg-trailing-slash-hydration-trap/" hreflang="zh-CN" />
         <xhtml:link rel="alternate" href="https://zhul.in/en/2026/05/28/nuxt-ssg-trailing-slash-hydration-trap/" hreflang="en-US" />
     </url>
 </urlset>
-<!-- XML Sitemap generated by @nuxtjs/sitemap v7.4.7 at 2026-05-28T15:33:49.505Z -->
+<!-- XML Sitemap generated by @nuxtjs/sitemap v7.4.7 at 2026-05-28T15:34:17.448Z -->
