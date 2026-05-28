@@ -5,8 +5,13 @@ export const useLanguageSwitch = () => {
 
   const targetLocale = computed(() => (locale.value === 'zh' ? 'en' : 'zh'))
 
+  // 用 route.name + params 构造 key：与 route.path 的尾斜杠差异无关，SSR/client 完全一致
+  const routeKey = computed(
+    () => `${String(route.name ?? 'unknown')}-${JSON.stringify(route.params)}`
+  )
+
   const { data: targetPath } = useAsyncData(
-    `language-switch-${route.path}-${targetLocale.value}`,
+    `language-switch-${routeKey.value}-${targetLocale.value}`,
     async () => {
       const newLocale = targetLocale.value
 

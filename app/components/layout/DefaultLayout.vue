@@ -26,8 +26,13 @@
       default: ''
     }
   })
+  // 使用 route.name + params 作为 key，避免 route.path 在 SSR(/about) 与 client(/about/)
+  // 之间因尾斜杠不一致导致 useAsyncData payload 命中失败、Math.random() 在客户端重跑、
+  // 进而触发 hydration mismatch（看起来像“重加载”）。route.name 与 params 由 vue-router
+  // 路由 record 决定，SSR/Client 完全一致，且与 i18n 前缀无关。
+  const routeKey = `${String(route.name ?? 'unknown')}-${JSON.stringify(route.params)}`
   const { data: randomIndex } = useAsyncData(
-    'randomIndex' + route.path.replace('/en/', '/'),
+    `randomIndex-${routeKey}`,
     async () => {
       return Math.floor(Math.random() * appConfig.appearance.backgrounds.length)
     }
