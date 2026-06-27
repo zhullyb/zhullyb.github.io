@@ -427,6 +427,7 @@
         <loc>https://zhul.in/tags/Fedora/</loc>
         <xhtml:link rel="alternate" href="https://zhul.in/tags/Fedora/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/tags/Fedora/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/Fedora/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Firefox/</loc>
@@ -939,6 +940,12 @@
         <xhtml:link rel="alternate" href="https://zhul.in/tags/Experience/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/tags/Experience/" hreflang="zh-CN" />
         <xhtml:link rel="alternate" href="https://zhul.in/en/tags/Experience/" hreflang="en-US" />
+    </url>
+    <url>
+        <loc>https://zhul.in/en/tags/Fedora/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Fedora/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Fedora/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/Fedora/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/en/tags/Firefox/</loc>
@@ -2637,6 +2644,7 @@
         </image:image>
         <xhtml:link rel="alternate" href="https://zhul.in/2025/02/23/monitor-copr-build-state-with-cloudflare-workers/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/02/23/monitor-copr-build-state-with-cloudflare-workers/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/02/23/monitor-copr-build-state-with-cloudflare-workers/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/2025/02/28/cudy-tr3000-daed-install-record/</loc>
@@ -2886,15 +2894,15 @@
     </url>
     <url>
         <loc>https://zhul.in/2025/11/05/http-2-server-push-is-practically-obsolete/</loc>
-        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="en-US" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/2025/11/11/dns-cold-start-dilemma/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/11/11/dns-cold-start-dilemma/" hreflang="en-US" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/11/11/dns-cold-start-dilemma/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/11/11/dns-cold-start-dilemma/" hreflang="zh-CN" />
-        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/11/11/dns-cold-start-dilemma/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/2025/11/25/did-your-tld-slowing-down-your-site/</loc>
@@ -3012,6 +3020,18 @@
         <xhtml:link rel="alternate" href="https://zhul.in/archives/page/3/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/archives/page/3/" hreflang="zh-CN" />
         <xhtml:link rel="alternate" href="https://zhul.in/en/archives/page/3/" hreflang="en-US" />
+    </url>
+    <url>
+        <loc>https://zhul.in/en/2025/02/23/monitor-copr-build-state-with-cloudflare-workers/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/02/23/637811d2d85f6.webp</image:loc>
+        </image:image>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2025/02/23/c38edfd637934.webp</image:loc>
+        </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2025/02/23/monitor-copr-build-state-with-cloudflare-workers/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2025/02/23/monitor-copr-build-state-with-cloudflare-workers/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/02/23/monitor-copr-build-state-with-cloudflare-workers/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/en/2025/02/28/cudy-tr3000-daed-install-record/</loc>
@@ -3261,15 +3281,15 @@
     </url>
     <url>
         <loc>https://zhul.in/en/2025/11/05/http-2-server-push-is-practically-obsolete/</loc>
-        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="en-US" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/en/2025/11/11/dns-cold-start-dilemma/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/11/11/dns-cold-start-dilemma/" hreflang="en-US" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/11/11/dns-cold-start-dilemma/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/11/11/dns-cold-start-dilemma/" hreflang="zh-CN" />
-        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/11/11/dns-cold-start-dilemma/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/en/2025/11/25/did-your-tld-slowing-down-your-site/</loc>
@@ -3377,4 +3397,4 @@
         <xhtml:link rel="alternate" href="https://zhul.in/en/2026/05/28/nuxt-ssg-trailing-slash-hydration-trap/" hreflang="en-US" />
     </url>
 </urlset>
-<!-- XML Sitemap generated by @nuxtjs/sitemap v7.4.7 at 2026-06-16T19:22:02.822Z -->
+<!-- XML Sitemap generated by @nuxtjs/sitemap v7.4.7 at 2026-06-27T18:30:32.852Z -->

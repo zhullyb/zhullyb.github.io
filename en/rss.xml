@@ -2874,4 +2874,90 @@ copy('Text');
     <category term="OpenWRT"></category>
     <category term="ImmortalWRT"></category>
   </entry>
+  <entry>
+    <id>https://zhul.in/2025/02/23/monitor-copr-build-state-with-cloudflare-workers/</id>
+    <title>Monitoring Fedora Copr Build Status with Cloudflare Workers</title>
+    <updated>2025-02-23T04:12:53.000Z</updated>
+    <link href="https://zhul.in/2025/02/23/monitor-copr-build-state-with-cloudflare-workers/" rel="alternate"></link>
+    <content type="html">
+      <![CDATA[<blockquote>
+<p><del>Admittedly, I've gotten addicted to Cloudflare Workers</del></p>
+</blockquote>
+<p>In my earlier post <a href="/2024/04/29/update-a-rpm-spec-by-github-action/"><em>"Updating RPM Spec Files for Packaging with GitHub Actions"</em></a>, I used GitHub Actions to automate spec file version bumps. Combined with Fedora Copr's webhook support, this enables fully automated package builds. It seemed perfect — except there was no build status monitoring, meaning I had no way to get timely notifications when a build failed (whether due to a bug in the spec itself or a network issue during the build).</p>
+<p><a href="https://yanqiyu.info">Nishikino Carbonyl</a> suggested <a href="https://notifications.fedoraproject.org/">notifications.fedoraproject.org</a>, which supports configuring notifications — there's even a Copr option under Filters > Applications. Unfortunately, it didn't work in practice. The notification settings there appear to only configure <em>email filtering rules</em> — if Copr never intended to send you an email on build failure in the first place, no filter rule will make one appear.</p>
+<p>Fortunately, Fedora Copr has a well-documented <a href="https://copr.fedorainfracloud.org/api_3/docs">API</a>. The <code>/monitor</code> endpoint can be used to fetch the latest build status for packages.</p>
+<p><img src="https://static.031130.xyz/uploads/2025/02/23/637811d2d85f6.webp" alt=""></p>
+<p>So the plan is: use a Cloudflare Workers cron job to periodically call this endpoint and check for any failed builds.</p>
+<p>Let's start with the fetch logic:</p>
+<pre><code class="language-javascript">async function fetchCopr() {
+    const ownername = "zhullyb";
+    const projectname = "v2rayA";
+    const url = new URL("https://copr.fedorainfracloud.org/api_3/monitor")
+    url.searchParams.set("ownername", ownername)
+    url.searchParams.set("projectname", projectname)
+    const response = await fetch(url)
+    const data = await response.json()
+    if (data.output !== "ok") {
+        throw new Error("Failed to fetch COPR data")
+    }
+    return data
+}
+</code></pre>
+<p>Next, the notification logic. I'm using a Feishu (Lark) webhook bot here:</p>
+<pre><code class="language-javascript">async function notify(text) {
+    const webhook = "https://open.feishu.cn/open-apis/bot/v2/hook/ffffffff-ffff-ffff-ffff-ffffffffffff"
+    const body = {
+        msg_type: "text",
+        content: {
+            text: text
+        }
+    }
+    const response = await fetch(webhook, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(body)
+    })
+    console.log(response)
+}
+</code></pre>
+<p>Finally, the cron handler and build status parsing:</p>
+<pre><code class="language-javascript">export default {
+    async fetch(request, env, ctx) {
+      return new Response('Hello World!');
+    },
+    async scheduled(event, env, ctx) {
+        const data = await fetchCopr()
+        const errorPackages = new Array()
+        for (const pkg of data.packages) {
+            for (const chroot of Object.values(pkg.chroots)) {
+                if (chroot.state == "failed") {
+                    errorPackages.push(pkg.name)
+                    break
+                }
+            }
+        }
+        if (errorPackages.length > 0) {
+            await notify(`COPR build failures detected for the following packages:\n${errorPackages.join("\n")}`)
+        } else {
+            console.log("All COPR packages built successfully")
+        }
+    }
+};
+</code></pre>
+<p>Then go to the Cloudflare Workers Settings page and configure a Cron expression. I set mine to trigger at minute 55 of every hour — that's only 24 Workers invocations per day, basically nothing.</p>
+<p><img src="https://static.031130.xyz/uploads/2025/02/23/c38edfd637934.webp" alt=""></p>
+<p><strong>Drawback:</strong> I didn't bother setting up a persistent database to track which packages have already been flagged. This means once a package fails, you'll get a notification every hour until it's fixed. <del>Feels like spam calls from an unknown number.</del> I'm not planning to fix this for now — maybe I'll just lower the cron frequency instead.</p>]]>
+    </content>
+    <published>2025-02-23T04:12:53.000Z</published>
+    <author>
+      <name>竹林里有冰</name>
+      <email>zhullyb@outlook.com</email>
+      <uri>https://zhul.in</uri>
+    </author>
+    <category term="JavaScript"></category>
+    <category term="Cloudflare"></category>
+    <category term="Fedora"></category>
+  </entry>
 </feed>

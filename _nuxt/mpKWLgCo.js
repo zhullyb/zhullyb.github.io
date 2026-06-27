@@ -1,1 +1,0 @@
-import{_ as n}from"./DLoDg9zu.js";import{_}from"./C_IHGtKX.js";import{_ as c,c as r,w as a,o as s,a as i}from"./DBRXt3R4.js";import"./DeQnzKMe.js";import"./DKY62w1Z.js";const m={};function p(t,f){const o=n,e=_;return s(),r(e,{title:t.$t("archives")},{default:a(()=>[i(o)]),_:1},8,["title"])}const k=c(m,[["render",p]]);export{k as default};
