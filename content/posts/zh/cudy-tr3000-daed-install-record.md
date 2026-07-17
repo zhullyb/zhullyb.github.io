@@ -10,6 +10,8 @@ tags:
 - Router
 - OpenWRT
 - ImmortalWRT
+- Dae
+- Proxy
 ---
 
 ## 缘起

@@ -5,6 +5,8 @@ sticky:
 tags:
 - Network
 - DNS
+- Mihomo
+- Proxy
 ---
 
 如果大家对目前中国大陆境内的网络环境足够了解，应该就会知道 `dl.google.com` 在很多情况下是**可以直连访问**的。比如，你可以通过 [google.cn/chrome/?standalone=1](https://google.cn/chrome/?standalone=1) 这个 URL 直接在境内的网络环境下下载 Chrome 的离线安装包，最终的下载域名就是 `dl.google.com`。
