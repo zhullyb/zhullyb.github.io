@@ -1,0 +1,1 @@
+import{_ as n}from"./DiGib_Xa.js";import{_}from"./Ct-k7vVf.js";import{_ as c,c as r,w as a,o as s,a as i}from"./H9F2WYhp.js";import"./-woH7DXr.js";import"./gtQnGKWb.js";const m={};function p(t,f){const o=n,e=_;return s(),r(e,{title:t.$t("archives")},{default:a(()=>[i(o)]),_:1},8,["title"])}const k=c(m,[["render",p]]);export{k as default};

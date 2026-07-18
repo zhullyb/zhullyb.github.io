@@ -382,6 +382,7 @@
         <loc>https://zhul.in/tags/Dae/</loc>
         <xhtml:link rel="alternate" href="https://zhul.in/tags/Dae/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/tags/Dae/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/Dae/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Debian/</loc>
@@ -488,6 +489,7 @@
         <loc>https://zhul.in/tags/HomeServer/</loc>
         <xhtml:link rel="alternate" href="https://zhul.in/tags/HomeServer/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/tags/HomeServer/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/HomeServer/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/tags/HTML/</loc>
@@ -560,6 +562,7 @@
         <loc>https://zhul.in/tags/Mihomo/</loc>
         <xhtml:link rel="alternate" href="https://zhul.in/tags/Mihomo/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/tags/Mihomo/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/Mihomo/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Mirror%20Site/</loc>
@@ -657,6 +660,7 @@
         <loc>https://zhul.in/tags/Proxy/</loc>
         <xhtml:link rel="alternate" href="https://zhul.in/tags/Proxy/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/tags/Proxy/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/Proxy/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Python/</loc>
@@ -927,6 +931,12 @@
         <xhtml:link rel="alternate" href="https://zhul.in/en/tags/CSS/" hreflang="en-US" />
     </url>
     <url>
+        <loc>https://zhul.in/en/tags/Dae/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Dae/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Dae/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/Dae/" hreflang="en-US" />
+    </url>
+    <url>
         <loc>https://zhul.in/en/tags/Debian/</loc>
         <xhtml:link rel="alternate" href="https://zhul.in/tags/Debian/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/tags/Debian/" hreflang="zh-CN" />
@@ -993,6 +1003,12 @@
         <xhtml:link rel="alternate" href="https://zhul.in/en/tags/Hardware/" hreflang="en-US" />
     </url>
     <url>
+        <loc>https://zhul.in/en/tags/HomeServer/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/HomeServer/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/HomeServer/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/HomeServer/" hreflang="en-US" />
+    </url>
+    <url>
         <loc>https://zhul.in/en/tags/HTML/</loc>
         <xhtml:link rel="alternate" href="https://zhul.in/tags/HTML/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/tags/HTML/" hreflang="zh-CN" />
@@ -1035,6 +1051,12 @@
         <xhtml:link rel="alternate" href="https://zhul.in/en/tags/Markdown/" hreflang="en-US" />
     </url>
     <url>
+        <loc>https://zhul.in/en/tags/Mihomo/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Mihomo/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Mihomo/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/Mihomo/" hreflang="en-US" />
+    </url>
+    <url>
         <loc>https://zhul.in/en/tags/Network/</loc>
         <xhtml:link rel="alternate" href="https://zhul.in/tags/Network/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/tags/Network/" hreflang="zh-CN" />
@@ -1075,6 +1097,12 @@
         <xhtml:link rel="alternate" href="https://zhul.in/tags/OpenWRT/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/tags/OpenWRT/" hreflang="zh-CN" />
         <xhtml:link rel="alternate" href="https://zhul.in/en/tags/OpenWRT/" hreflang="en-US" />
+    </url>
+    <url>
+        <loc>https://zhul.in/en/tags/Proxy/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Proxy/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/Proxy/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/Proxy/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/en/tags/Router/</loc>
@@ -2909,9 +2937,9 @@
     </url>
     <url>
         <loc>https://zhul.in/2025/11/05/http-2-server-push-is-practically-obsolete/</loc>
-        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="en-US" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/2025/11/11/dns-cold-start-dilemma/</loc>
@@ -3031,6 +3059,7 @@
         </image:image>
         <xhtml:link rel="alternate" href="https://zhul.in/2026/07/17/my-router-proxy-plan-with-cudy-tr3000-and-n100/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/2026/07/17/my-router-proxy-plan-with-cudy-tr3000-and-n100/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/2026/07/17/my-router-proxy-plan-with-cudy-tr3000-and-n100/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/en/archives/page/2/</loc>
@@ -3304,9 +3333,9 @@
     </url>
     <url>
         <loc>https://zhul.in/en/2025/11/05/http-2-server-push-is-practically-obsolete/</loc>
-        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="en-US" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/en/2025/11/11/dns-cold-start-dilemma/</loc>
@@ -3419,5 +3448,14 @@
         <xhtml:link rel="alternate" href="https://zhul.in/2026/05/28/nuxt-ssg-trailing-slash-hydration-trap/" hreflang="zh-CN" />
         <xhtml:link rel="alternate" href="https://zhul.in/en/2026/05/28/nuxt-ssg-trailing-slash-hydration-trap/" hreflang="en-US" />
     </url>
+    <url>
+        <loc>https://zhul.in/en/2026/07/17/my-router-proxy-plan-with-cudy-tr3000-and-n100/</loc>
+        <image:image>
+            <image:loc>https://static.031130.xyz/uploads/2026/07/17/9150160eb44e1.webp</image:loc>
+        </image:image>
+        <xhtml:link rel="alternate" href="https://zhul.in/2026/07/17/my-router-proxy-plan-with-cudy-tr3000-and-n100/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2026/07/17/my-router-proxy-plan-with-cudy-tr3000-and-n100/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/2026/07/17/my-router-proxy-plan-with-cudy-tr3000-and-n100/" hreflang="en-US" />
+    </url>
 </urlset>
-<!-- XML Sitemap generated by @nuxtjs/sitemap v7.4.7 at 2026-07-17T02:15:28.507Z -->
+<!-- XML Sitemap generated by @nuxtjs/sitemap v7.4.7 at 2026-07-18T16:29:22.433Z -->
