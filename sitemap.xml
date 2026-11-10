@@ -284,6 +284,12 @@
         <xhtml:link rel="alternate" href="https://zhul.in/page/14/" hreflang="zh-CN" />
     </url>
     <url>
+        <loc>https://zhul.in/tags/ADB/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/ADB/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/ADB/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/ADB/" hreflang="en-US" />
+    </url>
+    <url>
         <loc>https://zhul.in/tags/Android/</loc>
         <xhtml:link rel="alternate" href="https://zhul.in/tags/Android/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/tags/Android/" hreflang="zh-CN" />
@@ -502,6 +508,12 @@
         <xhtml:link rel="alternate" href="https://zhul.in/tags/HTTP/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/tags/HTTP/" hreflang="zh-CN" />
         <xhtml:link rel="alternate" href="https://zhul.in/en/tags/HTTP/" hreflang="en-US" />
+    </url>
+    <url>
+        <loc>https://zhul.in/tags/HyperOS/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/HyperOS/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/HyperOS/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/HyperOS/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/tags/Image%20Hosting/</loc>
@@ -871,6 +883,12 @@
         <xhtml:link rel="alternate" href="https://zhul.in/en/page/3/" hreflang="en-US" />
     </url>
     <url>
+        <loc>https://zhul.in/en/tags/ADB/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/ADB/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/ADB/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/ADB/" hreflang="en-US" />
+    </url>
+    <url>
         <loc>https://zhul.in/en/tags/Android/</loc>
         <xhtml:link rel="alternate" href="https://zhul.in/tags/Android/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/tags/Android/" hreflang="zh-CN" />
@@ -1019,6 +1037,12 @@
         <xhtml:link rel="alternate" href="https://zhul.in/tags/HTTP/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/tags/HTTP/" hreflang="zh-CN" />
         <xhtml:link rel="alternate" href="https://zhul.in/en/tags/HTTP/" hreflang="en-US" />
+    </url>
+    <url>
+        <loc>https://zhul.in/en/tags/HyperOS/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/HyperOS/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/tags/HyperOS/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/tags/HyperOS/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/en/tags/Image%20Hosting/</loc>
@@ -2937,9 +2961,9 @@
     </url>
     <url>
         <loc>https://zhul.in/2025/11/05/http-2-server-push-is-practically-obsolete/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="en-US" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="zh-CN" />
-        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/2025/11/11/dns-cold-start-dilemma/</loc>
@@ -3060,6 +3084,12 @@
         <xhtml:link rel="alternate" href="https://zhul.in/2026/07/17/my-router-proxy-plan-with-cudy-tr3000-and-n100/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/2026/07/17/my-router-proxy-plan-with-cudy-tr3000-and-n100/" hreflang="zh-CN" />
         <xhtml:link rel="alternate" href="https://zhul.in/en/2026/07/17/my-router-proxy-plan-with-cudy-tr3000-and-n100/" hreflang="en-US" />
+    </url>
+    <url>
+        <loc>https://zhul.in/2026/11/10/xiaomi-double-click-power-google-wallet/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/2026/11/10/xiaomi-double-click-power-google-wallet/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2026/11/10/xiaomi-double-click-power-google-wallet/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/2026/11/10/xiaomi-double-click-power-google-wallet/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/en/archives/page/2/</loc>
@@ -3333,9 +3363,9 @@
     </url>
     <url>
         <loc>https://zhul.in/en/2025/11/05/http-2-server-push-is-practically-obsolete/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="en-US" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="x-default" />
         <xhtml:link rel="alternate" href="https://zhul.in/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="zh-CN" />
-        <xhtml:link rel="alternate" href="https://zhul.in/en/2025/11/05/http-2-server-push-is-practically-obsolete/" hreflang="en-US" />
     </url>
     <url>
         <loc>https://zhul.in/en/2025/11/11/dns-cold-start-dilemma/</loc>
@@ -3457,5 +3487,11 @@
         <xhtml:link rel="alternate" href="https://zhul.in/2026/07/17/my-router-proxy-plan-with-cudy-tr3000-and-n100/" hreflang="zh-CN" />
         <xhtml:link rel="alternate" href="https://zhul.in/en/2026/07/17/my-router-proxy-plan-with-cudy-tr3000-and-n100/" hreflang="en-US" />
     </url>
+    <url>
+        <loc>https://zhul.in/en/2026/11/10/xiaomi-double-click-power-google-wallet/</loc>
+        <xhtml:link rel="alternate" href="https://zhul.in/2026/11/10/xiaomi-double-click-power-google-wallet/" hreflang="x-default" />
+        <xhtml:link rel="alternate" href="https://zhul.in/2026/11/10/xiaomi-double-click-power-google-wallet/" hreflang="zh-CN" />
+        <xhtml:link rel="alternate" href="https://zhul.in/en/2026/11/10/xiaomi-double-click-power-google-wallet/" hreflang="en-US" />
+    </url>
 </urlset>
-<!-- XML Sitemap generated by @nuxtjs/sitemap v7.4.7 at 2026-07-18T16:29:22.433Z -->
+<!-- XML Sitemap generated by @nuxtjs/sitemap v7.4.7 at 2026-11-10T02:26:54.120Z -->

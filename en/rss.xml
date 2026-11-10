@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-US">
   <id>https://zhul.in</id>
   <title>Zhullyb&apos;s Blog</title>
-  <updated>2026-07-17T00:00:00.000Z</updated>
+  <updated>2026-11-10T00:00:00.000Z</updated>
   <subtitle>This is my personal blog focused on technology, learning notes, and everyday observations. I write about frontend development, backend architecture, AI, programming techniques, useful tools, and the lessons I learn along the way.</subtitle>
   <rights>© 2026 竹林里有冰</rights>
   <link href="https://zhul.in/en/rss.xml" rel="self" type="application/atom+xml"></link>
@@ -14,6 +14,240 @@
   </author>
   <icon>https://static.031130.xyz/avatar.webp</icon>
   <logo>https://static.031130.xyz/avatar.webp</logo>
+  <entry>
+    <id>https://zhul.in/2026/11/10/xiaomi-double-click-power-google-wallet/</id>
+    <title>Opening Google Wallet with a Double Press of the Power Button on a China-Version Xiaomi 15: It Only Takes One adb Command</title>
+    <updated>2026-11-10T00:00:00.000Z</updated>
+    <link href="https://zhul.in/2026/11/10/xiaomi-double-click-power-google-wallet/" rel="alternate"></link>
+    <content type="html">
+      <![CDATA[<p>In my <a href="/en/2026/02/20/xiaomi-china-version-fcm-push-debug/">previous post about FCM</a>, I mentioned that I was getting ready to study abroad. Now that I'm actually overseas, I tap my card for almost everything—getting on the bus, buying coffee—so Google Wallet has become one of the most-used apps on my phone. But on the China version of HyperOS, "double-press the power button" can only open Mi Wallet. Every time I pull out my phone I have to unlock it, find the icon and tap it, which completely breaks the flow.</p>
+<p>A few days ago I came across <a href="https://github.com/DustinYe/PowerWallet">DustinYe/PowerWallet</a> on GitHub. Its tagline is literally "double-press the power button on a Xiaomi phone to open Google Wallet", no root required. Unfortunately it only supports one specific ROM build on the Xiaomi 13 Ultra. I forked it to port it to my Xiaomi 15, and after a fair amount of tinkering I realised that <strong>on HyperOS 4, this really only takes one adb command</strong>:</p>
+<pre><code class="language-bash">adb shell settings put system double_click_power_key launch_QAW_wallet
+</code></pre>
+<p>In the rest of this post, I'll go through "how stock Android works → what Xiaomi changed → what the original project did → what my fork does" to explain why this command works, and why I still ended up turning it into an app.</p>
+<h2>Test Environment</h2>
+<ul>
+<li>Xiaomi 15, China version (dada), HyperOS <code>OS4.0.0.22.XOCCNXM</code>, Android 17</li>
+<li>"Google basic services" enabled, Google Wallet installed with a card added, default NFC payment app set to Google Pay</li>
+<li>Bootloader locked, no root</li>
+</ul>
+<h2>How Stock Android Works</h2>
+<p>Android 11 introduced a system interface called <strong>Quick Access Wallet</strong> (QAW): a wallet app implements a <code>QuickAccessWalletService</code>, and the system can launch it straight from the power menu, the lock screen or a gesture. For Google Wallet, this service is provided by Play services as <code>com.google.android.gms/.tapandpay.globalactions.WalletQuickAccessWalletService</code>.</p>
+<p>Notably, QAW isn't tied to any particular wallet. Instead, it <strong>first reads the default NFC payment app, then looks for a QAW service inside that app</strong>. So "which wallet opens" is actually decided by the default payment app. Mi Wallet doesn't implement a QAW service: when I set the default payment app to Mi Wallet and double-pressed the power button, all I got was this message:</p>
+<blockquote>
+<p>当前默认钱包不支持双击电源键打开，请修改设置
+(The current default wallet doesn't support opening with a double press of the power button. Please change your settings.)</p>
+</blockquote>
+<p>In other words, <code>launch_QAW_wallet</code> can only open wallets that implement QAW, such as Google Wallet. It can't open Mi Wallet.</p>
+<p>Later, stock Android also added an "open wallet" option to the "double-press power button" gesture, which corresponds to <code>double_tap_power_button_gesture=1</code> in the Secure settings table.</p>
+<h2>What Xiaomi Changed</h2>
+<p>HyperOS doesn't use that stock setting directly. Instead, it uses its own <code>double_click_power_key</code> (in the System table) to decide what a double press does, then syncs the choice to the stock setting. You can see the sync in the logs:</p>
+<pre><code>MiuiSingKeyShortcutObserver: DTPB-Wallet syncAosp function=launch_QAW_wallet enabled=1 gesture=1
+</code></pre>
+<p>DTPB stands for Double Tap Power Button. The settings screen on the China version only offers options like Mi Wallet (<code>mi_pay</code>), transit codes and the camera, but the list of functions the system prints at boot also contains a <code>launch_QAW_wallet</code>:</p>
+<pre><code>ShortcutFunctionManager: init config,function=mi_pay, supportActions=[double_click_power_key]
+ShortcutFunctionManager: init config,function=launch_QAW_wallet, supportActions=[double_click_power_key]
+</code></pre>
+<p>That's the stock "open wallet". It's missing from the China version's settings because a customisation config switches it off:</p>
+<pre><code>InputFeature: DTPB-Wallet support=false reason=disabledByCustFeature
+</code></pre>
+<p>The system also registers a <code>MIUI_REGION_CHANGED</code> broadcast receiver, so my guess is that this switch depends on the region. But the option is only hidden; nothing blocks it at runtime. After I manually set the value to <code>launch_QAW_wallet</code>, <strong>a double press opened Google Wallet directly, both unlocked and on the lock screen</strong>.</p>
+<p>Putting stock Android and Xiaomi's logic together, here's what happens after a double press of the power button:</p>
+<pre><code class="language-mermaid">flowchart TD
+    Press(["Double-press power"]) --> Key{"double_click_power_key"}
+    Key -->|"mi_pay"| Mi["Mi Wallet"]
+    Key -->|"launch_QAW_wallet"| NFC{"Default NFC payment app"}
+    Key -->|"null / google_pay"| Nothing["Nothing happens"]
+    NFC -->|"Google Pay"| QAW["Play services'&#x3C;br/>&#x3C;b style='color:#b45309'>QuickAccessWalletService&#x3C;/b>"]
+    QAW --> GW["Google Wallet"]
+    NFC -->|"Mi Wallet"| Tip["Message: the default wallet&#x3C;br/>doesn't support double press"]
+</code></pre>
+<p>The other thing Xiaomi does is check this value at boot. If it decides the current value is "not supported", it clears it:</p>
+<pre><code>MiuiSingKeyShortcutObserver: set double_click_power_key to null, because function not support
+</code></pre>
+<p>I rebooted four times, and the result after boot was inconsistent:</p>
+<table>
+<thead>
+<tr>
+<th>Value before reboot</th>
+<th>What the system did at boot</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>launch_QAW_wallet</code></td>
+<td>Cleared it to <code>null</code></td>
+</tr>
+<tr>
+<td><code>launch_QAW_wallet</code></td>
+<td>Kept it</td>
+</tr>
+<tr>
+<td><code>null</code></td>
+<td>Filled in the default <code>mi_pay</code></td>
+</tr>
+<tr>
+<td><code>launch_QAW_wallet</code></td>
+<td>Kept it</td>
+</tr>
+</tbody>
+</table>
+<p>With only four samples, I can't tell when it clears the value and when it keeps it. The one thing that's certain: <strong>a changed value won't necessarily survive a reboot</strong>.</p>
+<h2>What the Original Project Did</h2>
+<p>The original project didn't know <code>launch_QAW_wallet</code> existed, so it took a long detour:</p>
+<ol>
+<li>Set <code>double_click_power_key</code> to <code>google_pay</code>, a value the system doesn't recognise, so the system's double-press action does nothing;</li>
+<li>Use adb to start a long-running process via <code>app_process</code> as the shell user, which listens for power-key presses and releases with <code>getevent</code> and detects double presses itself;</li>
+<li>On a double press, open Google Wallet's tap-to-pay screen with <code>am start</code>, with a companion app handling the lock-screen state.</li>
+</ol>
+<p>It's a clever idea, but it has two problems: the long-running process is gone after a reboot, so you have to connect to a computer and reactivate it after every restart; and on HyperOS 4, an unrecognised value like <code>google_pay</code> also gets cleared by the system at boot. I started by porting this approach as-is. It was only while chasing down a bug where "the original value in the backup mysteriously turned into <code>null</code>" that I stumbled onto the boot-time cleanup and then <code>launch_QAW_wallet</code>.</p>
+<h2>What My Fork Does</h2>
+<p>At its core, it's just the command from the start of this post. What my fork does is fill in three things around that command:</p>
+<h3>1. Use the native launch_QAW_wallet</h3>
+<p>No long-running process, no lock-screen handling of our own; the system takes care of everything. Mi Wallet mode simply writes the value back to <code>mi_pay</code>.</p>
+<h3>2. Switch the default NFC payment app along with the mode</h3>
+<p>The default payment app is stored in <code>settings secure nfc_payment_default_component</code>. On the Google side it's <code>com.google.android.gms/.tapandpay.hce.service.TpHceService</code>; Mi Wallet is <code>com.android.nfc/.cardemulation.ESEWalletDummyService</code> (it uses the eSE). Switching to Google Wallet mode sets the default payment app to Google Pay, and switching to Mi Wallet mode sets it to Mi Wallet. If you've chosen a third-party payment app, it's left alone.</p>
+<p>As mentioned above, QAW opens the wallet of the default payment app, so this step isn't just a nice extra: <strong>each mode is a pair of settings, and both have to match</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th><code>double_click_power_key</code></th>
+<th>Default NFC payment app</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Google Wallet</td>
+<td><code>launch_QAW_wallet</code></td>
+<td>Google Pay</td>
+</tr>
+<tr>
+<td>Mi Wallet</td>
+<td><code>mi_pay</code></td>
+<td>Mi Wallet</td>
+</tr>
+</tbody>
+</table>
+<p>This matters especially when switching back to Mi Wallet. Changing only the default payment app isn't enough—a double press just shows "the current default wallet doesn't support opening with a double press of the power button". <strong>You must also set <code>double_click_power_key</code> back to <code>mi_pay</code></strong>, and that step needs adb too.</p>
+<p>If adb isn't convenient at that moment (for example, you've already turned off Developer options), there's a fallback that doesn't need adb: in system settings, go to Accessibility → General → Shortcut gestures → Double-press power button (「辅助功能 → 通用 → 快捷手势 → 双击电源键」) and switch it back to "Transit / Mi Pay / Door card" (「公交 / Mi Pay / 门卡」). The plugin won't know you did this, though: if it still has Google Wallet mode recorded, it will set the value back to <code>launch_QAW_wallet</code> the next time the phone boots with adb available. So if you want Mi Wallet long-term, switch in the plugin when you get the chance.</p>
+<h3>3. Let the app run the command itself</h3>
+<p>This command has to run as the shell user; a normal app can't write the setting:</p>
+<pre><code>You cannot keep your settings in the secure settings.
+</code></pre>
+<p><code>double_click_power_key</code> isn't a public setting. SettingsProvider only lets system, shell, root and preinstalled privileged apps change it, and any normal app targeting an SDK above 22 is rejected outright—<strong>even after being granted <code>WRITE_SECURE_SETTINGS</code> via <code>pm grant</code></strong>.</p>
+<p>So, following the approach of Ice Box and Shizuku, I had the plugin act as its own adb client and connect to the phone's own wireless debugging to get a shell:</p>
+<ul>
+<li><strong>First-time setup</strong>: In Developer options → Wireless debugging, tap "Pair device with pairing code", then enter the 6-digit code in the plugin's notification. Once paired, the plugin uses the shell to <code>pm grant</code> itself <code>WRITE_SECURE_SETTINGS</code>.</li>
+<li><strong>Switching modes</strong>: The plugin uses that permission to turn on wireless debugging (<code>adb_wifi_enabled</code> is in the Global table, which it <em>can</em> write), finds the local adbd port via mDNS, connects to itself, runs <code>settings put</code>, then turns wireless debugging off again. The whole thing takes about 5 seconds.</li>
+<li><strong>Restoring after boot</strong>: After boot, it schedules a JobScheduler job that requires Wi-Fi. If you're in Google Wallet mode and the value after boot is <code>null</code> or <code>mi_pay</code>, it writes <code>launch_QAW_wallet</code> back; if it's some other function (say you set it to the camera in system settings), it leaves it alone. At boot there's no way to tell "<code>mi_pay</code> filled in by the system" from "<code>mi_pay</code> chosen by the user", so if you want Mi Wallet long-term, switch to it in the plugin—<code>mi_pay</code> survives reboots on its own.</li>
+</ul>
+<p>Here's roughly what happens when the plugin switches modes:</p>
+<pre><code class="language-mermaid">sequenceDiagram
+    participant App as Plugin
+    participant Sys as System settings
+    participant Adbd as Local adbd
+    App->>Sys: Turn on wireless debugging (adb_wifi_enabled=1)
+    App->>Adbd: Discover _adb-tls-connect._tcp via mDNS
+    App->>Adbd: Connect to 127.0.0.1 with the paired key
+    App->>Adbd: shell: settings put (double press + default payment)
+    Adbd->>Sys: Write as the shell user
+    App->>Sys: Turn off wireless debugging (adb_wifi_enabled=0)
+</code></pre>
+<p>And this is how the boot restore decides what to do:</p>
+<pre><code class="language-mermaid">flowchart TD
+    Boot(["Boot"]) --> Check["HyperOS checks double_click_power_key&#x3C;br/>may clear it, fill in mi_pay or keep it"]
+    Check --> Mode{"Mode recorded by the plugin"}
+    Mode -->|"Mi Wallet"| Skip["Do nothing&#x3C;br/>mi_pay survives reboots"]
+    Mode -->|"Google Wallet"| Job["Schedule a job that requires Wi-Fi"]
+    Job --> Wifi{"Connected to Wi-Fi?"}
+    Wifi -->|"Not yet"| Wait["Wait"] --> Wifi
+    Wifi -->|"Yes"| Adb["Turn on wireless debugging and connect to itself&#x3C;br/>(requires Developer options)"]
+    Adb --> Value{"Current value"}
+    Value -->|"null / mi_pay"| Write["Write back &#x3C;b style='color:#b45309'>launch_QAW_wallet&#x3C;/b>"]
+    Value -->|"launch_QAW_wallet"| Ok["Already correct, leave it"]
+    Value -->|"Something else"| Keep["Respect the user's choice, leave it"]
+</code></pre>
+<p><strong>To be clear, this approach doesn't get around adb.</strong> The plugin just turns on wireless debugging for you. Both switching modes and restoring after boot need adb shell access at that moment, which means Developer options and USB debugging / wireless debugging must be on. This is essentially the same as the original project's "reactivate via adb after every reboot"—it just removes the computer from the picture.</p>
+<h2>About the adb Client</h2>
+<p>Wireless debugging pairing and connection involve protocol details like SPAKE2 and TLS. Honestly, I don't fully understand them myself; I left that code entirely to AI, working from the AOSP adb source, and my job was testing on a real device, reading logs and reporting problems. If you're curious, the code is in the repository.</p>
+<p>There's only one thing worth mentioning for actual use: HyperOS freezes an app the moment it goes to the background (the log says <code>freezeUid SUCCESS ... reason=tobg</code>). My first test got stuck exactly at the step where I switched to Settings to find the pairing code. So make sure to allow "Autostart" for the plugin and set its battery saver to "No restrictions".</p>
+<h2>Test Results</h2>
+<table>
+<thead>
+<tr>
+<th>Item</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>launch_QAW_wallet</code> opens Google Wallet</td>
+<td>Passed, both unlocked and locked</td>
+</tr>
+<tr>
+<td><code>mi_pay</code> opens Mi Wallet</td>
+<td>Passed</td>
+</tr>
+<tr>
+<td>Default NFC payment app follows the mode</td>
+<td>Passed; the preferred payment service in <code>dumpsys nfc</code> changes immediately</td>
+</tr>
+<tr>
+<td>Switching modes in the plugin (wireless debugging toggled automatically)</td>
+<td>Passed, about 5 seconds</td>
+</tr>
+<tr>
+<td>Full boot-restore chain</td>
+<td>Passed: boot broadcast → wait for network → turn on wireless debugging → connect → run → turn off wireless debugging</td>
+</tr>
+<tr>
+<td>Boot-restore rules (<code>mi_pay</code> / <code>null</code> / <code>launch_camera</code>)</td>
+<td>The first two are rewritten to <code>launch_QAW_wallet</code>; the last is left unchanged</td>
+</tr>
+<tr>
+<td><code>launch_QAW_wallet</code> with Mi Wallet as the default payment app</td>
+<td>Can't open Mi Wallet; shows "the current default wallet doesn't support opening with a double press of the power button. Please change your settings."</td>
+</tr>
+</tbody>
+</table>
+<p>Not yet tested:</p>
+<ul>
+<li>Booting without Wi-Fi and connecting a while later</li>
+<li>The full flow from pairing onwards on a fresh install</li>
+<li>Paying at a real card reader</li>
+</ul>
+<h2>Things to Note</h2>
+<ul>
+<li><strong>Everything depends on Developer options.</strong> Many people keep Developer options off day to day; banking apps such as HSBC HK, for example, refuse to run on a phone with Developer options enabled. If that's you: while it's off, you can't switch modes through the plugin, and if you need Mi Wallet you'll have to go to Accessibility → General → Shortcut gestures → Double-press power button and switch back to "Transit / Mi Pay / Door card" manually; Mi Wallet mode isn't affected by reboots; but Google Wallet mode may be cleared by the system after a reboot, and a double press won't open Google Wallet until you turn Developer options back on and connect to Wi-Fi so the plugin can write it back. I also haven't verified whether turning off Developer options revokes the granted <code>WRITE_SECURE_SETTINGS</code> and the wireless debugging pairing.</li>
+<li><strong>Wi-Fi is required.</strong> Wireless debugging only works over Wi-Fi.</li>
+<li><strong>The pairing can expire.</strong> By default, Android revokes wireless debugging keys that haven't connected for 7 days. Fortunately, every mode switch and boot restore counts as a connection. If it does expire, just enter a pairing code in the notification again.</li>
+<li><strong>The plugin now has network permission.</strong> It only connects to adbd on <code>127.0.0.1</code>, but it holds a key that adbd trusts, so it can get a shell whenever wireless debugging is on. If that bothers you, use "Revoke USB debugging authorisations" in Developer options.</li>
+<li><strong>If you'd rather not install the plugin</strong>, just run the command from the start of this post once by hand—you may need to run it again after a reboot.</li>
+</ul>
+<h2>Conclusion</h2>
+<p>The China version of HyperOS 4 already hides the ability to open Google Wallet with a double press of the power button: it's stock Android's Quick Access Wallet, called <code>launch_QAW_wallet</code> in HyperOS. It just isn't exposed in the settings screen, and the system itself may clear it at boot.</p>
+<p>So the whole thing really comes down to <strong>using adb permissions to change the <code>double_click_power_key</code> setting</strong>, and matching the default payment app to it. Going the other way, if you want Mi Wallet you also have to set it back to <code>mi_pay</code>, because <code>launch_QAW_wallet</code> can't open Mi Wallet. My fork just automates <em>when</em> that command runs: pair once, and from then on switching modes and restoring after boot don't need a computer—as long as Developer options stay on, which isn't great for anyone who has to turn Developer options off to use their banking apps.</p>
+<p>As for why Quick Access Wallet is marked <code>disabledByCustFeature</code> on China ROMs yet works perfectly at runtime—<span class="heimu">probably because nobody uses Google Wallet on a China-version phone</span>.</p>
+<h2>See Also</h2>
+<ul>
+<li><a href="https://github.com/zhullyb/PowerWallet">zhullyb/PowerWallet: the fork this post is about</a></li>
+<li><a href="https://github.com/DustinYe/PowerWallet">DustinYe/PowerWallet: double-press the power button on a Xiaomi phone to open Google Wallet</a></li>
+<li><a href="https://developer.android.com/reference/android/service/quickaccesswallet/QuickAccessWalletService">Android Developers - QuickAccessWalletService</a></li>
+<li><a href="https://icebox.catchingnow.com/zh-hans/guide/wireless-debugging/">Ice Box - Wireless debugging activation (Chinese)</a></li>
+</ul>]]>
+    </content>
+    <published>2026-11-10T00:00:00.000Z</published>
+    <author>
+      <name>竹林里有冰</name>
+      <email>zhullyb@outlook.com</email>
+      <uri>https://zhul.in</uri>
+    </author>
+    <category term="Android"></category>
+    <category term="Xiaomi"></category>
+    <category term="HyperOS"></category>
+    <category term="ADB"></category>
+  </entry>
   <entry>
     <id>https://zhul.in/2026/07/17/my-router-proxy-plan-with-cudy-tr3000-and-n100/</id>
     <title>Cudy TR3000 Can&apos;t Eat the Whole Cake Anymore – Introducing HomeServer as Proxy Helper</title>
