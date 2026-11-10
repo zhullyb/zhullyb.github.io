@@ -64,34 +64,6 @@ ShortcutFunctionManager: init config,function=launch_QAW_wallet, supportActions=
 <p>小米做的另一件事，是在开机时检查这个值。如果它认为当前的值「不支持」，就会把它清掉：</p>
 <pre><code>MiuiSingKeyShortcutObserver: set double_click_power_key to null, because function not support
 </code></pre>
-<p>我前后重启了四次，开机后的结果并不稳定：</p>
-<table>
-<thead>
-<tr>
-<th>重启前的值</th>
-<th>开机后系统做了什么</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>launch_QAW_wallet</code></td>
-<td>清成 <code>null</code></td>
-</tr>
-<tr>
-<td><code>launch_QAW_wallet</code></td>
-<td>保留</td>
-</tr>
-<tr>
-<td><code>null</code></td>
-<td>填成默认的 <code>mi_pay</code></td>
-</tr>
-<tr>
-<td><code>launch_QAW_wallet</code></td>
-<td>保留</td>
-</tr>
-</tbody>
-</table>
-<p>什么情况下会清、什么情况下会留，四个样本我看不出规律。可以确定的只有一点：<strong>改过的值不一定能扛过重启</strong>。</p>
 <h2>原项目做了什么</h2>
 <p>原项目当时并不知道 <code>launch_QAW_wallet</code> 的存在，所以绕了一个大圈：</p>
 <ol>

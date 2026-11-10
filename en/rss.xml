@@ -65,34 +65,6 @@ ShortcutFunctionManager: init config,function=launch_QAW_wallet, supportActions=
 <p>The other thing Xiaomi does is check this value at boot. If it decides the current value is "not supported", it clears it:</p>
 <pre><code>MiuiSingKeyShortcutObserver: set double_click_power_key to null, because function not support
 </code></pre>
-<p>I rebooted four times, and the result after boot was inconsistent:</p>
-<table>
-<thead>
-<tr>
-<th>Value before reboot</th>
-<th>What the system did at boot</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>launch_QAW_wallet</code></td>
-<td>Cleared it to <code>null</code></td>
-</tr>
-<tr>
-<td><code>launch_QAW_wallet</code></td>
-<td>Kept it</td>
-</tr>
-<tr>
-<td><code>null</code></td>
-<td>Filled in the default <code>mi_pay</code></td>
-</tr>
-<tr>
-<td><code>launch_QAW_wallet</code></td>
-<td>Kept it</td>
-</tr>
-</tbody>
-</table>
-<p>With only four samples, I can't tell when it clears the value and when it keeps it. The one thing that's certain: <strong>a changed value won't necessarily survive a reboot</strong>.</p>
 <h2>What the Original Project Did</h2>
 <p>The original project didn't know <code>launch_QAW_wallet</code> existed, so it took a long detour:</p>
 <ol>
