@@ -80,17 +80,6 @@ The other thing Xiaomi does is check this value at boot. If it decides the curre
 MiuiSingKeyShortcutObserver: set double_click_power_key to null, because function not support
 ```
 
-I rebooted four times, and the result after boot was inconsistent:
-
-| Value before reboot | What the system did at boot |
-| --- | --- |
-| `launch_QAW_wallet` | Cleared it to `null` |
-| `launch_QAW_wallet` | Kept it |
-| `null` | Filled in the default `mi_pay` |
-| `launch_QAW_wallet` | Kept it |
-
-With only four samples, I can't tell when it clears the value and when it keeps it. The one thing that's certain: **a changed value won't necessarily survive a reboot**.
-
 ## What the Original Project Did
 
 The original project didn't know `launch_QAW_wallet` existed, so it took a long detour:

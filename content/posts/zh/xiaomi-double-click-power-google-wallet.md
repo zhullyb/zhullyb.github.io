@@ -79,17 +79,6 @@ flowchart TD
 MiuiSingKeyShortcutObserver: set double_click_power_key to null, because function not support
 ```
 
-我前后重启了四次，开机后的结果并不稳定：
-
-| 重启前的值 | 开机后系统做了什么 |
-| --- | --- |
-| `launch_QAW_wallet` | 清成 `null` |
-| `launch_QAW_wallet` | 保留 |
-| `null` | 填成默认的 `mi_pay` |
-| `launch_QAW_wallet` | 保留 |
-
-什么情况下会清、什么情况下会留，四个样本我看不出规律。可以确定的只有一点：**改过的值不一定能扛过重启**。
-
 ## 原项目做了什么
 
 原项目当时并不知道 `launch_QAW_wallet` 的存在，所以绕了一个大圈：
